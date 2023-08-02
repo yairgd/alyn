@@ -1,0 +1,34 @@
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Testing
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps
+
+*.swo
+*.swn
+*.swp
+Debug/*
+tags
+*.o
+*.so
+*.a
+*.cmake
+*.tcl
+build/*
+/.vs
+/.vscode
+junk
+mcu/hellow_world/build/*
+mcu/cdc_acm/
+	mcu/cdc_acm_composite/*
+	mcu/console/*
+	mcu/en.MB1381-H745XI-B01_Schematic.pdf
+	mcu/hellow_world/.cache/*
+	mcu/hid-cdc/*
+

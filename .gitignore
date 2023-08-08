@@ -32,3 +32,4 @@ mcu/cdc_acm/
 	mcu/hellow_world/.cache/*
 	mcu/hid-cdc/*
 
+.cache/

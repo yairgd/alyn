@@ -5,9 +5,65 @@
 		zephyr,shell-uart = &usart3;
 	};
 
+	leds {
+		compatible = "gpio-leds";
+		station_led_r: red {
+			gpios = <&gpiod 13 GPIO_ACTIVE_HIGH>;
+			label = "Red";
+		};
+		station_led_g: green {
+			gpios = <&gpiod 14 GPIO_ACTIVE_HIGH>;
+			label = "Green";
+		};
+		station_led_b: blue {
+			gpios = <&gpiod 14 GPIO_ACTIVE_HIGH>;
+			label = "Blue";
+		};
+	};	
+	gpio_keys {
+		compatible = "gpio-keys";
+		user_button_up: up {
+			label = "up";
+			gpios = <&gpioa 0 GPIO_ACTIVE_HIGH>;
+		};
+		user_button_down: down {
+			label = "down";
+			gpios = <&gpioa 0 GPIO_ACTIVE_HIGH>;
+		};
+		user_button_left: left {
+			label = "left";
+			gpios = <&gpioa 0 GPIO_ACTIVE_HIGH>;
+		};
+		user_button_right: right {
+			label = "right";
+			gpios = <&gpioa 0 GPIO_ACTIVE_HIGH>;
+		};
+		user_button_middle: middle {
+			label = "middle";
+			gpios = <&gpioa 0 GPIO_ACTIVE_HIGH>;
+		};
+
+		station_button: stb {
+			label = "station_button";
+			gpios = <&gpioa 0 GPIO_ACTIVE_HIGH>;
+		};
+	
+	};
+
+	enable_nodes {
+             compatible = "gpio-leds";
+          	enables: en {
+                     gpios = <&gpioa 15 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>,
+		    	 <&gpiob 15 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>  ;
+              };
+     	};
+
+
+
 };
 
 
+	
 &clk_hse {
 	status = "okay";
 	clock-frequency = <25000000>;
@@ -23,11 +79,7 @@
 	status = "okay";
 	clock-frequency = <16000000>;
 };
-/*
-&clk_lsi {
-	status = "okay";
-};
-*/
+
 &pll {
 	div-m = <25>;
 	mul-n = <336>;
@@ -58,3 +110,4 @@
 	status = "okay";
 };
 
+	

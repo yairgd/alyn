@@ -1,19 +1,15 @@
-# SPDX-License-Identifier: Apache-2.0
+subdirectory_modul# SPDX-License-Identifier: Apache-2.0
 
 cmake_minimum_required(VERSION 3.20.0)
 
 find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
 project(hello_world)
 
-
-add_subdirectory(src/lua)
-
 target_sources(app PRIVATE src/main.c
 	src/shell.c
 	src/system_model.c
-	src/main.c	
+	src/main.c
 )
 
-
-target_link_libraries(app PRIVATE lua_module)
-
+# Add the subdirectory to the build
+add_subdirectory(lua)

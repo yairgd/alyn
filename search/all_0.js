@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['active_0',['active',['../structsystem__model.html#a410d498ba0f2aab5b2ebb6134316ee35',1,'system_model']]],
-  ['active_5fgame_1',['active_game',['../structsystem__model.html#ab3503418b5acb0f1e56c1817a79e2d56',1,'system_model']]],
-  ['alyn_2',['alyn',['../md_README.html',1,'']]]
+  ['_5ffile_5foffset_5fbits_0',['_FILE_OFFSET_BITS',['../lprefix_8h.html#a44d01ba0a136b8e27ad362f5a823d14e',1,'lprefix.h']]],
+  ['_5flargefile_5fsource_1',['_LARGEFILE_SOURCE',['../lprefix_8h.html#a0cdbd4d0545340d33dfe595811475ccd',1,'lprefix.h']]],
+  ['_5fopen_2',['_open',['../main_8c.html#a0ea718239b719e5286cca323bfc6cb70',1,'main.c']]],
+  ['_5fxopen_5fsource_3',['_XOPEN_SOURCE',['../lprefix_8h.html#a78c99ffd76a7bb3c8c74db76207e9ab4',1,'lprefix.h']]]
 ];

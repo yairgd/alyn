@@ -88,9 +88,16 @@ $(function() {
 <code>#include &lt;zephyr/sys/util.h&gt;</code><br />
 <code>#include &lt;inttypes.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="shell_8h_source.html">shell.h</a>&quot;</code><br />
+<code>#include &lt;zephyr/fs/fs.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="lua_8h_source.html">lua.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lauxlib_8h_source.html">lauxlib.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lualib_8h_source.html">lualib.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a0ea718239b719e5286cca323bfc6cb70"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a0ea718239b719e5286cca323bfc6cb70">_open</a> ()</td></tr>
+<tr class="separator:a0ea718239b719e5286cca323bfc6cb70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a840291bc02cba5474a4cb46a9b9566fe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main</a> (void)</td></tr>
 <tr class="separator:a840291bc02cba5474a4cb46a9b9566fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -98,8 +105,27 @@ Functions</h2></td></tr>
 Variables</h2></td></tr>
 <tr class="memitem:a7f532c58b063a6e898e1929e6df10530"><td class="memItemLeft" align="right" valign="top">struct gpio_dt_spec&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a7f532c58b063a6e898e1929e6df10530">en_station</a> []</td></tr>
 <tr class="separator:a7f532c58b063a6e898e1929e6df10530"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a087126a3c8f7e4454cff7785d0318d2c"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a087126a3c8f7e4454cff7785d0318d2c">lua</a></td></tr>
+<tr class="separator:a087126a3c8f7e4454cff7785d0318d2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a0ea718239b719e5286cca323bfc6cb70" name="a0ea718239b719e5286cca323bfc6cb70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ea718239b719e5286cca323bfc6cb70">&#9670;&#160;</a></span>_open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int _open </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a840291bc02cba5474a4cb46a9b9566fe" name="a840291bc02cba5474a4cb46a9b9566fe"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a840291bc02cba5474a4cb46a9b9566fe">&#9670;&#160;</a></span>main()</h2>
 
@@ -134,6 +160,27 @@ Variables</h2></td></tr>
 <div class="line">        DT_FOREACH_PROP_ELEM_SEP(DT_NODELABEL(enables), gpios,</div>
 <div class="line">                                 GPIO_DT_SPEC_GET_BY_IDX, (,))</div>
 <div class="line">}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a087126a3c8f7e4454cff7785d0318d2c" name="a087126a3c8f7e4454cff7785d0318d2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a087126a3c8f7e4454cff7785d0318d2c">&#9670;&#160;</a></span>lua</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* lua</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= <span class="stringliteral">&quot; \</span></div>
+<div class="line"><span class="stringliteral">for i = 10,1,-1 \</span></div>
+<div class="line"><span class="stringliteral">do \</span></div>
+<div class="line"><span class="stringliteral">   print(i, &#39;str &#39; .. tostring(i)) \</span></div>
+<div class="line"><span class="stringliteral">   --[[ assert((i %  2) == 0)  --]] \</span></div>
+<div class="line"><span class="stringliteral">end \</span></div>
+<div class="line"><span class="stringliteral">&quot;</span></div>
 </div><!-- fragment -->
 </div>
 </div>

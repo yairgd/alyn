@@ -8,15 +8,15 @@
 	leds {
 		compatible = "gpio-leds";
 		station_led_r: red {
-			gpios = <&gpiod 13 GPIO_ACTIVE_HIGH>;
+			gpios = <&gpioh 2 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)>;
 			label = "Red";
 		};
 		station_led_g: green {
-			gpios = <&gpiod 14 GPIO_ACTIVE_HIGH>;
+			gpios = <&gpioh 3 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)>;
 			label = "Green";
 		};
 		station_led_b: blue {
-			gpios = <&gpiod 14 GPIO_ACTIVE_HIGH>;
+			gpios = <&gpioh 5 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)>;
 			label = "Blue";
 		};
 	};	
@@ -53,10 +53,26 @@
 	enable_nodes {
              compatible = "gpio-leds";
           	enables: en {
-                     gpios = <&gpioa 15 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>,
-		    	 <&gpiob 15 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>  ;
+                     gpios = <&gpioi 9 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)>,
+		    	 <&gpioi 11 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)> ,
+		    	 <&gpiof 1 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)> ,
+		    	 <&gpiof 3 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)> ,
+		    	 <&gpiof 4 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)> ,
+		    	 <&gpiof 6 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)> ,
+		    	 <&gpiof 8 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)> ,
+		    	 <&gpioc 2 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)> ;
+
+
+
+
               };
      	};
+
+	zephyr,user {
+		/* adjust channel number according to pinmux in board.dts */
+		io-channels = <&adc1 10>, <&adc1 1>, <&adc1 4>;
+	};
+
 
 
 
@@ -110,4 +126,35 @@
 	status = "okay";
 };
 
-	
+&adc1 {
+	status = "okay";
+	#address-cells = <1>;
+	#size-cells = <0>;
+	pinctrl-0 = <&adc1_in10_pc0>, <&adc1_in1_pa1>,  <&adc1_in4_pa4>;
+	pinctrl-names = "default";
+
+
+	channel@10 {
+		reg = <10>;
+		zephyr,gain = "ADC_GAIN_1";
+		zephyr,reference = "ADC_REF_INTERNAL";
+		zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>;
+		zephyr,resolution = <12>;
+	};
+
+	channel@1 {
+		reg = <1>;
+		zephyr,gain = "ADC_GAIN_1";
+		zephyr,reference = "ADC_REF_INTERNAL";
+		zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>;
+		zephyr,resolution = <12>;
+	};
+
+	channel@4 {
+		reg = <4>;
+		zephyr,gain = "ADC_GAIN_1";
+		zephyr,reference = "ADC_REF_INTERNAL";
+		zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>;
+		zephyr,resolution = <12>;
+	};
+};

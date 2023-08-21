@@ -12,8 +12,12 @@ target_sources(app PRIVATE src/main.c
 	src/shell.c
 	src/system_model.c
 	src/main.c	
+	src/hwctl.c	
+	#	src/getopt/getopt.c
 )
 
-
+target_include_directories(app PRIVATE
+	src/getopt
+	)
 target_link_libraries(app PRIVATE lua_module)
 

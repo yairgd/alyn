@@ -1,8 +1,8 @@
 var searchData=
 [
   ['halfprotect_0',['halfProtect',['../lvm_8c.html#a89acfdec431169d8ad8bde3952bbd844',1,'lvm.c']]],
-  ['has_5fe_1',['has_e',['../lua_8c.html#a062f4556e993b5521901729db1abb78b',1,'lua.c']]],
-  ['has_5fe_2',['has_E',['../lua_8c.html#a8c7799a931aadcdf663a40d5973e9457',1,'lua.c']]],
+  ['has_5fe_1',['has_E',['../lua_8c.html#a8c7799a931aadcdf663a40d5973e9457',1,'lua.c']]],
+  ['has_5fe_2',['has_e',['../lua_8c.html#a062f4556e993b5521901729db1abb78b',1,'lua.c']]],
   ['has_5ferror_3',['has_error',['../lua_8c.html#a7aa07cb625a50d1de019e68b223629dd',1,'lua.c']]],
   ['has_5fi_4',['has_i',['../lua_8c.html#abe04c677e6b350ca13b68c28a2a12f04',1,'lua.c']]],
   ['has_5fv_5',['has_v',['../lua_8c.html#a7136ee26052850280aaffb4e04db8f0d',1,'lua.c']]],

@@ -149,6 +149,6 @@ var searchData=
   ['os_5ftmpname_146',['os_tmpname',['../loslib_8c.html#a89a90062784a8adc223ff4cbe576321d',1,'loslib.c']]],
   ['otherwhite_147',['otherwhite',['../lgc_8h.html#a486df16493498577d4081a8c231154f0',1,'lgc.h']]],
   ['output_148',['Output',['../luac_8c.html#aa53971c93198f18e062267f4d976a5cf',1,'luac.c']]],
-  ['output_149',['OUTPUT',['../luac_8c.html#a61a3c9a18380aafb6e430e79bf596557',1,'luac.c']]],
-  ['output_150',['output',['../luac_8c.html#a5a832fe6e2412dfabb93a2adae30e745',1,'luac.c']]]
+  ['output_149',['output',['../luac_8c.html#a5a832fe6e2412dfabb93a2adae30e745',1,'luac.c']]],
+  ['output_150',['OUTPUT',['../luac_8c.html#a61a3c9a18380aafb6e430e79bf596557',1,'luac.c']]]
 ];

@@ -88,6 +88,10 @@ $(function() {
 <code>#include &lt;ctype.h&gt;</code><br />
 <code>#include &lt;zephyr/posix/unistd.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="system__model_8h_source.html">system_model.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="hwctl_8h_source.html">hwctl.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lua_8h_source.html">lua.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lauxlib_8h_source.html">lauxlib.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lualib_8h_source.html">lualib.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -99,16 +103,22 @@ Functions</h2></td></tr>
 <tr class="separator:a36528f4d70def00a2465a1cbefd3ad41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2078ab5bb6e2cbdbbea7b6bd5bf61cd"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="shell_8c.html#ac2078ab5bb6e2cbdbbea7b6bd5bf61cd">cmd_version</a> (const struct shell *sh, size_t argc, char **argv)</td></tr>
 <tr class="separator:ac2078ab5bb6e2cbdbbea7b6bd5bf61cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ceaa5da413cb3e4db99bb4b60b6d89f"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="shell_8c.html#a7ceaa5da413cb3e4db99bb4b60b6d89f">cmd_game_start_ts</a> (const struct shell *sh, size_t argc, char **argv)</td></tr>
-<tr class="separator:a7ceaa5da413cb3e4db99bb4b60b6d89f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9560baf661a1ae62ab722c63bc183c63"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="shell_8c.html#a9560baf661a1ae62ab722c63bc183c63">cmd_led_on_ts</a> (const struct shell *sh, size_t argc, char **argv)</td></tr>
-<tr class="separator:a9560baf661a1ae62ab722c63bc183c63"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3af254b9a2b92d92271e026719528e7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="shell_8c.html#ae3af254b9a2b92d92271e026719528e7">SHELL_STATIC_SUBCMD_SET_CREATE</a> (sub_game, SHELL_CMD(start, NULL, &quot;starts game. Usage -n&lt;game_id&gt; t&lt;time&gt; -l&lt;level&gt;  &quot;, cmd_game_start_ts), SHELL_CMD(stop, NULL, &quot;stops game&quot;, 0), SHELL_SUBCMD_SET_END)</td></tr>
-<tr class="separator:ae3af254b9a2b92d92271e026719528e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a285c0d0169276be18f943253380c56fd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="shell_8c.html#a285c0d0169276be18f943253380c56fd">cmd_led_en</a> (const struct shell *sh, size_t argc, char **argv)</td></tr>
+<tr class="separator:a285c0d0169276be18f943253380c56fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b1112a9c744f5b49a63609c20c11b72"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="shell_8c.html#a8b1112a9c744f5b49a63609c20c11b72">cmd_led_run</a> (const struct shell *sh, size_t argc, char **argv)</td></tr>
+<tr class="separator:a8b1112a9c744f5b49a63609c20c11b72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e1d6ee6516c72b9a4a3091de90f6b49"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="shell_8c.html#a2e1d6ee6516c72b9a4a3091de90f6b49">cmd_led_stop</a> (const struct shell *sh, size_t argc, char **argv)</td></tr>
+<tr class="separator:a2e1d6ee6516c72b9a4a3091de90f6b49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4443e9184550527f8a93ebd1a7b21312"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="shell_8c.html#a4443e9184550527f8a93ebd1a7b21312">cmd_led_rgb</a> (const struct shell *sh, size_t argc, char **argv)</td></tr>
+<tr class="separator:a4443e9184550527f8a93ebd1a7b21312"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee1a147b619fe516f221a851cc39bfe6"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="shell_8c.html#aee1a147b619fe516f221a851cc39bfe6">cmd_game_lua</a> (const struct shell *sh, size_t argc, char **argv)</td></tr>
+<tr class="separator:aee1a147b619fe516f221a851cc39bfe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30f52c1102c09eef2e8e81d7c0021960"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="shell_8c.html#a30f52c1102c09eef2e8e81d7c0021960">SHELL_STATIC_SUBCMD_SET_CREATE</a> (sub_game, SHELL_CMD(<a class="el" href="main_8c.html#a087126a3c8f7e4454cff7785d0318d2c">lua</a>, NULL, &quot;&quot;, <a class="el" href="shell_8c.html#aee1a147b619fe516f221a851cc39bfe6">cmd_game_lua</a>), SHELL_SUBCMD_SET_END)</td></tr>
+<tr class="separator:a30f52c1102c09eef2e8e81d7c0021960"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c3d6232d871a18f26a18236d4f20049"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="shell_8c.html#a3c3d6232d871a18f26a18236d4f20049">SHELL_CMD_REGISTER</a> (game, &amp;sub_game, &quot;Game commands&quot;, NULL)</td></tr>
 <tr class="separator:a3c3d6232d871a18f26a18236d4f20049"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab270958433ea5da4aa0d62c62b3ad95d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="shell_8c.html#ab270958433ea5da4aa0d62c62b3ad95d">SHELL_STATIC_SUBCMD_SET_CREATE</a> (sub_led, SHELL_CMD(on, NULL, &quot;turn on led. Usage -n&lt;game_id&gt; t&lt;time&gt; -l&lt;level&gt;  &quot;, cmd_led_on_ts), SHELL_CMD(off, NULL, &quot;turn off led&quot;, 0), SHELL_SUBCMD_SET_END)</td></tr>
-<tr class="separator:ab270958433ea5da4aa0d62c62b3ad95d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad452421c2dddf87288fdb74bd94b20e5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="shell_8c.html#ad452421c2dddf87288fdb74bd94b20e5">SHELL_STATIC_SUBCMD_SET_CREATE</a> (sub_led, SHELL_CMD(en, NULL, &quot;turn on led. Usage -n&lt;game_id&gt; t&lt;time&gt; -l&lt;level&gt;  &quot;, cmd_led_en), SHELL_CMD(run, NULL, &quot;turn on led. Usage -n&lt;game_id&gt; t&lt;time&gt; -l&lt;level&gt;  &quot;, cmd_led_run), SHELL_CMD(stop, NULL, &quot;turn on led. Usage -n&lt;game_id&gt; t&lt;time&gt; -l&lt;level&gt;  &quot;, cmd_led_stop), SHELL_CMD(rgb, NULL, &quot;chage station rgb leds. Usage &lt;id&gt; &lt;r&gt; &lt;g&gt; &lt;b&gt; &quot;, cmd_led_rgb), SHELL_SUBCMD_SET_END)</td></tr>
+<tr class="separator:ad452421c2dddf87288fdb74bd94b20e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83c707951df669c94c5436d4d4550c14"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="shell_8c.html#a83c707951df669c94c5436d4d4550c14">SHELL_CMD_REGISTER</a> (led, &amp;sub_led, &quot;Leds commands&quot;, NULL)</td></tr>
 <tr class="separator:a83c707951df669c94c5436d4d4550c14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9ebe1f100a1af69a371a54026fa78d8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="shell_8c.html#ad9ebe1f100a1af69a371a54026fa78d8">SHELL_CMD_ARG_REGISTER</a> (version, NULL, &quot;Show kernel version&quot;, <a class="el" href="shell_8c.html#ac2078ab5bb6e2cbdbbea7b6bd5bf61cd">cmd_version</a>, 1, 0)</td></tr>
@@ -117,8 +127,8 @@ Functions</h2></td></tr>
 <tr class="separator:a9f2bfaeb68f448fb5c75230a90329b0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a7ceaa5da413cb3e4db99bb4b60b6d89f" name="a7ceaa5da413cb3e4db99bb4b60b6d89f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ceaa5da413cb3e4db99bb4b60b6d89f">&#9670;&#160;</a></span>cmd_game_start_ts()</h2>
+<a id="aee1a147b619fe516f221a851cc39bfe6" name="aee1a147b619fe516f221a851cc39bfe6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee1a147b619fe516f221a851cc39bfe6">&#9670;&#160;</a></span>cmd_game_lua()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -127,7 +137,7 @@ Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static int cmd_game_start_ts </td>
+          <td class="memname">static int cmd_game_lua </td>
           <td>(</td>
           <td class="paramtype">const struct shell *&#160;</td>
           <td class="paramname"><em>sh</em>, </td>
@@ -159,17 +169,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a9560baf661a1ae62ab722c63bc183c63" name="a9560baf661a1ae62ab722c63bc183c63"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9560baf661a1ae62ab722c63bc183c63">&#9670;&#160;</a></span>cmd_led_on_ts()</h2>
+<a id="a285c0d0169276be18f943253380c56fd" name="a285c0d0169276be18f943253380c56fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a285c0d0169276be18f943253380c56fd">&#9670;&#160;</a></span>cmd_led_en()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static int cmd_led_on_ts </td>
+          <td class="memname">int cmd_led_en </td>
           <td>(</td>
           <td class="paramtype">const struct shell *&#160;</td>
           <td class="paramname"><em>sh</em>, </td>
@@ -192,11 +199,108 @@ Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4443e9184550527f8a93ebd1a7b21312" name="a4443e9184550527f8a93ebd1a7b21312"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4443e9184550527f8a93ebd1a7b21312">&#9670;&#160;</a></span>cmd_led_rgb()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cmd_led_rgb </td>
+          <td>(</td>
+          <td class="paramtype">const struct shell *&#160;</td>
+          <td class="paramname"><em>sh</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>argv</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8b1112a9c744f5b49a63609c20c11b72" name="a8b1112a9c744f5b49a63609c20c11b72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b1112a9c744f5b49a63609c20c11b72">&#9670;&#160;</a></span>cmd_led_run()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cmd_led_run </td>
+          <td>(</td>
+          <td class="paramtype">const struct shell *&#160;</td>
+          <td class="paramname"><em>sh</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>argv</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2e1d6ee6516c72b9a4a3091de90f6b49" name="a2e1d6ee6516c72b9a4a3091de90f6b49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e1d6ee6516c72b9a4a3091de90f6b49">&#9670;&#160;</a></span>cmd_led_stop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int cmd_led_stop </td>
+          <td>(</td>
+          <td class="paramtype">const struct shell *&#160;</td>
+          <td class="paramname"><em>sh</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>argv</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
 </div><div class="memdoc">
 
 </div>
@@ -445,8 +549,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ae3af254b9a2b92d92271e026719528e7" name="ae3af254b9a2b92d92271e026719528e7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae3af254b9a2b92d92271e026719528e7">&#9670;&#160;</a></span>SHELL_STATIC_SUBCMD_SET_CREATE() <span class="overload">[1/2]</span></h2>
+<a id="a30f52c1102c09eef2e8e81d7c0021960" name="a30f52c1102c09eef2e8e81d7c0021960"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30f52c1102c09eef2e8e81d7c0021960">&#9670;&#160;</a></span>SHELL_STATIC_SUBCMD_SET_CREATE() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -460,13 +564,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">SHELL_CMD(start, NULL, &quot;starts game. Usage -n&lt;game_id&gt; t&lt;time&gt; -l&lt;level&gt;  &quot;, cmd_game_start_ts)&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">SHELL_CMD(stop, NULL, &quot;stops game&quot;, 0)&#160;</td>
+          <td class="paramtype">SHELL_CMD(<a class="el" href="main_8c.html#a087126a3c8f7e4454cff7785d0318d2c">lua</a>, NULL, &quot;&quot;, <a class="el" href="shell_8c.html#aee1a147b619fe516f221a851cc39bfe6">cmd_game_lua</a>)&#160;</td>
           <td class="paramname">, </td>
         </tr>
         <tr>
@@ -485,8 +583,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ab270958433ea5da4aa0d62c62b3ad95d" name="ab270958433ea5da4aa0d62c62b3ad95d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab270958433ea5da4aa0d62c62b3ad95d">&#9670;&#160;</a></span>SHELL_STATIC_SUBCMD_SET_CREATE() <span class="overload">[2/2]</span></h2>
+<a id="ad452421c2dddf87288fdb74bd94b20e5" name="ad452421c2dddf87288fdb74bd94b20e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad452421c2dddf87288fdb74bd94b20e5">&#9670;&#160;</a></span>SHELL_STATIC_SUBCMD_SET_CREATE() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -500,13 +598,25 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">SHELL_CMD(on, NULL, &quot;turn on led. Usage -n&lt;game_id&gt; t&lt;time&gt; -l&lt;level&gt;  &quot;, cmd_led_on_ts)&#160;</td>
+          <td class="paramtype">SHELL_CMD(en, NULL, &quot;turn on led. Usage -n&lt;game_id&gt; t&lt;time&gt; -l&lt;level&gt;  &quot;, cmd_led_en)&#160;</td>
           <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">SHELL_CMD(off, NULL, &quot;turn off led&quot;, 0)&#160;</td>
+          <td class="paramtype">SHELL_CMD(run, NULL, &quot;turn on led. Usage -n&lt;game_id&gt; t&lt;time&gt; -l&lt;level&gt;  &quot;, cmd_led_run)&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SHELL_CMD(stop, NULL, &quot;turn on led. Usage -n&lt;game_id&gt; t&lt;time&gt; -l&lt;level&gt;  &quot;, cmd_led_stop)&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SHELL_CMD(rgb, NULL, &quot;chage station rgb leds. Usage &lt;id&gt; &lt;r&gt; &lt;g&gt; &lt;b&gt; &quot;, cmd_led_rgb)&#160;</td>
           <td class="paramname">, </td>
         </tr>
         <tr>

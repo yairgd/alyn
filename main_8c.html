@@ -89,10 +89,13 @@ $(function() {
 <code>#include &lt;inttypes.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="shell_8h_source.html">shell.h</a>&quot;</code><br />
 <code>#include &lt;zephyr/fs/fs.h&gt;</code><br />
+<code>#include &lt;zephyr/drivers/gpio/gpio_emul.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="lua_8h_source.html">lua.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="lauxlib_8h_source.html">lauxlib.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="lualib_8h_source.html">lualib.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="hwctl_8h_source.html">hwctl.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="system__model_8h_source.html">system_model.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -103,8 +106,8 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a7f532c58b063a6e898e1929e6df10530"><td class="memItemLeft" align="right" valign="top">struct gpio_dt_spec&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a7f532c58b063a6e898e1929e6df10530">en_station</a> []</td></tr>
-<tr class="separator:a7f532c58b063a6e898e1929e6df10530"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0d1f3865643e7727105fd9cb440e3e4"><td class="memItemLeft" align="right" valign="top">volatile const struct gpio_dt_spec&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#af0d1f3865643e7727105fd9cb440e3e4">spec</a></td></tr>
+<tr class="separator:af0d1f3865643e7727105fd9cb440e3e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a087126a3c8f7e4454cff7785d0318d2c"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a087126a3c8f7e4454cff7785d0318d2c">lua</a></td></tr>
 <tr class="separator:a087126a3c8f7e4454cff7785d0318d2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -145,24 +148,6 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="a7f532c58b063a6e898e1929e6df10530" name="a7f532c58b063a6e898e1929e6df10530"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f532c58b063a6e898e1929e6df10530">&#9670;&#160;</a></span>en_station</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">struct gpio_dt_spec en_station[]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
-<div class="line">        DT_FOREACH_PROP_ELEM_SEP(DT_NODELABEL(enables), gpios,</div>
-<div class="line">                                 GPIO_DT_SPEC_GET_BY_IDX, (,))</div>
-<div class="line">}</div>
-</div><!-- fragment -->
-</div>
-</div>
 <a id="a087126a3c8f7e4454cff7785d0318d2c" name="a087126a3c8f7e4454cff7785d0318d2c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a087126a3c8f7e4454cff7785d0318d2c">&#9670;&#160;</a></span>lua</h2>
 
@@ -181,6 +166,22 @@ Variables</h2></td></tr>
 <div class="line"><span class="stringliteral">   --[[ assert((i %  2) == 0)  --]] \</span></div>
 <div class="line"><span class="stringliteral">end \</span></div>
 <div class="line"><span class="stringliteral">&quot;</span></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="af0d1f3865643e7727105fd9cb440e3e4" name="af0d1f3865643e7727105fd9cb440e3e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0d1f3865643e7727105fd9cb440e3e4">&#9670;&#160;</a></span>spec</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile const struct gpio_dt_spec spec</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= GPIO_DT_SPEC_GET_BY_IDX(DT_NODELABEL(enables),</div>
+<div class="line">                                                     gpios, 0)</div>
 </div><!-- fragment -->
 </div>
 </div>

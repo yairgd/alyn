@@ -96,8 +96,14 @@ Public Attributes</h2></td></tr>
 <tr class="separator:ae97760f83b220696c913713a0c972474"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af163d7f9e5c424369ec3eda6f8e8a1b4"><td class="memItemLeft" valign="top">}&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsystem__model.html#af163d7f9e5c424369ec3eda6f8e8a1b4">stations</a> [8]&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
 <tr class="separator:af163d7f9e5c424369ec3eda6f8e8a1b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab3503418b5acb0f1e56c1817a79e2d56"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsystem__model.html#ab3503418b5acb0f1e56c1817a79e2d56">active_game</a></td></tr>
-<tr class="separator:ab3503418b5acb0f1e56c1817a79e2d56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb7118d8ef04e556dd06c491bac71436"><td class="memItemLeft" align="right" valign="top">unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsystem__model.html#afb7118d8ef04e556dd06c491bac71436">active_node</a>: 3</td></tr>
+<tr class="separator:afb7118d8ef04e556dd06c491bac71436"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b64d5d75efdd60444cfbd3bd6a67f9a"><td class="memItemLeft" align="right" valign="top">unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsystem__model.html#a6b64d5d75efdd60444cfbd3bd6a67f9a">active_game</a>: 8</td></tr>
+<tr class="separator:a6b64d5d75efdd60444cfbd3bd6a67f9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9e18638a045282cef537ac4e1f7ed9a"><td class="memItemLeft" align="right" valign="top">unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsystem__model.html#af9e18638a045282cef537ac4e1f7ed9a">free_run</a>: 1</td></tr>
+<tr class="separator:af9e18638a045282cef537ac4e1f7ed9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae817e501b14f8cc9ca3ee1a85cecf14b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsystem__model.html#ae817e501b14f8cc9ca3ee1a85cecf14b">free_run_delay_us</a></td></tr>
+<tr class="separator:ae817e501b14f8cc9ca3ee1a85cecf14b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a id="a410d498ba0f2aab5b2ebb6134316ee35" name="a410d498ba0f2aab5b2ebb6134316ee35"></a>
@@ -114,14 +120,28 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ab3503418b5acb0f1e56c1817a79e2d56" name="ab3503418b5acb0f1e56c1817a79e2d56"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab3503418b5acb0f1e56c1817a79e2d56">&#9670;&#160;</a></span>active_game</h2>
+<a id="a6b64d5d75efdd60444cfbd3bd6a67f9a" name="a6b64d5d75efdd60444cfbd3bd6a67f9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b64d5d75efdd60444cfbd3bd6a67f9a">&#9670;&#160;</a></span>active_game</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int system_model::active_game</td>
+          <td class="memname">unsigned short system_model::active_game</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afb7118d8ef04e556dd06c491bac71436" name="afb7118d8ef04e556dd06c491bac71436"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb7118d8ef04e556dd06c491bac71436">&#9670;&#160;</a></span>active_node</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned short system_model::active_node</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -150,6 +170,34 @@ Public Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">unsigned int system_model::button_state</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af9e18638a045282cef537ac4e1f7ed9a" name="af9e18638a045282cef537ac4e1f7ed9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9e18638a045282cef537ac4e1f7ed9a">&#9670;&#160;</a></span>free_run</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned short system_model::free_run</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae817e501b14f8cc9ca3ee1a85cecf14b" name="ae817e501b14f8cc9ca3ee1a85cecf14b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae817e501b14f8cc9ca3ee1a85cecf14b">&#9670;&#160;</a></span>free_run_delay_us</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int system_model::free_run_delay_us</td>
         </tr>
       </table>
 </div><div class="memdoc">

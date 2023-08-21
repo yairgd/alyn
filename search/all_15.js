@@ -30,8 +30,8 @@ var searchData=
   ['upval_27',['upval',['../structBlockCnt.html#a42e96c963c3c53887b4c93e9b7a53bac',1,'BlockCnt']]],
   ['upval_28',['UpVal',['../lobject_8h.html#a420f4f4eeb467ce750d00e5d3a21c109',1,'lobject.h']]],
   ['upvaldesc_29',['Upvaldesc',['../structUpvaldesc.html',1,'Upvaldesc'],['../lobject_8h.html#a8e51aa6ac9ae7599a39adc3bb297bd86',1,'Upvaldesc:&#160;lobject.h']]],
-  ['upvalname_30',['upvalname',['../ldebug_8c.html#a1f6f73c7692e0be74a46a254c8d8d741',1,'ldebug.c']]],
-  ['upvalname_31',['UPVALNAME',['../luac_8c.html#a16edb7a847ec8518180e4cf618832587',1,'luac.c']]],
+  ['upvalname_30',['UPVALNAME',['../luac_8c.html#a16edb7a847ec8518180e4cf618832587',1,'luac.c']]],
+  ['upvalname_31',['upvalname',['../ldebug_8c.html#a1f6f73c7692e0be74a46a254c8d8d741',1,'ldebug.c']]],
   ['upvals_32',['upvals',['../structLClosure.html#a94886e7c7df838f5fab36575b0554682',1,'LClosure']]],
   ['upvalue_33',['upvalue',['../structCClosure.html#a75d6bfc66f8ed48b3dd67007be84174f',1,'CClosure']]],
   ['upvalues_34',['upvalues',['../structProto.html#a028070514796b4accbd99c59e6b83930',1,'Proto']]],
@@ -44,6 +44,7 @@ var searchData=
   ['utfint_41',['utfint',['../lutf8lib_8c.html#a886038d9846002cde09bbf00e3802074',1,'lutf8lib.c']]],
   ['utflen_42',['utflen',['../lutf8lib_8c.html#a840e09db1ade39da79b0b4dece0e46eb',1,'lutf8lib.c']]],
   ['uv_43',['uv',['../structUdata.html#abfc560a8436c8a9c238b175706beab7b',1,'Udata::uv'],['../unionUValue.html#afaa156bae31b8f21eb9743c2a757ce89',1,'UValue::uv']]],
-  ['uvalue_44',['UValue',['../unionUValue.html',1,'UValue'],['../lobject_8h.html#a4a9abc9c2064ec3a4620a1f1c30f18af',1,'UValue:&#160;lobject.h']]],
-  ['uvalue_45',['uvalue',['../lobject_8h.html#a1c49f55d93297e833141fb62903af3ad',1,'lobject.h']]]
+  ['uvalue_44',['UValue',['../unionUValue.html',1,'']]],
+  ['uvalue_45',['uvalue',['../lobject_8h.html#a1c49f55d93297e833141fb62903af3ad',1,'lobject.h']]],
+  ['uvalue_46',['UValue',['../lobject_8h.html#a4a9abc9c2064ec3a4620a1f1c30f18af',1,'lobject.h']]]
 ];

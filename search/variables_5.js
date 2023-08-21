@@ -12,10 +12,12 @@ var searchData=
   ['fixedgc_9',['fixedgc',['../structglobal__State.html#a429b525c636d5b268e03f1c10a85cf8f',1,'global_State']]],
   ['flags_10',['flags',['../structTable.html#a643cf38ebbab9e5af99ff8a980ffbae5',1,'Table']]],
   ['frealloc_11',['frealloc',['../structglobal__State.html#aa26cfe7f3761fda56740a545d15001ea',1,'global_State']]],
-  ['freereg_12',['freereg',['../structFuncState.html#a99e672543fbe771557b576b69f54e551',1,'FuncState']]],
-  ['fs_13',['fs',['../structLexState.html#a01999e4f68cc6a3bd0b9eb6ebd241f7b',1,'LexState']]],
-  ['ftransfer_14',['ftransfer',['../structCallInfo.html#add164028847a347cdfce221f697f0f28',1,'CallInfo::ftransfer'],['../structlua__Debug.html#aaf0845009754fbc00f8c0c2d570362e1',1,'lua_Debug::ftransfer']]],
-  ['func_15',['func',['../structCallS.html#ad175aaaa032f3e446b391f4e04bd1a6b',1,'CallS::func'],['../structluaL__Reg.html#a54aa8f9955870caf78148514e61196ce',1,'luaL_Reg::func'],['../structCallInfo.html#a378cfb37136fabfe59d1c38071c6c9d1',1,'CallInfo::func']]],
-  ['funcidx_16',['funcidx',['../structCallInfo.html#adebb7e3602965a04deda09fcaf8fefc1',1,'CallInfo']]],
-  ['funcs_17',['funcs',['../lutf8lib_8c.html#aa4be121cd05b20a87bf4f1d5c1978a1b',1,'lutf8lib.c']]]
+  ['free_5frun_12',['free_run',['../structsystem__model.html#af9e18638a045282cef537ac4e1f7ed9a',1,'system_model']]],
+  ['free_5frun_5fdelay_5fus_13',['free_run_delay_us',['../structsystem__model.html#ae817e501b14f8cc9ca3ee1a85cecf14b',1,'system_model']]],
+  ['freereg_14',['freereg',['../structFuncState.html#a99e672543fbe771557b576b69f54e551',1,'FuncState']]],
+  ['fs_15',['fs',['../structLexState.html#a01999e4f68cc6a3bd0b9eb6ebd241f7b',1,'LexState']]],
+  ['ftransfer_16',['ftransfer',['../structCallInfo.html#add164028847a347cdfce221f697f0f28',1,'CallInfo::ftransfer'],['../structlua__Debug.html#aaf0845009754fbc00f8c0c2d570362e1',1,'lua_Debug::ftransfer']]],
+  ['func_17',['func',['../structCallS.html#ad175aaaa032f3e446b391f4e04bd1a6b',1,'CallS::func'],['../structluaL__Reg.html#a54aa8f9955870caf78148514e61196ce',1,'luaL_Reg::func'],['../structCallInfo.html#a378cfb37136fabfe59d1c38071c6c9d1',1,'CallInfo::func']]],
+  ['funcidx_18',['funcidx',['../structCallInfo.html#adebb7e3602965a04deda09fcaf8fefc1',1,'CallInfo']]],
+  ['funcs_19',['funcs',['../lutf8lib_8c.html#aa4be121cd05b20a87bf4f1d5c1978a1b',1,'lutf8lib.c']]]
 ];

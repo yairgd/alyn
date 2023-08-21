@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: src/shell.h Source File</title>
+<title>My Project: src/hwctl.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -73,18 +73,18 @@ $(function() {
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="headertitle"><div class="title">shell.h</div></div>
+  <div class="headertitle"><div class="title">hwctl.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="shell_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<a href="hwctl_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * =====================================================================================</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> *       Filename:  shell.h</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> *       Filename:  hwctl.h</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> *    Description:  </span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> *    Description: : </span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> *</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> *        Version:  1.0</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *        Created:  08/05/2023 06:27:46 PM</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *        Created:  08/14/2023 03:43:33 PM</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> *       Revision:  none</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> *       Compiler:  gcc</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> *</span></div>
@@ -93,13 +93,19 @@ $(function() {
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> *</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> * =====================================================================================</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#ifndef SHELL_H</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#define SHELL_H </span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keywordtype">int</span> <a class="code hl_function" href="shell_8h.html#a9f2bfaeb68f448fb5c75230a90329b0d">init_shell</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="ashell_8h_html_a9f2bfaeb68f448fb5c75230a90329b0d"><div class="ttname"><a href="shell_8h.html#a9f2bfaeb68f448fb5c75230a90329b0d">init_shell</a></div><div class="ttdeci">int init_shell(void)</div><div class="ttdef"><b>Definition</b> shell.c:280</div></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#ifndef HWCTL_H</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#define HWCTL_H</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keywordtype">void</span> <a class="code hl_function" href="hwctl_8h.html#af3d3d117d99adaca4ad388189af8c1e5">hwctl_enable_node</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keywordtype">void</span> <a class="code hl_function" href="hwctl_8h.html#a92270afae45a9f6ba3f5d898ec2faf8c">hwctl_start_free_run</a>();</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keywordtype">void</span> <a class="code hl_function" href="hwctl_8h.html#a4d15a2207a2b57b39b8d0341a1469ac1">hwctl_stop_free_run</a>();</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keywordtype">void</span> <a class="code hl_function" href="hwctl_8h.html#a1d2e0851e51c09c6e84aa5e69f776041">hwctl_disable_all_nodes</a>();</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="ttc" id="ahwctl_8h_html_a1d2e0851e51c09c6e84aa5e69f776041"><div class="ttname"><a href="hwctl_8h.html#a1d2e0851e51c09c6e84aa5e69f776041">hwctl_disable_all_nodes</a></div><div class="ttdeci">void hwctl_disable_all_nodes()</div><div class="ttdef"><b>Definition</b> hwctl.c:82</div></div>
+<div class="ttc" id="ahwctl_8h_html_a4d15a2207a2b57b39b8d0341a1469ac1"><div class="ttname"><a href="hwctl_8h.html#a4d15a2207a2b57b39b8d0341a1469ac1">hwctl_stop_free_run</a></div><div class="ttdeci">void hwctl_stop_free_run()</div><div class="ttdef"><b>Definition</b> hwctl.c:187</div></div>
+<div class="ttc" id="ahwctl_8h_html_a92270afae45a9f6ba3f5d898ec2faf8c"><div class="ttname"><a href="hwctl_8h.html#a92270afae45a9f6ba3f5d898ec2faf8c">hwctl_start_free_run</a></div><div class="ttdeci">void hwctl_start_free_run()</div><div class="ttdef"><b>Definition</b> hwctl.c:180</div></div>
+<div class="ttc" id="ahwctl_8h_html_af3d3d117d99adaca4ad388189af8c1e5"><div class="ttname"><a href="hwctl_8h.html#af3d3d117d99adaca4ad388189af8c1e5">hwctl_enable_node</a></div><div class="ttdeci">void hwctl_enable_node(int id)</div><div class="ttdef"><b>Definition</b> hwctl.c:65</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -23,6 +23,11 @@ LUAMOD_API int (luaopen_coroutine) (lua_State *L);
 #define LUA_TABLIBNAME	"table"
 LUAMOD_API int (luaopen_table) (lua_State *L);
 
+#define LUA_GAME  "game"
+LUAMOD_API int (luaopen_game) (lua_State *L);
+
+
+
 #define LUA_IOLIBNAME	"io"
 LUAMOD_API int (luaopen_io) (lua_State *L);
 

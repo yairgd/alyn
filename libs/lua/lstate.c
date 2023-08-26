@@ -27,7 +27,11 @@
 #include "ltable.h"
 #include "ltm.h"
 
+#ifdef ZEPHYR
 #include <zephyr/random/rand32.h>
+#else
+#include <time.h>
+#endif
 
 
 /*
@@ -71,7 +75,12 @@ typedef struct LG {
 
 static unsigned int luai_makeseed (lua_State *L) {
   char buff[3 * sizeof(size_t)];
+#ifdef ZEPHYR
   unsigned int h = cast_uint(sys_rand32_get());
+#else
+   unsigned int h = cast_uint(time(NULL));  
+#endif
+
   int p = 0;
   addbuff(buff, p, L);  /* heap variable */
   addbuff(buff, p, &h);  /* local variable */

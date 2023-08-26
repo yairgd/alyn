@@ -75,7 +75,7 @@ static void lstop (lua_State *L, lua_Debug *ar) {
 */
 static void laction (int i) {
   int flag = LUA_MASKCALL | LUA_MASKRET | LUA_MASKLINE | LUA_MASKCOUNT;
-  setsignal(i, SIG_DFL); /* if another SIGINT happens, terminate process */
+  //setsignal(i, SIG_DFL); /* if another SIGINT happens, terminate process */
   lua_sethook(globalL, lstop, flag, 1);
 }
 
@@ -156,9 +156,9 @@ static int docall (lua_State *L, int narg, int nres) {
   lua_pushcfunction(L, msghandler);  /* push message handler */
   lua_insert(L, base);  /* put it under function and args */
   globalL = L;  /* to be available to 'laction' */
-  setsignal(SIGINT, laction);  /* set C-signal handler */
+//  setsignal(SIGINT, laction);  /* set C-signal handler */
   status = lua_pcall(L, narg, nres, base);
-  setsignal(SIGINT, SIG_DFL); /* reset C-signal handler */
+ // setsignal(SIGINT, SIG_DFL); /* reset C-signal handler */
   lua_remove(L, base);  /* remove message handler from the stack */
   return status;
 }
@@ -646,8 +646,11 @@ static int pmain (lua_State *L) {
   return 1;
 }
 
-
-int main (int argc, char **argv) {
+#ifdef ZEPHYR
+int main_lua (int argc, char **argv) {
+#else
+int main(int argc, char **argv) {
+#endif
   int status, result;
   lua_State *L = luaL_newstate();  /* create state */
   if (L == NULL) {

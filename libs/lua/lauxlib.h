@@ -257,7 +257,6 @@ typedef struct luaL_Stream {
 
 
 #ifdef LUA_ARDUINO
-
 void serial_write(const char * buf, int len);
 void serial_print(const char * buf);
 
@@ -290,7 +289,8 @@ void serial_print(const char * buf);
 
 /* print an error message */
 #if !defined(lua_writestringerror)
-#define lua_writestringerror(s,p) (fprintf(stderr, (s), (p)), fflush(stderr))
+//#define lua_writestringerror(s,p) (fprintf(stderr, (s), (p)), fflush(stderr))
+#define lua_writestringerror(s,l)   fwrite((s), sizeof(char), (l), stdout)
 #endif
 
 #endif

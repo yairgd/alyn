@@ -17,6 +17,7 @@
  */
 
 #include "system_model.h"
+
 struct system_model model;
 
 void set_active_game(int id) {
@@ -47,11 +48,78 @@ int get_input(int id) {
 int get_active_game() {
 	return model.active_game;
 }
-
+#if 0
 void set_button_press(int id) {
 	model.stations[id].button_state = 1;
 	model.stations[id].time_since_press = 0 ; // get system time in ms 
 }
+
+#endif
+
+void start_blink(int id, int freq, double blink_time) {
+	model.stations[id].blink.freq = freq; 	
+	model.stations[id].blink.blink = 1; 	
+	model.stations[id].blink.state = 0;
+	model.stations[id].blink.max_blink_time = blink_time;
+
+	clock_gettime(CLOCK_REALTIME, &model.stations[id].blink.ts); // get system time 
+	clock_gettime(CLOCK_REALTIME, &model.stations[id].blink.bts); // get system time						 
+} 
+
+void stop_blink(int id) {
+	model.stations[id].blink.blink = 0; 	
+
+}
+void toggle_led(int id) {
+	// update last toggle time
+	clock_gettime(CLOCK_REALTIME, &model.stations[id].blink.bts); 
+	model.stations[id].blink.state= model.stations[id].blink.state == 0 ? 1 : 0;	
+}
+
+
+double time_elapse_since_start_blink(int id) {
+	struct timespec nts , *rts;
+	rts = &model.stations[id].blink.ts;
+
+	int ret = clock_gettime(CLOCK_REALTIME, &nts);
+	(void)ret;
+	double delta =
+		((int64_t)nts.tv_sec * NSEC_PER_SEC -
+		 (int64_t)rts->tv_sec * NSEC_PER_SEC) +
+		((int64_t)nts.tv_nsec - (int64_t)rts->tv_nsec);
+	return delta/NSEC_PER_SEC;
+} 
+
+int is_blink(int id) {
+	if (time_elapse_since_start_blink(id) > model.stations[id].blink.max_blink_time) { 
+		model.stations[id].blink.blink = 0;
+		model.stations[id].blink.stop_reson = 2; // time out
+	}
+	return model.stations[id].blink.blink;
+}
+
+void set_timeout_reson(int id, int v)
+{
+	model.stations[id].blink.stop_reson = v;
+}
+int time_elapse_since_last_toggle(int id) {
+	struct timespec nts , *rts;
+	rts = &model.stations[id].blink.bts;
+
+	int ret = clock_gettime(CLOCK_REALTIME, &nts);
+	(void)ret;
+	double delta =
+		((int64_t)nts.tv_sec * NSEC_PER_SEC -
+		 (int64_t)rts->tv_sec * NSEC_PER_SEC) +
+		((int64_t)nts.tv_nsec - (int64_t)rts->tv_nsec);
+	return delta/NSEC_PER_SEC > 1.0 / model.stations[id].blink.freq;
+} 
+
+
+int is_blink_on(int id) {
+	return model.stations[id].blink.state;
+}
+
 
 void set_button_release(int id) {
 	model.stations[id].button_state = 0;

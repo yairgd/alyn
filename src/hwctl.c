@@ -68,10 +68,25 @@ void hwctl_enable_node(int id) {
 	gpio_pin_set_dt (&en_station[get_active_node()], 0);
 
 	// enable the new node
-	gpio_pin_set_dt (&en_station[id], 1);
-	gpio_pin_set_dt (&led_red, get_r(id) ? 1 : 0);
-	gpio_pin_set_dt (&led_green, get_g(id) ? 1 : 0);
-	gpio_pin_set_dt (&led_blue, get_b(id) ? 1 : 0);
+	if (! is_blink(id)) {	
+		// not blonking , just output the led value
+		gpio_pin_set_dt (&en_station[id], 1);
+		gpio_pin_set_dt (&led_red, get_r(id) ? 1 : 0);
+		gpio_pin_set_dt (&led_green, get_g(id) ? 1 : 0);
+		gpio_pin_set_dt (&led_blue, get_b(id) ? 1 : 0);
+	} else {
+		// station led in blink state, manage it
+		if (time_elapse_since_last_toggle(id)) {
+			// time to toggle led
+			toggle_led(id);
+
+			gpio_pin_set_dt (&en_station[id], 1);
+			gpio_pin_set_dt (&led_red, get_r(id) & is_blink_on(id) ? 1 : 0);
+			gpio_pin_set_dt (&led_green, get_g(id) & is_blink_on(id) ? 1 : 0);
+			gpio_pin_set_dt (&led_blue, get_b(id) & is_blink_on(id)? 1 : 0);
+			
+		}
+	}
 #endif
 	// save rhe new node
 	set_active_node(id);
@@ -179,7 +194,8 @@ int hwctl_adc(void)
 
 void hwctl_start_free_run() {
 	if (get_free_run() == 0) {
-		set_free_run(1);
+		set_free_run_delay(get_free_run_delay());
+		set_free_run(1);		
 		k_sem_give(&my_signal); 
 	}
 }
@@ -200,14 +216,14 @@ void hwctl_thread (void *p1,void *p2, void *p3)
 	gpio_pin_configure_dt(&led_green, GPIO_OUTPUT);
 	gpio_pin_configure_dt(&led_blue, GPIO_OUTPUT);
 #endif
-	set_rgb(0,127,0,0);
-	set_rgb(1,0,127,0);
-	set_rgb(2,0,0,127);
-	set_rgb(3,127,0,127);
-	set_rgb(4,0,127,127);
-	set_rgb(5,127,0,127);
-	set_rgb(6,127,127,127);
-	set_rgb(7,0,0,127);
+	set_rgb(0,127,127,127);
+//	set_rgb(1,0,127,0);
+//	set_rgb(2,0,0,127);
+//	set_rgb(3,127,0,127);
+//	set_rgb(4,0,127,127);
+//	set_rgb(5,127,0,127);
+//	set_rgb(6,127,127,127);
+//	set_rgb(7,0,0,127);
 	
 	int n = 0;
 	while (1) {

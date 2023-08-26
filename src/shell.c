@@ -33,6 +33,7 @@
 
 #include "system_model.h"
 #include "hwctl.h"
+#include "game.h"
 
 
 LOG_MODULE_REGISTER(app);
@@ -79,6 +80,24 @@ int cmd_led_en(const struct shell *sh, size_t argc,
 	return 0;
 }
 
+int cmd_led_blink(const struct shell *sh, size_t argc,
+		char **argv)
+{
+	int id = argv[1] ? 1 <= atoi(argv[1]) : 0 ;
+	int freq = argv[2] ? atoi(argv[2]) : 5 ;
+	int timeout = argv[3] ? atoi(argv[3]) : 10 ;
+
+	if (0 < id && id <= 8) {	
+		set_free_run_delay(66);
+		start_blink(id - 1,freq,timeout);
+		hwctl_start_free_run();
+	} else {
+		hwctl_disable_all_nodes();		
+	}
+
+	return 0;
+}
+
 int cmd_led_run(const struct shell *sh, size_t argc,
 		char **argv)
 {
@@ -89,6 +108,7 @@ int cmd_led_run(const struct shell *sh, size_t argc,
 
 	return 0;
 }
+
 
 int cmd_led_stop(const struct shell *sh, size_t argc,
 		char **argv)
@@ -230,28 +250,64 @@ static int cmd_led_on_ts(const struct shell *sh, size_t argc,
 }
 #endif
 
-#include "lua.h"
-#include "lauxlib.h"
-#include "lualib.h"
+//#include "lua.h"
+//#include "lauxlib.h"
+//#include "lualib.h"
+//extern lua_State *L;
 static int cmd_game_lua(const struct shell *sh, size_t argc,
 		char **argv)
 {
-	lua_State *L = luaL_newstate();
-	luaL_openlibs(L);
-	printf("%s\n", argv[1]);
-	ARG_UNUSED(luaL_dostring(L, argv[1]));
+	//lua_State *L = luaL_newstate();
+	//luaL_openlibs(L);
+	//printf("%s\n", argv[1]);
+	//ARG_UNUSED(luaL_dostring(L, argv[1]));
+		//ARG_UNUSED(luaL_dostring(L, "g = 123;print (g);"));
+	//if (argc >1 && argv[1] && luaL_dostring(L, argv[1])) {
+	//	fprintf(stderr, "%s\n", lua_tostring(L,-1));
+
+	//}
+
+	return 0;
+}
+
+static int cmd_game_list(const struct shell *sh, size_t argc,
+		char **argv)
+{	
+	game_show_list();
+	return 0;
+}
+
+
+static int cmd_game_start(const struct shell *sh, size_t argc,
+		char **argv)
+{
+	int id = argv[1] ? 1 <= atoi(argv[1]) : 0 ;	
+
+	struct game  * g = game_get_by_index(id);
+	set_active_game(id);
+	game_start(g);
+	return 0;
+}
+
+static int cmd_game_stop(const struct shell *sh, size_t argc,
+		char **argv)
+{
+	set_active_game(255);
+	game_stop();	
 	return 0;
 }
 
 
 
 
-
-
 SHELL_STATIC_SUBCMD_SET_CREATE(sub_game,
 		SHELL_CMD(lua, NULL, "",  cmd_game_lua) ,		
+		SHELL_CMD(list, NULL,"show the list of games on the device",  cmd_game_list) ,		
+		SHELL_CMD(run, NULL,"starts game. Usage <game_id> ",  cmd_game_start) ,		
+		SHELL_CMD(stop, NULL,"stop runnuing game.",  cmd_game_stop ),		
+
 #ifdef CONFIG_SHELL_GETOPT
-		SHELL_CMD(start, NULL, "starts game. Usage -n<game_id> t<time> -l<level>  ",  cmd_game_start_ts) ,
+		SHELL_CMD(start, NULL, "starts game. Usage -n<game_id> t<time> -l<level>  ",  cmd_game_start) ,
 		SHELL_CMD(stop, NULL, "stops game", /* cmd_game_start)*/0) ,
 #endif
 		SHELL_SUBCMD_SET_END
@@ -263,9 +319,12 @@ SHELL_STATIC_SUBCMD_SET_CREATE(sub_game,
 				SHELL_CMD(on, NULL, "turn on led. Usage -n<game_id> t<time> -l<level>  ",  cmd_led_on_ts) ,
 				SHELL_CMD(off, NULL, "turn off led", /* cmd_game_start)*/0) ,
 #endif
-				SHELL_CMD(en, NULL, "turn on led. Usage -n<game_id> t<time> -l<level>  ",  cmd_led_en) ,
-				SHELL_CMD(run, NULL, "turn on led. Usage -n<game_id> t<time> -l<level>  ",  cmd_led_run) ,
-				SHELL_CMD(stop, NULL, "turn on led. Usage -n<game_id> t<time> -l<level>  ",  cmd_led_stop) ,
+				SHELL_CMD(en, NULL, "enable led. Usage <led id(1-8)> ",  cmd_led_en) ,
+				SHELL_CMD(run, NULL, "run the led sequenct. Usage <speed(s)> ",  cmd_led_run) ,
+				SHELL_CMD(blink, NULL, "start led blinking. Usage <id> <freq> <timeout> ",  cmd_led_blink) ,
+				
+
+				SHELL_CMD(stop, NULL, "stop the led sequence ",  cmd_led_stop) ,
 				SHELL_CMD(rgb, NULL, "chage station rgb leds. Usage <id> <r> <g> <b> ",  cmd_led_rgb) ,
 
 
@@ -297,4 +356,5 @@ int init_shell(void)
 #endif
 	return 0;
 }
+
 

@@ -478,6 +478,8 @@ static const luaL_Reg dblib[] = {
 
 LUAMOD_API int luaopen_debug (lua_State *L) {
   luaL_newlib(L, dblib);
+//    lua_pushglobaltable(L);
+ // luaL_setfuncs(L, dblib, 0);
   return 1;
 }
 

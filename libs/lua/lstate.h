@@ -122,8 +122,10 @@ struct lua_longjmp;  /* defined in ldo.c */
 ** is thread safe
 */
 #if !defined(l_signalT)
+#ifdef ZEPHYR
 #include <zephyr/posix/signal.h>
 #include <zephyr/posix/posix_types.h>
+#endif
 typedef int 	sig_atomic_t;
 #define l_signalT	sig_atomic_t
 #endif

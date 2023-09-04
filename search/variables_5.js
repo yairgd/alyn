@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['f_0',['f',['../structluaL__Stream.html#a50fc81b2c6481ab7768e41bdd3793bab',1,'luaL_Stream::f'],['../structRN.html#a128e9ea8208c8492733ed6e8fe80f206',1,'RN::f'],['../unionValue.html#acc94eaa63b3acf650541fcd09025f2ad',1,'Value::f'],['../structCClosure.html#a1ba64febc8e6adc43fdbb82583852000',1,'CClosure::f'],['../structexpdesc.html#afe6e22f2c18d75bc97add0e1f62e93e2',1,'expdesc::f'],['../structFuncState.html#a9eb5835ecb89505391ace26565f4f805',1,'FuncState::f'],['../structLoadF.html#aa799802294df0b9f2778e0fc5c04aaf5',1,'LoadF::f']]],
+  ['f_0',['f',['../structluaL__Stream.html#a50fc81b2c6481ab7768e41bdd3793bab',1,'luaL_Stream::f'],['../structLoadF.html#aa799802294df0b9f2778e0fc5c04aaf5',1,'LoadF::f'],['../structFuncState.html#a9eb5835ecb89505391ace26565f4f805',1,'FuncState::f'],['../structexpdesc.html#afe6e22f2c18d75bc97add0e1f62e93e2',1,'expdesc::f'],['../structCClosure.html#a1ba64febc8e6adc43fdbb82583852000',1,'CClosure::f'],['../unionValue.html#acc94eaa63b3acf650541fcd09025f2ad',1,'Value::f'],['../structRN.html#a128e9ea8208c8492733ed6e8fe80f206',1,'RN::f']]],
   ['finobj_1',['finobj',['../structglobal__State.html#afa672a968752a31f2319d40deecfeecc',1,'global_State']]],
   ['finobjold1_2',['finobjold1',['../structglobal__State.html#a3472d212085f38fb8b5e7aaf2800826f',1,'global_State']]],
   ['finobjrold_3',['finobjrold',['../structglobal__State.html#a237e6929ce1995e5ea10c2099899fd5e',1,'global_State']]],
@@ -15,9 +15,10 @@ var searchData=
   ['free_5frun_12',['free_run',['../structsystem__model.html#af9e18638a045282cef537ac4e1f7ed9a',1,'system_model']]],
   ['free_5frun_5fdelay_5fus_13',['free_run_delay_us',['../structsystem__model.html#ae817e501b14f8cc9ca3ee1a85cecf14b',1,'system_model']]],
   ['freereg_14',['freereg',['../structFuncState.html#a99e672543fbe771557b576b69f54e551',1,'FuncState']]],
-  ['fs_15',['fs',['../structLexState.html#a01999e4f68cc6a3bd0b9eb6ebd241f7b',1,'LexState']]],
-  ['ftransfer_16',['ftransfer',['../structCallInfo.html#add164028847a347cdfce221f697f0f28',1,'CallInfo::ftransfer'],['../structlua__Debug.html#aaf0845009754fbc00f8c0c2d570362e1',1,'lua_Debug::ftransfer']]],
-  ['func_17',['func',['../structCallS.html#ad175aaaa032f3e446b391f4e04bd1a6b',1,'CallS::func'],['../structluaL__Reg.html#a54aa8f9955870caf78148514e61196ce',1,'luaL_Reg::func'],['../structCallInfo.html#a378cfb37136fabfe59d1c38071c6c9d1',1,'CallInfo::func']]],
-  ['funcidx_18',['funcidx',['../structCallInfo.html#adebb7e3602965a04deda09fcaf8fefc1',1,'CallInfo']]],
-  ['funcs_19',['funcs',['../lutf8lib_8c.html#aa4be121cd05b20a87bf4f1d5c1978a1b',1,'lutf8lib.c']]]
+  ['freq_15',['freq',['../structsystem__model.html#a891c6d1059076f3de7ca66883c51924e',1,'system_model']]],
+  ['fs_16',['fs',['../structLexState.html#a01999e4f68cc6a3bd0b9eb6ebd241f7b',1,'LexState']]],
+  ['ftransfer_17',['ftransfer',['../structCallInfo.html#add164028847a347cdfce221f697f0f28',1,'CallInfo::ftransfer'],['../structlua__Debug.html#aaf0845009754fbc00f8c0c2d570362e1',1,'lua_Debug::ftransfer']]],
+  ['func_18',['func',['../structCallS.html#ad175aaaa032f3e446b391f4e04bd1a6b',1,'CallS::func'],['../structluaL__Reg.html#a54aa8f9955870caf78148514e61196ce',1,'luaL_Reg::func'],['../structCallInfo.html#a378cfb37136fabfe59d1c38071c6c9d1',1,'CallInfo::func'],['../structgame.html#a7576ea66b12f1f9243003522a168afa5',1,'game::func']]],
+  ['funcidx_19',['funcidx',['../structCallInfo.html#adebb7e3602965a04deda09fcaf8fefc1',1,'CallInfo']]],
+  ['funcs_20',['funcs',['../lutf8lib_8c.html#aa4be121cd05b20a87bf4f1d5c1978a1b',1,'lutf8lib.c']]]
 ];

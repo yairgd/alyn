@@ -29,7 +29,7 @@ var searchData=
   ['findvararg_26',['findvararg',['../ldebug_8c.html#adc3b876d988831110a4246d4156bbc11',1,'ldebug.c']]],
   ['finishbinexpneg_27',['finishbinexpneg',['../lcode_8c.html#a143564608b873128e8af05828f8c3e36',1,'lcode.c']]],
   ['finishbinexpval_28',['finishbinexpval',['../lcode_8c.html#a01a145e647812f1f883b3f3807e47e86',1,'lcode.c']]],
-  ['finishccall_29',['finishCcall',['../ldo_8c.html#a26a3f3248d1a5d66da6ac8cd4e0a7eeb',1,'finishCcall(lua_State *L, CallInfo *ci):&#160;ldo.c'],['../ldo_8cpp.html#a26a3f3248d1a5d66da6ac8cd4e0a7eeb',1,'finishCcall(lua_State *L, CallInfo *ci):&#160;ldo.cpp']]],
+  ['finishccall_29',['finishccall',['../ldo_8c.html#a26a3f3248d1a5d66da6ac8cd4e0a7eeb',1,'finishCcall(lua_State *L, CallInfo *ci):&#160;ldo.c'],['../ldo_8cpp.html#a26a3f3248d1a5d66da6ac8cd4e0a7eeb',1,'finishCcall(lua_State *L, CallInfo *ci):&#160;ldo.cpp']]],
   ['finishgencycle_30',['finishgencycle',['../lgc_8c.html#ad14690f3e78fd31ce7eddc3acdbeec5b',1,'lgc.c']]],
   ['finishpcall_31',['finishpcall',['../lbaselib_8c.html#a4157e08e6e4e7f4e7ec65b96ca2a22d8',1,'lbaselib.c']]],
   ['finishpcallk_32',['finishpcallk',['../ldo_8c.html#af44d6f238191494fb9fbb39c2876e5d2',1,'finishpcallk(lua_State *L, CallInfo *ci):&#160;ldo.c'],['../ldo_8cpp.html#af44d6f238191494fb9fbb39c2876e5d2',1,'finishpcallk(lua_State *L, CallInfo *ci):&#160;ldo.cpp']]],

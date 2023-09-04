@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['data_0',['data',['../structDumpState.html#a93fbf2fa246b0b54becb7001b826a1bd',1,'DumpState::data'],['../structZio.html#a78d84c6b39ee04b43be6638f2887915d',1,'Zio::data']]],
+  ['data_0',['data',['../structDumpState.html#a93fbf2fa246b0b54becb7001b826a1bd',1,'DumpState::data'],['../structZio.html#a78d84c6b39ee04b43be6638f2887915d',1,'Zio::data'],['../structgame.html#aba27c6281d1aa03491a215930522e0ec',1,'game::data']]],
   ['dblib_1',['dblib',['../ldblib_8c.html#ac91241d20cc27cd0d55e51f4c972101b',1,'ldblib.c']]],
   ['delta_2',['delta',['../unionStackValue.html#a7771cd1552c09ee6ed38b626b2159c14',1,'StackValue']]],
   ['disptab_3',['disptab',['../ljumptab_8h.html#a702a7a7ef2c839cf996469121c2086b0',1,'ljumptab.h']]],

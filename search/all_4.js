@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['data_0',['data',['../structZio.html#a78d84c6b39ee04b43be6638f2887915d',1,'Zio::data'],['../structDumpState.html#a93fbf2fa246b0b54becb7001b826a1bd',1,'DumpState::data']]],
+  ['data_0',['data',['../structgame.html#aba27c6281d1aa03491a215930522e0ec',1,'game::data'],['../structDumpState.html#a93fbf2fa246b0b54becb7001b826a1bd',1,'DumpState::data'],['../structZio.html#a78d84c6b39ee04b43be6638f2887915d',1,'Zio::data']]],
   ['db_5fdebug_1',['db_debug',['../ldblib_8c.html#ad72cc206e90f6ebc343460376c950a14',1,'ldblib.c']]],
   ['db_5fgethook_2',['db_gethook',['../ldblib_8c.html#a6a624ae8d8ff673e72a317b280ed008d',1,'ldblib.c']]],
   ['db_5fgetinfo_3',['db_getinfo',['../ldblib_8c.html#a4eb57e66c2efb2d31c9b9e1b01d27e13',1,'ldblib.c']]],
@@ -66,5 +66,5 @@ var searchData=
   ['dumpvar_63',['dumpVar',['../ldump_8c.html#ad2bf75eb38f1f5a5a7f71818fbb04098',1,'ldump.c']]],
   ['dumpvector_64',['dumpVector',['../ldump_8c.html#aa57836f656453350c7d2b6b89df1b003',1,'ldump.c']]],
   ['dyd_65',['dyd',['../structLexState.html#a3275102e0a909a24d21e8dd183847a2b',1,'LexState::dyd'],['../structSParser.html#a14d6fa86e2bdb1e53b30dfb66e6617a1',1,'SParser::dyd']]],
-  ['dyndata_66',['Dyndata',['../lparser_8h.html#aecb808d1d218e15537c9ff5b72bfd1e5',1,'Dyndata:&#160;lparser.h'],['../structDyndata.html',1,'Dyndata']]]
+  ['dyndata_66',['dyndata',['../lparser_8h.html#aecb808d1d218e15537c9ff5b72bfd1e5',1,'Dyndata:&#160;lparser.h'],['../structDyndata.html',1,'Dyndata']]]
 ];

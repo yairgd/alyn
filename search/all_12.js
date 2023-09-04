@@ -2,7 +2,7 @@ var searchData=
 [
   ['r_0',['r',['../unionSemInfo.html#a43b00f784510a2d500550b81578177d8',1,'SemInfo::r'],['../structsystem__model.html#a4d6aa608cafdf4dc87c2025c80d06add',1,'system_model::r']]],
   ['ra_1',['RA',['../lvm_8c.html#a721dd0af7e652d2d98b1f765f7860bcb',1,'lvm.c']]],
-  ['rand64_2',['Rand64',['../structRand64.html',1,'Rand64'],['../lmathlib_8c.html#ac514b2d1475b8c2e91f0b3a1f46d0f34',1,'Rand64:&#160;lmathlib.c']]],
+  ['rand64_2',['rand64',['../structRand64.html',1,'Rand64'],['../lmathlib_8c.html#ac514b2d1475b8c2e91f0b3a1f46d0f34',1,'Rand64:&#160;lmathlib.c']]],
   ['randfuncs_3',['randfuncs',['../lmathlib_8c.html#a866900ee1a7dd674b2c58e52d18b0a4e',1,'lmathlib.c']]],
   ['randseed_4',['randseed',['../lmathlib_8c.html#aaeea41eadd14e3f30fe6814cc94891c5',1,'lmathlib.c']]],
   ['ranlimit_5',['RANLIMIT',['../ltablib_8c.html#aeb8c42b2dbafa2030e261ba804a7b530',1,'ltablib.c']]],

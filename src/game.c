@@ -22,31 +22,21 @@
 #include "lualib.h"
 #include <zephyr/kernel.h>
 #include "luasrc.h"
+#include "system_model.h"
 
 #define MY_STACK_SIZE 16384
 #define MY_PRIORITY 5
 static sys_dnode_t head;
-static lua_State *L;
+static lua_State *L = 0;
 
 
 K_THREAD_STACK_DEFINE(game_thread_area, MY_STACK_SIZE);
 struct k_thread game_thread;
 k_tid_t game_thread_tid = 0;
 
-#if 0
-static  char lua1[] = " \
-function wait(seconds)\
-    local start = os.time() \
-    while os.time() - start < seconds do \
-    end \
-end \
-for i = 10,1,-1 \
-do \
-   game.enable(i % 8 + 1)\
-   game.delay(1000000); \
-end \
-";
-#endif
+
+
+
 
 static void game_thread_entry(void *g, void *a, void *b) {
 	struct game * game = g;
@@ -54,7 +44,6 @@ static void game_thread_entry(void *g, void *a, void *b) {
 		game->func(game->data);
 	}
 }
-
 
 
 
@@ -71,8 +60,11 @@ static void game_default_c(void *data) {
 
 
 static void game_lua_generic(void *data) {
-	const char * lua =  data;
+	struct lua_game_data *game = data;
 
+	printf("start runnunig lua:  %s\n", game->name);
+	if (L)
+		lua_close(L); 
 	L = luaL_newstate();
 	luaL_openlibs(L);
 #if 0
@@ -81,7 +73,7 @@ static void game_lua_generic(void *data) {
 	}
 #endif
 	int error =
-       luaL_loadbuffer( L, g_lua_game1, sizeof( g_lua_game1 ), "main" )
+       luaL_loadbuffer( L, game->code, game->size, "main" )
        || lua_pcall( L, 0, 0, 0 );
 
 	if (error) {
@@ -89,13 +81,16 @@ static void game_lua_generic(void *data) {
 
 	}
 	lua_close(L);   /* Cya, Lua */
+	L = 0;
+	printf("finish runnunig lua:  %s\n", game->name);
+
 }
 
 
 
 static struct game games[] = {
 	{.name = "default c game",.func = game_default_c},
-	{.name = "default lua game", .func = game_lua_generic, .data = g_lua_game1  },
+	{.name = "default lua game", .func = game_lua_generic, .data = &lua_game1  },
 };
 
 

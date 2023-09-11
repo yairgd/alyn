@@ -147,5 +147,5 @@ var searchData=
   ['os_5ftime_144',['os_time',['../loslib_8c.html#ae32288bc9696b48450146e11c241f943',1,'loslib.c']]],
   ['os_5ftmpname_145',['os_tmpname',['../loslib_8c.html#a89a90062784a8adc223ff4cbe576321d',1,'loslib.c']]],
   ['otherwhite_146',['otherwhite',['../lgc_8h.html#a486df16493498577d4081a8c231154f0',1,'lgc.h']]],
-  ['output_147',['output',['../luac_8c.html#a5a832fe6e2412dfabb93a2adae30e745',1,'output:&#160;luac.c'],['../luac_8c.html#a61a3c9a18380aafb6e430e79bf596557',1,'OUTPUT:&#160;luac.c'],['../luac_8c.html#aa53971c93198f18e062267f4d976a5cf',1,'Output:&#160;luac.c']]]
+  ['output_147',['output',['../luac_8c.html#a61a3c9a18380aafb6e430e79bf596557',1,'OUTPUT:&#160;luac.c'],['../luac_8c.html#aa53971c93198f18e062267f4d976a5cf',1,'Output:&#160;luac.c'],['../luac_8c.html#a5a832fe6e2412dfabb93a2adae30e745',1,'output:&#160;luac.c']]]
 ];

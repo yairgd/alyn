@@ -11,10 +11,11 @@ var searchData=
   ['loadstate_8',['LoadState',['../structLoadState.html',1,'']]],
   ['locvar_9',['LocVar',['../structLocVar.html',1,'']]],
   ['lua_5fdebug_10',['lua_Debug',['../structlua__Debug.html',1,'']]],
-  ['lua_5flongjmp_11',['lua_longjmp',['../structlua__longjmp.html',1,'']]],
-  ['lua_5fstate_12',['lua_State',['../structlua__State.html',1,'']]],
-  ['lual_5fbuffer_13',['luaL_Buffer',['../structluaL__Buffer.html',1,'']]],
-  ['lual_5freg_14',['luaL_Reg',['../structluaL__Reg.html',1,'']]],
-  ['lual_5fstream_15',['luaL_Stream',['../structluaL__Stream.html',1,'']]],
-  ['lx_16',['LX',['../structLX.html',1,'']]]
+  ['lua_5fgame_5fdata_11',['lua_game_data',['../structlua__game__data.html',1,'']]],
+  ['lua_5flongjmp_12',['lua_longjmp',['../structlua__longjmp.html',1,'']]],
+  ['lua_5fstate_13',['lua_State',['../structlua__State.html',1,'']]],
+  ['lual_5fbuffer_14',['luaL_Buffer',['../structluaL__Buffer.html',1,'']]],
+  ['lual_5freg_15',['luaL_Reg',['../structluaL__Reg.html',1,'']]],
+  ['lual_5fstream_16',['luaL_Stream',['../structluaL__Stream.html',1,'']]],
+  ['lx_17',['LX',['../structLX.html',1,'']]]
 ];

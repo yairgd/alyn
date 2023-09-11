@@ -319,7 +319,7 @@ var searchData=
   ['lua_5fwriteline_316',['lua_writeline',['../lauxlib_8h.html#aa4791d9826315ea2d1c716f852026246',1,'lauxlib.h']]],
   ['lua_5fwritestring_317',['lua_writestring',['../lauxlib_8h.html#a575f50815c13a7a99b8ed1ac03fe714a',1,'lauxlib.h']]],
   ['lua_5fwritestringerror_318',['lua_writestringerror',['../lauxlib_8h.html#a3b1208c18201fdc787f852d8e51f6b3a',1,'lauxlib.h']]],
-  ['lua_5fyield_319',['lua_yield',['../lua_8h.html#a19e4e5528fbd5bf4c31e5ff6604e5a38',1,'lua_yield:&#160;lua.h'],['../lua_8h.html#ab69f4bd0c0693d4c8fcfc0ebaeb2806b',1,'LUA_YIELD:&#160;lua.h']]],
+  ['lua_5fyield_319',['lua_yield',['../lua_8h.html#ab69f4bd0c0693d4c8fcfc0ebaeb2806b',1,'LUA_YIELD:&#160;lua.h'],['../lua_8h.html#a19e4e5528fbd5bf4c31e5ff6604e5a38',1,'lua_yield:&#160;lua.h']]],
   ['lua_5fzephyrlibname_320',['LUA_ZEPHYRLIBNAME',['../lualib_8h.html#abe5be456370a776249d636bc5ec4485b',1,'lualib.h']]],
   ['luac_5fbarrier_321',['luaC_barrier',['../lgc_8h.html#a21660a316c42bc1aad10f115e2261bca',1,'lgc.h']]],
   ['luac_5fbarrierback_322',['luaC_barrierback',['../lgc_8h.html#a60903f232a1c51d22de556ea4c144f3a',1,'lgc.h']]],

@@ -100,14 +100,37 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"> */</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#ifndef LUA_SOURCE_H</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">     #define LUA_SOURCE_H</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#define LUA_SOURCE_H</span></div>
 <div class="foldopen" id="foldopen00021" data-start="{" data-end="};">
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="luasrc_8h.html#a3bcb93aac2da82b7a3f8028b946e2e1a">   21</a></span>     <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code hl_variable" href="luasrc_8h.html#a3bcb93aac2da82b7a3f8028b946e2e1a">g_lua_game1</a>[] = {</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">    #include &quot;game1.lua.h&quot;</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>     };</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="structlua__game__data.html">   21</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structlua__game__data.html">lua_game_data</a> {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="structlua__game__data.html#a065f90636c3b8eaeab8888e48c227ab4">   22</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structlua__game__data.html#a065f90636c3b8eaeab8888e48c227ab4">size</a>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="structlua__game__data.html#a773afe80054e4bb452fd3d2844ab73dc">   23</a></span>    <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> * <a class="code hl_variable" href="structlua__game__data.html#a773afe80054e4bb452fd3d2844ab73dc">code</a>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="structlua__game__data.html#a4e79604253d834e856e7416da45d52d9">   24</a></span>    <span class="keywordtype">char</span> <a class="code hl_variable" href="structlua__game__data.html#a4e79604253d834e856e7416da45d52d9">name</a>[32];</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>};</div>
 </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aluasrc_8h_html_a3bcb93aac2da82b7a3f8028b946e2e1a"><div class="ttname"><a href="luasrc_8h.html#a3bcb93aac2da82b7a3f8028b946e2e1a">g_lua_game1</a></div><div class="ttdeci">static const unsigned char g_lua_game1[]</div><div class="ttdef"><b>Definition</b> luasrc.h:21</div></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="foldopen" id="foldopen00028" data-start="{" data-end="};">
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="luasrc_8h.html#aa69fad3ad722ff1c414016b158ef608e">   28</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structlua__game__data.html">lua_game_data</a>  <a class="code hl_variable" href="luasrc_8h.html#aa69fad3ad722ff1c414016b158ef608e">lua_game1</a> = {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    .<a class="code hl_variable" href="structlua__game__data.html#a4e79604253d834e856e7416da45d52d9">name</a> = <span class="stringliteral">&quot;first game&quot;</span>,   </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    .code = ( <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> []) {</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &quot;game1.lua.h&quot;</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    },</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    .size = <span class="keyword">sizeof</span>(( <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> []) {</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#include &quot;game1.lua.h&quot;</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    })  </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>};</div>
+</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aluasrc_8h_html_aa69fad3ad722ff1c414016b158ef608e"><div class="ttname"><a href="luasrc_8h.html#aa69fad3ad722ff1c414016b158ef608e">lua_game1</a></div><div class="ttdeci">struct lua_game_data lua_game1</div><div class="ttdef"><b>Definition</b> luasrc.h:28</div></div>
+<div class="ttc" id="astructlua__game__data_html"><div class="ttname"><a href="structlua__game__data.html">lua_game_data</a></div><div class="ttdef"><b>Definition</b> luasrc.h:21</div></div>
+<div class="ttc" id="astructlua__game__data_html_a065f90636c3b8eaeab8888e48c227ab4"><div class="ttname"><a href="structlua__game__data.html#a065f90636c3b8eaeab8888e48c227ab4">lua_game_data::size</a></div><div class="ttdeci">int size</div><div class="ttdef"><b>Definition</b> luasrc.h:22</div></div>
+<div class="ttc" id="astructlua__game__data_html_a4e79604253d834e856e7416da45d52d9"><div class="ttname"><a href="structlua__game__data.html#a4e79604253d834e856e7416da45d52d9">lua_game_data::name</a></div><div class="ttdeci">char name[32]</div><div class="ttdef"><b>Definition</b> luasrc.h:24</div></div>
+<div class="ttc" id="astructlua__game__data_html_a773afe80054e4bb452fd3d2844ab73dc"><div class="ttname"><a href="structlua__game__data.html#a773afe80054e4bb452fd3d2844ab73dc">lua_game_data::code</a></div><div class="ttdeci">const unsigned char * code</div><div class="ttdef"><b>Definition</b> luasrc.h:23</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

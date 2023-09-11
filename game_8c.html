@@ -86,6 +86,7 @@ $(function() {
 <code>#include &quot;<a class="el" href="lualib_8h_source.html">lualib.h</a>&quot;</code><br />
 <code>#include &lt;zephyr/kernel.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="luasrc_8h_source.html">luasrc.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="system__model_8h_source.html">system_model.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
@@ -119,7 +120,7 @@ Functions</h2></td></tr>
 Variables</h2></td></tr>
 <tr class="memitem:adc50a9d99855dde151886b82e0db31a0" id="r_adc50a9d99855dde151886b82e0db31a0"><td class="memItemLeft" align="right" valign="top">static sys_dnode_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8c.html#adc50a9d99855dde151886b82e0db31a0">head</a></td></tr>
 <tr class="separator:adc50a9d99855dde151886b82e0db31a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a62f94dfc0036bec0c14106c2f15caf3e" id="r_a62f94dfc0036bec0c14106c2f15caf3e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structlua__State.html">lua_State</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a></td></tr>
+<tr class="memitem:a62f94dfc0036bec0c14106c2f15caf3e" id="r_a62f94dfc0036bec0c14106c2f15caf3e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structlua__State.html">lua_State</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a> = 0</td></tr>
 <tr class="separator:a62f94dfc0036bec0c14106c2f15caf3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae121b147d0c455dae40d691e9364c618" id="r_ae121b147d0c455dae40d691e9364c618"><td class="memItemLeft" align="right" valign="top">struct k_thread&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8c.html#ae121b147d0c455dae40d691e9364c618">game_thread</a></td></tr>
 <tr class="separator:ae121b147d0c455dae40d691e9364c618"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -418,11 +419,11 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= {</div>
 <div class="line">    {.name = <span class="stringliteral">&quot;default c game&quot;</span>,.func = <a class="code hl_function" href="game_8c.html#a422acf8b8f68e19c7e8e554bfeeeb3d0">game_default_c</a>},</div>
-<div class="line">    {.name = <span class="stringliteral">&quot;default lua game&quot;</span>, .func = <a class="code hl_function" href="game_8c.html#a7a59149725fef609b7426e2a0ac490cd">game_lua_generic</a>, .data = <a class="code hl_variable" href="luasrc_8h.html#a3bcb93aac2da82b7a3f8028b946e2e1a">g_lua_game1</a>  },</div>
+<div class="line">    {.name = <span class="stringliteral">&quot;default lua game&quot;</span>, .func = <a class="code hl_function" href="game_8c.html#a7a59149725fef609b7426e2a0ac490cd">game_lua_generic</a>, .data = &amp;<a class="code hl_variable" href="luasrc_8h.html#aa69fad3ad722ff1c414016b158ef608e">lua_game1</a>  },</div>
 <div class="line">}</div>
-<div class="ttc" id="agame_8c_html_a422acf8b8f68e19c7e8e554bfeeeb3d0"><div class="ttname"><a href="game_8c.html#a422acf8b8f68e19c7e8e554bfeeeb3d0">game_default_c</a></div><div class="ttdeci">static void game_default_c(void *data)</div><div class="ttdef"><b>Definition</b> game.c:62</div></div>
-<div class="ttc" id="agame_8c_html_a7a59149725fef609b7426e2a0ac490cd"><div class="ttname"><a href="game_8c.html#a7a59149725fef609b7426e2a0ac490cd">game_lua_generic</a></div><div class="ttdeci">static void game_lua_generic(void *data)</div><div class="ttdef"><b>Definition</b> game.c:73</div></div>
-<div class="ttc" id="aluasrc_8h_html_a3bcb93aac2da82b7a3f8028b946e2e1a"><div class="ttname"><a href="luasrc_8h.html#a3bcb93aac2da82b7a3f8028b946e2e1a">g_lua_game1</a></div><div class="ttdeci">static const unsigned char g_lua_game1[]</div><div class="ttdef"><b>Definition</b> luasrc.h:21</div></div>
+<div class="ttc" id="agame_8c_html_a422acf8b8f68e19c7e8e554bfeeeb3d0"><div class="ttname"><a href="game_8c.html#a422acf8b8f68e19c7e8e554bfeeeb3d0">game_default_c</a></div><div class="ttdeci">static void game_default_c(void *data)</div><div class="ttdef"><b>Definition</b> game.c:51</div></div>
+<div class="ttc" id="agame_8c_html_a7a59149725fef609b7426e2a0ac490cd"><div class="ttname"><a href="game_8c.html#a7a59149725fef609b7426e2a0ac490cd">game_lua_generic</a></div><div class="ttdeci">static void game_lua_generic(void *data)</div><div class="ttdef"><b>Definition</b> game.c:62</div></div>
+<div class="ttc" id="aluasrc_8h_html_aa69fad3ad722ff1c414016b158ef608e"><div class="ttname"><a href="luasrc_8h.html#aa69fad3ad722ff1c414016b158ef608e">lua_game1</a></div><div class="ttdeci">struct lua_game_data lua_game1</div><div class="ttdef"><b>Definition</b> luasrc.h:28</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -458,7 +459,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structlua__State.html">lua_State</a>* L</td>
+          <td class="memname"><a class="el" href="structlua__State.html">lua_State</a>* L = 0</td>
         </tr>
       </table>
   </td>

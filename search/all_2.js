@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['b_0',['b',['../structluaL__Buffer.html#ad519a6ef1557666cbdef35e5e8a4ef3b',1,'luaL_Buffer::b'],['../structluaL__Buffer.html#a9216b80b23dca5599b5dade85bed1298',1,'luaL_Buffer::b'],['../structlua__longjmp.html#aec434d21a87f62041e1de5db0dac1eb5',1,'lua_longjmp::b'],['../structsystem__model.html#a22084bb5e087ed6a8983f24f3e3e0b4a',1,'system_model::b'],['../structstr__Writer.html#a4e9fcbe620b5444d1dacae0bbffac39f',1,'str_Writer::B']]],
+  ['b_0',['b',['../structstr__Writer.html#a4e9fcbe620b5444d1dacae0bbffac39f',1,'str_Writer::B'],['../structluaL__Buffer.html#ad519a6ef1557666cbdef35e5e8a4ef3b',1,'luaL_Buffer::b'],['../structluaL__Buffer.html#a9216b80b23dca5599b5dade85bed1298',1,'luaL_Buffer::b'],['../structlua__longjmp.html#aec434d21a87f62041e1de5db0dac1eb5',1,'lua_longjmp::b'],['../structsystem__model.html#a22084bb5e087ed6a8983f24f3e3e0b4a',1,'system_model::b']]],
   ['b_5fstr2int_1',['b_str2int',['../lbaselib_8c.html#add16646ad968920780edf9c81df7e981',1,'lbaselib.c']]],
   ['base_5fci_2',['base_ci',['../structlua__State.html#a8c707493c7e45c7e0467381f5a80175d',1,'lua_State']]],
   ['base_5ffuncs_3',['base_funcs',['../lbaselib_8c.html#a0d05e830245692a51489fe27e499c17b',1,'lbaselib.c']]],

@@ -54,12 +54,13 @@ var searchData=
   ['freeregs_51',['freeregs',['../lcode_8c.html#ae1246635c52f314e973ba1dc527f565a',1,'lcode.c']]],
   ['freestack_52',['freestack',['../lstate_8c.html#ac615222739efb52e2c21dbaea5223853',1,'lstate.c']]],
   ['freeupval_53',['freeupval',['../lgc_8c.html#a41b4adb59140172e2cd717fb921cd372',1,'lgc.c']]],
-  ['fullgen_54',['fullgen',['../lgc_8c.html#a270a46ab08adc0bb728eeb67b5cc45a9',1,'lgc.c']]],
-  ['fullinc_55',['fullinc',['../lgc_8c.html#ac6dccdcfb264cbc5f1776cea79c8e375',1,'lgc.c']]],
-  ['funcargs_56',['funcargs',['../lparser_8c.html#a5050696e535c2da862810fc9910b6afc',1,'lparser.c']]],
-  ['funcinfo_57',['funcinfo',['../ldebug_8c.html#a84af60873d130ffee87eb1721f3231e4',1,'ldebug.c']]],
-  ['funcname_58',['funcname',['../lparser_8c.html#a9c06dde377cf16bda138da1cba949c82',1,'lparser.c']]],
-  ['funcnamefromcall_59',['funcnamefromcall',['../ldebug_8c.html#ae1fb2d25e95702fffc00cc7de5da8a43',1,'ldebug.c']]],
-  ['funcnamefromcode_60',['funcnamefromcode',['../ldebug_8c.html#abe99bfbf7af3bda4490100ae223d7ae3',1,'ldebug.c']]],
-  ['funcstat_61',['funcstat',['../lparser_8c.html#a7ab22c159a4bdcda2bd652f01229111b',1,'lparser.c']]]
+  ['fs_5flittlefs_5fdeclare_5fdefault_5fconfig_54',['FS_LITTLEFS_DECLARE_DEFAULT_CONFIG',['../main_8c.html#a39a646564327bd1dfcbf907b661cebd0',1,'main.c']]],
+  ['fullgen_55',['fullgen',['../lgc_8c.html#a270a46ab08adc0bb728eeb67b5cc45a9',1,'lgc.c']]],
+  ['fullinc_56',['fullinc',['../lgc_8c.html#ac6dccdcfb264cbc5f1776cea79c8e375',1,'lgc.c']]],
+  ['funcargs_57',['funcargs',['../lparser_8c.html#a5050696e535c2da862810fc9910b6afc',1,'lparser.c']]],
+  ['funcinfo_58',['funcinfo',['../ldebug_8c.html#a84af60873d130ffee87eb1721f3231e4',1,'ldebug.c']]],
+  ['funcname_59',['funcname',['../lparser_8c.html#a9c06dde377cf16bda138da1cba949c82',1,'lparser.c']]],
+  ['funcnamefromcall_60',['funcnamefromcall',['../ldebug_8c.html#ae1fb2d25e95702fffc00cc7de5da8a43',1,'ldebug.c']]],
+  ['funcnamefromcode_61',['funcnamefromcode',['../ldebug_8c.html#abe99bfbf7af3bda4490100ae223d7ae3',1,'ldebug.c']]],
+  ['funcstat_62',['funcstat',['../lparser_8c.html#a7ab22c159a4bdcda2bd652f01229111b',1,'lparser.c']]]
 ];

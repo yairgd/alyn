@@ -1,60 +1,58 @@
-# SPDX-License-Identifier: Apache-2.0
-
-cmake_minimum_required(VERSION 3.20.0)
-
-find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
-project(hello_world)
-
-set (PROJ_TOP "/home/yair/alyn/project/")
-
-add_subdirectory(libs/lua)
+cmake_minimum_required(VERSION 3.10)
 
 
-include (${PROJ_TOP}/cmake/functions.cmake)
-set(PRE_CONFIGURE_FILE "${PROJ_TOP}/cmake/git.h.in")
-set(POST_CONFIGURE_FILE "${PROJECT_BINARY_DIR}/git.h")
-include (${PROJ_TOP}/cmake/git_watcher.cmake)
+##https://stackoverflow.com/questions/39807664/how-to-best-tell-cmake-where-to-find-dll
+##https://discourse.cmake.org/t/copying-config-specific-paths-at-build-time/4776
+project(lvgl)
+
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_CXX_STANDARD 20)
+
+include (${CMAKE_SOURCE_DIR}/cmake/functions.cmake)
+set(PRE_CONFIGURE_FILE "${CMAKE_SOURCE_DIR}/cmake/git.h.in")
+set(POST_CONFIGURE_FILE "${CMAKE_BINARY_DIR}/git.h")
+include (${CMAKE_SOURCE_DIR}/cmake/git_watcher.cmake)
 set (CMAKE_CXX_STANDARD 17)
 
-target_sources(app PRIVATE src/main.c
-	src/shell.c
-	src/system_model.c
-	src/main.c	
-	src/hwctl.c	
-	src/game.c
-  	src/lgamelib.c
-  	src/uart.c
 
+#https://stackoverflow.com/questions/10046114/in-cmake-how-can-i-test-if-the-compiler-is-clang
+if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+	add_definitions(-DSLEEP=sleep)
+	set (CMAKE_C_FLAGS  " -g -O0 ${CMAKE_C_FLAGS_DEBUG_INIT}  ${CMAKE_C_FLAGS_DEBUG}    " )
+	set (CMAKE_CXX_FLAGS  " -g -O0  ${CMAKE_CXX_FLAGS_DEBUG_INIT}  ${CMAKE_CXX_FLAGS_DEBUG}    " )
 
-  	src/parser_task.cpp
+elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+	add_definitions(-DSLEEP=Sleep) 
+	add_definitions("-D_CRT_SECURE_NO_WARNINGS -DWIN32")
+	set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} /W4")  
+	set(CMAKE_CXX_FLAGS_DEBUG_INIT " /Zi ")
+	set (CMAKE_CXX_FLAGS  " ${CMAKE_CXX_FLAGS_DEBUG_INIT}  ${CMAKE_CXX_FLAGS_DEBUG}  /MDd" )
 
-	${PROJ_TOP}/game/comm_protocol/protocol-v1/ProtocolStateMachine.cpp
-	${PROJ_TOP}/game-controller/src/HandleUartMsg.cpp
-	${PROJ_TOP}/game/hal/zephyr/uart_zephyr.cpp
+	set(CMAKE_C_FLAGS_DEBUG_INIT "  /Zi")
+	set (CMAKE_C_FLAGS  " ${CMAKE_C_FLAGS_DEBUG_INIT}  ${CMAKE_C_FLAGS_DEBUG}   /MDd " )
 
-	#	src/getopt/getopt.c
-)
-
-
-target_include_directories(app PRIVATE
-	${PROJ_TOP}/game/comm_protocol/
-	${PROJ_TOP}/game/
-	${PROJ_TOP}/game/hal
-	${PROJ_TOP}/
-	${PROJECT_BINARY_DIR}
+	link_directories(
+		${CMAKE_SOURCE_DIR}/x64-windows/debug/lib
 	)
-
-target_include_directories(app PRIVATE
-	src/getopt
-)
-target_link_libraries(app PRIVATE lua_module)
-
-target_compile_definitions(app PUBLIC
-	-D NO_SYSLOG)
+	include_directories(
+		${CMAKE_SOURCE_DIR}/x64-windows/include/
+	)
+endif()
 
 
-lua_generate_inc_file_for_target(
-	app
-	${CMAKE_CURRENT_SOURCE_DIR}/lua/game1.lua
-)
+
+
+if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" )
+	set (TARGET "LINUX_PC")	
+elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+	set (UART_FILE uart_win.cpp)
+	set (TARGET "WINDOWS")	
+endif()
+
+
+
+add_subdirectory(game)
+
+
+
 

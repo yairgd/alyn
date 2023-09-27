@@ -1,7 +1,7 @@
 // Created from bdf2c Version 4, (c) 2009, 2010 by Lutz Sammer
 //	License AGPLv3: GNU Affero General Public License version 3
 
-#include "font.h"
+#include "font_base.h"
 
 	/// character bitmap for each encoding
 static const unsigned char __font_bitmap__[] = {
@@ -3195,7 +3195,7 @@ static const unsigned short __font_index__[] = {
 };
 
 	/// bitmap font structure
-const struct bitmap_font font = {
+const struct font font = {
 	.Width = 6, .Height = 13,
 	.Chars = 187,
 	.Widths = __font_widths__,
@@ -3203,3 +3203,6 @@ const struct bitmap_font font = {
 	.Bitmap = __font_bitmap__,
 };
 
+ const struct font * font_6x13() {
+	 return &font;
+ }

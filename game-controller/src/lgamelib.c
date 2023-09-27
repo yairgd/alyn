@@ -8,6 +8,7 @@
 #define LUA_LIB
 
 #include "lprefix.h"
+#include "u8.h"
 
 
 #include <ctype.h>
@@ -69,6 +70,22 @@ static int luaB_blink (lua_State *L) {
 }
 
 
+static int luaB_banner_print(lua_State *L) {
+  char * str = (char*) luaL_checkstring (L, -1);
+  int len, unicode;
+
+  lua_pop (L, 1);
+
+  while (*str) {
+  	len = u8_to_unicode(str, &unicode );
+	printf("%x\n", unicode);
+	str += len;
+		
+  }
+  k_sleep(K_USEC(1));		
+  return 0;
+}
+
 
 static const luaL_Reg game_funcs[] = {
 
@@ -76,6 +93,7 @@ static const luaL_Reg game_funcs[] = {
   {"enable", luaB_enable},
   {"delay", luaB_delay},
   {"blink", luaB_blink},
+  {"banner_print", luaB_banner_print},
 
   /* placeholders */
   {NULL, NULL}

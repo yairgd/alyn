@@ -3,6 +3,7 @@ function wait(seconds)
     while os.time() - start < seconds do 
     end 
 end 
+game.banner_print("אבגדהabcd")
 for i = 10,1,-1 
 do 
    game.enable(i % 8 + 1)

@@ -24,6 +24,9 @@ target_sources(app PRIVATE src/main.c
 	src/game.c
   	src/lgamelib.c
   	src/uart.c
+  	src/u8.c
+  	src/font.c
+  	src/banner.c
 
 
   	src/parser_task.cpp

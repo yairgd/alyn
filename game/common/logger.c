@@ -22,7 +22,7 @@
 #include <stdint.h>
 #include <time.h>
 #include <string.h>
-
+#include <unistd.h>
 
 
 int log_facility;

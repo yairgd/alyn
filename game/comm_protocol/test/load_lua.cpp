@@ -32,7 +32,7 @@
 #include "common/logger.h"
 
 #include "IUart.h"
-#include "game_api.h"
+#include "src/game_api.h"
 #include "git.h"
 
 #include <unistd.h>

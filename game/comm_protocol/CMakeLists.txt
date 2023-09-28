@@ -15,6 +15,8 @@ add_library(protocol_static STATIC
 target_include_directories(protocol_static PUBLIC 
 	${CMAKE_CURRENT_SOURCE_DIR}
 	${CMAKE_SOURCE_DIR}/game/
+
+
 )
 
 

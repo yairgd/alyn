@@ -22,10 +22,10 @@
 #include "canvas.h"
 #include "u8.h"
 
-void canvas_init(struct canvas * canvas, int width, int height)
+void canvas_init(struct canvas * canvas, const struct font * font, int width, int height)
 {
 	memset (canvas, 0, sizeof(*canvas));
-	canvas->font = font_6x13();
+	canvas->font = font;
 	canvas->font_color = RGB(255,255,255);
 	canvas->bg_color = RGB(0,0,0);
 
@@ -50,15 +50,15 @@ void canvas_write_font(struct canvas * canvas, int char_id, int x,int y) {
 		for (int w = 0; w < canvas->font->Width && x + w < canvas->width; w++) {
 			if (bit(buf, w)) {
 				SET_BIT_COLOR(canvas,x+w,y+h,canvas->font_color);
-				printf("x");				
+			//	printf("x");				
 			} else {
 				SET_BIT_COLOR(canvas,x+w,y+h,canvas->bg_color);
-				printf("_");				
+				//printf("_");				
 			}
 
 		}
 		buf += font_chars_per_row(canvas->font);
-		printf("\n");		
+		//printf("\n");		
 		//
 	}
 }
@@ -113,9 +113,18 @@ void canvas_print(struct canvas * canvas, int x, int y, const char* str){
 
 		canvas_write_font(canvas,char_value,x+i*font_width(canvas->font,0) ,y);		
 		i++;
-		printf("%x\n", char_value);
+		//printf("%x\n", char_value);
 		str += len;		
 	}
 
 
+}
+
+
+void canvas_fill_rect(const struct canvas * canvas, struct rect * rect,int color) {
+	for (int x = rect->top_left_x; x < rect->buttom_right_x && x < canvas->width; x++) {
+		for (int y = rect->top_left_y; y < rect->buttom_right_y && y < canvas->height; y++) {
+			 SET_BIT_COLOR(canvas,x,y,color);	
+		}
+	}
 }

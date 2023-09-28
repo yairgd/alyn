@@ -21,13 +21,6 @@
 #include "canvas.h"
 
 
-struct rect {
-		int top_left_x;
-		int top_left_y;
-		int buttom_right_x;
-		int buttom_right_y;
-	} ;
-
 
 /**
  * @class banner
@@ -36,19 +29,38 @@ struct rect {
  */
 struct banner {
 	struct canvas canvas;
-	char * rect_buffer;
-	int blink_rate ;     // is abpove 0, the letters blink, 
-	int letter_blink_id; // the index of letter to blink, if -1, all letter blink
 	char text[256];
-
+	int x;
+	int y;
+	int effect_id;  // 0, none , 1 blink, 2
+	union effect {
+		struct blink_effect {
+			int rate ;     // is abpove 0, the letters blink, 
+			int start_idx; // the index of letter to blink, if -1, all letter blink
+			int end_idx;
+			int on;  // 0 - no text, 1 display text
+			int tick_time;
+			int cnt ;
+		} blink;
+		struct rotate_effect {
+			int tick_time;
+			int step;
+			int direction; //0 no rotation, 1 left 2, right
+			int cnt;
+		} rotate;
+		struct canvas_effet {
+			// can use to manipulate canvas using external function
+			void (*do_effect)(struct canvas *);
+		} canvas;
+	} effet;
 };
-void banner_init(struct banner * banner, int width, int height);
+
+void banner_init_by_canvas(struct banner * banner, void (*do_effect)(struct canvas *));
+struct canvas * banner_get_canvas(struct banner * banner);
 void banner_set_text(struct banner * banner, int x, int y,const char* fmt, ...);
-void banner_set_rect(struct banner * banner, int tlx, int tly , int brx, int bry);
-const char * banner_get_buffer(struct banner * banner, struct rect * r);
-void banner_init_with_text(struct banner * banner, int x, int y,const char* fmt, ...);
-
-int rect_width(struct rect * rect);
-int rect_height(struct rect * rect);
-
+void banner_get_buffer(struct banner * banner, struct rect * r,  char *rect_buffer);
+void banner_init_with_text(struct banner * banner, const struct font * font, int x, int y,const char* fmt, ...);
+void banner_blink_effect(struct banner * banner, int rate, int start_idx,int end_idx, int tick_time);
+void banner_rotate_effect(struct banner * banner, int direction, int step, int tick_time);
+void banner_manage (struct banner * banner);
 #endif

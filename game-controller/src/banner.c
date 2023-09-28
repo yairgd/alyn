@@ -17,6 +17,7 @@
  */
 
 #include "banner.h"
+#include "canvas.h"
 #include "u8.h"
 #include <assert.h>
 
@@ -35,56 +36,26 @@ int rect_height(struct rect * r){
 }
 
 
-
+struct  canvas *  banner_get_canvas(struct banner * banner)
+{
+	return &banner->canvas;
+}
 /**
  * Created  09/25/2023
- * @brief   initze the canvas that is defined in the banner
+ * @brief   init banner with external canvsa (pre defined canvas)
  * @note  
- * @param   
+ * @param   banner ponter
+ * @param   canvs pointer to canvs
+ * @param   canvas_effect pointer to effect function on the givven canvs
  * @return  
  */
-void banner_init(struct banner * banner, int width, int height) {
-	canvas_free (&banner->canvas);
-	canvas_init(&banner->canvas, width, height);
+void banner_init_by_canvas(struct banner * banner, void (*do_effect)(struct canvas *)) {
+	banner->effect_id = 3;
+	banner->effet.canvas.do_effect	= do_effect;
+	do_effect (&banner->canvas);
 }
 
 
-
-
-/**
- * Created  09/25/2023
- * @brief  initilize banner 
- * This function defined a recnatge that defined the part of the recnacge that is avalible for display
- * @note  
- * @param   tlx top left x of the banner to be avalive for display
- * @param   tly top left y
- * @param   brx buttom right x
- * @param   bry buttom right y
- * @return  
- */
-void banner_set_rect(struct banner * banner, int tlx, int tly , int brx, int bry) {
-	assert (brx > tlx);
-	assert (bry > tly);
-
-//	banner->r.buttom_right_x = brx;
-//	banner->r.buttom_right_y = bry;
-//	banner->r.top_left_x = tlx;
-//	banner->r.top_left_y = tly;
-	if (banner->rect_buffer) {
-		free(banner->rect_buffer);
-	}
-	banner->rect_buffer = malloc ((brx - tlx) * (bry - tly) * 4);
-
-}
-/*
-int banner_rect_width(struct banner * banner) {
-	//return r->buttom_right_x - r->top_left_x;
-
-}
-int banner_rect_height(struct banner * banner){
-	//return banner->r.buttom_right_y - banner->r.top_left_y;	
-}
-*/
 /**
  * Created  09/25/2023
  * @brief  initilize banner  
@@ -92,17 +63,15 @@ int banner_rect_height(struct banner * banner){
  * @param    
  * @return  
  */
-void banner_init_with_text(struct banner * banner, int x, int y,const char* fmt, ...){ 
+void banner_init_with_text(struct banner * banner,const struct font * font, int x, int y,const char* fmt, ...){ 
 	va_list args;
 	va_start(args, fmt);
 
 	vsnprintf(banner->text,sizeof(banner->text), fmt, args);
-
 	int len = u8_strlen(banner->text);
-	
-	banner_init(banner, len * 6 /*font_width(banner->canvas.font,0)*/, 20 /*font_height(banner->canvas.font) */) ;
-
-	
+	banner->x = x;
+	banner->y = y;
+	canvas_init(&banner->canvas,font, len * font_width(font,0) , font_height(font) );
 	canvas_print(&banner->canvas, x,y, banner->text);
 }
 
@@ -110,26 +79,6 @@ void banner_set_text(struct banner * banner, int x, int y,const char* fmt, ...){
 	va_list args;
 	va_start(args, fmt);
 	vsnprintf(banner->text,sizeof(banner->text), fmt, args);
-}
-
-/**
- * Created  09/26/2023
- * @brief   This routine is invoked upon each timeout expiration to update the banner state in accordance with its configuration
- * @note  
- * @param   
- * @return  
- */
-void banner_manage() {
-	//CONFIG_TIMER_HAS_64BIT_CYCLE_COUNTER
-	// https://docs.zephyrproject.org/apidoc/latest/group__clock__apis.html
-	//static uint64_t k_cycle_get_64 
-	//	static uint32_t k_cycle_get_32 	( 	void  		) 	
-	//	static int64_t k_uptime_delta 	( 	int64_t *  	reftime	) 	
-}
-
-
-void banner_set_blink_rate(struct banner * banner, int blink_rate) {
-	banner->blink_rate = blink_rate;
 }
 
 
@@ -142,16 +91,99 @@ void banner_set_blink_rate(struct banner * banner, int blink_rate) {
  * @param   
  * @return  
  */
-const char * banner_get_buffer(struct banner * banner, struct rect * r) {
+void banner_get_buffer(struct banner * banner, struct rect * r, char *rect_buffer) {
 	int w = r->buttom_right_x - r->top_left_x ;
-	//int h = banner->r.top_left_y - banner->r.buttom_right_y;
+
+
 
 	for (int y = r->top_left_y; y < r->buttom_right_y && y < banner->canvas.height; y ++) {
 		for (int x = r->top_left_x; x < r->buttom_right_x && x < banner->canvas.width; x++) {
 			int pixel = *(int*)&banner->canvas.buffer[4 * (x) + 4 * (y) * banner->canvas.width];
-			*(int*)&banner->rect_buffer[4 * (x - r->top_left_x) + 4 * (y - r->top_left_y) * w ] = pixel;
+			*(int*)&rect_buffer[4 * (x - r->top_left_x) + 4 * (y - r->top_left_y) * w ] = pixel;
 		}
 	}
-	return banner->rect_buffer;
+}
+
+void banner_blink_effect(struct banner * banner, int rate, int start_idx, int end_idx, int tick_time) {
+	banner->effet.blink.rate = rate;
+	banner->effet.blink.start_idx = start_idx;
+	banner->effet.blink.end_idx = end_idx;
+	banner->effet.blink.tick_time = tick_time;
+	banner->effet.blink.cnt	= 0;
+	banner->effect_id = 1;
+	banner->effet.blink.on = 1;
+
+}
+
+void banner_rotate_effect(struct banner * banner, int direction, int step, int tick_time) {
+	banner->effect_id = 2;
+	banner->effet.rotate.direction = direction;
+	banner->effet.rotate.tick_time = tick_time;
+	banner->effet.rotate.step = step;
+	banner->effet.rotate.cnt = 0;
+
+}
+
+static void bannner_manage_blink(struct banner * banner) 
+{
+	banner->effet.blink.cnt++;
+
+	if (banner->effet.blink.cnt >= banner->effet.blink.rate) {
+		banner->effet.blink.cnt = 0;
+		if (banner->effet.blink.on == 1) {
+			banner->effet.blink.on = 0;
+			if (banner->effet.blink.end_idx !=0 && banner->effet.blink.start_idx <= banner->effet.blink.end_idx)
+				// blink range of letters
+				canvas_fill_rect(&banner->canvas, &(struct rect  ){banner->x + banner->effet.blink.start_idx * font_width(banner->canvas.font,0) ,banner->y,banner->effet.blink.end_idx * font_width(banner->canvas.font,0) , font_height(banner->canvas.font)},0);
+
+			else   { // blink all text
+				int len = u8_strlen(banner->text);				
+				canvas_fill_rect(&banner->canvas, &(struct rect  ){banner->x,banner->y,len * font_width(banner->canvas.font,0) , font_height(banner->canvas.font)},0);
+			}
+		}
+		else {
+			banner->effet.blink.on = 1;
+			canvas_print(&banner->canvas, banner->x,banner->y, banner->text);
+		}
+	}
+}
+
+static void bannner_manage_rotate(struct banner * banner) {
+	banner->effet.rotate.cnt++;
+
+	if (banner->effet.rotate.cnt >= banner->effet.rotate.tick_time) {
+		banner->effet.rotate.cnt = 0;
+		if (banner->effet.rotate.direction == 1) {
+			canvas_rotate_left(&banner->canvas,banner->effet.rotate.step);	
+		} else if (banner->effet.rotate.direction == 2) {
+			canvas_rotate_right(&banner->canvas,banner->effet.rotate.step);				
+		}
+	}
+
+}
+
+
+/**
+ * Created  09/26/2023
+ * @brief   This routine is invoked upon each timeout expiration to update the banner state in accordance with its configuration
+ * @note  
+ * @param   
+ * @return  
+ */
+void banner_manage(struct banner * banner) {
+	switch (banner->effect_id) {
+		case 1: // blink
+			bannner_manage_blink(banner);
+			break;
+		case 2: // rotate
+			bannner_manage_rotate(banner);
+			break;
+		case 3:
+			banner->effet.canvas.do_effect(&banner->canvas);
+			break;
+		default:
+			// do nothing
+			break;
+	};
 }
 

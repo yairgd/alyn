@@ -29,7 +29,16 @@
 #define GET_BIT_COLOR(canvas,w,h) (*((int*)&canvas->buffer[4 * (w) + 4 * (h) * canvas->width]))
 #define bit(x,n)(x[(n)/8] & (1 << (7-(n)%8)) ? 1 : 0)
 
-		  
+struct rect {
+	int top_left_x;
+	int top_left_y;
+	int buttom_right_x;
+	int buttom_right_y;
+} ;
+
+int rect_width(struct rect * rect);
+int rect_height(struct rect * rect);
+
 struct canvas {
 	const struct font * font;
 	char *buffer;
@@ -40,7 +49,8 @@ struct canvas {
 	int width;
 	int height;
 };
-void canvas_init(struct canvas * canvs, int width, int height);
+
+void canvas_init(struct canvas * canvs, const struct font * f, int width, int height);
 void canvas_write_font(struct canvas * canvas, int char_id, int x,int y);
 void canvas_dump(struct canvas * canvas);
 const char * canvas_buffer(struct canvas * canvas);
@@ -48,4 +58,7 @@ void canvas_rotate_right(struct canvas * canvas, int n);
 void canvas_rotate_left(struct canvas * canvas, int n);
 void canvas_free(struct canvas * canvas);
 void canvas_print(struct canvas * canvas, int x, int y,const char* txt);
+void canvas_fill_rect(const struct canvas * canvas, struct rect * rect,int color);
+
+
 #endif

@@ -28,10 +28,11 @@
  * is to manage the Canvas class for rendering the banner.
  */
 struct banner {
+	int is_init;
 	struct canvas canvas;
 	char text[256];
-	int x;
-	int y;
+	//int x;
+	//int y;
 	int effect_id;  // 0, none , 1 blink, 2
 	union effect {
 		struct blink_effect {
@@ -63,4 +64,9 @@ void banner_init_with_text(struct banner * banner, const struct font * font, int
 void banner_blink_effect(struct banner * banner, int rate, int start_idx,int end_idx, int tick_time);
 void banner_rotate_effect(struct banner * banner, int direction, int step, int tick_time);
 void banner_manage (struct banner * banner);
+int banner_is_initialize (struct banner * banner);
+char * banner_get_canvas_buffer(struct banner * banner);
+int banner_width (struct banner * banner);
+int banner_height (struct banner * banner);
+
 #endif

@@ -27,6 +27,7 @@ target_sources(app PRIVATE src/main.c
   	src/u8.c
   	src/font.c
   	src/banner.c
+	src/led_matrix.c
 
 
   	src/parser_task.cpp

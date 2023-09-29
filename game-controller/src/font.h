@@ -25,5 +25,5 @@ extern const struct font * font_6x13();
 const char * font_get_map(const struct font *, int idx);
 int font_width(const struct font * font, int unicode);
 int font_height(const struct font * font);
-
+int font_chars_per_row(const struct font * font);
 #endif

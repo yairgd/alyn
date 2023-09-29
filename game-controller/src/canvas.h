@@ -32,8 +32,8 @@
 struct rect {
 	int top_left_x;
 	int top_left_y;
-	int buttom_right_x;
-	int buttom_right_y;
+	int width;
+	int height;
 } ;
 
 int rect_width(struct rect * rect);
@@ -49,8 +49,7 @@ struct canvas {
 	int width;
 	int height;
 };
-
-void canvas_init(struct canvas * canvs, const struct font * f, int width, int height);
+void canvas_init(struct canvas * canvs, int width, int height);
 void canvas_write_font(struct canvas * canvas, int char_id, int x,int y);
 void canvas_dump(struct canvas * canvas);
 const char * canvas_buffer(struct canvas * canvas);
@@ -58,7 +57,12 @@ void canvas_rotate_right(struct canvas * canvas, int n);
 void canvas_rotate_left(struct canvas * canvas, int n);
 void canvas_free(struct canvas * canvas);
 void canvas_print(struct canvas * canvas, int x, int y,const char* txt);
+void canvas_set_font(struct canvas * canvs, const struct font * f);
+void canvas_get_rect(struct canvas * canvas, struct rect * r, char *rect_buffer);
+void canvas_set_rect(struct canvas * canvas, struct rect * r, char *rect_buffer) ;
 void canvas_fill_rect(const struct canvas * canvas, struct rect * rect,int color);
+
+
 
 
 #endif

@@ -18,18 +18,20 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include <assert.h>
+#include <stdio.h>
 
 #include "canvas.h"
 #include "u8.h"
 
-void canvas_init(struct canvas * canvas, const struct font * font, int width, int height)
+void canvas_init(struct canvas * canvas, int width, int height)
 {
 	memset (canvas, 0, sizeof(*canvas));
-	canvas->font = font;
+	canvas->font = 0;
 	canvas->font_color = RGB(255,255,255);
 	canvas->bg_color = RGB(0,0,0);
 
-
+	
 	canvas->width = width;
 	canvas->height = height;
 	canvas->buffer = malloc(4 * width * height);
@@ -106,11 +108,14 @@ void canvas_rotate_left(struct canvas * canvas, int n) {
 void canvas_print(struct canvas * canvas, int x, int y, const char* str){ 
 	int len, unicode;
 	int i = 0;
+	if  (canvas->font == 0)
+			canvas->font = font_6x13();
+
 	while (*str) {
 		len = u8_to_unicode(str, &unicode );
 
 		int char_value = UNICODE_TO_ISO8859_8(unicode);
-
+		
 		canvas_write_font(canvas,char_value,x+i*font_width(canvas->font,0) ,y);		
 		i++;
 		//printf("%x\n", char_value);
@@ -121,10 +126,59 @@ void canvas_print(struct canvas * canvas, int x, int y, const char* str){
 }
 
 
-void canvas_fill_rect(const struct canvas * canvas, struct rect * rect,int color) {
-	for (int x = rect->top_left_x; x < rect->buttom_right_x && x < canvas->width; x++) {
-		for (int y = rect->top_left_y; y < rect->buttom_right_y && y < canvas->height; y++) {
+void canvas_fill_rect(const struct canvas * canvas, struct rect * r,int color) {
+	int buttom_right_y = r->top_left_y + r->height - 0;
+	int buttom_right_x = r->top_left_x + r->width - 0;
+
+	for (int x = r->top_left_x; x < buttom_right_x && x < canvas->width; x++) {
+		for (int y = r->top_left_y; y < buttom_right_y && y < canvas->height; y++) {
 			 SET_BIT_COLOR(canvas,x,y,color);	
+		}
+	}
+}
+
+void canvas_set_font(struct canvas * canvas, const struct font * f)
+{
+	canvas->font = f;
+}
+
+
+/**
+ * Created  09/26/2023
+ * @brief   return data from rectangle. The function
+ * rearrange the new rectangle.
+ * @note  
+ * @param   
+ * @return  
+ */
+void canvas_get_rect(struct canvas * canvas, struct rect * r, char *rect_buffer) {
+	int buttom_right_x = r->top_left_x + r->width - 0;
+	int buttom_right_y = r->top_left_y + r->height - 0;
+
+	for (int y = r->top_left_y; y < buttom_right_y && y < canvas->height; y ++) {
+		for (int x = r->top_left_x; x < buttom_right_x && x < canvas->width; x++) {
+			int pixel = *(int*)&canvas->buffer[4 * (x) + 4 * (y) * canvas->width];
+			*(int*)&rect_buffer[4 * (x - r->top_left_x) + 4 * (y - r->top_left_y) *  r->width] = pixel;
+		}
+	}
+}
+
+
+/**
+ * Created  09/26/2023
+ * @brief   place data in tectange
+ * @note  
+ * @param   
+ * @return  
+ */
+void canvas_set_rect(struct canvas * canvas, struct rect * r, char *rect_buffer) {
+	int buttom_right_x = r->top_left_x + r->width - 0;
+	int buttom_right_y = r->top_left_y + r->height - 0;
+
+	for (int y = r->top_left_y; y < buttom_right_y && y < canvas->height; y ++) {
+		for (int x = r->top_left_x; x < buttom_right_x && x < canvas->width; x++) {
+			int pixel = *(int*)&rect_buffer[4 * (x - r->top_left_x) + 4 * (y - r->top_left_y) *  r->width] ;
+			*(int*)&canvas->buffer[4 * (x) + 4 * (y) * canvas->width] = pixel;
 		}
 	}
 }

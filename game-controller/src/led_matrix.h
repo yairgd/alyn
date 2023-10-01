@@ -20,17 +20,25 @@
 #define LED_MATRIX_H 
 
 #include "banner.h"
+#include "frame.h"
+#include "canvas.h"
+
 struct led_matrix {
 	struct canvas canvas;
 	char * buffer;
 	struct banner_location {
-		int x,y;
+		struct rect r; // rectangle inside led matrix		
 		struct banner banner;
 	} banners[3];
+
+	struct frame frame;
 };
 
 void led_matrix_free(struct led_matrix * matrix);
 void led_matrix_init(struct led_matrix * matrix,int width, int height);
 void led_matrix_manage(struct led_matrix * matrix);
 struct banner * led_matrix_get_banner(struct led_matrix * matrix, int id);
+struct frame * led_matrix_get_frame(struct led_matrix * matrix, int id);
+
+
 #endif

@@ -39,19 +39,35 @@ struct banner * led_matrix_get_banner(struct led_matrix * matrix, int id) {
 	return 0;
 }
  
+
+
+struct frame * led_matrix_get_frame(struct led_matrix * matrix, int id) {
+	return &matrix->frame;
+}
+
+char b[64*32*4];
 void led_matrix_manage(struct led_matrix * matrix){
 	
 	// mange the banners and place its contetnt on canvs
 	for (int i = 0; i < sizeof(matrix->banners) / sizeof(struct banner_location); i++) {
 		if (banner_is_initialize(&matrix->banners[i].banner)) {
 			banner_manage(&matrix->banners[i].banner); 
-			char * b = banner_get_canvas_buffer(&matrix->banners[i].banner);
-			canvas_set_rect(&matrix->canvas, &(struct rect){matrix->banners[i].x,matrix->banners[i].y ,banner_width(&matrix->banners[i].banner), banner_height(&matrix->banners[i].banner)},b);
+//			char * b = banner_get_canvas_buffer(&matrix->banners[i].banner);
+
+			// get recnange from the canvas of the banner
+			canvas_get_rect(&matrix->banners[i].banner.canvas, &(struct rect){0,0 , matrix->banners[i].r.width ,  matrix->banners[i].r.height   },b);
+
+			//canvas_set_rect(&matrix->canvas, &(struct rect){matrix->banners[i].x,matrix->banners[i].y ,banner_width(&matrix->banners[i].banner), banner_height(&matrix->banners[i].banner)},b);
+			
+			// place the buffer of the banner in the canvas of the display	
+			canvas_set_rect(&matrix->canvas, &(struct rect){matrix->banners[i].r.top_left_x,matrix->banners[i].r.top_left_y , matrix->banners[i].r.width ,  matrix->banners[i].r.height   },b);
+
 		}
 	}
 
 	// manage other elements here. exmplae (round bar - TODO , it is element like banner - a differnce one)
 
+	frame_manage(&matrix->frame);
 }
 
 

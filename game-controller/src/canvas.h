@@ -61,6 +61,7 @@ void canvas_set_font(struct canvas * canvs, const struct font * f);
 void canvas_get_rect(struct canvas * canvas, struct rect * r, char *rect_buffer);
 void canvas_set_rect(struct canvas * canvas, struct rect * r, char *rect_buffer) ;
 void canvas_fill_rect(const struct canvas * canvas, struct rect * rect,int color);
+void canvas_plot(const struct canvas * canvas, int x,int y,int color);
 
 
 

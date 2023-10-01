@@ -28,6 +28,7 @@ struct frame {
 		unsigned int y : 16;
 		unsigned int c ;
 	} points[MAX_POINTS_PER_FRAME];
+	int num_of_points;
 
 	struct points_group {
 		unsigned short start_idx : 16;

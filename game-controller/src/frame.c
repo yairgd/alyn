@@ -78,28 +78,21 @@ static void _plot_pixels(struct frame * f, int type) {
 		}
 }
 
+
+
 /**
- * Created  09/30/2023
- * @brief   initilize the frame to be in rectange shape
+ * Created  10/01/2023
+ * @brief   collects points of rectangle frame
  * @note  
  * @param   
  * @return  
  */
-void frame_rectangle_init(struct frame * f , struct canvas * canvas,struct animate_config_frame * af ) 
-{
+static void _collects_points_of_rectangle_frame(struct frame * f) {
 	int idx = 0;
-	f->canvas = canvas;
-
-	f->type = 1;
-	f->effect.animate_frame = *af;
-
-
-
-
 	int c1 = f->effect.animate_frame.c1;
 	int c2 = f->effect.animate_frame.c2;
 	int rate = f->effect.animate_frame.color_change_rate;
-	struct rect * r = &af->r;
+	struct rect * r = &f->effect.animate_frame.r;
 
 	// take all point from upper line -->
 	for (int x = r->top_left_x; x < r->top_left_x + r->width ;x++) {
@@ -127,22 +120,36 @@ void frame_rectangle_init(struct frame * f , struct canvas * canvas,struct anima
 		f->points[idx].c = _color_switch(c1, c2,rate) ;	
 		f->points[idx].x = r->top_left_x;
 		f->points[idx++].y = y;
-
-
 	}
 
-	f->num_of_groups = 1;
-	f->group[0].start_idx = 0;
-	f->group[0].end_idx = idx - 1;
-	f->group[0].current_idx = 0;
-
-
-	
+	f->num_of_points = idx;
 
 }
 
+/**
+ * Created  09/30/2023
+ * @brief   initilize the frame to be in rectange shape
+ * @note  
+ * @param   
+ * @return  
+ */
+void frame_rectangle_init(struct frame * f , struct canvas * canvas,struct animate_config_frame * af ) 
+{
+	f->canvas = canvas;
 
-static void frame_animate_frame_manage(struct frame * f) {
+	f->type = 1;
+	f->effect.animate_frame = *af;
+	_collects_points_of_rectangle_frame(f);
+
+
+	f->num_of_groups = 1;
+	f->group[0].start_idx = 0;
+	f->group[0].end_idx = f->num_of_points - 1;
+	f->group[0].current_idx = 0;
+}
+
+
+static void frame_animate_rectangle_frame_manage(struct frame * f) {
 	f->tick++;
 	if (f->tick == f->effect.animate_frame.tick) {
 		f->tick=0;
@@ -156,7 +163,7 @@ void frame_manage(struct frame * f) {
 
 	switch (f->type) {
 		case 1:
-			frame_animate_frame_manage(f);
+			frame_animate_rectangle_frame_manage(f);
 			break;
 		default:
 			break;

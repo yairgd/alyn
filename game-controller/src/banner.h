@@ -31,8 +31,7 @@ struct banner {
 	int is_init;
 	struct canvas canvas;
 	char text[256];
-	//int x;
-	//int y;
+	int tick;
 	int effect_id;  // 0, none , 1 blink, 2
 	union effect {
 		struct blink_effect {
@@ -41,13 +40,13 @@ struct banner {
 			int end_idx;
 			int on;  // 0 - no text, 1 display text
 			int tick_time;
-			int cnt ;
+			//int cnt ;
 		} blink;
 		struct rotate_effect {
 			int tick_time;
 			int step;
 			int direction; //0 no rotation, 1 left 2, right
-			int cnt;
+			//int cnt;
 		} rotate;
 		struct canvas_effet {
 			// can use to manipulate canvas using external function

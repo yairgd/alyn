@@ -32,8 +32,19 @@ void led_matrix_free(struct led_matrix * matrix) {
 	free(matrix->buffer);
 }
 
-struct banner * led_matrix_get_banner(struct led_matrix * matrix, int id) {
+
+/**
+ * Created  10/01/2023
+ * @brief   return  pointer to banner
+ * @note  
+ * @param   led_matrix the RGB led matrix display handle
+ * @param   id banner id
+ * @param   r the rectange of the banner in the led_matrix
+ * @return  
+ */
+struct banner * led_matrix_get_banner(struct led_matrix * matrix, int id, struct rect * r) {
 	if (id>=0 && id<sizeof (matrix->banners)/sizeof(struct banner_location)) {
+		matrix->banners[id].r = *r;
 		return &matrix->banners[id].banner;
 	}
 	return 0;
@@ -74,7 +85,7 @@ void led_matrix_manage(struct led_matrix * matrix){
 
 /**
  * Created  09/29/2023
- * @brief   converts the canvsa buffer into data that fits to the RGB led martx
+ * @brief   converts the canvas buffer into data that fits to the RGB led martx
  * @note  
  * @param   
  * @return  

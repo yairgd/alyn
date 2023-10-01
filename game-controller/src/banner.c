@@ -103,22 +103,22 @@ void banner_get_buffer(struct banner * banner, struct rect * r, char *rect_buffe
 }
 
 void banner_blink_effect(struct banner * banner, int rate, int start_idx, int end_idx, int tick_time) {
+	banner->effect_id = 1;	
+	banner->tick = 0;
 	banner->effet.blink.rate = rate;
 	banner->effet.blink.start_idx = start_idx;
 	banner->effet.blink.end_idx = end_idx;
 	banner->effet.blink.tick_time = tick_time;
-	banner->effet.blink.cnt	= 0;
-	banner->effect_id = 1;
 	banner->effet.blink.on = 1;
 
 }
 
 void banner_rotate_effect(struct banner * banner, int direction, int step, int tick_time) {
 	banner->effect_id = 2;
+	banner->tick = 0;	
 	banner->effet.rotate.direction = direction;
 	banner->effet.rotate.tick_time = tick_time;
 	banner->effet.rotate.step = step;
-	banner->effet.rotate.cnt = 0;
 
 }
 
@@ -141,10 +141,10 @@ int banner_height (struct banner * banner) {
 
 static void bannner_manage_blink(struct banner * banner) 
 {
-	banner->effet.blink.cnt++;
+	banner->tick++;
 
-	if (banner->effet.blink.cnt >= banner->effet.blink.rate) {
-		banner->effet.blink.cnt = 0;
+	if (banner->tick >= banner->effet.blink.rate) {
+		banner->tick = 0;
 		if (banner->effet.blink.on == 1) {
 			banner->effet.blink.on = 0;
 			if (banner->effet.blink.end_idx !=0 && banner->effet.blink.start_idx <= banner->effet.blink.end_idx)
@@ -164,10 +164,10 @@ static void bannner_manage_blink(struct banner * banner)
 }
 
 static void bannner_manage_rotate(struct banner * banner) {
-	banner->effet.rotate.cnt++;
+	banner->tick++;
 
-	if (banner->effet.rotate.cnt >= banner->effet.rotate.tick_time) {
-		banner->effet.rotate.cnt = 0;
+	if (banner->tick >= banner->effet.rotate.tick_time) {
+		banner->tick = 0;
 		if (banner->effet.rotate.direction == 1) {
 			canvas_rotate_left(&banner->canvas,banner->effet.rotate.step);	
 		} else if (banner->effet.rotate.direction == 2) {

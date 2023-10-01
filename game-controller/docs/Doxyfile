@@ -1037,6 +1037,7 @@ EXCLUDE_PATTERNS       = */x64-windows/* \
 			 */Lapack/* \
 			 */zephyrproject/* 
 			 */python/* 
+			 */libs/lua/*
 
 
 

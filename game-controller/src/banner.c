@@ -65,7 +65,7 @@ void banner_init_by_canvas(struct banner * banner, void (*do_effect)(struct canv
  * @param    
  * @return  
  */
-void banner_init_with_text(struct banner * banner,const struct font * font, int x, int y,const char* fmt, ...){ 
+void banner_init_with_text(struct banner * banner,const struct font * font,const char* fmt, ...){ 
 	va_list args;
 	va_start(args, fmt);
 

@@ -139,16 +139,19 @@ static void banner_render(struct effect_base * e,  struct canvas * canvas, struc
 
 
 
-static void banner_config(struct effect_base * e) {
-	struct effect_configuration * config = &e->config;
+static void banner_config(struct effect_base * e, void * data) {
+	//struct effect_configuration * config = &e->config;
 	struct banner * banner = e->object_data;
-	union banner_config * banner_config =  config->data;
-	switch (config->id) {
+
+//	union banner_config  banner_config =  *reinterpret_cast<banner_config_rotate*>(data);//    //&banner->config;// config->data;
+	switch (e->config_id) {
 		case 1:
-			banner_rotate_effect(banner, banner_config->rotate.direction, banner_config->rotate.step, banner_config->rotate.tick_time);
+			banner->config.rotate = *(struct banner_config_rotate*)data;			
+			banner_rotate_effect(banner, banner->config.rotate.direction, banner->config.rotate.step, banner->config.rotate.tick_time);
 			break;
 		case 2:
-			banner_blink_effect(banner, banner_config->blink.rate, banner_config->blink.start_idx, banner_config->blink.end_idx, banner_config->blink.tick_time);
+			banner->config.blink = *(struct banner_config_blink*)data;						
+			banner_blink_effect(banner, banner->config.blink.rate, banner->config.blink.start_idx, banner->config.blink.end_idx, banner->config.blink.tick_time);
 			break;
 		default:
 			break;

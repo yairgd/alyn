@@ -24,9 +24,9 @@
 extern "C" {
 #endif
 	struct effect_configuration  {
-			int id;
-			void * data;
-		};
+		int id;
+		void * data;
+	};
 
 	struct effect_base {
 		int x,y; 		 // top left to take from  recnagle data
@@ -34,18 +34,18 @@ extern "C" {
 		struct canvas * canvas;  // pointer to canvas - it passes fom the parent of the object
 		void * object_data;      // implementation data of the effect
 		struct effect_ops * ops; 
-		struct effect_configuration  config;
+		int config_id;
 	};
 
 	struct effect_ops {
 		void (*render)(struct effect_base * , struct canvas * canvas, struct  rect * r);
-		void (*config)(struct effect_base *);
+		void (*config)(struct effect_base *, void * data);
 	};
 
 
 
 	void effect_render(struct effect_base * e, struct canvas * c, struct rect * r);
-	void effect_set_config(struct effect_base * e, struct effect_configuration   config );
+	void effect_set_config(struct effect_base * e, struct effect_configuration  * cd );
 	struct effect_ops *  effect_get_type(struct effect_base * e);
 
 #ifdef __cplusplus

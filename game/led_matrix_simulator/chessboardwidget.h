@@ -34,6 +34,7 @@ private:
     struct led_matrix led_matrix = {0};
 protected:
     void paintEvent(QPaintEvent *event) override;
+    void timerEvent(QTimerEvent *event) override;
 };
 
 #endif // CHESSBOARDWIDGET_H

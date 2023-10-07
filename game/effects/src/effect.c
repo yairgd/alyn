@@ -24,10 +24,10 @@ void effect_render(struct effect_base * e, struct canvas * c, struct rect * r) {
 	}
 
 }
-void effect_set_config(struct effect_base * e, struct effect_configuration  config) {
+void effect_set_config(struct effect_base * e, struct effect_configuration * cd ) {
 	if (e->ops->config) {
-		e->config = config;
-		e->ops->config(e);
+		e->config_id = cd->id; //config_id;
+		e->ops->config(e, cd->data);
 	}
 }
 

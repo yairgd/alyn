@@ -24,8 +24,10 @@
 #include "banner.h"
 #include "font.h"
 
+#include <chrono>
+#include <iostream>
 
-
+using namespace std::chrono_literals;
 
 
 ChessboardWidget::ChessboardWidget(QWidget *parent)
@@ -33,33 +35,35 @@ ChessboardWidget::ChessboardWidget(QWidget *parent)
 {
 
 	led_matrix_init(&led_matrix, 64,32);
-	
+
 	struct effect_base * e =  led_matrix_get_banner(&led_matrix);
 	struct banner * b = reinterpret_cast<struct banner *> (e->object_data);
+	banner_init_with_text(b,(struct rect){0,0,64,15}, font_6x13(),"This is buffer #1");
+	effect_set_config (e, BANNER_CONFIG_ROTATE(100,1,2));
 
-	banner_init_with_text(b,(struct rect){0,13,64,15}, font_6x13(),"This is buffer #1");
-
-	//b->config.rotate = struct banner_config_rotate ({10,1,2});
-	
-//	struct effect_configuration ec;
-//	struct banner_config_rotate bc = {10,1,2};	
-//	ec.id = 1; 
-//	ec.data = &bc;
-//	effect_set_config (e, ec);
-
-	effect_set_config (e, BANNER_CONFIG_ROTATE(10,1,2));
-
-	led_matrix_manage(&led_matrix);
-	
-	
+	struct effect_base * e1 =  led_matrix_get_banner(&led_matrix);
+	struct banner * b1 = reinterpret_cast<struct banner *> (e1->object_data);
+	banner_init_with_text(b1,(struct rect){15,16,30,15}, font_6x13(),"באנר מספר 2  test in hebrew");
+	effect_set_config (e1, BANNER_CONFIG_ROTATE(100,1,1));
+	//led_matrix_manage(&led_matrix);
+	this->setUpdatesEnabled(true);	
+   	 startTimer(1ms);
 
 }
+
 
 ChessboardWidget::~ChessboardWidget()
 {
 
 }
 
+void ChessboardWidget::timerEvent(QTimerEvent *event)
+{
+	led_matrix_manage(&led_matrix);
+	this->update();
+	this->repaint();
+
+}
 
 
 void ChessboardWidget::paintEvent(QPaintEvent *event)

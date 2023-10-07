@@ -65,17 +65,9 @@ extern "C" {
 #define BANNER_CONFIG_BLINK(_rate,_start_idx,_end_idx,_on,_tick_time) \
 	(struct effect_configuration){.id = 2, (struct banner_config_blink){.rate = (_rate), .start_idx =(_start_idx), .end_idx = (_end_idx),.on=(_on),.tick_time=(_tick_time)} }
 
-//#define BANNER_CONFIG_ROTATE(_tick_time,_step,_direction) \
-//	(struct effect_configuration){1, &(struct banner_config_rotate){ (_tick_time), (_step), (_direction)   } }
+#define BANNER_CONFIG_ROTATE(_tick_time,_step,_direction) \
+	&(struct effect_configuration){1, &(struct banner_config_rotate){ (_tick_time), (_step), (_direction)   } }
 
-
-	static inline struct effect_configuration  BANNER_CONFIG_ROTATE(int tick_time, int step, int direction) {
-		struct effect_configuration ec;
-		struct banner_config_rotate bc = {tick_time,step,direction};	
-		ec.id = 1; 
-		ec.data = &bc;
-		return ec;
-	}
 
 
 

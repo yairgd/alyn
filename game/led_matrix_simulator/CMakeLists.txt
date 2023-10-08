@@ -22,7 +22,7 @@ set (CMAKE_CXX_FLAGS_DEBUG "-O0 -g -std=c++17 -fpermissive")
 add_executable(led-screen-sim
     mainwindow.ui
     mainwindow.cpp
-    chessboardwidget.cpp
+    ledmatrix.cpp
     main.cpp
     #    resources.qrc
 )

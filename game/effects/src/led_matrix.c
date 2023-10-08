@@ -44,13 +44,19 @@ void led_matrix_free(struct led_matrix * matrix) {
  * @return  
  */
 struct effect_base * led_matrix_get_banner(struct led_matrix * matrix) {
-	static int idx = 0;
-	matrix->effects[idx] = banner_new();
-	return matrix->effects[idx++];
+	matrix->effects[matrix->idx] = banner_new();
+	return matrix->effects[matrix->idx++];
 }
 
 
-char b[64*32*4];
+
+struct effect_base * led_matrix_get_frame(struct led_matrix * matrix) {
+	matrix->effects[matrix->idx] = frame_new();
+	return matrix->effects[matrix->idx++];
+}
+
+
+//char b[64*32*4];
 void led_matrix_manage(struct led_matrix * matrix){
 
 	// mange the banners and place its contetnt on canvs
@@ -59,7 +65,6 @@ void led_matrix_manage(struct led_matrix * matrix){
 			effect_render(matrix->effects[i], &matrix->canvas, 0);
 
 	}
-
 
 }
 

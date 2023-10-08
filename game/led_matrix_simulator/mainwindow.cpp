@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "chessboardwidget.h"
+#include "ledmatrix.h"
 #include <QtWidgets>
 
 MainWindow::MainWindow(QWidget *parent)
@@ -9,16 +9,10 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    // Create and set ChessboardWidget as the central widget
-    ChessboardWidget *chessboardWidget = new ChessboardWidget(ui->display);
-   chessboardWidget->setGeometry(0,0,640,320);
+    // Create and set LedMatrixWidget as the central widget
+    LedMatrixWidget *ledMatrixWidget = new LedMatrixWidget(ui->display);
+   ledMatrixWidget->setGeometry(0,0,640,320);
 
- //  setCentralWidget(chessboardWidget);
-//    ui->display->setParent (chessboardWidget);
-
-    //QGridLayout *layout = new QGridLayout;
-//	layout->addWidget(chessboardWidget, 0, 1);
-  //  setLayout(layout);
 }
 
 MainWindow::~MainWindow()

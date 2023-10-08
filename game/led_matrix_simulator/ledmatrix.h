@@ -23,13 +23,13 @@
 #include <QWidget>
 #include "led_matrix.h"
 
-class ChessboardWidget : public QWidget
+class LedMatrixWidget : public QWidget
 {
     Q_OBJECT
 
 public:
-    ChessboardWidget(QWidget *parent = nullptr);
-    ~ChessboardWidget();
+    LedMatrixWidget(QWidget *parent = nullptr);
+    ~LedMatrixWidget();
 private:
     struct led_matrix led_matrix = {0};
 protected:

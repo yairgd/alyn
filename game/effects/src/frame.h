@@ -18,37 +18,54 @@
 
 #ifndef ANIMATE_RECTANGLE_H
 #define ANIMATE_RECTANGLE_H 
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
 #include "effect.h"
 
 #define MAX_POINTS_PER_FRAME 32*64
-struct frame {
-	struct effect_base  effect;
-	struct point {
-		unsigned int x : 16;
-		unsigned int y : 16;
-		unsigned int c ;
-	} points[MAX_POINTS_PER_FRAME];
-	int num_of_points;
 
-	struct points_group {
-		unsigned short start_idx : 16;
-		unsigned short end_idx : 16;
-		unsigned short current_idx : 16;
-	} group[10];
-	int num_of_groups;
-	int tick;
-	
-	int type; // 1: two colors rotate frame 
-	union  {
-		//  two colors rotate frame 
-		struct animate_frame {
-			int c1;
-			int c2;
-			int color_change_rate;
-			int tick;
-			struct rect  r;
-		} animate_frame;
-	} config;
-};
+	struct animate_frame {
+		int c1;
+		int c2;
+		int color_change_rate;
+		int tick;
+		struct rect  r;
+	} ;
+
+	struct frame {
+		struct effect_base  effect;
+		struct point {
+			unsigned int x : 16;
+			unsigned int y : 16;
+			unsigned int c ;
+		} points[MAX_POINTS_PER_FRAME];
+		int num_of_points;
+
+		struct points_group {
+			unsigned short start_idx : 16;
+			unsigned short end_idx : 16;
+			unsigned short current_idx : 16;
+		} group[10];
+		int num_of_groups;
+		int tick;
+
+		int type; // 1: two colors rotate frame 
+		union  {
+			//  two colors rotate frame 
+			struct animate_frame animate_frame;
+		} config;
+	};
+
+	struct effect_base * frame_new();
+	void frame_init(struct frame  * f, struct animate_frame * af);
+
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

@@ -83,16 +83,16 @@ static void bannner_manage_blink(struct banner * banner)
 			banner->config.blink.on = 0;
 			if (banner->config.blink.end_idx !=0 && banner->config.blink.start_idx <= banner->config.blink.end_idx)
 				// blink range of letters
-				canvas_fill_rect(&banner->canvas, &(struct rect  ){/*banner->x +*/ banner->config.blink.start_idx * font_width(banner->canvas.font,0) ,0/*banner->y*/,banner->config.blink.end_idx * font_width(banner->canvas.font,0) , font_height(banner->canvas.font)},0);
+				canvas_fill_rect(&banner->canvas, &(struct rect  ){banner->config.blink.start_idx * font_width(banner->canvas.font,0) ,0,banner->config.blink.end_idx * font_width(banner->canvas.font,0) , font_height(banner->canvas.font)},0);
 
 			else   { // blink all text
 				int len = u8_strlen(banner->text);				
-				canvas_fill_rect(&banner->canvas, &(struct rect  ){0/*banner->x*/,0/*banner->y*/,len * font_width(banner->canvas.font,0) , font_height(banner->canvas.font)},0);
+				canvas_fill_rect(&banner->canvas, &(struct rect  ){0,0,len * font_width(banner->canvas.font,0) , font_height(banner->canvas.font)},0);
 			}
 		}
 		else {
 			banner->config.blink.on = 1;
-			canvas_print(&banner->canvas, 0/*banner->x*/,0 /*banner->y*/, banner->text);
+			canvas_print(&banner->canvas, 0,0, banner->text);
 		}
 	}
 }
@@ -112,38 +112,33 @@ static void bannner_manage_rotate(struct banner * banner) {
 }
 
 
+static char b[64*32*4];
 
 static void banner_render(struct effect_base * e,  struct canvas * canvas, struct  rect * r) {
 	struct banner * banner = e->object_data;
-	static char b[64*32*4];
 
+	memset (b,0,64*32*4);
 	switch (banner->effect_id) {
 		case 1: // blink
 			bannner_manage_blink(banner);
 			break;
 		case 2: // rotate
 			bannner_manage_rotate(banner);
-			// copy data from local canvas to display
-			canvas_get_rect(&banner->canvas, &(struct rect){0,0 , e->r.width ,  e->r.height   },b);
-			canvas_set_rect(canvas, &(struct rect){e->r.top_left_x,e->r.top_left_y , e->r.width ,  e->r.height   },b);
 			break;
 		default:
 			// do nothing
 			break;
 	};
-
-	
-
-
+	// copy data from local canvas to display
+	canvas_get_rect(&banner->canvas, &(struct rect){0,0 , e->r.width ,  e->r.height   },b);
+	canvas_set_rect(canvas, &(struct rect){e->r.top_left_x,e->r.top_left_y , e->r.width ,  e->r.height   },b);
 }
 
 
 
 static void banner_config(struct effect_base * e, void * data) {
-	//struct effect_configuration * config = &e->config;
 	struct banner * banner = e->object_data;
 
-//	union banner_config  banner_config =  *reinterpret_cast<banner_config_rotate*>(data);//    //&banner->config;// config->data;
 	switch (e->config_id) {
 		case 1:
 			banner->config.rotate = *(struct banner_config_rotate*)data;			
@@ -185,7 +180,6 @@ void banner_init_with_text(struct banner * banner, struct rect r, const struct f
 	banner->effect.r = r;
 	banner->effect.ops = &banner_ops;
 	banner->effect.object_data = banner;
-
 }
 
 struct effect_base * banner_new() {

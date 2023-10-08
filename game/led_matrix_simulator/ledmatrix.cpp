@@ -16,13 +16,14 @@
  * =====================================================================================
  */
 // chessboardwidget.cpp
-#include "chessboardwidget.h"
+#include "ledmatrix.h"
 #include <QPainter>
 #include <qnamespace.h>
 #include <iostream>
 #include "effect.h"
 #include "banner.h"
 #include "font.h"
+#include "frame.h"
 
 #include <chrono>
 #include <iostream>
@@ -30,43 +31,60 @@
 using namespace std::chrono_literals;
 
 
-ChessboardWidget::ChessboardWidget(QWidget *parent)
+LedMatrixWidget::LedMatrixWidget(QWidget *parent)
     : QWidget(parent)
 {
 
 	led_matrix_init(&led_matrix, 64,32);
-
+	
 	struct effect_base * e =  led_matrix_get_banner(&led_matrix);
 	struct banner * b = reinterpret_cast<struct banner *> (e->object_data);
-	banner_init_with_text(b,(struct rect){0,0,64,15}, font_6x13(),"This is buffer #1");
-	effect_set_config (e, BANNER_CONFIG_ROTATE(100,1,2));
+	banner_init_with_text(b,(struct rect){2,2,60,15}, font_6x13(),"This is buffer #1");
+	effect_set_config (e, BANNER_CONFIG_ROTATE(30,1,2));
+
 
 	struct effect_base * e1 =  led_matrix_get_banner(&led_matrix);
 	struct banner * b1 = reinterpret_cast<struct banner *> (e1->object_data);
-	banner_init_with_text(b1,(struct rect){15,16,30,15}, font_6x13(),"באנר מספר 2  test in hebrew");
-	effect_set_config (e1, BANNER_CONFIG_ROTATE(100,1,1));
-	//led_matrix_manage(&led_matrix);
-	this->setUpdatesEnabled(true);	
+	banner_init_with_text(b1,(struct rect){15,13,30,15}, font_6x13(),"באנר מספר 2  test in hebrew");
+	effect_set_config (e1, BANNER_CONFIG_BLINK(500,1,2,500,1000) );
+
+
+
+
+	struct effect_base * e2 =  led_matrix_get_frame(&led_matrix);
+	struct frame * f2 = reinterpret_cast<struct frame *> (e2->object_data);
+	frame_init (f2,  &(struct animate_frame ) {RGB(255,0,0), RGB(0,255,0), 10,10, (struct rect){0,0,63,31} }) ; 
+
+	struct effect_base * e3 =  led_matrix_get_frame(&led_matrix);
+	struct frame * f3 = reinterpret_cast<struct frame *> (e3->object_data);
+	frame_init (f3,  &(struct animate_frame ) {RGB(255,0,255), RGB(255,255,0), 5,20, (struct rect){1,1,61,29} }) ; 
+
+
+
+
+
+	//this->setUpdatesEnabled(true);	
    	 startTimer(1ms);
+
+
 
 }
 
 
-ChessboardWidget::~ChessboardWidget()
+LedMatrixWidget::~LedMatrixWidget()
 {
 
 }
 
-void ChessboardWidget::timerEvent(QTimerEvent *event)
+void LedMatrixWidget::timerEvent(QTimerEvent *event)
 {
 	led_matrix_manage(&led_matrix);
 	this->update();
-	this->repaint();
 
 }
 
 
-void ChessboardWidget::paintEvent(QPaintEvent *event)
+void LedMatrixWidget::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event);
     QPainter painter(this);
@@ -77,21 +95,14 @@ void ChessboardWidget::paintEvent(QPaintEvent *event)
     QColor darkColor(Qt::black);
 
     //painter.setPen(QPen(Qt::black, 2));
-    painter.fillRect(5,5,66*squareSize-5,34*squareSize-5,Qt::black);
+    painter.fillRect(0,0,64*squareSize-0,32*squareSize-0,Qt::black);
     // Draw the chessboard grid
-    for (int row = 1; row < 33; ++row)
+    for (int row = 0; row < 32; ++row)
     {
-        for (int col = 1; col < 65; ++col)
+        for (int col = 0; col < 64; ++col)
         {
-         //   if (GET_BIT_COLOR(&(led_matrix.canvas),col-1,row-1)) {
-                painter.fillRect(col * squareSize+2, row * squareSize+2, squareSize-2, squareSize-2, QColor(GET_BIT_COLOR(&(led_matrix.canvas),col-1,row-1)));
+                painter.fillRect(col * squareSize+2, row * squareSize+2, squareSize-2, squareSize-2, QColor(GET_BIT_COLOR(&(led_matrix.canvas),col-0,row-0)));
 
-		//painter.setBrush(QColor(0, 0, 255, 127));
-	//	painter.drawRect(col * squareSize+2, row * squareSize+2, squareSize-2, squareSize-2);
-	  //  }
-           // else {
-             //   painter.fillRect(col * squareSize+2, row * squareSize+2, squareSize-2, squareSize-2, darkColor);
-	   // }
         }
     }
 }

@@ -31,6 +31,7 @@ extern "C" {
 	struct led_matrix {
 		struct canvas canvas;
 		struct effect_base * effects[10];
+		int idx;
 		char * buffer;
 	};
 
@@ -38,7 +39,7 @@ extern "C" {
 	void led_matrix_init(struct led_matrix * matrix,int width, int height);
 	void led_matrix_manage(struct led_matrix * matrix);
 	struct effect_base * led_matrix_get_banner(struct led_matrix * matrix);
-	struct effect_base * led_matrix_get_frame(struct led_matrix * matrix, int id);
+	struct effect_base * led_matrix_get_frame(struct led_matrix * matrix);
 
 #ifdef __cplusplus
 }

@@ -106,17 +106,17 @@ static void _collects_points_of_rectangle_frame(struct frame * f) {
 
 	}
 
-	for (int y = r->top_left_y; y < r->top_left_y + r->height;y++) {
+	for (int y = r->top_left_y; y <= r->top_left_y + r->height;y++) {
 		f->points[idx].c = _color_switch(c1, c2,rate) ;
-		f->points[idx].x = r->top_left_x + r->width ;
+		f->points[idx].x = r->top_left_x + r->width  ;
 		f->points[idx++].y = y;
 
 	}
 
-	for (int x = r->top_left_x + r->width - 1; x > r->top_left_x; x--) {
+	for (int x = r->top_left_x + r->width - 1; x >= r->top_left_x; x--) {
 		f->points[idx].c = _color_switch(c1, c2,rate) ;	
 		f->points[idx].x = x;
-		f->points[idx++].y = r->top_left_y + r->height - 1;
+		f->points[idx++].y = r->top_left_y + r->height ;
 
 	}
 
@@ -194,4 +194,15 @@ void frame_init(struct frame  * f, struct animate_frame * af) {
 	f->effect.ops = &frame_ops;
 	f->config.animate_frame = *af;
 	f->effect.object_data = f;
+}
+
+
+struct effect_base * frame_new() {
+	struct frame * f = malloc(sizeof(struct frame));
+	if (f)
+		memset (f,0,sizeof(struct frame));
+	
+	f->effect.ops = &frame_ops;
+	f->effect.object_data = f;
+	return &f->effect;
 }

@@ -40,6 +40,9 @@ struct rect {
 int rect_width(struct rect * rect);
 int rect_height(struct rect * rect);
 
+#define RECT(x,y,w,h) \
+	(struct rect){(x),(y),(w),(h)}
+
 struct canvas {
 	const struct font * font;
 	char *buffer;

@@ -139,12 +139,11 @@ static void _collects_points_of_rectangle_frame(struct frame * f) {
  * @param   
  * @return  
  */
-static void type_1_animate_frame_init(struct frame * f ,struct animate_frame * af ) 
+static void type_1_animate_frame_init(struct frame * f ) 
 {
 	//f->canvas = canvas;
 
-	f->type = 1;
-	f->config.animate_frame = *af;
+	//f->config.animate_frame = *af;
 	_collects_points_of_rectangle_frame(f);
 
 
@@ -171,7 +170,7 @@ static void frame_render(struct effect_base * e ,  struct canvas * canvas, struc
 	//if (!f->canvas)
 	//	frame_rectangle_init(f , canvas,&f->effect.config_animate_frame ) ;
 	f->effect.canvas = canvas;
-	switch (f->type) {
+	switch (e->config_id) {
 		case 1:
 			_render_animate_frame(f);
 			break;
@@ -181,18 +180,30 @@ static void frame_render(struct effect_base * e ,  struct canvas * canvas, struc
 
 }
 
+
+static void frame_config(struct effect_base * e, void * data) {
+	struct frame * frame = e->object_data;
+
+	switch (e->config_id) {
+		case 1:
+			frame->config.animate_frame = *(struct animate_frame*)data;			
+			type_1_animate_frame_init(frame) ;
+			break;
+		default:
+			break;
+	}
+
+}
+
 struct effect_ops   frame_ops=  {
 	.render = frame_render,
+	.config = frame_config,
 };
 
 
-void frame_init(struct frame  * f, struct animate_frame * af) {
-
-	type_1_animate_frame_init(f , af) ;
-
+void frame_init(struct frame  * f) {
 
 	f->effect.ops = &frame_ops;
-	f->config.animate_frame = *af;
 	f->effect.object_data = f;
 }
 

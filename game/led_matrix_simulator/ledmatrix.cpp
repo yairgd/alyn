@@ -53,11 +53,12 @@ LedMatrixWidget::LedMatrixWidget(QWidget *parent)
 
 	struct effect_base * e2 =  led_matrix_get_frame(&led_matrix);
 	struct frame * f2 = reinterpret_cast<struct frame *> (e2->object_data);
-	frame_init (f2,  &(struct animate_frame ) {RGB(255,0,0), RGB(0,255,0), 10,10, (struct rect){0,0,63,31} }) ; 
+	effect_set_config (e2,  FRAME_CONFIG_TYPE_1(RGB(255,0,0), RGB(0,255,0), 10,10, RECT(0,0,63,31)));
+
 
 	struct effect_base * e3 =  led_matrix_get_frame(&led_matrix);
 	struct frame * f3 = reinterpret_cast<struct frame *> (e3->object_data);
-	frame_init (f3,  &(struct animate_frame ) {RGB(255,0,255), RGB(255,255,0), 5,20, (struct rect){1,1,61,29} }) ; 
+	effect_set_config (e3,  FRAME_CONFIG_TYPE_1(RGB(255,0,255), RGB(255,255,0), 5,20, RECT(1,1,61,29) ));
 
 
 

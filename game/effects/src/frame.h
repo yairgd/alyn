@@ -53,7 +53,7 @@ extern "C" {
 		int num_of_groups;
 		int tick;
 
-		int type; // 1: two colors rotate frame 
+//		int type; // 1: two colors rotate frame 
 		union  {
 			//  two colors rotate frame 
 			struct animate_frame animate_frame;
@@ -61,7 +61,14 @@ extern "C" {
 	};
 
 	struct effect_base * frame_new();
-	void frame_init(struct frame  * f, struct animate_frame * af);
+	void frame_init(struct frame  * f);
+
+
+
+
+	#define FRAME_CONFIG_TYPE_1(c1,c2,color_change_rate,tick,r) \
+		&(struct effect_configuration){1, &(struct animate_frame){ (c1), (c2), (color_change_rate) ,(tick),r  } }
+
 
 
 #ifdef __cplusplus

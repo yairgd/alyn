@@ -18,13 +18,41 @@
 
 #include <QApplication>
 #include "mainwindow.h"
+#include <exception>
+#include <thread>
+#include <ostream>
+#include <iostream>
+#include <sstream>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+	int lua_main (int argc, char **argv);
+
+#ifdef __cplusplus
+}
+#endif
+//https://stackoverflow.com/questions/4810516/c-redirecting-stdout
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
+	QApplication a(argc, argv);
+	MainWindow w;
+	w.show();
 
-    return a.exec();
+
+
+
+	std::thread t1 ([argc, argv]()  {
+		lua_main(argc,argv);
+
+	});
+	t1.detach();
+	a.exec();
+
+
+
+		return 0;
+
+
 }
 

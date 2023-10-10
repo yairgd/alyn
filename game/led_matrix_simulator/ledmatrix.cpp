@@ -35,28 +35,28 @@ LedMatrixWidget::LedMatrixWidget(QWidget *parent)
     : QWidget(parent)
 {
 
-	led_matrix_init(&led_matrix, 64,32);
-	
-	struct effect_base * e =  led_matrix_get_banner(&led_matrix);
+	led_matrix_init(led_matrix, 64,32);
+#if 0	
+	struct effect_base * e =  led_matrix_get_banner(led_matrix);
 	struct banner * b = reinterpret_cast<struct banner *> (e->object_data);
 	banner_init_with_text(b,(struct rect){2,2,60,15}, font_6x13(),"This is buffer #1");
 	effect_set_config (e, BANNER_CONFIG_ROTATE(30,1,2));
 
 
-	struct effect_base * e1 =  led_matrix_get_banner(&led_matrix);
+	struct effect_base * e1 =  led_matrix_get_banner(led_matrix);
 	struct banner * b1 = reinterpret_cast<struct banner *> (e1->object_data);
 	banner_init_with_text(b1,(struct rect){15,13,30,15}, font_6x13(),"באנר מספר 2  test in hebrew");
 	effect_set_config (e1, BANNER_CONFIG_BLINK(500,1,2,500,1000) );
 
+#endif
 
 
-
-	struct effect_base * e2 =  led_matrix_get_frame(&led_matrix);
+	struct effect_base * e2 =  led_matrix_get_frame(led_matrix);
 	struct frame * f2 = reinterpret_cast<struct frame *> (e2->object_data);
 	effect_set_config (e2,  FRAME_CONFIG_TYPE_1(RGB(255,0,0), RGB(0,255,0), 10,10, RECT(0,0,63,31)));
 
 
-	struct effect_base * e3 =  led_matrix_get_frame(&led_matrix);
+	struct effect_base * e3 =  led_matrix_get_frame(led_matrix);
 	struct frame * f3 = reinterpret_cast<struct frame *> (e3->object_data);
 	effect_set_config (e3,  FRAME_CONFIG_TYPE_1(RGB(255,0,255), RGB(255,255,0), 5,20, RECT(1,1,61,29) ));
 
@@ -79,7 +79,7 @@ LedMatrixWidget::~LedMatrixWidget()
 
 void LedMatrixWidget::timerEvent(QTimerEvent *event)
 {
-	led_matrix_manage(&led_matrix);
+	led_matrix_manage(led_matrix);
 	this->update();
 
 }
@@ -102,7 +102,7 @@ void LedMatrixWidget::paintEvent(QPaintEvent *event)
     {
         for (int col = 0; col < 64; ++col)
         {
-                painter.fillRect(col * squareSize+2, row * squareSize+2, squareSize-2, squareSize-2, QColor(GET_BIT_COLOR(&(led_matrix.canvas),col-0,row-0)));
+                painter.fillRect(col * squareSize+2, row * squareSize+2, squareSize-2, squareSize-2, QColor(GET_BIT_COLOR(&(led_matrix->canvas),col-0,row-0)));
 
         }
     }

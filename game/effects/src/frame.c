@@ -167,8 +167,6 @@ static void frame_render(struct effect_base * e ,  struct canvas * canvas, struc
 
 	struct frame * f = e->object_data;
 
-	//if (!f->canvas)
-	//	frame_rectangle_init(f , canvas,&f->effect.config_animate_frame ) ;
 	f->effect.canvas = canvas;
 	switch (e->config_id) {
 		case 1:
@@ -202,7 +200,6 @@ struct effect_ops   frame_ops=  {
 
 
 void frame_init(struct frame  * f) {
-
 	f->effect.ops = &frame_ops;
 	f->effect.object_data = f;
 }

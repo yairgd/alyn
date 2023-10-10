@@ -20,6 +20,7 @@
 #include <string.h>
 #include <assert.h>
 #include <stdio.h>
+#include <math.h>
 
 #include "canvas.h"
 #include "u8.h"
@@ -41,7 +42,7 @@ void canvas_init(struct canvas * canvas, int width, int height)
 	canvas->font_color = RGB(255,255,255);
 	canvas->bg_color = RGB(0,0,8);
 
-	
+
 	canvas->width = width;
 	canvas->height = height;
 	canvas->buffer = malloc(4 * width * height);
@@ -62,7 +63,7 @@ void canvas_write_font(struct canvas * canvas, int char_id, int x,int y) {
 		for (int w = 0; w < canvas->font->Width && x + w < canvas->width; w++) {
 			if (bit(buf, w)) {
 				SET_BIT_COLOR(canvas,x+w,y+h,canvas->font_color);
-			//	printf("x");				
+				//	printf("x");				
 			} else {
 				SET_BIT_COLOR(canvas,x+w,y+h,canvas->bg_color);
 				//printf("_");				
@@ -119,13 +120,13 @@ void canvas_print(struct canvas * canvas, int x, int y, const char* str){
 	int len, unicode;
 	int i = 0;
 	if  (canvas->font == 0)
-			canvas->font = font_6x13();
+		canvas->font = font_6x13();
 
 	while (*str) {
 		len = u8_to_unicode(str, &unicode );
 
 		int char_value = UNICODE_TO_ISO8859_8(unicode);
-		
+
 		canvas_write_font(canvas,char_value,x+i*font_width(canvas->font,0) ,y);		
 		i++;
 		//printf("%x\n", char_value);
@@ -142,7 +143,7 @@ void canvas_fill_rect(const struct canvas * canvas, struct rect * r,int color) {
 
 	for (int x = r->top_left_x; x < buttom_right_x && x < canvas->width; x++) {
 		for (int y = r->top_left_y; y < buttom_right_y && y < canvas->height; y++) {
-			 SET_BIT_COLOR(canvas,x,y,color);	
+			SET_BIT_COLOR(canvas,x,y,color);	
 		}
 	}
 }
@@ -196,4 +197,120 @@ void canvas_set_rect(struct canvas * canvas, struct rect * r, char *rect_buffer)
 
 void canvas_plot(const struct canvas * canvas, int x,int y,int c) {
 	SET_BIT_COLOR(canvas,x,y,c);
+}
+
+
+
+/**
+ * Created  10/09/2023
+ * @brief   plot line from point 1 to point 2
+ * @note  
+ * @param   (x1,y1) point 1
+ * @param   (x2,y2) point 2
+ * @param   c color (rgb - 24 bit)
+ * @return  
+ */
+void canvas_line(const struct canvas * canvas, int x1,int y1,int x2, int y2,int c) {
+	float dx = x2 - x1;
+	float dy = y2 - y1;
+
+	float length = sqrtf(dx * dx + dy*dy);
+	float angle = atan2(dy,dx);
+
+	for (int i = 0; i < length; i++) {
+		canvas_plot(canvas, ceil(x1+cos(angle) * i),ceil(y1+sin(angle) * i),c);
+	}
+
+}
+
+
+
+/**
+ * Created  10/09/2023
+ * @brief   draw circle
+ * https://www.geeksforgeeks.org/bresenhams-circle-drawing-algorithm/
+ * reffer here: https://stackoverflow.com/questions/1201200/fast-algorithm-for-drawing-filled-circles
+ * alternative: https://github.com/hzeller/rpi-rgb-led-matrix/blob/master/lib/graphics.cc#L120  - aletrnative
+ * @note  
+ * @param   
+ * @return  
+ */
+void canvas_circle(const struct canvas * canvas, int x0,int y0,int radius,int c) {
+	int x = radius;
+	int y = 0;
+	int xChange = 1 - (radius << 1);
+	int yChange = 0;
+	int radiusError = 0;
+
+	while (x >= y)
+	{
+		for (int i = x0 - x; i <= x0 + x; i++)
+		{
+			if (i== x0 - x || i==x0 + x) {
+				canvas_plot(canvas,i, y0 + y,c);
+				canvas_plot(canvas,i, y0 - y,c);
+			}
+		}
+		for (int i = x0 - y; i <= x0 + y; i++)
+		{
+			if (i==x0 - y || i==x0 + y) {
+				canvas_plot(canvas,i, y0 + x,c);
+				canvas_plot(canvas,i, y0 - x,c);
+			}
+		}
+
+		y++;
+		radiusError += yChange;
+		yChange += 2;
+		if (((radiusError << 1) + xChange) > 0)
+		{
+			x--;
+			radiusError += xChange;
+			xChange += 2;
+		}
+	}
+}
+
+void canvas_fill_circle(const struct canvas * canvas, int x0,int y0,int radius,int c) {
+	int x = radius;
+	int y = 0;
+	int xChange = 1 - (radius << 1);
+	int yChange = 0;
+	int radiusError = 0;
+
+	while (x >= y)
+	{
+		for (int i = x0 - x; i <= x0 + x; i++)
+		{
+			canvas_plot(canvas,i, y0 + y,c);
+			canvas_plot(canvas,i, y0 - y,c);
+
+		}
+		for (int i = x0 - y; i <= x0 + y; i++)
+		{
+			canvas_plot(canvas,i, y0 + x,c);
+			canvas_plot(canvas,i, y0 - x,c);
+		}
+
+		y++;
+		radiusError += yChange;
+		yChange += 2;
+		if (((radiusError << 1) + xChange) > 0)
+		{
+			x--;
+			radiusError += xChange;
+			xChange += 2;
+		}
+	}
+
+}
+
+
+void canvas_clean(const struct canvas * canvas, struct rect *r) {
+
+	for (int x = r->top_left_x; x < r->top_left_x + r->width  && x < canvas->width;x++) {
+		for (int y = r->top_left_y; y < r->top_left_y + r->width  && y < canvas->height;y++) {
+			SET_BIT_COLOR(canvas,x,y,0);			
+		}
+	}
 }

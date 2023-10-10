@@ -12,7 +12,7 @@
 #define lbaselib_c
 #define LUA_LIB
 
-#include "lprefix.h"
+//#include "lprefix.h"
 #include "u8.h"
 
 
@@ -20,11 +20,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 
 #include "lua.h"
 
 #include "lauxlib.h"
 #include "lualib.h"
+#include "led_matrix.h"
 
 
 static int luaB_tostring (lua_State *L) {
@@ -43,6 +45,7 @@ static int luaB_enable (lua_State *L)
 
 static int luaB_delay (lua_State *L) {
   int delay_us = (int) luaL_checknumber (L, -1);
+  usleep(delay_us);
   lua_pop (L, 1);
 
   return 0;
@@ -74,6 +77,74 @@ static int luaB_banner_print(lua_State *L) {
 }
 
 
+static int luaB_plot(lua_State *L) {
+  int x = (int) luaL_checknumber (L, -3);
+  int y  = (int) luaL_checknumber (L, -2);
+  int c  = (int) luaL_checknumber (L, -1);
+
+  lua_pop (L, 3);
+	struct led_matrix * led_matrix = get_led_matrix();
+	canvas_plot(&led_matrix->canvas,x,y,c);
+  return 0;
+}
+
+static int luaB_line(lua_State *L) {
+  int x1 = (int) luaL_checknumber (L, -5);
+  int y1  = (int) luaL_checknumber (L, -4);
+  int x2 = (int) luaL_checknumber (L, -3);
+  int y2  = (int) luaL_checknumber (L, -2);
+  int c  = (int) luaL_checknumber (L, -1);
+
+  lua_pop (L, 5);
+  struct led_matrix * led_matrix = get_led_matrix();
+  canvas_line(&led_matrix->canvas,x1,y1,x2,y2,c);
+  return 0;
+}
+
+static int luaB_circle(lua_State *L) {
+  int x  = (int) luaL_checknumber (L, -4);
+  int y  = (int) luaL_checknumber (L, -3);
+  int r  = (int) luaL_checknumber (L, -2);
+  int c  = (int) luaL_checknumber (L, -1);
+
+  lua_pop (L, 4);
+  struct led_matrix * led_matrix = get_led_matrix();
+  canvas_circle(&led_matrix->canvas,x,y,r,c);
+  return 0;
+}
+
+
+static int luaB_fill_circle(lua_State *L) {
+  int x  = (int) luaL_checknumber (L, -4);
+  int y  = (int) luaL_checknumber (L, -3);
+  int r  = (int) luaL_checknumber (L, -2);
+  int c  = (int) luaL_checknumber (L, -1);
+
+  lua_pop (L, 4);
+  struct led_matrix * led_matrix = get_led_matrix();
+  canvas_fill_circle(&led_matrix->canvas,x,y,r,c);
+  return 0;
+}
+
+static int luaB_clean(lua_State *L) {
+  int x  = (int) luaL_checknumber (L, -4);
+  int y  = (int) luaL_checknumber (L, -3);
+  int w  = (int) luaL_checknumber (L, -2);
+  int h  = (int) luaL_checknumber (L, -1);
+
+  lua_pop (L, 4);
+  struct led_matrix * led_matrix = get_led_matrix();
+  canvas_clean(&led_matrix->canvas, &RECT(x,y,w,h)) ;
+
+  return 0;
+}
+
+
+
+
+
+
+
 static const luaL_Reg game_funcs[] = {
 
   {"tostring", luaB_tostring},
@@ -81,6 +152,11 @@ static const luaL_Reg game_funcs[] = {
   {"delay", luaB_delay},
   {"blink", luaB_blink},
   {"banner_print", luaB_banner_print},
+  {"plot", luaB_plot},
+  {"line", luaB_line},
+  {"circle", luaB_circle},
+  {"fill_circle", luaB_fill_circle},
+  {"clean", luaB_clean},
 
   /* placeholders */
   {NULL, NULL}

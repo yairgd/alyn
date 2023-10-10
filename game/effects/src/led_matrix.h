@@ -40,6 +40,7 @@ extern "C" {
 	void led_matrix_manage(struct led_matrix * matrix);
 	struct effect_base * led_matrix_get_banner(struct led_matrix * matrix);
 	struct effect_base * led_matrix_get_frame(struct led_matrix * matrix);
+	struct  led_matrix  *  get_led_matrix();
 
 #ifdef __cplusplus
 }

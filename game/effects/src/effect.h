@@ -23,6 +23,16 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+	struct effect_parameters  {
+		char varname[32];
+		union valdue {
+			double dv;
+			int iv;
+			struct rect r;
+			char text[256];
+		} value;
+
+	};
 	struct effect_configuration  {
 		int id;
 		void * data;
@@ -46,6 +56,8 @@ extern "C" {
 
 	void effect_render(struct effect_base * e, struct canvas * c, struct rect * r);
 	void effect_set_config(struct effect_base * e, struct effect_configuration  * cd );
+	struct effect_parameters *  effect_get_parameters(struct effect_base * e);
+
 	struct effect_ops *  effect_get_type(struct effect_base * e);
 
 #ifdef __cplusplus

@@ -80,3 +80,9 @@ void led_matrix_manage(struct led_matrix * matrix){
 void led_matrix_to_framebuffer(struct led_matrix * matrix){
 
 }
+
+static struct led_matrix led_matrix = {0};
+
+struct  led_matrix  *  get_led_matrix() {
+	return  & led_matrix;
+}

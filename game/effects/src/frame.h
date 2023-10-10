@@ -53,7 +53,6 @@ extern "C" {
 		int num_of_groups;
 		int tick;
 
-//		int type; // 1: two colors rotate frame 
 		union  {
 			//  two colors rotate frame 
 			struct animate_frame animate_frame;

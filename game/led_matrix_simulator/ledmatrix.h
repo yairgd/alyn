@@ -31,7 +31,7 @@ public:
     LedMatrixWidget(QWidget *parent = nullptr);
     ~LedMatrixWidget();
 private:
-    struct led_matrix led_matrix = {0};
+    struct led_matrix *  led_matrix = get_led_matrix();
 protected:
     void paintEvent(QPaintEvent *event) override;
     void timerEvent(QTimerEvent *event) override;

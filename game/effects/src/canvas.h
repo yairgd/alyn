@@ -71,8 +71,8 @@ void canvas_get_rect(struct canvas * canvas, struct rect * r, char *rect_buffer)
 void canvas_set_rect(struct canvas * canvas, struct rect * r, char *rect_buffer) ;
 void canvas_fill_rect(const struct canvas * canvas, struct rect * rect,int color);
 void canvas_plot(const struct canvas * canvas, int x,int y,int color);
-
-
-
-
+void canvas_line(const struct canvas * canvas, int x1,int y1,int x2, int y2,int c);
+void canvas_circle(const struct canvas * canvas, int x,int y,int r,int c);
+void canvas_fill_circle(const struct canvas * canvas, int x0,int y0,int radius,int c) ;
+void canvas_clean(const struct canvas * canvas, struct rect *r) ;
 #endif

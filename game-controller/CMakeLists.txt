@@ -8,9 +8,9 @@ project(hello_world)
 set (PROJ_TOP "/home/yair/alyn/project/")
 
 
-add_compile_definitions( 
-	-DZEPHYR 
-)
+#add_compile_definitions( 
+#	-DZEPHYR 
+#)
 
 
 
@@ -33,7 +33,7 @@ target_sources(app PRIVATE src/main.c
 	src/hwctl.c	
 	src/game.c
   	src/uart.c
-	src/timing.c
+	#	src/timing.c
 
 
   	src/parser_task.cpp
@@ -64,16 +64,17 @@ target_link_libraries(app PRIVATE
 	lua_binaries
 	lua_module
 	lua
+	pthread
 	-Wl,--end-group
 
 )
 
 target_compile_definitions(app PUBLIC
-	-D NO_SYSLOG)
+	-DNO_SYSLOG)
 
 
-lua_generate_inc_file_for_target(
-	app
-	${CMAKE_CURRENT_SOURCE_DIR}/lua/game1.lua
-)
+#ua_generate_inc_file_for_target(
+#	app
+#	${CMAKE_CURRENT_SOURCE_DIR}/lua/game1.lua
+#)
 

@@ -18,6 +18,7 @@ target_include_directories(test1 PRIVATE
 target_link_libraries(test1 PRIVATE
 	Hal
 	protocol_static
+	pthread
 	#"$<LINK_GROUP:RESCAN, streaming, gui, curl, jsoncpp>"
 )
 
@@ -41,5 +42,6 @@ target_include_directories(load-lua PRIVATE
 target_link_libraries(load-lua PRIVATE
 	Hal
 	protocol_static
+	pthread
 	#"$<LINK_GROUP:RESCAN, streaming, gui, curl, jsoncpp>"
 )

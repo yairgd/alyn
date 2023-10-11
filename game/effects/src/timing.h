@@ -18,6 +18,7 @@
 
 #ifndef TIMING_C
 #define TIMING_C 
+#include <time.h>
 #ifdef CONFIG_UART_NATIVE_POSIX
 #include <sys/time.h>
 #else

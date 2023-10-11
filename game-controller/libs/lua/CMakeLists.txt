@@ -47,7 +47,7 @@ target_include_directories(lua_module PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}
 # Link any necessary dependencies
 target_link_libraries(lua_module zephyr)
 
-target_compile_definitions (lua_module PRIVATE -D ZEPHYR)
+target_compile_definitions (lua_module PRIVATE -DZEPHYR)
 
 
 set(

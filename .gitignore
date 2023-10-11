@@ -26,4 +26,8 @@ build/*
 junk
 game-controller/*build*
 
-
+game-controller/lua.junk/
+game/effects/lua.junk/
+game/lua-5.2.4/
+game/lua-5.4.6/src/lua
+game/lua-5.4.6/src/luac

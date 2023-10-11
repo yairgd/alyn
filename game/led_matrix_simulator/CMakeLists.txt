@@ -36,6 +36,7 @@ target_link_libraries(led-screen-sim
 	lua
 	lua_module
 	lua_binaries
+	pthread
        -Wl,--end-group
 )
 target_include_directories(led-screen-sim  PRIVATE

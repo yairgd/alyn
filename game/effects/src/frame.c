@@ -108,7 +108,7 @@ static void _collects_points_of_rectangle_frame(struct frame * f) {
 
 	for (int y = r->top_left_y; y <= r->top_left_y + r->height;y++) {
 		f->points[idx].c = _color_switch(c1, c2,rate) ;
-		f->points[idx].x = r->top_left_x + r->width  ;
+		f->points[idx].x = r->top_left_x + r->width - 1 ;
 		f->points[idx++].y = y;
 
 	}
@@ -116,7 +116,7 @@ static void _collects_points_of_rectangle_frame(struct frame * f) {
 	for (int x = r->top_left_x + r->width - 1; x >= r->top_left_x; x--) {
 		f->points[idx].c = _color_switch(c1, c2,rate) ;	
 		f->points[idx].x = x;
-		f->points[idx++].y = r->top_left_y + r->height ;
+		f->points[idx++].y = r->top_left_y + r->height - 1;
 
 	}
 
@@ -155,12 +155,12 @@ static void type_1_animate_frame_init(struct frame * f )
 
 static void _render_animate_frame(struct frame * f) {
 	f->tick++;
-	if (f->tick == f->config.animate_frame.tick) {
+	//if (f->tick == f->config.animate_frame.tick) {
 		f->tick=0;
 		_plot_pixels(f,0);
 		_color_shift_inside_group(f, 1);
 
-	}
+//	}
 }
 
 static void frame_render(struct effect_base * e ,  struct canvas * canvas, struct  rect * r) {

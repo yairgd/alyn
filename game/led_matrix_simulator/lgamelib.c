@@ -9,6 +9,10 @@
 //https://stackoverflow.com/questions/9168058/how-to-dump-a-table-to-console
 //https://copyprogramming.com/howto/how-do-i-create-a-class-object-in-lua-c-api-5-2 
 //https://stackoverflow.com/questions/55050685/how-to-correctly-redirect-stdout-logging-and-tqdm-into-a-pyqt-widget
+//https://stackoverflow.com/questions/6137684/iterate-through-lua-table
+//http://lua-users.org/lists/lua-l/2007-01/msg00458.html call c function pointed by table
+//https://stackoverflow.com/questions/40551641/call-lua-table-function-from-c-w-self-in-function
+//
 #define lbaselib_c
 #define LUA_LIB
 
@@ -140,7 +144,9 @@ static int luaB_clean(lua_State *L) {
 }
 
 
-
+static int luaB_new_frame(lua_State *L) {
+	//register_frame_effect_class(L);
+}
 
 
 
@@ -157,6 +163,7 @@ static const luaL_Reg game_funcs[] = {
   {"circle", luaB_circle},
   {"fill_circle", luaB_fill_circle},
   {"clean", luaB_clean},
+  {"new_frame", luaB_new_frame},
 
   /* placeholders */
   {NULL, NULL}
@@ -166,6 +173,7 @@ static const luaL_Reg game_funcs[] = {
 
 LUAMOD_API int luaopen_game (lua_State *L) {
   luaL_newlib(L, game_funcs);
+  register_frame_effect_class(L);
 //	lua_setglobal(L, "game");
 #if 0
 /* open lib into global table */

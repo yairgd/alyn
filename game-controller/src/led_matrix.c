@@ -63,13 +63,9 @@ void led_matrix_manage(struct led_matrix * matrix){
 	for (int i = 0; i < sizeof(matrix->banners) / sizeof(struct banner_location); i++) {
 		if (banner_is_initialize(&matrix->banners[i].banner)) {
 			banner_manage(&matrix->banners[i].banner); 
-//			char * b = banner_get_canvas_buffer(&matrix->banners[i].banner);
 
 			// get recnange from the canvas of the banner
-			canvas_get_rect(&matrix->banners[i].banner.canvas, &(struct rect){0,0 , matrix->banners[i].r.width ,  matrix->banners[i].r.height   },b);
-
-			//canvas_set_rect(&matrix->canvas, &(struct rect){matrix->banners[i].x,matrix->banners[i].y ,banner_width(&matrix->banners[i].banner), banner_height(&matrix->banners[i].banner)},b);
-			
+			canvas_get_rect(&matrix->banners[i].banner.canvas, &(struct rect){0,0 , matrix->banners[i].r.width ,  matrix->banners[i].r.height   },b);			
 			// place the buffer of the banner in the canvas of the display	
 			canvas_set_rect(&matrix->canvas, &(struct rect){matrix->banners[i].r.top_left_x,matrix->banners[i].r.top_left_y , matrix->banners[i].r.width ,  matrix->banners[i].r.height   },b);
 

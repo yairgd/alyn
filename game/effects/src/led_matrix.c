@@ -56,7 +56,6 @@ struct effect_base * led_matrix_get_frame(struct led_matrix * matrix) {
 }
 
 
-//char b[64*32*4];
 void led_matrix_manage(struct led_matrix * matrix){
 
 	// mange the banners and place its contetnt on canvs

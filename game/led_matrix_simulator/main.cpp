@@ -17,8 +17,13 @@
  */
 
 #include <QApplication>
+#include <QThread>
+#include <QDebug>  
+
 #include "mainwindow.h"
+#include "threadedworker.h"
 #include <exception>
+#include <qnamespace.h>
 #include <thread>
 #include <ostream>
 #include <iostream>
@@ -32,6 +37,7 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
+
 //https://stackoverflow.com/questions/4810516/c-redirecting-stdout
 int main(int argc, char *argv[])
 {
@@ -39,19 +45,41 @@ int main(int argc, char *argv[])
 	MainWindow w;
 	w.show();
 
+#if 0
+	ThreadedWorker worker;
+	QThread thread;
+	thread.start();
+
+	worker.moveToThread(&thread);
+
+// Connect the worker's signal to a slot in the main thread
+    QObject::connect(&worker, &ThreadedWorker::resultReady, [argc, argv](const QString &result) {
+        qDebug() << "Main thread: " << result;
+        lua_main(argc,argv);
+    });
+
+
+    // Start the thread
+    thread.start();
+
+    // Trigger the worker's slot from the main thread
+    QMetaObject::invokeMethod(&worker, "doWork", Qt::QueuedConnection);
+#endif
+    
+  // Connect the worker's signal to a slot in the main thread
+//    QObject::connect(&worker, &worker::resultReady, [](const QString &result) {
+ //      lua_main(argc,argv);
+ //   });
+	//worker.start();
+
+//	std::thread t1 ([argc, argv]()  {
+///		lua_main(argc,argv);
+//	});
+//	t1.detach();
+	return a.exec();
 
 
 
-	std::thread t1 ([argc, argv]()  {
-		lua_main(argc,argv);
-
-	});
-	t1.detach();
-	a.exec();
-
-
-
-		return 0;
 
 
 }

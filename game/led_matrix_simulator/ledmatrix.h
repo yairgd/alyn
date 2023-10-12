@@ -21,8 +21,11 @@
 #define CHESSBOARDWIDGET_H
 
 #include <QWidget>
-#include "led_matrix.h"
+#include <QThread>
+#include <iostream>
 
+#include "threadedworker.h"
+#include "led_matrix.h"
 class LedMatrixWidget : public QWidget
 {
     Q_OBJECT
@@ -32,9 +35,13 @@ public:
     ~LedMatrixWidget();
 private:
     struct led_matrix *  led_matrix = get_led_matrix();
+    ThreadedWorker worker;
+
 protected:
     void paintEvent(QPaintEvent *event) override;
-    void timerEvent(QTimerEvent *event) override;
+   // void timerEvent(QTimerEvent *event) override;
+private slots:
+    void updateLedMatrix( void );
 };
 
 #endif // CHESSBOARDWIDGET_H

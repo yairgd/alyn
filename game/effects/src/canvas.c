@@ -196,7 +196,8 @@ void canvas_set_rect(struct canvas * canvas, struct rect * r, char *rect_buffer)
 
 
 void canvas_plot(const struct canvas * canvas, int x,int y,int c) {
-	SET_BIT_COLOR(canvas,x,y,c);
+	if (x < canvas->width && y < canvas->height && x >=0 & y>=0)
+		SET_BIT_COLOR(canvas,x,y,c);
 }
 
 

@@ -8,6 +8,7 @@ set(Effects_SRC
 	frame.c  
 	led_matrix.c  
 	u8.c
+	frame_lua_effect.c
 )
 
 add_library(effects_static STATIC
@@ -16,5 +17,6 @@ add_library(effects_static STATIC
 
 target_include_directories(effects_static PUBLIC 
 	.
+	${CMAKE_SOURCE_DIR}/game/lua-5.4.6/src
 )
 

@@ -1,6 +1,20 @@
 # Alyn
 
-## Build & Compile
+
+## Install the SW development ennviroment
+* Install zephyr 3.4.0
+```bash
+cd /path/to/project/zephyr
+west init -m https://github.com/zephyrproject-rtos/zephyr --mr v3.4.0
+west update
+```
+
+* Download the projct
+```bash
+git clone github.com:yairgd/alyn.git
+```
+
+* Build & Compile
 ```bash
 export ZEPHYR_BASE=/mnt/sdb1/yair/stm32/zephyrproject/zephyr
 export ZEPHYR_TOOLCHAIN_VARIANT=zephyr

@@ -9,7 +9,7 @@ set (PROJ_TOP "/home/yair/alyn/project/")
 
 
 add_compile_definitions( 
-	-DZEPHYR 
+	ZEPHYR 
 )
 
 set (ZEPHYR  TRUE)

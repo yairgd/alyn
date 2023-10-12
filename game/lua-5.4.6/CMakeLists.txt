@@ -35,9 +35,7 @@ set(LUA_SOURCES
 	src/loslib.c
 	src/loadlib.c
 	#  src/lbitlib.c
-	)
-
-
+)
 
 
 # Lua librarary to integrate in the MCU code
@@ -48,7 +46,7 @@ target_include_directories(lua_module PUBLIC
 	${CMAKE_CURRENT_SOURCE_DIR}
 	${CMAKE_CURRENT_SOURCE_DIR}/src
 	../
-	)
+)
 
 # Link any necessary dependencies
 #target_link_libraries(lua_module
@@ -56,7 +54,7 @@ target_include_directories(lua_module PUBLIC
 
 target_compile_definitions (lua_module PRIVATE
 	-D CONFIG_LUA_GAME_LIB
-	)
+)
 
 set(
 	LUAC_PATH 
@@ -70,72 +68,57 @@ add_custom_command(
 	COMMAND make linux; 
 	COMMAND ${CMAKE_COMMAND} -E copy  ${CMAKE_CURRENT_SOURCE_DIR}/src/luac ${CMAKE_CURRENT_BINARY_DIR}
 	WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-	)
+)
 
 add_custom_target( luac
 	DEPENDS ${LUAC_PATH}
-	)
+)
 
 
 # build the lua standalone module to run in the GUI as separate thread
 add_library(lua 
 	src/lua.c
-	)
+)
 target_link_libraries(lua
 	lua_module
 	m
-	)
+)
 target_compile_definitions(lua PRIVATE
 	-DCONFIG_LUA_GAME_LIB
-	)
+)
 
 
 
 
 
 
-function( lua_generate_inc_file_for_target  full_path_filename  )
+macro( lua_generate_c_files_for_lua_binary_target  ${lua_source_files} )
 
-	# get the base file name
-	get_filename_component(file_name ${full_path_filename} NAME)
+	set (this_file_location ${CMAKE_CURRENT_SOURCE_DIR}/../)
+	# create targets as the name of the lua files
+	foreach(full_path_filename    ${lua_source_files})
+		message( ${full_path_filename})
+		
+		# get the base file name
+		get_filename_component(file_name ${full_path_filename} NAME)
 
-	# and replace the path to destantion path
-	set (file_name ${CMAKE_CURRENT_BINARY_DIR}/${file_name})
+		# and replace the path to destantion path
+		set (file_name ${CMAKE_CURRENT_BINARY_DIR}/${file_name})
 
-	add_custom_command(
-		OUTPUT ${file_name}.o
-		COMMAND ${LUAC_PATH} -o  ${file_name}.o -- ${full_path_filename}
-		DEPENDS luac ${full_path_filename}
+		add_custom_command(
+			OUTPUT ${file_name}.o
+			COMMAND ${LUAC_PATH} -o  ${file_name}.o -- ${full_path_filename}
+			DEPENDS luac ${full_path_filename}
 		)
 
-	add_custom_command(
-		OUTPUT  ${file_name}.c
-		COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/lua_fw_to_c.py script_fie ${file_name}.o 
-		DEPENDS ${file_name}.o
+		add_custom_command(
+			OUTPUT  ${file_name}.c
+			COMMAND ${this_file_location}/lua_fw_to_c.py script_fie ${file_name}.o 
+			DEPENDS ${file_name}.o
 
 		)
+	endforeach(full_path_filename   ${lua_source_files})
 
-	#list(APPEND generated_c_files  ${lua_c_file} )
-	#	string(REGEX REPLACE "/" "_" header_target ${srcPath})
-	#add_custom_target(  ${header_target}  
-	#	DEPENDS   ${lua_c_file} 
-	#)
-	#set_property(
-	#	TARGET ${header_target}
-	#	APPEND  
-	#	PROPERTY ADDITIONAL_CLEAN_FILES  "${lua_c_file};${destPath}"
-	#)
-	#	add_dependencies (lua_module ${header_target} )
-	#add_dependencies(ALL ${header_target})
-endfunction()
-
-
-
-
-
-
-
-function (build_lua_binaries lua_source_files)
 
 	# prepare a list of all file files that were generated at lua_generate_inc_file_for_target 
 	set (generated_c_files)
@@ -149,36 +132,14 @@ function (build_lua_binaries lua_source_files)
 	#list(TRANSFORM generated_c_files PREPEND "${CMAKE_CURRENT_BINARY_DIR}/")
 	add_custom_command(
 		OUTPUT   ${CMAKE_CURRENT_BINARY_DIR}/joint_file.c
-		COMMAND  ${CMAKE_CURRENT_SOURCE_DIR}/lua_fw_to_c.py joint_file ${generated_c_files}
-		#DEPENDS ${generated_c_files}
-		)
-
-
-
-	# target to create binary library to hold all bibary data - 
-	# it also trigers the generation of the c files
-	add_library(lua_binaries 
-		${generated_c_files}
-		${CMAKE_CURRENT_BINARY_DIR}/joint_file.c
-		${CMAKE_CURRENT_SOURCE_DIR}/luasrc.c
-
-		)
-	target_include_directories (lua_binaries PUBLIC
-		${CMAKE_CURRENT_SOURCE_DIR}
-		)
-endfunction()
-
-
-
-
-# decide which lua files to embbed in the code
-set(lua_source_files
-	${CMAKE_CURRENT_SOURCE_DIR}/lua/demo1.lua
-	${CMAKE_CURRENT_SOURCE_DIR}/lua/bouncing_balls.lua
+		COMMAND  ${this_file_location}/lua_fw_to_c.py joint_file ${generated_c_files}
 	)
 
-# generate c file holding binary data of compiled lua script 
-foreach(lua_source_file   ${lua_source_files})
-	lua_generate_inc_file_for_target(${lua_source_file})	
-endforeach(lua_source_file   ${lua_source_files})
-build_lua_binaries(${lua_source_files})
+
+
+	
+endmacro()
+
+
+
+

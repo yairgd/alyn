@@ -109,23 +109,29 @@ static void game_lua_generic(void *data) {
 
 
 
-static struct game games[] = {
+static struct game games[16] = {
 	{.name = "game in meory",.func = game_lua_generic, .data = &lua_memory_game  },
 	{.name = "default c game",.func = game_default_c},
-//	{.name = "default lua game", .func = game_lua_generic, .data = &lua_game1  },
+	{0},
 };
 
-
-
 void game_init(void) {
-
+	struct game * g = games;
 	// Initialize the doubly linked list
 	sys_dlist_init(&head);
 
-	// Populate the data in games
-	for (int i = 0; i < sizeof(games)/sizeof(struct game); ++i) {
-		sys_dlist_append(&head, &games[i].node);
+	/* this add compiled lua src's to linked list */
+	for (int i = 0; i < luasrc_size() && i < 16; i++) {
+		struct luasrc * src = luasrc_by_idx(i);
+		strncpy (games[i+2].name , src->name, 32);
+		games[i+2].func = game_lua_generic;
+		games[i+2].data = src;
+	}
 
+	// Populate the data in games	
+	while (g->func)  {
+		sys_dlist_append(&head, &g->node);
+		g++;
 	}
 
 
@@ -153,6 +159,7 @@ struct game * game_get_by_index(int i) {
 		if (i == j) {
 			break;
 		}
+		j++;
 	}
 	return game;
 }

@@ -43,7 +43,7 @@ extern "C" {
 
 	void led_matrix_init(struct led_matrix *, int width, int height);
 	void led_matrix_free(struct led_matrix *);
-	void led_matrix_merge(struct led_matrix *,int c0, int c1, int c2);
+	void led_matrix_merge(struct led_matrix *);
 	struct led_matrix * led_matrix_get();
 	struct  channel  *  led_matrix_get_channel(struct led_matrix * matrix, int id);
 	void  led_matrix_set_opcaity(struct led_matrix * matrix, double o0, double o1, double o2);

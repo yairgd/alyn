@@ -118,7 +118,7 @@ void LedMatrixWidget::paintEvent(QPaintEvent *event)
 {
 	Q_UNUSED(event);
 	QPainter painter(this);
-	 led_matrix_merge(led_matrix_get(),10,10,10);	
+	led_matrix_merge(led_matrix_get());	
 	struct channel * channel = led_matrix_get_channel(led_matrix_get(),  3 );    	
 
 

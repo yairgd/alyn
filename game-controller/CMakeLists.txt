@@ -8,15 +8,14 @@ project(hello_world)
 set (PROJ_TOP "/home/yair/alyn/project/")
 
 
-#add_compile_definitions( 
-#	-DZEPHYR 
-#)
+add_compile_definitions( 
+	-DZEPHYR 
+)
 
+set (ZEPHYR  TRUE)
 
-
-
-add_subdirectory(${PROJ_TOP}/game/effects  ${PROJECT_BINARY_DIR}/effects)
 add_subdirectory(${PROJ_TOP}/game/lua-5.4.6/  ${PROJECT_BINARY_DIR}/lua-5.4.6/)
+add_subdirectory(${PROJ_TOP}/game/effects  ${PROJECT_BINARY_DIR}/effects)
 
 
 #https://jonathanhamberg.com/post/cmake-file-embedding/
@@ -33,8 +32,8 @@ target_sources(app PRIVATE src/main.c
 	src/hwctl.c	
 	src/game.c
   	src/uart.c
-	#	src/timing.c
 
+	src/timing.c
 
   	src/parser_task.cpp
 
@@ -64,7 +63,6 @@ target_link_libraries(app PRIVATE
 	lua_binaries
 	lua_module
 	lua
-	pthread
 	-Wl,--end-group
 
 )

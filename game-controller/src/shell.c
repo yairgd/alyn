@@ -359,8 +359,7 @@ static int cmd_game_list(const struct shell *sh, size_t argc,
 static int cmd_game_start(const struct shell *sh, size_t argc,
 		char **argv)
 {
-	int id = argv[1] ? 1 <= atoi(argv[1]) : 0 ;	
-
+	int id = 1 <= atoi(argv[1]) ?  atoi(argv[1]) - 1 : 0;
 	struct game  * g = game_get_by_index(id);
 	set_active_game(id);
 	game_start(g);

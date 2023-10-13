@@ -32,7 +32,8 @@ extern "C" {
 		int c1;
 		int c2;
 		int color_change_rate;
-		int tick;
+		int pixel_change;   // how many pixel to move in every render call
+		int dir;
 		struct rect  r;
 	} ;
 
@@ -51,7 +52,6 @@ extern "C" {
 			unsigned short current_idx : 16;
 		} group[10];
 		int num_of_groups;
-		int tick;
 
 		union  {
 			//  two colors rotate frame 
@@ -65,8 +65,8 @@ extern "C" {
 
 
 
-	#define FRAME_CONFIG_TYPE_1(c1,c2,color_change_rate,tick,r) \
-		&(struct effect_configuration){1, &(struct animate_frame){ (c1), (c2), (color_change_rate) ,(tick),r  } }
+	#define FRAME_CONFIG_TYPE_1(c1,c2,color_change_rate,pixel_change,dir,r) \
+		&(struct effect_configuration){1, &(struct animate_frame){ (c1), (c2), (color_change_rate) ,(pixel_change),(dir), (r)  } }
 
 
 

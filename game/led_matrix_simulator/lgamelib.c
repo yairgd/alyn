@@ -18,7 +18,7 @@
 
 //#include "lprefix.h"
 #include "u8.h"
-
+#include "lua/obj.h"
 
 #include <ctype.h>
 #include <stdio.h>
@@ -149,7 +149,9 @@ static int luaB_new_frame(lua_State *L) {
 }
 
 
-
+static int luaB_new_banner(lua_State *L) {
+	//register_frame_effect_class(L);
+}
 
 static const luaL_Reg game_funcs[] = {
 
@@ -164,6 +166,7 @@ static const luaL_Reg game_funcs[] = {
   {"fill_circle", luaB_fill_circle},
   {"clean", luaB_clean},
   {"new_frame", luaB_new_frame},
+  {"new_banner", luaB_new_banner},
 
   /* placeholders */
   {NULL, NULL}
@@ -174,6 +177,10 @@ static const luaL_Reg game_funcs[] = {
 LUAMOD_API int luaopen_game (lua_State *L) {
   luaL_newlib(L, game_funcs);
   register_frame_effect_class(L);
+  register_banner1_effect_class(L);
+  register_banner2_effect_class(L);
+  register_rect_effect_class(L);
+
 //	lua_setglobal(L, "game");
 #if 0
 /* open lib into global table */

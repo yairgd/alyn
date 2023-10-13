@@ -27,18 +27,15 @@ extern "C" {
 #include "effect.h"
 
 	struct banner_config_rotate {
-				int tick_time;
 				int step;
 				int direction; //0 no rotation, 1 left 2, right
 					       //int cnt;
 			} ;
 	struct banner_config_blink {
-				int rate ;     // is abpove 0, the letters blink, 
 				int start_idx; // the index of letter to blink, if -1, all letter blink
 				int end_idx;
-				int on;  // 0 - no text, 1 display text
-				int tick_time;
-				//int cnt ;
+				int time_on;
+				int time_off;				
 			} ;
 
 
@@ -51,23 +48,26 @@ extern "C" {
 		struct effect_base  effect;
 		struct canvas canvas;
 		char text[256];
-		int tick;
-		int effect_id;  // 0, none , 1 blink, 2
+		//int tick;
+		//int effect_id;  // 0, none , 1 blink, 2
 		union banner_config {
 			struct banner_config_blink blink;
 			struct banner_config_rotate rotate;
 		} config;
+		int on;
+
+
 	};
 
 
 
 	//(struct effect_configuration){.id = 1, &(struct banner_config_rotate){.tick_time = (_tick_time), .step =(_step), .direction = (_direction)   } }
 
-#define BANNER_CONFIG_BLINK(_rate,_start_idx,_end_idx,_on,_tick_time) \
-	&(struct effect_configuration){2, &(struct banner_config_blink){(_rate), (_start_idx), (_end_idx),(_on),.tick_time=(_tick_time)} }
+#define BANNER_CONFIG_BLINK(_start_idx,_end_idx,_on,_off) \
+	&(struct effect_configuration){2, &(struct banner_config_blink){(_start_idx), (_end_idx),(_on),(_off)} }
 
-#define BANNER_CONFIG_ROTATE(_tick_time,_step,_direction) \
-	&(struct effect_configuration){1, &(struct banner_config_rotate){ (_tick_time), (_step), (_direction)   } }
+#define BANNER_CONFIG_ROTATE(_step,_direction) \
+	&(struct effect_configuration){1, &(struct banner_config_rotate){ (_step), (_direction)   } }
 
 
 

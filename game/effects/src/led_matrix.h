@@ -19,9 +19,12 @@
 #ifndef LED_MATRIX_H
 #define LED_MATRIX_H 
 
+
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+#include <stdint.h>
 
 #include "banner.h"
 #include "frame.h"
@@ -41,6 +44,8 @@ extern "C" {
 	struct effect_base * led_matrix_get_banner(struct led_matrix * matrix);
 	struct effect_base * led_matrix_get_frame(struct led_matrix * matrix);
 	struct  led_matrix  *  get_led_matrix();
+	void led_matrix_begin_to_measure_time(struct led_matrix * matrix) ;
+	int led_matrix_elapse_time(struct led_matrix * matrix, int64_t time);
 
 #ifdef __cplusplus
 }

@@ -34,23 +34,25 @@ static inline int _color_switch(int c1,int c2, int rate) {
 }
 
 
-static inline void _color_shift_inside_group (struct frame * f, int dir) {
-	for (int g = 0; g < f->num_of_groups; g++) {	
-		// volor shift inside group
-		if (dir) {
-			// color shift left				
-			int c = f->points[f->group[g].start_idx].c;
-			for (int i = f->group[g].start_idx + 1; i <=  f->group[g].end_idx;i++) {
-				f->points[i-1].c = f->points[i].c;
+static inline void _color_shift_inside_group (struct frame * f, int dir, int pixel_change) {
+	for (int i = 0; i < pixel_change; i++) {
+		for (int g = 0; g < f->num_of_groups; g++) {	
+			// volor shift inside group
+			if (dir) {
+				// color shift left				
+				int c = f->points[f->group[g].start_idx].c;
+				for (int i = f->group[g].start_idx + 1; i <=  f->group[g].end_idx;i++) {
+					f->points[i-1].c = f->points[i].c;
+				}
+				f->points[f->group[g].end_idx].c = c;
+			} else {
+				// color shift right
+				int c = f->points[f->group[g].end_idx].c;
+				for (int i = f->group[g].end_idx; i >  f->group[g].start_idx;i--) {
+					f->points[i].c = f->points[i-1].c;					
+				}			
+				f->points[f->group[g].start_idx].c = c;
 			}
-			f->points[f->group[g].end_idx].c = c;
-		} else {
-			// color shift right
-			int c = f->points[f->group[g].end_idx].c;
-			for (int i = f->group[g].end_idx; i >  f->group[g].start_idx;i--) {
-				f->points[i].c = f->points[i-1].c;					
-			}			
-			f->points[f->group[g].start_idx].c = c;
 		}
 	}
 }
@@ -106,7 +108,7 @@ static void _collects_points_of_rectangle_frame(struct frame * f) {
 
 	}
 
-	for (int y = r->top_left_y; y <= r->top_left_y + r->height;y++) {
+	for (int y = r->top_left_y; y < r->top_left_y + r->height;y++) {
 		f->points[idx].c = _color_switch(c1, c2,rate) ;
 		f->points[idx].x = r->top_left_x + r->width - 1 ;
 		f->points[idx++].y = y;
@@ -141,11 +143,7 @@ static void _collects_points_of_rectangle_frame(struct frame * f) {
  */
 static void type_1_animate_frame_init(struct frame * f ) 
 {
-	//f->canvas = canvas;
-
-	//f->config.animate_frame = *af;
 	_collects_points_of_rectangle_frame(f);
-
 
 	f->num_of_groups = 1;
 	f->group[0].start_idx = 0;
@@ -154,18 +152,14 @@ static void type_1_animate_frame_init(struct frame * f )
 }
 
 static void _render_animate_frame(struct frame * f) {
-	f->tick++;
-	//if (f->tick == f->config.animate_frame.tick) {
-		f->tick=0;
-		_plot_pixels(f,0);
-		_color_shift_inside_group(f, 1);
+	_plot_pixels(f,0);
+	_color_shift_inside_group(f, f->config.animate_frame.dir,f->config.animate_frame.pixel_change);
 
-//	}
 }
 
 static void frame_render(struct effect_base * e ,  struct canvas * canvas, struct  rect * r) {
 
-	struct frame * f = e->object_data;
+	struct frame * f = (struct frame *)e; // e->object_data;
 
 	f->effect.canvas = canvas;
 	switch (e->config_id) {
@@ -180,7 +174,7 @@ static void frame_render(struct effect_base * e ,  struct canvas * canvas, struc
 
 
 static void frame_config(struct effect_base * e, void * data) {
-	struct frame * frame = e->object_data;
+	struct frame * frame = (struct frame *)e; 
 
 	switch (e->config_id) {
 		case 1:
@@ -201,7 +195,6 @@ struct effect_ops   frame_ops=  {
 
 void frame_init(struct frame  * f) {
 	f->effect.ops = &frame_ops;
-	f->effect.object_data = f;
 }
 
 
@@ -209,8 +202,7 @@ struct effect_base * frame_new() {
 	struct frame * f = malloc(sizeof(struct frame));
 	if (f)
 		memset (f,0,sizeof(struct frame));
-	
+
 	f->effect.ops = &frame_ops;
-	f->effect.object_data = f;
 	return &f->effect;
 }

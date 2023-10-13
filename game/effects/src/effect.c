@@ -19,7 +19,7 @@
 
 
 void effect_render(struct effect_base * e, struct canvas * c, struct rect * r) {
-	if (e->ops->render) {
+	if (e && e->ops && e->ops->render) {
 		e->ops->render(e,c,r);
 	}
 
@@ -41,6 +41,11 @@ void effect_set_config(struct effect_base * e, struct effect_configuration * cd 
 struct effect_ops *  effect_get_type(struct effect_base * e) {
 	return e->ops;
 }
+
+
+
+
+
 
 
 

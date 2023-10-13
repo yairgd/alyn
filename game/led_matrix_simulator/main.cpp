@@ -44,43 +44,6 @@ int main(int argc, char *argv[])
 	QApplication a(argc, argv);
 	MainWindow w;
 	w.show();
-
-#if 0
-	ThreadedWorker worker;
-	QThread thread;
-	thread.start();
-
-	worker.moveToThread(&thread);
-
-// Connect the worker's signal to a slot in the main thread
-    QObject::connect(&worker, &ThreadedWorker::resultReady, [argc, argv](const QString &result) {
-        qDebug() << "Main thread: " << result;
-        lua_main(argc,argv);
-    });
-
-
-    // Start the thread
-    thread.start();
-
-    // Trigger the worker's slot from the main thread
-    QMetaObject::invokeMethod(&worker, "doWork", Qt::QueuedConnection);
-#endif
-    
-  // Connect the worker's signal to a slot in the main thread
-//    QObject::connect(&worker, &worker::resultReady, [](const QString &result) {
- //      lua_main(argc,argv);
- //   });
-	//worker.start();
-
-//	std::thread t1 ([argc, argv]()  {
-///		lua_main(argc,argv);
-//	});
-//	t1.detach();
 	return a.exec();
-
-
-
-
-
 }
 

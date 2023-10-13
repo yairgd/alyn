@@ -1,6 +1,6 @@
 set(Effects_SRC
-	6x13-ISO8859-8.c  
-	9x18-ISO8859-8.c  
+	fonts/6x13-ISO8859-8.c  
+	fonts/9x18-ISO8859-8.c  
 	banner.c  
 	canvas.c  
 	effect.c
@@ -8,7 +8,13 @@ set(Effects_SRC
 	frame.c  
 	led_matrix.c  
 	u8.c
-	frame_lua_effect.c
+	timing.c
+	lua/frame_effect.c
+	lua/banner_effect_1.c
+	lua/banner_effect_2.c
+	lua/rect.c
+	lua/obj.c
+	
 )
 
 add_library(effects_static STATIC

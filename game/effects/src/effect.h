@@ -23,7 +23,7 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-	struct effect_parameters  {
+		struct effect_parameters  {
 		char varname[32];
 		union valdue {
 			double dv;
@@ -42,7 +42,6 @@ extern "C" {
 		int x,y; 		 // top left to take from  recnagle data
 		struct rect r;		 // the x,y and width, height of the object when it placed in its parent
 		struct canvas * canvas;  // pointer to canvas - it passes fom the parent of the object
-		void * object_data;      // implementation data of the effect
 		struct effect_ops * ops; 
 		int config_id;
 	};

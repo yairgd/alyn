@@ -20,6 +20,7 @@
 #include "canvas.h"
 #include "u8.h"
 #include "effect.h"
+#include "timing.h"
 
 #include <assert.h>
 
@@ -27,6 +28,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
+
 
 
 
@@ -52,22 +54,18 @@ void banner_get_buffer(struct banner * banner, struct rect * r, char *rect_buffe
 
 }
 
-static void banner_blink_effect(struct banner * banner, int rate, int start_idx, int end_idx, int tick_time) {
-	banner->effect_id = 1;	
-	banner->tick = 0;
-	banner->config.blink.rate = rate;
+static void banner_blink_effect(struct banner * banner, int start_idx, int end_idx, int time_on, int time_off) {
+	banner->effect.config_id = 1;	
 	banner->config.blink.start_idx = start_idx;
 	banner->config.blink.end_idx = end_idx;
-	banner->config.blink.tick_time = tick_time;
-	banner->config.blink.on = 1;
+	banner->config.blink.time_on = time_on;
+	banner->config.blink.time_off = time_off;
 
 }
 
-static void banner_rotate_effect(struct banner * banner, int direction, int step, int tick_time) {
-	banner->effect_id = 2;
-	banner->tick = 0;	
+static void banner_rotate_effect(struct banner * banner, int direction, int step) {
+	banner->effect.config_id = 2;	
 	banner->config.rotate.direction = direction;
-	banner->config.rotate.tick_time = tick_time;
 	banner->config.rotate.step = step;
 
 }
@@ -75,38 +73,32 @@ static void banner_rotate_effect(struct banner * banner, int direction, int step
 
 static void bannner_manage_blink(struct banner * banner) 
 {
-	banner->tick++;
 
-	if (banner->tick >= banner->config.blink.rate) {
-		banner->tick = 0;
-		if (banner->config.blink.on == 1) {
-			banner->config.blink.on = 0;
-			if (banner->config.blink.end_idx !=0 && banner->config.blink.start_idx <= banner->config.blink.end_idx)
-				// blink range of letters
-				canvas_fill_rect(&banner->canvas, &(struct rect  ){banner->config.blink.start_idx * font_width(banner->canvas.font,0) ,0,banner->config.blink.end_idx * font_width(banner->canvas.font,0) , font_height(banner->canvas.font)},0);
+	if (banner->on == 1 && timing_elapse(banner->config.blink.time_on) ) {
+		banner->on = 0;
+		timing_begin_to_measure_time();
+		if (banner->config.blink.end_idx !=0 && banner->config.blink.start_idx <= banner->config.blink.end_idx)
+			// blink range of letters
+			canvas_fill_rect(&banner->canvas, &(struct rect  ){banner->config.blink.start_idx * font_width(banner->canvas.font,0) ,0,banner->config.blink.end_idx * font_width(banner->canvas.font,0) , font_height(banner->canvas.font)},0);
 
-			else   { // blink all text
-				int len = u8_strlen(banner->text);				
-				canvas_fill_rect(&banner->canvas, &(struct rect  ){0,0,len * font_width(banner->canvas.font,0) , font_height(banner->canvas.font)},0);
-			}
+		else   { // blink all text
+			int len = u8_strlen(banner->text);				
+			canvas_fill_rect(&banner->canvas, &(struct rect  ){0,0,len * font_width(banner->canvas.font,0) , font_height(banner->canvas.font)},0);
 		}
-		else {
-			banner->config.blink.on = 1;
-			canvas_print(&banner->canvas, 0,0, banner->text);
-		}
+	}
+	else if (banner->on == 0 && timing_elapse(banner->config.blink.time_off) ) {
+		banner->on = 1;
+		timing_begin_to_measure_time();		
+		canvas_print(&banner->canvas, 0,0, banner->text);
 	}
 }
 
 static void bannner_manage_rotate(struct banner * banner) {
-	banner->tick++;
 
-	if (banner->tick >= banner->config.rotate.tick_time) {
-		banner->tick = 0;
-		if (banner->config.rotate.direction == 1) {
-			canvas_rotate_left(&banner->canvas,banner->config.rotate.step);	
-		} else if (banner->config.rotate.direction == 2) {
-			canvas_rotate_right(&banner->canvas,banner->config.rotate.step);				
-		}
+	if (banner->config.rotate.direction == 1) {
+		canvas_rotate_left(&banner->canvas,banner->config.rotate.step);	
+	} else if (banner->config.rotate.direction == 2) {
+		canvas_rotate_right(&banner->canvas,banner->config.rotate.step);				
 	}
 
 }
@@ -115,10 +107,10 @@ static void bannner_manage_rotate(struct banner * banner) {
 static char b[64*32*4];
 
 static void banner_render(struct effect_base * e,  struct canvas * canvas, struct  rect * r) {
-	struct banner * banner = e->object_data;
+	struct banner * banner = (struct banner *)e  ;
 
 	memset (b,0,64*32*4);
-	switch (banner->effect_id) {
+	switch (banner->effect.config_id) {
 		case 1: // blink
 			bannner_manage_blink(banner);
 			break;
@@ -137,16 +129,17 @@ static void banner_render(struct effect_base * e,  struct canvas * canvas, struc
 
 
 static void banner_config(struct effect_base * e, void * data) {
-	struct banner * banner = e->object_data;
+	struct banner * banner = (struct banner *)e  ;
+	timing_begin_to_measure_time();
 
 	switch (e->config_id) {
 		case 1:
 			banner->config.rotate = *(struct banner_config_rotate*)data;			
-			banner_rotate_effect(banner, banner->config.rotate.direction, banner->config.rotate.step, banner->config.rotate.tick_time);
+			banner_rotate_effect(banner, banner->config.rotate.direction, banner->config.rotate.step);
 			break;
 		case 2:
 			banner->config.blink = *(struct banner_config_blink*)data;						
-			banner_blink_effect(banner, banner->config.blink.rate, banner->config.blink.start_idx, banner->config.blink.end_idx, banner->config.blink.tick_time);
+			banner_blink_effect(banner, banner->config.blink.start_idx, banner->config.blink.end_idx, banner->config.blink.time_on, banner->config.blink.time_off);
 			break;
 		default:
 			break;
@@ -179,15 +172,13 @@ void banner_init_with_text(struct banner * banner, struct rect r, const struct f
 
 	banner->effect.r = r;
 	banner->effect.ops = &banner_ops;
-	banner->effect.object_data = banner;
 }
 
 struct effect_base * banner_new() {
 	struct banner * b = malloc(sizeof(struct banner));
 	if (b)
 		memset (b,0,sizeof(struct banner));
-	
+
 	b->effect.ops = &banner_ops;
-	b->effect.object_data = b;
 	return &b->effect;
 }

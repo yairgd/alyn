@@ -26,9 +26,11 @@
 
 void led_matrix_init(struct led_matrix * matrix,int width, int height) {
 	canvas_init(&matrix->canvas, width, height);
-	matrix->buffer = malloc (width * height * 4);
+	matrix->buffer = malloc (width * height * 4);	
 }
-void led_matrix_free(struct led_matrix * matrix) {
+
+
+void  led_matrix_free(struct led_matrix * matrix) {
 	canvas_free(&matrix->canvas);
 	free(matrix->buffer);
 }
@@ -45,15 +47,21 @@ void led_matrix_free(struct led_matrix * matrix) {
  */
 struct effect_base * led_matrix_get_banner(struct led_matrix * matrix) {
 	matrix->effects[matrix->idx] = banner_new();
-	return matrix->effects[matrix->idx++];
+	int idx = matrix->idx++;
+	matrix->idx = matrix->idx % 10;
+	return matrix->effects[idx];	
 }
 
 
 
 struct effect_base * led_matrix_get_frame(struct led_matrix * matrix) {
 	matrix->effects[matrix->idx] = frame_new();
-	return matrix->effects[matrix->idx++];
+	int idx = matrix->idx++;
+	matrix->idx = matrix->idx % 10;
+	return matrix->effects[idx];		
+
 }
+
 
 
 void led_matrix_manage(struct led_matrix * matrix){

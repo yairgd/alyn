@@ -23,6 +23,7 @@
 extern "C" {
 #endif
 
+#include <time.h>
 #include "canvas.h"
 #include "effect.h"
 
@@ -55,6 +56,7 @@ extern "C" {
 			struct banner_config_rotate rotate;
 		} config;
 		int on;
+		struct timespec start_time;
 
 
 	};

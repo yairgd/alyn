@@ -19,7 +19,6 @@
 
 #include "timing.h"
 
-static struct timespec start_time;				
 
 
 /**
@@ -29,10 +28,10 @@ static struct timespec start_time;
  * @param   time(ms) to mesure
  * @return  
  */
-int timing_elapse(uint64_t time) {
+int timing_elapse( struct timespec  * start_time, uint64_t time ) {
 
 	struct timespec stop_time , *rts;
-	rts = &start_time;
+	rts = start_time;
 #ifdef CONFIG_UART_NATIVE_POSIX
 #  define NSEC_PER_SEC 1000000000
 #else
@@ -49,10 +48,10 @@ int timing_elapse(uint64_t time) {
 }
 
 
-void timing_begin_to_measure_time( ) {
+void timing_begin_to_measure_time( struct timespec  * start_time ) {
 #ifdef CONFIG_UART_NATIVE_POSIX
 #else
-	clock_gettime(CLOCK_REALTIME, &start_time); // get system time 
+	clock_gettime(CLOCK_REALTIME, start_time); // get system time 
 #endif
 }
 

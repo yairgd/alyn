@@ -21,6 +21,6 @@
 #include  <time.h>
 #include  <stdint.h>
 
-int timing_elapse(uint64_t time) ;
-void timing_begin_to_measure_time() ;
+int timing_elapse(struct timespec  * start_time, uint64_t time);
+void timing_begin_to_measure_time( struct timespec  * start_time );
 #endif

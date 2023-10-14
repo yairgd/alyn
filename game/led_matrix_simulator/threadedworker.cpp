@@ -49,7 +49,7 @@ void ThreadedWorker::doWork()
 
 
 	
-	char* argv[] = {const_cast<char*> ("program_name"),
+	const char* argv[] = {const_cast<char*> ("program_name"),
 		//     const_cast<char*> ("-arg1"),
 		//     const_cast<char*> ("string_to_arg1"),
 		//     const_cast<char*> ("-arg2"),
@@ -58,7 +58,7 @@ void ThreadedWorker::doWork()
 	int argc = sizeof (argv) / sizeof (char*) - 1;
 
 	std::thread t1 ([argc, argv]()  {
-		lua_main(argc,argv);	
+		lua_main(argc,const_cast<char**>(argv));	
 	});
 
 	

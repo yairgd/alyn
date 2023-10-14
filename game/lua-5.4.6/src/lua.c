@@ -659,7 +659,7 @@ static int pmain (lua_State *L) {
 }
 
 
-#ifdef RUN_AS_LIBRARY
+#ifdef CONFIG_LUA_GAME_LIB
 int lua_main (int argc, char **argv) {
 #else
 int main (int argc, char **argv) {

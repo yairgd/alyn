@@ -37,7 +37,7 @@ struct lua_user_data {
 
 
 
-struct lua_user_data * led_matrix_new_object(enum obj_type type);
+struct lua_user_data * object_new(enum obj_type type);
 
 int register_frame_effect_class(lua_State* L);
 int register_banner1_effect_class(lua_State* L);

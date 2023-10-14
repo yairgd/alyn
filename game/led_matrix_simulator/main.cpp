@@ -20,14 +20,19 @@
 #include <QThread>
 #include <QDebug>  
 
-#include "mainwindow.h"
-#include "threadedworker.h"
 #include <exception>
 #include <qnamespace.h>
 #include <thread>
 #include <ostream>
 #include <iostream>
 #include <sstream>
+
+#include "mainwindow.h"
+#include "threadedworker.h"
+
+
+#include "led_matrix.h"
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -43,6 +48,8 @@ int main(int argc, char *argv[])
 {
 	QApplication a(argc, argv);
 	MainWindow w;
+	led_matrix_init(led_matrix_get(), 64,32);
+	
 	w.show();
 	return a.exec();
 }

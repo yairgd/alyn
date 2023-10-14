@@ -34,24 +34,21 @@ static int lua_frame_gc(lua_State *L) {
 }
 
 static int lua_frame_render(lua_State *L) {
-	struct led_matrix * matrix = get_led_matrix();    	
+	int channel_id  = (int) luaL_checknumber (L, -1);
+	struct channel * channel = led_matrix_get_channel(led_matrix_get(),  channel_id);    	
 	struct lua_user_data * user_data = *(struct lua_user_data**)luaL_checkudata(L, 1, LUA_FRAME);
 	struct frame * frame = (struct frame * )user_data->data;
 
-	effect_render(&frame->effect, &matrix->canvas, 0); 
+	effect_render(&frame->effect, &channel->canvas, 0); 
 	return 0;
 
 }
 
 static int lua_frame_new(lua_State* L) {
-	struct led_matrix * led_matrix = get_led_matrix();	
-	struct lua_user_data  * user_data = malloc(sizeof(struct lua_user_data));
-
-	user_data->type = obj_type_frame;
-	user_data->data = led_matrix_get_frame(led_matrix);
-	struct frame * frame = (struct frame * )user_data->data;
-
+	struct lua_user_data  * user_data = object_new(obj_type_frame);	
+	struct frame * frame = (struct frame * )user_data->data;	
 	struct lua_user_data * rect = *(struct lua_user_data**)luaL_checkudata(L, 1, "rect");
+
 	if (rect->type != obj_type_rect)
 		 luaL_error(L, "This is not a valid rectange");    
 

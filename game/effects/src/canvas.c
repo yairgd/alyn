@@ -137,7 +137,7 @@ void canvas_print(struct canvas * canvas, int x, int y, const char* str){
 }
 
 
-void canvas_fill_rect(const struct canvas * canvas, struct rect * r,int color) {
+void canvas_fill_rect( struct canvas * canvas, struct rect * r,int color) {
 	int buttom_right_y = r->top_left_y + r->height - 0;
 	int buttom_right_x = r->top_left_x + r->width - 0;
 
@@ -195,7 +195,7 @@ void canvas_set_rect(struct canvas * canvas, struct rect * r, char *rect_buffer)
 }
 
 
-void canvas_plot(const struct canvas * canvas, int x,int y,int c) {
+void canvas_plot( struct canvas * canvas, int x,int y,int c) {
 	if (x < canvas->width && y < canvas->height && x >=0 & y>=0)
 		SET_BIT_COLOR(canvas,x,y,c);
 }
@@ -211,7 +211,7 @@ void canvas_plot(const struct canvas * canvas, int x,int y,int c) {
  * @param   c color (rgb - 24 bit)
  * @return  
  */
-void canvas_line(const struct canvas * canvas, int x1,int y1,int x2, int y2,int c) {
+void canvas_line( struct canvas * canvas, int x1,int y1,int x2, int y2,int c) {
 	float dx = x2 - x1;
 	float dy = y2 - y1;
 
@@ -236,7 +236,7 @@ void canvas_line(const struct canvas * canvas, int x1,int y1,int x2, int y2,int 
  * @param   
  * @return  
  */
-void canvas_circle(const struct canvas * canvas, int x0,int y0,int radius,int c) {
+void canvas_circle( struct canvas * canvas, int x0,int y0,int radius,int c) {
 	int x = radius;
 	int y = 0;
 	int xChange = 1 - (radius << 1);
@@ -272,7 +272,7 @@ void canvas_circle(const struct canvas * canvas, int x0,int y0,int radius,int c)
 	}
 }
 
-void canvas_fill_circle(const struct canvas * canvas, int x0,int y0,int radius,int c) {
+void canvas_fill_circle( struct canvas * canvas, int x0,int y0,int radius,int c) {
 	int x = radius;
 	int y = 0;
 	int xChange = 1 - (radius << 1);
@@ -307,7 +307,7 @@ void canvas_fill_circle(const struct canvas * canvas, int x0,int y0,int radius,i
 }
 
 
-void canvas_clean(const struct canvas * canvas, struct rect *r) {
+void canvas_clean_rect( struct canvas * canvas, struct rect *r) {
 
 	for (int x = r->top_left_x; x < r->top_left_x + r->width  && x < canvas->width;x++) {
 		for (int y = r->top_left_y; y < r->top_left_y + r->width  && y < canvas->height;y++) {
@@ -315,3 +315,14 @@ void canvas_clean(const struct canvas * canvas, struct rect *r) {
 		}
 	}
 }
+
+
+void canvas_clean( struct canvas * canvas) {
+	for (int x = 0; x < canvas->width;x++) {
+		for (int y = 0; y < canvas->height;y++) {
+			SET_BIT_COLOR(canvas,x,y,0);			
+		}
+	}
+
+}
+

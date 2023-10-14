@@ -19,7 +19,7 @@
 #include "obj.h"
 #include <stdlib.h>
 
-struct lua_user_data * led_matrix_new_object(enum obj_type type) {
+struct lua_user_data * object_new(enum obj_type type) {
 	struct lua_user_data * obj = malloc(sizeof(struct lua_user_data));
 
 	switch (type) {
@@ -29,12 +29,12 @@ struct lua_user_data * led_matrix_new_object(enum obj_type type) {
 			break;
 
 		case obj_type_banner:
-			obj->data = banner_new();
+			obj->data = (void*)banner_new();
 			obj->type = obj_type_banner;
 			break;
 		
 		case obj_type_rect:
-			obj->data = malloc(sizeof (struct rect));
+			obj->data = (void*)malloc(sizeof (struct rect));
 			obj->type = obj_type_rect;
 			break;
 		

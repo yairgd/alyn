@@ -56,16 +56,18 @@ static int lua_banner_gc(lua_State *L) {
 	return 0;
 }
 static int lua_banner_render(lua_State *L) {
+	int channel_id  = (int) luaL_checknumber (L, -1);
+	struct channel * channel = led_matrix_get_channel(led_matrix_get(),  channel_id);    	
+
+
 	struct lua_user_data * user_data = *(struct lua_user_data**)luaL_checkudata(L, 1, LUA_BANNER);
-	struct led_matrix * matrix = get_led_matrix();    
 	struct banner * banner = (struct banner * )user_data->data;
 
-	effect_render(&banner->effect, &matrix->canvas, 0); 
+	effect_render(&banner->effect, &channel->canvas, 0); 
 	return 0;
 }
 static int lua_banner_config(lua_State *L) {
 	struct lua_user_data * user_data = *(struct lua_user_data**)luaL_checkudata(L, 1, LUA_BANNER);
-	struct led_matrix * matrix = get_led_matrix();    
 	struct banner * banner = (struct banner * )user_data->data;
 
 	struct lua_user_data * rect = *(struct lua_user_data**)luaL_checkudata(L, 2, "rect");
@@ -84,14 +86,10 @@ static int lua_banner_config(lua_State *L) {
 
 
 static int lua_banner_new(lua_State* L) {
-	struct led_matrix * led_matrix = get_led_matrix();	
-	struct lua_user_data  * user_data = malloc(sizeof(struct lua_user_data));
-
-	user_data->type = obj_type_banner;
-	user_data->data = led_matrix_get_banner(led_matrix);
-	struct banner * banner = (struct banner * )user_data->data;
-
+	struct lua_user_data  * user_data = object_new(obj_type_banner);	
+	struct banner * banner = (struct banner * )user_data->data;	
 	struct lua_user_data * rect = *(struct lua_user_data**)luaL_checkudata(L, 1, "rect");
+	
 	if (rect->type != obj_type_rect)
 		 luaL_error(L, "This is not a valid rectange");    
 

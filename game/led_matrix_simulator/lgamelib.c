@@ -32,6 +32,7 @@
 #include "lualib.h"
 #include "led_matrix.h"
 
+static int led_matrix_channel_id = 0;
 
 static int luaB_tostring (lua_State *L) {
   luaL_checkany(L, 1);
@@ -87,8 +88,8 @@ static int luaB_plot(lua_State *L) {
   int c  = (int) luaL_checknumber (L, -1);
 
   lua_pop (L, 3);
-	struct led_matrix * led_matrix = get_led_matrix();
-	canvas_plot(&led_matrix->canvas,x,y,c);
+  struct channel * channel = led_matrix_get_channel(led_matrix_get(),  led_matrix_channel_id);    	
+	canvas_plot(&channel->canvas,x,y,c);
   return 0;
 }
 
@@ -100,8 +101,8 @@ static int luaB_line(lua_State *L) {
   int c  = (int) luaL_checknumber (L, -1);
 
   lua_pop (L, 5);
-  struct led_matrix * led_matrix = get_led_matrix();
-  canvas_line(&led_matrix->canvas,x1,y1,x2,y2,c);
+  struct channel * channel = led_matrix_get_channel(led_matrix_get(),  led_matrix_channel_id);    	
+  canvas_line(&channel->canvas,x1,y1,x2,y2,c);
   return 0;
 }
 
@@ -112,8 +113,8 @@ static int luaB_circle(lua_State *L) {
   int c  = (int) luaL_checknumber (L, -1);
 
   lua_pop (L, 4);
-  struct led_matrix * led_matrix = get_led_matrix();
-  canvas_circle(&led_matrix->canvas,x,y,r,c);
+  struct channel * channel = led_matrix_get_channel(led_matrix_get(),  led_matrix_channel_id);    	
+  canvas_circle(&channel->canvas,x,y,r,c);
   return 0;
 }
 
@@ -125,33 +126,38 @@ static int luaB_fill_circle(lua_State *L) {
   int c  = (int) luaL_checknumber (L, -1);
 
   lua_pop (L, 4);
-  struct led_matrix * led_matrix = get_led_matrix();
-  canvas_fill_circle(&led_matrix->canvas,x,y,r,c);
+  struct channel * channel = led_matrix_get_channel(led_matrix_get(),  led_matrix_channel_id);    	
+  canvas_fill_circle(&channel->canvas,x,y,r,c);
   return 0;
 }
 
-static int luaB_clean(lua_State *L) {
+static int luaB_clean_rect(lua_State *L) {
   int x  = (int) luaL_checknumber (L, -4);
   int y  = (int) luaL_checknumber (L, -3);
   int w  = (int) luaL_checknumber (L, -2);
   int h  = (int) luaL_checknumber (L, -1);
 
   lua_pop (L, 4);
-  struct led_matrix * led_matrix = get_led_matrix();
-  canvas_clean(&led_matrix->canvas, &RECT(x,y,w,h)) ;
+  struct channel * channel = led_matrix_get_channel(led_matrix_get(),  led_matrix_channel_id);    	
+  canvas_clean_rect(&channel->canvas, &RECT(x,y,w,h)) ;
 
   return 0;
 }
-
-
-static int luaB_new_frame(lua_State *L) {
-	//register_frame_effect_class(L);
+static int luaB_clean(lua_State *L) {
+	for (int  i = 0;i < 3;i++) {
+		 struct channel * channel = led_matrix_get_channel(led_matrix_get(),  i);  
+	 	 canvas_clean(&channel->canvas) ;		  
+	}
 }
 
 
-static int luaB_new_banner(lua_State *L) {
-	//register_frame_effect_class(L);
+
+static int luaB_select_channel(lua_State *L) {
+    int channel  = (int) luaL_checknumber (L, -1);
+    led_matrix_channel_id = channel;
 }
+
+
 
 static const luaL_Reg game_funcs[] = {
 
@@ -164,9 +170,9 @@ static const luaL_Reg game_funcs[] = {
   {"line", luaB_line},
   {"circle", luaB_circle},
   {"fill_circle", luaB_fill_circle},
+  {"clean_rect", luaB_clean_rect},
   {"clean", luaB_clean},
-  {"new_frame", luaB_new_frame},
-  {"new_banner", luaB_new_banner},
+  {"select_channel", luaB_select_channel},
 
   /* placeholders */
   {NULL, NULL}

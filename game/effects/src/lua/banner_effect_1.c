@@ -54,15 +54,16 @@ static int lua_banner_gc(lua_State *L) {
 }
 static int lua_banner_render(lua_State *L) {
 	struct lua_user_data * user_data = *(struct lua_user_data**)luaL_checkudata(L, 1, LUA_BANNER);
-	struct led_matrix * matrix = get_led_matrix();    
 	struct banner * banner = (struct banner * )user_data->data;
+	int channel_id  = (int) luaL_checknumber (L, -1);
+	struct channel * channel = led_matrix_get_channel(led_matrix_get(),  channel_id);    	
 
-	effect_render(&banner->effect, &matrix->canvas, 0); 
+
+	effect_render(&banner->effect, &channel->canvas, 0); 
 	return 0;
 }
 static int lua_banner_config(lua_State *L) {
 	struct lua_user_data * user_data = *(struct lua_user_data**)luaL_checkudata(L, 1, LUA_BANNER);
-	struct led_matrix * matrix = get_led_matrix();    
 	struct banner * banner = (struct banner * )user_data->data;
 
 	struct lua_user_data * rect = *(struct lua_user_data**)luaL_checkudata(L, 2, "rect");
@@ -81,14 +82,10 @@ static int lua_banner_config(lua_State *L) {
 
 
 static int lua_banner_new(lua_State* L) {
-	struct led_matrix * led_matrix = get_led_matrix();	
-	struct lua_user_data  * user_data = malloc(sizeof(struct lua_user_data));
-
-	user_data->type = obj_type_banner;
-	user_data->data = led_matrix_get_banner(led_matrix);
+	struct lua_user_data  * user_data = object_new(obj_type_banner);
 	struct banner * banner = (struct banner * )user_data->data;
-
 	struct lua_user_data * rect = *(struct lua_user_data**)luaL_checkudata(L, 1, "rect");
+	
 	if (rect->type != obj_type_rect)
 		 luaL_error(L, "This is not a valid rectange");    
 
@@ -114,7 +111,7 @@ int register_banner1_effect_class(lua_State *L) {
 	// instance functions
 	static const luaL_Reg meta[] =
 	{   { "__gc"        ,lua_banner_gc          },
-		{ NULL          ,NULL            }  };
+	    { NULL          ,NULL            }  };
 	static const luaL_Reg meth[] =
 	{   { "render" ,lua_banner_render },
 	    { "config" ,lua_banner_config },
@@ -127,11 +124,11 @@ int register_banner1_effect_class(lua_State *L) {
 	// static functions
 	static const luaL_Reg static_meta[] =
 	{   { "__index" ,lua_banner_index },
-		{ "__call"  ,lua_banner_new   },
-		{ NULL      ,NULL      }  };
+	    { "__call"  ,lua_banner_new   },
+	    { NULL      ,NULL      }  };
 	static const luaL_Reg static_meth[] =
 	{   { "new"     ,lua_banner_new   },
-		{ NULL      ,NULL      }  };
+	    { NULL      ,NULL      }  };
 	luaL_newlib      (L, static_meth);
 	luaL_newlib      (L, static_meta);
 	lua_setmetatable (L, -2);

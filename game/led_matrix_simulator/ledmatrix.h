@@ -25,7 +25,6 @@
 #include <iostream>
 
 #include "threadedworker.h"
-#include "led_matrix.h"
 class LedMatrixWidget : public QWidget
 {
     Q_OBJECT
@@ -34,7 +33,6 @@ public:
     LedMatrixWidget(QWidget *parent = nullptr);
     ~LedMatrixWidget();
 private:
-    struct led_matrix *  led_matrix = get_led_matrix();
     ThreadedWorker worker;
 
 protected:

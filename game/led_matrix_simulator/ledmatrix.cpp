@@ -28,6 +28,7 @@
 #include "font.h"
 #include "frame.h"
 #include "threadedworker.h"
+#include "led_matrix.h"
 
 #include <chrono>
 #include <iostream>
@@ -48,7 +49,6 @@ LedMatrixWidget::LedMatrixWidget(QWidget *parent)
 	: QWidget(parent)
 {
 
-	led_matrix_init(led_matrix, 64,32);
 	QMetaObject::invokeMethod(&worker, "doWork", Qt::QueuedConnection);
 	QObject::connect(&worker, &ThreadedWorker::updateLedMatrix, [this]() {
 		this->update();
@@ -118,6 +118,9 @@ void LedMatrixWidget::paintEvent(QPaintEvent *event)
 {
 	Q_UNUSED(event);
 	QPainter painter(this);
+	 led_matrix_merge(led_matrix_get(),10,10,10);	
+	struct channel * channel = led_matrix_get_channel(led_matrix_get(),  3 );    	
+
 
 	// Define the chessboard square size and colors
 	int squareSize = 8; //width() / 8; // Assuming an 8x8 chessboard
@@ -126,12 +129,13 @@ void LedMatrixWidget::paintEvent(QPaintEvent *event)
 
 	//painter.setPen(QPen(Qt::black, 2));
 	painter.fillRect(0,0,64*squareSize-0,32*squareSize-0,Qt::black);
+	
 	// Draw the chessboard grid
 	for (int row = 0; row < 32; ++row)
 	{
 		for (int col = 0; col < 64; ++col)
 		{	
-			painter.fillRect(col * squareSize+2, row * squareSize+2, squareSize-2, squareSize-2, QColor(GET_BIT_COLOR(&(led_matrix->canvas),col-0,row-0)));
+			painter.fillRect(col * squareSize+2, row * squareSize+2, squareSize-2, squareSize-2, QColor(GET_BIT_COLOR(&(channel->canvas),col,row)));
 
 		}
 	}

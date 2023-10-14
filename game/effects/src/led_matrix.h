@@ -30,22 +30,24 @@ extern "C" {
 #include "frame.h"
 #include "canvas.h"
 #include "effect.h"
-
-	struct led_matrix {
+	struct channel {
 		struct canvas canvas;
-		struct effect_base * effects[10];
-		int idx;
+		//struct effect_base * effects[10];
+		//int idx;
 		char * buffer;
+		int opacity;			
+	} ;
+	struct led_matrix {
+		struct channel channels[4];
+		int width;
+		int height;
 	};
 
-	void led_matrix_free(struct led_matrix * matrix);
-	void led_matrix_init(struct led_matrix * matrix,int width, int height);
-	void led_matrix_manage(struct led_matrix * matrix);
-	struct effect_base * led_matrix_get_banner(struct led_matrix * matrix);
-	struct effect_base * led_matrix_get_frame(struct led_matrix * matrix);
-	struct  led_matrix  *  get_led_matrix();
-	void led_matrix_begin_to_measure_time(struct led_matrix * matrix) ;
-	int led_matrix_elapse_time(struct led_matrix * matrix, int64_t time);
+	void led_matrix_init(struct led_matrix *, int width, int height);
+	void led_matrix_free(struct led_matrix *);
+	void led_matrix_merge(struct led_matrix *,int c0, int c1, int c2);
+	struct led_matrix * led_matrix_get();
+	struct  channel  *  led_matrix_get_channel(struct led_matrix * matrix, int id);
 
 #ifdef __cplusplus
 }

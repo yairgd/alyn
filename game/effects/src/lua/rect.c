@@ -17,7 +17,6 @@
  */
 #include <stdlib.h>
 
-#include "led_matrix.h"
 #include "obj.h"
 #include "canvas.h"
 
@@ -34,9 +33,8 @@ static int lua_rect_gc(lua_State *L) {
 }
 
 static int lua_rect_new(lua_State* L) {
-	struct led_matrix * led_matrix = get_led_matrix();	
-	struct lua_user_data  * user_data = led_matrix_new_object(obj_type_rect);
 
+	struct lua_user_data  * user_data = object_new(obj_type_rect);	
 	int x  = (int) luaL_checknumber (L, -4);
 	int y = (int) luaL_checknumber (L, -3);
   	int w  = (int) luaL_checknumber (L, -2);

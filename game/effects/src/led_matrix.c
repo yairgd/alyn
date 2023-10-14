@@ -40,52 +40,17 @@ void led_matrix_init(struct led_matrix * led_matrix, int width, int height) {
 
 
 void  led_matrix_free(struct led_matrix * led_matrix) {
-	for (int i = 0; i <3 ; i++) {
+	for (int i = 0; i < sizeof (led_matrix->channels) / sizeof(struct channel)  ; i++) {
 		canvas_free(&led_matrix->channels[i].canvas);
 		free(led_matrix->channels[i].buffer);
 	}
 }
-#if 0
 
-/**
- * Created  10/01/2023
- * @brief   return  pointer to banner
- * @note  
- * @param   led_matrix the RGB led matrix display handle
- * @param   id banner id
- * @param   r the rectange of the banner in the led_matrix
- * @return  
- */
-struct effect_base * led_matrix_get_banner(struct led_matrix * matrix) {
-	matrix->effects[matrix->idx] = banner_new();
-	int idx = matrix->idx++;
-	matrix->idx = matrix->idx % 10;
-	return matrix->effects[idx];	
+void  led_matrix_set_opcaity(struct led_matrix * matrix, double o0, double o1, double o2) {
+	matrix->channels[0].opacity = o0;
+	matrix->channels[1].opacity = o1;
+	matrix->channels[2].opacity = o2;
 }
-
-
-
-struct effect_base * led_matrix_get_frame(struct led_matrix * matrix) {
-	matrix->effects[matrix->idx] = frame_new();
-	int idx = matrix->idx++;
-	matrix->idx = matrix->idx % 10;
-	return matrix->effects[idx];		
-
-}
-
-
-void led_matrix_manage(struct led_matrix * matrix){
-
-	// mange the banners and place its contetnt on canvs
-	for (int i = 0; i < 10; i++) {
-		if (matrix->effects[i])
-			effect_render(matrix->effects[i], &matrix->canvas, 0);
-
-	}
-
-}
-
-#endif
 
 
 /**
@@ -124,9 +89,10 @@ void led_matrix_merge(struct led_matrix * matrix,int c0, int c1, int c2) {
 			int r2 = (c2>>16)&0x0000ff ; int r1 = (c1>>16) & 0x0000ff;
 			int g2 = (c2>>8)&0x0000ff  ; int g1 = (c1>>8)  & 0x0000ff;
 			int b2 = (c2>>0)&0x0000ff  ; int b1 = (c1>>0)  & 0x0000ff;
-			r1 = r2 * 0.5 + r1 * 0.5;
-			g1 = g2 * 0.5 + g1 * 0.5;
-			b1 = b2 * 0.5 + b1 * 0.5;
+			r1 = r1 ==0 ? r2 : r2==0 ? r1 : r2 * matrix->channels[2].opacity + r1 * matrix->channels[1].opacity;
+			g1 = g1 ==0 ? g2 : g2==0 ? g1 : g2 * matrix->channels[2].opacity + g1 * matrix->channels[1].opacity;
+			b1 = b1 ==0 ? b2 : r2==0 ? b1 : b2 * matrix->channels[2].opacity + b1 * matrix->channels[1].opacity;
+
 			int c = r1 << 16 | g1 <<8 | b1 << 0;
 
 			SET_BIT_COLOR(&(matrix->channels[3].canvas), col, row,  c0 ? c0 : c) ;

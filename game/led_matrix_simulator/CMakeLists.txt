@@ -25,11 +25,18 @@ add_executable(led-screen-sim
     ledmatrix.cpp
     threadedworker.cpp
     main.cpp
-    lgamelib.c
+    
     #    resources.qrc
 )
 
-target_link_libraries(led-screen-sim Qt5::Widgets effects_static lua)
+target_link_libraries(led-screen-sim 
+	-Wl,--start-group
+	Qt5::Widgets 
+	effects_static
+	lua
+	lua_module
+       -Wl,--end-group
+)
 target_include_directories(led-screen-sim  PRIVATE
 	${CMAKE_SOURCE_DIR}/game/lua-5.4.6/src/
 )

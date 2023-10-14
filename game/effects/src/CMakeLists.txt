@@ -14,11 +14,15 @@ set(Effects_SRC
 	lua/banner_effect_2.c
 	lua/rect.c
 	lua/obj.c
+	lua/lgamelib.c
 	
 )
 
 add_library(effects_static STATIC
 	${Effects_SRC}
+)
+target_link_libraries(effects_static 
+	lua
 )
 
 target_include_directories(effects_static PUBLIC 

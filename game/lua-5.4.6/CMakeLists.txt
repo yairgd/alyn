@@ -39,7 +39,7 @@ set(LUA_SOURCES
 
 
 
-# Add a library for your subdirectory
+# Lua librarary to integrate in the MCU code
 add_library(lua_module ${LUA_SOURCES})
 
 # Include directories for your subdirectory
@@ -71,18 +71,17 @@ add_custom_target(  luac
 )
 
 
-# Add a library for your subdirectory
+# The lua stand alone module to run in the GUI as separate thread
 add_library(lua 
 	  src/lua.c
 	)
-target_link_libraries(lua 
+target_link_libraries(lua
 	lua_module
-	m)
+	m
+)
 target_compile_definitions(lua PRIVATE
 	-DRUN_AS_LIBRARY
 )
-
-
 
 
 function( lua_generate_inc_file_for_target target srcPath )

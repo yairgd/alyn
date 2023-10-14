@@ -150,6 +150,16 @@ static int luaB_clean(lua_State *L) {
 	}
 }
 
+static int luaB_opacity(lua_State *L) {
+  double o0 = (double) luaL_checknumber (L, -3);
+  double o1 = (double) luaL_checknumber (L, -2);
+  double o2 = (double) luaL_checknumber (L, -1);
+  led_matrix_set_opcaity(led_matrix_get(), o0,o1,o2);
+  return 0;
+}
+
+
+
 
 
 static int luaB_select_channel(lua_State *L) {
@@ -173,6 +183,7 @@ static const luaL_Reg game_funcs[] = {
   {"clean_rect", luaB_clean_rect},
   {"clean", luaB_clean},
   {"select_channel", luaB_select_channel},
+  {"opacity", luaB_opacity},
 
   /* placeholders */
   {NULL, NULL}

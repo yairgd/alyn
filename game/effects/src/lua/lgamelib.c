@@ -151,10 +151,10 @@ static int luaB_clean(lua_State *L) {
 }
 
 static int luaB_opacity(lua_State *L) {
-  double o0 = (double) luaL_checknumber (L, -3);
-  double o1 = (double) luaL_checknumber (L, -2);
-  double o2 = (double) luaL_checknumber (L, -1);
-  led_matrix_set_opcaity(led_matrix_get(), o0,o1,o2);
+  double o1 = (double) luaL_checknumber (L, -3);
+  double o2 = (double) luaL_checknumber (L, -2);
+  double o3 = (double) luaL_checknumber (L, -1);
+  led_matrix_set_opcaity(led_matrix_get(), o1,o2,o3);
   return 0;
 }
 

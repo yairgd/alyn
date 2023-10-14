@@ -46,10 +46,18 @@ void  led_matrix_free(struct led_matrix * led_matrix) {
 	}
 }
 
-void  led_matrix_set_opcaity(struct led_matrix * matrix, double o0, double o1, double o2) {
-	matrix->channels[0].opacity = o0;
+
+/**
+ * Created  10/14/2023
+ * @brief   sets the opacity level for channels 1,2,3
+ * @note  
+ * @param   
+ * @return  
+ */
+void  led_matrix_set_opcaity(struct led_matrix * matrix, double o1, double o2, double o3) {
 	matrix->channels[1].opacity = o1;
 	matrix->channels[2].opacity = o2;
+	matrix->channels[3].opacity = o3;
 }
 
 
@@ -73,6 +81,7 @@ struct  channel  *  led_matrix_get_channel(struct led_matrix * matrix, int id) {
 /**
  * Created  10/14/2023
  * @brief   merge channles 0,1,2 into channel 0
+ * where non zero values from 0 are always at the top , chaneels 1 and 2 are merged by opacity level and then copied into channel 0
  * @note  
  * @param   
  * @return  

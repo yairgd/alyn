@@ -196,6 +196,14 @@ static int luaB_setkey(lua_State *L) {
      return 0;
 }
 
+static int luaB_setlongkey(lua_State *L) {
+    int id  = (int) luaL_checknumber (L, -2);
+    int v  = (int) luaL_checknumber (L, -1);
+
+     lua_pop (L, 2);
+     set_long_key(id,v);
+     return 0;
+}
 
 
 
@@ -208,10 +216,18 @@ static int luaB_stop_reason(lua_State *L) {
 }
 
 static int luaB_keystatus(lua_State *L) {
-	 lua_pushinteger(L, get_geys());
+	 lua_pushinteger(L, get_keys());
     return 1;
 
 }
+
+
+static int luaB_longkeystatus(lua_State *L) {
+	 lua_pushinteger(L, get_long_keys());
+    return 1;
+
+}
+
 
 
 
@@ -235,6 +251,9 @@ static const luaL_Reg game_funcs[] = {
   {"stop_reason", luaB_stop_reason},
   {"keys", luaB_keystatus},
   {"set_key", luaB_setkey},
+  {"long_keys", luaB_longkeystatus},
+  {"set_long_key", luaB_setlongkey},
+
 
 
   

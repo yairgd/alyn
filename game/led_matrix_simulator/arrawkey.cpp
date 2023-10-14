@@ -39,11 +39,15 @@ using namespace std::chrono_literals;
 ArrawKey::ArrawKey(int id, QWidget *parent)
 	: QWidget(parent)
 {
-
 	this->id = id; 
-	// make the led connected by default
+	switch (id) {
+		case 4: img = QPixmap(":/resource/down_key.png");break;
+		case 1: img = QPixmap(":/resource/up_key.png");break;
+		case 2: img = QPixmap(":/resource/left_key.png");break;
+		case 3: img = QPixmap(":/resource/right_key.png");break;
+		case 0: img = QPixmap(":/resource/ok_key.png");break;
 
-
+	};
 
 }
 
@@ -60,53 +64,34 @@ void ArrawKey::paintEvent(QPaintEvent *event)
 	Q_UNUSED(event);
 	QPainter painter(this);
 	QColor lightColor(Qt::lightGray);
-	QColor darkColor(Qt::black);
 	qreal w = parentWidget()->width()/2;
 	qreal h = parentWidget()->height()/2;
-	int e = 6; // edge
 
 
-	switch (id) {
-		case 0:
-			setGeometry(w/2+w/3+e ,h/2+h/3+e, w/3-2*e,h/3-2*e);
-			break;
-		case 1:
-			setGeometry(w/2+w/3+e ,h/2+0+e, w/3-2*e,h/3-2*e);
-			break;
-		case 2:
-			setGeometry(w/2+0+e ,h/2+h/3+e, w/3-2*e,h/3-2*e);			
-			break;
-		case 3:
-			setGeometry(w/2+2*w/3+e ,h/2+h/3+e, w/3-2*e,h/3-2*e);			
-			break;
-		case 4:
-			setGeometry(w/2+1*w/3+e ,h/2+2*h/3+e, w/3-2*e,h/3-2*e);			
-			break;
-			
-
-	}
-	painter.fillRect(0,0,w/3,h/3,QColor(Qt::red));		
-
-
-QPixmap img("/home/yair/linux_on_stm32_mcu/buildroot/docs/website/images/tux-flat.png");
- // painter.drawPixmap(QRect(50, 0, 50, 50), img);
-//  painter.setRenderHint(QPainter::SmoothPixmapTransform);
-  painter.drawPixmap(QRect(0, 0, w/3, h/3), img);
-  img = img.scaled(w/3, h/3, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
-  painter.drawPixmap(100, 0, img);	
+	//https://stackoverflow.com/questions/36894246/qpainterdrawpixmap-doesnt-look-good-and-has-low-quality
+//	painter.drawPixmap(QRect(50, 0, w/4, w/4), img);
+//	painter.setRenderHint(QPainter::SmoothPixmapTransform);
+//	painter.drawPixmap(QRect(0, 0, w/4, h/4), img);
+	img = img.scaled(w/4, h/4, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+	painter.drawPixmap(0, 0, img);
 }	
 
 void  ArrawKey::mousePressEvent(QMouseEvent* event) 
 {
-	 set_key(id, 1); 		
-	// std::cout<<"press key "<<id<<std::endl;
+	 start = std::chrono::high_resolution_clock::now();
 }
 
 
 void  ArrawKey::mouseReleaseEvent(QMouseEvent* event) 
 {
-	// set_key(id, 0); 		
-	// std::cout<<"release key "<<id<<std::endl;
+	auto finish = std::chrono::high_resolution_clock::now();
+	std::chrono::duration<double, std::milli> elapsed = finish - start;
+	if ( elapsed.count() < 500) {
+		set_key(id, 1);
+	} else {
+		set_long_key(id, 1);		
+		
+	}
 }
 
 

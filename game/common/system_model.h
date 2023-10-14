@@ -47,7 +47,8 @@ extern "C" {
 		unsigned short active_node 			: 3;
 		unsigned short active_game 			: 8;
 		unsigned short free_run 			: 1;
-		unsigned short key_pad				: 5;    // bit 0: middle key, 1: left key, 2: right key, 3: up key, 4: down key								
+		unsigned short key_pad				: 5;    // bit 0: middle key, 1: left key, 2: right key, 3: up key, 4: down key
+		unsigned short long_key_pad			: 5;    // bit 0: middle key, 1: left key, 2: right key, 3: up key, 4: down key
 		int free_run_delay_us;		
 		
 
@@ -88,8 +89,12 @@ extern "C" {
 	int get_stop_reason(int id) ;
 
 	void set_key(int key, int v);
-	int get_geys();
+	int get_keys();
 	
+	void set_long_key(int key, int v);
+	int get_long_keys();
+	
+
 #ifdef __cplusplus
 }
 #endif

@@ -22,8 +22,12 @@
 
 #include <QWidget>
 #include <iostream>
-#include "ledcircle.h"
-#include <QtWidgets/QWidget>
+//#include "ledcircle.h"
+//#include <QtWidgets/QWidget>
+
+#include <unistd.h>
+#include <chrono>
+
 
 class ArrawKey : public QWidget
 {
@@ -34,6 +38,9 @@ public:
     ~ArrawKey();
 private:
     int id;
+    std::chrono::time_point<std::chrono::high_resolution_clock> start;;
+    QPixmap img;
+
 protected:
     void paintEvent(QPaintEvent *event) override;
     void mousePressEvent(QMouseEvent* event) override;

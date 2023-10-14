@@ -265,7 +265,18 @@ void set_key(int key, int v) {
 	model.key_pad = v ? model.key_pad | (1<<key) : model.key_pad & ~(1<<key);
 }
 
-int get_geys() {
+int get_keys() {
 	return model.key_pad ;
 }
+
+
+void set_long_key(int key, int v) {
+	model.long_key_pad = v ? model.key_pad | (1<<key) : model.key_pad & ~(1<<key);
+}
+int get_long_keys() {
+	return model.long_key_pad ;
+
+}
+
+
 

@@ -1,0 +1,11 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource>
+    <file>resource/down_key.png</file>
+     <file>resource/left_key.png</file>
+     <file>resource/right_key.png</file>
+     <file>resource/up_key.png</file>
+     <file>resource/ok_key.png</file>     
+</qresource>
+</RCC>
+
+

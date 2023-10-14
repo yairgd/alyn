@@ -3,7 +3,7 @@
 #include "ledmatrix.h"
 #include "ledcircle.h"
 #include "system_model.h"
-#include "arrawkey.h"
+#include "keypad.h"
 
 #include <QtWidgets>
 
@@ -40,16 +40,16 @@ MainWindow::MainWindow(QWidget *parent)
 
 	// Create and set LedMatrixWidget as the central widget
 	LedMatrixWidget *ledMatrixWidget = new LedMatrixWidget(ui->display, std::array<LedCircle *,8>({led1,led2,led3,led4,led5,led6,led7,led8}));
+	new Keypad(ui->keypad);
 
-
-
+#if 0
 	QVBoxLayout *layout = new QVBoxLayout(ui->keypad);
 	layout->addWidget( new ArrawKey(0));
 	layout->addWidget( new ArrawKey(1));
 	layout->addWidget( new ArrawKey(2));
 	layout->addWidget( new ArrawKey(3));
 	layout->addWidget( new ArrawKey(4));
-
+#endif
 	/*
 
 	auto * l1 = new ArrawKey(ui->k1, 0);

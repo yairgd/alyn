@@ -8,7 +8,7 @@ set(Effects_SRC
 	frame.c  
 	led_matrix.c  
 	u8.c
-	timing.c
+	#timing.c
 	lua/frame_effect.c
 	lua/banner_effect_1.c
 	lua/banner_effect_2.c

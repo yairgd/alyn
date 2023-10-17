@@ -43,6 +43,13 @@ int _open() {
 }
 
 
+int _unlink() {
+	return 0;
+}
+int _times() {
+	return 0;
+}
+
 #include <zephyr/kernel.h>
 #include <zephyr/device.h>
 #include <zephyr/fs/fs.h>

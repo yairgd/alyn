@@ -4,6 +4,7 @@ cmake_minimum_required(VERSION 3.10)
 ##https://stackoverflow.com/questions/39807664/how-to-best-tell-cmake-where-to-find-dll
 ##https://discourse.cmake.org/t/copying-config-specific-paths-at-build-time/4776
 project(lvgl)
+#set( CMAKE_MESSAGE_LOG_LEVEL "DEBUG" )
 
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 20)

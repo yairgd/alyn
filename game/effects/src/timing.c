@@ -20,7 +20,6 @@
 #include "timing.h"
 
 
-
 /**
  * Created  10/13/2023
  * @brief   returns true, if time elapse

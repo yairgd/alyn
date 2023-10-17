@@ -7,9 +7,19 @@ project(hello_world)
 
 set (PROJ_TOP "/home/yair/alyn/project/")
 
-add_subdirectory(libs/lua)
+
+add_compile_definitions( 
+	-DZEPHYR 
+)
 
 
+
+
+add_subdirectory(${PROJ_TOP}/game/effects  ${PROJECT_BINARY_DIR}/effects)
+add_subdirectory(${PROJ_TOP}/game/lua-5.4.6/  ${PROJECT_BINARY_DIR}/lua-5.4.6/)
+
+
+#https://jonathanhamberg.com/post/cmake-file-embedding/
 include (${PROJ_TOP}/cmake/functions.cmake)
 set(PRE_CONFIGURE_FILE "${PROJ_TOP}/cmake/git.h.in")
 set(POST_CONFIGURE_FILE "${PROJECT_BINARY_DIR}/git.h")
@@ -22,12 +32,8 @@ target_sources(app PRIVATE src/main.c
 	src/main.c	
 	src/hwctl.c	
 	src/game.c
-  	src/lgamelib.c
   	src/uart.c
-  	src/u8.c
-  	src/font.c
-  	src/banner.c
-	src/led_matrix.c
+	src/timing.c
 
 
   	src/parser_task.cpp
@@ -51,7 +57,16 @@ target_include_directories(app PRIVATE
 target_include_directories(app PRIVATE
 	src/getopt
 )
-target_link_libraries(app PRIVATE lua_module)
+target_link_libraries(app PRIVATE 
+	-Wl,--start-group	
+	effects_static
+	lua_module	
+	lua_binaries
+	lua_module
+	lua
+	-Wl,--end-group
+
+)
 
 target_compile_definitions(app PUBLIC
 	-D NO_SYSLOG)

@@ -35,6 +35,7 @@ target_link_libraries(led-screen-sim
 	effects_static
 	lua
 	lua_module
+	lua_binaries
        -Wl,--end-group
 )
 target_include_directories(led-screen-sim  PRIVATE

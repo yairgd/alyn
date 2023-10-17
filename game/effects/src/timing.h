@@ -18,8 +18,15 @@
 
 #ifndef TIMING_C
 #define TIMING_C 
-#include  <time.h>
-#include  <stdint.h>
+#ifdef CONFIG_UART_NATIVE_POSIX
+#include <sys/time.h>
+#else
+//#include <zephyr/posix/time.h>
+//#include <zephyr/posix/sys/time.h>
+#endif
+#include <stdint.h>
+
+
 
 int timing_elapse(struct timespec  * start_time, uint64_t time);
 void timing_begin_to_measure_time( struct timespec  * start_time );

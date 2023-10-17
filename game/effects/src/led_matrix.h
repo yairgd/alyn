@@ -32,8 +32,6 @@ extern "C" {
 #include "effect.h"
 	struct channel {
 		struct canvas canvas;
-		//struct effect_base * effects[10];
-		//int idx;
 		char * buffer;
 		double opacity;			
 	} ;

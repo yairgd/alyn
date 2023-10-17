@@ -6,7 +6,7 @@
  *    Description:  
  *
  *        Version:  1.0
- *        Created:  09/04/2023 07:47:09 PM
+ *        Created:  10/17/2023 10:27:04 AM
  *       Revision:  none
  *       Compiler:  gcc
  *
@@ -16,26 +16,22 @@
  * =====================================================================================
  */
 
-#ifndef LUA_SOURCE_H
-#define LUA_SOURCE_H
-struct lua_game_data {
-	char name[32];		
-	int size;
-	const unsigned char * code;
-};
+#ifndef LUASRC_H
+#define LUASRC_H
+#include <stddef.h>
+#ifdef __cplusplus
+extern "C" {
+#endif
+	struct luasrc  {
+		char * name ;
+		unsigned char * code;
+		size_t size;
+	};
 
+	struct luasrc ** luasrc_get() ;
+	struct luasrc * luasrc_by_name(char * name) ;
 
-struct lua_game_data  lua_game1 = {
-	.name = "first game",	
-	.code = ( const unsigned char []) {
-#include "game1.lua.h"
-	},
-	.size = sizeof(( const unsigned char []) {
-#include "game1.lua.h"
-	})	
-};
-
-
-
-
+#ifdef __cplusplus
+}
+#endif
 #endif

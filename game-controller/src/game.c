@@ -37,7 +37,7 @@ k_tid_t game_thread_tid = 0;
 
 
 static unsigned char memory_code_buffer[8192];
-struct lua_game_data   lua_memory_game = {
+struct  luasrc   lua_memory_game = {
 	.code = memory_code_buffer,
 };
 
@@ -56,7 +56,8 @@ void push_lua_code_to_memory(unsigned char *code, int len, int rst){
 
 	if (rst) {
 		idx = 0;
-		strncpy (lua_memory_game.name, "lua code in memory", sizeof(lua_memory_game.name));
+		lua_memory_game.name = "lua code in memory";
+		//strncpy (lua_memory_game.name, "lua code in memory", sizeof(lua_memory_game.name));
 	}
 	memcpy ((void*)&lua_memory_game.code[idx], code, l);
 	idx += l;
@@ -80,7 +81,7 @@ static void game_default_c(void *data) {
 
 
 static void game_lua_generic(void *data) {
-	struct lua_game_data *game = data;
+	struct luasrc * game = data;
 
 	printf("start runnunig lua:  %s\n", game->name);
 	if (L)
@@ -111,7 +112,7 @@ static void game_lua_generic(void *data) {
 static struct game games[] = {
 	{.name = "game in meory",.func = game_lua_generic, .data = &lua_memory_game  },
 	{.name = "default c game",.func = game_default_c},
-	{.name = "default lua game", .func = game_lua_generic, .data = &lua_game1  },
+//	{.name = "default lua game", .func = game_lua_generic, .data = &lua_game1  },
 };
 
 

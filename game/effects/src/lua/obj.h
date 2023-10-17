@@ -25,6 +25,20 @@
 #include "frame.h"
 #include "canvas.h"
 
+
+
+/**
+ * @class lua_script_data
+ * @brief store compiled lua scripts - the scipts are generated during compile time
+ */
+struct lua_script_data {
+	char name[32];		
+	int size;
+	const unsigned char * code;
+};
+
+
+
 struct lua_user_data {
 		enum obj_type {
 			obj_type_frame,

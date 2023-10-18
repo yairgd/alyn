@@ -2,14 +2,14 @@
 import sys
 import subprocess
 import os
-
+from pathlib import Path
 
 
 if len(sys.argv) == 3 and sys.argv[1] == "script_fie":
     filename = sys.argv[2]
     base_name = filename.replace('.o','').replace('.','_').replace('/','_').replace('-','_')
     f = filename.replace('.o','').replace('.','_').replace('/','_').replace('-','_')
-    print (f);
+    code_name = Path(sys.argv[2]).stem 
 
     chunk_size = 16
     c_array = '\n'
@@ -31,7 +31,7 @@ if len(sys.argv) == 3 and sys.argv[1] == "script_fie":
         header_file.write(f"#ifndef " +  base_name + "_H\n#define " + base_name + "_H\n\n")
         header_file.write(f"#include \"luasrc.h\"\n\n")    
         header_file.write(f"static unsigned char binary_data[] = {{{c_array}}};\n\n")
-        header_file.write(f"struct luasrc {f} = {{ .code = binary_data, .size = sizeof (binary_data), .name = \"{base_name}\" }};\n\n")
+        header_file.write(f"struct luasrc {f} = {{ .code = binary_data, .size = sizeof (binary_data), .name = \"{code_name}\" }};\n\n")
         header_file.write(f"#endif")
 
 

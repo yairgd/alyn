@@ -33,7 +33,7 @@ target_sources(app PRIVATE src/main.c
 	src/hwctl.c	
 	src/game.c
   	src/uart.c
-	#	src/timing.c
+	src/timing.c
 
 
   	src/parser_task.cpp
@@ -64,7 +64,6 @@ target_link_libraries(app PRIVATE
 	lua_binaries
 	lua_module
 	lua
-	pthread
 	-Wl,--end-group
 
 )

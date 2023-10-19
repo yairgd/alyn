@@ -18,6 +18,14 @@
 #include "luasrc.h"
 #include <string.h>
 
+
+/**
+ * Created  10/19/2023
+ * @brief   return lua src code by its name
+ * @note  
+ * @param   
+ * @return  
+ */
 struct luasrc * luasrc_by_name(char * name) 
 {
 	struct luasrc ** l = luasrc_get();
@@ -27,6 +35,23 @@ struct luasrc * luasrc_by_name(char * name)
 		l++;
 	}
 	return 0;
+}
+
+
+
+/**
+ * Created  10/19/2023
+ * @brief   return lua src code by index
+ * @note  
+ * @param   
+ * @return  
+ */
+struct luasrc * luasrc_by_idx(int idx)
+{
+	struct luasrc * src = 0;
+	if (idx <  luasrc_size())
+		src =  luasrc_get()[idx];
+	return src;
 }
 
 

@@ -86,7 +86,7 @@ struct  channel  *  led_matrix_get_channel(struct led_matrix * matrix, int id) {
  * @param   
  * @return  
  */
-void led_matrix_merge(struct led_matrix * matrix,int c0, int c1, int c2) {
+void led_matrix_merge(struct led_matrix * matrix) {
 	for (int row = 0; row < matrix->height; ++row)
 	{
 		for (int col = 0; col < matrix->width; ++col)

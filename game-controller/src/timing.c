@@ -17,7 +17,16 @@
  */
 
 
-#include "timing.h"
+//#include "timing.h"
+#ifdef CONFIG_UART_NATIVE_POSIX
+#include <sys/time.h>
+#else
+#include <zephyr/posix/time.h>
+#include <zephyr/posix/sys/time.h>
+#endif
+#include <stddef.h>
+#include <stdint.h>
+#include <zephyr/kernel.h>
 
 
 /**
@@ -55,3 +64,13 @@ void timing_begin_to_measure_time( struct timespec  * start_time ) {
 }
 
 
+/**
+ * Created  10/19/2023
+ * @brief   function as os hal for sleep function
+ * @note  
+ * @param   
+ * @return  
+ */
+void timing_sleep(size_t usec) {
+	k_sleep(K_USEC(usec));		
+}

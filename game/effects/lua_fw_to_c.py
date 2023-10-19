@@ -56,7 +56,9 @@ elif sys.argv[1] == "joint_file":
         header_file.write(f"{0},")
  
         header_file.write(f"}};\n")
-        header_file.write(f"struct luasrc ** luasrc_get() {{return luasrc;}} ;")
+        header_file.write(f"struct luasrc ** luasrc_get() {{return luasrc;}}\n ")
+        l = len(sys.argv) - 2;
+        header_file.write(f"size_t luasrc_size() {{return {l};}} \n")
         
 	
 

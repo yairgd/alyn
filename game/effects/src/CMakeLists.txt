@@ -8,17 +8,17 @@ set(Effects_SRC
 	frame.c  
 	led_matrix.c  
 	u8.c
-	timing.c
 	lua/frame_effect.c
 	lua/banner_effect_1.c
 	lua/banner_effect_2.c
 	lua/rect.c
 	lua/obj.c
 	lua/lgamelib.c
+	
 
 )
 
-if (NOT ${ZEPHYR})
+if (NOT DEFINED ZEPHYR)
 	list(APPEND Effects_SRC "timing.c")
 endif()
 
@@ -39,6 +39,8 @@ target_include_directories(effects_static PUBLIC
 set(lua_source_files
 	${CMAKE_CURRENT_SOURCE_DIR}/../lua/bouncing_balls.lua
 	${CMAKE_CURRENT_SOURCE_DIR}/../lua/demo1.lua
+	${CMAKE_CURRENT_SOURCE_DIR}/../lua/loop.lua
+
 )
 lua_generate_c_files_for_lua_binary_target(${lua_source_files})	
 

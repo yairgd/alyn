@@ -28,9 +28,11 @@ extern "C" {
 		size_t size;
 	};
 
-	struct luasrc ** luasrc_get() ;
-	struct luasrc * luasrc_by_name(char * name) ;
-
+	struct luasrc ** luasrc_get();
+	struct luasrc * luasrc_by_name(char * name);
+	struct luasrc * luasrc_by_idx(int idx);
+	size_t luasrc_size();
+	extern struct luasrc  * luasrc[];
 #ifdef __cplusplus
 }
 #endif

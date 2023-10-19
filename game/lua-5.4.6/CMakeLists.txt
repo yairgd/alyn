@@ -94,7 +94,7 @@ target_compile_definitions(lua PRIVATE
 
 macro( lua_generate_c_files_for_lua_binary_target  ${lua_source_files} )
 
-	set (this_file_location ${CMAKE_SOURCE_DIR}/game/lua-5.4.6)
+	set (this_file_location ${CMAKE_CURRENT_SOURCE_DIR}/../)
 	# create targets as the name of the lua files
 	foreach(full_path_filename    ${lua_source_files})
 		message( ${full_path_filename})

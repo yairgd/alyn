@@ -16,7 +16,6 @@
 #define lbaselib_c
 #define LUA_LIB
 
-//#include "lprefix.h"
 #include "u8.h"
 #include "lua/obj.h"
 
@@ -31,6 +30,7 @@
 #include "lauxlib.h"
 #include "lualib.h"
 #include "led_matrix.h"
+#include "timing.h"
 
 static int led_matrix_channel_id = 0;
 
@@ -50,7 +50,7 @@ static int luaB_enable (lua_State *L)
 
 static int luaB_delay (lua_State *L) {
   int delay_us = (int) luaL_checknumber (L, -1);
-  usleep(delay_us);
+  timing_sleep(delay_us);
   lua_pop (L, 1);
 
   return 0;

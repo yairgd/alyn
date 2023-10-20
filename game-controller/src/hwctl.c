@@ -52,8 +52,8 @@ K_SEM_DEFINE(my_signal, 0, 1); // Define and initialize a semaphore
 #else
 /* the gpios of node enable */
 static struct gpio_dt_spec en_station[] = {
-        DT_FOREACH_PROP_ELEM_SEP(DT_NODELABEL(enables), gpios,
-                                 GPIO_DT_SPEC_GET_BY_IDX, (,))
+	DT_FOREACH_PROP_ELEM_SEP(DT_NODELABEL(enables), gpios,
+			GPIO_DT_SPEC_GET_BY_IDX, (,))
 };
 #endif
 
@@ -65,7 +65,7 @@ static struct gpio_dt_spec led_green = GPIO_DT_SPEC_GET(DT_NODELABEL(station_led
 static struct gpio_dt_spec led_blue = GPIO_DT_SPEC_GET(DT_NODELABEL(station_led_b), gpios);
 #endif
 
-
+#if 0
 void hwctl_enable_node(int id) {
 #ifdef CONFIG_UART_NATIVE_POSIX
 #else
@@ -89,15 +89,46 @@ void hwctl_enable_node(int id) {
 			gpio_pin_set_dt (&led_red, get_r(id) & is_blink_on(id) ? 1 : 0);
 			gpio_pin_set_dt (&led_green, get_g(id) & is_blink_on(id) ? 1 : 0);
 			gpio_pin_set_dt (&led_blue, get_b(id) & is_blink_on(id)? 1 : 0);
-			
+
 		}
 	}
 #endif
 	// save rhe new node
-	set_active_node(id);
-	
+	set_active_node(id);	
 }
+#else
+void hwctl_enable_node(int id) {
+#ifdef CONFIG_UART_NATIVE_POSIX
+#else
+	// disable previous node
+	gpio_pin_set_dt (&en_station[get_active_node()], 0);
 
+	// enable the current node
+	gpio_pin_set_dt (&en_station[id], 1);
+
+	// save rhe new node
+	set_active_node(id);	
+
+
+	if (is_blink(id) ) {
+		// turn on/off led according to blink state
+		gpio_pin_set_dt (&led_red, get_r(id) & is_blink_on(id) ? 1 : 0);
+		gpio_pin_set_dt (&led_green, get_g(id) & is_blink_on(id) ? 1 : 0);
+		gpio_pin_set_dt (&led_blue, get_b(id) & is_blink_on(id)? 1 : 0);
+	} else {
+		// turn on led accorinding to its current color
+		gpio_pin_set_dt (&led_red, get_r(id) );
+		gpio_pin_set_dt (&led_green, get_g(id) );
+		gpio_pin_set_dt (&led_blue, get_b(id) );
+	}
+
+	gpio_pin_set_dt (&led_red, get_r(id) ? 1 : 0);
+	gpio_pin_set_dt (&led_green, get_g(id) ? 1 : 0);
+	gpio_pin_set_dt (&led_blue, get_b(id) ? 1 : 0);
+
+#endif
+}
+#endif
 
 void hwctl_disable_all_nodes() {
 #ifdef CONFIG_UART_NATIVE_POSIX
@@ -128,7 +159,7 @@ void hwctl_disable_all_nodes() {
 /* Data of ADC io-channels specified in devicetree. */
 static const struct adc_dt_spec adc_channels[] = {
 	DT_FOREACH_PROP_ELEM(DT_PATH(zephyr_user), io_channels,
-			     DT_SPEC_AND_COMMA)
+			DT_SPEC_AND_COMMA)
 };
 
 int hwctl_adc(void)
@@ -162,8 +193,8 @@ int hwctl_adc(void)
 			int32_t val_mv;
 
 			printk("- %s, channel %d: ",
-			       adc_channels[i].dev->name,
-			       adc_channels[i].channel_id);
+					adc_channels[i].dev->name,
+					adc_channels[i].channel_id);
 
 			(void)adc_sequence_init_dt(&adc_channels[i], &sequence);
 
@@ -185,7 +216,7 @@ int hwctl_adc(void)
 			}
 			printk("%"PRId32, val_mv);
 			err = adc_raw_to_millivolts_dt(&adc_channels[i],
-						       &val_mv);
+					&val_mv);
 			/* conversion to mV may not be supported, skip if not */
 			if (err < 0) {
 				printk(" (value in mV not available)\n");
@@ -226,14 +257,14 @@ void hwctl_thread (void *p1,void *p2, void *p3)
 	gpio_pin_configure_dt(&led_blue, GPIO_OUTPUT);
 #endif
 	set_rgb(0,127,127,127);
-//	set_rgb(1,0,127,0);
-//	set_rgb(2,0,0,127);
-//	set_rgb(3,127,0,127);
-//	set_rgb(4,0,127,127);
-//	set_rgb(5,127,0,127);
-//	set_rgb(6,127,127,127);
-//	set_rgb(7,0,0,127);
-	
+	//	set_rgb(1,0,127,0);
+	//	set_rgb(2,0,0,127);
+	//	set_rgb(3,127,0,127);
+	//	set_rgb(4,0,127,127);
+	//	set_rgb(5,127,0,127);
+	//	set_rgb(6,127,127,127);
+	//	set_rgb(7,0,0,127);
+
 	int n = 0;
 	while (1) {
 		k_sem_take(&my_signal, K_FOREVER);

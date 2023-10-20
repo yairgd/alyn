@@ -35,8 +35,8 @@ extern "C" {
 	struct banner_config_blink {
 				int start_idx; // the index of letter to blink, if -1, all letter blink
 				int end_idx;
-				int time_on;
-				int time_off;				
+				double time_on;
+				double time_off;				
 			} ;
 
 

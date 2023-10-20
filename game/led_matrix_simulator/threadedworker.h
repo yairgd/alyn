@@ -36,4 +36,3 @@ protected:
     QThread workerThread_;
 };
 #endif
-

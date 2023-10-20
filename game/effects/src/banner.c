@@ -54,7 +54,7 @@ void banner_get_buffer(struct banner * banner, struct rect * r, char *rect_buffe
 
 }
 
-static void banner_blink_effect(struct banner * banner, int start_idx, int end_idx, int time_on, int time_off) {
+static void banner_blink_effect(struct banner * banner, int start_idx, int end_idx, double time_on, double time_off) {
 	banner->effect.config_id = 1;	
 	banner->config.blink.start_idx = start_idx;
 	banner->config.blink.end_idx = end_idx;

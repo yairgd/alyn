@@ -26,6 +26,6 @@
 #endif
 
 void timing_sleep(size_t usec) ;
-int timing_elapse(struct timespec  * start_time, uint64_t time);
+int timing_elapse(struct timespec  * start_time, double time);
 void timing_begin_to_measure_time( struct timespec  * start_time );
 #endif

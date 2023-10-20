@@ -36,20 +36,22 @@ struct k_thread game_thread;
 k_tid_t game_thread_tid = 0;
 
 
+/** memroy allocation to load lua src code to memory
+ *  This is displayed as part of the game list
+ * */
 static unsigned char memory_code_buffer[8192];
 struct  luasrc   lua_memory_game = {
 	.code = memory_code_buffer,
 };
 
 
-
-static void game_thread_entry(void *g, void *a, void *b) {
-	struct game * game = g;
-	if (game->func) {
-		game->func(game->data);
-	}
-}
-
+/**
+ * Created  10/19/2023
+ * @brief   load lua src code to memory
+ * @note  
+ * @param   
+ * @return  
+ */
 void push_lua_code_to_memory(unsigned char *code, int len, int rst){
 	static int idx = 0;
 	int l = len > sizeof(memory_code_buffer) ? sizeof(memory_code_buffer)  : len;
@@ -66,6 +68,22 @@ void push_lua_code_to_memory(unsigned char *code, int len, int rst){
 		idx =0;
 
 };
+
+
+
+/**
+ * Created  10/19/2023
+ * @brief   starts thread  to run game(lua src code or pre defied c code)
+ * @note  
+ * @param   
+ * @return  
+ */
+static void game_thread_entry(void *g, void *a, void *b) {
+	struct game * game = g;
+	if (game->func) {
+		game->func(game->data);
+	}
+}
 
 
 
@@ -109,6 +127,7 @@ static void game_lua_generic(void *data) {
 
 
 
+/** initialize game list */
 static struct game games[16] = {
 	{.name = "game in meory",.func = game_lua_generic, .data = &lua_memory_game  },
 	{.name = "default c game",.func = game_default_c},

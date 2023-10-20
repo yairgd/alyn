@@ -31,6 +31,7 @@
 #include "lualib.h"
 #include "led_matrix.h"
 #include "timing.h"
+#include "system_model.h"
 
 static int led_matrix_channel_id = 0;
 
@@ -58,12 +59,29 @@ static int luaB_delay (lua_State *L) {
 
 
 static int luaB_blink (lua_State *L) {
-  int id = (int) luaL_checknumber (L, -1);
+  int id = (int) luaL_checknumber (L, -3);
   int freq = (int) luaL_checknumber (L, -2);
-  int timeout = (int) luaL_checknumber (L, -3);
-
+  int blink_time = (int) luaL_checknumber (L, -1);
   lua_pop (L, 3);
+
+  start_blink( id,  freq,  blink_time);
+  return 0;
 }
+
+static int luaB_led_rgb (lua_State *L) {
+  int id = (int) luaL_checknumber (L, -4);
+  int r = (int) luaL_checknumber (L, -3);
+  int g = (int) luaL_checknumber (L, -2);
+  int b = (int) luaL_checknumber (L, -1);
+
+  lua_pop (L, 4);
+
+  set_rgb(id,r,g,b);
+  return 0;
+}
+
+
+
 
 
 static int luaB_banner_print(lua_State *L) {
@@ -164,9 +182,18 @@ static int luaB_opacity(lua_State *L) {
 
 static int luaB_select_channel(lua_State *L) {
     int channel  = (int) luaL_checknumber (L, -1);
+     lua_pop (L, 1);
     led_matrix_channel_id = channel;
 }
 
+
+static int luaB_stop_reason(lua_State *L) {
+    int id  = (int) luaL_checknumber (L, -1);
+    lua_pop (L, 1);
+ 
+    lua_pushinteger(L, get_stop_reason(id));
+    return 1;
+}
 
 
 static const luaL_Reg game_funcs[] = {
@@ -175,6 +202,7 @@ static const luaL_Reg game_funcs[] = {
   {"enable", luaB_enable},
   {"delay", luaB_delay},
   {"blink", luaB_blink},
+  {"led_rgb", luaB_led_rgb},
   {"banner_print", luaB_banner_print},
   {"plot", luaB_plot},
   {"line", luaB_line},
@@ -184,6 +212,7 @@ static const luaL_Reg game_funcs[] = {
   {"clean", luaB_clean},
   {"select_channel", luaB_select_channel},
   {"opacity", luaB_opacity},
+  {"stop_reason", luaB_stop_reason},
 
   /* placeholders */
   {NULL, NULL}

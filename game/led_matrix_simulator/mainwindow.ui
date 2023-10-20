@@ -6,45 +6,276 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>533</width>
-    <height>600</height>
+    <width>1129</width>
+    <height>896</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout" stretch="40,50">
+   <layout class="QVBoxLayout" name="verticalLayout" stretch="40,40">
     <property name="spacing">
      <number>0</number>
     </property>
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="10">
+     <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,0">
       <item>
-       <widget class="QWidget" name="display" native="true">
-        <property name="enabled">
-         <bool>true</bool>
+       <layout class="QHBoxLayout" name="horizontalLayout_6">
+        <property name="spacing">
+         <number>5</number>
         </property>
-       </widget>
+        <item>
+         <widget class="QWidget" name="display" native="true">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_3" stretch="10,3,3,2">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <item>
+           <widget class="QGroupBox" name="groupBox">
+            <property name="title">
+             <string>GroupBox</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_7" stretch="0,0,0,0,0,0,0,0">
+          <property name="spacing">
+           <number>1</number>
+          </property>
+          <property name="sizeConstraint">
+           <enum>QLayout::SetMinimumSize</enum>
+          </property>
+          <item>
+           <widget class="QPushButton" name="P1">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>P1</string>
+            </property>
+            <property name="autoRepeatDelay">
+             <number>300</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="P2">
+            <property name="text">
+             <string>P2</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="P3">
+            <property name="text">
+             <string>P3</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="P4">
+            <property name="text">
+             <string>P4</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="P5">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>10</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>P5</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="P6">
+            <property name="text">
+             <string>P6</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="P7">
+            <property name="text">
+             <string>P7</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="P8">
+            <property name="text">
+             <string>P8</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <widget class="QCheckBox" name="active1">
+            <property name="text">
+             <string>station 1</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+            <property name="tristate">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="active2">
+            <property name="text">
+             <string>station 2</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="active3">
+            <property name="text">
+             <string>station 3</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="active4">
+            <property name="text">
+             <string>station 4</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="active5">
+            <property name="text">
+             <string>station 5</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="active6">
+            <property name="text">
+             <string>station 6</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="active7">
+            <property name="text">
+             <string>station 7</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="active8">
+            <property name="text">
+             <string>station 8</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0,0,0,0,0,0,0">
+          <item>
+           <widget class="QWidget" name="led1" native="true"/>
+          </item>
+          <item>
+           <widget class="QWidget" name="led2" native="true"/>
+          </item>
+          <item>
+           <widget class="QWidget" name="led3" native="true"/>
+          </item>
+          <item>
+           <widget class="QWidget" name="led4" native="true"/>
+          </item>
+          <item>
+           <widget class="QWidget" name="led5" native="true"/>
+          </item>
+          <item>
+           <widget class="QWidget" name="led6" native="true"/>
+          </item>
+          <item>
+           <widget class="QWidget" name="led7" native="true"/>
+          </item>
+          <item>
+           <widget class="QWidget" name="led8" native="true"/>
+          </item>
+         </layout>
+        </item>
+       </layout>
       </item>
      </layout>
     </item>
     <item>
-     <widget class="QTabWidget" name="tabWidget">
-      <property name="currentIndex">
-       <number>0</number>
-      </property>
-      <widget class="QWidget" name="tab_7">
-       <attribute name="title">
-        <string>Tab 1</string>
-       </attribute>
-      </widget>
-      <widget class="QWidget" name="tab_8">
-       <attribute name="title">
-        <string>Tab 2</string>
-       </attribute>
-      </widget>
-     </widget>
+     <layout class="QVBoxLayout" name="verticalLayout_6">
+      <item>
+       <widget class="QTabWidget" name="tabWidget">
+        <widget class="QWidget" name="tab">
+         <attribute name="title">
+          <string>Tab 1</string>
+         </attribute>
+        </widget>
+        <widget class="QWidget" name="tab_2">
+         <attribute name="title">
+          <string>Tab 2</string>
+         </attribute>
+        </widget>
+       </widget>
+      </item>
+     </layout>
     </item>
    </layout>
   </widget>
@@ -53,7 +284,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>533</width>
+     <width>1129</width>
      <height>18</height>
     </rect>
    </property>

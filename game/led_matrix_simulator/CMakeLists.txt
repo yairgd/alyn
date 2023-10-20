@@ -24,8 +24,9 @@ add_executable(led-screen-sim
     mainwindow.cpp
     ledmatrix.cpp
     threadedworker.cpp
+    ledcircle.cpp
     main.cpp
-    
+   
     #    resources.qrc
 )
 

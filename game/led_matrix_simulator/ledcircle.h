@@ -17,35 +17,30 @@
  */
 
 // chessboardwidget.h
-#ifndef CHESSBOARDWIDGET_H
-#define CHESSBOARDWIDGET_H
+#ifndef LEDCIRCLE_H
+#define LEDCIRCLE_H
 
 #include <QWidget>
-#include <QThread>
 #include <iostream>
-#include <array>
 #include "ledcircle.h"
+#include <QtWidgets/QWidget>
+#include <QtWidgets/QCheckBox>
 
-#include "threadedworker.h"
-class LedMatrixWidget : public QWidget
+class LedCircle : public QWidget
 {
     Q_OBJECT
 
 public:
-    LedMatrixWidget(QWidget *parent ,  std::array<LedCircle *, 8>   arr   );
-    ~LedMatrixWidget();
+    LedCircle(QWidget *parent = nullptr, QWidget * cb=nullptr, int id = 0);
+    ~LedCircle();
 private:
-    ThreadedWorker worker;
-    std::array<LedCircle *, 8>      led_arr;
-
+    QCheckBox * cb;
+    int id;
 protected:
     void paintEvent(QPaintEvent *event) override;
-   // void timerEvent(QTimerEvent *event) override;
 private slots:
   //  void updateLedMatrix( void );
-
 };
 
 #endif // CHESSBOARDWIDGET_H
-
 

@@ -16,6 +16,7 @@ set (ZEPHYR  TRUE)
 
 add_subdirectory(${PROJ_TOP}/game/lua-5.4.6/  ${PROJECT_BINARY_DIR}/lua-5.4.6/)
 add_subdirectory(${PROJ_TOP}/game/effects  ${PROJECT_BINARY_DIR}/effects)
+add_subdirectory(${PROJ_TOP}/game/common  ${PROJECT_BINARY_DIR}/common)
 
 
 #https://jonathanhamberg.com/post/cmake-file-embedding/
@@ -27,7 +28,6 @@ set (CMAKE_CXX_STANDARD 17)
 
 target_sources(app PRIVATE src/main.c
 	src/shell.c
-	src/system_model.c
 	src/main.c	
 	src/hwctl.c	
 	src/game.c
@@ -59,6 +59,7 @@ target_include_directories(app PRIVATE
 target_link_libraries(app PRIVATE 
 	-Wl,--start-group	
 	effects_static
+	common_static
 	lua_module	
 	lua_binaries
 	lua_module

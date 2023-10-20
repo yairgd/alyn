@@ -18,7 +18,7 @@
 
 #include "threadedworker.h"
 #include <chrono>
-
+#include "system_model.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -65,6 +65,8 @@ void ThreadedWorker::doWork()
 
 	while (true) {
 		    emit updateLedMatrix();
+		    for (int i = 1; i <= 8; i++) 
+			    manage_blink(i);
 		    QThread::usleep(25000);
 		
 	}

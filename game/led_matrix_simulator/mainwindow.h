@@ -21,21 +21,31 @@
 
 #include <QMainWindow>
 #include "ui_mainwindow.h"
-class ChessboardWidget; // Forward declaration
+#include "ledcircle.h"
+
+//class ChessboardWidget; // Forward declaration
 
 class MainWindow : public QMainWindow
 {
-    Q_OBJECT
+	Q_OBJECT
 
-public:
-    MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+	public:
+		MainWindow(QWidget *parent = nullptr);
+		~MainWindow();
 
-private:
-    Ui::MainWindow *ui; // Declare the ui objecy
-    ChessboardWidget *chessboardWidget; // Pointer to the ChessboardWidget
+	private:
+		Ui::MainWindow *ui; // Declare the ui objecy
+				    //   ChessboardWidget *chessboardWidget; // Pointer to the ChessboardWidget
 
-    // Other private members and methods as needed
+		LedCircle * led1 ;
+		LedCircle * led2 ;
+		LedCircle * led3 ;
+		LedCircle * led4 ;
+		LedCircle * led5 ;
+		LedCircle * led6 ;
+		LedCircle * led7 ;
+		LedCircle * led8 ;
+	
 };
 
 #endif // MAINWINDOW_H

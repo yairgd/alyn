@@ -14,19 +14,16 @@ set(Effects_SRC
 	lua/rect.c
 	lua/obj.c
 	lua/lgamelib.c
-	
-
 )
 
-if (NOT DEFINED ZEPHYR)
-	list(APPEND Effects_SRC "timing.c")
-endif()
+
 
 add_library(effects_static STATIC
 	${Effects_SRC}
 )
 target_link_libraries(effects_static 
 	lua
+	common_static
 )
 
 target_include_directories(effects_static PUBLIC 

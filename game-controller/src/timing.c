@@ -36,7 +36,7 @@
  * @param   time(ms) to mesure
  * @return  
  */
-int timing_elapse( struct timespec  * start_time, uint64_t time ) {
+int timing_elapse( struct timespec  * start_time, double time ) {
 
 	struct timespec stop_time , *rts;
 	rts = start_time;
@@ -51,7 +51,7 @@ int timing_elapse( struct timespec  * start_time, uint64_t time ) {
 		((int64_t)stop_time.tv_sec * NSEC_PER_SEC -
 		 (int64_t)rts->tv_sec * NSEC_PER_SEC) +
 		((int64_t)stop_time.tv_nsec - (int64_t)rts->tv_nsec);
-	return (delta/NSEC_PER_SEC)*1000 > time   ;
+	return (delta/NSEC_PER_SEC) > time   ;
 	
 }
 

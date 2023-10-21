@@ -35,14 +35,13 @@
 
 using namespace std::chrono_literals;
 
-LedCircle::LedCircle(QWidget *parent, QWidget * cb, int id)
+LedCircle::LedCircle(QWidget *parent, int id)
 	: QWidget(parent)
 {
 
-	this->cb = static_cast<QCheckBox*>(cb);
-	 this->id = id; 	
+	this->id = id; 	
 
-	
+
 
 }
 
@@ -69,19 +68,21 @@ void LedCircle::paintEvent(QPaintEvent *event)
 	this->setGeometry(0,0,w,h);
 
 
+
+
 	painter.fillRect(5,5,w-10,h-10,darkColor);		
 	painter.fillRect(e,e,w-2*e,h-2*e,lightColor);
 
 	painter.setPen(QPen(Qt::black, 3, Qt::SolidLine, Qt::RoundCap));
 	painter.drawEllipse(QPointF((w)/2,(h)/2), r1,r2);		
-	if (cb->checkState() == Qt::Unchecked) {		
+	if (!is_connected (id) /*cb && cb->checkState() == Qt::Unchecked*/) {		
 		painter.drawLine(e,e,w-e,h-e);
 		painter.drawLine(w-e,e,e,h-e);
 		// set the station state as unconncted 
-		set_connected(id,0);
+		//set_connected(id,0);
 	} else {
 		// set the station state as unconncted 
-		set_connected(id,1);
+		//set_connected(id,1);
 
 		// plot led color	
 		if (is_blink(id) ) {
@@ -96,6 +97,16 @@ void LedCircle::paintEvent(QPaintEvent *event)
 		painter.drawEllipse(QPointF((w)/2,(h)/2), r1*0.95,r2*0.95);				
 	}
 
+}	
+void  LedCircle::mousePressEvent(QMouseEvent* event) 
+{
+	if (is_connected (id))
+		// set the station state as unconncted 
+		set_connected(id,0);
+	else
+		//set the station state as unconncted 
+		set_connected(id,1);
 }
+
 
 

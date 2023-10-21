@@ -123,7 +123,7 @@ static void banner_render(struct effect_base * e,  struct canvas * canvas, struc
 	};
 	// copy data from local canvas to display
 	canvas_get_rect(&banner->canvas, &(struct rect){0,0 , e->r.width ,  e->r.height   },b);
-	canvas_set_rect(canvas, &(struct rect){e->r.top_left_x,e->r.top_left_y , e->r.width ,  e->r.height   },b);
+	canvas_set_rect(canvas, &e->r,b); // &(struct rect){e->r.top_left_x,e->r.top_left_y , e->r.width ,  e->r.height   },b);
 }
 
 

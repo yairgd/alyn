@@ -31,13 +31,14 @@ class LedCircle : public QWidget
     Q_OBJECT
 
 public:
-    LedCircle(QWidget *parent = nullptr, QWidget * cb=nullptr, int id = 0);
+    LedCircle(QWidget *parent = nullptr, int id = 0);
     ~LedCircle();
 private:
-    QCheckBox * cb;
     int id;
 protected:
     void paintEvent(QPaintEvent *event) override;
+    void mousePressEvent(QMouseEvent* event) override;
+
 private slots:
   //  void updateLedMatrix( void );
 };

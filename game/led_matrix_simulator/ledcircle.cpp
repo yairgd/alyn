@@ -39,7 +39,9 @@ LedCircle::LedCircle(QWidget *parent, int id)
 	: QWidget(parent)
 {
 
-	this->id = id; 	
+	this->id = id; 
+	// make the led connected by default
+	set_connected(id,1);
 
 
 

@@ -25,6 +25,7 @@ add_executable(led-screen-sim
     ledmatrix.cpp
     threadedworker.cpp
     ledcircle.cpp
+    arrawkey.cpp
     main.cpp
    
     #    resources.qrc

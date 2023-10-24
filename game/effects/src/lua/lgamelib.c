@@ -166,6 +166,7 @@ static int luaB_clean(lua_State *L) {
 		 struct channel * channel = led_matrix_get_channel(led_matrix_get(),  i);  
 	 	 canvas_clean(&channel->canvas) ;		  
 	}
+	return 0;
 }
 
 static int luaB_opacity(lua_State *L) {
@@ -186,6 +187,17 @@ static int luaB_select_channel(lua_State *L) {
     led_matrix_channel_id = channel;
 }
 
+static int luaB_setkey(lua_State *L) {
+    int id  = (int) luaL_checknumber (L, -2);
+    int v  = (int) luaL_checknumber (L, -1);
+
+     lua_pop (L, 2);
+     set_key(id,v);
+     return 0;
+}
+
+
+
 
 static int luaB_stop_reason(lua_State *L) {
     int id  = (int) luaL_checknumber (L, -1);
@@ -194,6 +206,14 @@ static int luaB_stop_reason(lua_State *L) {
     lua_pushinteger(L, get_stop_reason(id));
     return 1;
 }
+
+static int luaB_keystatus(lua_State *L) {
+	 lua_pushinteger(L, get_geys());
+    return 1;
+
+}
+
+
 
 
 static const luaL_Reg game_funcs[] = {
@@ -213,6 +233,11 @@ static const luaL_Reg game_funcs[] = {
   {"select_channel", luaB_select_channel},
   {"opacity", luaB_opacity},
   {"stop_reason", luaB_stop_reason},
+  {"keys", luaB_keystatus},
+  {"set_key", luaB_setkey},
+
+
+  
 
   /* placeholders */
   {NULL, NULL}

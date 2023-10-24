@@ -74,22 +74,28 @@ static void banner_rotate_effect(struct banner * banner, int direction, int step
 static void bannner_manage_blink(struct banner * banner) 
 {
 
-	if (banner->on == 1 && timing_elapse(&banner->start_time, banner->config.blink.time_on) ) {
-		banner->on = 0;
-		timing_begin_to_measure_time(&banner->start_time);
-		if (banner->config.blink.end_idx !=0 && banner->config.blink.start_idx <= banner->config.blink.end_idx)
-			// blink range of letters
-			canvas_fill_rect(&banner->canvas, &(struct rect  ){banner->config.blink.start_idx * font_width(banner->canvas.font,0) ,0,banner->config.blink.end_idx * font_width(banner->canvas.font,0) , font_height(banner->canvas.font)},0);
+	if ( banner->config.blink.time_off ==0) {
+		// always on
+		canvas_print(&banner->canvas, 0,0, banner->text);		
+	} else {
+		if (banner->on == 1 && timing_elapse(&banner->start_time, banner->config.blink.time_on) ) {
+			banner->on = 0;
+			timing_begin_to_measure_time(&banner->start_time);
+			int w = banner->config.blink.end_idx  - banner->config.blink.start_idx  + 1;
+			if (banner->config.blink.end_idx !=0 && banner->config.blink.start_idx <= banner->config.blink.end_idx)
+				// blink range of letters
+				canvas_fill_rect(&banner->canvas, &(struct rect  ){banner->config.blink.start_idx * font_width(banner->canvas.font,0) ,0,w * font_width(banner->canvas.font,0) , font_height(banner->canvas.font)},0);
 
-		else   { // blink all text
-			int len = u8_strlen(banner->text);				
-			canvas_fill_rect(&banner->canvas, &(struct rect  ){0,0,len * font_width(banner->canvas.font,0) , font_height(banner->canvas.font)},0);
+			else   { // blink all text
+				int len = u8_strlen(banner->text);				
+				canvas_fill_rect(&banner->canvas, &(struct rect  ){0,0,len * font_width(banner->canvas.font,0) , font_height(banner->canvas.font)},0);
+			}
 		}
-	}
-	else if (banner->on == 0 && timing_elapse(&banner->start_time, banner->config.blink.time_off) ) {
-		banner->on = 1;
-		timing_begin_to_measure_time(&banner->start_time);		
-		canvas_print(&banner->canvas, 0,0, banner->text);
+		else if (banner->on == 0 && timing_elapse(&banner->start_time, banner->config.blink.time_off) ) {
+			banner->on = 1;
+			timing_begin_to_measure_time(&banner->start_time);		
+			canvas_print(&banner->canvas, 0,0, banner->text);
+		} 
 	}
 }
 

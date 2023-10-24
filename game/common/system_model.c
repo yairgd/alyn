@@ -251,3 +251,21 @@ int get_stop_reason(int id) {
 	id = CHECK_ID(id);
 	return model.stations[id].blink.stop_reson;
 }
+
+
+
+/**
+ * Created  10/22/2023
+ * @brief   set key state :1 press, 0 - not press
+ * @note  
+ * @param   
+ * @return  
+ */
+void set_key(int key, int v) {
+	model.key_pad = v ? model.key_pad | (1<<key) : model.key_pad & ~(1<<key);
+}
+
+int get_geys() {
+	return model.key_pad ;
+}
+

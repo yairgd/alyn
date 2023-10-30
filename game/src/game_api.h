@@ -31,8 +31,10 @@
 #include "protocol-v1/messages.h"
 #include "common/logger.h"
 
+#ifdef MSVC
+#elif __GNUC__
 #include <unistd.h>
-
+#endif
 using namespace Simple;
 /**
  * @class GameApi
@@ -80,7 +82,7 @@ namespace Simple {
 
 		}
 
-	private:
+//	private:
 
 		void wait() {
 			done = false;

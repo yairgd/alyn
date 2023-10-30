@@ -39,7 +39,7 @@ set(LUA_SOURCES
 
 
 # Lua librarary to integrate in the MCU code
-add_library(lua_module ${LUA_SOURCES})
+add_library(lua_module ${LUA_SOURCES} )
 
 # Include directories for your subdirectory
 target_include_directories(lua_module PUBLIC 
@@ -58,43 +58,56 @@ target_compile_definitions (lua_module PRIVATE
 
 set(
 	LUAC_PATH 
-	${CMAKE_CURRENT_BINARY_DIR}/luac  
+	${CMAKE_CURRENT_BINARY_DIR}/Debug/luac 
 	CACHE INTERNAL "" )
 
 # LIST( APPEND CMAKE_PROGRAM_PATH  ${LUAC_PATH} )
 
-add_custom_command( 
-	OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/luac  
-	COMMAND make linux; 
-	COMMAND ${CMAKE_COMMAND} -E copy  ${CMAKE_CURRENT_SOURCE_DIR}/src/luac ${CMAKE_CURRENT_BINARY_DIR}
-	WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-)
 
-add_custom_target( luac
-	DEPENDS ${LUAC_PATH}
-)
+#add_custom_command( 
+#	OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/luac  
+#	COMMAND make linux; 
+#	COMMAND ${CMAKE_COMMAND} -E copy  ${CMAKE_CURRENT_SOURCE_DIR}/src/luac ${CMAKE_CURRENT_BINARY_DIR}
+#	WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+#)
+
+#add_custom_target( luac
+#	DEPENDS ${LUAC_PATH}
+#)
 
 
 # build the lua standalone module to run in the GUI as separate thread
 add_library(lua 
-	src/lua.c
-)
+	src/lua.c)
+
 target_link_libraries(lua
 	lua_module
-	m
+#	m
 )
 target_compile_definitions(lua PRIVATE
 	-DCONFIG_LUA_GAME_LIB
 )
 
+add_executable(luac
+	src/luac.c
+	)
+
+target_link_libraries(luac
+	lua_module
+	#m   in linux
+)
+	
 
 
 
+set (Python3_EXECUTABLE "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\Python37_64\\python")
+#set (PYTHON "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\Python37_64\\python")
 
 
 macro( lua_generate_c_files_for_lua_binary_target  ${lua_source_files} )
 
-	set (this_file_location ${CMAKE_CURRENT_SOURCE_DIR}/../)
+	#set (this_file_location ${CMAKE_CURRENT_SOURCE_DIR}/../)
+	set (this_file_location ${CMAKE_CURRENT_SOURCE_DIR})
 	# create targets as the name of the lua files
 	foreach(full_path_filename    ${lua_source_files})
 		message( ${full_path_filename})
@@ -113,7 +126,7 @@ macro( lua_generate_c_files_for_lua_binary_target  ${lua_source_files} )
 
 		add_custom_command(
 			OUTPUT  ${file_name}.c
-			COMMAND ${this_file_location}/lua_fw_to_c.py script_fie ${file_name}.o 
+			COMMAND  python ${this_file_location}/lua_fw_to_c.py script_fie ${file_name}.o 
 			DEPENDS ${file_name}.o
 
 		)
@@ -137,7 +150,26 @@ macro( lua_generate_c_files_for_lua_binary_target  ${lua_source_files} )
 
 
 
-	
+endmacro()
+
+
+
+macro (make_lua_binaries1111 ${lua_source_files})
+		# decide which lua files to embbed in the code
+		
+		lua_generate_c_files_for_lua_binary_target(${lua_source_files})	
+
+
+		# target to create binary library to hold all bibary data - 
+		# it also trigers the generation of the c files
+		add_library(lua_binaries 
+			${generated_c_files}
+			${CMAKE_CURRENT_BINARY_DIR}/joint_file.c
+			${CMAKE_CURRENT_SOURCE_DIR}/luasrc.c
+		)
+		target_include_directories (lua_binaries PUBLIC
+			${CMAKE_CURRENT_SOURCE_DIR}
+		)
 endmacro()
 
 

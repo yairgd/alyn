@@ -1,11 +1,13 @@
 
-# if _MSC_VER
-#include <windows.h>
+#include "uart_win.h"
+
+#ifdef _MSC_VER
+
 #include <stdio.h>
 #include <fileapi.h>
 #include <sysinfoapi.h>
 #include <string>
-#include "uart_win.h"
+
 #include <memory>
 
 
@@ -65,12 +67,12 @@ int Hal::UartWin::Open() {
 
 
 		switch (m_settings.baud) {
-			case IUart::Settings::baud::BAUDRATE_115200:
+			case BaudSettings::BAUDRATE_115200:
 				{
 					serialParams.BaudRate = CBR_115200;
 					break;
 				}
-			case IUart::Settings::baud::BAUDRATE_921600:
+			case BaudSettings::BAUDRATE_921600:
 				{
 					serialParams.BaudRate = 921600;
 					break;
@@ -142,7 +144,8 @@ int Hal::UartWin::Send(char* lpBuffer, int dNoOFBytestoWrite) {
 }
  namespace Hal {
 	std::shared_ptr<IUart> GetUart(std::string com_port) {
-		return std::make_shared<UartWin>(com_port.c_str(), IUart::Settings({ IUart::Settings::baud::BAUDRATE_115200 }));
+		return std::make_shared<UartWin>(com_port.c_str(), Settings({ BaudSettings::BAUDRATE_115200 }));
 	}
+
 }
 #endif

@@ -22,14 +22,17 @@
 #include <stdint.h>
 #include <time.h>
 #include <string.h>
+#ifdef _MSC_VER
+#elif __GNUC__
 #include <unistd.h>
+#endif
 
 
 int log_facility;
 static char *domain_name;
 static CODE prioritynames[] =
   {
-    { (char*)"err", LOG_ERR },
+   // { (char*)"err", LOG_ERR },
     { (char*)"warning", LOG_WARNING },
     { (char*)"notice", LOG_NOTICE },
     { (char*)"info", LOG_INFO },

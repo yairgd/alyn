@@ -25,7 +25,16 @@
 //#include "ledcircle.h"
 //#include <QtWidgets/QWidget>
 
+#ifdef _MSC_VER
+#include <windows.h>
+inline static void usleep(unsigned int x) {
+    Sleep(x / 1000);
+}
+#elif __GNUC__
 #include <unistd.h>
+ //#include "signals.h"
+#endif
+
 #include <chrono>
 
 

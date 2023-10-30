@@ -21,6 +21,13 @@
 #include <stdint.h>
 #include <stddef.h>
 
+#ifdef _MSC_VER 
+#include <time.h>
+#elif __GNUC__
+#include <unistd.h>
+#endif
+
+
 #ifndef ZEPHYR
 #include <time.h>
 #endif

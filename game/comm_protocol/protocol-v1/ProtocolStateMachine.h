@@ -66,7 +66,8 @@ namespace Simple {
 						break;
 					case ReceiveState::Length:
 						msg.crc+=c;						
-						length = reinterpret_cast<uint8_t>(c) - 1;
+						//length = reinterpret_cast<uint8_t>(c) - 1;
+						length = c - 1;
 						msg.data.size = c;
 						state = ReceiveState::Data;
 						break;

@@ -34,11 +34,14 @@
 #include "src/game_api.h"
 #include "git.h"
 
+#ifdef _MSC_VER
+#include <windows.h>
+#define usleep(x) Sleep(x/1000)
+#elif __GNUC__
 #include <unistd.h>
-
-#ifdef __GNUC__
-//#include "signals.h"
+ //#include "signals.h"
 #endif
+
 
 #define UART_DEVICE "/dev/pts/12"
 #define BYPASS "bypass\n\r"

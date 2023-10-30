@@ -15,9 +15,34 @@ if(CMAKE_VERSION VERSION_LESS "3.7.0")
     set(CMAKE_INCLUDE_CURRENT_DIR ON)
 endif()
 
-find_package(Qt5 COMPONENTS Widgets REQUIRED)
-set (CMAKE_C_FLAGS_DEBUG "-O0 -g")
-set (CMAKE_CXX_FLAGS_DEBUG "-O0 -g -std=c++17 -fpermissive")
+
+# https://stackoverflow.com/questions/61048049/using-qt5-installed-via-vcpkg-in-visual-studio-for-c
+# https://github.com/microsoft/vcpkg/discussions/26846
+
+#set (CMAKE_PREFIX_PATH "C:\\Users\\gadely2\\vcpkg\\installed\\x64-windows\\ib")
+
+
+
+#find_package(Qt5Core  REQUIRED COMPONENTS system filesystem date_time  PATHS="C:/Users/gadely2/vcpkg/installed/x64-windows/lib" NO_DEFAULT_PATH)
+#find_package(Qt5Gui  REQUIRED COMPONENTS system filesystem date_time  PATHS="C:/Users/gadely2/vcpkg/installed/x64-windows/lib")
+#find_package(Qt5Widgets  REQUIRED COMPONENTS system filesystem date_time  PATHS="C:/Users/gadely2/vcpkg/installed/x64-windows/lib")
+
+find_package(Qt5 COMPONENTS Widgets Concurrent CONFIG REQUIRED)
+find_package(Qt5 COMPONENTS Gui Concurrent CONFIG REQUIRED)
+find_package(Qt5 COMPONENTS Core Concurrent CONFIG REQUIRED)
+
+find_package(Qt5 COMPONENTS Core Widgets CONFIG REQUIRED)
+if (${Qt5Core_FOUND})
+    message("Found Qt " ${Qt5_VERSION})
+else()
+    message("Couldn't find Qt")
+endif()
+
+
+
+#find_package(Qt5 COMPONENTS Widgets REQUIRED)
+
+
 
 add_executable(led-screen-sim
     mainwindow.ui
@@ -30,19 +55,36 @@ add_executable(led-screen-sim
     main.cpp
     resources.qrc
    
-    #    resources.qrc
+    #    resources.qrc971
 )
 
 target_link_libraries(led-screen-sim 
-	-Wl,--start-group
-	Qt5::Widgets 
+	## -Wl,--start-group  lnux only
 	effects_static
 	lua
 	lua_module
 	lua_binaries
-	pthread
-       -Wl,--end-group
+	#pthread
+
+    #C:/Users/gadely2/vcpkg/installed/x64-windows/debug/lib/Qt5Guid.lib
+	#	C:/Users/gadely2/vcpkg/installed/x64-windows/debug/lib/Qt5Cored.lib
+	#	C:/Users/gadely2/vcpkg/installed/x64-windows/debug/lib/Qt5Widgetsd.lib
+
+          Qt5Guid.lib
+		Qt5Cored.lib
+		Qt5Widgetsd.lib
+
+
+    ##   -Wl,--end-group
 )
+#	Qt5::Widgets 
+
 target_include_directories(led-screen-sim  PRIVATE
 	${CMAKE_SOURCE_DIR}/game/lua-5.4.6/src/
+    ${VCPKG_DIR}/include/Qt5/
+    ${VCPKG_DIR}/include/Qt5/QtWidgets
+	${VCPKG_DIR}/include/Qt5/QtCore
+	${VCPKG_DIR}/include/Qt5/QtGui
 )
+
+

@@ -1,14 +1,15 @@
-#!/usr/bin/python
+##!/usr/bin/python
 import sys
 import subprocess
 import os
 from pathlib import Path
 
+print(sys.version)
 
 if len(sys.argv) == 3 and sys.argv[1] == "script_fie":
     filename = sys.argv[2]
-    base_name = filename.replace('.o','').replace('.','_').replace('/','_').replace('-','_')
-    f = filename.replace('.o','').replace('.','_').replace('/','_').replace('-','_')
+    base_name = filename.replace('.o','').replace('.','_').replace('/','_').replace('-','_').replace(':','_')
+    f = filename.replace('.o','').replace('.','_').replace('/','_').replace('-','_').replace(':','_')
     code_name = Path(sys.argv[2]).stem 
 
     chunk_size = 16
@@ -46,12 +47,12 @@ elif sys.argv[1] == "joint_file":
     with open("joint_file.c", 'w') as header_file:
         header_file.write(f"#include \"luasrc.h\"\n\n") 
         for  i in range(2,len(sys.argv),1):
-            base_name = sys.argv[i].replace('.c','').replace('.','_').replace('/','_').replace('-','_')            
+            base_name = sys.argv[i].replace('.c','').replace('.','_').replace('/','_').replace('-','_').replace(':','_')           
             header_file.write(f"extern struct luasrc  {base_name}; \n")
 
         header_file.write(f"struct luasrc *luasrc [] = {{\n")
         for  i in range(2,len(sys.argv),1):
-            base_name = sys.argv[i].replace('.c','').replace('.','_').replace('/','_').replace('-','_')
+            base_name = sys.argv[i].replace('.c','').replace('.','_').replace('/','_').replace('-','_').replace(':','_')
             header_file.write(f"&{base_name},\n")
         header_file.write(f"{0},")
  

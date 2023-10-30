@@ -21,7 +21,7 @@
 #define CHESSBOARDWIDGET_H
 
 #include <QWidget>
-#include <QThread>
+//#include <QThread>
 #include <iostream>
 #include <array>
 #include "ledcircle.h"

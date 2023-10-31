@@ -24,7 +24,7 @@ Keypad::Keypad(QWidget *parent)
 	: QWidget(parent)
 {
 
-	layout = new QVBoxLayout(parent);
+	layout = new QVBoxLayout(this);
 	
 	layout->addWidget( (keys[0] = new ArrawKey(0)));
 	layout->addWidget( (keys[1] = new ArrawKey(1)));
@@ -54,6 +54,9 @@ void Keypad::paintEvent(QPaintEvent *event)
 	keys[2]->setGeometry(w/2+0+e ,h/2+h/3+e, w/3-2*e,h/3-2*e);		
 	keys[3]->setGeometry(w/2+2*w/3+e ,h/2+h/3+e, w/3-2*e,h/3-2*e);	
 	keys[4]->setGeometry(w/2+1*w/3+e ,h/2+2*h/3+e, w/3-2*e,h/3-2*e);		
+
+	setGeometry(0 ,0, w*2,2*h);
+
 }	
 
 

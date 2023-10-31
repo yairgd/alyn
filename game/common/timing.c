@@ -19,7 +19,15 @@
 
 #include "timing.h"
 
-
+#ifdef _MSC_VER
+#include <windows.h>
+static inline void  usleep(unsigned int x) {
+    Sleep(x / 1000);
+}
+#elif __GNUC__
+#include <unistd.h>
+ //#include "signals.h"
+#endif
 
 /**
  * Created  10/13/2023
@@ -60,5 +68,5 @@ void timing_begin_to_measure_time( struct timespec  * start_time ) {
  * @return  
  */
 void timing_sleep(size_t usec) {
-	Sleep(usec);
+	usleep(usec);
 }

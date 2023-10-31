@@ -50,62 +50,7 @@
            </layout>
           </item>
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_8">
-            <item>
-             <widget class="QWidget" name="keypad" native="true">
-              <widget class="QWidget" name="k1" native="true">
-               <property name="geometry">
-                <rect>
-                 <x>20</x>
-                 <y>50</y>
-                 <width>91</width>
-                 <height>41</height>
-                </rect>
-               </property>
-              </widget>
-              <widget class="QWidget" name="k2" native="true">
-               <property name="geometry">
-                <rect>
-                 <x>30</x>
-                 <y>130</y>
-                 <width>81</width>
-                 <height>41</height>
-                </rect>
-               </property>
-              </widget>
-              <widget class="QWidget" name="k3" native="true">
-               <property name="geometry">
-                <rect>
-                 <x>150</x>
-                 <y>50</y>
-                 <width>71</width>
-                 <height>51</height>
-                </rect>
-               </property>
-              </widget>
-              <widget class="QWidget" name="k4" native="true">
-               <property name="geometry">
-                <rect>
-                 <x>170</x>
-                 <y>120</y>
-                 <width>81</width>
-                 <height>41</height>
-                </rect>
-               </property>
-              </widget>
-              <widget class="QWidget" name="k5" native="true">
-               <property name="geometry">
-                <rect>
-                 <x>110</x>
-                 <y>190</y>
-                 <width>81</width>
-                 <height>41</height>
-                </rect>
-               </property>
-              </widget>
-             </widget>
-            </item>
-           </layout>
+           <layout class="QHBoxLayout" name="keypad"/>
           </item>
          </layout>
         </item>

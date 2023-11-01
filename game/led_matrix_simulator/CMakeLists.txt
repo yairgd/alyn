@@ -70,7 +70,9 @@ target_link_libraries(led-screen-sim
 	#	C:/Users/gadely2/vcpkg/installed/x64-windows/debug/lib/Qt5Cored.lib
 	#	C:/Users/gadely2/vcpkg/installed/x64-windows/debug/lib/Qt5Widgetsd.lib
 
-          Qt5Guid.lib
+      #        Qt5::Qt5Gui
+
+        Qt5Guid.lib
 		Qt5Cored.lib
 		Qt5Widgetsd.lib
 

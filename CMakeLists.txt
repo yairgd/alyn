@@ -11,11 +11,11 @@ set (VCPKG_TARGET_TRIPLET  "x64-windows"  CACHE STRING "")
 #C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.29.30133\bin\Hostx64\x64
 
 
+set(CMAKE_CXX_COMPILER_WORKS 1)
+set(CMAKE_C_COMPILER_WORKS 1)
 
 project(lvgl)
 
-set(CMAKE_CXX_COMPILER_WORKS 1)
-set(CMAKE_C_COMPILER_WORKS 1)
 
 
 

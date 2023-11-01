@@ -99,10 +99,6 @@ target_link_libraries(luac
 
 
 
-set (Python3_EXECUTABLE "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\Python37_64\\python")
-#set (PYTHON "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\Python37_64\\python")
-
-
 macro( lua_generate_c_files_for_lua_binary_target  ${lua_source_files} )
 
 	#set (this_file_location ${CMAKE_CURRENT_SOURCE_DIR}/../)

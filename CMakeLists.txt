@@ -37,9 +37,7 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
 	set (CMAKE_MODULE_PATH "C:/Users/gadely2/vcpkg/installed/x64-windows/include")
 	add_definitions(-DSLEEP=sleep)
 	set (CMAKE_C_FLAGS  " -g -O0 ${CMAKE_C_FLAGS_DEBUG_INIT}  ${CMAKE_C_FLAGS_DEBUG}    " )
-#	set (CMAKE_CXX_FLAGS  " -g -O0  ${CMAKE_CXX_FLAGS_DEBUG_INIT}  ${CMAKE_CXX_FLAGS_DEBUG}    " )
-#	set (CMAKE_C_FLAGS_DEBUG "-O0 -g")
-set (CMAKE_CXX_FLAGS_DEBUG "-O0 -g -std=c++17 -fpermissive")
+	set (CMAKE_CXX_FLAGS_DEBUG "-O0 -g -std=c++17 -fpermissive")
 
 elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
 	add_definitions(-DSLEEP=Sleep) 
@@ -67,9 +65,11 @@ endif()
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" )
 	set (TARGET "LINUX_PC")	
+	set (Python3_EXECUTABLE python)	
 elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
 	set (UART_FILE uart_win.cpp)
 	set (TARGET "WINDOWS")	
+	set (Python3_EXECUTABLE "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\Python37_64\\python")
 endif()
 
 

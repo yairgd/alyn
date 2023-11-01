@@ -71,21 +71,6 @@ void push_lua_code_to_memory(unsigned char *code, int len, int rst){
 
 
 
-/**
- * Created  10/19/2023
- * @brief   starts thread  to run game(lua src code or pre defied c code)
- * @note  
- * @param   
- * @return  
- */
-static void game_thread_entry(void *g, void *a, void *b) {
-	struct game * game = g;
-	if (game->func) {
-		game->func(game->data);
-	}
-}
-
-
 
 static void game_default_c(void *data) {
 	int cnt = 0;
@@ -101,7 +86,7 @@ static void game_default_c(void *data) {
 static void game_lua_generic(void *data) {
 	struct luasrc * game = data;
 
-	printf("start runnunig lua:  %s\n", game->name);
+	//printf("start runnunig lua:  %s\n", game->name);
 	if (L)
 		lua_close(L); 
 	L = luaL_newstate();
@@ -121,7 +106,7 @@ static void game_lua_generic(void *data) {
 	}
 	lua_close(L);   /* Cya, Lua */
 	L = 0;
-	printf("finish runnunig lua:  %s\n", game->name);
+	//printf("finish runnunig lua:  %s\n", game->name);
 
 }
 
@@ -133,6 +118,25 @@ static struct game games[16] = {
 	{.name = "default c game",.func = game_default_c},
 	{0},
 };
+
+
+
+/**
+ * Created  10/19/2023
+ * @brief   starts thread  to run game(lua src code or pre defied c code)
+ * @note  
+ * @param   
+ * @return  
+ */
+static void game_thread_entry(void *g, void *a, void *b) {
+	struct game * game = g;
+	if (game->func) {
+		printf("start runnunig game:  %s,  type: %s\n", game->name, (game->func == game_lua_generic) ? "lua src code" : "embedded c code" );		
+		game->func(game->data);
+		printf("finish runnunig game:  %s,  type: %s\n", game->name, (game->func == game_lua_generic) ? "lua src code" : "embedded c code" );
+	}
+}
+
 
 void game_init(void) {
 	struct game * g = games;

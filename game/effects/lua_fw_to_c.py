@@ -1,10 +1,8 @@
-##!/usr/bin/python
 import sys
 import subprocess
 import os
 from pathlib import Path
 
-print(sys.version)
 
 if len(sys.argv) == 3 and sys.argv[1] == "script_fie":
     filename = sys.argv[2]

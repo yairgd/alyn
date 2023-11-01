@@ -3,7 +3,7 @@
  *
  *       Filename:  timing.c
  *
- *    Description:  
+ *    Description:
  *
  *        Version:  1.0
  *        Created:  10/13/2023 08:37:06 PM
@@ -22,7 +22,12 @@
 #ifdef _MSC_VER
 #include <Windows.h>
 #define CLOCK_REALTIME 0
-//https://stackoverflow.com/questions/5404277/porting-clock-gettime-to-windows
+    //https://stackoverflow.com/questions/5404277/porting-clock-gettime-to-windows
+
+#include <windows.h>
+    static inline void  usleep(unsigned int x) {
+    Sleep(x / 1000);
+}
 
 static LARGE_INTEGER
 getFILETIMEoffset()
@@ -85,35 +90,39 @@ clock_gettime(int X, struct timeval* tv)
     return (0);
 }
 
+
+
+
+
 #endif
 
 /**
  * Created  10/13/2023
  * @brief   returns true, if time elapse
- * @note  
+ * @note
  * @param   time(ms) to mesure
- * @return  
+ * @return
  */
-int timing_elapse( struct timespec  * start_time, double time ) {
+int timing_elapse(struct timespec* start_time, double time) {
 
-	struct timespec stop_time , *rts;
-	rts = start_time;
+    struct timespec stop_time, * rts;
+    rts = start_time;
 
-	#define NSEC_PER_SEC 1000000000	
-	int ret = clock_gettime(CLOCK_REALTIME, &stop_time);
-	(void)ret;	
-	//https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/timespec-get-timespec32-get-timespec64-get1?view=msvc-170
-	double delta =
-		((int64_t)stop_time.tv_sec * NSEC_PER_SEC -
-		 (int64_t)rts->tv_sec * NSEC_PER_SEC) +
-		((int64_t)stop_time.tv_nsec - (int64_t)rts->tv_nsec);
-	return (delta/NSEC_PER_SEC)  > time   ;
-	
+#define NSEC_PER_SEC 1000000000	
+    int ret = clock_gettime(CLOCK_REALTIME, &stop_time);
+    (void)ret;
+    //https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/timespec-get-timespec32-get-timespec64-get1?view=msvc-170
+    double delta =
+        ((int64_t)stop_time.tv_sec * NSEC_PER_SEC -
+            (int64_t)rts->tv_sec * NSEC_PER_SEC) +
+        ((int64_t)stop_time.tv_nsec - (int64_t)rts->tv_nsec);
+    return (delta / NSEC_PER_SEC) > time;
+
 }
 
 
-void timing_begin_to_measure_time( struct timespec  * start_time ) {
-	clock_gettime(CLOCK_REALTIME, start_time); // get system time 
+void timing_begin_to_measure_time(struct timespec* start_time) {
+    clock_gettime(CLOCK_REALTIME, start_time); // get system time 
 }
 
 
@@ -121,10 +130,10 @@ void timing_begin_to_measure_time( struct timespec  * start_time ) {
 /**
  * Created  10/19/2023
  * @brief   function as os hal for sleep function
- * @note  
- * @param   
- * @return  
+ * @note
+ * @param
+ * @return
  */
 void timing_sleep(size_t usec) {
-	Sleep(usec);
+    usleep(usec);
 }

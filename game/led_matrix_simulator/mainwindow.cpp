@@ -40,7 +40,26 @@ MainWindow::MainWindow(QWidget *parent)
 
 	// Create and set LedMatrixWidget as the central widget
 	LedMatrixWidget *ledMatrixWidget = new LedMatrixWidget(ui->display, std::array<LedCircle *,8>({led1,led2,led3,led4,led5,led6,led7,led8}));
-	new Keypad(ui->keypad);
+#if 1
+	auto keypad = new QWidget();
+
+	//ui->keypad->addWidget(new QPushButton("test"));
+	ui->keypad->addWidget(keypad);
+	
+
+	new Keypad(keypad);
+#else
+	//ui->keypad->addWidget(keypad)
+
+	auto k = new Keypad( );
+	ui->keypad->addWidget(k);
+	k->setParent(ui->keypad);
+
+	//ui->keypad->addWidget(new Keypad( ));
+
+	//ui->keypad->addWidget(new Keypad(ui->keypad));
+	//new Keypad(ui->keypad->parentWidget());
+#endif
 
 #if 0
 	QVBoxLayout *layout = new QVBoxLayout(ui->keypad);

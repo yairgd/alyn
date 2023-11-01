@@ -27,9 +27,11 @@ endif()
 #find_package(Qt5Gui  REQUIRED COMPONENTS system filesystem date_time  PATHS="C:/Users/gadely2/vcpkg/installed/x64-windows/lib")
 #find_package(Qt5Widgets  REQUIRED COMPONENTS system filesystem date_time  PATHS="C:/Users/gadely2/vcpkg/installed/x64-windows/lib")
 
-find_package(Qt5 COMPONENTS Widgets Concurrent CONFIG REQUIRED)
-find_package(Qt5 COMPONENTS Gui Concurrent CONFIG REQUIRED)
-find_package(Qt5 COMPONENTS Core Concurrent CONFIG REQUIRED)
+find_package(Qt5 COMPONENTS Widgets REQUIRED)
+
+#find_package(Qt5 COMPONENTS Widgets Concurrent CONFIG REQUIRED)
+#find_package(Qt5 COMPONENTS Gui Concurrent CONFIG REQUIRED)
+#find_package(Qt5 COMPONENTS Core Concurrent CONFIG REQUIRED)
 
 find_package(Qt5 COMPONENTS Core Widgets CONFIG REQUIRED)
 if (${Qt5Core_FOUND})
@@ -54,37 +56,39 @@ add_executable(led-screen-sim
     keypad.cpp
     main.cpp
     resources.qrc
-   
-    #    resources.qrc971
 )
 
+if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" )
+	set(qt_libs 
+		Qt5::Widgets
+		Qt5::Core
+		Qt5::Gui
+		pthread
+	)
+else()
+	set (qt_libs
+		Qt5Guid.lib
+		Qt5Cored.lib
+		Qt5Widgetsd.lib
+	)
+endif()
+
 target_link_libraries(led-screen-sim 
-	## -Wl,--start-group  lnux only
+	 -Wl,--start-group  
+
 	effects_static
 	lua
 	lua_module
 	lua_binaries
-	#pthread
-
-    #C:/Users/gadely2/vcpkg/installed/x64-windows/debug/lib/Qt5Guid.lib
-	#	C:/Users/gadely2/vcpkg/installed/x64-windows/debug/lib/Qt5Cored.lib
-	#	C:/Users/gadely2/vcpkg/installed/x64-windows/debug/lib/Qt5Widgetsd.lib
-
-      #        Qt5::Qt5Gui
-
-        Qt5Guid.lib
-		Qt5Cored.lib
-		Qt5Widgetsd.lib
-
-
-    ##   -Wl,--end-group
+	${qt_libs}
+         
+       -Wl,--end-group
 )
-#	Qt5::Widgets 
 
 target_include_directories(led-screen-sim  PRIVATE
 	${CMAKE_SOURCE_DIR}/game/lua-5.4.6/src/
     ${VCPKG_DIR}/include/Qt5/
-    ${VCPKG_DIR}/include/Qt5/QtWidgets
+   	${VCPKG_DIR}/include/Qt5/QtWidgets
 	${VCPKG_DIR}/include/Qt5/QtCore
 	${VCPKG_DIR}/include/Qt5/QtGui
 )

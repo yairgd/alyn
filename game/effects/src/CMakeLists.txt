@@ -8,7 +8,6 @@ set(Effects_SRC
 	frame.c  
 	led_matrix.c  
 	u8.c
-	luasrc.c
 	lua/frame_effect.c
 	lua/banner_effect_1.c
 	lua/banner_effect_2.c
@@ -31,5 +30,8 @@ target_include_directories(effects_static PUBLIC
 	.
 	${CMAKE_SOURCE_DIR}/game/lua-5.4.6/src
 )
+
+
+
 
 

@@ -55,6 +55,7 @@ add_executable(led-screen-sim
     arrawkey.cpp
     keypad.cpp
     main.cpp
+    terminaltextedit.cpp
     resources.qrc
 )
 
@@ -91,6 +92,12 @@ target_include_directories(led-screen-sim  PRIVATE
    	${VCPKG_DIR}/include/Qt5/QtWidgets
 	${VCPKG_DIR}/include/Qt5/QtCore
 	${VCPKG_DIR}/include/Qt5/QtGui
+)
+
+
+
+target_compile_definitions(led-screen-sim PRIVATE
+		-D USE_GUI_CONSOLE
 )
 
 

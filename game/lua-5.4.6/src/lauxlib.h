@@ -254,11 +254,18 @@ typedef struct luaL_Stream {
 ** "Abstraction Layer" for basic report of messages and errors
 ** ===================================================================
 */
+void write_line(const char * s,int l) ;
+void write_format_line(char * s,const char * p) ;
 
 /* print a string */
 #if !defined(lua_writestring)
-#define lua_writestring(s,l)   fwrite((s), sizeof(char), (l), stdout)
+#  if defined(USE_ORIGNAL_LUA_CODE)
+#    define lua_writestring(s,l)   fwrite((s), sizeof(char), (l), stdout)
+#  else
+#     define lua_writestring(s,l)  write_line(s,l)
+#  endif
 #endif
+
 
 /* print a newline and flush the output */
 #if !defined(lua_writeline)
@@ -267,8 +274,11 @@ typedef struct luaL_Stream {
 
 /* print an error message */
 #if !defined(lua_writestringerror)
-#define lua_writestringerror(s,p) \
-        (fprintf(stderr, (s), (p)), fflush(stderr))
+#  if defined(USE_ORIGNAL_LUA_CODE)
+#    define lua_writestringerror(s,p) (fprintf(stderr, (s), (p)), fflush(stderr))
+#  else
+#     define lua_writestringerror(s,p) write_format_line(s,p)
+#  endif
 #endif
 
 /* }================================================================== */

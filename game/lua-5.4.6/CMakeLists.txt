@@ -52,8 +52,12 @@ target_include_directories(lua_module PUBLIC
 #target_link_libraries(lua_module
 #	zephyr)
 
+
+set (vv $<IF:$<STREQUAL:${CMAKE_CXX_COMPILER_ID},"GNU">,"-DLUA_USE_READLINE","">)
 target_compile_definitions (lua_module PRIVATE
 	-D CONFIG_LUA_GAME_LIB
+	-DLUA_USE_READLINE
+	#-D $<IF:$<STREQUAL:${CMAKE_CXX_COMPILER_ID},"GNU">,"LUA_USE_READLINE","">	
 )
 
 
@@ -63,7 +67,7 @@ set(
 	CACHE INTERNAL "" )
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" )
-	set (linux_lib "m")
+	set (linux_lib "m" ) # "readline")
 	set(
 		LUAC_PATH 
 		${CMAKE_CURRENT_BINARY_DIR}/luac 
@@ -79,23 +83,29 @@ add_library(lua
 
 target_link_libraries(lua
 	lua_module
-#	m
+	${linux_lib}	
 )
 target_compile_definitions(lua PRIVATE
-	-DCONFIG_LUA_GAME_LIB
+	-D CONFIG_LUA_GAME_LIB
+	-D LUA_USE_READLINE
 )
 
 
 add_executable(luac
+	${LUA_SOURCES}
 	src/luac.c
 	)
 
 
 target_link_libraries(luac
-	lua_module
 	${linux_lib}
 )
 	
+target_compile_definitions(luac PRIVATE
+	-D USE_ORIGNAL_LUA_CODE
+)
+
+
 
 
 
@@ -148,21 +158,7 @@ macro( lua_generate_c_files_for_lua_binary_target  ${lua_source_files} )
 endmacro()
 
 
-macro (make_lua_binaries)
-	lua_generate_c_files_for_lua_binary_target(${lua_source_files})	
 
-
-	# target to create binary library to hold all bibary data - 
-	# it also trigers the generation of the c files
-	add_library(lua_binaries 
-		${generated_c_files}
-		${CMAKE_CURRENT_BINARY_DIR}/joint_file.c
-		${CMAKE_CURRENT_SOURCE_DIR}/luasrc.c
-	)
-	target_include_directories (lua_binaries PUBLIC
-		${CMAKE_CURRENT_SOURCE_DIR}
-	)
-endmacro()
 
 
 

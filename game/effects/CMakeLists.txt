@@ -4,13 +4,7 @@ add_subdirectory(src)
 
 
 macro (make_lua_binaries)
-		# decide which lua files to embbed in the code
-		set(lua_source_files
-			${CMAKE_CURRENT_SOURCE_DIR}/lua/bouncing_balls.lua
-			#${CMAKE_CURRENT_SOURCE_DIR}/lua/demo1.lua
-			#${CMAKE_CURRENT_SOURCE_DIR}/lua/loop.lua
-
-		)
+		
 		lua_generate_c_files_for_lua_binary_target(${lua_source_files})	
 
 

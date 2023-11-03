@@ -23,7 +23,6 @@
 #include "ui_mainwindow.h"
 #include "ledcircle.h"
 
-//class ChessboardWidget; // Forward declaration
 
 class MainWindow : public QMainWindow
 {
@@ -45,7 +44,9 @@ class MainWindow : public QMainWindow
 		LedCircle * led6 ;
 		LedCircle * led7 ;
 		LedCircle * led8 ;
-	
+
+		
+protected:
 };
 
 #endif // MAINWINDOW_H

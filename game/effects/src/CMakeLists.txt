@@ -18,6 +18,7 @@ set(Effects_SRC
 
 
 
+
 add_library(effects_static STATIC
 	${Effects_SRC}
 )

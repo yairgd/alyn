@@ -56,6 +56,8 @@ void Keypad::paintEvent(QPaintEvent *event)
 	keys[4]->setGeometry(w/2+1*w/3+e ,h/2+2*h/3+e, w/3-2*e,h/3-2*e);		
 
 	setGeometry(0 ,0, w*2,2*h);
+	QWidget::paintEvent(event);
+
 
 }	
 

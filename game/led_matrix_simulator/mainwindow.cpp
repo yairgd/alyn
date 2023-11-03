@@ -6,7 +6,7 @@
 #include "keypad.h"
 
 #include <QtWidgets>
-
+#include "terminaltextedit.h"
 MainWindow::MainWindow(QWidget *parent)
 	: QMainWindow(parent)
 	  , ui(new Ui::MainWindow)
@@ -51,24 +51,17 @@ MainWindow::MainWindow(QWidget *parent)
 #else
 	//ui->keypad->addWidget(keypad)
 
-	auto k = new Keypad( );
-	ui->keypad->addWidget(k);
-	k->setParent(ui->keypad);
+	//auto k = new Keypad( );
+//	ui->keypad->addWidget(k);
+//	k->setParent(ui->keypad);
 
-	//ui->keypad->addWidget(new Keypad( ));
+	ui->keypad->addWidget(new Keypad( ));
 
 	//ui->keypad->addWidget(new Keypad(ui->keypad));
 	//new Keypad(ui->keypad->parentWidget());
 #endif
 
-#if 0
-	QVBoxLayout *layout = new QVBoxLayout(ui->keypad);
-	layout->addWidget( new ArrawKey(0));
-	layout->addWidget( new ArrawKey(1));
-	layout->addWidget( new ArrawKey(2));
-	layout->addWidget( new ArrawKey(3));
-	layout->addWidget( new ArrawKey(4));
-#endif
+	 new TerminalTextEdit(ui->tab);
 	/*
 
 	auto * l1 = new ArrawKey(ui->k1, 0);
@@ -78,8 +71,12 @@ MainWindow::MainWindow(QWidget *parent)
 */
 }
 
+
 MainWindow::~MainWindow()
 {
 	delete ui;
 }
+
+
+
 

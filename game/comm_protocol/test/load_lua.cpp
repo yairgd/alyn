@@ -33,7 +33,7 @@
 
 #include "IUart.h"
 #include "src/game_api.h"
-#include "git.h"
+//#include "git.h"
 
 #ifdef _MSC_VER
 #include <windows.h>

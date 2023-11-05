@@ -63,7 +63,7 @@ target_compile_definitions (lua_module PRIVATE
 
 set(
 	LUAC_PATH 
-	${CMAKE_CURRENT_BINARY_DIR}/Debug/luac 
+	${CMAKE_CURRENT_BINARY_DIR}/luac 
 	CACHE INTERNAL "" )
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" )
@@ -79,10 +79,11 @@ endif()
 
 # build the lua standalone module to run in the GUI as separate thread
 add_library(lua 
-	src/lua.c)
+	src/lua.c
+	${LUA_SOURCES}
+)
 
 target_link_libraries(lua
-	lua_module
 	${linux_lib}	
 )
 target_compile_definitions(lua PRIVATE

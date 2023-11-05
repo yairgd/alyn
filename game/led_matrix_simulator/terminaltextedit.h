@@ -37,23 +37,21 @@ class TerminalTextEdit : public QTextEdit
 	public:
 		TerminalTextEdit(QWidget *parent = nullptr);
 		void insert(const char * text, int l) ;
+		void setPompt(char* p);
 
 	protected:
 		void keyPressEvent(QKeyEvent *event) override	;	
 		void paintEvent(QPaintEvent *event) override ;
-
+		
 
 	private:
 		QTextBlock currentLine;
 		QString currentLineText;
-		QString prompt;
+		QString prompt, prev_prompt;
 		int line = 0;
 		std::thread lua_thread;
 		std::mutex mtx; 
-		QTimer * timer;
 		
-	private slots:	
-		void onTimerTimeout() ;	
 };
 
 #endif

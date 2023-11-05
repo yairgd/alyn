@@ -97,7 +97,8 @@ target_include_directories(led-screen-sim  PRIVATE
 
 
 target_compile_definitions(led-screen-sim PRIVATE
-		-D USE_GUI_CONSOLE
+	#	-D USE_GUI_CONSOLE
+	#	-D LUA_USE_READLINE
 )
 
 

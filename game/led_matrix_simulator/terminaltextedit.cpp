@@ -35,7 +35,8 @@ void signal_handler(int signal)
 static TerminalTextEdit * textedit;
 
 
-#ifdef USE_GUI_CONSOLE
+//#ifdef USE_GUI_CONSOLE
+#if 1
 static int line_ok =0;
 static char * line_str ;
 extern "C" {
@@ -43,6 +44,7 @@ extern "C" {
 	void add_history(char * line)
 	{
 	}
+
 
 
 	/**
@@ -54,12 +56,12 @@ extern "C" {
 	 */
 	char *  readline(char * promopt)
 	{
+		textedit->setPompt(promopt);
 		while (!line_ok);
 		line_ok = 0;
 		//qDebug()<<line_str;
 		return 	line_str;
 	}
-	char * rl_readline_name;
 
 	// this functions are iplemeted below and used here: lauxlib.h:261 (not part of the lua src code - yair add it)	
 	void write_line(const char * s, int l) {
@@ -68,10 +70,10 @@ extern "C" {
 
 	void write_format_line(char * s,const char * p) 
 	{
-		char str[1024];
+		char str[512];
 		snprintf(str, sizeof(str), s, p);
-		write_line(str,0) ;
-		write_line("\n",0) ;
+		write_line(str,strlen(str)) ;
+		write_line("\n",1) ;
 
 	}
 }
@@ -88,7 +90,7 @@ TerminalTextEdit::TerminalTextEdit(QWidget *parent) : QTextEdit(parent)
 	// Initialize the current command line
 	currentLine = document()->findBlockByNumber(line);
 	currentLineText = currentLine.text();
-	prompt = "lua $ ";
+	prompt = "> ";
 
 	// Display the initial prompt
 	insertPlainText(prompt);
@@ -112,34 +114,53 @@ TerminalTextEdit::TerminalTextEdit(QWidget *parent) : QTextEdit(parent)
 
 	
 
-	timer = new QTimer(this);
-	        connect(timer, &QTimer::timeout, this, &TerminalTextEdit::onTimerTimeout);
-	timer->start(100);
+
 
 	std::signal(SIGINT, signal_handler);
 	textedit = this;
 }
 
-void TerminalTextEdit::onTimerTimeout() {
-			// This method is called when the timer times out
-			// You can perform actions here at regular intervals
-			 timer->start(100); // Start the timerL
-			repaint();
-			update();
-
-		}
-void TerminalTextEdit::insert(const char * text, int l) 
+void TerminalTextEdit::setPompt(char* p)
 {
-	//const std::lock_guard<std::mutex> lock(mtx);
+	prev_prompt = prompt;
+	prompt = p;
+	if (prev_prompt != prompt) {
+		QTextCursor cursor = textCursor();
+
+		// Handle the Enter key press
+
+
+		cursor.movePosition(QTextCursor::StartOfBlock);
+		setTextCursor(cursor);
+		cursor.select(QTextCursor::BlockUnderCursor);
+		cursor.removeSelectedText();
+		insertPlainText("\n"); // Add a new line			
+		insertPlainText(prompt); // Display the prompt
+
+	}
+
+}
+
+void TerminalTextEdit::insert(const char * str_text, int l) 
+{
+	const std::lock_guard<std::mutex> lock(mtx);
+
+	QString text = QString::fromUtf8(str_text, l);
+
+	
+	//qDebug() << text;
 
 	QTextCursor cursor = textCursor();
 
 	// Handle the Enter key press
 
+
 	cursor.movePosition(QTextCursor::End);
 	setTextCursor(cursor);
+ 
 
-	if (text[0] != '\n') {
+
+	if (text.at(0) != '\n') {
 		insertPlainText(text); // Display the prompt					 
 // 
 	} else {
@@ -150,7 +171,7 @@ void TerminalTextEdit::insert(const char * text, int l)
 	cursor.movePosition(QTextCursor::End);
 	setTextCursor(cursor);			
 
-	line =  document()->lineCount()  - 1;
+	line = document()->lineCount() - 1;
 
 	currentLine = document()->findBlockByNumber(line);
 	
@@ -158,11 +179,15 @@ void TerminalTextEdit::insert(const char * text, int l)
 }
 void TerminalTextEdit::keyPressEvent(QKeyEvent *event) 
 {
+			const std::lock_guard<std::mutex> lock(mtx);
 
 
 	if (event->key() == Qt::Key_Return)
 	{
-#ifdef USE_GUI_CONSOLE
+//#ifdef USE_GUI_CONSOLE
+#if 1
+
+			
 		QString cmd;
 		do {
 			QTextBlock currentLine = document()->findBlockByNumber(line);
@@ -174,7 +199,7 @@ void TerminalTextEdit::keyPressEvent(QKeyEvent *event)
 			// qDebug()<<currentLine.text();
 
 		} while(line < document()->lineCount() );
-
+		//qDebug() << cmd;
 
 
 
@@ -185,7 +210,6 @@ void TerminalTextEdit::keyPressEvent(QKeyEvent *event)
 		if (line_str)
 			memcpy (line_str,cString + prompt.length(), stdS.length());
 
-		//const std::lock_guard<std::mutex> lock(mtx);		
 		QTextCursor cursor = textCursor();
 		cursor.movePosition(QTextCursor::EndOfLine);			
 		setTextCursor(cursor);
@@ -271,6 +295,7 @@ void TerminalTextEdit::keyPressEvent(QKeyEvent *event)
 
 void TerminalTextEdit::paintEvent(QPaintEvent *event)  
 {
+	const std::lock_guard<std::mutex> lock(mtx);
 	QTextEdit::paintEvent(event);
 	
 	setGeometry(0,0,parentWidget()->width(), parentWidget()->height());

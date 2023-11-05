@@ -25,9 +25,23 @@
     //https://stackoverflow.com/questions/5404277/porting-clock-gettime-to-windows
 
 #include <windows.h>
+/*
     static inline void  usleep(unsigned int x) {
     Sleep(x / 1000);
 }
+*/
+void usleep(__int64 usec) {
+    LARGE_INTEGER frequency, start, end;
+    QueryPerformanceFrequency(&frequency);
+    QueryPerformanceCounter(&start);
+
+    __int64 counts = usec * frequency.QuadPart / 1000000;
+
+    do {
+        QueryPerformanceCounter(&end);
+    } while (end.QuadPart - start.QuadPart < counts);
+}
+
 
 static LARGE_INTEGER
 getFILETIMEoffset()
@@ -51,7 +65,7 @@ getFILETIMEoffset()
 }
 
 static int
-clock_gettime(int X, struct timeval* tv)
+clock_gettime(int X, struct timespec* tv)
 {
     LARGE_INTEGER           t;
     FILETIME            f;
@@ -86,7 +100,7 @@ clock_gettime(int X, struct timeval* tv)
     microseconds = (double)t.QuadPart / frequencyToMicroseconds;
     t.QuadPart = microseconds;
     tv->tv_sec = t.QuadPart / 1000000;
-    tv->tv_usec = t.QuadPart % 1000000;
+    tv->tv_nsec = (t.QuadPart % 1000000) * 1000;
     return (0);
 }
 

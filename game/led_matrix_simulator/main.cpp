@@ -58,6 +58,7 @@ int main(int argc, char *argv[])
 	led_matrix_init(led_matrix_get(), 64,32);
 	
 	w.show();
-	return a.exec();
+ 
+return a.exec();
 }
 

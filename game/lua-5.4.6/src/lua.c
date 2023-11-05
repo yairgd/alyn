@@ -403,7 +403,8 @@ static int handle_luainit (lua_State *L) {
 
 #include <unistd.h>
 #define lua_stdin_is_tty()	isatty(0)
-
+#include <readline/readline.h>
+#include <readline/history.h>
 #elif defined(LUA_USE_WINDOWS)	/* }{ */
 
 #include <io.h>
@@ -420,7 +421,7 @@ static int handle_luainit (lua_State *L) {
 
 #endif				/* } */
 
-
+#ifdef USE_ORIGNAL_LUA_CODE
 /*
 ** lua_readline defines how to show a prompt and then read a line from
 ** the standard input.
@@ -431,8 +432,6 @@ static int handle_luainit (lua_State *L) {
 
 #if defined(LUA_USE_READLINE)	/* { */
 
-#include <readline/readline.h>
-#include <readline/history.h>
 #define lua_initreadline(L)	((void)L, rl_readline_name="lua")
 #define lua_readline(L,b,p)	((void)L, ((b)=readline(p)) != NULL)
 #define lua_saveline(L,line)	((void)L, add_history(line))
@@ -451,6 +450,17 @@ static int handle_luainit (lua_State *L) {
 
 #endif				/* } */
 
+#else
+/*
+* modified to adap with gui integration. 
+* the following callbacks are imlemented in terminaltextedt.cpp
+*/
+char* readline(char* promopt);
+#define lua_initreadline(L)  ((void)L)
+#define lua_readline(L,b,p)	((void)L, ((b)=readline(p)) != NULL)
+#define lua_saveline(L,line)	((void)L, add_history(line))
+#define lua_freeline(L,b)	((void)L, free(b))
+#endif
 
 /*
 ** Return the string to be used as a prompt by the interpreter. Leave
@@ -493,6 +503,7 @@ static int incomplete (lua_State *L, int status) {
 /*
 ** Prompt the user, read a line, and push it into the Lua stack.
 */
+
 static int pushline (lua_State *L, int firstline) {
   char buffer[LUA_MAXINPUT];
   char *b = buffer;

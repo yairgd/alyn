@@ -4,8 +4,8 @@ cmake_minimum_required(VERSION 3.10)
 ##https://stackoverflow.com/questions/39807664/how-to-best-tell-cmake-where-to-find-dll
 ##https://discourse.cmake.org/t/copying-config-specific-paths-at-build-time/4776
 
-set(VCPKG_DIR "c:/Users/gadely2/vcpkg/installed/x64-windows/")
-set (CMAKE_TOOLCHAIN_FILE "c:/Users/gadely2/vcpkg/scripts/buildsystems/vcpkg.cmake"  CACHE STRING "")
+set(VCPKG_DIR "C:/Users/yairg/vcpkg/installed/x64-windows/")
+set (CMAKE_TOOLCHAIN_FILE "C:/Users/yairg/vcpkg/scripts/buildsystems/vcpkg.cmake"  CACHE STRING "")
 set (VCPKG_TARGET_TRIPLET  "x64-windows"  CACHE STRING "")
 
 #C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.29.30133\bin\Hostx64\x64
@@ -69,7 +69,7 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" )
 elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
 	set (UART_FILE uart_win.cpp)
 	set (TARGET "WINDOWS")	
-	set (Python3_EXECUTABLE "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\Python37_64\\python")
+	set (Python3_EXECUTABLE "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\Python39_64\\python.exe")
 endif()
 
 

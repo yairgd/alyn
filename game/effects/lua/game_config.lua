@@ -1,4 +1,4 @@
---require("game_config")
+﻿--require("t3")
 function config()
 	a1=frame.new(rect.new(0,0,64,32),0xff00ff,0xfff00, 5,1 ,1);
 	a2=frame.new(rect.new(1,1,62,30),0x000fff,0x0ffff, 10,1 ,1);
@@ -7,6 +7,9 @@ function config()
 	p1=1
 	p2=2;
 	p3=3;
+	m1="העדוה"
+	m2="רטמרפ"
+	m3="msg3"
 	game.set_key(0,0)
 	game.set_key(1,0)
 	game.set_key(2,0)
@@ -17,14 +20,16 @@ function config()
 	game.set_long_key(2,0)
 	game.set_long_key(3,0)
 	game.set_long_key(4,0)
+	r = rect.new(8,5,62,15)
+	r2 = rect.new(18,17,62,15);
 
 	s = string.format("%2d:%2d:%2d",p1,p2,p3)
 	state=0; -- no blink
-	b=banner2.new(rect.new(8,5,62,15), s,0,1,0.25,0,0)
+	b=banner2.new(rect.new(8,4,62,15), s,0,1,0.25,0,0)
+	mb=banner2.new(r2, "       ",1,0,0.25,0,0)
 
 	-- state: 0 - no blink, 1 (fro mleft)  blink, 2 2 blink 3 blinks 
 
-	r = rect.new(8,5,62,15)
 	while( 1 )
 	do
 		k = game.keys()
@@ -46,24 +51,29 @@ function config()
 			
 				if (lck == 1 and state==0) then
 						-- begin to blink
+						mb:config(r2, m1,0,0,0,0,0)	
 						state=1
 						b:config(r, s,0,1,0.25,0.25,0)				
 				elseif (ck==1 and state >0 ) then
 						-- no blink
 						state=0;
+						mb:config(r2, "     ",0,1,0.25,0.25,0)
 						b:config(r, s,0,1,0.25,0,0)				
 				end
 
 				if (ck == 8) then
 					-- move blink to right
 					if (state==1) then
-						b:config(r, s,3,4,0.25,0.25,0)
+						b:config(r, s,  3,4,0.25,0.25,0)
+						mb:config(r2, m2,0,0,0,0,0)
 						state=2;
 					elseif (state==2) then
 						b:config(r, s,6,7,0.25,0.25,0)
+						mb:config(r2, m3,0,0,0,0,0)
 						state=3;
 					elseif (state==3) then
-						b:config(r, s,0,1,0.25,0.25,0)				
+						b:config(r, s,0,1,0.25,0.25,0)
+						mb:config(r2, m1,0,0,0,0,0)
 						state=1;
 					end
 				end
@@ -71,12 +81,15 @@ function config()
 					-- move blink to left
 					if (state==3) then
 						b:config(r, s,3,4,0.25,0.25,0)
+						mb:config(r2, m2,0,0,0,0,0)
 						state=2;
 					elseif (state==2) then
-						b:config(r, s,0,1,0.25,0.25,0)				
+						b:config(r, s,0,1,0.25,0.25,0)
+						mb:config(r2, m1,0,0,0,0,0)
 						state=1;
 					elseif (state==1) then
 						b:config(r, s,6,7,0.25,0.25,0)
+						mb:config(r2, m3,0,0,0,0,0)
 						state=3;
 					end
 				end
@@ -133,9 +146,14 @@ function config()
 			end
 		end
 		b:render(0)	
+		mb:render(0)	
+
 		a1:render(2)
 		a2:render(2)
 		game.delay(100000/4);	
 
 	end
 end
+
+
+

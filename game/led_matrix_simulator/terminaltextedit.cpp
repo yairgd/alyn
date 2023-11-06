@@ -19,7 +19,6 @@
 #include "terminaltextedit.h"
 #include <csignal>
 #include <iostream>
-#define USE_GUI_CONSOLE
 
 #ifdef USE_GUI_CONSOLE
 
@@ -120,9 +119,11 @@ TerminalTextEdit::TerminalTextEdit(QWidget *parent) : QTextEdit(parent)
 	
 
 
-
+#ifdef USE_GUI_CONSOLE
 	std::signal(SIGINT, signal_handler);
 	textedit = this;
+#endif
+
 }
 
 void TerminalTextEdit::setPompt(char* p)
@@ -263,8 +264,10 @@ void TerminalTextEdit::keyPressEvent(QKeyEvent *event)
 	else if (event->modifiers() == Qt::ControlModifier && event->key() == Qt::Key_C) {
 		copy();
 	} else if (event->modifiers() == Qt::ControlModifier && event->key() == Qt::Key_D) {
+#ifdef USE_GUI_CONSOLE		
 		std::raise(SIGINT);
 		std::signal(SIGINT, signal_handler);
+#endif
 	}
 	else if (event->key() == Qt::Key_Backspace) {
 		QTextCursor cursor = textCursor();

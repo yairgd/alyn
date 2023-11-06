@@ -123,8 +123,9 @@ int timing_elapse(struct timespec* start_time, double time) {
     rts = start_time;
 
 #define NSEC_PER_SEC 1000000000	
-    int ret = clock_gettime(CLOCK_REALTIME, &stop_time);
-    (void)ret;
+    timespec_get(&stop_time, TIME_UTC);
+    //int ret = clock_gettime(CLOCK_REALTIME, &stop_time);
+    //(void)ret;
     //https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/timespec-get-timespec32-get-timespec64-get1?view=msvc-170
     double delta =
         ((int64_t)stop_time.tv_sec * NSEC_PER_SEC -
@@ -136,7 +137,9 @@ int timing_elapse(struct timespec* start_time, double time) {
 
 
 void timing_begin_to_measure_time(struct timespec* start_time) {
-    clock_gettime(CLOCK_REALTIME, start_time); // get system time 
+    timespec_get(start_time, TIME_UTC);
+	
+  //  clock_gettime(CLOCK_REALTIME, start_time); // get system time 
 }
 
 

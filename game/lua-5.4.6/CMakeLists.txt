@@ -86,23 +86,30 @@ add_library(lua
 target_link_libraries(lua
 	${linux_lib}	
 )
-target_compile_definitions(lua PRIVATE
-	-D CONFIG_LUA_GAME_LIB
-	-D LUA_USE_READLINE
-	#	-D USE_ORIGNAL_LUA_CODE
-)
 
+if (${USE_GUI_CONSOLE})
+	target_compile_definitions(lua PRIVATE
+		-D CONFIG_LUA_GAME_LIB
+		-D LUA_USE_READLINE
+	)
+else()
+	target_compile_definitions(lua PRIVATE
+		-D CONFIG_LUA_GAME_LIB
+		-D LUA_USE_READLINE
+		-D USE_ORIGNAL_LUA_CODE
+	)
+endif()
 
 add_executable(luac
 	${LUA_SOURCES}
 	src/luac.c
-	)
+)
 
 
 target_link_libraries(luac
 	${linux_lib}
 )
-	
+
 target_compile_definitions(luac PRIVATE
 	-D USE_ORIGNAL_LUA_CODE
 )
@@ -118,7 +125,7 @@ macro( lua_generate_c_files_for_lua_binary_target  ${lua_source_files} )
 	# create targets as the name of the lua files
 	foreach(full_path_filename    ${lua_source_files})
 		message( ${full_path_filename})
-		
+
 		# get the base file name
 		get_filename_component(file_name ${full_path_filename} NAME)
 

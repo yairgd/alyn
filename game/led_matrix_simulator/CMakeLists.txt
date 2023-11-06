@@ -12,7 +12,7 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
 if(CMAKE_VERSION VERSION_LESS "3.7.0")
-    set(CMAKE_INCLUDE_CURRENT_DIR ON)
+	set(CMAKE_INCLUDE_CURRENT_DIR ON)
 endif()
 
 
@@ -35,9 +35,9 @@ find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
 find_package(Qt5 COMPONENTS Core Widgets CONFIG REQUIRED)
 if (${Qt5Core_FOUND})
-    message("Found Qt " ${Qt5_VERSION})
+	message("Found Qt " ${Qt5_VERSION})
 else()
-    message("Couldn't find Qt")
+	message("Couldn't find Qt")
 endif()
 
 
@@ -47,16 +47,16 @@ endif()
 
 
 add_executable(led-screen-sim
-    mainwindow.ui
-    mainwindow.cpp
-    ledmatrix.cpp
-    threadedworker.cpp
-    ledcircle.cpp
-    arrawkey.cpp
-    keypad.cpp
-    main.cpp
-    terminaltextedit.cpp
-    resources.qrc
+	mainwindow.ui
+	mainwindow.cpp
+	ledmatrix.cpp
+	threadedworker.cpp
+	ledcircle.cpp
+	arrawkey.cpp
+	keypad.cpp
+	main.cpp
+	terminaltextedit.cpp
+	resources.qrc
 )
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" )
@@ -76,30 +76,33 @@ else()
 endif()
 
 target_link_libraries(led-screen-sim 
-	 -Wl,--start-group  
+	-Wl,--start-group  
 
 	effects_static
 	lua
 	lua_module
 	lua_binaries
 	${qt_libs}
-         
-       -Wl,--end-group
+
+	-Wl,--end-group
 )
 
 target_include_directories(led-screen-sim  PRIVATE
 	${CMAKE_SOURCE_DIR}/game/lua-5.4.6/src/
-    ${VCPKG_DIR}/include/Qt5/
-   	${VCPKG_DIR}/include/Qt5/QtWidgets
+	${VCPKG_DIR}/include/Qt5/
+	${VCPKG_DIR}/include/Qt5/QtWidgets
 	${VCPKG_DIR}/include/Qt5/QtCore
 	${VCPKG_DIR}/include/Qt5/QtGui
 )
 
 
 
-target_compile_definitions(led-screen-sim PRIVATE
-	#	-D USE_GUI_CONSOLE
-	#	-D LUA_USE_READLINE
-)
+
+
+if (${USE_GUI_CONSOLE})
+	target_compile_definitions(led-screen-sim PRIVATE
+		-D USE_GUI_CONSOLE
+	)
+endif()
 
 

@@ -25,10 +25,9 @@
 #include <QThread>
 #include <mutex> 
 #include <QTimer>
+
 extern "C" {
 	int lua_main (int argc, char **argv);
-	void add_history(char *);
-	char *  readline(char * promopt);
 }
 
 class TerminalTextEdit : public QTextEdit

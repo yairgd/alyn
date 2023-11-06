@@ -8,11 +8,14 @@ set(VCPKG_DIR "C:/Users/yairg/vcpkg/installed/x64-windows/")
 set (CMAKE_TOOLCHAIN_FILE "C:/Users/yairg/vcpkg/scripts/buildsystems/vcpkg.cmake"  CACHE STRING "")
 set (VCPKG_TARGET_TRIPLET  "x64-windows"  CACHE STRING "")
 
-#C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.29.30133\bin\Hostx64\x64
 
 
 set(CMAKE_CXX_COMPILER_WORKS 1)
 set(CMAKE_C_COMPILER_WORKS 1)
+
+
+set (USE_GUI_CONSOLE ON)
+
 
 project(lvgl)
 
@@ -59,7 +62,6 @@ elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
 		-DNO_SYSLOG
 	)
 endif()
-
 
 
 

@@ -63,7 +63,7 @@ target_compile_definitions (lua_module PRIVATE
 
 set(
 	LUAC_PATH 
-	${CMAKE_CURRENT_BINARY_DIR}/luac 
+	${CMAKE_CURRENT_BINARY_DIR}/Debug/luac 
 	CACHE INTERNAL "" )
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" )

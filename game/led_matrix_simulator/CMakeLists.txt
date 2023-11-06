@@ -27,13 +27,13 @@ endif()
 #find_package(Qt5Gui  REQUIRED COMPONENTS system filesystem date_time  PATHS="C:/Users/gadely2/vcpkg/installed/x64-windows/lib")
 #find_package(Qt5Widgets  REQUIRED COMPONENTS system filesystem date_time  PATHS="C:/Users/gadely2/vcpkg/installed/x64-windows/lib")
 
-find_package(Qt5 COMPONENTS Widgets REQUIRED)
+#find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
-#find_package(Qt5 COMPONENTS Widgets Concurrent CONFIG REQUIRED)
-#find_package(Qt5 COMPONENTS Gui Concurrent CONFIG REQUIRED)
-#find_package(Qt5 COMPONENTS Core Concurrent CONFIG REQUIRED)
+find_package(Qt5 COMPONENTS Widgets Concurrent CONFIG REQUIRED)
+find_package(Qt5 COMPONENTS Gui Concurrent CONFIG REQUIRED)
+find_package(Qt5 COMPONENTS Core Concurrent CONFIG REQUIRED)
 
-find_package(Qt5 COMPONENTS Core Widgets CONFIG REQUIRED)
+#find_package(Qt5 COMPONENTS Core Widgets CONFIG REQUIRED)
 if (${Qt5Core_FOUND})
 	message("Found Qt " ${Qt5_VERSION})
 else()

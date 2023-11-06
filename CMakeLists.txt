@@ -4,29 +4,31 @@ cmake_minimum_required(VERSION 3.10)
 ##https://stackoverflow.com/questions/39807664/how-to-best-tell-cmake-where-to-find-dll
 ##https://discourse.cmake.org/t/copying-config-specific-paths-at-build-time/4776
 
-set(VCPKG_DIR "C:/Users/yairg/vcpkg/installed/x64-windows/")
-set (CMAKE_TOOLCHAIN_FILE "C:/Users/yairg/vcpkg/scripts/buildsystems/vcpkg.cmake"  CACHE STRING "")
-set (VCPKG_TARGET_TRIPLET  "x64-windows"  CACHE STRING "")
+
+set (VCPKG_BASE  "C:/Users/gadely2/vcpkg" )
+set(VCPKG_DIR     "${VCPKG_BASE}/installed/x64-windows/")
+set (CMAKE_TOOLCHAIN_FILE "${VCPKG_BASE}/scripts/buildsystems/vcpkg.cmake"   )
+set (VCPKG_TARGET_TRIPLET  "x64-windows"    )
 
 
-
-set(CMAKE_CXX_COMPILER_WORKS 1)
-set(CMAKE_C_COMPILER_WORKS 1)
 
 
 set (USE_GUI_CONSOLE ON)
-
+set(CMAKE_CXX_COMPILER_WORKS 1)
+set(CMAKE_C_COMPILER_WORKS 1)
 
 project(lvgl)
 
+
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_CXX_STANDARD 20)
 
 
 
 
 #set( CMAKE_MESSAGE_LOG_LEVEL "DEBUG" )
 
-set(CMAKE_C_STANDARD 11)
-set(CMAKE_CXX_STANDARD 20)
+
 
 include (${CMAKE_SOURCE_DIR}/cmake/functions.cmake)
 set(PRE_CONFIGURE_FILE "${CMAKE_SOURCE_DIR}/cmake/git.h.in")
@@ -71,7 +73,8 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" )
 elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
 	set (UART_FILE uart_win.cpp)
 	set (TARGET "WINDOWS")	
-	set (Python3_EXECUTABLE "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\Python39_64\\python.exe")
+	set (Python3_EXECUTABLE "python.exe")
+	#set (Python3_EXECUTABLE "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\Python39_64\\python.exe")
 endif()
 
 

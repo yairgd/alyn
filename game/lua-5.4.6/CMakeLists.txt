@@ -87,6 +87,10 @@ target_link_libraries(lua
 	${linux_lib}	
 )
 
+if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+	set (msvc_readline "-D LUA_USE_READLINE")
+endif()
+
 if (${USE_GUI_CONSOLE})
 	target_compile_definitions(lua PRIVATE
 		-D CONFIG_LUA_GAME_LIB
@@ -95,8 +99,8 @@ if (${USE_GUI_CONSOLE})
 else()
 	target_compile_definitions(lua PRIVATE
 		-D CONFIG_LUA_GAME_LIB
-		-D LUA_USE_READLINE
 		-D USE_ORIGNAL_LUA_CODE
+		${msvc_readline}
 	)
 endif()
 

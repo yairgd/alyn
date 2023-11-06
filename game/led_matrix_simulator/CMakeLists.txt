@@ -65,6 +65,7 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" )
 		Qt5::Core
 		Qt5::Gui
 		pthread
+		readline
 	)
 else()
 	set (qt_libs

@@ -89,6 +89,7 @@ target_link_libraries(lua
 target_compile_definitions(lua PRIVATE
 	-D CONFIG_LUA_GAME_LIB
 	-D LUA_USE_READLINE
+	#	-D USE_ORIGNAL_LUA_CODE
 )
 
 

@@ -19,7 +19,9 @@
 #include "terminaltextedit.h"
 #include <csignal>
 #include <iostream>
+#define USE_GUI_CONSOLE
 
+#ifdef USE_GUI_CONSOLE
 
 namespace
 {
@@ -32,13 +34,15 @@ void signal_handler(int signal)
 }
 
 
-static TerminalTextEdit * textedit;
 
 
-//#ifdef USE_GUI_CONSOLE
-#if 1
+
 static int line_ok =0;
 static char * line_str ;
+
+
+static TerminalTextEdit * textedit;
+
 extern "C" {
 	// this code below is used when GUI functions replace the readline library
 	void add_history(char * line)
@@ -78,6 +82,7 @@ extern "C" {
 	}
 }
 #endif
+
 
 TerminalTextEdit::TerminalTextEdit(QWidget *parent) : QTextEdit(parent)
 {
@@ -184,8 +189,8 @@ void TerminalTextEdit::keyPressEvent(QKeyEvent *event)
 
 	if (event->key() == Qt::Key_Return)
 	{
-//#ifdef USE_GUI_CONSOLE
-#if 1
+#ifdef USE_GUI_CONSOLE
+
 
 			
 		QString cmd;

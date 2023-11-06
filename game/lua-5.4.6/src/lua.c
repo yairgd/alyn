@@ -403,8 +403,7 @@ static int handle_luainit (lua_State *L) {
 
 #include <unistd.h>
 #define lua_stdin_is_tty()	isatty(0)
-#include <readline/readline.h>
-#include <readline/history.h>
+
 #elif defined(LUA_USE_WINDOWS)	/* }{ */
 
 #include <io.h>
@@ -431,7 +430,8 @@ static int handle_luainit (lua_State *L) {
 #if !defined(lua_readline)	/* { */
 
 #if defined(LUA_USE_READLINE)	/* { */
-
+#include <readline/readline.h>
+#include <readline/history.h>
 #define lua_initreadline(L)	((void)L, rl_readline_name="lua")
 #define lua_readline(L,b,p)	((void)L, ((b)=readline(p)) != NULL)
 #define lua_saveline(L,line)	((void)L, add_history(line))
@@ -455,7 +455,8 @@ static int handle_luainit (lua_State *L) {
 * modified to adap with gui integration. 
 * the following callbacks are imlemented in terminaltextedt.cpp
 */
-char* readline(char* promopt);
+char* readline(const char* promopt);
+void add_history (const char* promopt);
 #define lua_initreadline(L)  ((void)L)
 #define lua_readline(L,b,p)	((void)L, ((b)=readline(p)) != NULL)
 #define lua_saveline(L,line)	((void)L, add_history(line))

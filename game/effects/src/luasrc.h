@@ -29,7 +29,7 @@ extern "C" {
 	};
 
 	struct luasrc ** luasrc_get();
-	struct luasrc * luasrc_by_name(char * name);
+	struct luasrc * luasrc_by_name(const char * name);
 	struct luasrc * luasrc_by_idx(int idx);
 	size_t luasrc_size();
 	extern struct luasrc  * luasrc[];

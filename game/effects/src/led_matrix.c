@@ -98,11 +98,16 @@ void led_matrix_merge(struct led_matrix * matrix) {
 			int r2 = (c2>>16)&0x0000ff ; int r1 = (c1>>16) & 0x0000ff;
 			int g2 = (c2>>8)&0x0000ff  ; int g1 = (c1>>8)  & 0x0000ff;
 			int b2 = (c2>>0)&0x0000ff  ; int b1 = (c1>>0)  & 0x0000ff;
-			r1 = r1 ==0 ? r2 : r2==0 ? r1 : r2 * matrix->channels[2].opacity + r1 * matrix->channels[1].opacity;
-			g1 = g1 ==0 ? g2 : g2==0 ? g1 : g2 * matrix->channels[2].opacity + g1 * matrix->channels[1].opacity;
-			b1 = b1 ==0 ? b2 : r2==0 ? b1 : b2 * matrix->channels[2].opacity + b1 * matrix->channels[1].opacity;
+			//r1 = r1 ==0 ? r2 : r2==0 ? r1 : r2 * matrix->channels[2].opacity + r1 * matrix->channels[1].opacity;
+			//g1 = g1 ==0 ? g2 : g2==0 ? g1 : g2 * matrix->channels[2].opacity + g1 * matrix->channels[1].opacity;
+			//b1 = b1 ==0 ? b2 : r2==0 ? b1 : b2 * matrix->channels[2].opacity + b1 * matrix->channels[1].opacity;
 
-			int c = r1 << 16 | g1 <<8 | b1 << 0;
+			int c =  matrix->channels[1].opacity +  matrix->channels[2].opacity;
+			r1 =  (r2 * matrix->channels[2].opacity + r1 * matrix->channels[1].opacity)/c;
+			g1 =  (g2 * matrix->channels[2].opacity + g1 * matrix->channels[1].opacity)/c;
+			b1 =  (b2 * matrix->channels[2].opacity + b1 * matrix->channels[1].opacity)/c;
+
+			c = r1 << 16 | g1 <<8 | b1 << 0;
 
 			SET_BIT_COLOR(&(matrix->channels[3].canvas), col, row,  c0 ? c0 : c) ;
 		}

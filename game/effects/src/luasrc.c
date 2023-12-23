@@ -26,7 +26,7 @@
  * @param   
  * @return  
  */
-struct luasrc * luasrc_by_name(char * name) 
+struct luasrc * luasrc_by_name(const char * name) 
 {
 	struct luasrc ** l = luasrc_get();
 	while (*l) {

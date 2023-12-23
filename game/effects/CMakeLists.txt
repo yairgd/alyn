@@ -25,6 +25,8 @@ endmacro()
 # decide which lua files to embbed in the code
 set(lua_source_files
 	${CMAKE_CURRENT_SOURCE_DIR}/lua/bouncing_balls.lua
+	${CMAKE_CURRENT_SOURCE_DIR}/lua/simple_fireworks.lua
+	${CMAKE_CURRENT_SOURCE_DIR}/lua/scrolling_color.lua
 	${CMAKE_CURRENT_SOURCE_DIR}/lua/demo1.lua
 	${CMAKE_CURRENT_SOURCE_DIR}/lua/loop.lua
 

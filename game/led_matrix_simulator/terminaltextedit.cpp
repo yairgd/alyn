@@ -132,10 +132,8 @@ void TerminalTextEdit::setPompt(char* p)
 	prompt = p;
 	if (prev_prompt != prompt) {
 		QTextCursor cursor = textCursor();
-
 		// Handle the Enter key press
-
-
+		//https://stackoverflow.com/questions/27814909/qtextedit-delete-whole-line-at-given-position
 		cursor.movePosition(QTextCursor::StartOfBlock);
 		setTextCursor(cursor);
 		cursor.select(QTextCursor::BlockUnderCursor);
@@ -225,8 +223,8 @@ void TerminalTextEdit::keyPressEvent(QKeyEvent *event)
 		insertPlainText("\n"); // Add a new line
 
 		insertPlainText(prompt); // Display the prompt
-					 //
-					 //
+					 
+					 
 		cursor.movePosition(QTextCursor::End);
 		setTextCursor(cursor);
 		line =  document()->lineCount()  - 1;

@@ -72,7 +72,7 @@
             </property>
             <property name="minimumSize">
              <size>
-              <width>0</width>
+              <width>10</width>
               <height>0</height>
              </size>
             </property>
@@ -86,6 +86,12 @@
           </item>
           <item>
            <widget class="QPushButton" name="P2">
+            <property name="minimumSize">
+             <size>
+              <width>10</width>
+              <height>0</height>
+             </size>
+            </property>
             <property name="text">
              <string>P2</string>
             </property>
@@ -93,6 +99,12 @@
           </item>
           <item>
            <widget class="QPushButton" name="P3">
+            <property name="minimumSize">
+             <size>
+              <width>10</width>
+              <height>0</height>
+             </size>
+            </property>
             <property name="text">
              <string>P3</string>
             </property>
@@ -100,6 +112,12 @@
           </item>
           <item>
            <widget class="QPushButton" name="P4">
+            <property name="minimumSize">
+             <size>
+              <width>10</width>
+              <height>0</height>
+             </size>
+            </property>
             <property name="text">
              <string>P4</string>
             </property>
@@ -126,6 +144,12 @@
           </item>
           <item>
            <widget class="QPushButton" name="P6">
+            <property name="minimumSize">
+             <size>
+              <width>10</width>
+              <height>0</height>
+             </size>
+            </property>
             <property name="text">
              <string>P6</string>
             </property>
@@ -133,6 +157,12 @@
           </item>
           <item>
            <widget class="QPushButton" name="P7">
+            <property name="minimumSize">
+             <size>
+              <width>10</width>
+              <height>0</height>
+             </size>
+            </property>
             <property name="text">
              <string>P7</string>
             </property>
@@ -140,6 +170,12 @@
           </item>
           <item>
            <widget class="QPushButton" name="P8">
+            <property name="minimumSize">
+             <size>
+              <width>10</width>
+              <height>0</height>
+             </size>
+            </property>
             <property name="text">
              <string>P8</string>
             </property>

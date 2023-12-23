@@ -1,7 +1,6 @@
 set(commnon_SRC
 	./logger.c
-	./system_model.c
-
+	./system_model.c	
 )
 
 if (NOT DEFINED ZEPHYR)

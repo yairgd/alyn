@@ -53,10 +53,10 @@ target_include_directories(lua_module PUBLIC
 #	zephyr)
 
 
-set (vv $<IF:$<STREQUAL:${CMAKE_CXX_COMPILER_ID},"GNU">,"-DLUA_USE_READLINE","">)
+#set (vv $<IF:$<STREQUAL:${CMAKE_CXX_COMPILER_ID},"GNU">,"-DLUA_USE_READLINE","">)
 target_compile_definitions (lua_module PRIVATE
-	-D CONFIG_LUA_GAME_LIB
-	-DLUA_USE_READLINE
+	#-D CONFIG_LUA_GAME_LIB
+	#	-DLUA_USE_READLINE
 	#-D $<IF:$<STREQUAL:${CMAKE_CXX_COMPILER_ID},"GNU">,"LUA_USE_READLINE","">	
 )
 
@@ -87,37 +87,58 @@ target_link_libraries(lua
 	${linux_lib}	
 )
 
-if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-	set (msvc_readline "-D LUA_USE_READLINE")
-endif()
+if (${ZEPHYR})
+	# Define the path to your existing binary
+	set(existing_luac_path "${PROJ_TOP}/game-controller/luac")
 
-if (${USE_GUI_CONSOLE})
-	target_compile_definitions(lua PRIVATE
-		-D CONFIG_LUA_GAME_LIB
-		-D LUA_USE_READLINE
+	# Get just the file name of the binary
+	get_filename_component(binary_name ${existing_luac_path} NAME)
+
+	# Create a custom command to copy the binary to the build directory
+	add_custom_command(
+		OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/${binary_name}
+		COMMAND ${CMAKE_COMMAND} -E copy ${existing_luac_path} ${CMAKE_CURRENT_BINARY_DIR}/${binary_name}
+		DEPENDS ${existing_luac_path}
 	)
+
+	# Add a custom target for the binary
+	add_custom_target(luac DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/${binary_name})
+
+	# Optionally, add dependencies if needed
+	# add_dependencies(your_main_target existing_binary_target)
 else()
-	target_compile_definitions(lua PRIVATE
-		-D CONFIG_LUA_GAME_LIB
-		-D USE_ORIGNAL_LUA_CODE
-		${msvc_readline}
+	if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+		set (msvc_readline "-D LUA_USE_READLINE")
+	endif()
+
+	if (${USE_GUI_CONSOLE})
+		target_compile_definitions(lua PRIVATE
+			-D CONFIG_LUA_GAME_LIB
+			-D LUA_USE_READLINE
+		)
+	else()
+		target_compile_definitions(lua PRIVATE
+			-D CONFIG_LUA_GAME_LIB
+			-D USE_ORIGNAL_LUA_CODE
+			${msvc_readline}
+		)
+	endif()
+	add_executable(luac
+		${LUA_SOURCES}
+		src/luac.c
 	)
+
+
+	target_link_libraries(luac
+		${linux_lib}
+	)
+
+	target_compile_definitions(luac PRIVATE
+		-D USE_ORIGNAL_LUA_CODE
+	)
+
+
 endif()
-
-add_executable(luac
-	${LUA_SOURCES}
-	src/luac.c
-)
-
-
-target_link_libraries(luac
-	${linux_lib}
-)
-
-target_compile_definitions(luac PRIVATE
-	-D USE_ORIGNAL_LUA_CODE
-)
-
 
 
 

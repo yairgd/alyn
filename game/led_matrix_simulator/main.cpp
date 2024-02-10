@@ -50,7 +50,7 @@ extern "C" {
 int main(int argc, char *argv[])
 {
 
-		struct luasrc * l = luasrc_by_name("_home_yair_alyn_project_Debug_game_lua_5_4_6_demo1_lua"); 
+		struct luasrc * l = luasrc_by_name("scrolling_color.lua"); 
 	struct luasrc * l1 = luasrc_by_name("ddd"); 
 	
 	QApplication a(argc, argv);

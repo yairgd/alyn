@@ -10,6 +10,8 @@ set (PROJ_TOP "/home/yair/alyn/project/")
 
 add_compile_definitions( 
 	ZEPHYR 
+	USE_ORIGNAL_LUA_CODE
+	NO_SYSLOG
 )
 
 set (ZEPHYR  TRUE)
@@ -68,8 +70,9 @@ target_link_libraries(app PRIVATE
 
 )
 
-target_compile_definitions(app PUBLIC
-	-DNO_SYSLOG)
+target_compile_definitions(app PRIVATE 
+	USE_ORIGNAL_LUA_CODE
+	NO_SYSLOG)
 
 
 #ua_generate_inc_file_for_target(

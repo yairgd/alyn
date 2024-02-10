@@ -4,12 +4,13 @@ cmake_minimum_required(VERSION 3.10)
 ##https://stackoverflow.com/questions/39807664/how-to-best-tell-cmake-where-to-find-dll
 ##https://discourse.cmake.org/t/copying-config-specific-paths-at-build-time/4776
 
-
-set (VCPKG_BASE  "C:/Users/gadely2/vcpkg" )
-set(VCPKG_DIR     "${VCPKG_BASE}/installed/x64-windows/")
-set (CMAKE_TOOLCHAIN_FILE "${VCPKG_BASE}/scripts/buildsystems/vcpkg.cmake"   )
-set (VCPKG_TARGET_TRIPLET  "x64-windows"    )
-
+if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+	set (VCPKG_BASE  "C:/Users/gadely2/vcpkg" )
+	set (VCPKG_DIR     "${VCPKG_BASE}/installed/x64-windows/")
+	set (CMAKE_TOOLCHAIN_FILE "${VCPKG_BASE}/scripts/buildsystems/vcpkg.cmake"   )
+	set (VCPKG_TARGET_TRIPLET  "x64-windows"    )
+	set (CMAKE_MODULE_PATH "C:/Users/gadely2/vcpkg/installed/x64-windows/include")
+endif()
 
 
 
@@ -28,7 +29,7 @@ set(CMAKE_CXX_STANDARD 20)
 
 #set( CMAKE_MESSAGE_LOG_LEVEL "DEBUG" )
 
-
+set (PROJ_TOP ${CMAKE_SOURCE_DIR})
 
 include (${CMAKE_SOURCE_DIR}/cmake/functions.cmake)
 set(PRE_CONFIGURE_FILE "${CMAKE_SOURCE_DIR}/cmake/git.h.in")
@@ -39,7 +40,6 @@ set (CMAKE_CXX_STANDARD 17)
 
 #https://stackoverflow.com/questions/10046114/in-cmake-how-can-i-test-if-the-compiler-is-clang
 if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-	set (CMAKE_MODULE_PATH "C:/Users/gadely2/vcpkg/installed/x64-windows/include")
 	add_definitions(-DSLEEP=sleep)
 	set (CMAKE_C_FLAGS  " -g -O0 ${CMAKE_C_FLAGS_DEBUG_INIT}  ${CMAKE_C_FLAGS_DEBUG}    " )
 	set (CMAKE_CXX_FLAGS_DEBUG "-O0 -g -std=c++17 -fpermissive")

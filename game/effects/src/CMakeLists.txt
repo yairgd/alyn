@@ -29,7 +29,7 @@ target_link_libraries(effects_static
 
 target_include_directories(effects_static PUBLIC 
 	.
-	${CMAKE_SOURCE_DIR}/game/lua-5.4.6/src
+	${PROJ_TOP}/game/lua-5.4.6/src
 )
 
 

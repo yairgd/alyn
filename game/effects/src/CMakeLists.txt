@@ -23,16 +23,27 @@ add_library(effects_static STATIC
 	${Effects_SRC}
 )
 target_link_libraries(effects_static 
-	lua
+	lua_module
 	common_static
 )
 
 target_include_directories(effects_static PUBLIC 
 	.
 	${PROJ_TOP}/game/lua-5.4.6/src
+	${PROJ_TOP}/game/common	
 )
 
 
 
-
-
+target_compile_options(effects_static PRIVATE ${cpu_compile_flags})
+if (FALSE)
+	add_library(effects_static STATIC
+	${Effects_SRC}
+)
+target_include_directories(effects_static PUBLIC 
+	.
+	${PROJ_TOP}/game/lua-5.4.6/src
+	${PROJ_TOP}/game/common
+)
+target_compile_options(lua_binaries PRIVATE ${cpu_compile_flags})
+endif()

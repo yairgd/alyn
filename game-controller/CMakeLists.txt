@@ -15,6 +15,7 @@ add_compile_definitions(
 )
 
 set (ZEPHYR  TRUE)
+set (cpu_compile_flags -mcpu=cortex-m4 -mthumb)
 
 add_subdirectory(${PROJ_TOP}/game/lua-5.4.6/  ${PROJECT_BINARY_DIR}/lua-5.4.6/)
 add_subdirectory(${PROJ_TOP}/game/effects  ${PROJECT_BINARY_DIR}/effects)
@@ -28,6 +29,10 @@ set(POST_CONFIGURE_FILE "${PROJECT_BINARY_DIR}/git.h")
 include (${PROJ_TOP}/cmake/git_watcher.cmake)
 set (CMAKE_CXX_STANDARD 17)
 
+add_library(common_static1 STATIC IMPORTED GLOBAL)
+set_target_properties(common_static1 PROPERTIES IMPORTED_LOCATION
+	/home/yair/alyn/project/game-controller/build/common/libcommon_static.a)
+
 target_sources(app PRIVATE src/main.c
 	src/shell.c
 	src/main.c	
@@ -39,6 +44,10 @@ target_sources(app PRIVATE src/main.c
 
   	src/parser_task.cpp
 
+	#	common/system_model.c
+	#common/logger.c
+
+
 	${PROJ_TOP}/game/comm_protocol/protocol-v1/ProtocolStateMachine.cpp
 	${PROJ_TOP}/game-controller/src/HandleUartMsg.cpp
 	${PROJ_TOP}/game/hal/zephyr/uart_shell.cpp
@@ -46,29 +55,33 @@ target_sources(app PRIVATE src/main.c
 	#	src/getopt/getopt.c
 )
 
-
+get_target_property(TARGET_COMPILE_OPTIONS app COMPILE_OPTIONS)
+message("Compile options for my_target: ${TARGET_COMPILE_OPTIONS}")
 target_include_directories(app PRIVATE
 	${PROJ_TOP}/game/comm_protocol/
 	${PROJ_TOP}/game/
 	${PROJ_TOP}/game/hal
 	${PROJ_TOP}/
 	${PROJECT_BINARY_DIR}
+	src/getopt
+	common/	
 	)
 
-target_include_directories(app PRIVATE
-	src/getopt
-)
+
 target_link_libraries(app PRIVATE 
 	-Wl,--start-group	
 	effects_static
-	common_static
-	lua_module	
+		common_static
 	lua_binaries
 	lua_module
-	lua
+	#lua
 	-Wl,--end-group
 
 )
+add_dependencies( app
+	common_static1
+)
+#target_link_libraries(app PRIVATE common_static)
 
 target_compile_definitions(app PRIVATE 
 	USE_ORIGNAL_LUA_CODE

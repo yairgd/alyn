@@ -37,6 +37,7 @@
 #include "system_model.h"
 #include "game.h"
 
+#include "effects/src/led_matrix.h"
 int _open() {
 	return 0;
 }
@@ -52,12 +53,13 @@ int _times() {
 #include <zephyr/kernel.h>
 #include <zephyr/device.h>
 #include <zephyr/fs/fs.h>
-#include <zephyr/fs/littlefs.h>
+//#include <zephyr/fs/littlefs.h>
 #include <zephyr/logging/log.h>
 #include <zephyr/storage/flash_map.h>
 
 LOG_MODULE_REGISTER(main);
 
+#if 0
 /* Matches LFS_NAME_MAX */
 #define MAX_PATH_LEN 255
 #define TEST_FILE_SIZE 547
@@ -373,8 +375,11 @@ static int littlefs_mount(struct fs_mount_t *mp)
 }
 #endif /* CONFIG_APP_LITTLEFS_STORAGE_BLK_SDMMC */
 
-int main(void)
+
+#endif
+int main1(void)
 {
+#if 0
 	char fname1[MAX_PATH_LEN];
 	char fname2[MAX_PATH_LEN];
 	char fname3[MAX_PATH_LEN];
@@ -441,29 +446,56 @@ printf("%s: bsize = %lu ; frsize = %lu ;"
 
 	//rc = fs_unmount(mp);
 	//LOG_PRINTK("%s unmount: %d\n", mp->mnt_point, rc);
-	
+#endif
 	game_init();
 	init_shell();
 	
 	return 0;
 }
+
+#include "luasrc.h"
+
+
 
 
 //https://blog.devgenius.io/how-to-add-your-c-library-in-lua-46fd246f0fa8
 //lua_State *L;
-int main1(void)
+int main(void)
 {
 
-	game_init();
-	init_shell();
-	while (1) {
-		k_sleep(K_MSEC(500));		
-	}
 
 	
 
+	led_matrix_init(led_matrix_get(), 64,32);
+
+	game_init();
+	init_shell();
+	
+
+	uint32_t millis_counter = 0;
+
+
+	//https://chat.openai.com/c/540b150d-0eea-49ae-8f3d-a4fed08e1012
+    while (1) {
+        // Get the current uptime in milliseconds
+        uint32_t current_time = k_uptime_get();
+        
+        // Print the current time (optional)
+      //  printk("Current Time: %u ms\n", current_time);
+
+        // Do other tasks if needed
+
+        // Wait for 1 millisecond
+        k_sleep(K_MSEC(1000));
+
+        // Increment the millisecond counter
+        millis_counter++;
+    }
+
+
 	return 0;
 }
+
 
 
 

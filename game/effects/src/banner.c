@@ -20,7 +20,6 @@
 #include "canvas.h"
 #include "u8.h"
 #include "effect.h"
-#include "timing.h"
 
 #include <assert.h>
 
@@ -29,7 +28,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
+#include "common/timing.h"
 
 
 void banner_set_text(struct banner * banner,const char* fmt, ...){ 
@@ -78,9 +77,9 @@ static void bannner_manage_blink(struct banner * banner)
 		// always on
 		canvas_print(&banner->canvas, 0,0, banner->text);		
 	} else {
-		if (banner->on == 1 && timing_elapse(&banner->start_time, banner->config.blink.time_on) ) {
+		if (banner->on == 1 && timing_elapse(banner->start_time, banner->config.blink.time_on) ) {
 			banner->on = 0;
-			timing_begin_to_measure_time(&banner->start_time);
+			banner->start_time = timing_begin_to_measure_time();
 			int w = banner->config.blink.end_idx  - banner->config.blink.start_idx  + 1;
 			if (banner->config.blink.end_idx !=0 && banner->config.blink.start_idx <= banner->config.blink.end_idx)
 				// blink range of letters
@@ -91,9 +90,9 @@ static void bannner_manage_blink(struct banner * banner)
 				canvas_fill_rect(&banner->canvas, &(struct rect  ){0,0,len * font_width(banner->canvas.font,0) , font_height(banner->canvas.font)},0);
 			}
 		}
-		else if (banner->on == 0 && timing_elapse(&banner->start_time, banner->config.blink.time_off) ) {
+		else if (banner->on == 0 && timing_elapse(banner->start_time, banner->config.blink.time_off) ) {
 			banner->on = 1;
-			timing_begin_to_measure_time(&banner->start_time);		
+			banner->start_time = timing_begin_to_measure_time();		
 			canvas_print(&banner->canvas, 0,0, banner->text);
 		} 
 	}
@@ -136,7 +135,7 @@ static void banner_render(struct effect_base * e,  struct canvas * canvas, struc
 
 static void banner_config(struct effect_base * e, void * data) {
 	struct banner * banner = (struct banner *)e  ;
-	timing_begin_to_measure_time(&banner->start_time);
+	banner->start_time = timing_begin_to_measure_time();
 
 	switch (e->config_id) {
 		case 1:

@@ -16,16 +16,20 @@
  * =====================================================================================
  */
 #include <string.h>
+#include <stdbool.h>
+
+#include <zephyr/kernel.h>
+#include <zephyr/types.h>
+#include <zephyr/sys/mem_stats.h>
 
 #include "game.h"
 #include "lua.h"
 #include "lauxlib.h"
 #include "lualib.h"
-#include <zephyr/kernel.h>
 #include "luasrc.h"
 #include "system_model.h"
 
-#define MY_STACK_SIZE 16384
+#define MY_STACK_SIZE 32768
 #define MY_PRIORITY 5
 static sys_dnode_t head;
 static lua_State *L = 0;
@@ -36,7 +40,27 @@ struct k_thread game_thread;
 k_tid_t game_thread_tid = 0;
 
 
-/** memroy allocation to load lua src code to memory
+
+/* 
+ * Implemented a custom heap for Lua's source code, 
+ * enabling the utilization of malloc and free for its API 
+ **/
+char lua_heap_mem[32768];
+struct  sys_heap heap;
+char * lua_realloc(char *ptr, size_t n ) {
+	  return sys_heap_realloc(&heap,ptr,n);
+
+}
+void lua_free(void *ptr) {
+	sys_heap_free(&heap,ptr);
+
+}
+
+
+
+
+/** 
+ * memroy allocation to load lua src code to memory
  *  This is displayed as part of the game list
  * */
 static unsigned char memory_code_buffer[8192];
@@ -140,6 +164,10 @@ static void game_thread_entry(void *g, void *a, void *b) {
 
 void game_init(void) {
 	struct game * g = games;
+
+	// initie heap for the lua API (to alloc and free memory)
+	sys_heap_init (&heap, lua_heap_mem, sizeof(lua_heap_mem));
+
 	// Initialize the doubly linked list
 	sys_dlist_init(&head);
 

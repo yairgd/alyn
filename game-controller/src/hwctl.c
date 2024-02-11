@@ -246,8 +246,7 @@ void hwctl_stop_free_run() {
 
 void hwctl_thread (void *p1,void *p2, void *p3)
 {
-	//Motor * motor = *( (Motor **) p1); 
-	printk("message_in_listenr\n");
+
 #ifdef CONFIG_UART_NATIVE_POSIX
 #else
 	for (int i =0;i<8;i++)
@@ -277,5 +276,5 @@ void hwctl_thread (void *p1,void *p2, void *p3)
 
 }
 
-K_THREAD_DEFINE(message_in_listenr_id, STACKSIZE, hwctl_thread, NULL /*&g_motor*/, NULL, NULL, PRIORITY, 0, 0);
+K_THREAD_DEFINE(message_in_listenr_id, STACKSIZE, hwctl_thread, NULL , NULL, NULL, PRIORITY, 0, 0);
 

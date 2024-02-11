@@ -39,7 +39,10 @@ set(LUA_SOURCES
 
 
 # Lua librarary to integrate in the MCU code
-add_library(lua_module ${LUA_SOURCES} )
+add_library(lua_module 
+	${LUA_SOURCES} 
+	${mem}
+)
 
 # Include directories for your subdirectory
 target_include_directories(lua_module PUBLIC 
@@ -47,6 +50,7 @@ target_include_directories(lua_module PUBLIC
 	${CMAKE_CURRENT_SOURCE_DIR}/src
 	../
 )
+target_compile_options(lua_module PRIVATE ${cpu_compile_flags})
 
 # Link any necessary dependencies
 #target_link_libraries(lua_module
@@ -55,7 +59,7 @@ target_include_directories(lua_module PUBLIC
 
 #set (vv $<IF:$<STREQUAL:${CMAKE_CXX_COMPILER_ID},"GNU">,"-DLUA_USE_READLINE","">)
 target_compile_definitions (lua_module PRIVATE
-	#-D CONFIG_LUA_GAME_LIB
+	-D CONFIG_LUA_GAME_LIB
 	#	-DLUA_USE_READLINE
 	#-D $<IF:$<STREQUAL:${CMAKE_CXX_COMPILER_ID},"GNU">,"LUA_USE_READLINE","">	
 )
@@ -76,16 +80,22 @@ endif()
 
 
 
+if (NOT ${TARGET} STREQUAL "ZEPHYR_STM32")
+	set (mem ./memory.c)
+endif()
 
 # build the lua standalone module to run in the GUI as separate thread
 add_library(lua 
 	src/lua.c
+	#	${mem}
+	${mem}
 	${LUA_SOURCES}
 )
 
 target_link_libraries(lua
 	${linux_lib}	
 )
+target_compile_options(lua PRIVATE ${cpu_compile_flags})
 
 if (${ZEPHYR})
 	# Define the path to your existing binary
@@ -125,6 +135,7 @@ else()
 	endif()
 	add_executable(luac
 		${LUA_SOURCES}
+		${mem}
 		src/luac.c
 	)
 

@@ -16,23 +16,12 @@
  * =====================================================================================
  */
 
-#ifndef TIMING_C
-#define TIMING_C 
+#ifndef TIMING_H
+#define TIMING_H 
 #include <stdint.h>
 #include <stddef.h>
 
-#ifdef _MSC_VER 
-#include <time.h>
-#elif __GNUC__
-#include <unistd.h>
-#endif
-
-
-#ifndef ZEPHYR
-#include <time.h>
-#endif
-
 void timing_sleep(size_t usec) ;
-int timing_elapse(struct timespec  * start_time, double time);
-void timing_begin_to_measure_time( struct timespec  * start_time );
+int timing_elapse(uint32_t /*struct timespec  **/ start_time, double time);
+uint32_t timing_begin_to_measure_time( /*struct timespec  * start_time*/ );
 #endif

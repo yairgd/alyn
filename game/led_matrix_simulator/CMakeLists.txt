@@ -82,6 +82,8 @@ target_link_libraries(led-screen-sim
 	lua
 	lua_module
 	lua_binaries
+	common_static
+
 	${qt_libs}
 
 	-Wl,--end-group

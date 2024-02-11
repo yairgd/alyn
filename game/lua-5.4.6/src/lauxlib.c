@@ -1015,15 +1015,16 @@ LUALIB_API const char *luaL_gsub (lua_State *L, const char *s,
   return lua_tostring(L, -1);
 }
 
-
+extern char * lua_realloc(char *ptr, size_t n ) ;
+extern void lua_free(void *ptr) ;
 static void *l_alloc (void *ud, void *ptr, size_t osize, size_t nsize) {
   (void)ud; (void)osize;  /* not used */
   if (nsize == 0) {
-    free(ptr);
+    lua_free(ptr);
     return NULL;
   }
   else
-    return realloc(ptr, nsize);
+    return lua_realloc(ptr, nsize);
 }
 
 

@@ -36,8 +36,9 @@
  * @param   time(ms) to mesure
  * @return  
  */
-int timing_elapse( struct timespec  * start_time, double time ) {
-
+int timing_elapse( uint32_t /*struct timespec  * */start_time, double time ) {
+	return k_uptime_get() - start_time > time;
+#if 0
 	struct timespec stop_time , *rts;
 	rts = start_time;
 #ifdef CONFIG_UART_NATIVE_POSIX
@@ -52,14 +53,15 @@ int timing_elapse( struct timespec  * start_time, double time ) {
 		 (int64_t)rts->tv_sec * NSEC_PER_SEC) +
 		((int64_t)stop_time.tv_nsec - (int64_t)rts->tv_nsec);
 	return (delta/NSEC_PER_SEC) > time   ;
-	
+#endif	
 }
 
 
-void timing_begin_to_measure_time( struct timespec  * start_time ) {
+uint32_t timing_begin_to_measure_time(  /*struct timespec   start_time*/ ) {
+	return k_uptime_get();
 #ifdef CONFIG_UART_NATIVE_POSIX
 #else
-	clock_gettime(CLOCK_REALTIME, start_time); // get system time 
+//	clock_gettime(CLOCK_REALTIME, start_time); // get system time 
 #endif
 }
 

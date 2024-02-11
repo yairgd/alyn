@@ -15,16 +15,25 @@ git clone github.com:yairgd/alyn.git
 ```
 
 * Build & Compile
+Set Zephyr environment variables
 ```bash
 export ZEPHYR_BASE=/mnt/sdb1/yair/stm32/zephyrproject/zephyr
 export ZEPHYR_TOOLCHAIN_VARIANT=zephyr
-west build -b stm32f4_disco  --  -G"Unix Makefiles"
+```
 
-cmake  -DBOARD=nucleo_f429zi -DOVERLAY_CONFIG=prj.conf -DDTC_OVERLAY_FILE=./boards/nucleo_f429zi.overlay ..
-It cab be used with *-GNinja* to force ninja build
+Create projects using west
+```bash
+west build -b nucleo_f429zi . -- -G"Unix Makefiles"  # For CMake project
+west build -b nucleo_f429zi                           # For Ninja project
+```
+
+Alternatively, create projects directly with CMake
+```bash
+cmake -DBOARD=nucleo_f429zi -DOVERLAY_CONFIG=prj.conf -DDTC_OVERLAY_FILE=./boards/nucleo_f429zi.overlay .. # Add '-GNinja' to the CMake command to force Ninja build
 ```
 
 ## Vim and YouCompleteMe setup for Qt5 
+
 To allow YouCompleteMe (YCM) to work fine with qt5 project we an use the plugin [YCM-Generator](https://github.com/rdnetto/YCM-Generator) to create the file *.ycm_extra_conf.py* and place it under the main directory of the project. 
 ```bash
 cd  ~/.vim/bundle/YCM-Generator

@@ -19,6 +19,7 @@ macro (make_lua_binaries)
 			${CMAKE_CURRENT_SOURCE_DIR}
 				${CMAKE_CURRENT_SOURCE_DIR}/src
 		)
+		target_compile_options(lua_binaries PRIVATE ${cpu_compile_flags})		
 endmacro()
 
 

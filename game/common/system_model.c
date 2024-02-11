@@ -73,7 +73,7 @@ void start_blink(int id, int freq, double blink_time) {
 	model.stations[id].blink.state = 0;
 	model.stations[id].blink.max_blink_time = blink_time;
 	model.stations[id].blink.stop_reson = 0;
-	timing_begin_to_measure_time(&model.stations[id].blink.start_blink_ts);
+	model.stations[id].blink.start_blink_ts = timing_begin_to_measure_time();
 } 
 
 void stop_blink(int id) {
@@ -86,7 +86,7 @@ void stop_blink(int id) {
 
 
 int is_blink(int id) {
-	if (model.stations[CHECK_ID(id)].blink.active && timing_elapse(&model.stations[CHECK_ID(id)].blink.start_blink_ts, model.stations[CHECK_ID(id)].blink.max_blink_time)) { 
+	if (model.stations[CHECK_ID(id)].blink.active && timing_elapse(model.stations[CHECK_ID(id)].blink.start_blink_ts, model.stations[CHECK_ID(id)].blink.max_blink_time)) { 
 		// blinking timeout
 		model.stations[CHECK_ID(id)].blink.active = 0;
 		model.stations[CHECK_ID(id)].blink.stop_reson = 2; // time out
@@ -116,7 +116,7 @@ void set_timeout_reson(int id, int v)
 void toggle_led(int id) {
 	id = CHECK_ID(id);
 
-	timing_begin_to_measure_time(&model.stations[id].blink.ts);
+	model.stations[id].blink.ts= timing_begin_to_measure_time();
 	model.stations[id].blink.state= model.stations[id].blink.state == 0 ? 1 : 0;	
 }
 
@@ -201,7 +201,7 @@ int get_free_run_delay() {
  */
 void manage_blink(int id) {
 	double blink_timeout = 1.0 / model.stations[CHECK_ID(id)].blink.freq;
-	if ( is_blink(id) &&timing_elapse(&model.stations[CHECK_ID(id)].blink.ts, blink_timeout) ) {
+	if ( is_blink(id) &&timing_elapse(model.stations[CHECK_ID(id)].blink.ts, blink_timeout) ) {
 		toggle_led(id);			
 	}
 }

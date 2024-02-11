@@ -33,8 +33,8 @@ extern "C" {
 			unsigned int connected 			: 1;  // 0 - station not connected, 1 station is conncted
 			unsigned int button_state 		: 1;  //0 press 
 			struct blink_info {
-				struct timespec ts;		// time sice change of blick state
-				struct 	timespec start_blink_ts;// time sice start blink		
+				size_t /*struct timespec */ts;		// time sice change of blick state
+				size_t /*struct timespec */start_blink_ts;// time sice start blink		
 				unsigned short state		: 1;  // the blinking state: 1 - led on , 0 - led off
 				unsigned short active		: 1;  // 1 - blink is active, 0 blink off	
 				unsigned short freq  		: 8;  // blinks per seconds

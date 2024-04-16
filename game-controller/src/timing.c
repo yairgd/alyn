@@ -17,13 +17,6 @@
  */
 
 
-//#include "timing.h"
-#ifdef CONFIG_UART_NATIVE_POSIX
-#include <sys/time.h>
-#else
-#include <zephyr/posix/time.h>
-#include <zephyr/posix/sys/time.h>
-#endif
 #include <stddef.h>
 #include <stdint.h>
 #include <zephyr/kernel.h>
@@ -38,31 +31,12 @@
  */
 int timing_elapse( uint32_t /*struct timespec  * */start_time, double time ) {
 	return k_uptime_get() - start_time > time;
-#if 0
-	struct timespec stop_time , *rts;
-	rts = start_time;
-#ifdef CONFIG_UART_NATIVE_POSIX
-#  define NSEC_PER_SEC 1000000000
-#else
-	#define NSEC_PER_SEC 1000000000	
-	int ret = clock_gettime(CLOCK_REALTIME, &stop_time);
-	(void)ret;	
-#endif
-	double delta =
-		((int64_t)stop_time.tv_sec * NSEC_PER_SEC -
-		 (int64_t)rts->tv_sec * NSEC_PER_SEC) +
-		((int64_t)stop_time.tv_nsec - (int64_t)rts->tv_nsec);
-	return (delta/NSEC_PER_SEC) > time   ;
-#endif	
+
 }
 
 
 uint32_t timing_begin_to_measure_time(  /*struct timespec   start_time*/ ) {
 	return k_uptime_get();
-#ifdef CONFIG_UART_NATIVE_POSIX
-#else
-//	clock_gettime(CLOCK_REALTIME, start_time); // get system time 
-#endif
 }
 
 

@@ -27,13 +27,13 @@ export PROJECT=/mnt/sdb1/yair/stm32/zephyrproject/
 ```bash
 python3 -m venv $PROJECT/.venv
 source $PROJECT/.venv/bin/activate
-pip install elftools
 pip install pyelftools
+pip install west
 ```
 
 * Install zephyr 3.4.0
 ```bash
-cd $PROJECT/zephyr
+cd $PROJECT
 west init -m https://github.com/zephyrproject-rtos/zephyr --mr v3.4.0
 west update
 ```
@@ -46,7 +46,7 @@ git clone github.com:yairgd/alyn.git
 * Build & Compile
 Set Zephyr environment variables
 ```bash
-export ZEPHYR_BASE=/mnt/sdb1/yair/stm32/zephyrproject/zephyr
+export ZEPHYR_BASE=${PROJECT}/zephyr
 export ZEPHYR_TOOLCHAIN_VARIANT=zephyr
 ```
 

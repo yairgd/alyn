@@ -4,7 +4,7 @@ var searchData=
   ['s2v_1',['s2v',['../lobject_8h.html#a8c21cbb67def90b23342840cd08a5cfd',1,'lobject.h']]],
   ['save_5fand_5fnext_2',['save_and_next',['../llex_8c.html#ac4c2ebdfa66caf9c1ef124c30e9d68a5',1,'llex.c']]],
   ['savepc_3',['savepc',['../lvm_8c.html#af118f5c1afd189a53b6d967d5e2f5479',1,'lvm.c']]],
-  ['savestack_4',['savestack',['../ldo_8h.html#a3534573bbeec89c6dbdb3eae5a54f9b9',1,'ldo.h']]],
+  ['savestack_4',['savestack',['../ldo_8h.html#a49fcb6f4b1b2f21c2caca544e3c5a028',1,'ldo.h']]],
   ['savestate_5',['savestate',['../lvm_8c.html#a59d34ce7e11dd5c6aa72c76fa2fe09a0',1,'lvm.c']]],
   ['sc2int_6',['sC2int',['../lopcodes_8h.html#a68747af4969db9dc341d6dbff87e9c7a',1,'lopcodes.h']]],
   ['scalefig_7',['scaleFIG',['../lmathlib_8c.html#af9acb4963a9c1f6a8e60d4b1e8b76184',1,'lmathlib.c']]],
@@ -77,9 +77,10 @@ var searchData=
   ['spacechars_74',['SPACECHARS',['../lbaselib_8c.html#a65fad87fefeb813e5ff7e217a1c89eef',1,'lbaselib.c']]],
   ['specials_75',['SPECIALS',['../lstrlib_8c.html#a2e1ba74d2e5a4b6bdb7e2b1d00f4f4c0',1,'lstrlib.c']]],
   ['ss_76',['SS',['../luac_8c.html#a6c01cbe06c1d312c5f95b3a9d3a23cef',1,'luac.c']]],
-  ['stacksize_77',['stacksize',['../hwctl_8c.html#a21d9543c516fffee84a7963224271f95',1,'STACKSIZE:&#160;hwctl.c'],['../parser__task_8cpp.html#a21d9543c516fffee84a7963224271f95',1,'STACKSIZE:&#160;parser_task.cpp'],['../lstate_8h.html#af46c33c03bed22bb612529b48ffb656c',1,'stacksize:&#160;lstate.h']]],
-  ['strcache_5fm_78',['STRCACHE_M',['../llimits_8h.html#a3e028bcc45ab536a37bb6860caf3d2ca',1,'llimits.h']]],
-  ['strcache_5fn_79',['STRCACHE_N',['../llimits_8h.html#aa8382779dd8eeb2dea3deb97dec0ed1c',1,'llimits.h']]],
-  ['svalue_80',['svalue',['../lobject_8h.html#ac2c9eedf3ff2c3042445b3b534f161e1',1,'lobject.h']]],
-  ['szint_81',['SZINT',['../lstrlib_8c.html#aba1923a486465ba9dea97b9d1403ce18',1,'lstrlib.c']]]
+  ['stacksize_77',['STACKSIZE',['../hwctl_8c.html#a21d9543c516fffee84a7963224271f95',1,'STACKSIZE:&#160;hwctl.c'],['../parser__task_8cpp.html#a21d9543c516fffee84a7963224271f95',1,'STACKSIZE:&#160;parser_task.cpp']]],
+  ['stacksize_78',['stacksize',['../lstate_8h.html#af46c33c03bed22bb612529b48ffb656c',1,'lstate.h']]],
+  ['strcache_5fm_79',['STRCACHE_M',['../llimits_8h.html#a3e028bcc45ab536a37bb6860caf3d2ca',1,'llimits.h']]],
+  ['strcache_5fn_80',['STRCACHE_N',['../llimits_8h.html#aa8382779dd8eeb2dea3deb97dec0ed1c',1,'llimits.h']]],
+  ['svalue_81',['svalue',['../lobject_8h.html#ac2c9eedf3ff2c3042445b3b534f161e1',1,'lobject.h']]],
+  ['szint_82',['SZINT',['../lstrlib_8c.html#aba1923a486465ba9dea97b9d1403ce18',1,'lstrlib.c']]]
 ];

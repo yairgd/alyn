@@ -8,12 +8,14 @@ var searchData=
   ['rdkconst_5',['RDKCONST',['../lparser_8h.html#a6edb3863e15fbe2a86f0da27cd40dd36',1,'lparser.h']]],
   ['rdkctc_6',['RDKCTC',['../lparser_8h.html#ae37149486c77ebc6d130a3a1d1b5942d',1,'lparser.h']]],
   ['rdktoclose_7',['RDKTOCLOSE',['../lparser_8h.html#aff76bd46e696b6c05c8ebcacbff3e436',1,'lparser.h']]],
-  ['reservedslot_8',['RESERVEDSLOT',['../lbaselib_8c.html#a47cb030f7cbc859ebdfb6101eec2f64f',1,'lbaselib.c']]],
-  ['resetbit_9',['resetbit',['../lgc_8h.html#aca0beb244185329a1b8f0e695ef47748',1,'lgc.h']]],
-  ['resetbits_10',['resetbits',['../lgc_8h.html#a486033531260010debe876a076dd2a41',1,'lgc.h']]],
-  ['resethookcount_11',['resethookcount',['../ldebug_8h.html#ac42e5618900e7522d70474fcfbddab58',1,'ldebug.h']]],
-  ['restorestack_12',['restorestack',['../ldo_8h.html#a3fbde7f289e6bf661575e9b802da9e78',1,'ldo.h']]],
-  ['rets_13',['RETS',['../lobject_8c.html#aa932c88a1737cf31f4e16c6d72254f59',1,'lobject.c']]],
-  ['righttt_14',['righttt',['../lobject_8h.html#a08f554017b8314e2dfc0dfd05b1d8167',1,'lobject.h']]],
-  ['rkc_15',['RKC',['../lvm_8c.html#a621b920c2683748903f90d71a1fb157b',1,'lvm.c']]]
+  ['rect_8',['RECT',['../canvas_8h.html#a1ceb98015b21ec8ca89a30d6b66d109a',1,'canvas.h']]],
+  ['reservedslot_9',['RESERVEDSLOT',['../lbaselib_8c.html#a47cb030f7cbc859ebdfb6101eec2f64f',1,'lbaselib.c']]],
+  ['resetbit_10',['resetbit',['../lgc_8h.html#aca0beb244185329a1b8f0e695ef47748',1,'lgc.h']]],
+  ['resetbits_11',['resetbits',['../lgc_8h.html#a486033531260010debe876a076dd2a41',1,'lgc.h']]],
+  ['resethookcount_12',['resethookcount',['../ldebug_8h.html#ac42e5618900e7522d70474fcfbddab58',1,'ldebug.h']]],
+  ['restorestack_13',['restorestack',['../ldo_8h.html#a3fbde7f289e6bf661575e9b802da9e78',1,'ldo.h']]],
+  ['rets_14',['RETS',['../lobject_8c.html#aa932c88a1737cf31f4e16c6d72254f59',1,'lobject.c']]],
+  ['rgb_15',['RGB',['../canvas_8h.html#a4a118ad3ee36468a3fa616977a64864e',1,'canvas.h']]],
+  ['righttt_16',['righttt',['../lobject_8h.html#a08f554017b8314e2dfc0dfd05b1d8167',1,'lobject.h']]],
+  ['rkc_17',['RKC',['../lvm_8c.html#a621b920c2683748903f90d71a1fb157b',1,'lvm.c']]]
 ];

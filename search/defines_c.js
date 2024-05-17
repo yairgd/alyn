@@ -19,9 +19,9 @@ var searchData=
   ['max_5fitemf_16',['MAX_ITEMF',['../lstrlib_8c.html#ad6cc145aca66d79a348760712f5309ce',1,'lstrlib.c']]],
   ['max_5flmem_17',['MAX_LMEM',['../llimits_8h.html#a99e52005f8b99ce8e36df841b281078e',1,'llimits.h']]],
   ['max_5flumem_18',['MAX_LUMEM',['../llimits_8h.html#a5e67dd5554c315bda4b54cd5ed0e846e',1,'llimits.h']]],
-  ['max_5fpath_5flen_19',['MAX_PATH_LEN',['../main_8c.html#abdd33f362ae3bbdacb5de76473aa8a2f',1,'main.c']]],
+  ['max_5fpoints_5fper_5fframe_19',['MAX_POINTS_PER_FRAME',['../frame_8h.html#a0f4d2a08eb1166d682097c880b76b6c4',1,'frame.h']]],
   ['max_5fsize_20',['MAX_SIZE',['../llimits_8h.html#a0592dba56693fad79136250c11e5a7fe',1,'llimits.h']]],
-  ['max_5fsizet_21',['max_sizet',['../lauxlib_8c.html#aa927c7bf177c162feda3483e1e972b3a',1,'MAX_SIZET:&#160;lauxlib.c'],['../llimits_8h.html#aa927c7bf177c162feda3483e1e972b3a',1,'MAX_SIZET:&#160;llimits.h'],['../lstrlib_8c.html#aa927c7bf177c162feda3483e1e972b3a',1,'MAX_SIZET:&#160;lstrlib.c']]],
+  ['max_5fsizet_21',['MAX_SIZET',['../lauxlib_8c.html#aa927c7bf177c162feda3483e1e972b3a',1,'MAX_SIZET:&#160;lauxlib.c'],['../llimits_8h.html#aa927c7bf177c162feda3483e1e972b3a',1,'MAX_SIZET:&#160;llimits.h'],['../lstrlib_8c.html#aa927c7bf177c162feda3483e1e972b3a',1,'MAX_SIZET:&#160;lstrlib.c']]],
   ['maxabits_22',['MAXABITS',['../ltable_8c.html#a08cdfe3b6bb8e0757344b850f33c4951',1,'ltable.c']]],
   ['maxarg_5fa_23',['MAXARG_A',['../lopcodes_8h.html#ab3c4feecc8cd0add12e881e26bbb3b15',1,'lopcodes.h']]],
   ['maxarg_5fax_24',['MAXARG_Ax',['../lopcodes_8h.html#a742a1bed832225c3800b3f73eb8b20ec',1,'lopcodes.h']]],
@@ -55,7 +55,8 @@ var searchData=
   ['minsizearray_52',['MINSIZEARRAY',['../lmem_8c.html#ad0c497dab6f56823e95b1e5e0c4b35a8',1,'lmem.c']]],
   ['minstrtabsize_53',['MINSTRTABSIZE',['../llimits_8h.html#a91604f8876fd042d7b1cdbade17927e6',1,'llimits.h']]],
   ['msg_5fsize_54',['MSG_SIZE',['../uart_8c.html#ad4d025ecf1bdbf8b244ca688df8e478d',1,'uart.c']]],
-  ['my_5fpriority_55',['MY_PRIORITY',['../game_8c.html#af779536d343f909d8fcca2d754555ddd',1,'game.c']]],
-  ['my_5fstack_5fsize_56',['MY_STACK_SIZE',['../game_8c.html#ad411dcac8cd42bd8dd200489b2bba5b2',1,'game.c']]],
-  ['myint_57',['MYINT',['../lundump_8h.html#a8b5a7241ca8624862545e5fdfb94cf3b',1,'lundump.h']]]
+  ['msginvalid_55',['MSGInvalid',['../lutf8lib_8c.html#a49134bce112ea72b47a94a459124e7e6',1,'lutf8lib.c']]],
+  ['my_5fpriority_56',['MY_PRIORITY',['../game_8c.html#af779536d343f909d8fcca2d754555ddd',1,'game.c']]],
+  ['my_5fstack_5fsize_57',['MY_STACK_SIZE',['../game_8c.html#ad411dcac8cd42bd8dd200489b2bba5b2',1,'game.c']]],
+  ['myint_58',['MYINT',['../lundump_8h.html#a8b5a7241ca8624862545e5fdfb94cf3b',1,'lundump.h']]]
 ];

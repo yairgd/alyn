@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['handleuartmsg_2ecpp_0',['HandleUartMsg.cpp',['../HandleUartMsg_8cpp.html',1,'']]],
-  ['handleuartmsg_2eh_1',['HandleUartMsg.h',['../HandleUartMsg_8h.html',1,'']]],
-  ['hwctl_2ec_2',['hwctl.c',['../hwctl_8c.html',1,'']]],
-  ['hwctl_2eh_3',['hwctl.h',['../hwctl_8h.html',1,'']]]
+  ['9x18_2diso8859_2d8_2ec_0',['9x18-ISO8859-8.c',['../9x18-ISO8859-8_8c.html',1,'']]]
 ];

@@ -5,7 +5,7 @@ var searchData=
   ['nbm_2',['NBM',['../lvm_8c.html#ae126772a4eeffe9b1f4ad8b8bea1228f',1,'lvm.c']]],
   ['new_5flocalvarliteral_3',['new_localvarliteral',['../lparser_8c.html#a031fd03dec54eb67a3cfac513b8575bb',1,'lparser.c']]],
   ['next_4',['next',['../llex_8c.html#a8ab976102fb046f9974c53caaf5a1995',1,'llex.c']]],
-  ['next_5fci_5',['next_ci',['../ldo_8c.html#a6d23415e0632f518f78ab3e4bf2ea7dc',1,'next_ci:&#160;ldo.c'],['../ldo_8cpp.html#a6d23415e0632f518f78ab3e4bf2ea7dc',1,'next_ci:&#160;ldo.cpp']]],
+  ['next_5fci_5',['next_ci',['../ldo_8c.html#a6d23415e0632f518f78ab3e4bf2ea7dc',1,'ldo.c']]],
   ['no_5fjump_6',['NO_JUMP',['../lcode_8h.html#ac12a06b93b62373c9e664c7a06e838b8',1,'lcode.h']]],
   ['no_5freg_7',['NO_REG',['../lopcodes_8h.html#a6552ce4b3bba3b1a820dc0adaf85974a',1,'lopcodes.h']]],
   ['nodefromval_8',['nodefromval',['../ltable_8h.html#aa318820e0b85f1a9b1c34821e3d37a10',1,'ltable.h']]],

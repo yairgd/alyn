@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['reserved_0',['RESERVED',['../llex_8h.html#ae5bd761f37716726f95e4be16a08ac04',1,'llex.h']]]
+  ['koption_0',['KOption',['../lstrlib_8c.html#a367eae6d513d6ac0b1f851c0b17b7d45',1,'lstrlib.c']]]
 ];

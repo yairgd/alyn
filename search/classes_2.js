@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['callinfo_0',['CallInfo',['../structCallInfo.html',1,'']]],
-  ['calls_1',['CallS',['../structCallS.html',1,'']]],
-  ['cclosure_2',['CClosure',['../structCClosure.html',1,'']]],
-  ['closep_3',['CloseP',['../structCloseP.html',1,'']]],
-  ['closure_4',['Closure',['../unionClosure.html',1,'']]],
-  ['conscontrol_5',['ConsControl',['../structConsControl.html',1,'']]]
+  ['banner_0',['banner',['../structbanner.html',1,'']]],
+  ['banner_5fconfig_1',['banner_config',['../unionbanner_1_1banner__config.html',1,'banner']]],
+  ['banner_5fconfig_5fblink_2',['banner_config_blink',['../structbanner__config__blink.html',1,'']]],
+  ['banner_5fconfig_5frotate_3',['banner_config_rotate',['../structbanner__config__rotate.html',1,'']]],
+  ['blockcnt_4',['BlockCnt',['../structBlockCnt.html',1,'']]],
+  ['bufffs_5',['BuffFS',['../structBuffFS.html',1,'']]]
 ];

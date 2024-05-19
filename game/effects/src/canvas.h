@@ -19,7 +19,7 @@
 #ifndef CANVAS_H
 #define CANVAS_H 
 #include "font.h"
-
+#include <stdint.h>
 
 #define GET_RED(x)   ((x) & 0xff0000)>>16)
 #define GET_GREEN(x) ((x) & 0x00ff00)>> 8)
@@ -28,6 +28,7 @@
 //#define SET_BIT_COLOR(canvas,w,h,c)(*((int*)&canvas->buffer[ + 4 * (w) + 4 * (h) * canvas->width]) = (c))
 //#define GET_BIT_COLOR(canvas,w,h) (*((int*)&canvas->buffer[4 * (w) + 4 * (h) * canvas->width]))
 #define bit(x,n)(x[(n)/8] & (1 << (7-(n)%8)) ? 1 : 0)
+#define SET_PIXEL_BIT(buffer,n,v)(buffer[(n)/8] |= (v << (7-(n)%8)))
 
 
 struct rect {
@@ -54,8 +55,12 @@ struct canvas {
 	int height;
 };
 
-static inline int  GET_BIT_COLOR(struct canvas * c,int w,int h) {
+static inline uint32_t  GET_BIT_COLOR(struct canvas * c,int w,int h) {
 	return (*((int*)&c->buffer[4 * (w) + 4 * (h) * c->width]));
+}
+
+static inline uint32_t * GET_POINTER_TO_PIXEL(struct canvas * c,int w,int h) {
+	return ((uint32_t*)&c->buffer[4 * (w) + 4 * (h) * c->width]);
 }
 
 static inline void  SET_BIT_COLOR(struct canvas * canvas,int w,int h, int c) {

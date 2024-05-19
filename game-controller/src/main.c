@@ -9,7 +9,9 @@
 #include <zephyr/device.h>
 #include <zephyr/devicetree.h>
 #include <zephyr/drivers/uart.h>
+#include <zephyr/drivers/spi.h>
 #include <zephyr/drivers/gpio.h>
+#include <zephyr/drivers/dma.h>
 
 #include <zephyr/kernel.h>
 #include <zephyr/device.h>
@@ -36,6 +38,7 @@
 #include "hwctl.h"
 #include "system_model.h"
 #include "game.h"
+#include "display.h"
 
 #include "effects/src/led_matrix.h"
 int _open() {
@@ -460,7 +463,7 @@ printf("%s: bsize = %lu ; frsize = %lu ;"
 
 //https://blog.devgenius.io/how-to-add-your-c-library-in-lua-46fd246f0fa8
 //lua_State *L;
-int main(void)
+int main_org(void)
 {
 
 
@@ -497,6 +500,120 @@ int main(void)
 }
 
 
+// -----------------------spi
+//https://community.st.com/t5/stm32-mcus-embedded-software/use-spi-on-stm32f410rb-via-zephyr/m-p/397545
+//#include <zephyr.h>
+//#include <device.h>
+//#include <drivers/spi.h>
+
+/* Define the SPI device */
+#define SPI_DEVICE_NAME DT_LABEL(DT_ALIAS(spi_screen))
+
+/* Define the DMA channel */
+#define DMA_DEVICE_NAME DT_LABEL(DT_ALIAS(dma_screen))
+
+/* DMA configuration */
+#define DMA_CHANNEL 1
+
+/* Buffer size */
+#define BUFFER_SIZE 256
+
+static uint8_t tx_buffer[BUFFER_SIZE]={1,2,3,4,5,6,7,8,9};
+static uint8_t rx_buffer[BUFFER_SIZE];
+
+static struct k_sem spi_sem;
+
+void spi_dma_callback(const struct device *dev, void *user_data, uint32_t channel, int status)
+{
+    ARG_UNUSED(dev);
+    ARG_UNUSED(user_data);
+    ARG_UNUSED(channel);
+
+    if (status != 0) {
+        printk("SPI DMA Transfer failed with status %d\n", status);
+        return;
+    }
+
+    /* SPI DMA transfer completed */
+    k_sem_give(&spi_sem);
+}
+
+void main11(void)
+{
+    const struct device *spi_dev;
+    const struct device *dma_dev;
+    struct spi_config spi_cfg = {
+        .frequency = 1000000,
+        .operation = SPI_OP_MODE_MASTER | SPI_WORD_SET(8),
+        .slave = 0,
+        .cs = NULL
+    };
+    struct spi_buf tx_buf = {
+        .buf = tx_buffer,
+        .len = BUFFER_SIZE
+    };
+    struct spi_buf rx_buf = {
+        .buf = rx_buffer,
+        .len = BUFFER_SIZE
+    };
+    struct spi_buf_set tx_rx_bufs = {
+        .buffers = &tx_buf,
+        .count = 1
+    };
+
+    spi_dev = device_get_binding(SPI_DEVICE_NAME);
+    if (!spi_dev) {
+        printk("Cannot find SPI device!\n");
+        return;
+    }
+
+    printk("SPI start!\n");
+#if 0    
+    dma_dev = device_get_binding(DMA_DEVICE_NAME);
+    if (!dma_dev) {
+        printk("Cannot find DMA device!\n");
+        return;
+    }
+
+    /* Initialize semaphore */
+    k_sem_init(&spi_sem, 0, 1);
+
+    /* Set up SPI DMA configuration */
+    struct dma_config dma_cfg = {
+        .channel_direction = MEMORY_TO_PERIPHERAL,
+        //.source_transfer_width = 1,
+        //.dest_transfer_width = 1,
+        .source_burst_length = 1,
+        .dest_burst_length = 1,
+        .complete_callback_en = 1,
+        .complete_callback_en = spi_dma_callback,
+    };
+
+    /* Set up DMA channel */
+    if (dma_config(dma_dev, DMA_CHANNEL, &dma_cfg) != 0) {
+        printk("DMA channel configuration failed!\n");
+        return;
+    }
+#endif
+    /* Perform SPI DMA transfer */
+  //  if (spi_transceive_dma(spi_dev, &spi_cfg, &tx_rx_bufs, 1, DMA_CHANNEL) != 0) {
+    if (spi_write(spi_dev, &spi_cfg, &tx_rx_bufs) != 0) {
+
+        printk("SPI DMA transfer failed!\n");
+       // return;
+    }
+
+    printk("SPI stop!\n");
+
+    /* Wait for transfer to complete */
+    k_sem_take(&spi_sem, K_FOREVER);
+
+    printk("SPI DMA transfer completed successfully!\n");
+}
 
 
-
+void main(void)
+{
+//	game_init();
+//	display__init();
+}

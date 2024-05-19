@@ -32,7 +32,7 @@ extern "C" {
 #include "effect.h"
 	struct channel {
 		struct canvas canvas;
-		char * buffer;
+	//	char * buffer;
 		double opacity;			
 	} ;
 	struct led_matrix {

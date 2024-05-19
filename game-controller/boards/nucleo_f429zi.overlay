@@ -1,5 +1,9 @@
 / {
-	
+
+	aliases  {
+		spi-screen = &spi1;
+		dma-screen = &dma1;
+	};
 	chosen {
 		zephyr,console = &usart3;
 		zephyr,shell-uart = &usart3;
@@ -19,7 +23,36 @@
 			gpios = <&gpioh 5 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)>;
 			label = "Blue";
 		};
-	};	
+	};
+	
+	line_mux {
+		compatible = "gpio-leds";
+		line_a: a {
+			gpios = <&gpioa 7 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)>;
+			label = "line_a";
+		};
+		line_b: b {
+			gpios = <&gpiod 14 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)>;
+			label = "line_b";
+		};
+		line_c: c {
+			gpios = <&gpiod 15 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)>;
+			label = "line_c";
+		};
+		line_d: d {
+			gpios = <&gpiof 12 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)>;
+			label = "line_d";
+		};
+	};
+
+	ctl_gpio {
+		compatible = "gpio-leds";
+		line_output_en: line_output_en {
+			gpios = <&gpioa 6 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)>;
+			label = "line_output_en";
+		};
+	};
+
 	gpio_keys {
 		compatible = "gpio-keys";
 		user_button_up: up {
@@ -192,6 +225,24 @@
 		zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>;
 		zephyr,resolution = <12>;
 	};
+};
+
+
+&dma1 {
+	label = "dma_screen";
+	status="okay";
+};
+
+&spi1  {
+	pinctrl-0 = <&spi1_nss_pa4 &spi1_sck_pb3
+		     &spi1_miso_pb4 &spi1_mosi_pb5>;
+	pinctrl-names = "default";
+	status = "okay";
+	label="spi_screen";
+
+	/* Specify DMA configuration */
+    	dmas = <&dma1 5 0>, <&dma1 6 0>; // DMA channel 5 for TX, DMA channel 6 for RX
+   	dma-names = "tx", "rx";
 };
 
 

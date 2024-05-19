@@ -33,8 +33,8 @@ void led_matrix_init(struct led_matrix * led_matrix, int width, int height) {
 
 	for (int i = 0; i < sizeof (led_matrix->channels) / sizeof(struct channel) ; i++) {
 		canvas_init(&led_matrix->channels[i].canvas, width, height);
-		led_matrix->channels[i].buffer = malloc (width * height * 4);
-		led_matrix->channels[i].opacity = 0.5;
+	//	led_matrix->channels[i].buffer = k_malloc (width * height * 4);
+	//	led_matrix->channels[i].opacity = 0.5;
 	}
 }
 
@@ -42,7 +42,7 @@ void led_matrix_init(struct led_matrix * led_matrix, int width, int height) {
 void  led_matrix_free(struct led_matrix * led_matrix) {
 	for (int i = 0; i < sizeof (led_matrix->channels) / sizeof(struct channel)  ; i++) {
 		canvas_free(&led_matrix->channels[i].canvas);
-		free(led_matrix->channels[i].buffer);
+		//free(led_matrix->channels[i].buffer);
 	}
 }
 

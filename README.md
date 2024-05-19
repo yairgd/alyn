@@ -20,7 +20,7 @@ Furthermore, Lua's simplicity and ease of use make it accessible to developers o
 ## Install the SW development ennviroment
 * setup zephyr local path
 ```bash
-export PROJECT=/mnt/sdb1/yair/stm32/zephyrproject/
+export PROJECT=/home/yair/alyn/zephyr-3.4.99/
 ```
 
 * install west tool

@@ -45,7 +45,7 @@ void canvas_init(struct canvas * canvas, int width, int height)
 
 	canvas->width = width;
 	canvas->height = height;
-	canvas->buffer = malloc(4 * width * height);
+	canvas->buffer = k_malloc(4 * width * height);
 	memset (canvas->buffer,0,4 * width * height); 
 }
 

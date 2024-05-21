@@ -34,8 +34,8 @@ var searchData=
   ['ctx_31',['ctx',['../structCallInfo.html#a7c410e045297e80c91e9737f959e7ef9',1,'CallInfo']]],
   ['current_32',['current',['../structLexState.html#ad31cc4568332a48d22d37a13c8eae006',1,'LexState']]],
   ['current_5fidx_33',['current_idx',['../structframe_1_1points__group.html#abb4ef9b99e6ba35a4d2c9481c3a3e2e1',1,'frame::points_group']]],
-  ['currentline_34',['currentline',['../structlua__Debug.html#a97b3ed36cdfdc6f2c694b253a3d96da6',1,'lua_Debug']]],
-  ['currentline_35',['currentLine',['../classTerminalTextEdit.html#a9b3cef894d1c4e1e9f74704e280c6c5c',1,'TerminalTextEdit']]],
+  ['currentline_34',['currentLine',['../classTerminalTextEdit.html#a9b3cef894d1c4e1e9f74704e280c6c5c',1,'TerminalTextEdit']]],
+  ['currentline_35',['currentline',['../structlua__Debug.html#a97b3ed36cdfdc6f2c694b253a3d96da6',1,'lua_Debug']]],
   ['currentlinetext_36',['currentLineText',['../classTerminalTextEdit.html#a3561e293ef10a3879ccbcf7322304607',1,'TerminalTextEdit']]],
   ['currentwhite_37',['currentwhite',['../structglobal__State.html#a31fbedd19538500531d49532226a001a',1,'global_State']]],
   ['cv_38',['cv',['../classSimple_1_1GameApi.html#a468cbc4a4462f64ca950016a457cb463',1,'Simple::GameApi']]]

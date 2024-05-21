@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['game_2ec_0',['game.c',['../game_8c.html',1,'']]],
-  ['game_2eh_1',['game.h',['../game_8h.html',1,'']]],
-  ['game_5fapi_2ecpp_2',['game_api.cpp',['../game__api_8cpp.html',1,'']]],
-  ['game_5fapi_2eh_3',['game_api.h',['../game__api_8h.html',1,'']]]
+  ['font_2ec_0',['font.c',['../font_8c.html',1,'']]],
+  ['font_2eh_1',['font.h',['../font_8h.html',1,'']]],
+  ['font_5fbase_2eh_2',['font_base.h',['../font__base_8h.html',1,'']]],
+  ['frame_2ec_3',['frame.c',['../frame_8c.html',1,'']]],
+  ['frame_2eh_4',['frame.h',['../frame_8h.html',1,'']]],
+  ['frame_5feffect_2ec_5',['frame_effect.c',['../frame__effect_8c.html',1,'']]]
 ];

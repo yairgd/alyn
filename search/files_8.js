@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['handleuartmsg_2ecpp_0',['HandleUartMsg.cpp',['../game-controller_2src_2HandleUartMsg_8cpp.html',1,'(Global Namespace)'],['../game_2src_2HandleUartMsg_8cpp.html',1,'(Global Namespace)']]],
-  ['handleuartmsg_2eh_1',['HandleUartMsg.h',['../game-controller_2src_2HandleUartMsg_8h.html',1,'(Global Namespace)'],['../game_2comm__protocol_2protocol-v1_2HandleUartMsg_8h.html',1,'(Global Namespace)'],['../game_2src_2HandleUartMsg_8h.html',1,'(Global Namespace)']]],
-  ['hwctl_2ec_2',['hwctl.c',['../hwctl_8c.html',1,'']]],
-  ['hwctl_2eh_3',['hwctl.h',['../hwctl_8h.html',1,'']]]
+  ['game_2ec_0',['game.c',['../game_8c.html',1,'']]],
+  ['game_2eh_1',['game.h',['../game_8h.html',1,'']]],
+  ['game_5fapi_2ecpp_2',['game_api.cpp',['../game__api_8cpp.html',1,'']]],
+  ['game_5fapi_2eh_3',['game_api.h',['../game__api_8h.html',1,'']]]
 ];

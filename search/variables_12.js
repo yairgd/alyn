@@ -22,6 +22,9 @@ var searchData=
   ['ts_19',['ts',['../structsystem__model.html#a5ddc291e7b56c24e3363e7bc2405a456',1,'system_model::ts'],['../unionSemInfo.html#a393ebb62432ff3e689283e54e113b33e',1,'SemInfo::ts'],['../unionGCUnion.html#a1d3891294f8d2d40688a8de859f8e755',1,'GCUnion::ts']]],
   ['tvaluefields_20',['TValuefields',['../structTValue.html#ab8256d9daa6c5ba0d03dcfcf997357f7',1,'TValue::TValuefields'],['../unionStackValue.html#a26033019ebf5144b31ae1c442c539cd4',1,'StackValue::TValuefields'],['../structNode_1_1NodeKey.html#ad7940273d82fb786627ede300d3e7b46',1,'Node::NodeKey::TValuefields'],['../unionVardesc.html#aec05721e79f1bb78e05389553ef3c971',1,'Vardesc::TValuefields']]],
   ['twups_21',['twups',['../structglobal__State.html#a5e243c2a4646364e0507a5a6cf417eec',1,'global_State::twups'],['../structlua__State.html#ae1da80ba9fa9d9adad4deb8ae5b42ba0',1,'lua_State::twups']]],
-  ['tx_5fdata_5fidx_22',['tx_data_idx',['../uart_8c.html#a2186704c1371f7d8c9deb2583d313ce0',1,'uart.c']]],
-  ['type_23',['type',['../structlua__user__data.html#a6f2a0d487f34d4103e10233c29cdf163',1,'lua_user_data']]]
+  ['tx_5fbuf_22',['tx_buf',['../display_8c.html#a758ea3352abad79a4879e6ac3d955f27',1,'display.c']]],
+  ['tx_5fbuffer_23',['tx_buffer',['../main_8c.html#afd562d920fd904be449c58ffbe7b482e',1,'main.c']]],
+  ['tx_5fdata_5fidx_24',['tx_data_idx',['../uart_8c.html#a2186704c1371f7d8c9deb2583d313ce0',1,'uart.c']]],
+  ['tx_5frx_5fbufs_25',['tx_rx_bufs',['../display_8c.html#a55fdd4185e95eb66736eab6a13138f21',1,'display.c']]],
+  ['type_26',['type',['../structlua__user__data.html#a6f2a0d487f34d4103e10233c29cdf163',1,'lua_user_data']]]
 ];

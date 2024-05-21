@@ -3,7 +3,7 @@ var searchData=
   ['k_0',['k',['../structProto.html#ae292fb0c0558679704933824ce96eac2',1,'Proto::k'],['../structexpdesc.html#ae74b3577aad7833518986edca3db242c',1,'expdesc::k'],['../unionVardesc.html#a80d37db0e7356a3f6e0fd623f41275b0',1,'Vardesc::k'],['../structCallInfo.html#a861d3b2fbd9d287c22b0d9324f578e7b',1,'CallInfo::k']]],
   ['k_5fmsgq_5fdefine_1',['K_MSGQ_DEFINE',['../uart_8c.html#a1343fe281f5ca061924fc63d6c6deda6',1,'uart.c']]],
   ['k_5fsem_5fdefine_2',['K_SEM_DEFINE',['../hwctl_8c.html#adbc6566a8e7b3fb75149d5d6640c8e1e',1,'hwctl.c']]],
-  ['k_5fthread_5fdefine_3',['K_THREAD_DEFINE',['../hwctl_8c.html#ada4b3405f47c66849dc4312ae1efd04a',1,'hwctl.c']]],
+  ['k_5fthread_5fdefine_3',['K_THREAD_DEFINE',['../display_8c.html#a97175147ae49478d47467ea3484cb6d9',1,'K_THREAD_DEFINE(display_thread_id, STACKSIZE, display_thread, NULL, NULL, NULL, PRIORITY, 0, 0):&#160;display.c'],['../hwctl_8c.html#ada4b3405f47c66849dc4312ae1efd04a',1,'K_THREAD_DEFINE(message_in_listenr_id, STACKSIZE, hwctl_thread, NULL, NULL, NULL, PRIORITY, 0, 0):&#160;hwctl.c']]],
   ['k_5fthread_5fstack_5fdefine_4',['K_THREAD_STACK_DEFINE',['../game_8c.html#a3a7baf950574493f8a413479a6190227',1,'game.c']]],
   ['k_5ftimer_5fdefine_5',['K_TIMER_DEFINE',['../shell_8c.html#a36528f4d70def00a2465a1cbefd3ad41',1,'shell.c']]],
   ['kb_6',['KB',['../lvm_8c.html#a11423b97da0e060b24d31d7e71534844',1,'lvm.c']]],

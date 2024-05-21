@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['g_0',['g',['../structsystem__model.html#a9ba4d8972d1d6fd4fc267c71ec22a949',1,'system_model::g'],['../structLG.html#a3be25175d7c64b86674fdcc303b2148c',1,'LG::g']]],
+  ['g_0',['g',['../structpixel.html#a9f61be409ac7a96436b2e31330d608c9',1,'pixel::g'],['../structsystem__model.html#a9ba4d8972d1d6fd4fc267c71ec22a949',1,'system_model::g'],['../structLG.html#a3be25175d7c64b86674fdcc303b2148c',1,'LG::g']]],
   ['game_5ffuncs_1',['game_funcs',['../lgamelib_8c.html#a678f660efd3e8ba16a780f55d612c748',1,'lgamelib.c']]],
   ['game_5fthread_2',['game_thread',['../game_8c.html#ae121b147d0c455dae40d691e9364c618',1,'game.c']]],
   ['game_5fthread_5ftid_3',['game_thread_tid',['../game_8c.html#a6a154f8a53a8f9c0a333e0b4194f46ae',1,'game.c']]],

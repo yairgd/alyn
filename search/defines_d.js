@@ -15,7 +15,8 @@ var searchData=
   ['novariant_12',['novariant',['../lobject_8h.html#a40d12e88a0d8249d226109e0d6d70dd6',1,'lobject.h']]],
   ['num_5fopcodes_13',['NUM_OPCODES',['../lopcodes_8h.html#a1fb469ba81540d3314cfbe37c675ba20',1,'lopcodes.h']]],
   ['num_5freserved_14',['NUM_RESERVED',['../llex_8h.html#a24f40ac0891b0d584c0e432b2c6e1c71',1,'llex.h']]],
-  ['nvalue_15',['nvalue',['../lobject_8h.html#a690ab618235691bb5a82610f07dd8684',1,'lobject.h']]],
-  ['nw2black_16',['nw2black',['../lgc_8h.html#a990de0d171d8b5425a5515d0bff78789',1,'lgc.h']]],
-  ['nyci_17',['nyci',['../lstate_8h.html#ab3498e69c4fc9444e2cf6dd2bf7df228',1,'lstate.h']]]
+  ['number_5fof_5frows_15',['NUMBER_OF_ROWS',['../display_8c.html#a00ad6a3a94ffdd1bc6b55e789f9dfda9',1,'display.c']]],
+  ['nvalue_16',['nvalue',['../lobject_8h.html#a690ab618235691bb5a82610f07dd8684',1,'lobject.h']]],
+  ['nw2black_17',['nw2black',['../lgc_8h.html#a990de0d171d8b5425a5515d0bff78789',1,'lgc.h']]],
+  ['nyci_18',['nyci',['../lstate_8h.html#ab3498e69c4fc9444e2cf6dd2bf7df228',1,'lstate.h']]]
 ];

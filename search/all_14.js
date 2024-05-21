@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['r_0',['r',['../structsystem__model.html#aa717d8a007a240c30726f128394fa375',1,'system_model::r'],['../unioneffect__parameters_1_1valdue.html#afaa1bc91d68f63f843a9fc7acc975c8b',1,'effect_parameters::valdue::r'],['../structeffect__base.html#a94fa933e86ea80222d106833be2acda1',1,'effect_base::r'],['../structanimate__frame.html#a1950c83e83aca1ce8b1fc5b0b059875a',1,'animate_frame::r'],['../unionSemInfo.html#a43b00f784510a2d500550b81578177d8',1,'SemInfo::r']]],
+  ['r_0',['r',['../structpixel.html#abe83a273116e072b6e7bc652d8daa977',1,'pixel::r'],['../structsystem__model.html#aa717d8a007a240c30726f128394fa375',1,'system_model::r'],['../unioneffect__parameters_1_1valdue.html#afaa1bc91d68f63f843a9fc7acc975c8b',1,'effect_parameters::valdue::r'],['../structeffect__base.html#a94fa933e86ea80222d106833be2acda1',1,'effect_base::r'],['../structanimate__frame.html#a1950c83e83aca1ce8b1fc5b0b059875a',1,'animate_frame::r'],['../unionSemInfo.html#a43b00f784510a2d500550b81578177d8',1,'SemInfo::r']]],
   ['ra_1',['RA',['../lvm_8c.html#a721dd0af7e652d2d98b1f765f7860bcb',1,'lvm.c']]],
   ['rand64_2',['Rand64',['../structRand64.html',1,'Rand64'],['../lmathlib_8c.html#ac514b2d1475b8c2e91f0b3a1f46d0f34',1,'Rand64:&#160;lmathlib.c']]],
   ['randfuncs_3',['randfuncs',['../lmathlib_8c.html#a866900ee1a7dd674b2c58e52d18b0a4e',1,'lmathlib.c']]],
@@ -36,8 +36,8 @@ var searchData=
   ['receivestate_33',['ReceiveState',['../classSimple_1_1ProtocolStateMachine.html#a815ef8cdd3bda5ebd7e828e883c8f478',1,'Simple::ProtocolStateMachine']]],
   ['recevice_34',['Recevice',['../classHal_1_1UartEmulator.html#af2f9b332f2769082aa46da7dede0667a',1,'Hal::UartEmulator::Recevice()'],['../classHal_1_1IUart.html#a09f957d25b2298db8b3c1ed2e1a0c811',1,'Hal::IUart::Recevice()'],['../classHal_1_1UartLinux.html#a3d6f64ace3d8a70c6291ed3b03f349ef',1,'Hal::UartLinux::Recevice()'],['../classHal_1_1UartWin.html#a79b1132e6f07aff5ebe166f6b5320591',1,'Hal::UartWin::Recevice()'],['../classHal_1_1UartShell.html#aa586675822cf32ea46d2e5264c9417cd',1,'Hal::UartShell::Recevice()'],['../classHal_1_1UartZephyr.html#a98b90b973a2ea15e849e16208bf6550c',1,'Hal::UartZephyr::Recevice()']]],
   ['recfield_35',['recfield',['../lparser_8c.html#a84d7688b0c57f012eaf7f84c0062f29e',1,'lparser.c']]],
-  ['rect_36',['rect',['../structrect.html',1,'']]],
-  ['rect_37',['RECT',['../canvas_8h.html#a1ceb98015b21ec8ca89a30d6b66d109a',1,'canvas.h']]],
+  ['rect_36',['RECT',['../canvas_8h.html#a1ceb98015b21ec8ca89a30d6b66d109a',1,'canvas.h']]],
+  ['rect_37',['rect',['../structrect.html',1,'']]],
   ['rect_2ec_38',['rect.c',['../rect_8c.html',1,'']]],
   ['rect_5fheight_39',['rect_height',['../canvas_8c.html#a8965ac168f68fa4def656cda77125954',1,'rect_height(struct rect *r):&#160;canvas.c'],['../canvas_8h.html#a1f7053b95c24dc8bd067f3ea80d606e8',1,'rect_height(struct rect *rect):&#160;canvas.c']]],
   ['rect_5fwidth_40',['rect_width',['../canvas_8c.html#a83e90ed066698145dced4f0d5f66db69',1,'rect_width(struct rect *r):&#160;canvas.c'],['../canvas_8h.html#ab07b9d7f2fe09827fdbfdd7c6375d5f0',1,'rect_width(struct rect *rect):&#160;canvas.c']]],
@@ -90,5 +90,6 @@ var searchData=
   ['rotl1_87',['rotl1',['../lmathlib_8c.html#a0a2a1bbd027f6e376a7043e2bdab7870',1,'lmathlib.c']]],
   ['run_5fthe_5fapplication_88',['run_the_application',['../load__lua_8cpp.html#ad46e988ab4465390d7cc68747df0fbab',1,'run_the_application(int argc, char *argv[]):&#160;load_lua.cpp'],['../test1_8cpp.html#a54a1ddcede6a9f7c0ec19a240aede822',1,'run_the_application():&#160;test1.cpp']]],
   ['runafewfinalizers_89',['runafewfinalizers',['../lgc_8c.html#a5ba38781fc577f890c6f97af9beef40a',1,'lgc.c']]],
-  ['runargs_90',['runargs',['../lua_8c.html#a95a376c847572def6b3f78d33a7bc881',1,'lua.c']]]
+  ['runargs_90',['runargs',['../lua_8c.html#a95a376c847572def6b3f78d33a7bc881',1,'lua.c']]],
+  ['rx_5fbuffer_91',['rx_buffer',['../main_8c.html#a7859af7e1d2d58c1bc67f781bbfbe818',1,'main.c']]]
 ];

@@ -2,7 +2,7 @@ var searchData=
 [
   ['k_5fmsgq_5fdefine_0',['K_MSGQ_DEFINE',['../uart_8c.html#a1343fe281f5ca061924fc63d6c6deda6',1,'uart.c']]],
   ['k_5fsem_5fdefine_1',['K_SEM_DEFINE',['../hwctl_8c.html#adbc6566a8e7b3fb75149d5d6640c8e1e',1,'hwctl.c']]],
-  ['k_5fthread_5fdefine_2',['K_THREAD_DEFINE',['../hwctl_8c.html#ada4b3405f47c66849dc4312ae1efd04a',1,'hwctl.c']]],
+  ['k_5fthread_5fdefine_2',['K_THREAD_DEFINE',['../display_8c.html#a97175147ae49478d47467ea3484cb6d9',1,'K_THREAD_DEFINE(display_thread_id, STACKSIZE, display_thread, NULL, NULL, NULL, PRIORITY, 0, 0):&#160;display.c'],['../hwctl_8c.html#ada4b3405f47c66849dc4312ae1efd04a',1,'K_THREAD_DEFINE(message_in_listenr_id, STACKSIZE, hwctl_thread, NULL, NULL, NULL, PRIORITY, 0, 0):&#160;hwctl.c']]],
   ['k_5fthread_5fstack_5fdefine_3',['K_THREAD_STACK_DEFINE',['../game_8c.html#a3a7baf950574493f8a413479a6190227',1,'game.c']]],
   ['k_5ftimer_5fdefine_4',['K_TIMER_DEFINE',['../shell_8c.html#a36528f4d70def00a2465a1cbefd3ad41',1,'shell.c']]],
   ['keypad_5',['Keypad',['../classKeypad.html#a330318482515dfcef14a895267bc3632',1,'Keypad']]],

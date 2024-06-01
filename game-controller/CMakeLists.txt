@@ -14,10 +14,8 @@ add_compile_definitions(
 	NO_SYSLOG
 )
 
-#set (cpu_compile_flags -mcpu=cortex-m4 -mthumb)
 
 
-set (ZEPHYR  FALSE)
 
 include(ExternalProject)
 
@@ -25,19 +23,14 @@ include(ExternalProject)
 ExternalProject_Add(luac
     SOURCE_DIR ${PROJ_TOP}/game/luaEffects/luac
     #  CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=<INSTALL_DIR>
-    BUILD_ALWAYS 0
+    BUILD_ALWAYS 1
     INSTALL_COMMAND "" 
     PREFIX ${CMAKE_BINARY_DIR}/external_project_build 
 )
 
-# Define a custom target that depends on the external project
-add_custom_target(RunExternalProject
-    DEPENDS luac
-    COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR}/external_project_build --target install
-)
 
 # Make sure the main project depends on the custom target
-#add_dependencies(app RunExternalProject )
+add_dependencies(app luac)
 
 
 set (LUAC_PATH 	

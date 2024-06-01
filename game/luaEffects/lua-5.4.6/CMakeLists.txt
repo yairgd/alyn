@@ -65,19 +65,6 @@ target_compile_definitions (lua_module PRIVATE
 )
 
 
-set(
-	LUAC_PATH 
-	${CMAKE_CURRENT_BINARY_DIR}/Debug/luac 
-	CACHE INTERNAL "" )
-
-if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" )
-	set (linux_lib "m" ) # "readline")
-	set( LUAC_PATH 
-		${CMAKE_CURRENT_BINARY_DIR}/luac 
-		CACHE INTERNAL "" )
-endif()
-
-
 
 if (NOT ${TARGET} STREQUAL "ZEPHYR_STM32")
 	set (mem ./memory.c)
@@ -98,15 +85,15 @@ target_compile_options(lua PRIVATE ${cpu_compile_flags})
 
 if (${ZEPHYR})
 	# Define the path to your existing binary
-	#	set(existing_luac_path "${PROJ_TOP}/game-controller/luac")
-	set(existing_luac_path ${CMAKE_CURRENT_BINARY_DIR}/luac)
+	set(existing_luac_path "/home/yair/alyn/project//game/luaEffects/luac")
+	#set(existing_luac_path ${CMAKE_CURRENT_BINARY_DIR}/luac)
 	# Get just the file name of the binary
 	get_filename_component(binary_name ${existing_luac_path} NAME)
 
 	# Create a custom command to copy the binary to the build directory
 	add_custom_command(
 		OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/${binary_name}
-		#	COMMAND ${CMAKE_COMMAND} -E copy ${existing_luac_path} ${CMAKE_CURRENT_BINARY_DIR}/${binary_name}
+		COMMAND ${CMAKE_COMMAND} -E copy ${existing_luac_path} ${CMAKE_CURRENT_BINARY_DIR}/${binary_name}
 		DEPENDS ${existing_luac_path}
 	)
 
@@ -140,6 +127,7 @@ else()
 
 
 	target_link_libraries(luac
+		m
 		${linux_lib}
 	)
 

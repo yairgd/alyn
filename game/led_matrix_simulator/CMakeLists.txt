@@ -78,12 +78,12 @@ endif()
 target_link_libraries(led-screen-sim 
 	-Wl,--start-group  
 
-	effects_static
 	lua
 	lua_module
 	lua_binaries
 	common_static
-
+	luaEffects_static
+	effects_static
 	${qt_libs}
 
 	-Wl,--end-group

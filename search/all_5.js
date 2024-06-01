@@ -162,7 +162,7 @@ var searchData=
   ['cmdid_159',['CmdId',['../namespaceSimple.html#ae544f19a3abd1e9e28c557b84c9cfe4a',1,'Simple']]],
   ['co_5ffuncs_160',['co_funcs',['../lcorolib_8c.html#a3857a1be3b5aaf23b28b4e6809c7dc97',1,'lcorolib.c']]],
   ['code_161',['CODE',['../logger_8h.html#a7bac80ecaae5801f3e31e97b8f4533f9',1,'logger.h']]],
-  ['code_162',['code',['../structlua__script__data.html#a7cb8076acaf0a1fc3810eba3b1c95614',1,'lua_script_data::code'],['../structluasrc.html#a33dd17bb5b80526ae1db13e0db85be6f',1,'luasrc::code'],['../structProto.html#a53b66e4e4ac4b612a41b67a0ace9b6a5',1,'Proto::code']]],
+  ['code_162',['code',['../structProto.html#a53b66e4e4ac4b612a41b67a0ace9b6a5',1,'Proto::code'],['../structluasrc.html#a33dd17bb5b80526ae1db13e0db85be6f',1,'luasrc::code'],['../structlua__script__data.html#a7cb8076acaf0a1fc3810eba3b1c95614',1,'lua_script_data::code']]],
   ['code_5floadbool_163',['code_loadbool',['../lcode_8c.html#ab947c67ef18474ab26abc6f1a81c3dfd',1,'lcode.c']]],
   ['code_5fname_164',['code_name',['../namespacelua__fw__to__c.html#a138b2360c0599fc0317b891bf9a8630c',1,'lua_fw_to_c']]],
   ['codeabrk_165',['codeABRK',['../lcode_8c.html#a84976cfe36717c59f9cb63b39beba091',1,'lcode.c']]],

@@ -28,7 +28,8 @@
 //#define SET_BIT_COLOR(canvas,w,h,c)(*((int*)&canvas->buffer[ + 4 * (w) + 4 * (h) * canvas->width]) = (c))
 //#define GET_BIT_COLOR(canvas,w,h) (*((int*)&canvas->buffer[4 * (w) + 4 * (h) * canvas->width]))
 #define bit(x,n)(x[(n)/8] & (1 << (7-(n)%8)) ? 1 : 0)
-#define SET_PIXEL_BIT(buffer,n,v)(buffer[(n)/8] |= (v << (7-(n)%8)))
+#define SET_PIXEL_BIT1(buffer,n,v)(buffer[(n)/8] |= (v << (7-(n)%8)))
+#define SET_PIXEL_BIT1(buffer,n,v)(buffer[(n)/8] |= (v << ((n)%8)))
 
 
 struct rect {

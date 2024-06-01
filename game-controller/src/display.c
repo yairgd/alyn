@@ -60,7 +60,6 @@ static const struct device *dma_dev;
 //static uint8_t rx_buffer[BUFFER_SIZE];
 static struct k_sem spi_sem;
 
-
 static struct gpio_dt_spec line_a = GPIO_DT_SPEC_GET(DT_NODELABEL(line_a), gpios);
 static struct gpio_dt_spec line_b = GPIO_DT_SPEC_GET(DT_NODELABEL(line_b), gpios);
 static struct gpio_dt_spec line_c = GPIO_DT_SPEC_GET(DT_NODELABEL(line_c), gpios);
@@ -72,7 +71,7 @@ static struct gpio_dt_spec line_output_en = GPIO_DT_SPEC_GET(DT_NODELABEL(line_o
 
 
 static struct spi_config  spi_cfg = {
-	.frequency = 1000000,
+	.frequency = 10000000,
 	.operation = SPI_OP_MODE_MASTER | SPI_WORD_SET(8),
 	.slave = 0,
 	.cs = NULL
@@ -166,8 +165,12 @@ struct pixel {
 	uint8_t g;
 	uint8_t b;
 	uint8_t o;
-
 };
+
+
+ void SET_PIXEL_BIT(char * buf, int n, int v) {
+	buf[n/8] |=  (v << (7 - (n)%8));
+}
 void display_thread (void *p1,void *p2, void *p3)
 {
 	led_matrix_init(led_matrix_get(), 64,32);
@@ -177,34 +180,34 @@ void display_thread (void *p1,void *p2, void *p3)
 // (uint32_t)sys_clock_tick_get()
 	while (1) {
 		led_matrix_merge(led_matrix_get());		
-		struct channel * channel = led_matrix_get_channel(led_matrix_get(),  3 );   
+		struct channel * channel = led_matrix_get_channel(led_matrix_get(),  0 );   
 
-		k_sleep(K_MSEC(1));
-		for (int line = 0; line < NUMBER_OF_ROWS; line++) {
-			_output_enable(0);
+		for (int line = NUMBER_OF_ROWS - 1; line >= 0 ; line--) {
+			_output_enable(1);
 			_select_line (line);
-			for (int col = 0; col < PIXELS_PER_ROW; col++) {			 
-				struct pixel * pix0 = GET_POINTER_TO_PIXEL(&(channel->canvas),col,line);
-				SET_PIXEL_BIT(pixel_buffer,  1 | pix0->r > 0, col*3 + 0);
-				SET_PIXEL_BIT(pixel_buffer,  1 | pix0->g > 0, col*3 + 1);
-				SET_PIXEL_BIT(pixel_buffer,  1 | pix0->b > 0, col*3 + 2);
+			memset(pixel_buffer,0,sizeof (pixel_buffer));
+			for (int col = 0; col < PIXELS_PER_ROW*3; col+=3) {			 
+				struct pixel * pix0 = GET_POINTER_TO_PIXEL(&(channel->canvas),col / 3,(NUMBER_OF_ROWS - line) + NUMBER_OF_ROWS * 0 );
+				SET_PIXEL_BIT(pixel_buffer,   0 * PIXELS_PER_ROW + col/3 + 0, pix0->b > 0);
+				SET_PIXEL_BIT(pixel_buffer,   1 * PIXELS_PER_ROW + col/3 + 0, pix0->g > 0);
+				SET_PIXEL_BIT(pixel_buffer,   2 * PIXELS_PER_ROW + col/3 + 0, pix0->r > 0);
 
-				struct pixel * pix1 = GET_POINTER_TO_PIXEL(&(channel->canvas),col,line * NUMBER_OF_ROWS);			
-				SET_PIXEL_BIT(pixel_buffer,  1 | pix1->r > 0, col*3 + 0);
-				SET_PIXEL_BIT(pixel_buffer,  1 | pix1->g > 0, col*3 + 1);
-				SET_PIXEL_BIT(pixel_buffer,  1 | pix1->b > 0, col*3 + 2);
+				struct pixel * pix1 = GET_POINTER_TO_PIXEL(&(channel->canvas),col / 3,(NUMBER_OF_ROWS - line) +  NUMBER_OF_ROWS * 1);
+				SET_PIXEL_BIT(pixel_buffer,  0 * PIXELS_PER_ROW + 3 * PIXELS_PER_ROW + col/3  + 0, pix1->b > 0);
+				SET_PIXEL_BIT(pixel_buffer,  1 * PIXELS_PER_ROW + 3 * PIXELS_PER_ROW + col/3  + 0, pix1->g > 0);
+				SET_PIXEL_BIT(pixel_buffer,  2 * PIXELS_PER_ROW + 3 * PIXELS_PER_ROW + col/3  + 0, pix1->r > 0);
 			}
 
-			for (int i=0;i<48;i++)
-				pixel_buffer[i] = 0xff;
+
 			if (spi_write(spi_dev, &spi_cfg, &tx_rx_bufs) != 0) {
 				printk("SPI DMA transfer failed!\n");
 			}
 
-			_output_enable(1);			
+			_output_enable(0);
+			k_sleep(K_USEC(1000));			
+			
 		}
 	}
-
 }
 
 K_THREAD_DEFINE(display_thread_id, STACKSIZE, display_thread, NULL , NULL, NULL, PRIORITY, 0, 0);

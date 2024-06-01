@@ -537,7 +537,7 @@ void spi_dma_callback(const struct device *dev, void *user_data, uint32_t channe
     /* SPI DMA transfer completed */
     k_sem_give(&spi_sem);
 }
-
+#if 0
 void main11(void)
 {
     const struct device *spi_dev;
@@ -610,10 +610,12 @@ void main11(void)
 
     printk("SPI DMA transfer completed successfully!\n");
 }
-
+#endif
 
 void main(void)
 {
 //	game_init();
+//	led_matrix_init(led_matrix_get(), 64,32);
+
 //	display__init();
 }

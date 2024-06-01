@@ -24,6 +24,7 @@
 
 #include <iostream>
 #include "effect.h"
+#include "canvas.h"
 #include "banner.h"
 #include "font.h"
 #include "frame.h"
@@ -118,8 +119,16 @@ void LedMatrixWidget::updateLedMatrix()
 
 #endif
 
+struct pixel {
+	uint8_t r;
+	uint8_t g;
+	uint8_t b;
+	uint8_t o;
 
-
+};
+static inline pixel * GET_POINTER_TO_PIXEL1(struct canvas * c,int w,int h) {
+	return ((struct pixel*)&c->buffer[4 * (w) + 4 * (h) * c->width]);
+}
 void LedMatrixWidget::paintEvent(QPaintEvent *event)
 {
 	Q_UNUSED(event);
@@ -147,7 +156,10 @@ void LedMatrixWidget::paintEvent(QPaintEvent *event)
 	{
 		for (int col = 0; col < 64; ++col)
 		{	
-			painter.fillRect(col * squareSize+2, row * squareSize+2, squareSize-2, squareSize-2, QColor(GET_BIT_COLOR(&(channel->canvas),col,row)));
+			struct pixel * pix0 = GET_POINTER_TO_PIXEL1(&(channel->canvas),col,row  );
+			
+		//	painter.fillRect(col * squareSize+2, row * squareSize+2, squareSize-2, squareSize-2, QColor(GET_BIT_COLOR(&(channel->canvas),col,row)));
+			painter.fillRect(col * squareSize+2, row * squareSize+2, squareSize-2, squareSize-2, QColor( *((uint32_t*)pix0)));
 
 		}
 	}

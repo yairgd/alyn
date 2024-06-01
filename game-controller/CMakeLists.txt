@@ -39,7 +39,7 @@ target_sources(app PRIVATE src/main.c
 	src/hwctl.c	
 	src/game.c
   	src/uart.c
-  	src/display.c
+	src/display.c
 
 	src/timing.c
 

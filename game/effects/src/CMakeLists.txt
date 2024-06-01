@@ -15,13 +15,15 @@ set(Effects_SRC
 	lua/obj.c
 	lua/lgamelib.c
 )
-
-
-
-
 add_library(effects_static STATIC
 	${Effects_SRC}
 )
+
+
+if (${ZEPHYR})
+	target_compile_definitions(effects_static PRIVATE -DZEPHYR)
+endif()
+
 target_link_libraries(effects_static 
 	lua_module
 	common_static

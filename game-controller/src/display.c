@@ -168,16 +168,69 @@ struct pixel {
 };
 
 
- void SET_PIXEL_BIT(char * buf, int n, int v) {
+void SET_PIXEL_BIT(char * buf, int n, int v) {
 	buf[n/8] |=  (v << (7 - (n)%8));
 }
+
+
+
+
+int line;
+// Callback function for the timer
+void display_callback(struct k_timer *dummy) {
+	led_matrix_merge(led_matrix_get());		
+	struct channel * channel = led_matrix_get_channel(led_matrix_get(),  0 );   
+
+	_output_enable(1);
+	_select_line (line);
+	memset(pixel_buffer,0,sizeof (pixel_buffer));
+	for (int col = 0; col < PIXELS_PER_ROW*3; col+=3) {			 
+		struct pixel * pix0 = GET_POINTER_TO_PIXEL(&(channel->canvas),col / 3,(NUMBER_OF_ROWS - line) + NUMBER_OF_ROWS * 0 );
+		SET_PIXEL_BIT(pixel_buffer,   0 * PIXELS_PER_ROW + col/3 + 0, pix0->b > 0);
+		SET_PIXEL_BIT(pixel_buffer,   1 * PIXELS_PER_ROW + col/3 + 0, pix0->g > 0);
+		SET_PIXEL_BIT(pixel_buffer,   2 * PIXELS_PER_ROW + col/3 + 0, pix0->r > 0);
+
+		struct pixel * pix1 = GET_POINTER_TO_PIXEL(&(channel->canvas),col / 3,(NUMBER_OF_ROWS - line) +  NUMBER_OF_ROWS * 1);
+		SET_PIXEL_BIT(pixel_buffer,  0 * PIXELS_PER_ROW + 3 * PIXELS_PER_ROW + col/3  + 0, pix1->b > 0);
+		SET_PIXEL_BIT(pixel_buffer,  1 * PIXELS_PER_ROW + 3 * PIXELS_PER_ROW + col/3  + 0, pix1->g > 0);
+		SET_PIXEL_BIT(pixel_buffer,  2 * PIXELS_PER_ROW + 3 * PIXELS_PER_ROW + col/3  + 0, pix1->r > 0);
+	}
+
+	for (int i=0;i<48;i++) {
+		pixel_buffer[i] = 0xff;
+	}
+	if (spi_write(spi_dev, &spi_cfg, &tx_rx_bufs) != 0) {
+		printk("SPI DMA transfer failed!\n");
+	}
+
+	_output_enable(0);
+
+	line++;
+	line %= NUMBER_OF_ROWS;
+
+}
+
+// Callback function for when the timer stops
+void display_timer_callback(struct k_timer *dummy) {
+	printk("Timer stopped\n");
+}
+
+// Define and initialize the timer
+K_TIMER_DEFINE(display, display_callback, display_timer_callback);
+
 void display_thread (void *p1,void *p2, void *p3)
 {
 	led_matrix_init(led_matrix_get(), 64,32);
 	game_init();
 	display__init();
+#if 1
+	line = 0;
+	k_timer_start(&display, K_USEC(0), K_USEC(500));  // Start after 1 second, then every 1 second
 
-// (uint32_t)sys_clock_tick_get()
+
+	return;
+#else
+	// (uint32_t)sys_clock_tick_get()
 	while (1) {
 		led_matrix_merge(led_matrix_get());		
 		struct channel * channel = led_matrix_get_channel(led_matrix_get(),  0 );   
@@ -205,12 +258,12 @@ void display_thread (void *p1,void *p2, void *p3)
 
 			_output_enable(0);
 			k_sleep(K_USEC(1000));			
-			
+
 		}
 	}
+#endif
 }
 
+
 K_THREAD_DEFINE(display_thread_id, STACKSIZE, display_thread, NULL , NULL, NULL, PRIORITY, 0, 0);
-
-
 

@@ -1,0 +1,21 @@
+/*
+ * =====================================================================================
+ *
+ *       Filename:  luasrc.c.in
+ *
+ *    Description:  
+ *
+ *        Version:  1.0
+ *        Created:  10/17/2023 11:37:41 AM
+ *       Revision:  none
+ *       Compiler:  gcc
+ *
+ *         Author:  Yair Gadelov (yg), yair.gadelov@gmail.com
+ *        Company:  Israel
+ *
+ * =====================================================================================
+ */
+
+#ifndef ${filename}
+
+#endif

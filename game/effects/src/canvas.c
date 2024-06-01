@@ -45,7 +45,11 @@ void canvas_init(struct canvas * canvas, int width, int height)
 
 	canvas->width = width;
 	canvas->height = height;
+#ifdef ZEPHYR
 	canvas->buffer = k_malloc(4 * width * height);
+#else
+	canvas->buffer = malloc(4 * width * height);
+#endif
 	memset (canvas->buffer,0,4 * width * height); 
 }
 

@@ -15,9 +15,9 @@ add_compile_definitions(
 )
 
 set (ZEPHYR  TRUE)
-set (cpu_compile_flags -mcpu=cortex-m4 -mthumb)
+#set (cpu_compile_flags -mcpu=cortex-m4 -mthumb)
 
-add_subdirectory(${PROJ_TOP}/game/lua-5.4.6/  ${PROJECT_BINARY_DIR}/lua-5.4.6/)
+add_subdirectory(${PROJ_TOP}/game/luaEffects  ${PROJECT_BINARY_DIR}/luaEffects/)
 add_subdirectory(${PROJ_TOP}/game/effects  ${PROJECT_BINARY_DIR}/effects)
 add_subdirectory(${PROJ_TOP}/game/common  ${PROJECT_BINARY_DIR}/common)
 
@@ -70,9 +70,10 @@ target_include_directories(app PRIVATE
 
 
 target_link_libraries(app PRIVATE 
-	-Wl,--start-group	
-	effects_static
-		common_static
+	-Wl,--start-group
+	luaEffects_static
+	#effects_static
+	common_static
 	lua_binaries
 	lua_module
 	#lua
@@ -85,6 +86,7 @@ add_dependencies( app
 #target_link_libraries(app PRIVATE common_static)
 
 target_compile_definitions(app PRIVATE 
+	ZEPHYR
 	USE_ORIGNAL_LUA_CODE
 	NO_SYSLOG)
 

@@ -13,6 +13,7 @@ add_library(common_static STATIC
 
 target_include_directories(common_static PUBLIC 
 	.
+	..
 )
 target_compile_options(common_static PRIVATE ${cpu_compile_flags})
 

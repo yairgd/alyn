@@ -17,7 +17,7 @@
 #define LUA_LIB
 
 #include "u8.h"
-#include "lua/obj.h"
+#include "obj.h"
 
 #include <ctype.h>
 #include <stdio.h>

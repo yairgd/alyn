@@ -72,8 +72,7 @@ set(
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" )
 	set (linux_lib "m" ) # "readline")
-	set(
-		LUAC_PATH 
+	set( LUAC_PATH 
 		${CMAKE_CURRENT_BINARY_DIR}/luac 
 		CACHE INTERNAL "" )
 endif()
@@ -99,15 +98,15 @@ target_compile_options(lua PRIVATE ${cpu_compile_flags})
 
 if (${ZEPHYR})
 	# Define the path to your existing binary
-	set(existing_luac_path "${PROJ_TOP}/game-controller/luac")
-
+	#	set(existing_luac_path "${PROJ_TOP}/game-controller/luac")
+	set(existing_luac_path ${CMAKE_CURRENT_BINARY_DIR}/luac)
 	# Get just the file name of the binary
 	get_filename_component(binary_name ${existing_luac_path} NAME)
 
 	# Create a custom command to copy the binary to the build directory
 	add_custom_command(
 		OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/${binary_name}
-		COMMAND ${CMAKE_COMMAND} -E copy ${existing_luac_path} ${CMAKE_CURRENT_BINARY_DIR}/${binary_name}
+		#	COMMAND ${CMAKE_COMMAND} -E copy ${existing_luac_path} ${CMAKE_CURRENT_BINARY_DIR}/${binary_name}
 		DEPENDS ${existing_luac_path}
 	)
 
@@ -151,56 +150,6 @@ else()
 
 endif()
 
-
-
-
-macro( lua_generate_c_files_for_lua_binary_target  ${lua_source_files} )
-
-	#set (this_file_location ${CMAKE_CURRENT_SOURCE_DIR}/../)
-	set (this_file_location ${CMAKE_CURRENT_SOURCE_DIR}/)
-	# create targets as the name of the lua files
-	foreach(full_path_filename    ${lua_source_files})
-		message( ${full_path_filename})
-
-		# get the base file name
-		get_filename_component(file_name ${full_path_filename} NAME)
-
-		# and replace the path to destantion path
-		set (file_name ${CMAKE_CURRENT_BINARY_DIR}/${file_name})
-
-		add_custom_command(
-			OUTPUT ${file_name}.o
-			COMMAND ${LUAC_PATH} -o  ${file_name}.o -- ${full_path_filename}
-			DEPENDS luac ${full_path_filename}
-		)
-
-		add_custom_command(
-			OUTPUT  ${file_name}.c
-			COMMAND  ${Python3_EXECUTABLE} ${this_file_location}/lua_fw_to_c.py script_fie ${file_name}.o 
-			DEPENDS ${file_name}.o
-
-		)
-	endforeach(full_path_filename   ${lua_source_files})
-
-
-	# prepare a list of all file files that were generated at lua_generate_inc_file_for_target 
-	set (generated_c_files)
-	foreach(lua_source_file ${lua_source_files})
-		get_filename_component(lua_c_file ${lua_source_file} NAME)
-		list(APPEND generated_c_files ${CMAKE_CURRENT_BINARY_DIR}/${lua_c_file}.c)
-	endforeach()
-
-
-
-	#list(TRANSFORM generated_c_files PREPEND "${CMAKE_CURRENT_BINARY_DIR}/")
-	add_custom_command(
-		OUTPUT   ${CMAKE_CURRENT_BINARY_DIR}/joint_file.c
-		COMMAND  ${Python3_EXECUTABLE} ${this_file_location}/lua_fw_to_c.py joint_file ${generated_c_files}
-	)
-
-
-
-endmacro()
 
 
 

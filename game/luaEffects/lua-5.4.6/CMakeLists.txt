@@ -1,3 +1,7 @@
+cmake_minimum_required(VERSION 3.20.0)
+
+project(luac)
+
 # https://github.com/zephyrproject-rtos/zephyr/discussions/45485
 # Get a list of all source files in the current directory
 set(LUA_SOURCES
@@ -73,7 +77,6 @@ endif()
 # build the lua standalone module to run in the GUI as separate thread
 add_library(lua 
 	src/lua.c
-	#	${mem}
 	${mem}
 	${LUA_SOURCES}
 )
@@ -83,45 +86,29 @@ target_link_libraries(lua
 )
 target_compile_options(lua PRIVATE ${cpu_compile_flags})
 
-if (${ZEPHYR})
-	# Define the path to your existing binary
-	set(existing_luac_path "/home/yair/alyn/project//game/luaEffects/luac")
-	#set(existing_luac_path ${CMAKE_CURRENT_BINARY_DIR}/luac)
-	# Get just the file name of the binary
-	get_filename_component(binary_name ${existing_luac_path} NAME)
-
-	# Create a custom command to copy the binary to the build directory
-	add_custom_command(
-		OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/${binary_name}
-		COMMAND ${CMAKE_COMMAND} -E copy ${existing_luac_path} ${CMAKE_CURRENT_BINARY_DIR}/${binary_name}
-		DEPENDS ${existing_luac_path}
+if (${USE_GUI_CONSOLE})
+	target_compile_definitions(lua PRIVATE
+		-D CONFIG_LUA_GAME_LIB
+		-D LUA_USE_READLINE
 	)
-
-	# Add a custom target for the binary
-	add_custom_target(luac DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/${binary_name})
-
-	# Optionally, add dependencies if needed
-	# add_dependencies(your_main_target existing_binary_target)
 else()
+	target_compile_definitions(lua PRIVATE
+		-D CONFIG_LUA_GAME_LIB
+		-D USE_ORIGNAL_LUA_CODE
+		${msvc_readline}
+	)
+endif()
+
+macro (build_luac)	
+
 	if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
 		set (msvc_readline "-D LUA_USE_READLINE")
 	endif()
 
-	if (${USE_GUI_CONSOLE})
-		target_compile_definitions(lua PRIVATE
-			-D CONFIG_LUA_GAME_LIB
-			-D LUA_USE_READLINE
-		)
-	else()
-		target_compile_definitions(lua PRIVATE
-			-D CONFIG_LUA_GAME_LIB
-			-D USE_ORIGNAL_LUA_CODE
-			${msvc_readline}
-		)
-	endif()
 	add_executable(luac
 		${LUA_SOURCES}
-		${mem}
+		#	${mem}
+		memory.c
 		src/luac.c
 	)
 
@@ -135,11 +122,7 @@ else()
 		-D USE_ORIGNAL_LUA_CODE
 	)
 
-
-endif()
-
-
-
+endmacro()
 
 
 

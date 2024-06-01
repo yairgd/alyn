@@ -21,6 +21,7 @@ Furthermore, Lua's simplicity and ease of use make it accessible to developers o
 * setup zephyr local path
 ```bash
 export PROJECT=/home/yair/alyn/zephyr-3.4.99/
+export PROJECT=//mnt/sdb1/yair/stm32/zephyrproject/
 ```
 
 * install west tool

@@ -3,7 +3,7 @@ set(commnon_SRC
 	./system_model.c	
 )
 
-if (NOT DEFINED ZEPHYR)
+if (NOT EXISTS ZEPHYR)
 	list(APPEND commnon_SRC "./timing.c")
 endif()
 

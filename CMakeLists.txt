@@ -36,7 +36,9 @@ set(PRE_CONFIGURE_FILE "${CMAKE_SOURCE_DIR}/cmake/git.h.in")
 set(POST_CONFIGURE_FILE "${CMAKE_BINARY_DIR}/git.h")
 include (${CMAKE_SOURCE_DIR}/cmake/git_watcher.cmake)
 set (CMAKE_CXX_STANDARD 17)
-
+set (LUAC_PATH 	
+		${CMAKE_BINARY_DIR}/game/luaEffects/luac/luac
+)
 
 #https://stackoverflow.com/questions/10046114/in-cmake-how-can-i-test-if-the-compiler-is-clang
 if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")

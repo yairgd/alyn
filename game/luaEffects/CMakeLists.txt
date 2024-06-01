@@ -1,4 +1,4 @@
-set (LUAC_PATH ${CMAKE_CURRENT_BINARY_DIR}/lua-5.4.6/luac)
+
 set (this_file_location ${PROJ_TOP}/game/luaEffects)
 #find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
 
@@ -42,7 +42,7 @@ macro( lua_generate_c_files_for_lua_binary_target  ${lua_source_files} )
 		add_custom_command(
 			OUTPUT ${file_name}.o
 			COMMAND ${LUAC_PATH} -o  ${file_name}.o -- ${full_path_filename}
-			DEPENDS luac ${full_path_filename}
+			DEPENDS ${LUAC_PATH} ${full_path_filename}
 		)
 
 		add_custom_command(

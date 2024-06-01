@@ -14,9 +14,37 @@ add_compile_definitions(
 	NO_SYSLOG
 )
 
-set (ZEPHYR  TRUE)
 #set (cpu_compile_flags -mcpu=cortex-m4 -mthumb)
 
+
+set (ZEPHYR  FALSE)
+
+include(ExternalProject)
+
+# Define the external project
+ExternalProject_Add(luac
+    SOURCE_DIR ${PROJ_TOP}/game/luaEffects/luac
+    #  CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=<INSTALL_DIR>
+    BUILD_ALWAYS 0
+    INSTALL_COMMAND "" 
+    PREFIX ${CMAKE_BINARY_DIR}/external_project_build 
+)
+
+# Define a custom target that depends on the external project
+add_custom_target(RunExternalProject
+    DEPENDS luac
+    COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR}/external_project_build --target install
+)
+
+# Make sure the main project depends on the custom target
+#add_dependencies(app RunExternalProject )
+
+
+set (LUAC_PATH 	
+		${CMAKE_BINARY_DIR}/external_project_build/src/luac-build/luac
+)
+
+set (ZEPHYR  TRUE)
 add_subdirectory(${PROJ_TOP}/game/luaEffects  ${PROJECT_BINARY_DIR}/luaEffects/)
 add_subdirectory(${PROJ_TOP}/game/effects  ${PROJECT_BINARY_DIR}/effects)
 add_subdirectory(${PROJ_TOP}/game/common  ${PROJECT_BINARY_DIR}/common)
@@ -33,7 +61,7 @@ add_library(common_static1 STATIC IMPORTED GLOBAL)
 set_target_properties(common_static1 PROPERTIES IMPORTED_LOCATION
 	/home/yair/alyn/project/game-controller/build/common/libcommon_static.a)
 
-target_sources(app PRIVATE src/main.c
+target_sources(app PRIVATE 
 	src/shell.c
 	src/main.c	
 	src/hwctl.c	

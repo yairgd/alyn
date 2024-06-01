@@ -83,7 +83,7 @@ target_link_libraries(led-screen-sim
 	lua_binaries
 	common_static
 	luaEffects_static
-
+	effects_static
 	${qt_libs}
 
 	-Wl,--end-group

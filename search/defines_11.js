@@ -11,7 +11,7 @@ var searchData=
   ['set2black_8',['set2black',['../lgc_8c.html#a1cb0182cfa6e73b1665658a79c297d46',1,'lgc.c']]],
   ['set2gray_9',['set2gray',['../lgc_8c.html#ac0d91118389ea51c074e2baf41e03ccb',1,'lgc.c']]],
   ['set_5fopcode_10',['SET_OPCODE',['../lopcodes_8h.html#a9ae2b84a40beacf053969ff426aae06f',1,'lopcodes.h']]],
-  ['set_5fpixel_5fbit_11',['SET_PIXEL_BIT',['../canvas_8h.html#a62f18a61253d24a59821e653df65cd9a',1,'canvas.h']]],
+  ['set_5fpixel_5fbit1_11',['SET_PIXEL_BIT1',['../canvas_8h.html#ae7d939c82444e90d20b724c6d6f097f3',1,'SET_PIXEL_BIT1:&#160;canvas.h'],['../canvas_8h.html#ae7d939c82444e90d20b724c6d6f097f3',1,'SET_PIXEL_BIT1:&#160;canvas.h']]],
   ['setage_12',['setage',['../lgc_8h.html#a42f07cc5f8f0a9d97989f7769f00c3f2',1,'lgc.h']]],
   ['setarg_13',['setarg',['../lopcodes_8h.html#afb6645a4d916d7dab36ba5f6f658bb8a',1,'lopcodes.h']]],
   ['setarg_5fa_14',['SETARG_A',['../lopcodes_8h.html#a01900876b9281238c6dbb4d7bc59ca66',1,'lopcodes.h']]],

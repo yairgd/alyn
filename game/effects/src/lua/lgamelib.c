@@ -51,6 +51,7 @@ static int luaB_enable (lua_State *L)
 
 static int luaB_delay (lua_State *L) {
 	int delay_us = (int) luaL_checknumber (L, -1);
+//	led_matrix_merge(led_matrix_get());			
 	timing_sleep(delay_us);
 	lua_pop (L, 1);
 

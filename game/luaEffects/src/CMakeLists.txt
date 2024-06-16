@@ -36,3 +36,6 @@ target_link_libraries(luaEffects_static
 target_include_directories (luaEffects_static PUBLIC
 	.
 )
+
+target_compile_options(luaEffects_static PRIVATE ${cpu_compile_flags})
+

@@ -7,7 +7,6 @@ project(hello_world)
 
 set (PROJ_TOP "/home/yair/alyn/project/")
 
-
 add_compile_definitions( 
 	ZEPHYR 
 	USE_ORIGNAL_LUA_CODE
@@ -38,6 +37,9 @@ set (LUAC_PATH
 )
 
 set (ZEPHYR  TRUE)
+set (cpu_compile_flags -mcpu=cortex-m4 -mthumb)
+
+
 add_subdirectory(${PROJ_TOP}/game/luaEffects  ${PROJECT_BINARY_DIR}/luaEffects/)
 add_subdirectory(${PROJ_TOP}/game/effects  ${PROJECT_BINARY_DIR}/effects)
 add_subdirectory(${PROJ_TOP}/game/common  ${PROJECT_BINARY_DIR}/common)
@@ -50,9 +52,9 @@ set(POST_CONFIGURE_FILE "${PROJECT_BINARY_DIR}/git.h")
 include (${PROJ_TOP}/cmake/git_watcher.cmake)
 set (CMAKE_CXX_STANDARD 17)
 
-add_library(common_static1 STATIC IMPORTED GLOBAL)
-set_target_properties(common_static1 PROPERTIES IMPORTED_LOCATION
-	/home/yair/alyn/project/game-controller/build/common/libcommon_static.a)
+#add_library(common_static1 STATIC IMPORTED GLOBAL)
+#set_target_properties(common_static1 PROPERTIES IMPORTED_LOCATION
+#	/home/yair/alyn/project/game-controller/build/common/libcommon_static.a)
 
 target_sources(app PRIVATE 
 	src/shell.c
@@ -91,19 +93,19 @@ target_include_directories(app PRIVATE
 
 
 target_link_libraries(app PRIVATE 
-	-Wl,--start-group
-	luaEffects_static
-	#effects_static
+	-Wl,--start-group	
+	effects_static
 	common_static
+	luaEffects_static
 	lua_binaries
 	lua_module
-	#lua
 	-Wl,--end-group
 
 )
-add_dependencies( app
-	common_static1
-)
+#add_dependencies( app
+#	common_static1
+#)
+
 #target_link_libraries(app PRIVATE common_static)
 
 target_compile_definitions(app PRIVATE 

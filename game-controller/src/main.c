@@ -612,6 +612,7 @@ void main11(void)
 }
 #endif
 
+#if 0
 void main(void)
 {
 //	game_init();
@@ -619,3 +620,4 @@ void main(void)
 
 //	display__init();
 }
+#endif

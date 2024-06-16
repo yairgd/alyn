@@ -24,7 +24,8 @@ var searchData=
   ['twups_21',['twups',['../structglobal__State.html#a5e243c2a4646364e0507a5a6cf417eec',1,'global_State::twups'],['../structlua__State.html#ae1da80ba9fa9d9adad4deb8ae5b42ba0',1,'lua_State::twups']]],
   ['tx_5fbuf_22',['tx_buf',['../display_8c.html#a758ea3352abad79a4879e6ac3d955f27',1,'display.c']]],
   ['tx_5fbuffer_23',['tx_buffer',['../main_8c.html#afd562d920fd904be449c58ffbe7b482e',1,'main.c']]],
-  ['tx_5fdata_5fidx_24',['tx_data_idx',['../uart_8c.html#a2186704c1371f7d8c9deb2583d313ce0',1,'uart.c']]],
-  ['tx_5frx_5fbufs_25',['tx_rx_bufs',['../display_8c.html#a55fdd4185e95eb66736eab6a13138f21',1,'display.c']]],
-  ['type_26',['type',['../structlua__user__data.html#a6f2a0d487f34d4103e10233c29cdf163',1,'lua_user_data']]]
+  ['tx_5fdata_24',['tx_data',['../display_8c.html#a1e177060d275fe8b1f2d408f3f38d546',1,'display.c']]],
+  ['tx_5fdata_5fidx_25',['tx_data_idx',['../uart_8c.html#a2186704c1371f7d8c9deb2583d313ce0',1,'uart.c']]],
+  ['tx_5frx_5fbufs_26',['tx_rx_bufs',['../display_8c.html#a55fdd4185e95eb66736eab6a13138f21',1,'display.c']]],
+  ['type_27',['type',['../structlua__user__data.html#a6f2a0d487f34d4103e10233c29cdf163',1,'lua_user_data']]]
 ];

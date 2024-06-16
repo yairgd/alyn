@@ -114,14 +114,13 @@ $(function(){ initResizable(false); });
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a21d9543c516fffee84a7963224271f95" id="r_a21d9543c516fffee84a7963224271f95"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a21d9543c516fffee84a7963224271f95">STACKSIZE</a>&#160;&#160;&#160;2048</td></tr>
-<tr class="separator:a21d9543c516fffee84a7963224271f95"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25e7852941475e51c875632ac1985d8a" id="r_a25e7852941475e51c875632ac1985d8a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a25e7852941475e51c875632ac1985d8a">PRIORITY</a>&#160;&#160;&#160;7</td></tr>
-<tr class="separator:a25e7852941475e51c875632ac1985d8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec6195a039b8961224289c6772e2ce61" id="r_aec6195a039b8961224289c6772e2ce61"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec6195a039b8961224289c6772e2ce61">USING_UART_SHELL</a></td></tr>
+<tr class="separator:aec6195a039b8961224289c6772e2ce61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a457a158cddae24fa5ab8148323e15527" id="r_a457a158cddae24fa5ab8148323e15527"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a457a158cddae24fa5ab8148323e15527">proccess_char</a> (const struct shell *sh, uint8_t *data, size_t len)</td></tr>
+<tr class="memdesc:a457a158cddae24fa5ab8148323e15527"><td class="mdescLeft">&#160;</td><td class="mdescRight">this functions process the message comming from the uart data. it is caled from the shell when it switch into bypass mode. look for function: bypass_cb  <br /></td></tr>
 <tr class="separator:a457a158cddae24fa5ab8148323e15527"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
@@ -130,28 +129,14 @@ Variables</h2></td></tr>
 <tr class="separator:a851d65ae0dde752c5ade7e041442276a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a25e7852941475e51c875632ac1985d8a" name="a25e7852941475e51c875632ac1985d8a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25e7852941475e51c875632ac1985d8a">&#9670;&#160;</a></span>PRIORITY</h2>
+<a id="aec6195a039b8961224289c6772e2ce61" name="aec6195a039b8961224289c6772e2ce61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec6195a039b8961224289c6772e2ce61">&#9670;&#160;</a></span>USING_UART_SHELL</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define PRIORITY&#160;&#160;&#160;7</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a21d9543c516fffee84a7963224271f95" name="a21d9543c516fffee84a7963224271f95"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a21d9543c516fffee84a7963224271f95">&#9670;&#160;</a></span>STACKSIZE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define STACKSIZE&#160;&#160;&#160;2048</td>
+          <td class="memname">#define USING_UART_SHELL</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -182,6 +167,16 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>this functions process the message comming from the uart data. it is caled from the shell when it switch into bypass mode. look for function: bypass_cb </p>
+<p>Created 06/16/24 </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;br&gt;</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><br  />
+ </dd></dl>
 
 </div>
 </div>

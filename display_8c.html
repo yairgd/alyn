@@ -131,6 +131,8 @@ Macros</h2></td></tr>
 <tr class="separator:a0a2d263fb7e5326d5f005b4147bb389f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00ad6a3a94ffdd1bc6b55e789f9dfda9" id="r_a00ad6a3a94ffdd1bc6b55e789f9dfda9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00ad6a3a94ffdd1bc6b55e789f9dfda9">NUMBER_OF_ROWS</a>&#160;&#160;&#160;16</td></tr>
 <tr class="separator:a00ad6a3a94ffdd1bc6b55e789f9dfda9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa49136130e57a5d9ada49f78143677c8" id="r_aa49136130e57a5d9ada49f78143677c8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa49136130e57a5d9ada49f78143677c8">DMA_CHANNEL_ID</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:aa49136130e57a5d9ada49f78143677c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -145,14 +147,26 @@ Functions</h2></td></tr>
 <tr class="separator:a7e1fee8cb3fcfb13c599f7d4458856bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2666195102764dda6ca400aac4b7f6f6" id="r_a2666195102764dda6ca400aac4b7f6f6"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2666195102764dda6ca400aac4b7f6f6">_output_enable</a> (int v)</td></tr>
 <tr class="separator:a2666195102764dda6ca400aac4b7f6f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a627b9dc3fe6a8e4dd44df816f96eb064" id="r_a627b9dc3fe6a8e4dd44df816f96eb064"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a627b9dc3fe6a8e4dd44df816f96eb064">display_spi_dma_callback</a> (const struct device *dev, void *user_data, uint32_t <a class="el" href="structchannel.html">channel</a>, int status)</td></tr>
+<tr class="separator:a627b9dc3fe6a8e4dd44df816f96eb064"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f25416075b4a1e66f1f26937438311b" id="r_a7f25416075b4a1e66f1f26937438311b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7f25416075b4a1e66f1f26937438311b">display__init</a> ()</td></tr>
 <tr class="separator:a7f25416075b4a1e66f1f26937438311b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00775152eb96fe3039fd7a4bd1b4cdae" id="r_a00775152eb96fe3039fd7a4bd1b4cdae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00775152eb96fe3039fd7a4bd1b4cdae">SET_PIXEL_BIT</a> (char *buf, int n, int v)</td></tr>
 <tr class="separator:a00775152eb96fe3039fd7a4bd1b4cdae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2a96e87af60c19e232c0b3e855964a0" id="r_ac2a96e87af60c19e232c0b3e855964a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2a96e87af60c19e232c0b3e855964a0">display_callback</a> (struct k_timer *<a class="el" href="lstrlib_8c.html#a7c1d654b7b6114d7a0abc8d351dd1bcd">dummy</a>)</td></tr>
+<tr class="separator:ac2a96e87af60c19e232c0b3e855964a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1986156808f3236eabd748516caa133" id="r_aa1986156808f3236eabd748516caa133"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa1986156808f3236eabd748516caa133">K_TIMER_DEFINE</a> (display_timer, <a class="el" href="#ac2a96e87af60c19e232c0b3e855964a0">display_callback</a>, NULL)</td></tr>
+<tr class="separator:aa1986156808f3236eabd748516caa133"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02705c2afb40c7bc1da9845f5000c326" id="r_a02705c2afb40c7bc1da9845f5000c326"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a02705c2afb40c7bc1da9845f5000c326">test_dma</a> ()</td></tr>
+<tr class="separator:a02705c2afb40c7bc1da9845f5000c326"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a031feb8ba578150a96e1e5151d4440e6" id="r_a031feb8ba578150a96e1e5151d4440e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a031feb8ba578150a96e1e5151d4440e6">display_timer_callback</a> (struct k_timer *<a class="el" href="lstrlib_8c.html#a7c1d654b7b6114d7a0abc8d351dd1bcd">dummy</a>)</td></tr>
+<tr class="separator:a031feb8ba578150a96e1e5151d4440e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2cc75467ee2a2e90590409ee8d30d6c" id="r_ac2cc75467ee2a2e90590409ee8d30d6c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2cc75467ee2a2e90590409ee8d30d6c">display_thread</a> (void *p1, void *p2, void *p3)</td></tr>
 <tr class="separator:ac2cc75467ee2a2e90590409ee8d30d6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97175147ae49478d47467ea3484cb6d9" id="r_a97175147ae49478d47467ea3484cb6d9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a97175147ae49478d47467ea3484cb6d9">K_THREAD_DEFINE</a> (display_thread_id, <a class="el" href="#a21d9543c516fffee84a7963224271f95">STACKSIZE</a>, <a class="el" href="#ac2cc75467ee2a2e90590409ee8d30d6c">display_thread</a>, NULL, NULL, NULL, <a class="el" href="#a25e7852941475e51c875632ac1985d8a">PRIORITY</a>, 0, 0)</td></tr>
 <tr class="separator:a97175147ae49478d47467ea3484cb6d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae11a2fb39b5ee671b1d431aa513b09b3" id="r_ae11a2fb39b5ee671b1d431aa513b09b3"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae11a2fb39b5ee671b1d431aa513b09b3">dma_callback</a> (const struct device *dev, void *user_data, uint32_t id, int <a class="el" href="lundump_8c.html#a4359a67dfcb96fbedf2becab47365599">error</a>)</td></tr>
+<tr class="separator:ae11a2fb39b5ee671b1d431aa513b09b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -180,6 +194,12 @@ Variables</h2></td></tr>
 <tr class="separator:a758ea3352abad79a4879e6ac3d955f27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a55fdd4185e95eb66736eab6a13138f21" id="r_a55fdd4185e95eb66736eab6a13138f21"><td class="memItemLeft" align="right" valign="top">static struct spi_buf_set&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a55fdd4185e95eb66736eab6a13138f21">tx_rx_bufs</a></td></tr>
 <tr class="separator:a55fdd4185e95eb66736eab6a13138f21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e177060d275fe8b1f2d408f3f38d546" id="r_a1e177060d275fe8b1f2d408f3f38d546"><td class="memItemLeft" align="right" valign="top">static uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e177060d275fe8b1f2d408f3f38d546">tx_data</a> [48] = { }</td></tr>
+<tr class="separator:a1e177060d275fe8b1f2d408f3f38d546"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8dd4d523b0c75c8c45aded832794754" id="r_ab8dd4d523b0c75c8c45aded832794754"><td class="memItemLeft" align="right" valign="top">static uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab8dd4d523b0c75c8c45aded832794754">rx_data</a> [48]</td></tr>
+<tr class="separator:ab8dd4d523b0c75c8c45aded832794754"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2fe0c6c3763bd5d906d2c596c50d2a7" id="r_ae2fe0c6c3763bd5d906d2c596c50d2a7"><td class="memItemLeft" align="right" valign="top">static struct dma_block_config&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae2fe0c6c3763bd5d906d2c596c50d2a7">dma_blk_cfg</a></td></tr>
+<tr class="separator:ae2fe0c6c3763bd5d906d2c596c50d2a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a6b20d41d6252e9871430c242cb1a56e7" name="a6b20d41d6252e9871430c242cb1a56e7"></a>
@@ -204,6 +224,20 @@ Variables</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">#define DMA_CHANNEL&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa49136130e57a5d9ada49f78143677c8" name="aa49136130e57a5d9ada49f78143677c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa49136130e57a5d9ada49f78143677c8">&#9670;&#160;</a></span>DMA_CHANNEL_ID</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DMA_CHANNEL_ID&#160;&#160;&#160;0</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -461,6 +495,54 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="ac2a96e87af60c19e232c0b3e855964a0" name="ac2a96e87af60c19e232c0b3e855964a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2a96e87af60c19e232c0b3e855964a0">&#9670;&#160;</a></span>display_callback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void display_callback </td>
+          <td>(</td>
+          <td class="paramtype">struct k_timer *</td>          <td class="paramname"><span class="paramname"><em>dummy</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a627b9dc3fe6a8e4dd44df816f96eb064" name="a627b9dc3fe6a8e4dd44df816f96eb064"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a627b9dc3fe6a8e4dd44df816f96eb064">&#9670;&#160;</a></span>display_spi_dma_callback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void display_spi_dma_callback </td>
+          <td>(</td>
+          <td class="paramtype">const struct device *</td>          <td class="paramname"><span class="paramname"><em>dev</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>user_data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>channel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>status</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ac2cc75467ee2a2e90590409ee8d30d6c" name="ac2cc75467ee2a2e90590409ee8d30d6c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac2cc75467ee2a2e90590409ee8d30d6c">&#9670;&#160;</a></span>display_thread()</h2>
 
@@ -483,6 +565,62 @@ Variables</h2></td></tr>
           <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>p3</em></span>&#160;)</td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a031feb8ba578150a96e1e5151d4440e6" name="a031feb8ba578150a96e1e5151d4440e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a031feb8ba578150a96e1e5151d4440e6">&#9670;&#160;</a></span>display_timer_callback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void display_timer_callback </td>
+          <td>(</td>
+          <td class="paramtype">struct k_timer *</td>          <td class="paramname"><span class="paramname"><em>dummy</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae11a2fb39b5ee671b1d431aa513b09b3" name="ae11a2fb39b5ee671b1d431aa513b09b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae11a2fb39b5ee671b1d431aa513b09b3">&#9670;&#160;</a></span>dma_callback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void dma_callback </td>
+          <td>(</td>
+          <td class="paramtype">const struct device *</td>          <td class="paramname"><span class="paramname"><em>dev</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>user_data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>error</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -543,6 +681,32 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="aa1986156808f3236eabd748516caa133" name="aa1986156808f3236eabd748516caa133"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1986156808f3236eabd748516caa133">&#9670;&#160;</a></span>K_TIMER_DEFINE()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">K_TIMER_DEFINE </td>
+          <td>(</td>
+          <td class="paramtype">display_timer</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#ac2a96e87af60c19e232c0b3e855964a0">display_callback</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">NULL</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a00775152eb96fe3039fd7a4bd1b4cdae" name="a00775152eb96fe3039fd7a4bd1b4cdae"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a00775152eb96fe3039fd7a4bd1b4cdae">&#9670;&#160;</a></span>SET_PIXEL_BIT()</h2>
 
@@ -569,7 +733,49 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a02705c2afb40c7bc1da9845f5000c326" name="a02705c2afb40c7bc1da9845f5000c326"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02705c2afb40c7bc1da9845f5000c326">&#9670;&#160;</a></span>test_dma()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void test_dma </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Variable Documentation</h2>
+<a id="ae2fe0c6c3763bd5d906d2c596c50d2a7" name="ae2fe0c6c3763bd5d906d2c596c50d2a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2fe0c6c3763bd5d906d2c596c50d2a7">&#9670;&#160;</a></span>dma_blk_cfg</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct dma_block_config dma_blk_cfg</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    </div>
+<div class="line">}</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="a7f21cc7bffa333d393dc42541de2e7ef" name="a7f21cc7bffa333d393dc42541de2e7ef"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7f21cc7bffa333d393dc42541de2e7ef">&#9670;&#160;</a></span>dma_dev</h2>
 
@@ -724,6 +930,28 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="ab8dd4d523b0c75c8c45aded832794754" name="ab8dd4d523b0c75c8c45aded832794754"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8dd4d523b0c75c8c45aded832794754">&#9670;&#160;</a></span>rx_data</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t rx_data[48]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a401e92d4e6afa09344209ed0b2f05a57" name="a401e92d4e6afa09344209ed0b2f05a57"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a401e92d4e6afa09344209ed0b2f05a57">&#9670;&#160;</a></span>spi_cfg</h2>
 
@@ -819,8 +1047,30 @@ Variables</h2></td></tr>
 <div class="line">    .buf = <a class="code hl_variable" href="#a1e26691f41d37429033a1416dcc408ee">pixel_buffer</a>,</div>
 <div class="line">    .len = <span class="keyword">sizeof</span>(<a class="code hl_variable" href="#a1e26691f41d37429033a1416dcc408ee">pixel_buffer</a>)</div>
 <div class="line">}</div>
-<div class="ttc" id="adisplay_8c_html_a1e26691f41d37429033a1416dcc408ee"><div class="ttname"><a href="#a1e26691f41d37429033a1416dcc408ee">pixel_buffer</a></div><div class="ttdeci">static char pixel_buffer[PIXELS_PER_ROW *2 *3/8]</div><div class="ttdef"><b>Definition</b> display.c:80</div></div>
+<div class="ttc" id="adisplay_8c_html_a1e26691f41d37429033a1416dcc408ee"><div class="ttname"><a href="#a1e26691f41d37429033a1416dcc408ee">pixel_buffer</a></div><div class="ttdeci">static char pixel_buffer[PIXELS_PER_ROW *2 *3/8]</div><div class="ttdef"><b>Definition</b> display.c:81</div></div>
 </div><!-- fragment -->
+</div>
+</div>
+<a id="a1e177060d275fe8b1f2d408f3f38d546" name="a1e177060d275fe8b1f2d408f3f38d546"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e177060d275fe8b1f2d408f3f38d546">&#9670;&#160;</a></span>tx_data</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t tx_data[48] = { }</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
 </div>
 </div>
 <a id="a55fdd4185e95eb66736eab6a13138f21" name="a55fdd4185e95eb66736eab6a13138f21"></a>
@@ -846,7 +1096,7 @@ Variables</h2></td></tr>
 <div class="line">    .buffers = &amp;<a class="code hl_variable" href="#a758ea3352abad79a4879e6ac3d955f27">tx_buf</a>,</div>
 <div class="line">    .count = 1</div>
 <div class="line">}</div>
-<div class="ttc" id="adisplay_8c_html_a758ea3352abad79a4879e6ac3d955f27"><div class="ttname"><a href="#a758ea3352abad79a4879e6ac3d955f27">tx_buf</a></div><div class="ttdeci">static struct spi_buf tx_buf</div><div class="ttdef"><b>Definition</b> display.c:82</div></div>
+<div class="ttc" id="adisplay_8c_html_a758ea3352abad79a4879e6ac3d955f27"><div class="ttname"><a href="#a758ea3352abad79a4879e6ac3d955f27">tx_buf</a></div><div class="ttdeci">static struct spi_buf tx_buf</div><div class="ttdef"><b>Definition</b> display.c:83</div></div>
 </div><!-- fragment -->
 </div>
 </div>

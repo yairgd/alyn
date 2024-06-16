@@ -91,5 +91,6 @@ var searchData=
   ['run_5fthe_5fapplication_88',['run_the_application',['../load__lua_8cpp.html#ad46e988ab4465390d7cc68747df0fbab',1,'run_the_application(int argc, char *argv[]):&#160;load_lua.cpp'],['../test1_8cpp.html#a54a1ddcede6a9f7c0ec19a240aede822',1,'run_the_application():&#160;test1.cpp']]],
   ['runafewfinalizers_89',['runafewfinalizers',['../lgc_8c.html#a5ba38781fc577f890c6f97af9beef40a',1,'lgc.c']]],
   ['runargs_90',['runargs',['../lua_8c.html#a95a376c847572def6b3f78d33a7bc881',1,'lua.c']]],
-  ['rx_5fbuffer_91',['rx_buffer',['../main_8c.html#a7859af7e1d2d58c1bc67f781bbfbe818',1,'main.c']]]
+  ['rx_5fbuffer_91',['rx_buffer',['../main_8c.html#a7859af7e1d2d58c1bc67f781bbfbe818',1,'main.c']]],
+  ['rx_5fdata_92',['rx_data',['../display_8c.html#ab8dd4d523b0c75c8c45aded832794754',1,'display.c']]]
 ];

@@ -16,7 +16,7 @@ var searchData=
   ['pos_5fsj_13',['POS_sJ',['../lopcodes_8h.html#a2e16ff1e3bdd4a468f0872517ebadc0a',1,'lopcodes.h']]],
   ['pre_14',['PRE',['../lobject_8c.html#a349316092037fdd0773335fab4e15ee8',1,'lobject.c']]],
   ['printbit_15',['PRINTBIT',['../lctype_8h.html#a708b2cd4d3f7f7126e5f795097ab1592',1,'lctype.h']]],
-  ['priority_16',['PRIORITY',['../display_8c.html#a25e7852941475e51c875632ac1985d8a',1,'PRIORITY:&#160;display.c'],['../hwctl_8c.html#a25e7852941475e51c875632ac1985d8a',1,'PRIORITY:&#160;hwctl.c'],['../parser__task_8cpp.html#a25e7852941475e51c875632ac1985d8a',1,'PRIORITY:&#160;parser_task.cpp']]],
+  ['priority_16',['PRIORITY',['../display_8c.html#a25e7852941475e51c875632ac1985d8a',1,'PRIORITY:&#160;display.c'],['../hwctl_8c.html#a25e7852941475e51c875632ac1985d8a',1,'PRIORITY:&#160;hwctl.c']]],
   ['progname_17',['PROGNAME',['../luac_8c.html#a8c9afb758de9a0355c93fc926b8ce6b1',1,'luac.c']]],
   ['protect_18',['Protect',['../lvm_8c.html#ae20e156330a1cdfb3738f042f7eae35a',1,'lvm.c']]],
   ['protectnt_19',['ProtectNT',['../lvm_8c.html#a240b167bd7f3ed903cd1518960b1489c',1,'lvm.c']]],

@@ -119,10 +119,6 @@ Macros</h2></td></tr>
 <tr class="separator:a4a118ad3ee36468a3fa616977a64864e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a469c4386615fecd686baf81fbe49ffd5" id="r_a469c4386615fecd686baf81fbe49ffd5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a469c4386615fecd686baf81fbe49ffd5">bit</a>(x,  n)&#160;&#160;&#160;(x[(n)/8] &amp; (1 &lt;&lt; (7-(n)%8)) ? 1 : 0)</td></tr>
 <tr class="separator:a469c4386615fecd686baf81fbe49ffd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7d939c82444e90d20b724c6d6f097f3" id="r_ae7d939c82444e90d20b724c6d6f097f3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae7d939c82444e90d20b724c6d6f097f3">SET_PIXEL_BIT1</a>(buffer,  n,  v)&#160;&#160;&#160;(buffer[(n)/8] |= (v &lt;&lt; (7-(n)%8)))</td></tr>
-<tr class="separator:ae7d939c82444e90d20b724c6d6f097f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7d939c82444e90d20b724c6d6f097f3" id="r_ae7d939c82444e90d20b724c6d6f097f3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae7d939c82444e90d20b724c6d6f097f3">SET_PIXEL_BIT1</a>(buffer,  n,  v)&#160;&#160;&#160;(buffer[(n)/8] |= (v &lt;&lt; ((n)%8)))</td></tr>
-<tr class="separator:ae7d939c82444e90d20b724c6d6f097f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ceb98015b21ec8ca89a30d6b66d109a" id="r_a1ceb98015b21ec8ca89a30d6b66d109a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ceb98015b21ec8ca89a30d6b66d109a">RECT</a>(x,  y,  w,  h)&#160;&#160;&#160;	(struct <a class="el" href="structrect.html">rect</a>){(x),(y),(w),(h)}</td></tr>
 <tr class="separator:a1ceb98015b21ec8ca89a30d6b66d109a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -303,58 +299,6 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="banner_8c.html#a59f91842bc238cf5dc3ec26d30fb950a">b</a></em></span>&#160;)&#160;&#160;&#160;((r) &lt;&lt; 16 | (g) &lt;&lt; 8 | (<a class="el" href="banner_8c.html#a59f91842bc238cf5dc3ec26d30fb950a">b</a>) &lt;&lt; 0)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae7d939c82444e90d20b724c6d6f097f3" name="ae7d939c82444e90d20b724c6d6f097f3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae7d939c82444e90d20b724c6d6f097f3">&#9670;&#160;</a></span>SET_PIXEL_BIT1 <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SET_PIXEL_BIT1</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>v</em></span>&#160;)&#160;&#160;&#160;(buffer[(n)/8] |= (v &lt;&lt; (7-(n)%8)))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae7d939c82444e90d20b724c6d6f097f3" name="ae7d939c82444e90d20b724c6d6f097f3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae7d939c82444e90d20b724c6d6f097f3">&#9670;&#160;</a></span>SET_PIXEL_BIT1 <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SET_PIXEL_BIT1</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>v</em></span>&#160;)&#160;&#160;&#160;(buffer[(n)/8] |= (v &lt;&lt; ((n)%8)))</td>
         </tr>
       </table>
 </div><div class="memdoc">

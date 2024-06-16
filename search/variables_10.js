@@ -11,5 +11,6 @@ var searchData=
   ['ridx_8',['ridx',['../structexpdesc.html#af19de25aff8a4e626089882273d06150',1,'expdesc::ridx'],['../unionVardesc.html#a02666a7f4d0da02bf0f834e66b02a18e',1,'Vardesc::ridx']]],
   ['right_9',['right',['../lparser_8c.html#a34b07942956eb7acd9d02c5b75177ae6',1,'lparser.c']]],
   ['rotate_10',['rotate',['../unionbanner_1_1banner__config.html#a00fc8e409df82fb87166d18a8b9d208a',1,'banner::banner_config']]],
-  ['rx_5fbuffer_11',['rx_buffer',['../main_8c.html#a7859af7e1d2d58c1bc67f781bbfbe818',1,'main.c']]]
+  ['rx_5fbuffer_11',['rx_buffer',['../main_8c.html#a7859af7e1d2d58c1bc67f781bbfbe818',1,'main.c']]],
+  ['rx_5fdata_12',['rx_data',['../display_8c.html#ab8dd4d523b0c75c8c45aded832794754',1,'display.c']]]
 ];

@@ -119,13 +119,7 @@ void LedMatrixWidget::updateLedMatrix()
 
 #endif
 
-struct pixel {
-	uint8_t r;
-	uint8_t g;
-	uint8_t b;
-	uint8_t o;
 
-};
 static inline pixel * GET_POINTER_TO_PIXEL1(struct canvas * c,int w,int h) {
 	return ((struct pixel*)&c->buffer[4 * (w) + 4 * (h) * c->width]);
 }
@@ -151,15 +145,16 @@ void LedMatrixWidget::paintEvent(QPaintEvent *event)
 	//painter.setPen(QPen(Qt::black, 2));
 	painter.fillRect(0,0,64*squareSize-0,32*squareSize-0,Qt::black);
 	
+	
 	// draw pixels 
 	for (int row = 0; row < 32; ++row)
 	{
 		for (int col = 0; col < 64; ++col)
 		{	
-			struct pixel * pix0 = GET_POINTER_TO_PIXEL1(&(channel->canvas),col,row  );
+		//	struct pixel * pix0 = GET_POINTER_TO_PIXEL1(&(channel->canvas),col,row  );
 			
-		//	painter.fillRect(col * squareSize+2, row * squareSize+2, squareSize-2, squareSize-2, QColor(GET_BIT_COLOR(&(channel->canvas),col,row)));
-			painter.fillRect(col * squareSize+2, row * squareSize+2, squareSize-2, squareSize-2, QColor( *((uint32_t*)pix0)));
+			painter.fillRect(col * squareSize+2, row * squareSize+2, squareSize-2, squareSize-2, QColor(GET_BIT_COLOR(&(channel->canvas),col,row)));
+		//	painter.fillRect(col * squareSize+2, row * squareSize+2, squareSize-2, squareSize-2, QColor( *((uint32_t*)pix0)));
 
 		}
 	}

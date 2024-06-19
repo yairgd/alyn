@@ -21,7 +21,7 @@
 #include "led_matrix.h"
 #include "obj.h"
 #include "font.h"
-
+#include "lua_memory.h"
 
 
 #define LUA_BANNER "banner1"
@@ -48,8 +48,8 @@ static void config(lua_State *L, struct banner * banner,struct rect * rect  ) {
 static int lua_banner_gc(lua_State *L) {
 	struct lua_user_data * user_data = *(struct lua_user_data**)luaL_checkudata(L, 1, LUA_BANNER);
 
-	free(user_data->data);
-	free(user_data);
+	lua_free(user_data->data);
+	lua_free(user_data);
 	return 0;
 }
 static int lua_banner_render(lua_State *L) {

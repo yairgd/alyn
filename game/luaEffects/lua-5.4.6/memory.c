@@ -15,7 +15,8 @@
  *
  * =====================================================================================
  */
-#include "stdlib.h"
+#include <stdlib.h>
+#include "lua_memory.h"
 
 /**
  * Created  02/15/2024
@@ -40,3 +41,13 @@ void lua_free(void *ptr) {
 }
 
 
+
+/**
+ * Created  06/18/24
+ * @brief   not used by LUA api, used by the application 
+ * @param   
+ * @return  
+ */
+void * lua_malloc(size_t n ) {
+	return malloc(n);
+}

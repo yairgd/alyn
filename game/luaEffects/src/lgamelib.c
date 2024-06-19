@@ -186,6 +186,7 @@ static int luaB_select_channel(lua_State *L) {
 	int channel  = (int) luaL_checknumber (L, -1);
 	lua_pop (L, 1);
 	led_matrix_channel_id = channel;
+	return 0;
 }
 
 static int luaB_setkey(lua_State *L) {

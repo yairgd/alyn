@@ -35,6 +35,7 @@
 #include "protocol-v1/ProtocolStateMachine.h"
 #include "protocol-v1/ProtoclDataStructures.h"
 #include "HandleUartMsg.h"
+#include "IUart.h"
 
 //const struct device *const sl_uart1 ;//= DEVICE_DT_GET(UART_NODE2);
 //#define UART_NODE2 DT_CHOSEN(zephyr_console)
@@ -49,7 +50,8 @@
 
 static std::shared_ptr<IProtocolParser> parser = nullptr;
 
-
+static  Simple::HandleUartMsg g_handleUartMsg;
+static  Simple::ProtocolStateMachine g_protocolStateMachine;
 
 #define USING_UART_SHELL
 #ifdef USING_UART_SHELL
@@ -62,9 +64,17 @@ static std::shared_ptr<IProtocolParser> parser = nullptr;
  */
 void proccess_char(const  struct shell * sh, uint8_t *data, size_t len) {
 	if (parser == nullptr) {
-		auto uart = Hal::GetUartShell(sh);
-		auto p  =  std::shared_ptr<Simple::HandleUartMsg>(new Simple::HandleUartMsg(uart) );
-		parser = std::shared_ptr<Simple::ProtocolStateMachine> ( new Simple::ProtocolStateMachine  (nullptr, p));
+		std::shared_ptr<Hal::IUart> uart = Hal::GetUartShell(sh);
+	//	auto p  =  std::shared_ptr<Simple::HandleUartMsg>(new Simple::HandleUartMsg(uart) );
+	//	parser = std::shared_ptr<Simple::ProtocolStateMachine> ( new Simple::ProtocolStateMachine  (nullptr, p));
+	
+		g_handleUartMsg = Simple::HandleUartMsg(uart);
+	//	auto p =  std::shared_ptr<Simple::HandleUartMsg>(g_handleUartMsg);
+		g_protocolStateMachine = Simple::ProtocolStateMachine(nullptr,std::shared_ptr<Simple::HandleUartMsg>(&g_handleUartMsg));
+
+		parser =  std::shared_ptr<Simple::ProtocolStateMachine> ( &g_protocolStateMachine);
+
+
 	} else {
 		parser->Pushdata(data, len);
 	}

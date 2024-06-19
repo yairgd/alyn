@@ -56,12 +56,18 @@ struct canvas {
 	int height;
 };
 
+struct pixel {
+	uint8_t r;
+	uint8_t g;
+	uint8_t b;
+	uint8_t o;
+};
 static inline uint32_t  GET_BIT_COLOR(struct canvas * c,int w,int h) {
 	return (*((int*)&c->buffer[4 * (w) + 4 * (h) * c->width]));
 }
 
-static inline uint32_t * GET_POINTER_TO_PIXEL(struct canvas * c,int w,int h) {
-	return ((uint32_t*)&c->buffer[4 * (w) + 4 * (h) * c->width]);
+static inline struct pixel * GET_POINTER_TO_PIXEL(struct canvas * c,int w,int h) {
+	return (( struct pixel *)&c->buffer[4 * (w) + 4 * (h) * c->width]);
 }
 
 #if 1

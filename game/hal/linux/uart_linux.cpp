@@ -63,10 +63,19 @@ namespace Hal {
 	int UartLinux::Send(char *lpBuffer, int dNoOFBytestoWrite)   {
 		int size=1;
 		int err=0;
-	
-		int n =  write(m_fd,lpBuffer,dNoOFBytestoWrite);
-		if (n<0)
-			return -1;
+		int n;
+
+		// the delay between the charcater used to suppot /dev/ttyACM
+		// it will not work other wise (the ACM device on the board, may be it
+		// will work with other devices ??)
+		while (dNoOFBytestoWrite) {
+			n =  write(m_fd,lpBuffer,1);
+			lpBuffer++;
+			dNoOFBytestoWrite--;
+			usleep(1000);
+			if (n<0)
+				return -1;
+		}
 
 
 

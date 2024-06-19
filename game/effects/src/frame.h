@@ -26,7 +26,7 @@ extern "C" {
 
 #include "effect.h"
 
-#define MAX_POINTS_PER_FRAME 32*64
+#define MAX_POINTS_PER_FRAME (64+64+32+32)
 
 	struct animate_frame {
 		int c1;

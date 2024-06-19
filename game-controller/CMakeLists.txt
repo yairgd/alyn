@@ -63,6 +63,7 @@ target_sources(app PRIVATE
 	src/game.c
   	src/uart.c
 	src/display.c
+	src/gpio.c
 
 	src/timing.c
 

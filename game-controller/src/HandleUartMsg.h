@@ -38,6 +38,7 @@ namespace Simple {
 
 	class HandleUartMsg: public IHandleUartMsg {
 		public:
+			HandleUartMsg() = default;
 			HandleUartMsg(std::shared_ptr<Hal::IUart> uart) : m_uart(uart)  {};
 			void NewData(const MsgToParse &msg) override {
 				switch (msg.cmd) {

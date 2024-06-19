@@ -148,12 +148,13 @@ function config()
 		b:render(0)	
 		mb:render(0)	
 
-		a1:render(2)
-		a2:render(2)
+		a1:render(1)
+		a2:render(1)
 		game.delay(100000/4);	
 
 	end
 end
 
-
-
+game.clean()
+game.opacity(0.7,0.3,0.3)
+config()

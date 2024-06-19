@@ -45,7 +45,7 @@ static inline void  usleep(unsigned int x) {
  //#include "signals.h"
 #endif
 
-#define UART_DEVICE "/dev/pts/3"
+#define UART_DEVICE "/dev/ttyACM0"
 #define BYPASS "bypass\n\r"
 int gg=0;
 

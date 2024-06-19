@@ -32,15 +32,15 @@
 #include "protocol-v1/messages.h"
 #include "protocol-v1/IHandleUartMsg.h"
 
-
+#include "hal/IUart.h"
 namespace Simple {
 
 	class ProtocolStateMachine: public IProtocolParser {
 
 		public:
+			ProtocolStateMachine() : IProtocolParser(std::shared_ptr<Hal::IUart> (nullptr)) {}
 			ProtocolStateMachine(std::shared_ptr<Hal::IUart> uart, std::shared_ptr<Simple::IHandleUartMsg>  handleUartMsg):IProtocolParser(uart), 
 			m_handleMsg(std::move(handleUartMsg)) {}
-
 		private:
 			void StateTrack(unsigned char c) override {
 				switch (state) {

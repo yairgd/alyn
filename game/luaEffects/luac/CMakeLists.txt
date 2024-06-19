@@ -61,7 +61,13 @@ add_executable(luac
 target_link_libraries(luac
 	m
 	${linux_lib}
+	
 )
+target_include_directories (luac PRIVATE
+	.
+	)
+	
+
 
 target_compile_definitions(luac PRIVATE
 	-D USE_ORIGNAL_LUA_CODE

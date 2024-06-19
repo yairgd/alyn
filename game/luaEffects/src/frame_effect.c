@@ -20,6 +20,7 @@
 #include "frame.h"
 #include "led_matrix.h"
 #include "obj.h"
+#include "lua_memory.h"
 
 
 
@@ -28,8 +29,8 @@
 static int lua_frame_gc(lua_State *L) {
 	struct lua_user_data * user_data = *(struct lua_user_data**)luaL_checkudata(L, 1, LUA_FRAME);
 
-	free(user_data->data);
-	free(user_data);
+	lua_free(user_data->data);
+	lua_free(user_data);
 	return 0;
 }
 

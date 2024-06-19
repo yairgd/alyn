@@ -17,10 +17,10 @@
  */
 
 #include "obj.h"
-#include <stdlib.h>
+#include "lua_memory.h"
 
 struct lua_user_data * object_new(enum obj_type type) {
-	struct lua_user_data * obj = malloc(sizeof(struct lua_user_data));
+	struct lua_user_data * obj = lua_malloc(sizeof(struct lua_user_data));
 
 	switch (type) {
 		case obj_type_frame:
@@ -34,7 +34,7 @@ struct lua_user_data * object_new(enum obj_type type) {
 			break;
 		
 		case obj_type_rect:
-			obj->data = (void*)malloc(sizeof (struct rect));
+			obj->data = (void*)lua_malloc(sizeof (struct rect));
 			obj->type = obj_type_rect;
 			break;
 		

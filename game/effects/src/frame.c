@@ -21,7 +21,7 @@
 
 #include "frame.h"
 #include "effect.h"
-
+#include "common/lua_memory.h"
 
 static inline int _color_switch(int c1,int c2, int rate) {
 	static int cnt = 0;
@@ -199,7 +199,7 @@ void frame_init(struct frame  * f) {
 
 
 struct effect_base * frame_new() {
-	struct frame * f = malloc(sizeof(struct frame));
+	struct frame * f = (void*)lua_malloc( sizeof(struct frame));
 	if (f)
 		memset (f,0,sizeof(struct frame));
 

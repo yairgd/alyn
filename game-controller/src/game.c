@@ -57,6 +57,10 @@ void lua_free(void *ptr) {
 }
 
 
+char * lua_malloc(size_t n ) {
+	return sys_heap_alloc(&heap,  n);
+
+}
 
 
 /** 

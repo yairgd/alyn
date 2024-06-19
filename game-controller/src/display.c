@@ -162,8 +162,10 @@ void display_spi_dma_callback(const struct device *dev, void *user_data, uint32_
     k_sem_give(&spi_sem);
 }
 
+#include <stdlib.h>
 void display__init() 
 {
+	char * sss = malloc(1000);
 	gpio_pin_configure_dt(&line_a, GPIO_OUTPUT);
 	gpio_pin_configure_dt(&line_b, GPIO_OUTPUT);
 	gpio_pin_configure_dt(&line_c, GPIO_OUTPUT);
@@ -199,12 +201,6 @@ void display__init()
 
 }
 
-struct pixel {
-	uint8_t r;
-	uint8_t g;
-	uint8_t b;
-	uint8_t o;
-};
 
 
 void SET_PIXEL_BIT(char * buf, int n, int v) {

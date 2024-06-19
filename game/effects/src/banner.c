@@ -29,7 +29,7 @@
 #include <stdlib.h>
 
 #include "common/timing.h"
-
+#include "common/lua_memory.h"
 
 void banner_set_text(struct banner * banner,const char* fmt, ...){ 
 	va_list args;
@@ -180,7 +180,7 @@ void banner_init_with_text(struct banner * banner, struct rect r, const struct f
 }
 
 struct effect_base * banner_new() {
-	struct banner * b = malloc(sizeof(struct banner));
+	struct banner * b = lua_malloc(sizeof(struct banner));
 	if (b)
 		memset (b,0,sizeof(struct banner));
 

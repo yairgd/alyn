@@ -71,7 +71,6 @@ macro( lua_generate_c_files_for_lua_binary_target  ${lua_source_files} )
 	)
 endmacro()
 
-
 add_subdirectory (${CMAKE_CURRENT_SOURCE_DIR}/lua-5.4.6)
 add_subdirectory (${CMAKE_CURRENT_SOURCE_DIR}/src)
 

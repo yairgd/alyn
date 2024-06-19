@@ -41,6 +41,9 @@ set(LUA_SOURCES
 	#  src/lbitlib.c
 )
 
+if (NOT ${TARGET} STREQUAL "ZEPHYR_STM32")
+		set (mem ./memory.c)
+endif()
 
 # Lua librarary to integrate in the MCU code
 add_library(lua_module 
@@ -57,8 +60,9 @@ target_include_directories(lua_module PUBLIC
 target_compile_options(lua_module PRIVATE ${cpu_compile_flags})
 
 # Link any necessary dependencies
-#target_link_libraries(lua_module
-#	zephyr)
+target_link_libraries(lua_module
+	common_static
+	)
 
 
 #set (vv $<IF:$<STREQUAL:${CMAKE_CXX_COMPILER_ID},"GNU">,"-DLUA_USE_READLINE","">)
@@ -70,9 +74,7 @@ target_compile_definitions (lua_module PRIVATE
 
 
 
-if (NOT ${TARGET} STREQUAL "ZEPHYR_STM32")
-	set (mem ./memory.c)
-endif()
+
 
 # build the lua standalone module to run in the GUI as separate thread
 add_library(lua 
@@ -83,6 +85,7 @@ add_library(lua
 
 target_link_libraries(lua
 	${linux_lib}	
+	common_static
 )
 target_compile_options(lua PRIVATE ${cpu_compile_flags})
 
@@ -99,30 +102,6 @@ else()
 	)
 endif()
 
-macro (build_luac)	
-
-	if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-		set (msvc_readline "-D LUA_USE_READLINE")
-	endif()
-
-	add_executable(luac
-		${LUA_SOURCES}
-		#	${mem}
-		memory.c
-		src/luac.c
-	)
-
-
-	target_link_libraries(luac
-		m
-		${linux_lib}
-	)
-
-	target_compile_definitions(luac PRIVATE
-		-D USE_ORIGNAL_LUA_CODE
-	)
-
-endmacro()
 
 
 

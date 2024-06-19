@@ -80,8 +80,8 @@ struct  channel  *  led_matrix_get_channel(struct led_matrix * matrix, int id) {
 
 /**
  * Created  10/14/2023
- * @brief   merge channles 0,1,2 into channel 0
- * where non zero values from 0 are always at the top , chaneels 1 and 2 are merged by opacity level and then copied into channel 0
+ * @brief   merge channles 0,1,2 into channel 3
+ * where non zero values from 0 are always at the top , chaneels 1 and 2 are merged by opacity level and then copied into channel 3
  * @note  
  * @param   
  * @return  
@@ -91,25 +91,38 @@ void led_matrix_merge(struct led_matrix * matrix) {
 	{
 		for (int col = 0; col < matrix->width; ++col)
 		{	
-			int c0 = GET_BIT_COLOR(&(matrix->channels[0].canvas),col,row);
-			int c1 = GET_BIT_COLOR(&(matrix->channels[1].canvas),col,row);
-			int c2 = GET_BIT_COLOR(&(matrix->channels[2].canvas),col,row);
 
-			int r2 = (c2>>16)&0x0000ff ; int r1 = (c1>>16) & 0x0000ff;
-			int g2 = (c2>>8)&0x0000ff  ; int g1 = (c1>>8)  & 0x0000ff;
-			int b2 = (c2>>0)&0x0000ff  ; int b1 = (c1>>0)  & 0x0000ff;
+			struct pixel * c0  = GET_POINTER_TO_PIXEL(&(matrix->channels[0].canvas),col,row);
+			struct pixel * c1  = GET_POINTER_TO_PIXEL(&(matrix->channels[1].canvas),col,row);
+			struct pixel * c2  = GET_POINTER_TO_PIXEL(&(matrix->channels[2].canvas),col,row);
+
+		//	int c0 = GET_BIT_COLOR(&(matrix->channels[0].canvas),col,row);
+		//	int c1 = GET_BIT_COLOR(&(matrix->channels[1].canvas),col,row);
+		//	int c2 = GET_BIT_COLOR(&(matrix->channels[2].canvas),col,row);
+
+	//		int r2 = (c2>>16)&0x0000ff ; int r1 = (c1>>16) & 0x0000ff;
+		//	int g2 = (c2>>8)&0x0000ff  ; int g1 = (c1>>8)  & 0x0000ff;
+	//		int b2 = (c2>>0)&0x0000ff  ; int b1 = (c1>>0)  & 0x0000ff;
+
+
+			uint8_t r2 = c2->r;uint8_t r1 = c1->r;
+			uint8_t g2 = c2->g;uint8_t g1 = c1->g;
+			uint8_t b2 = c2->b;uint8_t b1 = c1->b;
+
+		
+
 			//r1 = r1 ==0 ? r2 : r2==0 ? r1 : r2 * matrix->channels[2].opacity + r1 * matrix->channels[1].opacity;
 			//g1 = g1 ==0 ? g2 : g2==0 ? g1 : g2 * matrix->channels[2].opacity + g1 * matrix->channels[1].opacity;
 			//b1 = b1 ==0 ? b2 : r2==0 ? b1 : b2 * matrix->channels[2].opacity + b1 * matrix->channels[1].opacity;
 
-			int c =  matrix->channels[1].opacity +  matrix->channels[2].opacity;
-			r1 =  (r2 * matrix->channels[2].opacity + r1 * matrix->channels[1].opacity)/c;
-			g1 =  (g2 * matrix->channels[2].opacity + g1 * matrix->channels[1].opacity)/c;
-			b1 =  (b2 * matrix->channels[2].opacity + b1 * matrix->channels[1].opacity)/c;
+			double o =  (matrix->channels[1].opacity +  matrix->channels[2].opacity + 0.0001);
+			r1 =  (r2 * matrix->channels[2].opacity + r1 * matrix->channels[1].opacity)/o;
+			g1 =  (g2 * matrix->channels[2].opacity + g1 * matrix->channels[1].opacity)/o;
+			b1 =  (b2 * matrix->channels[2].opacity + b1 * matrix->channels[1].opacity)/o;
 
-			c = r1 << 16 | g1 <<8 | b1 << 0;
+			uint32_t c = r1 << 16 | g1 <<8 | b1 << 0;
 
-			SET_BIT_COLOR(&(matrix->channels[3].canvas), col, row,  c0 ? c0 : c) ;
+			SET_BIT_COLOR(&(matrix->channels[3].canvas), col, row,  *(uint32_t*)c0  ? *(uint32_t*)c0 : c) ;
 		}
 	}	
 }

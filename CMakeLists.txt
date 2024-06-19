@@ -65,6 +65,7 @@ elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
 	add_definitions (
 		-DNO_SYSLOG
 	)
+
 endif()
 
 
@@ -72,10 +73,12 @@ endif()
 if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" )
 	set (TARGET "LINUX_PC")	
 	set (Python3_EXECUTABLE python)	
+	set (msvc_readline "-D LUA_USE_READLINE")	
 elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
 	set (UART_FILE uart_win.cpp)
 	set (TARGET "WINDOWS")	
 	set (Python3_EXECUTABLE "python.exe")
+	set (msvc_readline "-D LUA_USE_READLINE")	
 	#set (Python3_EXECUTABLE "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\Python39_64\\python.exe")
 endif()
 

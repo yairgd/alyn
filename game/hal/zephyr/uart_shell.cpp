@@ -19,6 +19,7 @@
 #include <zephyr/shell/shell_uart.h>
 
 namespace Hal {
+	Hal::UartShell uart(0);
 	int UartShell::Open() {
 		return 0;	
 	}
@@ -52,8 +53,10 @@ namespace Hal {
 	}
 
 
-	std::shared_ptr<IUart> GetUartShell( const struct shell * sh) {
-		return std::shared_ptr<UartShell> (new UartShell (sh));
+	std::shared_ptr<Hal::IUart> GetUartShell( const struct shell * sh) {
+//		return std::shared_ptr<UartShell> (new UartShell (sh));
+		uart = UartShell(sh);
+		return std::shared_ptr<Hal::IUart>(&uart);
 	}
 
 };

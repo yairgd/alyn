@@ -46,6 +46,9 @@ int _open() {
 }
 
 
+int _link() {
+	return 0;
+}
 int _unlink() {
 	return 0;
 }

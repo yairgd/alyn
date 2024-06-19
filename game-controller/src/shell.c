@@ -96,6 +96,7 @@ static void bypass_cb(const struct shell *sh, uint8_t *data, size_t len)
 		}
 	}
 
+	tail = data[0];	
 	if (escape) {
 		shell_print(sh, "Exit bypass");
 		set_bypass(sh, NULL);

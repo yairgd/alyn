@@ -4,11 +4,11 @@
 # decide which lua files to embbed in the code
 set(lua_source_files
 	${CMAKE_CURRENT_SOURCE_DIR}/luasrc/bouncing_balls.lua
-	#${CMAKE_CURRENT_SOURCE_DIR}/luasrc/simple_fireworks.lua
-	#${CMAKE_CURRENT_SOURCE_DIR}/luasrc/scrolling_color.lua
+	${CMAKE_CURRENT_SOURCE_DIR}/luasrc/simple_fireworks.lua
+	${CMAKE_CURRENT_SOURCE_DIR}/luasrc/scrolling_color.lua
 	${CMAKE_CURRENT_SOURCE_DIR}/luasrc/demo1.lua
 	${CMAKE_CURRENT_SOURCE_DIR}/luasrc/loop.lua
-	#${CMAKE_CURRENT_SOURCE_DIR}/luasrc/demo2.lua
+	${CMAKE_CURRENT_SOURCE_DIR}/luasrc/demo2.lua
 	${CMAKE_CURRENT_SOURCE_DIR}/luasrc/game_config.lua
 )
 

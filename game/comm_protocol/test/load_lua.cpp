@@ -47,6 +47,7 @@ static inline void  usleep(unsigned int x) {
 
 #define UART_DEVICE "/dev/ttyACM0"
 #define BYPASS "bypass\n\r"
+static const uint8_t  QUIT_BYPASS [2]= {0x18 , 0x11};
 int gg=0;
 
 char * read_file(char *filename, size_t & size)
@@ -99,12 +100,18 @@ void run_the_application(int argc, char *argv[]) {
 	});
 
 	threadPool->beginTask([uart, &m_exit, b,size,gameApi]()->void{
+		// bypass the shell and move to direct uart comnication
 		uart->Send(( char *)BYPASS, sizeof (BYPASS) );
 		usleep(100000);
 
+		// load and run the game
 		gameApi->loadBuffer(b, size);
 		gameApi->luaStartGame(0);
 		
+		// exit from bypass mode
+		uart->Send( (char*)QUIT_BYPASS, sizeof (QUIT_BYPASS) );
+		usleep(100000);
+
 		m_exit = true;		
 		return;
 

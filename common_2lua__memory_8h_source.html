@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.11.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: game-controller/src/display.h Source File</title>
+<title>My Project: game/common/lua_memory.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -83,23 +83,23 @@ $(function(){ initResizable(false); });
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_78b06b4c4040815b263694451d52fdcb.html">game-controller</a></li><li class="navelem"><a class="el" href="dir_f9c3b06caee2661a3a39040e01227098.html">src</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_37c6514aeece95293041e34c0f2e0784.html">game</a></li><li class="navelem"><a class="el" href="dir_c3b788a53d176f7410aa678c4edb5fd0.html">common</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
-  <div class="headertitle"><div class="title">display.h</div></div>
+  <div class="headertitle"><div class="title">lua_memory.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="display_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<a href="common_2lua__memory_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * =====================================================================================</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> *       Filename:  display.h</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> *       Filename:  lua_memory.h</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> *    Description: this file will handle the driver for the display driver </span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> *    Description:  </span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> *</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> *        Version:  1.0</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *        Created:  05/04/24 07:24:58</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *        Created:  06/18/24 16:32:26</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> *       Revision:  none</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> *       Compiler:  gcc</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> *</span></div>
@@ -109,12 +109,17 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> * =====================================================================================</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"> */</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#ifndef screen_driver_h</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#define screen_driver_h </span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keywordtype">void</span> <a class="code hl_function" href="display_8h.html#a7f25416075b4a1e66f1f26937438311b">display__init</a>();</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#ifndef LUA_MEMORY</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#define LUA_MEMORY </span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &quot;stdlib.h&quot;</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="adisplay_8h_html_a7f25416075b4a1e66f1f26937438311b"><div class="ttname"><a href="display_8h.html#a7f25416075b4a1e66f1f26937438311b">display__init</a></div><div class="ttdeci">void display__init()</div><div class="ttdef"><b>Definition</b> display.c:166</div></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keywordtype">char</span> * <a class="code hl_function" href="common_2lua__memory_8h.html#ab56f9945c6b805dfca5425577879a343">lua_realloc</a>(<span class="keywordtype">char</span> *ptr, <span class="keywordtype">size_t</span> n );</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keywordtype">void</span> <a class="code hl_function" href="common_2lua__memory_8h.html#a53b16b8aff7ac20aac640d89dfee9b98">lua_free</a>(<span class="keywordtype">void</span> *ptr);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keywordtype">void</span> * <a class="code hl_function" href="common_2lua__memory_8h.html#a31f0c1f911692f1185feab9430c71116">lua_malloc</a>(<span class="keywordtype">size_t</span> n );</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="acommon_2lua__memory_8h_html_a31f0c1f911692f1185feab9430c71116"><div class="ttname"><a href="common_2lua__memory_8h.html#a31f0c1f911692f1185feab9430c71116">lua_malloc</a></div><div class="ttdeci">void * lua_malloc(size_t n)</div><div class="ttdoc">not used by LUA api, used by the application</div><div class="ttdef"><b>Definition</b> game.c:60</div></div>
+<div class="ttc" id="acommon_2lua__memory_8h_html_a53b16b8aff7ac20aac640d89dfee9b98"><div class="ttname"><a href="common_2lua__memory_8h.html#a53b16b8aff7ac20aac640d89dfee9b98">lua_free</a></div><div class="ttdeci">void lua_free(void *ptr)</div><div class="ttdoc">This function serves as a wrapper for free within the Lua API. This replacement is essential to facil...</div><div class="ttdef"><b>Definition</b> game.c:54</div></div>
+<div class="ttc" id="acommon_2lua__memory_8h_html_ab56f9945c6b805dfca5425577879a343"><div class="ttname"><a href="common_2lua__memory_8h.html#ab56f9945c6b805dfca5425577879a343">lua_realloc</a></div><div class="ttdeci">char * lua_realloc(char *ptr, size_t n)</div><div class="ttdoc">This function serves as a wrapper for realloc within the Lua API. This replacement is essential to fa...</div><div class="ttdef"><b>Definition</b> game.c:50</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

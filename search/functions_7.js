@@ -32,7 +32,7 @@ var searchData=
   ['get_5fkeys_29',['get_keys',['../system__model_8c.html#a8be3b9ad1aa93cee119e6538a688224a',1,'get_keys():&#160;system_model.c'],['../system__model_8h.html#a8be3b9ad1aa93cee119e6538a688224a',1,'get_keys():&#160;system_model.c']]],
   ['get_5flong_5fkeys_30',['get_long_keys',['../system__model_8c.html#ab8af766d63b0208cfd68d45865d3e4d7',1,'get_long_keys():&#160;system_model.c'],['../system__model_8h.html#ab8af766d63b0208cfd68d45865d3e4d7',1,'get_long_keys():&#160;system_model.c']]],
   ['get_5fonecapture_31',['get_onecapture',['../lstrlib_8c.html#afa9ea8e071a60a2c554c79f7def3bb39',1,'lstrlib.c']]],
-  ['get_5fpointer_5fto_5fpixel_32',['GET_POINTER_TO_PIXEL',['../canvas_8h.html#a64faa38bdf04fc951bc3b1e971223bf5',1,'canvas.h']]],
+  ['get_5fpointer_5fto_5fpixel_32',['GET_POINTER_TO_PIXEL',['../canvas_8h.html#aa7b4313ea19eefd2302b98b6322332f4',1,'canvas.h']]],
   ['get_5fpointer_5fto_5fpixel1_33',['GET_POINTER_TO_PIXEL1',['../ledmatrix_8cpp.html#a7bef5dbdf057e4e857190d990d92216f',1,'ledmatrix.cpp']]],
   ['get_5fprompt_34',['get_prompt',['../lua_8c.html#a00e95c21ddceedb9bbff9717f82f812c',1,'lua.c']]],
   ['get_5fr_35',['get_r',['../system__model_8c.html#aa13e27654050471ffd6e050567d231bc',1,'get_r(int id):&#160;system_model.c'],['../system__model_8h.html#aa13e27654050471ffd6e050567d231bc',1,'get_r(int id):&#160;system_model.c']]],
@@ -77,6 +77,7 @@ var searchData=
   ['gmatch_74',['gmatch',['../lstrlib_8c.html#ab55a72bb412d6186c82fd75de44cd031',1,'lstrlib.c']]],
   ['gmatch_5faux_75',['gmatch_aux',['../lstrlib_8c.html#ab7cb0ba6191e1aa9455f6522d3483a02',1,'lstrlib.c']]],
   ['gotostat_76',['gotostat',['../lparser_8c.html#a55bae7d03576b713ff5460644f102dfd',1,'lparser.c']]],
-  ['growstrtab_77',['growstrtab',['../lstring_8c.html#af8b89b01dc2db9f0d3024067ffdb931a',1,'lstring.c']]],
-  ['gxf_78',['gxf',['../ldebug_8c.html#acd6b6a45ab5759bf6760aed8bee9b09c',1,'ldebug.c']]]
+  ['gpio_5finit_77',['gpio_init',['../gpio_8c.html#afdbe206b3c49f019757ab09b3cf52b9c',1,'gpio_init(void):&#160;gpio.c'],['../gpio_8h.html#afdbe206b3c49f019757ab09b3cf52b9c',1,'gpio_init(void):&#160;gpio.c']]],
+  ['growstrtab_78',['growstrtab',['../lstring_8c.html#af8b89b01dc2db9f0d3024067ffdb931a',1,'lstring.c']]],
+  ['gxf_79',['gxf',['../ldebug_8c.html#acd6b6a45ab5759bf6760aed8bee9b09c',1,'ldebug.c']]]
 ];

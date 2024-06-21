@@ -122,6 +122,8 @@ Functions</h2></td></tr>
 <tr class="separator:ab56f9945c6b805dfca5425577879a343"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53b16b8aff7ac20aac640d89dfee9b98" id="r_a53b16b8aff7ac20aac640d89dfee9b98"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a53b16b8aff7ac20aac640d89dfee9b98">lua_free</a> (void *ptr)</td></tr>
 <tr class="separator:a53b16b8aff7ac20aac640d89dfee9b98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6690e9b0236d4467b7dead84a729e96b" id="r_a6690e9b0236d4467b7dead84a729e96b"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6690e9b0236d4467b7dead84a729e96b">lua_malloc</a> (size_t n)</td></tr>
+<tr class="separator:a6690e9b0236d4467b7dead84a729e96b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c168a29e21d0f0f8f079b151062a868" id="r_a5c168a29e21d0f0f8f079b151062a868"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5c168a29e21d0f0f8f079b151062a868">push_lua_code_to_memory</a> (unsigned char *code, int len, int rst)</td></tr>
 <tr class="memdesc:a5c168a29e21d0f0f8f079b151062a868"><td class="mdescLeft">&#160;</td><td class="mdescRight">load lua src code to memory  <br /></td></tr>
 <tr class="separator:a5c168a29e21d0f0f8f079b151062a868"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -413,6 +415,23 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a6690e9b0236d4467b7dead84a729e96b" name="a6690e9b0236d4467b7dead84a729e96b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6690e9b0236d4467b7dead84a729e96b">&#9670;&#160;</a></span>lua_malloc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char * lua_malloc </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>n</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ab56f9945c6b805dfca5425577879a343" name="ab56f9945c6b805dfca5425577879a343"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab56f9945c6b805dfca5425577879a343">&#9670;&#160;</a></span>lua_realloc()</h2>
 
@@ -525,9 +544,9 @@ Variables</h2></td></tr>
 <div class="line">    {.<a class="code hl_variable" href="structluasrc.html#a9b089afbbca17d31bd5973dfd6f9bb7e">name</a> = <span class="stringliteral">&quot;default c game&quot;</span>,.func = <a class="code hl_function" href="#a422acf8b8f68e19c7e8e554bfeeeb3d0">game_default_c</a>},</div>
 <div class="line">    {0},</div>
 <div class="line">}</div>
-<div class="ttc" id="agame_8c_html_a422acf8b8f68e19c7e8e554bfeeeb3d0"><div class="ttname"><a href="#a422acf8b8f68e19c7e8e554bfeeeb3d0">game_default_c</a></div><div class="ttdeci">static void game_default_c(void *data)</div><div class="ttdef"><b>Definition</b> game.c:99</div></div>
-<div class="ttc" id="agame_8c_html_a753def0af5c3312f889e590ea3718b48"><div class="ttname"><a href="#a753def0af5c3312f889e590ea3718b48">lua_memory_game</a></div><div class="ttdeci">struct luasrc lua_memory_game</div><div class="ttdef"><b>Definition</b> game.c:67</div></div>
-<div class="ttc" id="agame_8c_html_a7a59149725fef609b7426e2a0ac490cd"><div class="ttname"><a href="#a7a59149725fef609b7426e2a0ac490cd">game_lua_generic</a></div><div class="ttdeci">static void game_lua_generic(void *data)</div><div class="ttdef"><b>Definition</b> game.c:110</div></div>
+<div class="ttc" id="agame_8c_html_a422acf8b8f68e19c7e8e554bfeeeb3d0"><div class="ttname"><a href="#a422acf8b8f68e19c7e8e554bfeeeb3d0">game_default_c</a></div><div class="ttdeci">static void game_default_c(void *data)</div><div class="ttdef"><b>Definition</b> game.c:103</div></div>
+<div class="ttc" id="agame_8c_html_a753def0af5c3312f889e590ea3718b48"><div class="ttname"><a href="#a753def0af5c3312f889e590ea3718b48">lua_memory_game</a></div><div class="ttdeci">struct luasrc lua_memory_game</div><div class="ttdef"><b>Definition</b> game.c:71</div></div>
+<div class="ttc" id="agame_8c_html_a7a59149725fef609b7426e2a0ac490cd"><div class="ttname"><a href="#a7a59149725fef609b7426e2a0ac490cd">game_lua_generic</a></div><div class="ttdeci">static void game_lua_generic(void *data)</div><div class="ttdef"><b>Definition</b> game.c:114</div></div>
 <div class="ttc" id="astructluasrc_html_a9b089afbbca17d31bd5973dfd6f9bb7e"><div class="ttname"><a href="structluasrc.html#a9b089afbbca17d31bd5973dfd6f9bb7e">luasrc::name</a></div><div class="ttdeci">char * name</div><div class="ttdef"><b>Definition</b> luasrc.h:26</div></div>
 </div><!-- fragment --><p>initialize game list </p>
 
@@ -619,7 +638,7 @@ Variables</h2></td></tr>
 <b>Initial value:</b><div class="fragment"><div class="line">= {</div>
 <div class="line">    .code = <a class="code hl_variable" href="#ad67ed0150a58e0d762c00a067b6507a7">memory_code_buffer</a>,</div>
 <div class="line">}</div>
-<div class="ttc" id="agame_8c_html_ad67ed0150a58e0d762c00a067b6507a7"><div class="ttname"><a href="#ad67ed0150a58e0d762c00a067b6507a7">memory_code_buffer</a></div><div class="ttdeci">static unsigned char memory_code_buffer[8192]</div><div class="ttdef"><b>Definition</b> game.c:66</div></div>
+<div class="ttc" id="agame_8c_html_ad67ed0150a58e0d762c00a067b6507a7"><div class="ttname"><a href="#ad67ed0150a58e0d762c00a067b6507a7">memory_code_buffer</a></div><div class="ttdeci">static unsigned char memory_code_buffer[8192]</div><div class="ttdef"><b>Definition</b> game.c:70</div></div>
 </div><!-- fragment -->
 </div>
 </div>

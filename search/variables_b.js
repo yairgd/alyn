@@ -4,7 +4,7 @@ var searchData=
   ['l_1',['l',['../structRand64.html#a9622cd53cd7abaea7c9a73fd2eb807a4',1,'Rand64::l'],['../unionClosure.html#a8c338ec7dc76078cbee5887857de713c',1,'Closure::l'],['../structLX.html#ab3435adb3d01a4aa9b6096f818d86b4d',1,'LX::l'],['../structLG.html#a4d39b7fb87bf714c2d8f8850a23c61f5',1,'LG::l'],['../structCallInfo.html#ac826d97d2ce98eec37c04e71078d6115',1,'CallInfo::l'],['../namespacelua__fw__to__c.html#a429458fb3952a6ddfd1f78ad371bfcdb',1,'lua_fw_to_c.l']]],
   ['l_5fg_2',['l_G',['../structlua__State.html#a63c9e91949432bcef6251366fbac6c9e',1,'lua_State']]],
   ['l_5fregistry_3',['l_registry',['../structglobal__State.html#a3e4eaa91bd14094bf3217073aa40b4f7',1,'global_State']]],
-  ['label_4',['label',['../structDyndata.html#a72bb32d4e97bf9af6005d8459d44d1ef',1,'Dyndata']]],
+  ['label_4',['label',['../structbutton.html#af6df4b4f104419d95b6f7022229dc5ab',1,'button::label'],['../structDyndata.html#a72bb32d4e97bf9af6005d8459d44d1ef',1,'Dyndata::label']]],
   ['lastatomic_5',['lastatomic',['../structglobal__State.html#a6a7ec27b8c8e2d89bf54fdae5e37c25a',1,'global_State']]],
   ['lastfree_6',['lastfree',['../structTable.html#a3c072f13eb5ce9103526b4aa83c284be',1,'Table']]],
   ['lastline_7',['lastline',['../structLexState.html#aaadb237d4fc6b81d2242e666de885bf7',1,'LexState']]],

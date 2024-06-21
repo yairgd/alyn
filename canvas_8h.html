@@ -106,6 +106,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcanvas.html">canvas</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpixel.html">pixel</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
@@ -130,8 +132,8 @@ Functions</h2></td></tr>
 <tr class="separator:a1f7053b95c24dc8bd067f3ea80d606e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f8ad13460ba3be93e86414b86c77e45" id="r_a6f8ad13460ba3be93e86414b86c77e45"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6f8ad13460ba3be93e86414b86c77e45">GET_BIT_COLOR</a> (struct <a class="el" href="structcanvas.html">canvas</a> *<a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>, int w, int h)</td></tr>
 <tr class="separator:a6f8ad13460ba3be93e86414b86c77e45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64faa38bdf04fc951bc3b1e971223bf5" id="r_a64faa38bdf04fc951bc3b1e971223bf5"><td class="memItemLeft" align="right" valign="top">static uint32_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a64faa38bdf04fc951bc3b1e971223bf5">GET_POINTER_TO_PIXEL</a> (struct <a class="el" href="structcanvas.html">canvas</a> *<a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>, int w, int h)</td></tr>
-<tr class="separator:a64faa38bdf04fc951bc3b1e971223bf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7b4313ea19eefd2302b98b6322332f4" id="r_aa7b4313ea19eefd2302b98b6322332f4"><td class="memItemLeft" align="right" valign="top">static struct <a class="el" href="structpixel.html">pixel</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa7b4313ea19eefd2302b98b6322332f4">GET_POINTER_TO_PIXEL</a> (struct <a class="el" href="structcanvas.html">canvas</a> *<a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>, int w, int h)</td></tr>
+<tr class="separator:aa7b4313ea19eefd2302b98b6322332f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93360a4d917ddf3e42f764bf1730fe7e" id="r_a93360a4d917ddf3e42f764bf1730fe7e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a93360a4d917ddf3e42f764bf1730fe7e">SET_BIT_COLOR</a> (struct <a class="el" href="structcanvas.html">canvas</a> *<a class="el" href="structcanvas.html">canvas</a>, int w, int h, int <a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>)</td></tr>
 <tr class="separator:a93360a4d917ddf3e42f764bf1730fe7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9bad6282093b0dc69e926c06925cd3e0" id="r_a9bad6282093b0dc69e926c06925cd3e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9bad6282093b0dc69e926c06925cd3e0">canvas_init</a> (struct <a class="el" href="structcanvas.html">canvas</a> *canvs, int width, int height)</td></tr>
@@ -852,8 +854,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a64faa38bdf04fc951bc3b1e971223bf5" name="a64faa38bdf04fc951bc3b1e971223bf5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a64faa38bdf04fc951bc3b1e971223bf5">&#9670;&#160;</a></span>GET_POINTER_TO_PIXEL()</h2>
+<a id="aa7b4313ea19eefd2302b98b6322332f4" name="aa7b4313ea19eefd2302b98b6322332f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7b4313ea19eefd2302b98b6322332f4">&#9670;&#160;</a></span>GET_POINTER_TO_PIXEL()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -862,7 +864,7 @@ Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static uint32_t * GET_POINTER_TO_PIXEL </td>
+          <td class="memname">static struct <a class="el" href="structpixel.html">pixel</a> * GET_POINTER_TO_PIXEL </td>
           <td>(</td>
           <td class="paramtype">struct <a class="el" href="structcanvas.html">canvas</a> *</td>          <td class="paramname"><span class="paramname"><em>c</em></span>, </td>
         </tr>

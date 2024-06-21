@@ -24,6 +24,7 @@ var searchData=
   ['boolt_21',['boolT',['../lcode_8c.html#a34c4676c9334bf58d12b1d0223897e31',1,'lcode.c']]],
   ['boxgc_22',['boxgc',['../lauxlib_8c.html#a1957766835de815798e07848d3d14810',1,'lauxlib.c']]],
   ['breakstat_23',['breakstat',['../lparser_8c.html#ae0650c2b4b5d311a24bd0ddb7b267db3',1,'lparser.c']]],
-  ['bypass_5fcb_24',['bypass_cb',['../shell_8c.html#afde2f4a25338f491967a9e3b57720556',1,'shell.c']]],
-  ['byteoffset_25',['byteoffset',['../lutf8lib_8c.html#a805a182cc5dde6d73e07922e8454eaf7',1,'lutf8lib.c']]]
+  ['button_5fpressed_24',['button_pressed',['../gpio_8c.html#aa7d04758564e82bc42bbee37dea4d553',1,'gpio.c']]],
+  ['bypass_5fcb_25',['bypass_cb',['../shell_8c.html#afde2f4a25338f491967a9e3b57720556',1,'shell.c']]],
+  ['byteoffset_26',['byteoffset',['../lutf8lib_8c.html#a805a182cc5dde6d73e07922e8454eaf7',1,'lutf8lib.c']]]
 ];

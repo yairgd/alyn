@@ -44,6 +44,8 @@ enum RESERVED {
 
 /* number of reserved words */
 #define NUM_RESERVED	(cast_int(TK_WHILE-FIRST_RESERVED + 1))
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 
 typedef union {
@@ -89,3 +91,4 @@ LUAI_FUNC const char *luaX_token2str (LexState *ls, int token);
 
 
 #endif
+/** @} */

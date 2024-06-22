@@ -487,6 +487,8 @@ static lua_Number I2d (Rand64 x) {
 ** higher 32 bits go after those (FIGS - 32) bits: shiftHI = 2^(FIGS - 32)
 */
 #define shiftHI		((lua_Number)(UONE << (FIGS - 33)) * l_mathop(2.0))
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 
 static lua_Number I2d (Rand64 x) {
@@ -762,3 +764,4 @@ LUAMOD_API int luaopen_math (lua_State *L) {
   return 1;
 }
 
+/** @} */

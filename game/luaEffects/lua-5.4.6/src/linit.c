@@ -33,6 +33,8 @@
 
 #include "lualib.h"
 #include "lauxlib.h"
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 
 /*
@@ -67,3 +69,4 @@ LUALIB_API void luaL_openlibs (lua_State *L) {
   }
 }
 
+/** @} */

@@ -795,6 +795,8 @@ typedef struct Table {
 
 /* size of buffer for 'luaO_utf8esc' function */
 #define UTF8BUFFSZ	8
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 LUAI_FUNC int luaO_utf8esc (char *buff, unsigned long x);
 LUAI_FUNC int luaO_ceillog2 (unsigned int x);
@@ -813,3 +815,4 @@ LUAI_FUNC void luaO_chunkid (char *out, const char *source, size_t srclen);
 
 #endif
 
+/** @} */

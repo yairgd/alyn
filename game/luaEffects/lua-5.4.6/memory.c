@@ -17,6 +17,8 @@
  */
 #include <stdlib.h>
 #include "lua_memory.h"
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 /**
  * Created  02/15/2024
@@ -51,3 +53,4 @@ void lua_free(void *ptr) {
 void * lua_malloc(size_t n ) {
 	return malloc(n);
 }
+/** @} */

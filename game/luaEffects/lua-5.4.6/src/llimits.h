@@ -374,7 +374,10 @@ typedef l_uint32 Instruction;
 #define condchangemem(L,pre,pos)	((void)0)
 #else
 #define condchangemem(L,pre,pos)  \
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 	{ if (gcrunning(G(L))) { pre; luaC_fullgc(L, 0); pos; } }
 #endif
 
 #endif
+/** @} */

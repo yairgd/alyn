@@ -94,8 +94,11 @@ LUAI_DDEC(const lu_byte luai_ctype_[UCHAR_MAX + 2];)
 #define lisxdigit(c)	(isxdigit(c))
 
 #define ltolower(c)	(tolower(c))
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 #endif			/* } */
 
 #endif
 
+/** @} */

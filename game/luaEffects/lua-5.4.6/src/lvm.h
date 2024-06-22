@@ -114,6 +114,8 @@ typedef enum {
 ** Shift right is the same as shift left with a negative 'y'
 */
 #define luaV_shiftr(x,y)	luaV_shiftl(x,intop(-, 0, y))
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 
 
@@ -139,3 +141,4 @@ LUAI_FUNC lua_Integer luaV_shiftl (lua_Integer x, lua_Integer y);
 LUAI_FUNC void luaV_objlen (lua_State *L, StkId ra, const TValue *rb);
 
 #endif
+/** @} */

@@ -25,6 +25,8 @@
 #define LUAC_VERSION	(MYINT(LUA_VERSION_MAJOR)*16+MYINT(LUA_VERSION_MINOR))
 
 #define LUAC_FORMAT	0	/* this is the official format */
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 /* load one chunk; from lundump.c */
 LUAI_FUNC LClosure* luaU_undump (lua_State* L, ZIO* Z, const char* name);
@@ -34,3 +36,4 @@ LUAI_FUNC int luaU_dump (lua_State* L, const Proto* f, lua_Writer w,
                          void* data, int strip);
 
 #endif
+/** @} */

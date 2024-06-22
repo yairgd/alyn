@@ -297,6 +297,8 @@ static time_t l_checktime (lua_State *L, int arg) {
 
 /* maximum size for an individual 'strftime' item */
 #define SIZETIMEFMT	250
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 
 static int os_date (lua_State *L) {
@@ -426,3 +428,4 @@ LUAMOD_API int luaopen_os (lua_State *L) {
   return 1;
 }
 
+/** @} */

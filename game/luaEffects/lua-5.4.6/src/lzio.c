@@ -18,6 +18,8 @@
 #include "lmem.h"
 #include "lstate.h"
 #include "lzio.h"
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 
 int luaZ_fill (ZIO *z) {
@@ -66,3 +68,4 @@ size_t luaZ_read (ZIO *z, void *b, size_t n) {
   return 0;
 }
 
+/** @} */

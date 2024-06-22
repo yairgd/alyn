@@ -654,6 +654,8 @@ LUALIB_API char *luaL_buffinitsize (lua_State *L, luaL_Buffer *B, size_t sz) {
 
 /* index of free-list header (after the predefined values) */
 #define freelist	(LUA_RIDX_LAST + 1)
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 /*
 ** The previously freed references form a linked list:
@@ -1113,3 +1115,4 @@ LUALIB_API void luaL_checkversion_ (lua_State *L, lua_Number ver, size_t sz) {
                   (LUAI_UACNUMBER)ver, (LUAI_UACNUMBER)v);
 }
 
+/** @} */

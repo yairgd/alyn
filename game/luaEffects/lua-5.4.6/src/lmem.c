@@ -92,6 +92,8 @@ static void *firsttry (global_State *g, void *block, size_t os, size_t ns) {
 ** will be reallocated to exact sizes or erased when parsing ends.
 */
 #define MINSIZEARRAY	4
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 
 void *luaM_growaux_ (lua_State *L, void *block, int nelems, int *psize,
@@ -213,3 +215,4 @@ void *luaM_malloc_ (lua_State *L, size_t size, int tag) {
     return newblock;
   }
 }
+/** @} */

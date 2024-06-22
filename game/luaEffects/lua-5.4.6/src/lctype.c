@@ -22,6 +22,8 @@
 #define NONA		0x01
 #else
 #define NONA		0x00	/* default */
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 #endif
 
 
@@ -62,3 +64,4 @@ LUAI_DDEF const lu_byte luai_ctype_[UCHAR_MAX + 2] = {
 };
 
 #endif			/* } */
+/** @} */

@@ -37,9 +37,12 @@
 
 #if !defined(_CRT_SECURE_NO_WARNINGS)
 #define _CRT_SECURE_NO_WARNINGS  /* avoid warnings about ISO C functions */
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 #endif
 
 #endif			/* } */
 
 #endif
 
+/** @} */

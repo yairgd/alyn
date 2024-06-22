@@ -61,6 +61,8 @@ static void dumpByte (DumpState *D, int y) {
 ** rounds up the division.)
 */
 #define DIBS    ((sizeof(size_t) * CHAR_BIT + 6) / 7)
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 static void dumpSize (DumpState *D, size_t x) {
   lu_byte buff[DIBS];
@@ -228,3 +230,4 @@ int luaU_dump(lua_State *L, const Proto *f, lua_Writer w, void *data,
   return D.status;
 }
 
+/** @} */

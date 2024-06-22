@@ -288,6 +288,8 @@ static unsigned int setlimittosize (Table *t) {
 
 
 #define limitasasize(t)	check_exp(isrealasize(t), t->alimit)
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 
 
@@ -978,3 +980,4 @@ Node *luaH_mainposition (const Table *t, const TValue *key) {
 }
 
 #endif
+/** @} */

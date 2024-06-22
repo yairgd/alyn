@@ -8,6 +8,8 @@
 #define lopnames_h
 
 #include <stddef.h>
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 
 /* ORDER OP */
@@ -101,3 +103,4 @@ static const char *const opnames[] = {
 
 #endif
 
+/** @} */

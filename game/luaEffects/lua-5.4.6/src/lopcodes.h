@@ -401,5 +401,8 @@ LUAI_DDEC(const lu_byte luaP_opmodes[NUM_OPCODES];)
 
 /* number of list items to accumulate before a SETLIST instruction */
 #define LFIELDS_PER_FLUSH	50
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 #endif
+/** @} */

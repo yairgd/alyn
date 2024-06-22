@@ -11,6 +11,8 @@
 
 
 #include "lopcodes.h"
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 
 /* ORDER OP */
@@ -102,3 +104,4 @@ LUAI_DDEF const lu_byte luaP_opmodes[NUM_OPCODES] = {
  ,opmode(0, 0, 0, 0, 0, iAx)		/* OP_EXTRAARG */
 };
 
+/** @} */

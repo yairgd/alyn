@@ -118,6 +118,8 @@ static int luaB_yield (lua_State *L) {
 #define COS_DEAD	1
 #define COS_YIELD	2
 #define COS_NORM	3
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 
 static const char *const statname[] =
@@ -208,3 +210,4 @@ LUAMOD_API int luaopen_coroutine (lua_State *L) {
   return 1;
 }
 
+/** @} */

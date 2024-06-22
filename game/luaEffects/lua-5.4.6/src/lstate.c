@@ -65,6 +65,8 @@ typedef struct LG {
 ** current time.
 */
 #define addbuff(b,p,e) \
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
   { size_t t = cast_sizet(e); \
     memcpy(b + p, &t, sizeof(t)); p += sizeof(t); }
 
@@ -443,3 +445,4 @@ void luaE_warnerror (lua_State *L, const char *where) {
   luaE_warning(L, ")", 0);
 }
 
+/** @} */

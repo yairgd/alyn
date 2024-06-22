@@ -481,6 +481,8 @@ static const char *get_prompt (lua_State *L, int firstline) {
 /* mark in error messages for incomplete statements */
 #define EOFMARK		"<eof>"
 #define marklen		(sizeof(EOFMARK)/sizeof(char) - 1)
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 
 /*
@@ -693,3 +695,4 @@ int main (int argc, char **argv) {
   return (result && status == LUA_OK) ? EXIT_SUCCESS : EXIT_FAILURE;
 }
 
+/** @} */

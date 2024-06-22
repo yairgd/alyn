@@ -452,6 +452,8 @@ LUA_API void (lua_closeslot) (lua_State *L, int idx);
 #define LUA_MASKRET	(1 << LUA_HOOKRET)
 #define LUA_MASKLINE	(1 << LUA_HOOKLINE)
 #define LUA_MASKCOUNT	(1 << LUA_HOOKCOUNT)
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 
 LUA_API int (lua_getstack) (lua_State *L, int level, lua_Debug *ar);
@@ -521,3 +523,4 @@ struct lua_Debug {
 
 
 #endif
+/** @} */

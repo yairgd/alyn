@@ -288,6 +288,8 @@ static void fchecksize (LoadState *S, size_t size, const char *tname) {
 
 
 #define checksize(S,t)	fchecksize(S,sizeof(t),#t)
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 static void checkHeader (LoadState *S) {
   /* skip 1st char (already read and checked) */
@@ -333,3 +335,4 @@ LClosure *luaU_undump(lua_State *L, ZIO *Z, const char *name) {
   return cl;
 }
 
+/** @} */

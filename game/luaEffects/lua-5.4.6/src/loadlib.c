@@ -375,6 +375,8 @@ static int gctm (lua_State *L) {
 /* error codes for 'lookforfunc' */
 #define ERRLIB		1
 #define ERRFUNC		2
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 /*
 ** Look for a C function named 'sym' in a dynamically loaded library
@@ -765,3 +767,4 @@ LUAMOD_API int luaopen_package (lua_State *L) {
   return 1;  /* return 'package' table */
 }
 
+/** @} */

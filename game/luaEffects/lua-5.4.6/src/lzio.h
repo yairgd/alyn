@@ -42,6 +42,8 @@ typedef struct Mbuffer {
 	(buff)->buffsize = size)
 
 #define luaZ_freebuffer(L, buff)	luaZ_resizebuffer(L, buff, 0)
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 
 LUAI_FUNC void luaZ_init (lua_State *L, ZIO *z, lua_Reader reader,
@@ -64,3 +66,4 @@ struct Zio {
 LUAI_FUNC int luaZ_fill (ZIO *z);
 
 #endif
+/** @} */

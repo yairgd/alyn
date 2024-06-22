@@ -39,6 +39,8 @@
 ** equality for short strings, which are always internalized
 */
 #define eqshrstr(a,b)	check_exp((a)->tt == LUA_VSHRSTR, (a) == (b))
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 
 LUAI_FUNC unsigned int luaS_hash (const char *str, size_t l, unsigned int seed);
@@ -55,3 +57,4 @@ LUAI_FUNC TString *luaS_createlngstrobj (lua_State *L, size_t l);
 
 
 #endif
+/** @} */

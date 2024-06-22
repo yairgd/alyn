@@ -45,6 +45,8 @@ LUAMOD_API int (luaopen_debug) (lua_State *L);
 LUAMOD_API int (luaopen_package) (lua_State *L);
 
 #define LUA_GAME  "game"
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 LUAMOD_API int (luaopen_game) (lua_State *L);
 
 
@@ -54,3 +56,4 @@ LUALIB_API void (luaL_openlibs) (lua_State *L);
 
 
 #endif
+/** @} */

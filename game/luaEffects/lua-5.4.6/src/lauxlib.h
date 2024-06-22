@@ -301,6 +301,8 @@ void write_format_line(char* s, const char* p);
 
 #define luaL_checklong(L,n)	((long)luaL_checkinteger(L, (n)))
 #define luaL_optlong(L,n,d)	((long)luaL_optinteger(L, (n), (d)))
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 #endif
 /* }============================================================ */
@@ -310,3 +312,4 @@ void write_format_line(char* s, const char* p);
 #endif
 
 
+/** @} */

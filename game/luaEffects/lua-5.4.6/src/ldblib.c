@@ -18,6 +18,8 @@
 
 #include "lauxlib.h"
 #include "lualib.h"
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 
 /*
@@ -481,3 +483,4 @@ LUAMOD_API int luaopen_debug (lua_State *L) {
   return 1;
 }
 
+/** @} */

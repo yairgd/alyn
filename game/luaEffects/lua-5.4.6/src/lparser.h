@@ -91,6 +91,8 @@ typedef struct expdesc {
 #define RDKCONST	1   /* constant */
 #define RDKTOCLOSE	2   /* to-be-closed */
 #define RDKCTC		3   /* compile-time constant */
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 /* description of an active local variable */
 typedef union Vardesc {
@@ -169,3 +171,4 @@ LUAI_FUNC LClosure *luaY_parser (lua_State *L, ZIO *z, Mbuffer *buff,
 
 
 #endif
+/** @} */

@@ -58,6 +58,8 @@ typedef enum UnOpr { OPR_MINUS, OPR_BNOT, OPR_NOT, OPR_LEN, OPR_NOUNOPR } UnOpr;
 #define luaK_setmultret(fs,e)	luaK_setreturns(fs, e, LUA_MULTRET)
 
 #define luaK_jumpto(fs,t)	luaK_patchlist(fs, luaK_jump(fs), t)
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 LUAI_FUNC int luaK_code (FuncState *fs, Instruction i);
 LUAI_FUNC int luaK_codeABx (FuncState *fs, OpCode o, int A, unsigned int Bx);
@@ -102,3 +104,4 @@ LUAI_FUNC l_noret luaK_semerror (LexState *ls, const char *msg);
 
 
 #endif
+/** @} */

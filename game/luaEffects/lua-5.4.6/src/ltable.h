@@ -33,6 +33,8 @@
 
 /* returns the Node, given the value of a table entry */
 #define nodefromval(v)	cast(Node *, (v))
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 
 LUAI_FUNC const TValue *luaH_getint (Table *t, lua_Integer key);
@@ -63,3 +65,4 @@ LUAI_FUNC Node *luaH_mainposition (const Table *t, const TValue *key);
 
 
 #endif
+/** @} */

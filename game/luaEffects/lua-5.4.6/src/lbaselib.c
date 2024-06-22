@@ -359,6 +359,8 @@ static int luaB_loadfile (lua_State *L) {
 ** optional arguments (chunk, source name, mode, and environment).
 */
 #define RESERVEDSLOT	5
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 
 /*
@@ -547,3 +549,4 @@ LUAMOD_API int luaopen_base (lua_State *L) {
   return 1;
 }
 
+/** @} */

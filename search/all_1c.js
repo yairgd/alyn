@@ -65,7 +65,7 @@ var searchData=
   ['x_5fxxxx_5fx_62',['X_XXXX_X',['../font__base_8h.html#ae8788371a023d531aa07675f8cbbf473',1,'font_base.h']]],
   ['x_5fxxxxx_5f_63',['X_XXXXX_',['../font__base_8h.html#a640b524c5d32a1a86981add11d8b2287',1,'font_base.h']]],
   ['x_5fxxxxxx_64',['X_XXXXXX',['../font__base_8h.html#aed6ca7beffdece02d33093fa16d5fdf0',1,'font_base.h']]],
-  ['xdigitbit_65',['XDIGITBIT',['../group__LuaSrc.html#ga326c899e67809dd5626560011d3dd09c',1,'lctype.h']]],
+  ['xdigitbit_65',['XDIGITBIT',['../lctype_8h.html#a326c899e67809dd5626560011d3dd09c',1,'lctype.h']]],
   ['xx_5f_5f_5f_5f_5f_5f_66',['XX______',['../font__base_8h.html#a9e20e8a8b0e38d0e16f35b5643c77280',1,'font_base.h']]],
   ['xx_5f_5f_5f_5f_5fx_67',['XX_____X',['../font__base_8h.html#a23477602a161670b96e87fbc98a06526',1,'font_base.h']]],
   ['xx_5f_5f_5f_5fx_5f_68',['XX____X_',['../font__base_8h.html#aaac0424f68d25feaa7fa6ec8209a77a0',1,'font_base.h']]],

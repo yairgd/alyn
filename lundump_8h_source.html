@@ -91,55 +91,53 @@ $(function(){ initResizable(false); });
   <div class="headertitle"><div class="title">lundump.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="lundump_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">** $Id: lundump.h $</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">** load precompiled Lua chunks</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">** See Copyright Notice in lua.h</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">*/</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#ifndef lundump_h</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#define lundump_h</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="llimits_8h.html">llimits.h</a>&quot;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="lobject_8h.html">lobject.h</a>&quot;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="lzio_8h.html">lzio.h</a>&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">/* data to catch conversion errors */</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#gad6f33b546a90e78ddb67428b712b48ae">   18</a></span><span class="preprocessor">#define LUAC_DATA   &quot;\x19\x93\r\n\x1a\n&quot;</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#gaf8b5bd7f864ed14aef7a9e7405ce6aad">   20</a></span><span class="preprocessor">#define LUAC_INT    0x5678</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga83a08bb2d400b526bb4a2f449523dd62">   21</a></span><span class="preprocessor">#define LUAC_NUM    cast_num(370.5)</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">** Encode major-minor version in one byte, one nibble for each</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">*/</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga8b5a7241ca8624862545e5fdfb94cf3b">   26</a></span><span class="preprocessor">#define MYINT(s)    (s[0]-&#39;0&#39;)  </span><span class="comment">/* assume one-digit numerals */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#gaaef225d352d4ab1461adc02e4fa027cd">   27</a></span><span class="preprocessor">#define LUAC_VERSION    (MYINT(LUA_VERSION_MAJOR)*16+MYINT(LUA_VERSION_MINOR))</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga1898203259aab6e1d60737b1e95c2adc">   29</a></span><span class="preprocessor">#define LUAC_FORMAT 0   </span><span class="comment">/* this is the official format */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<a href="lundump_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">** $Id: lundump.h $</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">** load precompiled Lua chunks</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">** See Copyright Notice in lua.h</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">*/</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#ifndef lundump_h</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#define lundump_h</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="llimits_8h.html">llimits.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="lobject_8h.html">lobject.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="lzio_8h.html">lzio.h</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">/* data to catch conversion errors */</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="lundump_8h.html#ad6f33b546a90e78ddb67428b712b48ae">   16</a></span><span class="preprocessor">#define LUAC_DATA   &quot;\x19\x93\r\n\x1a\n&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="lundump_8h.html#af8b5bd7f864ed14aef7a9e7405ce6aad">   18</a></span><span class="preprocessor">#define LUAC_INT    0x5678</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="lundump_8h.html#a83a08bb2d400b526bb4a2f449523dd62">   19</a></span><span class="preprocessor">#define LUAC_NUM    cast_num(370.5)</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">** Encode major-minor version in one byte, one nibble for each</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">*/</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="lundump_8h.html#a8b5a7241ca8624862545e5fdfb94cf3b">   24</a></span><span class="preprocessor">#define MYINT(s)    (s[0]-&#39;0&#39;)  </span><span class="comment">/* assume one-digit numerals */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="lundump_8h.html#aaef225d352d4ab1461adc02e4fa027cd">   25</a></span><span class="preprocessor">#define LUAC_VERSION    (MYINT(LUA_VERSION_MAJOR)*16+MYINT(LUA_VERSION_MINOR))</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="lundump_8h.html#a1898203259aab6e1d60737b1e95c2adc">   27</a></span><span class="preprocessor">#define LUAC_FORMAT 0   </span><span class="comment">/* this is the official format */</span><span class="preprocessor"></span></div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">/* load one chunk; from lundump.c */</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><a class="code hl_define" href="group__LuaSrc.html#ga3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> <a class="code hl_struct" href="structLClosure.html">LClosure</a>* <a class="code hl_function" href="group__LuaSrc.html#ga90b8a9492a5af5f3747eb247b194fb16">luaU_undump</a> (<a class="code hl_struct" href="structlua__State.html">lua_State</a>* <a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="code hl_struct" href="structZio.html">ZIO</a>* Z, <span class="keyword">const</span> <span class="keywordtype">char</span>* name);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><a class="code hl_define" href="luaconf_8h.html#a3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> <a class="code hl_struct" href="structLClosure.html">LClosure</a>* <a class="code hl_function" href="group__LuaSrc.html#ga90b8a9492a5af5f3747eb247b194fb16">luaU_undump</a> (<a class="code hl_struct" href="structlua__State.html">lua_State</a>* <a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="code hl_struct" href="structZio.html">ZIO</a>* Z, <span class="keyword">const</span> <span class="keywordtype">char</span>* name);</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">/* dump one chunk; from ldump.c */</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><a class="code hl_define" href="group__LuaSrc.html#ga3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> <span class="keywordtype">int</span> <a class="code hl_function" href="group__LuaSrc.html#ga2b9d33dfd898f6284de183d168556786">luaU_dump</a> (<a class="code hl_struct" href="structlua__State.html">lua_State</a>* <a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <span class="keyword">const</span> <a class="code hl_struct" href="structProto.html">Proto</a>* f, <a class="code hl_typedef" href="group__LuaSrc.html#ga855729196d7066b2da21178284868a8d">lua_Writer</a> w,</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><a class="code hl_define" href="luaconf_8h.html#a3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> <span class="keywordtype">int</span> <a class="code hl_function" href="group__LuaSrc.html#ga2b9d33dfd898f6284de183d168556786">luaU_dump</a> (<a class="code hl_struct" href="structlua__State.html">lua_State</a>* <a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <span class="keyword">const</span> <a class="code hl_struct" href="structProto.html">Proto</a>* f, <a class="code hl_typedef" href="lua_8h.html#a855729196d7066b2da21178284868a8d">lua_Writer</a> w,</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>                         <span class="keywordtype">void</span>* data, <span class="keywordtype">int</span> strip);</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="agame_8c_html_a62f94dfc0036bec0c14106c2f15caf3e"><div class="ttname"><a href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a></div><div class="ttdeci">static lua_State * L</div><div class="ttdef"><b>Definition</b> game.c:35</div></div>
 <div class="ttc" id="agroup__LuaSrc_html_ga2b9d33dfd898f6284de183d168556786"><div class="ttname"><a href="group__LuaSrc.html#ga2b9d33dfd898f6284de183d168556786">luaU_dump</a></div><div class="ttdeci">int luaU_dump(lua_State *L, const Proto *f, lua_Writer w, void *data, int strip)</div><div class="ttdef"><b>Definition</b> ldump.c:219</div></div>
-<div class="ttc" id="agroup__LuaSrc_html_ga3f43b35a70c93f2cfde1db42a5a24f1e"><div class="ttname"><a href="group__LuaSrc.html#ga3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a></div><div class="ttdeci">#define LUAI_FUNC</div><div class="ttdef"><b>Definition</b> luaconf.h:320</div></div>
-<div class="ttc" id="agroup__LuaSrc_html_ga855729196d7066b2da21178284868a8d"><div class="ttname"><a href="group__LuaSrc.html#ga855729196d7066b2da21178284868a8d">lua_Writer</a></div><div class="ttdeci">int(* lua_Writer)(lua_State *L, const void *p, size_t sz, void *ud)</div><div class="ttdef"><b>Definition</b> lua.h:121</div></div>
 <div class="ttc" id="agroup__LuaSrc_html_ga90b8a9492a5af5f3747eb247b194fb16"><div class="ttname"><a href="group__LuaSrc.html#ga90b8a9492a5af5f3747eb247b194fb16">luaU_undump</a></div><div class="ttdeci">LClosure * luaU_undump(lua_State *L, ZIO *Z, const char *name)</div><div class="ttdef"><b>Definition</b> lundump.c:315</div></div>
 <div class="ttc" id="allimits_8h_html"><div class="ttname"><a href="llimits_8h.html">llimits.h</a></div></div>
 <div class="ttc" id="alobject_8h_html"><div class="ttname"><a href="lobject_8h.html">lobject.h</a></div></div>
+<div class="ttc" id="alua_8h_html_a855729196d7066b2da21178284868a8d"><div class="ttname"><a href="lua_8h.html#a855729196d7066b2da21178284868a8d">lua_Writer</a></div><div class="ttdeci">int(* lua_Writer)(lua_State *L, const void *p, size_t sz, void *ud)</div><div class="ttdef"><b>Definition</b> lua.h:119</div></div>
+<div class="ttc" id="aluaconf_8h_html_a3f43b35a70c93f2cfde1db42a5a24f1e"><div class="ttname"><a href="luaconf_8h.html#a3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a></div><div class="ttdeci">#define LUAI_FUNC</div><div class="ttdef"><b>Definition</b> luaconf.h:318</div></div>
 <div class="ttc" id="alzio_8h_html"><div class="ttname"><a href="lzio_8h.html">lzio.h</a></div></div>
-<div class="ttc" id="astructLClosure_html"><div class="ttname"><a href="structLClosure.html">LClosure</a></div><div class="ttdef"><b>Definition</b> lobject.h:658</div></div>
-<div class="ttc" id="astructProto_html"><div class="ttname"><a href="structProto.html">Proto</a></div><div class="ttdef"><b>Definition</b> lobject.h:554</div></div>
+<div class="ttc" id="astructLClosure_html"><div class="ttname"><a href="structLClosure.html">LClosure</a></div><div class="ttdef"><b>Definition</b> lobject.h:656</div></div>
+<div class="ttc" id="astructProto_html"><div class="ttname"><a href="structProto.html">Proto</a></div><div class="ttdef"><b>Definition</b> lobject.h:552</div></div>
 <div class="ttc" id="astructZio_html"><div class="ttname"><a href="structZio.html">Zio</a></div><div class="ttdef"><b>Definition</b> lzio.h:57</div></div>
-<div class="ttc" id="astructlua__State_html"><div class="ttname"><a href="structlua__State.html">lua_State</a></div><div class="ttdef"><b>Definition</b> lstate.h:311</div></div>
+<div class="ttc" id="astructlua__State_html"><div class="ttname"><a href="structlua__State.html">lua_State</a></div><div class="ttdef"><b>Definition</b> lstate.h:309</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

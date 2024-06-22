@@ -116,120 +116,1376 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:ga758ac163994ce1fb9a74163e4d468db3" id="r_ga758ac163994ce1fb9a74163e4d468db3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga758ac163994ce1fb9a74163e4d468db3">lmathlib_c</a></td></tr>
-<tr class="separator:ga758ac163994ce1fb9a74163e4d468db3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga884b19ad6094d6238c4072a8064aeb12" id="r_ga884b19ad6094d6238c4072a8064aeb12"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga884b19ad6094d6238c4072a8064aeb12">LUA_LIB</a></td></tr>
-<tr class="separator:ga884b19ad6094d6238c4072a8064aeb12"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga598a3330b3c21701223ee0ca14316eca" id="r_ga598a3330b3c21701223ee0ca14316eca"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga598a3330b3c21701223ee0ca14316eca">PI</a>&#160;&#160;&#160;(<a class="el" href="group__LuaSrc.html#ga919f548d82dc9a0681dd0ba8996d986d">l_mathop</a>(3.141592653589793238462643383279502884))</td></tr>
-<tr class="separator:ga598a3330b3c21701223ee0ca14316eca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0282a980b31306aa7d94e9e6ad975837" id="r_ga0282a980b31306aa7d94e9e6ad975837"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga0282a980b31306aa7d94e9e6ad975837">FIGS</a>&#160;&#160;&#160;<a class="el" href="group__LuaSrc.html#gaf41b220b80eae0908ca2e190ca024990">l_floatatt</a>(MANT_DIG)</td></tr>
-<tr class="separator:ga0282a980b31306aa7d94e9e6ad975837"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4d4f48045002686d9d2b361148c98db5" id="r_ga4d4f48045002686d9d2b361148c98db5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga4d4f48045002686d9d2b361148c98db5">trim32</a>(x)&#160;&#160;&#160;((x) &amp; 0xffffffffu)</td></tr>
-<tr class="separator:ga4d4f48045002686d9d2b361148c98db5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga37c87c7e103e67064c02ce86e5c00215" id="r_ga37c87c7e103e67064c02ce86e5c00215"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga37c87c7e103e67064c02ce86e5c00215">UONE</a>&#160;&#160;&#160;((<a class="el" href="group__LuaSrc.html#gaa8f942b3f89c99f2fbde3c4361b7c615">lu_int32</a>)1)</td></tr>
-<tr class="separator:ga37c87c7e103e67064c02ce86e5c00215"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf9acb4963a9c1f6a8e60d4b1e8b76184" id="r_gaf9acb4963a9c1f6a8e60d4b1e8b76184"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gaf9acb4963a9c1f6a8e60d4b1e8b76184">scaleFIG</a>&#160;&#160;&#160;(<a class="el" href="group__LuaSrc.html#ga919f548d82dc9a0681dd0ba8996d986d">l_mathop</a>(0.5) / (<a class="el" href="group__LuaSrc.html#ga37c87c7e103e67064c02ce86e5c00215">UONE</a> &lt;&lt; (<a class="el" href="group__LuaSrc.html#ga0282a980b31306aa7d94e9e6ad975837">FIGS</a> - 1)))</td></tr>
-<tr class="separator:gaf9acb4963a9c1f6a8e60d4b1e8b76184"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a758ac163994ce1fb9a74163e4d468db3" id="r_a758ac163994ce1fb9a74163e4d468db3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a758ac163994ce1fb9a74163e4d468db3">lmathlib_c</a></td></tr>
+<tr class="separator:a758ac163994ce1fb9a74163e4d468db3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a884b19ad6094d6238c4072a8064aeb12" id="r_a884b19ad6094d6238c4072a8064aeb12"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a884b19ad6094d6238c4072a8064aeb12">LUA_LIB</a></td></tr>
+<tr class="separator:a884b19ad6094d6238c4072a8064aeb12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a598a3330b3c21701223ee0ca14316eca" id="r_a598a3330b3c21701223ee0ca14316eca"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a598a3330b3c21701223ee0ca14316eca">PI</a>&#160;&#160;&#160;(<a class="el" href="luaconf_8h.html#a919f548d82dc9a0681dd0ba8996d986d">l_mathop</a>(3.141592653589793238462643383279502884))</td></tr>
+<tr class="separator:a598a3330b3c21701223ee0ca14316eca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0282a980b31306aa7d94e9e6ad975837" id="r_a0282a980b31306aa7d94e9e6ad975837"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0282a980b31306aa7d94e9e6ad975837">FIGS</a>&#160;&#160;&#160;<a class="el" href="luaconf_8h.html#af41b220b80eae0908ca2e190ca024990">l_floatatt</a>(MANT_DIG)</td></tr>
+<tr class="separator:a0282a980b31306aa7d94e9e6ad975837"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d4f48045002686d9d2b361148c98db5" id="r_a4d4f48045002686d9d2b361148c98db5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4d4f48045002686d9d2b361148c98db5">trim32</a>(x)&#160;&#160;&#160;((x) &amp; 0xffffffffu)</td></tr>
+<tr class="separator:a4d4f48045002686d9d2b361148c98db5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37c87c7e103e67064c02ce86e5c00215" id="r_a37c87c7e103e67064c02ce86e5c00215"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a37c87c7e103e67064c02ce86e5c00215">UONE</a>&#160;&#160;&#160;((<a class="el" href="#aa8f942b3f89c99f2fbde3c4361b7c615">lu_int32</a>)1)</td></tr>
+<tr class="separator:a37c87c7e103e67064c02ce86e5c00215"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9acb4963a9c1f6a8e60d4b1e8b76184" id="r_af9acb4963a9c1f6a8e60d4b1e8b76184"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9acb4963a9c1f6a8e60d4b1e8b76184">scaleFIG</a>&#160;&#160;&#160;(<a class="el" href="luaconf_8h.html#a919f548d82dc9a0681dd0ba8996d986d">l_mathop</a>(0.5) / (<a class="el" href="#a37c87c7e103e67064c02ce86e5c00215">UONE</a> &lt;&lt; (<a class="el" href="#a0282a980b31306aa7d94e9e6ad975837">FIGS</a> - 1)))</td></tr>
+<tr class="separator:af9acb4963a9c1f6a8e60d4b1e8b76184"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:gaa8f942b3f89c99f2fbde3c4361b7c615" id="r_gaa8f942b3f89c99f2fbde3c4361b7c615"><td class="memItemLeft" align="right" valign="top">typedef unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gaa8f942b3f89c99f2fbde3c4361b7c615">lu_int32</a></td></tr>
-<tr class="separator:gaa8f942b3f89c99f2fbde3c4361b7c615"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac514b2d1475b8c2e91f0b3a1f46d0f34" id="r_gac514b2d1475b8c2e91f0b3a1f46d0f34"><td class="memItemLeft" align="right" valign="top">typedef struct Rand64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gac514b2d1475b8c2e91f0b3a1f46d0f34">Rand64</a></td></tr>
-<tr class="separator:gac514b2d1475b8c2e91f0b3a1f46d0f34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8f942b3f89c99f2fbde3c4361b7c615" id="r_aa8f942b3f89c99f2fbde3c4361b7c615"><td class="memItemLeft" align="right" valign="top">typedef unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa8f942b3f89c99f2fbde3c4361b7c615">lu_int32</a></td></tr>
+<tr class="separator:aa8f942b3f89c99f2fbde3c4361b7c615"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac514b2d1475b8c2e91f0b3a1f46d0f34" id="r_ac514b2d1475b8c2e91f0b3a1f46d0f34"><td class="memItemLeft" align="right" valign="top">typedef struct Rand64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac514b2d1475b8c2e91f0b3a1f46d0f34">Rand64</a></td></tr>
+<tr class="separator:ac514b2d1475b8c2e91f0b3a1f46d0f34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga9545dd3926974393ff34e33a108df628" id="r_ga9545dd3926974393ff34e33a108df628"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga9545dd3926974393ff34e33a108df628">math_abs</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
-<tr class="separator:ga9545dd3926974393ff34e33a108df628"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gadb460e2b01df47afcaa823ecc1846a24" id="r_gadb460e2b01df47afcaa823ecc1846a24"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gadb460e2b01df47afcaa823ecc1846a24">math_sin</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
-<tr class="separator:gadb460e2b01df47afcaa823ecc1846a24"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5db2cf8c6e7a331d7daf259f305e057c" id="r_ga5db2cf8c6e7a331d7daf259f305e057c"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga5db2cf8c6e7a331d7daf259f305e057c">math_cos</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
-<tr class="separator:ga5db2cf8c6e7a331d7daf259f305e057c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga06bc9b8c610e00759bb99c3db6128f18" id="r_ga06bc9b8c610e00759bb99c3db6128f18"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga06bc9b8c610e00759bb99c3db6128f18">math_tan</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
-<tr class="separator:ga06bc9b8c610e00759bb99c3db6128f18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa44ea66108bb38acbe5c8cb2ce6de33f" id="r_gaa44ea66108bb38acbe5c8cb2ce6de33f"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gaa44ea66108bb38acbe5c8cb2ce6de33f">math_asin</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
-<tr class="separator:gaa44ea66108bb38acbe5c8cb2ce6de33f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9f983fa3cca14d69429cebc95be4fab1" id="r_ga9f983fa3cca14d69429cebc95be4fab1"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga9f983fa3cca14d69429cebc95be4fab1">math_acos</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
-<tr class="separator:ga9f983fa3cca14d69429cebc95be4fab1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga70217d6c0312477f3e257a584518424c" id="r_ga70217d6c0312477f3e257a584518424c"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga70217d6c0312477f3e257a584518424c">math_atan</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
-<tr class="separator:ga70217d6c0312477f3e257a584518424c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7604de8e5daca6d7576a9ee940a3f479" id="r_ga7604de8e5daca6d7576a9ee940a3f479"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga7604de8e5daca6d7576a9ee940a3f479">math_toint</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
-<tr class="separator:ga7604de8e5daca6d7576a9ee940a3f479"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa43eb6808ce1bad1f4f1416475e38e13" id="r_gaa43eb6808ce1bad1f4f1416475e38e13"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gaa43eb6808ce1bad1f4f1416475e38e13">pushnumint</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="el" href="group__LuaSrc.html#gaf0a6ed3b852d680769cfc410a0672172">lua_Number</a> d)</td></tr>
-<tr class="separator:gaa43eb6808ce1bad1f4f1416475e38e13"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa063dcd93e924af13c5e311f89b18d03" id="r_gaa063dcd93e924af13c5e311f89b18d03"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gaa063dcd93e924af13c5e311f89b18d03">math_floor</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
-<tr class="separator:gaa063dcd93e924af13c5e311f89b18d03"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae4f0dc771c626a9badef237db9d433da" id="r_gae4f0dc771c626a9badef237db9d433da"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gae4f0dc771c626a9badef237db9d433da">math_ceil</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
-<tr class="separator:gae4f0dc771c626a9badef237db9d433da"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga25b3f7d30cf85b8248a72de20049564e" id="r_ga25b3f7d30cf85b8248a72de20049564e"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga25b3f7d30cf85b8248a72de20049564e">math_fmod</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
-<tr class="separator:ga25b3f7d30cf85b8248a72de20049564e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gadff369706deb34be360be3103f31d4c4" id="r_gadff369706deb34be360be3103f31d4c4"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gadff369706deb34be360be3103f31d4c4">math_modf</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
-<tr class="separator:gadff369706deb34be360be3103f31d4c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8f4c386bafe8ae7269476ed3ed94d1d8" id="r_ga8f4c386bafe8ae7269476ed3ed94d1d8"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga8f4c386bafe8ae7269476ed3ed94d1d8">math_sqrt</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
-<tr class="separator:ga8f4c386bafe8ae7269476ed3ed94d1d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5d62cc09bee44198af9cb2023a50d972" id="r_ga5d62cc09bee44198af9cb2023a50d972"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga5d62cc09bee44198af9cb2023a50d972">math_ult</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
-<tr class="separator:ga5d62cc09bee44198af9cb2023a50d972"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7cb92978495484adbfc9d0cb0ace2cc2" id="r_ga7cb92978495484adbfc9d0cb0ace2cc2"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga7cb92978495484adbfc9d0cb0ace2cc2">math_log</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
-<tr class="separator:ga7cb92978495484adbfc9d0cb0ace2cc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7c971c680cdad8e4e833f8a3db9d065d" id="r_ga7c971c680cdad8e4e833f8a3db9d065d"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga7c971c680cdad8e4e833f8a3db9d065d">math_exp</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
-<tr class="separator:ga7c971c680cdad8e4e833f8a3db9d065d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad9bd03062009a4aba15739a1630b2a25" id="r_gad9bd03062009a4aba15739a1630b2a25"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gad9bd03062009a4aba15739a1630b2a25">math_deg</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
-<tr class="separator:gad9bd03062009a4aba15739a1630b2a25"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5d8eec19cea59d1ce1012a705f70dc8d" id="r_ga5d8eec19cea59d1ce1012a705f70dc8d"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga5d8eec19cea59d1ce1012a705f70dc8d">math_rad</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
-<tr class="separator:ga5d8eec19cea59d1ce1012a705f70dc8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab0a14d784b5fe2f30062e88a635db320" id="r_gab0a14d784b5fe2f30062e88a635db320"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gab0a14d784b5fe2f30062e88a635db320">math_min</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
-<tr class="separator:gab0a14d784b5fe2f30062e88a635db320"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga03e3b76e515f5535122c2026a9e8f445" id="r_ga03e3b76e515f5535122c2026a9e8f445"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga03e3b76e515f5535122c2026a9e8f445">math_max</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
-<tr class="separator:ga03e3b76e515f5535122c2026a9e8f445"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf58a749fbaa6093fab0db96dcfd822a7" id="r_gaf58a749fbaa6093fab0db96dcfd822a7"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gaf58a749fbaa6093fab0db96dcfd822a7">math_type</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
-<tr class="separator:gaf58a749fbaa6093fab0db96dcfd822a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga43beb45c0b29c5e7a866b193d6b8c546" id="r_ga43beb45c0b29c5e7a866b193d6b8c546"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structRand64.html">Rand64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga43beb45c0b29c5e7a866b193d6b8c546">packI</a> (<a class="el" href="group__LuaSrc.html#gaa8f942b3f89c99f2fbde3c4361b7c615">lu_int32</a> h, <a class="el" href="group__LuaSrc.html#gaa8f942b3f89c99f2fbde3c4361b7c615">lu_int32</a> l)</td></tr>
-<tr class="separator:ga43beb45c0b29c5e7a866b193d6b8c546"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5fe860c78def6ac52bd99153df082c3e" id="r_ga5fe860c78def6ac52bd99153df082c3e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structRand64.html">Rand64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga5fe860c78def6ac52bd99153df082c3e">Ishl</a> (<a class="el" href="structRand64.html">Rand64</a> i, int n)</td></tr>
-<tr class="separator:ga5fe860c78def6ac52bd99153df082c3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac269f9bd785360abe156ba7c7cc67e21" id="r_gac269f9bd785360abe156ba7c7cc67e21"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gac269f9bd785360abe156ba7c7cc67e21">Ixor</a> (<a class="el" href="structRand64.html">Rand64</a> *i1, <a class="el" href="structRand64.html">Rand64</a> i2)</td></tr>
-<tr class="separator:gac269f9bd785360abe156ba7c7cc67e21"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0f8118bb9ab66c0fee78e5bf183d436f" id="r_ga0f8118bb9ab66c0fee78e5bf183d436f"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structRand64.html">Rand64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga0f8118bb9ab66c0fee78e5bf183d436f">Iadd</a> (<a class="el" href="structRand64.html">Rand64</a> i1, <a class="el" href="structRand64.html">Rand64</a> i2)</td></tr>
-<tr class="separator:ga0f8118bb9ab66c0fee78e5bf183d436f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4708082c07e59916317e3baf2204504a" id="r_ga4708082c07e59916317e3baf2204504a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structRand64.html">Rand64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga4708082c07e59916317e3baf2204504a">times5</a> (<a class="el" href="structRand64.html">Rand64</a> i)</td></tr>
-<tr class="separator:ga4708082c07e59916317e3baf2204504a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8276cb06bf824ed1d39fa2f3f0db6968" id="r_ga8276cb06bf824ed1d39fa2f3f0db6968"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structRand64.html">Rand64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga8276cb06bf824ed1d39fa2f3f0db6968">times9</a> (<a class="el" href="structRand64.html">Rand64</a> i)</td></tr>
-<tr class="separator:ga8276cb06bf824ed1d39fa2f3f0db6968"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf6d2c0cbed4c44224dc80230279c1b5d" id="r_gaf6d2c0cbed4c44224dc80230279c1b5d"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structRand64.html">Rand64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gaf6d2c0cbed4c44224dc80230279c1b5d">rotl</a> (<a class="el" href="structRand64.html">Rand64</a> i, int n)</td></tr>
-<tr class="separator:gaf6d2c0cbed4c44224dc80230279c1b5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0a2a1bbd027f6e376a7043e2bdab7870" id="r_ga0a2a1bbd027f6e376a7043e2bdab7870"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structRand64.html">Rand64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga0a2a1bbd027f6e376a7043e2bdab7870">rotl1</a> (<a class="el" href="structRand64.html">Rand64</a> i, int n)</td></tr>
-<tr class="separator:ga0a2a1bbd027f6e376a7043e2bdab7870"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac01956e1f85c57f7781d256db3d76886" id="r_gac01956e1f85c57f7781d256db3d76886"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structRand64.html">Rand64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gac01956e1f85c57f7781d256db3d76886">nextrand</a> (<a class="el" href="structRand64.html">Rand64</a> *state)</td></tr>
-<tr class="separator:gac01956e1f85c57f7781d256db3d76886"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1f845b41defc9503d3090923b15d79ed" id="r_ga1f845b41defc9503d3090923b15d79ed"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="group__LuaSrc.html#gaf0a6ed3b852d680769cfc410a0672172">lua_Number</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga1f845b41defc9503d3090923b15d79ed">I2d</a> (<a class="el" href="structRand64.html">Rand64</a> x)</td></tr>
-<tr class="separator:ga1f845b41defc9503d3090923b15d79ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga00b4573721dbfd08d584b34a7e1722db" id="r_ga00b4573721dbfd08d584b34a7e1722db"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="group__LuaSrc.html#ga2357bdcd9af1aaef0a6895a9c3b7eccf">lua_Unsigned</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga00b4573721dbfd08d584b34a7e1722db">I2UInt</a> (<a class="el" href="structRand64.html">Rand64</a> x)</td></tr>
-<tr class="separator:ga00b4573721dbfd08d584b34a7e1722db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaedfbc1eb34c86571439b5d3d36d9361e" id="r_gaedfbc1eb34c86571439b5d3d36d9361e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structRand64.html">Rand64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gaedfbc1eb34c86571439b5d3d36d9361e">Int2I</a> (<a class="el" href="group__LuaSrc.html#ga2357bdcd9af1aaef0a6895a9c3b7eccf">lua_Unsigned</a> n)</td></tr>
-<tr class="separator:gaedfbc1eb34c86571439b5d3d36d9361e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga13ece5b7fa9dd48246430a48dec238b1" id="r_ga13ece5b7fa9dd48246430a48dec238b1"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="group__LuaSrc.html#ga2357bdcd9af1aaef0a6895a9c3b7eccf">lua_Unsigned</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga13ece5b7fa9dd48246430a48dec238b1">project</a> (<a class="el" href="group__LuaSrc.html#ga2357bdcd9af1aaef0a6895a9c3b7eccf">lua_Unsigned</a> ran, <a class="el" href="group__LuaSrc.html#ga2357bdcd9af1aaef0a6895a9c3b7eccf">lua_Unsigned</a> n, <a class="el" href="structRanState.html">RanState</a> *state)</td></tr>
-<tr class="separator:ga13ece5b7fa9dd48246430a48dec238b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa3ad02d4204d21d35a0825281915fb22" id="r_gaa3ad02d4204d21d35a0825281915fb22"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gaa3ad02d4204d21d35a0825281915fb22">math_random</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
-<tr class="separator:gaa3ad02d4204d21d35a0825281915fb22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4e708776ec48b6fb6d7239a8754900e1" id="r_ga4e708776ec48b6fb6d7239a8754900e1"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga4e708776ec48b6fb6d7239a8754900e1">setseed</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="el" href="structRand64.html">Rand64</a> *state, <a class="el" href="group__LuaSrc.html#ga2357bdcd9af1aaef0a6895a9c3b7eccf">lua_Unsigned</a> n1, <a class="el" href="group__LuaSrc.html#ga2357bdcd9af1aaef0a6895a9c3b7eccf">lua_Unsigned</a> n2)</td></tr>
-<tr class="separator:ga4e708776ec48b6fb6d7239a8754900e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaaeea41eadd14e3f30fe6814cc94891c5" id="r_gaaeea41eadd14e3f30fe6814cc94891c5"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gaaeea41eadd14e3f30fe6814cc94891c5">randseed</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="el" href="structRanState.html">RanState</a> *state)</td></tr>
-<tr class="separator:gaaeea41eadd14e3f30fe6814cc94891c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga55540667178ac717a1c6283b58b00ce7" id="r_ga55540667178ac717a1c6283b58b00ce7"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga55540667178ac717a1c6283b58b00ce7">math_randomseed</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
-<tr class="separator:ga55540667178ac717a1c6283b58b00ce7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaec3434532c7149fc0d3fff7ac86e6fbb" id="r_gaec3434532c7149fc0d3fff7ac86e6fbb"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gaec3434532c7149fc0d3fff7ac86e6fbb">setrandfunc</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
-<tr class="separator:gaec3434532c7149fc0d3fff7ac86e6fbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga78cbff06fd4d59cf3d7525fa6cc196ba" id="r_ga78cbff06fd4d59cf3d7525fa6cc196ba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__LuaSrc.html#ga8e877216dd2f0cf9a68255b494f82f50">LUAMOD_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga78cbff06fd4d59cf3d7525fa6cc196ba">luaopen_math</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
-<tr class="separator:ga78cbff06fd4d59cf3d7525fa6cc196ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9545dd3926974393ff34e33a108df628" id="r_a9545dd3926974393ff34e33a108df628"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9545dd3926974393ff34e33a108df628">math_abs</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
+<tr class="separator:a9545dd3926974393ff34e33a108df628"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb460e2b01df47afcaa823ecc1846a24" id="r_adb460e2b01df47afcaa823ecc1846a24"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adb460e2b01df47afcaa823ecc1846a24">math_sin</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
+<tr class="separator:adb460e2b01df47afcaa823ecc1846a24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5db2cf8c6e7a331d7daf259f305e057c" id="r_a5db2cf8c6e7a331d7daf259f305e057c"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5db2cf8c6e7a331d7daf259f305e057c">math_cos</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
+<tr class="separator:a5db2cf8c6e7a331d7daf259f305e057c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06bc9b8c610e00759bb99c3db6128f18" id="r_a06bc9b8c610e00759bb99c3db6128f18"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a06bc9b8c610e00759bb99c3db6128f18">math_tan</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
+<tr class="separator:a06bc9b8c610e00759bb99c3db6128f18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa44ea66108bb38acbe5c8cb2ce6de33f" id="r_aa44ea66108bb38acbe5c8cb2ce6de33f"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa44ea66108bb38acbe5c8cb2ce6de33f">math_asin</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
+<tr class="separator:aa44ea66108bb38acbe5c8cb2ce6de33f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f983fa3cca14d69429cebc95be4fab1" id="r_a9f983fa3cca14d69429cebc95be4fab1"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9f983fa3cca14d69429cebc95be4fab1">math_acos</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
+<tr class="separator:a9f983fa3cca14d69429cebc95be4fab1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70217d6c0312477f3e257a584518424c" id="r_a70217d6c0312477f3e257a584518424c"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a70217d6c0312477f3e257a584518424c">math_atan</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
+<tr class="separator:a70217d6c0312477f3e257a584518424c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7604de8e5daca6d7576a9ee940a3f479" id="r_a7604de8e5daca6d7576a9ee940a3f479"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7604de8e5daca6d7576a9ee940a3f479">math_toint</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
+<tr class="separator:a7604de8e5daca6d7576a9ee940a3f479"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa43eb6808ce1bad1f4f1416475e38e13" id="r_aa43eb6808ce1bad1f4f1416475e38e13"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa43eb6808ce1bad1f4f1416475e38e13">pushnumint</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="el" href="lua_8h.html#af0a6ed3b852d680769cfc410a0672172">lua_Number</a> d)</td></tr>
+<tr class="separator:aa43eb6808ce1bad1f4f1416475e38e13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa063dcd93e924af13c5e311f89b18d03" id="r_aa063dcd93e924af13c5e311f89b18d03"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa063dcd93e924af13c5e311f89b18d03">math_floor</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
+<tr class="separator:aa063dcd93e924af13c5e311f89b18d03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4f0dc771c626a9badef237db9d433da" id="r_ae4f0dc771c626a9badef237db9d433da"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae4f0dc771c626a9badef237db9d433da">math_ceil</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
+<tr class="separator:ae4f0dc771c626a9badef237db9d433da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25b3f7d30cf85b8248a72de20049564e" id="r_a25b3f7d30cf85b8248a72de20049564e"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a25b3f7d30cf85b8248a72de20049564e">math_fmod</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
+<tr class="separator:a25b3f7d30cf85b8248a72de20049564e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adff369706deb34be360be3103f31d4c4" id="r_adff369706deb34be360be3103f31d4c4"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adff369706deb34be360be3103f31d4c4">math_modf</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
+<tr class="separator:adff369706deb34be360be3103f31d4c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f4c386bafe8ae7269476ed3ed94d1d8" id="r_a8f4c386bafe8ae7269476ed3ed94d1d8"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f4c386bafe8ae7269476ed3ed94d1d8">math_sqrt</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
+<tr class="separator:a8f4c386bafe8ae7269476ed3ed94d1d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d62cc09bee44198af9cb2023a50d972" id="r_a5d62cc09bee44198af9cb2023a50d972"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d62cc09bee44198af9cb2023a50d972">math_ult</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
+<tr class="separator:a5d62cc09bee44198af9cb2023a50d972"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7cb92978495484adbfc9d0cb0ace2cc2" id="r_a7cb92978495484adbfc9d0cb0ace2cc2"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7cb92978495484adbfc9d0cb0ace2cc2">math_log</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
+<tr class="separator:a7cb92978495484adbfc9d0cb0ace2cc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c971c680cdad8e4e833f8a3db9d065d" id="r_a7c971c680cdad8e4e833f8a3db9d065d"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c971c680cdad8e4e833f8a3db9d065d">math_exp</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
+<tr class="separator:a7c971c680cdad8e4e833f8a3db9d065d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9bd03062009a4aba15739a1630b2a25" id="r_ad9bd03062009a4aba15739a1630b2a25"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad9bd03062009a4aba15739a1630b2a25">math_deg</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
+<tr class="separator:ad9bd03062009a4aba15739a1630b2a25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d8eec19cea59d1ce1012a705f70dc8d" id="r_a5d8eec19cea59d1ce1012a705f70dc8d"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d8eec19cea59d1ce1012a705f70dc8d">math_rad</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
+<tr class="separator:a5d8eec19cea59d1ce1012a705f70dc8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0a14d784b5fe2f30062e88a635db320" id="r_ab0a14d784b5fe2f30062e88a635db320"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab0a14d784b5fe2f30062e88a635db320">math_min</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
+<tr class="separator:ab0a14d784b5fe2f30062e88a635db320"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03e3b76e515f5535122c2026a9e8f445" id="r_a03e3b76e515f5535122c2026a9e8f445"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a03e3b76e515f5535122c2026a9e8f445">math_max</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
+<tr class="separator:a03e3b76e515f5535122c2026a9e8f445"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af58a749fbaa6093fab0db96dcfd822a7" id="r_af58a749fbaa6093fab0db96dcfd822a7"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af58a749fbaa6093fab0db96dcfd822a7">math_type</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
+<tr class="separator:af58a749fbaa6093fab0db96dcfd822a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43beb45c0b29c5e7a866b193d6b8c546" id="r_a43beb45c0b29c5e7a866b193d6b8c546"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structRand64.html">Rand64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a43beb45c0b29c5e7a866b193d6b8c546">packI</a> (<a class="el" href="#aa8f942b3f89c99f2fbde3c4361b7c615">lu_int32</a> h, <a class="el" href="#aa8f942b3f89c99f2fbde3c4361b7c615">lu_int32</a> l)</td></tr>
+<tr class="separator:a43beb45c0b29c5e7a866b193d6b8c546"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fe860c78def6ac52bd99153df082c3e" id="r_a5fe860c78def6ac52bd99153df082c3e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structRand64.html">Rand64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5fe860c78def6ac52bd99153df082c3e">Ishl</a> (<a class="el" href="structRand64.html">Rand64</a> i, int n)</td></tr>
+<tr class="separator:a5fe860c78def6ac52bd99153df082c3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac269f9bd785360abe156ba7c7cc67e21" id="r_ac269f9bd785360abe156ba7c7cc67e21"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac269f9bd785360abe156ba7c7cc67e21">Ixor</a> (<a class="el" href="structRand64.html">Rand64</a> *i1, <a class="el" href="structRand64.html">Rand64</a> i2)</td></tr>
+<tr class="separator:ac269f9bd785360abe156ba7c7cc67e21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f8118bb9ab66c0fee78e5bf183d436f" id="r_a0f8118bb9ab66c0fee78e5bf183d436f"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structRand64.html">Rand64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f8118bb9ab66c0fee78e5bf183d436f">Iadd</a> (<a class="el" href="structRand64.html">Rand64</a> i1, <a class="el" href="structRand64.html">Rand64</a> i2)</td></tr>
+<tr class="separator:a0f8118bb9ab66c0fee78e5bf183d436f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4708082c07e59916317e3baf2204504a" id="r_a4708082c07e59916317e3baf2204504a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structRand64.html">Rand64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4708082c07e59916317e3baf2204504a">times5</a> (<a class="el" href="structRand64.html">Rand64</a> i)</td></tr>
+<tr class="separator:a4708082c07e59916317e3baf2204504a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8276cb06bf824ed1d39fa2f3f0db6968" id="r_a8276cb06bf824ed1d39fa2f3f0db6968"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structRand64.html">Rand64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8276cb06bf824ed1d39fa2f3f0db6968">times9</a> (<a class="el" href="structRand64.html">Rand64</a> i)</td></tr>
+<tr class="separator:a8276cb06bf824ed1d39fa2f3f0db6968"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6d2c0cbed4c44224dc80230279c1b5d" id="r_af6d2c0cbed4c44224dc80230279c1b5d"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structRand64.html">Rand64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af6d2c0cbed4c44224dc80230279c1b5d">rotl</a> (<a class="el" href="structRand64.html">Rand64</a> i, int n)</td></tr>
+<tr class="separator:af6d2c0cbed4c44224dc80230279c1b5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a2a1bbd027f6e376a7043e2bdab7870" id="r_a0a2a1bbd027f6e376a7043e2bdab7870"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structRand64.html">Rand64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0a2a1bbd027f6e376a7043e2bdab7870">rotl1</a> (<a class="el" href="structRand64.html">Rand64</a> i, int n)</td></tr>
+<tr class="separator:a0a2a1bbd027f6e376a7043e2bdab7870"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac01956e1f85c57f7781d256db3d76886" id="r_ac01956e1f85c57f7781d256db3d76886"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structRand64.html">Rand64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac01956e1f85c57f7781d256db3d76886">nextrand</a> (<a class="el" href="structRand64.html">Rand64</a> *state)</td></tr>
+<tr class="separator:ac01956e1f85c57f7781d256db3d76886"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f845b41defc9503d3090923b15d79ed" id="r_a1f845b41defc9503d3090923b15d79ed"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="lua_8h.html#af0a6ed3b852d680769cfc410a0672172">lua_Number</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1f845b41defc9503d3090923b15d79ed">I2d</a> (<a class="el" href="structRand64.html">Rand64</a> x)</td></tr>
+<tr class="separator:a1f845b41defc9503d3090923b15d79ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00b4573721dbfd08d584b34a7e1722db" id="r_a00b4573721dbfd08d584b34a7e1722db"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="lua_8h.html#a2357bdcd9af1aaef0a6895a9c3b7eccf">lua_Unsigned</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00b4573721dbfd08d584b34a7e1722db">I2UInt</a> (<a class="el" href="structRand64.html">Rand64</a> x)</td></tr>
+<tr class="separator:a00b4573721dbfd08d584b34a7e1722db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedfbc1eb34c86571439b5d3d36d9361e" id="r_aedfbc1eb34c86571439b5d3d36d9361e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structRand64.html">Rand64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aedfbc1eb34c86571439b5d3d36d9361e">Int2I</a> (<a class="el" href="lua_8h.html#a2357bdcd9af1aaef0a6895a9c3b7eccf">lua_Unsigned</a> n)</td></tr>
+<tr class="separator:aedfbc1eb34c86571439b5d3d36d9361e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13ece5b7fa9dd48246430a48dec238b1" id="r_a13ece5b7fa9dd48246430a48dec238b1"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="lua_8h.html#a2357bdcd9af1aaef0a6895a9c3b7eccf">lua_Unsigned</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a13ece5b7fa9dd48246430a48dec238b1">project</a> (<a class="el" href="lua_8h.html#a2357bdcd9af1aaef0a6895a9c3b7eccf">lua_Unsigned</a> ran, <a class="el" href="lua_8h.html#a2357bdcd9af1aaef0a6895a9c3b7eccf">lua_Unsigned</a> n, <a class="el" href="structRanState.html">RanState</a> *state)</td></tr>
+<tr class="separator:a13ece5b7fa9dd48246430a48dec238b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3ad02d4204d21d35a0825281915fb22" id="r_aa3ad02d4204d21d35a0825281915fb22"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa3ad02d4204d21d35a0825281915fb22">math_random</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
+<tr class="separator:aa3ad02d4204d21d35a0825281915fb22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e708776ec48b6fb6d7239a8754900e1" id="r_a4e708776ec48b6fb6d7239a8754900e1"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4e708776ec48b6fb6d7239a8754900e1">setseed</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="el" href="structRand64.html">Rand64</a> *state, <a class="el" href="lua_8h.html#a2357bdcd9af1aaef0a6895a9c3b7eccf">lua_Unsigned</a> n1, <a class="el" href="lua_8h.html#a2357bdcd9af1aaef0a6895a9c3b7eccf">lua_Unsigned</a> n2)</td></tr>
+<tr class="separator:a4e708776ec48b6fb6d7239a8754900e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaeea41eadd14e3f30fe6814cc94891c5" id="r_aaeea41eadd14e3f30fe6814cc94891c5"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaeea41eadd14e3f30fe6814cc94891c5">randseed</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="el" href="structRanState.html">RanState</a> *state)</td></tr>
+<tr class="separator:aaeea41eadd14e3f30fe6814cc94891c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55540667178ac717a1c6283b58b00ce7" id="r_a55540667178ac717a1c6283b58b00ce7"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a55540667178ac717a1c6283b58b00ce7">math_randomseed</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
+<tr class="separator:a55540667178ac717a1c6283b58b00ce7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec3434532c7149fc0d3fff7ac86e6fbb" id="r_aec3434532c7149fc0d3fff7ac86e6fbb"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec3434532c7149fc0d3fff7ac86e6fbb">setrandfunc</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
+<tr class="separator:aec3434532c7149fc0d3fff7ac86e6fbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78cbff06fd4d59cf3d7525fa6cc196ba" id="r_a78cbff06fd4d59cf3d7525fa6cc196ba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="luaconf_8h.html#a8e877216dd2f0cf9a68255b494f82f50">LUAMOD_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a78cbff06fd4d59cf3d7525fa6cc196ba">luaopen_math</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
+<tr class="separator:a78cbff06fd4d59cf3d7525fa6cc196ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ga866900ee1a7dd674b2c58e52d18b0a4e" id="r_ga866900ee1a7dd674b2c58e52d18b0a4e"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="structluaL__Reg.html">luaL_Reg</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga866900ee1a7dd674b2c58e52d18b0a4e">randfuncs</a> []</td></tr>
-<tr class="separator:ga866900ee1a7dd674b2c58e52d18b0a4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac80ca653775abeb66123337a10874983" id="r_gac80ca653775abeb66123337a10874983"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="structluaL__Reg.html">luaL_Reg</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gac80ca653775abeb66123337a10874983">mathlib</a> []</td></tr>
-<tr class="separator:gac80ca653775abeb66123337a10874983"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a866900ee1a7dd674b2c58e52d18b0a4e" id="r_a866900ee1a7dd674b2c58e52d18b0a4e"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="structluaL__Reg.html">luaL_Reg</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a866900ee1a7dd674b2c58e52d18b0a4e">randfuncs</a> []</td></tr>
+<tr class="separator:a866900ee1a7dd674b2c58e52d18b0a4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac80ca653775abeb66123337a10874983" id="r_ac80ca653775abeb66123337a10874983"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="structluaL__Reg.html">luaL_Reg</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac80ca653775abeb66123337a10874983">mathlib</a> []</td></tr>
+<tr class="separator:ac80ca653775abeb66123337a10874983"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a0282a980b31306aa7d94e9e6ad975837" name="a0282a980b31306aa7d94e9e6ad975837"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0282a980b31306aa7d94e9e6ad975837">&#9670;&#160;</a></span>FIGS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FIGS&#160;&#160;&#160;<a class="el" href="luaconf_8h.html#af41b220b80eae0908ca2e190ca024990">l_floatatt</a>(MANT_DIG)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a758ac163994ce1fb9a74163e4d468db3" name="a758ac163994ce1fb9a74163e4d468db3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a758ac163994ce1fb9a74163e4d468db3">&#9670;&#160;</a></span>lmathlib_c</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define lmathlib_c</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a884b19ad6094d6238c4072a8064aeb12" name="a884b19ad6094d6238c4072a8064aeb12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a884b19ad6094d6238c4072a8064aeb12">&#9670;&#160;</a></span>LUA_LIB</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LUA_LIB</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a598a3330b3c21701223ee0ca14316eca" name="a598a3330b3c21701223ee0ca14316eca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a598a3330b3c21701223ee0ca14316eca">&#9670;&#160;</a></span>PI</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PI&#160;&#160;&#160;(<a class="el" href="luaconf_8h.html#a919f548d82dc9a0681dd0ba8996d986d">l_mathop</a>(3.141592653589793238462643383279502884))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af9acb4963a9c1f6a8e60d4b1e8b76184" name="af9acb4963a9c1f6a8e60d4b1e8b76184"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9acb4963a9c1f6a8e60d4b1e8b76184">&#9670;&#160;</a></span>scaleFIG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define scaleFIG&#160;&#160;&#160;(<a class="el" href="luaconf_8h.html#a919f548d82dc9a0681dd0ba8996d986d">l_mathop</a>(0.5) / (<a class="el" href="#a37c87c7e103e67064c02ce86e5c00215">UONE</a> &lt;&lt; (<a class="el" href="#a0282a980b31306aa7d94e9e6ad975837">FIGS</a> - 1)))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4d4f48045002686d9d2b361148c98db5" name="a4d4f48045002686d9d2b361148c98db5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d4f48045002686d9d2b361148c98db5">&#9670;&#160;</a></span>trim32</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define trim32</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>x</em></span></td><td>)</td>
+          <td>&#160;&#160;&#160;((x) &amp; 0xffffffffu)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a37c87c7e103e67064c02ce86e5c00215" name="a37c87c7e103e67064c02ce86e5c00215"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37c87c7e103e67064c02ce86e5c00215">&#9670;&#160;</a></span>UONE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UONE&#160;&#160;&#160;((<a class="el" href="#aa8f942b3f89c99f2fbde3c4361b7c615">lu_int32</a>)1)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="aa8f942b3f89c99f2fbde3c4361b7c615" name="aa8f942b3f89c99f2fbde3c4361b7c615"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8f942b3f89c99f2fbde3c4361b7c615">&#9670;&#160;</a></span>lu_int32</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef unsigned long <a class="el" href="#aa8f942b3f89c99f2fbde3c4361b7c615">lu_int32</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac514b2d1475b8c2e91f0b3a1f46d0f34" name="ac514b2d1475b8c2e91f0b3a1f46d0f34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac514b2d1475b8c2e91f0b3a1f46d0f34">&#9670;&#160;</a></span>Rand64</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct Rand64 Rand64</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a1f845b41defc9503d3090923b15d79ed" name="a1f845b41defc9503d3090923b15d79ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f845b41defc9503d3090923b15d79ed">&#9670;&#160;</a></span>I2d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="lua_8h.html#af0a6ed3b852d680769cfc410a0672172">lua_Number</a> I2d </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structRand64.html">Rand64</a></td>          <td class="paramname"><span class="paramname"><em>x</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a00b4573721dbfd08d584b34a7e1722db" name="a00b4573721dbfd08d584b34a7e1722db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00b4573721dbfd08d584b34a7e1722db">&#9670;&#160;</a></span>I2UInt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="lua_8h.html#a2357bdcd9af1aaef0a6895a9c3b7eccf">lua_Unsigned</a> I2UInt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structRand64.html">Rand64</a></td>          <td class="paramname"><span class="paramname"><em>x</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0f8118bb9ab66c0fee78e5bf183d436f" name="a0f8118bb9ab66c0fee78e5bf183d436f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f8118bb9ab66c0fee78e5bf183d436f">&#9670;&#160;</a></span>Iadd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="structRand64.html">Rand64</a> Iadd </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structRand64.html">Rand64</a></td>          <td class="paramname"><span class="paramname"><em>i1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structRand64.html">Rand64</a></td>          <td class="paramname"><span class="paramname"><em>i2</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aedfbc1eb34c86571439b5d3d36d9361e" name="aedfbc1eb34c86571439b5d3d36d9361e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aedfbc1eb34c86571439b5d3d36d9361e">&#9670;&#160;</a></span>Int2I()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="structRand64.html">Rand64</a> Int2I </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lua_8h.html#a2357bdcd9af1aaef0a6895a9c3b7eccf">lua_Unsigned</a></td>          <td class="paramname"><span class="paramname"><em>n</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5fe860c78def6ac52bd99153df082c3e" name="a5fe860c78def6ac52bd99153df082c3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fe860c78def6ac52bd99153df082c3e">&#9670;&#160;</a></span>Ishl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="structRand64.html">Rand64</a> Ishl </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structRand64.html">Rand64</a></td>          <td class="paramname"><span class="paramname"><em>i</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>n</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac269f9bd785360abe156ba7c7cc67e21" name="ac269f9bd785360abe156ba7c7cc67e21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac269f9bd785360abe156ba7c7cc67e21">&#9670;&#160;</a></span>Ixor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void Ixor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structRand64.html">Rand64</a> *</td>          <td class="paramname"><span class="paramname"><em>i1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structRand64.html">Rand64</a></td>          <td class="paramname"><span class="paramname"><em>i2</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a78cbff06fd4d59cf3d7525fa6cc196ba" name="a78cbff06fd4d59cf3d7525fa6cc196ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78cbff06fd4d59cf3d7525fa6cc196ba">&#9670;&#160;</a></span>luaopen_math()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="luaconf_8h.html#a8e877216dd2f0cf9a68255b494f82f50">LUAMOD_API</a> int luaopen_math </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlua__State.html">lua_State</a> *</td>          <td class="paramname"><span class="paramname"><em>L</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9545dd3926974393ff34e33a108df628" name="a9545dd3926974393ff34e33a108df628"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9545dd3926974393ff34e33a108df628">&#9670;&#160;</a></span>math_abs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int math_abs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlua__State.html">lua_State</a> *</td>          <td class="paramname"><span class="paramname"><em>L</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9f983fa3cca14d69429cebc95be4fab1" name="a9f983fa3cca14d69429cebc95be4fab1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f983fa3cca14d69429cebc95be4fab1">&#9670;&#160;</a></span>math_acos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int math_acos </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlua__State.html">lua_State</a> *</td>          <td class="paramname"><span class="paramname"><em>L</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa44ea66108bb38acbe5c8cb2ce6de33f" name="aa44ea66108bb38acbe5c8cb2ce6de33f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa44ea66108bb38acbe5c8cb2ce6de33f">&#9670;&#160;</a></span>math_asin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int math_asin </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlua__State.html">lua_State</a> *</td>          <td class="paramname"><span class="paramname"><em>L</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a70217d6c0312477f3e257a584518424c" name="a70217d6c0312477f3e257a584518424c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70217d6c0312477f3e257a584518424c">&#9670;&#160;</a></span>math_atan()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int math_atan </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlua__State.html">lua_State</a> *</td>          <td class="paramname"><span class="paramname"><em>L</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae4f0dc771c626a9badef237db9d433da" name="ae4f0dc771c626a9badef237db9d433da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4f0dc771c626a9badef237db9d433da">&#9670;&#160;</a></span>math_ceil()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int math_ceil </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlua__State.html">lua_State</a> *</td>          <td class="paramname"><span class="paramname"><em>L</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5db2cf8c6e7a331d7daf259f305e057c" name="a5db2cf8c6e7a331d7daf259f305e057c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5db2cf8c6e7a331d7daf259f305e057c">&#9670;&#160;</a></span>math_cos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int math_cos </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlua__State.html">lua_State</a> *</td>          <td class="paramname"><span class="paramname"><em>L</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad9bd03062009a4aba15739a1630b2a25" name="ad9bd03062009a4aba15739a1630b2a25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9bd03062009a4aba15739a1630b2a25">&#9670;&#160;</a></span>math_deg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int math_deg </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlua__State.html">lua_State</a> *</td>          <td class="paramname"><span class="paramname"><em>L</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7c971c680cdad8e4e833f8a3db9d065d" name="a7c971c680cdad8e4e833f8a3db9d065d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c971c680cdad8e4e833f8a3db9d065d">&#9670;&#160;</a></span>math_exp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int math_exp </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlua__State.html">lua_State</a> *</td>          <td class="paramname"><span class="paramname"><em>L</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa063dcd93e924af13c5e311f89b18d03" name="aa063dcd93e924af13c5e311f89b18d03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa063dcd93e924af13c5e311f89b18d03">&#9670;&#160;</a></span>math_floor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int math_floor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlua__State.html">lua_State</a> *</td>          <td class="paramname"><span class="paramname"><em>L</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a25b3f7d30cf85b8248a72de20049564e" name="a25b3f7d30cf85b8248a72de20049564e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25b3f7d30cf85b8248a72de20049564e">&#9670;&#160;</a></span>math_fmod()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int math_fmod </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlua__State.html">lua_State</a> *</td>          <td class="paramname"><span class="paramname"><em>L</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7cb92978495484adbfc9d0cb0ace2cc2" name="a7cb92978495484adbfc9d0cb0ace2cc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7cb92978495484adbfc9d0cb0ace2cc2">&#9670;&#160;</a></span>math_log()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int math_log </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlua__State.html">lua_State</a> *</td>          <td class="paramname"><span class="paramname"><em>L</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a03e3b76e515f5535122c2026a9e8f445" name="a03e3b76e515f5535122c2026a9e8f445"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03e3b76e515f5535122c2026a9e8f445">&#9670;&#160;</a></span>math_max()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int math_max </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlua__State.html">lua_State</a> *</td>          <td class="paramname"><span class="paramname"><em>L</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab0a14d784b5fe2f30062e88a635db320" name="ab0a14d784b5fe2f30062e88a635db320"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0a14d784b5fe2f30062e88a635db320">&#9670;&#160;</a></span>math_min()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int math_min </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlua__State.html">lua_State</a> *</td>          <td class="paramname"><span class="paramname"><em>L</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adff369706deb34be360be3103f31d4c4" name="adff369706deb34be360be3103f31d4c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adff369706deb34be360be3103f31d4c4">&#9670;&#160;</a></span>math_modf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int math_modf </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlua__State.html">lua_State</a> *</td>          <td class="paramname"><span class="paramname"><em>L</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5d8eec19cea59d1ce1012a705f70dc8d" name="a5d8eec19cea59d1ce1012a705f70dc8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d8eec19cea59d1ce1012a705f70dc8d">&#9670;&#160;</a></span>math_rad()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int math_rad </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlua__State.html">lua_State</a> *</td>          <td class="paramname"><span class="paramname"><em>L</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa3ad02d4204d21d35a0825281915fb22" name="aa3ad02d4204d21d35a0825281915fb22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3ad02d4204d21d35a0825281915fb22">&#9670;&#160;</a></span>math_random()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int math_random </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlua__State.html">lua_State</a> *</td>          <td class="paramname"><span class="paramname"><em>L</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a55540667178ac717a1c6283b58b00ce7" name="a55540667178ac717a1c6283b58b00ce7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55540667178ac717a1c6283b58b00ce7">&#9670;&#160;</a></span>math_randomseed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int math_randomseed </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlua__State.html">lua_State</a> *</td>          <td class="paramname"><span class="paramname"><em>L</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adb460e2b01df47afcaa823ecc1846a24" name="adb460e2b01df47afcaa823ecc1846a24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb460e2b01df47afcaa823ecc1846a24">&#9670;&#160;</a></span>math_sin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int math_sin </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlua__State.html">lua_State</a> *</td>          <td class="paramname"><span class="paramname"><em>L</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8f4c386bafe8ae7269476ed3ed94d1d8" name="a8f4c386bafe8ae7269476ed3ed94d1d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f4c386bafe8ae7269476ed3ed94d1d8">&#9670;&#160;</a></span>math_sqrt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int math_sqrt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlua__State.html">lua_State</a> *</td>          <td class="paramname"><span class="paramname"><em>L</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a06bc9b8c610e00759bb99c3db6128f18" name="a06bc9b8c610e00759bb99c3db6128f18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06bc9b8c610e00759bb99c3db6128f18">&#9670;&#160;</a></span>math_tan()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int math_tan </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlua__State.html">lua_State</a> *</td>          <td class="paramname"><span class="paramname"><em>L</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7604de8e5daca6d7576a9ee940a3f479" name="a7604de8e5daca6d7576a9ee940a3f479"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7604de8e5daca6d7576a9ee940a3f479">&#9670;&#160;</a></span>math_toint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int math_toint </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlua__State.html">lua_State</a> *</td>          <td class="paramname"><span class="paramname"><em>L</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af58a749fbaa6093fab0db96dcfd822a7" name="af58a749fbaa6093fab0db96dcfd822a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af58a749fbaa6093fab0db96dcfd822a7">&#9670;&#160;</a></span>math_type()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int math_type </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlua__State.html">lua_State</a> *</td>          <td class="paramname"><span class="paramname"><em>L</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5d62cc09bee44198af9cb2023a50d972" name="a5d62cc09bee44198af9cb2023a50d972"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d62cc09bee44198af9cb2023a50d972">&#9670;&#160;</a></span>math_ult()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int math_ult </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlua__State.html">lua_State</a> *</td>          <td class="paramname"><span class="paramname"><em>L</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac01956e1f85c57f7781d256db3d76886" name="ac01956e1f85c57f7781d256db3d76886"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac01956e1f85c57f7781d256db3d76886">&#9670;&#160;</a></span>nextrand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="structRand64.html">Rand64</a> nextrand </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structRand64.html">Rand64</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a43beb45c0b29c5e7a866b193d6b8c546" name="a43beb45c0b29c5e7a866b193d6b8c546"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43beb45c0b29c5e7a866b193d6b8c546">&#9670;&#160;</a></span>packI()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="structRand64.html">Rand64</a> packI </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#aa8f942b3f89c99f2fbde3c4361b7c615">lu_int32</a></td>          <td class="paramname"><span class="paramname"><em>h</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#aa8f942b3f89c99f2fbde3c4361b7c615">lu_int32</a></td>          <td class="paramname"><span class="paramname"><em>l</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a13ece5b7fa9dd48246430a48dec238b1" name="a13ece5b7fa9dd48246430a48dec238b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13ece5b7fa9dd48246430a48dec238b1">&#9670;&#160;</a></span>project()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="lua_8h.html#a2357bdcd9af1aaef0a6895a9c3b7eccf">lua_Unsigned</a> project </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lua_8h.html#a2357bdcd9af1aaef0a6895a9c3b7eccf">lua_Unsigned</a></td>          <td class="paramname"><span class="paramname"><em>ran</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="lua_8h.html#a2357bdcd9af1aaef0a6895a9c3b7eccf">lua_Unsigned</a></td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structRanState.html">RanState</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa43eb6808ce1bad1f4f1416475e38e13" name="aa43eb6808ce1bad1f4f1416475e38e13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa43eb6808ce1bad1f4f1416475e38e13">&#9670;&#160;</a></span>pushnumint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void pushnumint </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlua__State.html">lua_State</a> *</td>          <td class="paramname"><span class="paramname"><em>L</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="lua_8h.html#af0a6ed3b852d680769cfc410a0672172">lua_Number</a></td>          <td class="paramname"><span class="paramname"><em>d</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaeea41eadd14e3f30fe6814cc94891c5" name="aaeea41eadd14e3f30fe6814cc94891c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaeea41eadd14e3f30fe6814cc94891c5">&#9670;&#160;</a></span>randseed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void randseed </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlua__State.html">lua_State</a> *</td>          <td class="paramname"><span class="paramname"><em>L</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structRanState.html">RanState</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af6d2c0cbed4c44224dc80230279c1b5d" name="af6d2c0cbed4c44224dc80230279c1b5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6d2c0cbed4c44224dc80230279c1b5d">&#9670;&#160;</a></span>rotl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="structRand64.html">Rand64</a> rotl </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structRand64.html">Rand64</a></td>          <td class="paramname"><span class="paramname"><em>i</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>n</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0a2a1bbd027f6e376a7043e2bdab7870" name="a0a2a1bbd027f6e376a7043e2bdab7870"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a2a1bbd027f6e376a7043e2bdab7870">&#9670;&#160;</a></span>rotl1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="structRand64.html">Rand64</a> rotl1 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structRand64.html">Rand64</a></td>          <td class="paramname"><span class="paramname"><em>i</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>n</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aec3434532c7149fc0d3fff7ac86e6fbb" name="aec3434532c7149fc0d3fff7ac86e6fbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec3434532c7149fc0d3fff7ac86e6fbb">&#9670;&#160;</a></span>setrandfunc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void setrandfunc </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlua__State.html">lua_State</a> *</td>          <td class="paramname"><span class="paramname"><em>L</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4e708776ec48b6fb6d7239a8754900e1" name="a4e708776ec48b6fb6d7239a8754900e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e708776ec48b6fb6d7239a8754900e1">&#9670;&#160;</a></span>setseed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void setseed </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlua__State.html">lua_State</a> *</td>          <td class="paramname"><span class="paramname"><em>L</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structRand64.html">Rand64</a> *</td>          <td class="paramname"><span class="paramname"><em>state</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="lua_8h.html#a2357bdcd9af1aaef0a6895a9c3b7eccf">lua_Unsigned</a></td>          <td class="paramname"><span class="paramname"><em>n1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="lua_8h.html#a2357bdcd9af1aaef0a6895a9c3b7eccf">lua_Unsigned</a></td>          <td class="paramname"><span class="paramname"><em>n2</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4708082c07e59916317e3baf2204504a" name="a4708082c07e59916317e3baf2204504a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4708082c07e59916317e3baf2204504a">&#9670;&#160;</a></span>times5()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="structRand64.html">Rand64</a> times5 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structRand64.html">Rand64</a></td>          <td class="paramname"><span class="paramname"><em>i</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8276cb06bf824ed1d39fa2f3f0db6968" name="a8276cb06bf824ed1d39fa2f3f0db6968"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8276cb06bf824ed1d39fa2f3f0db6968">&#9670;&#160;</a></span>times9()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="structRand64.html">Rand64</a> times9 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structRand64.html">Rand64</a></td>          <td class="paramname"><span class="paramname"><em>i</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="ac80ca653775abeb66123337a10874983" name="ac80ca653775abeb66123337a10874983"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac80ca653775abeb66123337a10874983">&#9670;&#160;</a></span>mathlib</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structluaL__Reg.html">luaL_Reg</a> mathlib[]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a866900ee1a7dd674b2c58e52d18b0a4e" name="a866900ee1a7dd674b2c58e52d18b0a4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a866900ee1a7dd674b2c58e52d18b0a4e">&#9670;&#160;</a></span>randfuncs</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structluaL__Reg.html">luaL_Reg</a> randfuncs[]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
+<div class="line">  {<span class="stringliteral">&quot;random&quot;</span>, <a class="code hl_function" href="#aa3ad02d4204d21d35a0825281915fb22">math_random</a>},</div>
+<div class="line">  {<span class="stringliteral">&quot;randomseed&quot;</span>, <a class="code hl_function" href="#a55540667178ac717a1c6283b58b00ce7">math_randomseed</a>},</div>
+<div class="line">  {NULL, NULL}</div>
+<div class="line">}</div>
+<div class="ttc" id="almathlib_8c_html_a55540667178ac717a1c6283b58b00ce7"><div class="ttname"><a href="#a55540667178ac717a1c6283b58b00ce7">math_randomseed</a></div><div class="ttdeci">static int math_randomseed(lua_State *L)</div><div class="ttdef"><b>Definition</b> lmathlib.c:620</div></div>
+<div class="ttc" id="almathlib_8c_html_aa3ad02d4204d21d35a0825281915fb22"><div class="ttname"><a href="#aa3ad02d4204d21d35a0825281915fb22">math_random</a></div><div class="ttdeci">static int math_random(lua_State *L)</div><div class="ttdef"><b>Definition</b> lmathlib.c:559</div></div>
+</div><!-- fragment -->
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -100,19 +100,145 @@ $(function(){ initResizable(false); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:gafe4a5994dd3704ec53de77f9fd121915" id="r_gafe4a5994dd3704ec53de77f9fd121915"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gafe4a5994dd3704ec53de77f9fd121915">api_incr_top</a>(<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
-<tr class="separator:gafe4a5994dd3704ec53de77f9fd121915"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gafd1f4a36958642707b7598a48c507599" id="r_gafd1f4a36958642707b7598a48c507599"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gafd1f4a36958642707b7598a48c507599">adjustresults</a>(<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>,  nres)</td></tr>
-<tr class="separator:gafd1f4a36958642707b7598a48c507599"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9785915283c3f0a0ec90f1b6be32b2c2" id="r_ga9785915283c3f0a0ec90f1b6be32b2c2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga9785915283c3f0a0ec90f1b6be32b2c2">api_checknelems</a>(<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>,  n)</td></tr>
-<tr class="separator:ga9785915283c3f0a0ec90f1b6be32b2c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5707387c1d9df9ae5bea729c1109ddf6" id="r_ga5707387c1d9df9ae5bea729c1109ddf6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga5707387c1d9df9ae5bea729c1109ddf6">hastocloseCfunc</a>(n)&#160;&#160;&#160;((n) &lt; <a class="el" href="group__LuaSrc.html#gace3545adc11664c2f2b152fbe8b6283c">LUA_MULTRET</a>)</td></tr>
-<tr class="separator:ga5707387c1d9df9ae5bea729c1109ddf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga605e47ad8af5d2c7a821081dc37ddc90" id="r_ga605e47ad8af5d2c7a821081dc37ddc90"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga605e47ad8af5d2c7a821081dc37ddc90">codeNresults</a>(n)&#160;&#160;&#160;(-(n) - 3)</td></tr>
-<tr class="separator:ga605e47ad8af5d2c7a821081dc37ddc90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad3db9b65c4817380f144bd6e6337850f" id="r_gad3db9b65c4817380f144bd6e6337850f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gad3db9b65c4817380f144bd6e6337850f">decodeNresults</a>(n)&#160;&#160;&#160;(-(n) - 3)</td></tr>
-<tr class="separator:gad3db9b65c4817380f144bd6e6337850f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe4a5994dd3704ec53de77f9fd121915" id="r_afe4a5994dd3704ec53de77f9fd121915"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe4a5994dd3704ec53de77f9fd121915">api_incr_top</a>(<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
+<tr class="separator:afe4a5994dd3704ec53de77f9fd121915"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd1f4a36958642707b7598a48c507599" id="r_afd1f4a36958642707b7598a48c507599"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afd1f4a36958642707b7598a48c507599">adjustresults</a>(<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>,  nres)</td></tr>
+<tr class="separator:afd1f4a36958642707b7598a48c507599"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9785915283c3f0a0ec90f1b6be32b2c2" id="r_a9785915283c3f0a0ec90f1b6be32b2c2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9785915283c3f0a0ec90f1b6be32b2c2">api_checknelems</a>(<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>,  n)</td></tr>
+<tr class="separator:a9785915283c3f0a0ec90f1b6be32b2c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5707387c1d9df9ae5bea729c1109ddf6" id="r_a5707387c1d9df9ae5bea729c1109ddf6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5707387c1d9df9ae5bea729c1109ddf6">hastocloseCfunc</a>(n)&#160;&#160;&#160;((n) &lt; <a class="el" href="lua_8h.html#ace3545adc11664c2f2b152fbe8b6283c">LUA_MULTRET</a>)</td></tr>
+<tr class="separator:a5707387c1d9df9ae5bea729c1109ddf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a605e47ad8af5d2c7a821081dc37ddc90" id="r_a605e47ad8af5d2c7a821081dc37ddc90"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a605e47ad8af5d2c7a821081dc37ddc90">codeNresults</a>(n)&#160;&#160;&#160;(-(n) - 3)</td></tr>
+<tr class="separator:a605e47ad8af5d2c7a821081dc37ddc90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3db9b65c4817380f144bd6e6337850f" id="r_ad3db9b65c4817380f144bd6e6337850f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad3db9b65c4817380f144bd6e6337850f">decodeNresults</a>(n)&#160;&#160;&#160;(-(n) - 3)</td></tr>
+<tr class="separator:ad3db9b65c4817380f144bd6e6337850f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="afd1f4a36958642707b7598a48c507599" name="afd1f4a36958642707b7598a48c507599"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd1f4a36958642707b7598a48c507599">&#9670;&#160;</a></span>adjustresults</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define adjustresults</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>nres</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    { <span class="keywordflow">if</span> ((nres) &lt;= <a class="code hl_define" href="lua_8h.html#ace3545adc11664c2f2b152fbe8b6283c">LUA_MULTRET</a> &amp;&amp; <a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>-&gt;<a class="code hl_variable" href="structlua__State.html#a7fbb5727050853f411ad64b4be9ab5c8">ci</a>-&gt;<a class="code hl_variable" href="structCallInfo.html#a896b6484f4e0c4f76768913ffb91e88b">top</a>.<a class="code hl_variable" href="unionStkIdRel.html#a217d7edba31898cdfe8fdd91df893d26">p</a> &lt; <a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>-&gt;<a class="code hl_variable" href="structlua__State.html#a1312e4b6f80531820b4765080a33fbfe">top</a>.<a class="code hl_variable" href="unionStkIdRel.html#a217d7edba31898cdfe8fdd91df893d26">p</a>) \</div>
+<div class="line">    <a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>-&gt;<a class="code hl_variable" href="structlua__State.html#a7fbb5727050853f411ad64b4be9ab5c8">ci</a>-&gt;<a class="code hl_variable" href="structCallInfo.html#a896b6484f4e0c4f76768913ffb91e88b">top</a>.<a class="code hl_variable" href="unionStkIdRel.html#a217d7edba31898cdfe8fdd91df893d26">p</a> = <a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>-&gt;<a class="code hl_variable" href="structlua__State.html#a1312e4b6f80531820b4765080a33fbfe">top</a>.<a class="code hl_variable" href="unionStkIdRel.html#a217d7edba31898cdfe8fdd91df893d26">p</a>; }</div>
+<div class="ttc" id="agame_8c_html_a62f94dfc0036bec0c14106c2f15caf3e"><div class="ttname"><a href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a></div><div class="ttdeci">static lua_State * L</div><div class="ttdef"><b>Definition</b> game.c:35</div></div>
+<div class="ttc" id="alua_8h_html_ace3545adc11664c2f2b152fbe8b6283c"><div class="ttname"><a href="lua_8h.html#ace3545adc11664c2f2b152fbe8b6283c">LUA_MULTRET</a></div><div class="ttdeci">#define LUA_MULTRET</div><div class="ttdef"><b>Definition</b> lua.h:36</div></div>
+<div class="ttc" id="astructCallInfo_html_a896b6484f4e0c4f76768913ffb91e88b"><div class="ttname"><a href="structCallInfo.html#a896b6484f4e0c4f76768913ffb91e88b">CallInfo::top</a></div><div class="ttdeci">StkIdRel top</div><div class="ttdef"><b>Definition</b> lstate.h:179</div></div>
+<div class="ttc" id="astructlua__State_html_a1312e4b6f80531820b4765080a33fbfe"><div class="ttname"><a href="structlua__State.html#a1312e4b6f80531820b4765080a33fbfe">lua_State::top</a></div><div class="ttdeci">StkIdRel top</div><div class="ttdef"><b>Definition</b> lstate.h:314</div></div>
+<div class="ttc" id="astructlua__State_html_a7fbb5727050853f411ad64b4be9ab5c8"><div class="ttname"><a href="structlua__State.html#a7fbb5727050853f411ad64b4be9ab5c8">lua_State::ci</a></div><div class="ttdeci">CallInfo * ci</div><div class="ttdef"><b>Definition</b> lstate.h:316</div></div>
+<div class="ttc" id="aunionStkIdRel_html_a217d7edba31898cdfe8fdd91df893d26"><div class="ttname"><a href="unionStkIdRel.html#a217d7edba31898cdfe8fdd91df893d26">StkIdRel::p</a></div><div class="ttdeci">StkId p</div><div class="ttdef"><b>Definition</b> lobject.h:166</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a9785915283c3f0a0ec90f1b6be32b2c2" name="a9785915283c3f0a0ec90f1b6be32b2c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9785915283c3f0a0ec90f1b6be32b2c2">&#9670;&#160;</a></span>api_checknelems</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define api_checknelems</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>n</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    <a class="code hl_define" href="llimits_8h.html#ad7a42e1cc11f94e1f06ed80814fcb606">api_check</a>(<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, (n) &lt; (<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>-&gt;<a class="code hl_variable" href="structlua__State.html#a1312e4b6f80531820b4765080a33fbfe">top</a>.<a class="code hl_variable" href="unionStkIdRel.html#a217d7edba31898cdfe8fdd91df893d26">p</a> - <a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>-&gt;<a class="code hl_variable" href="structlua__State.html#a7fbb5727050853f411ad64b4be9ab5c8">ci</a>-&gt;<a class="code hl_variable" href="structCallInfo.html#a3307de33f6da067897418f5e98e63167">func</a>.<a class="code hl_variable" href="unionStkIdRel.html#a217d7edba31898cdfe8fdd91df893d26">p</a>), \</div>
+<div class="line">              <span class="stringliteral">&quot;not enough elements in the stack&quot;</span>)</div>
+<div class="ttc" id="allimits_8h_html_ad7a42e1cc11f94e1f06ed80814fcb606"><div class="ttname"><a href="llimits_8h.html#ad7a42e1cc11f94e1f06ed80814fcb606">api_check</a></div><div class="ttdeci">#define api_check(l, e, msg)</div><div class="ttdef"><b>Definition</b> llimits.h:126</div></div>
+<div class="ttc" id="astructCallInfo_html_a3307de33f6da067897418f5e98e63167"><div class="ttname"><a href="structCallInfo.html#a3307de33f6da067897418f5e98e63167">CallInfo::func</a></div><div class="ttdeci">StkIdRel func</div><div class="ttdef"><b>Definition</b> lstate.h:178</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="afe4a5994dd3704ec53de77f9fd121915" name="afe4a5994dd3704ec53de77f9fd121915"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe4a5994dd3704ec53de77f9fd121915">&#9670;&#160;</a></span>api_incr_top</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define api_incr_top</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">             {<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>-&gt;<a class="code hl_variable" href="structlua__State.html#a1312e4b6f80531820b4765080a33fbfe">top</a>.<a class="code hl_variable" href="unionStkIdRel.html#a217d7edba31898cdfe8fdd91df893d26">p</a>++; \</div>
+<div class="line">             api_check(<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>-&gt;<a class="code hl_variable" href="structlua__State.html#a1312e4b6f80531820b4765080a33fbfe">top</a>.<a class="code hl_variable" href="unionStkIdRel.html#a217d7edba31898cdfe8fdd91df893d26">p</a> &lt;= <a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>-&gt;<a class="code hl_variable" href="structlua__State.html#a7fbb5727050853f411ad64b4be9ab5c8">ci</a>-&gt;<a class="code hl_variable" href="structCallInfo.html#a896b6484f4e0c4f76768913ffb91e88b">top</a>.<a class="code hl_variable" href="unionStkIdRel.html#a217d7edba31898cdfe8fdd91df893d26">p</a>, \</div>
+<div class="line">                    <span class="stringliteral">&quot;stack overflow&quot;</span>);}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a605e47ad8af5d2c7a821081dc37ddc90" name="a605e47ad8af5d2c7a821081dc37ddc90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a605e47ad8af5d2c7a821081dc37ddc90">&#9670;&#160;</a></span>codeNresults</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define codeNresults</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>n</em></span></td><td>)</td>
+          <td>&#160;&#160;&#160;(-(n) - 3)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad3db9b65c4817380f144bd6e6337850f" name="ad3db9b65c4817380f144bd6e6337850f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3db9b65c4817380f144bd6e6337850f">&#9670;&#160;</a></span>decodeNresults</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define decodeNresults</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>n</em></span></td><td>)</td>
+          <td>&#160;&#160;&#160;(-(n) - 3)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5707387c1d9df9ae5bea729c1109ddf6" name="a5707387c1d9df9ae5bea729c1109ddf6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5707387c1d9df9ae5bea729c1109ddf6">&#9670;&#160;</a></span>hastocloseCfunc</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define hastocloseCfunc</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>n</em></span></td><td>)</td>
+          <td>&#160;&#160;&#160;((n) &lt; <a class="el" href="lua_8h.html#ace3545adc11664c2f2b152fbe8b6283c">LUA_MULTRET</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

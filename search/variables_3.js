@@ -15,7 +15,7 @@ var searchData=
   ['chunk_5fsize_12',['chunk_size',['../namespacelua__fw__to__c.html#a247b38daaa6103bf8559ad5b6ac059fa',1,'lua_fw_to_c']]],
   ['ci_13',['ci',['../structlua__State.html#a7fbb5727050853f411ad64b4be9ab5c8',1,'lua_State']]],
   ['cl_14',['cl',['../unionGCUnion.html#af6104ad9cdf1e73fb97dac1f0b56f3e6',1,'GCUnion']]],
-  ['clibs_15',['CLIBS',['../group__LuaSrc.html#ga7bbde96feb9b84c7c149acd2773a1158',1,'loadlib.c']]],
+  ['clibs_15',['CLIBS',['../loadlib_8c.html#a7bbde96feb9b84c7c149acd2773a1158',1,'loadlib.c']]],
   ['close_16',['close',['../structLabeldesc.html#a1cb3dd8c4a749605dfba38bf113975e4',1,'Labeldesc']]],
   ['closef_17',['closef',['../structluaL__Stream.html#a98731a1b0b1e28336d7206798895e62f',1,'luaL_Stream']]],
   ['closureheader_18',['ClosureHeader',['../structCClosure.html#a552c31467816a1fafbd719cf83ff9cba',1,'CClosure::ClosureHeader'],['../structLClosure.html#a6014e6d418f56b1ec866c449cab16044',1,'LClosure::ClosureHeader']]],

@@ -91,27 +91,24 @@ $(function(){ initResizable(false); });
   <div class="headertitle"><div class="title">ljumptab.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="ljumptab_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">** $Id: ljumptab.h $</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">** Jump Table for the Lua interpreter</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">** See Copyright Notice in lua.h</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">*/</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#undef vmdispatch</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#undef vmcase</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#undef vmbreak</span></div>
+<a href="ljumptab_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">** $Id: ljumptab.h $</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">** Jump Table for the Lua interpreter</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">** See Copyright Notice in lua.h</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">*/</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#undef vmdispatch</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#undef vmcase</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#undef vmbreak</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="ljumptab_8h.html#ae2328a135b54b42ce9ea3d808f6d7834">   12</a></span><span class="preprocessor">#define vmdispatch(x)     goto *disptab[x];</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#gae2328a135b54b42ce9ea3d808f6d7834">   14</a></span><span class="preprocessor">#define vmdispatch(x)     goto *disptab[x];</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="ljumptab_8h.html#a64ed762fd3da016b8792d4ac0d0cf17f">   14</a></span><span class="preprocessor">#define vmcase(l)     L_##l:</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga64ed762fd3da016b8792d4ac0d0cf17f">   16</a></span><span class="preprocessor">#define vmcase(l)     L_##l:</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga362451cac7ed1e9ebf8978cd761a01fb">   18</a></span><span class="preprocessor">#define vmbreak     vmfetch(); vmdispatch(GET_OPCODE(i));</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="ljumptab_8h.html#a362451cac7ed1e9ebf8978cd761a01fb">   16</a></span><span class="preprocessor">#define vmbreak     vmfetch(); vmdispatch(GET_OPCODE(i));</span></div>
 <div class="foldopen" id="foldopen00021" data-start="{" data-end="};">
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga702a7a7ef2c839cf996469121c2086b0">   21</a></span><span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">void</span> *<span class="keyword">const</span> <a class="code hl_variable" href="group__LuaSrc.html#ga702a7a7ef2c839cf996469121c2086b0">disptab</a>[<a class="code hl_define" href="group__LuaSrc.html#ga1fb469ba81540d3314cfbe37c675ba20">NUM_OPCODES</a>] = {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga702a7a7ef2c839cf996469121c2086b0">   21</a></span><span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">void</span> *<span class="keyword">const</span> <a class="code hl_variable" href="group__LuaSrc.html#ga702a7a7ef2c839cf996469121c2086b0">disptab</a>[<a class="code hl_define" href="lopcodes_8h.html#a1fb469ba81540d3314cfbe37c675ba20">NUM_OPCODES</a>] = {</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#if 0</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>** you can update the following list with <span class="keyword">this</span> command:</div>
@@ -206,8 +203,8 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>};</div>
 </div>
-<div class="ttc" id="agroup__LuaSrc_html_ga1fb469ba81540d3314cfbe37c675ba20"><div class="ttname"><a href="group__LuaSrc.html#ga1fb469ba81540d3314cfbe37c675ba20">NUM_OPCODES</a></div><div class="ttdeci">#define NUM_OPCODES</div><div class="ttdef"><b>Definition</b> lopcodes.h:315</div></div>
 <div class="ttc" id="agroup__LuaSrc_html_ga702a7a7ef2c839cf996469121c2086b0"><div class="ttname"><a href="group__LuaSrc.html#ga702a7a7ef2c839cf996469121c2086b0">disptab</a></div><div class="ttdeci">static const void *const disptab[NUM_OPCODES]</div><div class="ttdef"><b>Definition</b> ljumptab.h:21</div></div>
+<div class="ttc" id="alopcodes_8h_html_a1fb469ba81540d3314cfbe37c675ba20"><div class="ttname"><a href="lopcodes_8h.html#a1fb469ba81540d3314cfbe37c675ba20">NUM_OPCODES</a></div><div class="ttdeci">#define NUM_OPCODES</div><div class="ttdef"><b>Definition</b> lopcodes.h:313</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

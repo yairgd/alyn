@@ -22,13 +22,9 @@ var searchData=
   ['genmajormul_19',['genmajormul',['../structglobal__State.html#a3ab0f14c8f8e48f010384dc55455690d',1,'global_State']]],
   ['genminormul_20',['genminormul',['../structglobal__State.html#a98874843ee4d2605ac35e61f08eedc60',1,'global_State']]],
   ['gg_21',['gg',['../game-controller_2src_2HandleUartMsg_8h.html#a90a840dc2cad65d1e73a074141fdacf4',1,'gg:&#160;load_lua.cpp'],['../game_2comm__protocol_2protocol-v1_2HandleUartMsg_8h.html#a90a840dc2cad65d1e73a074141fdacf4',1,'gg:&#160;load_lua.cpp'],['../load__lua_8cpp.html#a90a840dc2cad65d1e73a074141fdacf4',1,'gg:&#160;load_lua.cpp'],['../test1_8cpp.html#a90a840dc2cad65d1e73a074141fdacf4',1,'gg:&#160;test1.cpp'],['../game_2src_2HandleUartMsg_8h.html#a90a840dc2cad65d1e73a074141fdacf4',1,'gg:&#160;load_lua.cpp']]],
-  ['globall_22',['globalL',['../group__LuaSrc.html#gaf2f256e94f7ca1748abb736e9b311cc4',1,'lua.c']]],
+  ['globall_22',['globalL',['../lua_8c.html#af2f256e94f7ca1748abb736e9b311cc4',1,'lua.c']]],
   ['gray_23',['gray',['../structglobal__State.html#a2d96e2afbc62ff832ab660ed4c357696',1,'global_State']]],
   ['grayagain_24',['grayagain',['../structglobal__State.html#a2ccaa5d2e98c086489c04e2045082535',1,'global_State']]],
   ['group_25',['group',['../structframe.html#a0178a0362f958d7ccce060ce340fa93b',1,'frame']]],
-  ['group_5fdescription_26',['group_description',['../namespaceadd__doxygen__groups__to__file.html#a0725cecf0f6ddbd41705bd14f51f2984',1,'add_doxygen_groups_to_file']]],
-  ['group_5fend_27',['group_end',['../namespaceadd__doxygen__groups__to__file.html#abd79d29bd2821bf14d00374b071717ad',1,'add_doxygen_groups_to_file']]],
-  ['group_5fname_28',['group_name',['../namespaceadd__doxygen__groups__to__file.html#a629d0aa576b1252d4b13bf2fb2a58296',1,'add_doxygen_groups_to_file']]],
-  ['group_5fstart_29',['group_start',['../namespaceadd__doxygen__groups__to__file.html#acaf82fd4d3550492296b61cb92679b27',1,'add_doxygen_groups_to_file']]],
-  ['gt_30',['gt',['../structDyndata.html#a0e4b4f8cf1af3f8e4398e705f22e09cb',1,'Dyndata']]]
+  ['gt_26',['gt',['../structDyndata.html#a0e4b4f8cf1af3f8e4398e705f22e09cb',1,'Dyndata']]]
 ];

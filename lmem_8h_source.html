@@ -91,130 +91,132 @@ $(function(){ initResizable(false); });
   <div class="headertitle"><div class="title">lmem.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="lmem_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">** $Id: lmem.h $</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">** Interface to Memory Manager</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">** See Copyright Notice in lua.h</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">*/</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#ifndef lmem_h</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#define lmem_h</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<a href="lmem_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">** $Id: lmem.h $</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">** Interface to Memory Manager</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">** See Copyright Notice in lua.h</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">*/</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#ifndef lmem_h</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#define lmem_h</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;stddef.h&gt;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;stddef.h&gt;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="llimits_8h.html">llimits.h</a>&quot;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="lua_8h.html">lua.h</a>&quot;</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="llimits_8h.html">llimits.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="lua_8h.html">lua.h</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="lmem_8h.html#ae11aaaf07d13b2f0c3a671b01d7e3822">   17</a></span><span class="preprocessor">#define luaM_error(L)   luaD_throw(L, LUA_ERRMEM)</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#gae11aaaf07d13b2f0c3a671b01d7e3822">   19</a></span><span class="preprocessor">#define luaM_error(L)   luaD_throw(L, LUA_ERRMEM)</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">** This macro tests whether it is safe to multiply &#39;n&#39; by the size of</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">** type &#39;t&#39; without overflows. Because &#39;e&#39; is always constant, it avoids</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">** the runtime division MAX_SIZET/(e).</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">** (The macro is somewhat complex to avoid warnings:  The &#39;sizeof&#39;</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">** comparison avoids a runtime comparison when overflow cannot occur.</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">** The compiler should be able to optimize the real test by itself, but</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">** when it does it, it may give a warning about &quot;comparison is always</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">** false due to limited range of data type&quot;; the +1 tricks the compiler,</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">** avoiding this warning but also this optimization.)</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">*/</span></div>
-<div class="foldopen" id="foldopen00033" data-start="" data-end="">
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#gaaa4ae2ac3a122058ba3e73b1f438a89c">   33</a></span><span class="preprocessor">#define luaM_testsize(n,e)  \</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">    (sizeof(n) &gt;= sizeof(size_t) &amp;&amp; cast_sizet((n)) + 1 &gt; MAX_SIZET/(e))</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">** This macro tests whether it is safe to multiply &#39;n&#39; by the size of</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">** type &#39;t&#39; without overflows. Because &#39;e&#39; is always constant, it avoids</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">** the runtime division MAX_SIZET/(e).</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">** (The macro is somewhat complex to avoid warnings:  The &#39;sizeof&#39;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">** comparison avoids a runtime comparison when overflow cannot occur.</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">** The compiler should be able to optimize the real test by itself, but</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">** when it does it, it may give a warning about &quot;comparison is always</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">** false due to limited range of data type&quot;; the +1 tricks the compiler,</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">** avoiding this warning but also this optimization.)</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">*/</span></div>
+<div class="foldopen" id="foldopen00031" data-start="" data-end="">
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="lmem_8h.html#aaa4ae2ac3a122058ba3e73b1f438a89c">   31</a></span><span class="preprocessor">#define luaM_testsize(n,e)  \</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">    (sizeof(n) &gt;= sizeof(size_t) &amp;&amp; cast_sizet((n)) + 1 &gt; MAX_SIZET/(e))</span></div>
 </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="foldopen" id="foldopen00036" data-start="" data-end="">
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga0ab87210cc8c1a531b9397f6d55b1a97">   36</a></span><span class="preprocessor">#define luaM_checksize(L,n,e)  \</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">    (luaM_testsize(n,e) ? luaM_toobig(L) : cast_void(0))</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="foldopen" id="foldopen00034" data-start="" data-end="">
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="lmem_8h.html#a0ab87210cc8c1a531b9397f6d55b1a97">   34</a></span><span class="preprocessor">#define luaM_checksize(L,n,e)  \</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">    (luaM_testsize(n,e) ? luaM_toobig(L) : cast_void(0))</span></div>
 </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">** Computes the minimum between &#39;n&#39; and &#39;MAX_SIZET/sizeof(t)&#39;, so that</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">** the result is not larger than &#39;n&#39; and cannot overflow a &#39;size_t&#39;</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">** when multiplied by the size of type &#39;t&#39;. (Assumes that &#39;n&#39; is an</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment">** &#39;int&#39; or &#39;unsigned int&#39; and that &#39;int&#39; is not larger than &#39;size_t&#39;.)</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">*/</span></div>
-<div class="foldopen" id="foldopen00046" data-start="" data-end="">
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga29ccefa76d4743ffb490cdbc291f708a">   46</a></span><span class="preprocessor">#define luaM_limitN(n,t)  \</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">  ((cast_sizet(n) &lt;= MAX_SIZET/sizeof(t)) ? (n) :  \</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">     cast_uint((MAX_SIZET/sizeof(t))))</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">** Computes the minimum between &#39;n&#39; and &#39;MAX_SIZET/sizeof(t)&#39;, so that</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">** the result is not larger than &#39;n&#39; and cannot overflow a &#39;size_t&#39;</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">** when multiplied by the size of type &#39;t&#39;. (Assumes that &#39;n&#39; is an</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">** &#39;int&#39; or &#39;unsigned int&#39; and that &#39;int&#39; is not larger than &#39;size_t&#39;.)</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">*/</span></div>
+<div class="foldopen" id="foldopen00044" data-start="" data-end="">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="lmem_8h.html#a29ccefa76d4743ffb490cdbc291f708a">   44</a></span><span class="preprocessor">#define luaM_limitN(n,t)  \</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">  ((cast_sizet(n) &lt;= MAX_SIZET/sizeof(t)) ? (n) :  \</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">     cast_uint((MAX_SIZET/sizeof(t))))</span></div>
 </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">** Arrays of chars do not need any test</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">*/</span></div>
-<div class="foldopen" id="foldopen00054" data-start="" data-end="">
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga5904278d180acc29faf199e1d76f3e85">   54</a></span><span class="preprocessor">#define luaM_reallocvchar(L,b,on,n)  \</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="preprocessor">  cast_charp(luaM_saferealloc_(L, (b), (on)*sizeof(char), (n)*sizeof(char)))</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">** Arrays of chars do not need any test</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">*/</span></div>
+<div class="foldopen" id="foldopen00052" data-start="" data-end="">
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="lmem_8h.html#a5904278d180acc29faf199e1d76f3e85">   52</a></span><span class="preprocessor">#define luaM_reallocvchar(L,b,on,n)  \</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">  cast_charp(luaM_saferealloc_(L, (b), (on)*sizeof(char), (n)*sizeof(char)))</span></div>
 </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga159fd0a4f45c4aa195990526f9d0bf01">   57</a></span><span class="preprocessor">#define luaM_freemem(L, b, s)   luaM_free_(L, (b), (s))</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#gad927ceb6a17a9e89a00b83dcc4482988">   58</a></span><span class="preprocessor">#define luaM_free(L, b)     luaM_free_(L, (b), sizeof(*(b)))</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga574612879aa6814c76b8b57c41e4af5a">   59</a></span><span class="preprocessor">#define luaM_freearray(L, b, n)   luaM_free_(L, (b), (n)*sizeof(*(b)))</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#gae72bd363be924fa9a67be67de0802ad7">   61</a></span><span class="preprocessor">#define luaM_new(L,t)       cast(t*, luaM_malloc_(L, sizeof(t), 0))</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga715cc368a85506c7a104cda58f270f3e">   62</a></span><span class="preprocessor">#define luaM_newvector(L,n,t)   cast(t*, luaM_malloc_(L, (n)*sizeof(t), 0))</span></div>
-<div class="foldopen" id="foldopen00063" data-start="" data-end="">
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#gab223744a0660c0aa48e388ca51466839">   63</a></span><span class="preprocessor">#define luaM_newvectorchecked(L,n,t) \</span></div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">  (luaM_checksize(L,n,sizeof(t)), luaM_newvector(L,n,t))</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="lmem_8h.html#a159fd0a4f45c4aa195990526f9d0bf01">   55</a></span><span class="preprocessor">#define luaM_freemem(L, b, s)   luaM_free_(L, (b), (s))</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="lmem_8h.html#ad927ceb6a17a9e89a00b83dcc4482988">   56</a></span><span class="preprocessor">#define luaM_free(L, b)     luaM_free_(L, (b), sizeof(*(b)))</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="lmem_8h.html#a574612879aa6814c76b8b57c41e4af5a">   57</a></span><span class="preprocessor">#define luaM_freearray(L, b, n)   luaM_free_(L, (b), (n)*sizeof(*(b)))</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="lmem_8h.html#ae72bd363be924fa9a67be67de0802ad7">   59</a></span><span class="preprocessor">#define luaM_new(L,t)       cast(t*, luaM_malloc_(L, sizeof(t), 0))</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="lmem_8h.html#a715cc368a85506c7a104cda58f270f3e">   60</a></span><span class="preprocessor">#define luaM_newvector(L,n,t)   cast(t*, luaM_malloc_(L, (n)*sizeof(t), 0))</span></div>
+<div class="foldopen" id="foldopen00061" data-start="" data-end="">
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="lmem_8h.html#ab223744a0660c0aa48e388ca51466839">   61</a></span><span class="preprocessor">#define luaM_newvectorchecked(L,n,t) \</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="preprocessor">  (luaM_checksize(L,n,sizeof(t)), luaM_newvector(L,n,t))</span></div>
 </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="lmem_8h.html#a0ce640c4b032a327440e3820365d7167">   64</a></span><span class="preprocessor">#define luaM_newobject(L,tag,s) luaM_malloc_(L, (s), tag)</span></div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga0ce640c4b032a327440e3820365d7167">   66</a></span><span class="preprocessor">#define luaM_newobject(L,tag,s) luaM_malloc_(L, (s), tag)</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="foldopen" id="foldopen00068" data-start="" data-end="">
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga38823c4cdf0d53b73e1e3015affb06f9">   68</a></span><span class="preprocessor">#define luaM_growvector(L,v,nelems,size,t,limit,e) \</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">    ((v)=cast(t *, luaM_growaux_(L,v,nelems,&amp;(size),sizeof(t), \</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="preprocessor">                         luaM_limitN(limit,t),e)))</span></div>
+<div class="foldopen" id="foldopen00066" data-start="" data-end="">
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="lmem_8h.html#a38823c4cdf0d53b73e1e3015affb06f9">   66</a></span><span class="preprocessor">#define luaM_growvector(L,v,nelems,size,t,limit,e) \</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">    ((v)=cast(t *, luaM_growaux_(L,v,nelems,&amp;(size),sizeof(t), \</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="preprocessor">                         luaM_limitN(limit,t),e)))</span></div>
 </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="foldopen" id="foldopen00072" data-start="" data-end="">
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#gab1174e625ed7a62e5f8ba33a7e1c1917">   72</a></span><span class="preprocessor">#define luaM_reallocvector(L, v,oldn,n,t) \</span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="preprocessor">   (cast(t *, luaM_realloc_(L, v, cast_sizet(oldn) * sizeof(t), \</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="preprocessor">                                  cast_sizet(n) * sizeof(t))))</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="foldopen" id="foldopen00070" data-start="" data-end="">
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="lmem_8h.html#ab1174e625ed7a62e5f8ba33a7e1c1917">   70</a></span><span class="preprocessor">#define luaM_reallocvector(L, v,oldn,n,t) \</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="preprocessor">   (cast(t *, luaM_realloc_(L, v, cast_sizet(oldn) * sizeof(t), \</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="preprocessor">                                  cast_sizet(n) * sizeof(t))))</span></div>
 </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="foldopen" id="foldopen00076" data-start="" data-end="">
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#gab90797c53a311d30154c486b2b8561d5">   76</a></span><span class="preprocessor">#define luaM_shrinkvector(L,v,size,fs,t) \</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="preprocessor">   ((v)=cast(t *, luaM_shrinkvector_(L, v, &amp;(size), fs, sizeof(t))))</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="foldopen" id="foldopen00074" data-start="" data-end="">
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="lmem_8h.html#ab90797c53a311d30154c486b2b8561d5">   74</a></span><span class="preprocessor">#define luaM_shrinkvector(L,v,size,fs,t) \</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="preprocessor"></span> </div>
 </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="lmem_8h.html#ac4055e3a20b6b3af3d10590ea446ef6c">   77</a></span>   ((<a class="code hl_variable" href="lmem_8h.html#ac4055e3a20b6b3af3d10590ea446ef6c">v</a>)=<a class="code hl_define" href="llimits_8h.html#af17d62ec9e237a7644de6b9b34a48a34">cast</a>(t *, <a class="code hl_function" href="group__LuaSrc.html#ga7fe3cdb7f4720a11dc0054167d2be20b">luaM_shrinkvector_</a>(<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="code hl_variable" href="lmem_8h.html#ac4055e3a20b6b3af3d10590ea446ef6c">v</a>, &amp;(size), fs, <span class="keyword">sizeof</span>(t))))</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><a class="code hl_define" href="group__LuaSrc.html#ga3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> <a class="code hl_define" href="group__LuaSrc.html#ga9f743fcc9a5278cb9ee10355f09f7302">l_noret</a> <a class="code hl_function" href="group__LuaSrc.html#ga23b8703b7b50e1c5dd37d41569a09a9a">luaM_toobig</a> (<a class="code hl_struct" href="structlua__State.html">lua_State</a> *<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><a class="code hl_define" href="luaconf_8h.html#a3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> <a class="code hl_define" href="llimits_8h.html#a9f743fcc9a5278cb9ee10355f09f7302">l_noret</a> <a class="code hl_function" href="group__LuaSrc.html#ga8fc7df43dd830ccbe7581fd53f65bdbe">luaM_toobig</a> (<a class="code hl_struct" href="structlua__State.html">lua_State</a> *<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>);</div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment">/* not to be called directly */</span></div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><a class="code hl_define" href="group__LuaSrc.html#ga3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> <span class="keywordtype">void</span> *<a class="code hl_function" href="group__LuaSrc.html#ga03c1feddbac3bc38a4a57bd0608a96d6">luaM_realloc_</a> (<a class="code hl_struct" href="structlua__State.html">lua_State</a> *<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <span class="keywordtype">void</span> *<a class="code hl_function" href="group__LuaSrc.html#ga235428bed4c6be6cb6d2760cd0fa9d34">block</a>, <span class="keywordtype">size_t</span> oldsize,</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><a class="code hl_define" href="luaconf_8h.html#a3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> <span class="keywordtype">void</span> *<a class="code hl_function" href="group__LuaSrc.html#ga7dd4e9ddf6987797216fa9cf4bc23954">luaM_realloc_</a> (<a class="code hl_struct" href="structlua__State.html">lua_State</a> *<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <span class="keywordtype">void</span> *<a class="code hl_function" href="group__LuaSrc.html#ga235428bed4c6be6cb6d2760cd0fa9d34">block</a>, <span class="keywordtype">size_t</span> oldsize,</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>                                                          <span class="keywordtype">size_t</span> size);</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><a class="code hl_define" href="group__LuaSrc.html#ga3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> <span class="keywordtype">void</span> *<a class="code hl_function" href="group__LuaSrc.html#ga3407f169749821d4a07540118319968a">luaM_saferealloc_</a> (<a class="code hl_struct" href="structlua__State.html">lua_State</a> *<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <span class="keywordtype">void</span> *<a class="code hl_function" href="group__LuaSrc.html#ga235428bed4c6be6cb6d2760cd0fa9d34">block</a>, <span class="keywordtype">size_t</span> oldsize,</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><a class="code hl_define" href="luaconf_8h.html#a3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> <span class="keywordtype">void</span> *<a class="code hl_function" href="group__LuaSrc.html#ga8cb94bca57e8ae6aff344d3e6e4593af">luaM_saferealloc_</a> (<a class="code hl_struct" href="structlua__State.html">lua_State</a> *<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <span class="keywordtype">void</span> *<a class="code hl_function" href="group__LuaSrc.html#ga235428bed4c6be6cb6d2760cd0fa9d34">block</a>, <span class="keywordtype">size_t</span> oldsize,</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>                                                              <span class="keywordtype">size_t</span> size);</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><a class="code hl_define" href="group__LuaSrc.html#ga3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> <span class="keywordtype">void</span> <a class="code hl_function" href="group__LuaSrc.html#ga1596632e07c593bd9558ee4920fbe5de">luaM_free_</a> (<a class="code hl_struct" href="structlua__State.html">lua_State</a> *<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <span class="keywordtype">void</span> *<a class="code hl_function" href="group__LuaSrc.html#ga235428bed4c6be6cb6d2760cd0fa9d34">block</a>, <span class="keywordtype">size_t</span> osize);</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><a class="code hl_define" href="group__LuaSrc.html#ga3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> <span class="keywordtype">void</span> *<a class="code hl_function" href="group__LuaSrc.html#ga80dcc05c9b8457e0adff647143129e13">luaM_growaux_</a> (<a class="code hl_struct" href="structlua__State.html">lua_State</a> *<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <span class="keywordtype">void</span> *<a class="code hl_function" href="group__LuaSrc.html#ga235428bed4c6be6cb6d2760cd0fa9d34">block</a>, <span class="keywordtype">int</span> nelems,</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><a class="code hl_define" href="luaconf_8h.html#a3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> <span class="keywordtype">void</span> <a class="code hl_function" href="group__LuaSrc.html#ga36b12d49a937e5de982e2a2a135e6824">luaM_free_</a> (<a class="code hl_struct" href="structlua__State.html">lua_State</a> *<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <span class="keywordtype">void</span> *<a class="code hl_function" href="group__LuaSrc.html#ga235428bed4c6be6cb6d2760cd0fa9d34">block</a>, <span class="keywordtype">size_t</span> osize);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><a class="code hl_define" href="luaconf_8h.html#a3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> <span class="keywordtype">void</span> *<a class="code hl_function" href="group__LuaSrc.html#ga1c0358fd91c39b2040eebb75ed4c14e5">luaM_growaux_</a> (<a class="code hl_struct" href="structlua__State.html">lua_State</a> *<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <span class="keywordtype">void</span> *<a class="code hl_function" href="group__LuaSrc.html#ga235428bed4c6be6cb6d2760cd0fa9d34">block</a>, <span class="keywordtype">int</span> nelems,</div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>                               <span class="keywordtype">int</span> *size, <span class="keywordtype">int</span> size_elem, <span class="keywordtype">int</span> limit,</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>                               <span class="keyword">const</span> <span class="keywordtype">char</span> *what);</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><a class="code hl_define" href="group__LuaSrc.html#ga3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> <span class="keywordtype">void</span> *<a class="code hl_function" href="group__LuaSrc.html#gac5010fe25357a15d7aa28e86f1d1b945">luaM_shrinkvector_</a> (<a class="code hl_struct" href="structlua__State.html">lua_State</a> *<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <span class="keywordtype">void</span> *<a class="code hl_function" href="group__LuaSrc.html#ga235428bed4c6be6cb6d2760cd0fa9d34">block</a>, <span class="keywordtype">int</span> *nelem,</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><a class="code hl_define" href="luaconf_8h.html#a3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> <span class="keywordtype">void</span> *<a class="code hl_function" href="group__LuaSrc.html#ga7fe3cdb7f4720a11dc0054167d2be20b">luaM_shrinkvector_</a> (<a class="code hl_struct" href="structlua__State.html">lua_State</a> *<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <span class="keywordtype">void</span> *<a class="code hl_function" href="group__LuaSrc.html#ga235428bed4c6be6cb6d2760cd0fa9d34">block</a>, <span class="keywordtype">int</span> *nelem,</div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>                                    <span class="keywordtype">int</span> final_n, <span class="keywordtype">int</span> size_elem);</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><a class="code hl_define" href="group__LuaSrc.html#ga3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> <span class="keywordtype">void</span> *<a class="code hl_function" href="group__LuaSrc.html#gafec71d56433572a98317d256cb6c6c11">luaM_malloc_</a> (<a class="code hl_struct" href="structlua__State.html">lua_State</a> *<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <span class="keywordtype">size_t</span> size, <span class="keywordtype">int</span> tag);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><a class="code hl_define" href="luaconf_8h.html#a3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> <span class="keywordtype">void</span> *<a class="code hl_function" href="group__LuaSrc.html#gaf0c92d038f767832eb8dd29eb0678096">luaM_malloc_</a> (<a class="code hl_struct" href="structlua__State.html">lua_State</a> *<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <span class="keywordtype">size_t</span> size, <span class="keywordtype">int</span> tag);</div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
 <div class="ttc" id="agame_8c_html_a62f94dfc0036bec0c14106c2f15caf3e"><div class="ttname"><a href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a></div><div class="ttdeci">static lua_State * L</div><div class="ttdef"><b>Definition</b> game.c:35</div></div>
-<div class="ttc" id="agroup__LuaSrc_html_ga03c1feddbac3bc38a4a57bd0608a96d6"><div class="ttname"><a href="group__LuaSrc.html#ga03c1feddbac3bc38a4a57bd0608a96d6">luaM_realloc_</a></div><div class="ttdeci">void * luaM_realloc_(lua_State *L, void *block, size_t osize, size_t nsize)</div><div class="ttdef"><b>Definition</b> lmem.c:178</div></div>
-<div class="ttc" id="agroup__LuaSrc_html_ga1596632e07c593bd9558ee4920fbe5de"><div class="ttname"><a href="group__LuaSrc.html#ga1596632e07c593bd9558ee4920fbe5de">luaM_free_</a></div><div class="ttdeci">void luaM_free_(lua_State *L, void *block, size_t osize)</div><div class="ttdef"><b>Definition</b> lmem.c:152</div></div>
+<div class="ttc" id="agroup__LuaSrc_html_ga1c0358fd91c39b2040eebb75ed4c14e5"><div class="ttname"><a href="group__LuaSrc.html#ga1c0358fd91c39b2040eebb75ed4c14e5">luaM_growaux_</a></div><div class="ttdeci">LUAI_FUNC void * luaM_growaux_(lua_State *L, void *block, int nelems, int *size, int size_elem, int limit, const char *what)</div><div class="ttdef"><b>Definition</b> lmem.c:99</div></div>
 <div class="ttc" id="agroup__LuaSrc_html_ga235428bed4c6be6cb6d2760cd0fa9d34"><div class="ttname"><a href="group__LuaSrc.html#ga235428bed4c6be6cb6d2760cd0fa9d34">block</a></div><div class="ttdeci">static void block(LexState *ls)</div><div class="ttdef"><b>Definition</b> lparser.c:1307</div></div>
-<div class="ttc" id="agroup__LuaSrc_html_ga23b8703b7b50e1c5dd37d41569a09a9a"><div class="ttname"><a href="group__LuaSrc.html#ga23b8703b7b50e1c5dd37d41569a09a9a">luaM_toobig</a></div><div class="ttdeci">l_noret luaM_toobig(lua_State *L)</div><div class="ttdef"><b>Definition</b> lmem.c:144</div></div>
-<div class="ttc" id="agroup__LuaSrc_html_ga3407f169749821d4a07540118319968a"><div class="ttname"><a href="group__LuaSrc.html#ga3407f169749821d4a07540118319968a">luaM_saferealloc_</a></div><div class="ttdeci">void * luaM_saferealloc_(lua_State *L, void *block, size_t osize, size_t nsize)</div><div class="ttdef"><b>Definition</b> lmem.c:194</div></div>
-<div class="ttc" id="agroup__LuaSrc_html_ga3f43b35a70c93f2cfde1db42a5a24f1e"><div class="ttname"><a href="group__LuaSrc.html#ga3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a></div><div class="ttdeci">#define LUAI_FUNC</div><div class="ttdef"><b>Definition</b> luaconf.h:320</div></div>
-<div class="ttc" id="agroup__LuaSrc_html_ga80dcc05c9b8457e0adff647143129e13"><div class="ttname"><a href="group__LuaSrc.html#ga80dcc05c9b8457e0adff647143129e13">luaM_growaux_</a></div><div class="ttdeci">void * luaM_growaux_(lua_State *L, void *block, int nelems, int *psize, int size_elems, int limit, const char *what)</div><div class="ttdef"><b>Definition</b> lmem.c:99</div></div>
-<div class="ttc" id="agroup__LuaSrc_html_ga9f743fcc9a5278cb9ee10355f09f7302"><div class="ttname"><a href="group__LuaSrc.html#ga9f743fcc9a5278cb9ee10355f09f7302">l_noret</a></div><div class="ttdeci">#define l_noret</div><div class="ttdef"><b>Definition</b> llimits.h:177</div></div>
-<div class="ttc" id="agroup__LuaSrc_html_gac5010fe25357a15d7aa28e86f1d1b945"><div class="ttname"><a href="group__LuaSrc.html#gac5010fe25357a15d7aa28e86f1d1b945">luaM_shrinkvector_</a></div><div class="ttdeci">void * luaM_shrinkvector_(lua_State *L, void *block, int *size, int final_n, int size_elem)</div><div class="ttdef"><b>Definition</b> lmem.c:130</div></div>
-<div class="ttc" id="agroup__LuaSrc_html_gafec71d56433572a98317d256cb6c6c11"><div class="ttname"><a href="group__LuaSrc.html#gafec71d56433572a98317d256cb6c6c11">luaM_malloc_</a></div><div class="ttdeci">void * luaM_malloc_(lua_State *L, size_t size, int tag)</div><div class="ttdef"><b>Definition</b> lmem.c:203</div></div>
+<div class="ttc" id="agroup__LuaSrc_html_ga36b12d49a937e5de982e2a2a135e6824"><div class="ttname"><a href="group__LuaSrc.html#ga36b12d49a937e5de982e2a2a135e6824">luaM_free_</a></div><div class="ttdeci">LUAI_FUNC void luaM_free_(lua_State *L, void *block, size_t osize)</div><div class="ttdef"><b>Definition</b> lmem.c:152</div></div>
+<div class="ttc" id="agroup__LuaSrc_html_ga7dd4e9ddf6987797216fa9cf4bc23954"><div class="ttname"><a href="group__LuaSrc.html#ga7dd4e9ddf6987797216fa9cf4bc23954">luaM_realloc_</a></div><div class="ttdeci">LUAI_FUNC void * luaM_realloc_(lua_State *L, void *block, size_t oldsize, size_t size)</div><div class="ttdef"><b>Definition</b> lmem.c:178</div></div>
+<div class="ttc" id="agroup__LuaSrc_html_ga7fe3cdb7f4720a11dc0054167d2be20b"><div class="ttname"><a href="group__LuaSrc.html#ga7fe3cdb7f4720a11dc0054167d2be20b">luaM_shrinkvector_</a></div><div class="ttdeci">LUAI_FUNC void * luaM_shrinkvector_(lua_State *L, void *block, int *nelem, int final_n, int size_elem)</div><div class="ttdef"><b>Definition</b> lmem.c:130</div></div>
+<div class="ttc" id="agroup__LuaSrc_html_ga8cb94bca57e8ae6aff344d3e6e4593af"><div class="ttname"><a href="group__LuaSrc.html#ga8cb94bca57e8ae6aff344d3e6e4593af">luaM_saferealloc_</a></div><div class="ttdeci">LUAI_FUNC void * luaM_saferealloc_(lua_State *L, void *block, size_t oldsize, size_t size)</div><div class="ttdef"><b>Definition</b> lmem.c:194</div></div>
+<div class="ttc" id="agroup__LuaSrc_html_ga8fc7df43dd830ccbe7581fd53f65bdbe"><div class="ttname"><a href="group__LuaSrc.html#ga8fc7df43dd830ccbe7581fd53f65bdbe">luaM_toobig</a></div><div class="ttdeci">l_noret luaM_toobig(lua_State *L)</div><div class="ttdef"><b>Definition</b> lmem.c:144</div></div>
+<div class="ttc" id="agroup__LuaSrc_html_gaf0c92d038f767832eb8dd29eb0678096"><div class="ttname"><a href="group__LuaSrc.html#gaf0c92d038f767832eb8dd29eb0678096">luaM_malloc_</a></div><div class="ttdeci">LUAI_FUNC void * luaM_malloc_(lua_State *L, size_t size, int tag)</div><div class="ttdef"><b>Definition</b> lmem.c:203</div></div>
 <div class="ttc" id="allimits_8h_html"><div class="ttname"><a href="llimits_8h.html">llimits.h</a></div></div>
+<div class="ttc" id="allimits_8h_html_a9f743fcc9a5278cb9ee10355f09f7302"><div class="ttname"><a href="llimits_8h.html#a9f743fcc9a5278cb9ee10355f09f7302">l_noret</a></div><div class="ttdeci">#define l_noret</div><div class="ttdef"><b>Definition</b> llimits.h:175</div></div>
+<div class="ttc" id="allimits_8h_html_af17d62ec9e237a7644de6b9b34a48a34"><div class="ttname"><a href="llimits_8h.html#af17d62ec9e237a7644de6b9b34a48a34">cast</a></div><div class="ttdeci">#define cast(t, exp)</div><div class="ttdef"><b>Definition</b> llimits.h:136</div></div>
+<div class="ttc" id="almem_8h_html_ac4055e3a20b6b3af3d10590ea446ef6c"><div class="ttname"><a href="lmem_8h.html#ac4055e3a20b6b3af3d10590ea446ef6c">v</a></div><div class="ttdeci">v</div><div class="ttdef"><b>Definition</b> lmem.h:77</div></div>
 <div class="ttc" id="alua_8h_html"><div class="ttname"><a href="lua_8h.html">lua.h</a></div></div>
-<div class="ttc" id="astructlua__State_html"><div class="ttname"><a href="structlua__State.html">lua_State</a></div><div class="ttdef"><b>Definition</b> lstate.h:311</div></div>
+<div class="ttc" id="aluaconf_8h_html_a3f43b35a70c93f2cfde1db42a5a24f1e"><div class="ttname"><a href="luaconf_8h.html#a3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a></div><div class="ttdeci">#define LUAI_FUNC</div><div class="ttdef"><b>Definition</b> luaconf.h:318</div></div>
+<div class="ttc" id="astructlua__State_html"><div class="ttname"><a href="structlua__State.html">lua_State</a></div><div class="ttdef"><b>Definition</b> lstate.h:309</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

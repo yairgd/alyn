@@ -110,43 +110,266 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:ga8341bdc72db5a2f045e18440f9523008" id="r_ga8341bdc72db5a2f045e18440f9523008"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga8341bdc72db5a2f045e18440f9523008">EOZ</a>&#160;&#160;&#160;(-1)			/* end of stream */</td></tr>
-<tr class="separator:ga8341bdc72db5a2f045e18440f9523008"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaecca8ea1e6dc0c97b458f77c0e3491de" id="r_gaecca8ea1e6dc0c97b458f77c0e3491de"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gaecca8ea1e6dc0c97b458f77c0e3491de">zgetc</a>(z)&#160;&#160;&#160;(((z)-&gt;n--)&gt;0 ?  <a class="el" href="group__LuaSrc.html#gaa0c49a2b32329cc39df5ccafd1f720e0">cast_uchar</a>(*(z)-&gt;p++) : <a class="el" href="group__LuaSrc.html#ga407faec289b7559f210ac784e11a59bb">luaZ_fill</a>(z))</td></tr>
-<tr class="separator:gaecca8ea1e6dc0c97b458f77c0e3491de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga22367cbe48563efa737ffee3f2774ae2" id="r_ga22367cbe48563efa737ffee3f2774ae2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga22367cbe48563efa737ffee3f2774ae2">luaZ_initbuffer</a>(<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>,  buff)&#160;&#160;&#160;((buff)-&gt;buffer = NULL, (buff)-&gt;buffsize = 0)</td></tr>
-<tr class="separator:ga22367cbe48563efa737ffee3f2774ae2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa51f632cb0519368a65ada80b71ea1e3" id="r_gaa51f632cb0519368a65ada80b71ea1e3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gaa51f632cb0519368a65ada80b71ea1e3">luaZ_buffer</a>(buff)&#160;&#160;&#160;((buff)-&gt;buffer)</td></tr>
-<tr class="separator:gaa51f632cb0519368a65ada80b71ea1e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga072ede62ba384b9d5fdedbb80eaf3ee1" id="r_ga072ede62ba384b9d5fdedbb80eaf3ee1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga072ede62ba384b9d5fdedbb80eaf3ee1">luaZ_sizebuffer</a>(buff)&#160;&#160;&#160;((buff)-&gt;buffsize)</td></tr>
-<tr class="separator:ga072ede62ba384b9d5fdedbb80eaf3ee1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga26c3aeb9ce93f8559b0a596cf7bb1031" id="r_ga26c3aeb9ce93f8559b0a596cf7bb1031"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga26c3aeb9ce93f8559b0a596cf7bb1031">luaZ_bufflen</a>(buff)&#160;&#160;&#160;((buff)-&gt;n)</td></tr>
-<tr class="separator:ga26c3aeb9ce93f8559b0a596cf7bb1031"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab9e4cabf75529d0c2f5a809f49a25281" id="r_gab9e4cabf75529d0c2f5a809f49a25281"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gab9e4cabf75529d0c2f5a809f49a25281">luaZ_buffremove</a>(buff,  i)&#160;&#160;&#160;((buff)-&gt;n -= (i))</td></tr>
-<tr class="separator:gab9e4cabf75529d0c2f5a809f49a25281"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga53c928283083a162c79e0152048affe2" id="r_ga53c928283083a162c79e0152048affe2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga53c928283083a162c79e0152048affe2">luaZ_resetbuffer</a>(buff)&#160;&#160;&#160;((buff)-&gt;n = 0)</td></tr>
-<tr class="separator:ga53c928283083a162c79e0152048affe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab158420acf019b3a45e8ae6e65b51fdb" id="r_gab158420acf019b3a45e8ae6e65b51fdb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gab158420acf019b3a45e8ae6e65b51fdb">luaZ_resizebuffer</a>(<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>,  buff,  size)</td></tr>
-<tr class="separator:gab158420acf019b3a45e8ae6e65b51fdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga549577e88246e83e4578cabd2ea030ca" id="r_ga549577e88246e83e4578cabd2ea030ca"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga549577e88246e83e4578cabd2ea030ca">luaZ_freebuffer</a>(<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>,  buff)&#160;&#160;&#160;<a class="el" href="group__LuaSrc.html#gab158420acf019b3a45e8ae6e65b51fdb">luaZ_resizebuffer</a>(<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, buff, 0)</td></tr>
-<tr class="separator:ga549577e88246e83e4578cabd2ea030ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8341bdc72db5a2f045e18440f9523008" id="r_a8341bdc72db5a2f045e18440f9523008"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8341bdc72db5a2f045e18440f9523008">EOZ</a>&#160;&#160;&#160;(-1)			/* end of stream */</td></tr>
+<tr class="separator:a8341bdc72db5a2f045e18440f9523008"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecca8ea1e6dc0c97b458f77c0e3491de" id="r_aecca8ea1e6dc0c97b458f77c0e3491de"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aecca8ea1e6dc0c97b458f77c0e3491de">zgetc</a>(z)&#160;&#160;&#160;(((z)-&gt;n--)&gt;0 ?  <a class="el" href="llimits_8h.html#aa0c49a2b32329cc39df5ccafd1f720e0">cast_uchar</a>(*(z)-&gt;<a class="el" href="lgc_8h.html#ac483f6ce851c9ecd9fb835ff7551737c">p</a>++) : <a class="el" href="group__LuaSrc.html#ga407faec289b7559f210ac784e11a59bb">luaZ_fill</a>(z))</td></tr>
+<tr class="separator:aecca8ea1e6dc0c97b458f77c0e3491de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22367cbe48563efa737ffee3f2774ae2" id="r_a22367cbe48563efa737ffee3f2774ae2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a22367cbe48563efa737ffee3f2774ae2">luaZ_initbuffer</a>(<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>,  buff)&#160;&#160;&#160;((buff)-&gt;buffer = NULL, (buff)-&gt;buffsize = 0)</td></tr>
+<tr class="separator:a22367cbe48563efa737ffee3f2774ae2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa51f632cb0519368a65ada80b71ea1e3" id="r_aa51f632cb0519368a65ada80b71ea1e3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa51f632cb0519368a65ada80b71ea1e3">luaZ_buffer</a>(buff)&#160;&#160;&#160;((buff)-&gt;buffer)</td></tr>
+<tr class="separator:aa51f632cb0519368a65ada80b71ea1e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a072ede62ba384b9d5fdedbb80eaf3ee1" id="r_a072ede62ba384b9d5fdedbb80eaf3ee1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a072ede62ba384b9d5fdedbb80eaf3ee1">luaZ_sizebuffer</a>(buff)&#160;&#160;&#160;((buff)-&gt;buffsize)</td></tr>
+<tr class="separator:a072ede62ba384b9d5fdedbb80eaf3ee1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26c3aeb9ce93f8559b0a596cf7bb1031" id="r_a26c3aeb9ce93f8559b0a596cf7bb1031"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a26c3aeb9ce93f8559b0a596cf7bb1031">luaZ_bufflen</a>(buff)&#160;&#160;&#160;((buff)-&gt;n)</td></tr>
+<tr class="separator:a26c3aeb9ce93f8559b0a596cf7bb1031"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9e4cabf75529d0c2f5a809f49a25281" id="r_ab9e4cabf75529d0c2f5a809f49a25281"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab9e4cabf75529d0c2f5a809f49a25281">luaZ_buffremove</a>(buff,  i)&#160;&#160;&#160;((buff)-&gt;n -= (i))</td></tr>
+<tr class="separator:ab9e4cabf75529d0c2f5a809f49a25281"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53c928283083a162c79e0152048affe2" id="r_a53c928283083a162c79e0152048affe2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a53c928283083a162c79e0152048affe2">luaZ_resetbuffer</a>(buff)&#160;&#160;&#160;((buff)-&gt;n = 0)</td></tr>
+<tr class="separator:a53c928283083a162c79e0152048affe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab158420acf019b3a45e8ae6e65b51fdb" id="r_ab158420acf019b3a45e8ae6e65b51fdb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab158420acf019b3a45e8ae6e65b51fdb">luaZ_resizebuffer</a>(<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>,  buff,  size)</td></tr>
+<tr class="separator:ab158420acf019b3a45e8ae6e65b51fdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a549577e88246e83e4578cabd2ea030ca" id="r_a549577e88246e83e4578cabd2ea030ca"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a549577e88246e83e4578cabd2ea030ca">luaZ_freebuffer</a>(<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>,  buff)&#160;&#160;&#160;<a class="el" href="#ab158420acf019b3a45e8ae6e65b51fdb">luaZ_resizebuffer</a>(<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, buff, 0)</td></tr>
+<tr class="separator:a549577e88246e83e4578cabd2ea030ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:ga3a6756c936bdfffa304b1d808ce7dc17" id="r_ga3a6756c936bdfffa304b1d808ce7dc17"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structZio.html">Zio</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga3a6756c936bdfffa304b1d808ce7dc17">ZIO</a></td></tr>
-<tr class="separator:ga3a6756c936bdfffa304b1d808ce7dc17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0e88c2a527fb0ef0af49d0b8f34a0be9" id="r_ga0e88c2a527fb0ef0af49d0b8f34a0be9"><td class="memItemLeft" align="right" valign="top">typedef struct Mbuffer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga0e88c2a527fb0ef0af49d0b8f34a0be9">Mbuffer</a></td></tr>
-<tr class="separator:ga0e88c2a527fb0ef0af49d0b8f34a0be9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a6756c936bdfffa304b1d808ce7dc17" id="r_a3a6756c936bdfffa304b1d808ce7dc17"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structZio.html">Zio</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3a6756c936bdfffa304b1d808ce7dc17">ZIO</a></td></tr>
+<tr class="separator:a3a6756c936bdfffa304b1d808ce7dc17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e88c2a527fb0ef0af49d0b8f34a0be9" id="r_a0e88c2a527fb0ef0af49d0b8f34a0be9"><td class="memItemLeft" align="right" valign="top">typedef struct Mbuffer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0e88c2a527fb0ef0af49d0b8f34a0be9">Mbuffer</a></td></tr>
+<tr class="separator:a0e88c2a527fb0ef0af49d0b8f34a0be9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga182323feac5ab7363dbf654d87f057d5" id="r_ga182323feac5ab7363dbf654d87f057d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga182323feac5ab7363dbf654d87f057d5">luaZ_init</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="el" href="group__LuaSrc.html#ga3a6756c936bdfffa304b1d808ce7dc17">ZIO</a> *z, <a class="el" href="group__LuaSrc.html#ga1708af7a68b7af536d43d126ca53b0f5">lua_Reader</a> <a class="el" href="group__LuaSrc.html#ga620f8f2d8ff048168797941c63f8bc53">reader</a>, void *data)</td></tr>
+<tr class="memitem:ga182323feac5ab7363dbf654d87f057d5" id="r_ga182323feac5ab7363dbf654d87f057d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga182323feac5ab7363dbf654d87f057d5">luaZ_init</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="el" href="#a3a6756c936bdfffa304b1d808ce7dc17">ZIO</a> *z, <a class="el" href="lua_8h.html#a1708af7a68b7af536d43d126ca53b0f5">lua_Reader</a> <a class="el" href="luac_8c.html#a620f8f2d8ff048168797941c63f8bc53">reader</a>, void *data)</td></tr>
 <tr class="separator:ga182323feac5ab7363dbf654d87f057d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1f10428fa224047cec9e9b1756a0b733" id="r_ga1f10428fa224047cec9e9b1756a0b733"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga1f10428fa224047cec9e9b1756a0b733">luaZ_read</a> (<a class="el" href="group__LuaSrc.html#ga3a6756c936bdfffa304b1d808ce7dc17">ZIO</a> *z, void *<a class="el" href="banner_8c.html#a59f91842bc238cf5dc3ec26d30fb950a">b</a>, size_t n)</td></tr>
+<tr class="memitem:ga1f10428fa224047cec9e9b1756a0b733" id="r_ga1f10428fa224047cec9e9b1756a0b733"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga1f10428fa224047cec9e9b1756a0b733">luaZ_read</a> (<a class="el" href="#a3a6756c936bdfffa304b1d808ce7dc17">ZIO</a> *z, void *<a class="el" href="banner_8c.html#a59f91842bc238cf5dc3ec26d30fb950a">b</a>, size_t n)</td></tr>
 <tr class="separator:ga1f10428fa224047cec9e9b1756a0b733"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga407faec289b7559f210ac784e11a59bb" id="r_ga407faec289b7559f210ac784e11a59bb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga407faec289b7559f210ac784e11a59bb">luaZ_fill</a> (<a class="el" href="group__LuaSrc.html#ga3a6756c936bdfffa304b1d808ce7dc17">ZIO</a> *z)</td></tr>
+<tr class="memitem:ga407faec289b7559f210ac784e11a59bb" id="r_ga407faec289b7559f210ac784e11a59bb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga407faec289b7559f210ac784e11a59bb">luaZ_fill</a> (<a class="el" href="#a3a6756c936bdfffa304b1d808ce7dc17">ZIO</a> *z)</td></tr>
 <tr class="separator:ga407faec289b7559f210ac784e11a59bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a8341bdc72db5a2f045e18440f9523008" name="a8341bdc72db5a2f045e18440f9523008"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8341bdc72db5a2f045e18440f9523008">&#9670;&#160;</a></span>EOZ</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EOZ&#160;&#160;&#160;(-1)			/* end of stream */</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa51f632cb0519368a65ada80b71ea1e3" name="aa51f632cb0519368a65ada80b71ea1e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa51f632cb0519368a65ada80b71ea1e3">&#9670;&#160;</a></span>luaZ_buffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define luaZ_buffer</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>buff</em></span></td><td>)</td>
+          <td>&#160;&#160;&#160;((buff)-&gt;buffer)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a26c3aeb9ce93f8559b0a596cf7bb1031" name="a26c3aeb9ce93f8559b0a596cf7bb1031"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26c3aeb9ce93f8559b0a596cf7bb1031">&#9670;&#160;</a></span>luaZ_bufflen</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define luaZ_bufflen</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>buff</em></span></td><td>)</td>
+          <td>&#160;&#160;&#160;((buff)-&gt;n)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab9e4cabf75529d0c2f5a809f49a25281" name="ab9e4cabf75529d0c2f5a809f49a25281"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9e4cabf75529d0c2f5a809f49a25281">&#9670;&#160;</a></span>luaZ_buffremove</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define luaZ_buffremove</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>buff</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>i</em></span>&#160;)&#160;&#160;&#160;((buff)-&gt;n -= (i))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a549577e88246e83e4578cabd2ea030ca" name="a549577e88246e83e4578cabd2ea030ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a549577e88246e83e4578cabd2ea030ca">&#9670;&#160;</a></span>luaZ_freebuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define luaZ_freebuffer</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>buff</em></span>&#160;)&#160;&#160;&#160;<a class="el" href="#ab158420acf019b3a45e8ae6e65b51fdb">luaZ_resizebuffer</a>(<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, buff, 0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a22367cbe48563efa737ffee3f2774ae2" name="a22367cbe48563efa737ffee3f2774ae2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22367cbe48563efa737ffee3f2774ae2">&#9670;&#160;</a></span>luaZ_initbuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define luaZ_initbuffer</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>buff</em></span>&#160;)&#160;&#160;&#160;((buff)-&gt;buffer = NULL, (buff)-&gt;buffsize = 0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a53c928283083a162c79e0152048affe2" name="a53c928283083a162c79e0152048affe2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53c928283083a162c79e0152048affe2">&#9670;&#160;</a></span>luaZ_resetbuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define luaZ_resetbuffer</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>buff</em></span></td><td>)</td>
+          <td>&#160;&#160;&#160;((buff)-&gt;n = 0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab158420acf019b3a45e8ae6e65b51fdb" name="ab158420acf019b3a45e8ae6e65b51fdb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab158420acf019b3a45e8ae6e65b51fdb">&#9670;&#160;</a></span>luaZ_resizebuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define luaZ_resizebuffer</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>buff</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    ((buff)-&gt;buffer = <a class="code hl_define" href="lmem_8h.html#a5904278d180acc29faf199e1d76f3e85">luaM_reallocvchar</a>(<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, (buff)-&gt;buffer, \</div>
+<div class="line">                (buff)-&gt;buffsize, size), \</div>
+<div class="line">    (buff)-&gt;buffsize = size)</div>
+<div class="ttc" id="agame_8c_html_a62f94dfc0036bec0c14106c2f15caf3e"><div class="ttname"><a href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a></div><div class="ttdeci">static lua_State * L</div><div class="ttdef"><b>Definition</b> game.c:35</div></div>
+<div class="ttc" id="almem_8h_html_a5904278d180acc29faf199e1d76f3e85"><div class="ttname"><a href="lmem_8h.html#a5904278d180acc29faf199e1d76f3e85">luaM_reallocvchar</a></div><div class="ttdeci">#define luaM_reallocvchar(L, b, on, n)</div><div class="ttdef"><b>Definition</b> lmem.h:52</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a072ede62ba384b9d5fdedbb80eaf3ee1" name="a072ede62ba384b9d5fdedbb80eaf3ee1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a072ede62ba384b9d5fdedbb80eaf3ee1">&#9670;&#160;</a></span>luaZ_sizebuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define luaZ_sizebuffer</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>buff</em></span></td><td>)</td>
+          <td>&#160;&#160;&#160;((buff)-&gt;buffsize)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aecca8ea1e6dc0c97b458f77c0e3491de" name="aecca8ea1e6dc0c97b458f77c0e3491de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecca8ea1e6dc0c97b458f77c0e3491de">&#9670;&#160;</a></span>zgetc</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define zgetc</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>z</em></span></td><td>)</td>
+          <td>&#160;&#160;&#160;(((z)-&gt;n--)&gt;0 ?  <a class="el" href="llimits_8h.html#aa0c49a2b32329cc39df5ccafd1f720e0">cast_uchar</a>(*(z)-&gt;<a class="el" href="lgc_8h.html#ac483f6ce851c9ecd9fb835ff7551737c">p</a>++) : <a class="el" href="group__LuaSrc.html#ga407faec289b7559f210ac784e11a59bb">luaZ_fill</a>(z))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="a0e88c2a527fb0ef0af49d0b8f34a0be9" name="a0e88c2a527fb0ef0af49d0b8f34a0be9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e88c2a527fb0ef0af49d0b8f34a0be9">&#9670;&#160;</a></span>Mbuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct Mbuffer Mbuffer</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3a6756c936bdfffa304b1d808ce7dc17" name="a3a6756c936bdfffa304b1d808ce7dc17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a6756c936bdfffa304b1d808ce7dc17">&#9670;&#160;</a></span>ZIO</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structZio.html">Zio</a> <a class="el" href="#a3a6756c936bdfffa304b1d808ce7dc17">ZIO</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

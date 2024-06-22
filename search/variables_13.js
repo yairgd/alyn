@@ -8,7 +8,7 @@ var searchData=
   ['th_5',['th',['../unionGCUnion.html#aca3e042321dae2675c5bad3c69115cd5',1,'GCUnion']]],
   ['time_5foff_6',['time_off',['../structbanner__config__blink.html#af383cf0b6c5a376fc9f682f7f9fcd394',1,'banner_config_blink']]],
   ['time_5fon_7',['time_on',['../structbanner__config__blink.html#a0ac43531dc2ac363947b34b22f166d8b',1,'banner_config_blink']]],
-  ['tmname_8',['tmname',['../structglobal__State.html#ac1d80bd5bb3d4427b25054696eb1542c',1,'global_State::tmname'],['../group__LuaSrc.html#ga225b2e27cb6929640b0159dce63b2591',1,'tmname:&#160;luac.c']]],
+  ['tmname_8',['tmname',['../structglobal__State.html#ac1d80bd5bb3d4427b25054696eb1542c',1,'global_State::tmname'],['../luac_8c.html#a225b2e27cb6929640b0159dce63b2591',1,'tmname:&#160;luac.c']]],
   ['tobefnz_9',['tobefnz',['../structglobal__State.html#a90da07dbcac2e16b87e559180ebbe852',1,'global_State']]],
   ['token_10',['token',['../structToken.html#a92d1dfeae343659449f1bc29d6731c5d',1,'Token']]],
   ['top_11',['top',['../structCallInfo.html#a896b6484f4e0c4f76768913ffb91e88b',1,'CallInfo::top'],['../structlua__State.html#a1312e4b6f80531820b4765080a33fbfe',1,'lua_State::top']]],

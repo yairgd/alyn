@@ -91,116 +91,117 @@ $(function(){ initResizable(false); });
   <div class="headertitle"><div class="title">lctype.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="lctype_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">** $Id: lctype.h $</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">** &#39;ctype&#39; functions for Lua</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">** See Copyright Notice in lua.h</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">*/</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#ifndef lctype_h</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#define lctype_h</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="lua_8h.html">lua.h</a>&quot;</span></div>
+<a href="lctype_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">** $Id: lctype.h $</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">** &#39;ctype&#39; functions for Lua</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">** See Copyright Notice in lua.h</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">*/</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#ifndef lctype_h</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#define lctype_h</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">** WARNING: the functions defined here do not necessarily correspond</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">** to the similar functions in the standard C ctype.h. They are</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">** optimized for the specific needs of Lua.</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">*/</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#if !defined(LUA_USE_CTYPE)</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="lua_8h.html">lua.h</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">** WARNING: the functions defined here do not necessarily correspond</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">** to the similar functions in the standard C ctype.h. They are</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">** optimized for the specific needs of Lua.</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">*/</span></div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#if &#39;A&#39; == 65 &amp;&amp; &#39;0&#39; == 48</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">/* ASCII case: can use its own tables; faster and fixed */</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="lctype_8h.html#a7d15b705d59378d3c5ab7a722473bf8d">   23</a></span><span class="preprocessor">#define LUA_USE_CTYPE   0</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#else</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">/* must use standard C ctype */</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#define LUA_USE_CTYPE   1</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#if !defined(LUA_USE_CTYPE)</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#if &#39;A&#39; == 65 &amp;&amp; &#39;0&#39; == 48</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">/* ASCII case: can use its own tables; faster and fixed */</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga7d15b705d59378d3c5ab7a722473bf8d">   25</a></span><span class="preprocessor">#define LUA_USE_CTYPE   0</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">/* must use standard C ctype */</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#define LUA_USE_CTYPE   1</span></div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#if !LUA_USE_CTYPE  </span><span class="comment">/* { */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#include &lt;limits.h&gt;</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#if !LUA_USE_CTYPE  </span><span class="comment">/* { */</span><span class="preprocessor"></span></div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#include &quot;<a class="code" href="llimits_8h.html">llimits.h</a>&quot;</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#include &lt;limits.h&gt;</span></div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="lctype_8h.html#a091fbd82b59441d4a091c0312c0a0e35">   39</a></span><span class="preprocessor">#define ALPHABIT    0</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="lctype_8h.html#a089c6406273b00564db9bd9d43945a25">   40</a></span><span class="preprocessor">#define DIGITBIT    1</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="lctype_8h.html#a708b2cd4d3f7f7126e5f795097ab1592">   41</a></span><span class="preprocessor">#define PRINTBIT    2</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="lctype_8h.html#a6fe589191c9eb50677a9dcdcbc47891e">   42</a></span><span class="preprocessor">#define SPACEBIT    3</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="lctype_8h.html#a326c899e67809dd5626560011d3dd09c">   43</a></span><span class="preprocessor">#define XDIGITBIT   4</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="lctype_8h.html#a7d3df71e2854f50a0da793b08732e197">   46</a></span><span class="preprocessor">#define MASK(B)     (1 &lt;&lt; (B))</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#include &quot;<a class="code" href="llimits_8h.html">llimits.h</a>&quot;</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga091fbd82b59441d4a091c0312c0a0e35">   41</a></span><span class="preprocessor">#define ALPHABIT    0</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga089c6406273b00564db9bd9d43945a25">   42</a></span><span class="preprocessor">#define DIGITBIT    1</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga708b2cd4d3f7f7126e5f795097ab1592">   43</a></span><span class="preprocessor">#define PRINTBIT    2</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga6fe589191c9eb50677a9dcdcbc47891e">   44</a></span><span class="preprocessor">#define SPACEBIT    3</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga326c899e67809dd5626560011d3dd09c">   45</a></span><span class="preprocessor">#define XDIGITBIT   4</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">** add 1 to char to allow index -1 (EOZ)</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">*/</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="lctype_8h.html#ac933a1d6fac0b2e206836c4b8089482d">   52</a></span><span class="preprocessor">#define testprop(c,p)   (luai_ctype_[(c)+1] &amp; (p))</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">** &#39;lalpha&#39; (Lua alphabetic) and &#39;lalnum&#39; (Lua alphanumeric) both include &#39;_&#39;</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment">*/</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="lctype_8h.html#a7132e9f6daf30b344b74f51d64eadf7d">   57</a></span><span class="preprocessor">#define lislalpha(c)    testprop(c, MASK(ALPHABIT))</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="lctype_8h.html#a9c0dc6a934853b8ab5e7d65a3ca8abcd">   58</a></span><span class="preprocessor">#define lislalnum(c)    testprop(c, (MASK(ALPHABIT) | MASK(DIGITBIT)))</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="lctype_8h.html#aee1d27a5eac398ec2c9c8b80281041e6">   59</a></span><span class="preprocessor">#define lisdigit(c) testprop(c, MASK(DIGITBIT))</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="lctype_8h.html#a768801f115261ae5ad51fdf6e54904e2">   60</a></span><span class="preprocessor">#define lisspace(c) testprop(c, MASK(SPACEBIT))</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="lctype_8h.html#a68562616d451f440d5c8e4e3d345c573">   61</a></span><span class="preprocessor">#define lisprint(c) testprop(c, MASK(PRINTBIT))</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="lctype_8h.html#a72e55b66d80325fb20cbc098d3448996">   62</a></span><span class="preprocessor">#define lisxdigit(c)    testprop(c, MASK(XDIGITBIT))</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">** In ASCII, this &#39;ltolower&#39; is correct for alphabetic characters and</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment">** for &#39;.&#39;. That is enough for Lua needs. (&#39;check_exp&#39; ensures that</span></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment">** the character either is an upper-case letter or is unchanged by</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">** the transformation, which holds for lower-case letters and &#39;.&#39;.)</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">*/</span></div>
-<div class="foldopen" id="foldopen00071" data-start="" data-end="">
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="lctype_8h.html#a951ea98d03894d36dd2efed11ec9d973">   71</a></span><span class="preprocessor">#define ltolower(c)  \</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="preprocessor">  check_exp((&#39;A&#39; &lt;= (c) &amp;&amp; (c) &lt;= &#39;Z&#39;) || (c) == ((c) | (&#39;A&#39; ^ &#39;a&#39;)),  \</span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="preprocessor">            (c) | (&#39;A&#39; ^ &#39;a&#39;))</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga7d3df71e2854f50a0da793b08732e197">   48</a></span><span class="preprocessor">#define MASK(B)     (1 &lt;&lt; (B))</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">** add 1 to char to allow index -1 (EOZ)</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">*/</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#gac933a1d6fac0b2e206836c4b8089482d">   54</a></span><span class="preprocessor">#define testprop(c,p)   (luai_ctype_[(c)+1] &amp; (p))</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">** &#39;lalpha&#39; (Lua alphabetic) and &#39;lalnum&#39; (Lua alphanumeric) both include &#39;_&#39;</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment">*/</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga7132e9f6daf30b344b74f51d64eadf7d">   59</a></span><span class="preprocessor">#define lislalpha(c)    testprop(c, MASK(ALPHABIT))</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga9c0dc6a934853b8ab5e7d65a3ca8abcd">   60</a></span><span class="preprocessor">#define lislalnum(c)    testprop(c, (MASK(ALPHABIT) | MASK(DIGITBIT)))</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#gaee1d27a5eac398ec2c9c8b80281041e6">   61</a></span><span class="preprocessor">#define lisdigit(c) testprop(c, MASK(DIGITBIT))</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga768801f115261ae5ad51fdf6e54904e2">   62</a></span><span class="preprocessor">#define lisspace(c) testprop(c, MASK(SPACEBIT))</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga68562616d451f440d5c8e4e3d345c573">   63</a></span><span class="preprocessor">#define lisprint(c) testprop(c, MASK(PRINTBIT))</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga72e55b66d80325fb20cbc098d3448996">   64</a></span><span class="preprocessor">#define lisxdigit(c)    testprop(c, MASK(XDIGITBIT))</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment">** In ASCII, this &#39;ltolower&#39; is correct for alphabetic characters and</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">** for &#39;.&#39;. That is enough for Lua needs. (&#39;check_exp&#39; ensures that</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">** the character either is an upper-case letter or is unchanged by</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment">** the transformation, which holds for lower-case letters and &#39;.&#39;.)</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment">*/</span></div>
+<div class="foldopen" id="foldopen00073" data-start="" data-end="">
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga951ea98d03894d36dd2efed11ec9d973">   73</a></span><span class="preprocessor">#define ltolower(c)  \</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="preprocessor">  check_exp((&#39;A&#39; &lt;= (c) &amp;&amp; (c) &lt;= &#39;Z&#39;) || (c) == ((c) | (&#39;A&#39; ^ &#39;a&#39;)),  \</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="preprocessor">            (c) | (&#39;A&#39; ^ &#39;a&#39;))</span></div>
 </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">/* one entry for each character and for -1 (EOZ) */</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><a class="code hl_define" href="luaconf_8h.html#a3f2cdf96bb04b9d2a9a318a126f99182">LUAI_DDEC</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="llimits_8h.html#ae1fe9ac10d9803bd1d7bdf30b18bad68">lu_byte</a> <a class="code hl_variable" href="lctype_8c.html#a0fb53cca0a77a27211713000fc8f66b2">luai_ctype_</a>[UCHAR_MAX + 2];)</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>#<span class="keywordflow">else</span>           <span class="comment">/* }{ */</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment">/* one entry for each character and for -1 (EOZ) */</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><a class="code hl_define" href="group__LuaSrc.html#ga3f2cdf96bb04b9d2a9a318a126f99182">LUAI_DDEC</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="group__LuaSrc.html#gae1fe9ac10d9803bd1d7bdf30b18bad68">lu_byte</a> <a class="code hl_variable" href="group__LuaSrc.html#ga0fb53cca0a77a27211713000fc8f66b2">luai_ctype_</a>[UCHAR_MAX + 2];)</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment">** use standard C ctypes</span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment">*/</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>#include &lt;ctype.h&gt;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>#<span class="keywordflow">else</span>           <span class="comment">/* }{ */</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment">** use standard C ctypes</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment">*/</span></div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>#define <a class="code hl_define" href="lctype_8h.html#a7132e9f6daf30b344b74f51d64eadf7d">lislalpha</a>(<a class="code hl_variable" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>)    (isalpha(<a class="code hl_variable" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>) || (<a class="code hl_variable" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>) == <span class="charliteral">&#39;_&#39;</span>)</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="preprocessor">#define lislalnum(c)    (isalnum(c) || (c) == &#39;_&#39;)</span></div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="preprocessor">#define lisdigit(c) (isdigit(c))</span></div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="preprocessor">#define lisspace(c) (isspace(c))</span></div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="preprocessor">#define lisprint(c) (isprint(c))</span></div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="preprocessor">#define lisxdigit(c)    (isxdigit(c))</span></div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="preprocessor">#define ltolower(c) (tolower(c))</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>#include &lt;ctype.h&gt;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>#define <a class="code hl_define" href="group__LuaSrc.html#ga7132e9f6daf30b344b74f51d64eadf7d">lislalpha</a>(<a class="code hl_variable" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>)    (isalpha(<a class="code hl_variable" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>) || (<a class="code hl_variable" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>) == <span class="charliteral">&#39;_&#39;</span>)</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="preprocessor">#define lislalnum(c)    (isalnum(c) || (c) == &#39;_&#39;)</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="preprocessor">#define lisdigit(c) (isdigit(c))</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="preprocessor">#define lisspace(c) (isspace(c))</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="preprocessor">#define lisprint(c) (isprint(c))</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="preprocessor">#define lisxdigit(c)    (isxdigit(c))</span></div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="preprocessor">#endif          </span><span class="comment">/* } */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="preprocessor">#define ltolower(c) (tolower(c))</span></div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="preprocessor">#endif          </span><span class="comment">/* } */</span><span class="preprocessor"></span></div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
 <div class="ttc" id="acanvas_8c_html_a7c28d306c2fb202cb829051a2ba2c810"><div class="ttname"><a href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a></div><div class="ttdeci">static char c[20 *4]</div><div class="ttdef"><b>Definition</b> canvas.c:103</div></div>
-<div class="ttc" id="alctype_8c_html_a0fb53cca0a77a27211713000fc8f66b2"><div class="ttname"><a href="lctype_8c.html#a0fb53cca0a77a27211713000fc8f66b2">luai_ctype_</a></div><div class="ttdeci">LUAI_DDEF const lu_byte luai_ctype_[UCHAR_MAX+2]</div><div class="ttdef"><b>Definition</b> lctype.c:28</div></div>
-<div class="ttc" id="alctype_8h_html_a7132e9f6daf30b344b74f51d64eadf7d"><div class="ttname"><a href="lctype_8h.html#a7132e9f6daf30b344b74f51d64eadf7d">lislalpha</a></div><div class="ttdeci">#define lislalpha(c)</div><div class="ttdef"><b>Definition</b> lctype.h:57</div></div>
+<div class="ttc" id="agroup__LuaSrc_html_ga0fb53cca0a77a27211713000fc8f66b2"><div class="ttname"><a href="group__LuaSrc.html#ga0fb53cca0a77a27211713000fc8f66b2">luai_ctype_</a></div><div class="ttdeci">LUAI_DDEF const lu_byte luai_ctype_[UCHAR_MAX+2]</div><div class="ttdef"><b>Definition</b> lctype.c:30</div></div>
+<div class="ttc" id="agroup__LuaSrc_html_ga3f2cdf96bb04b9d2a9a318a126f99182"><div class="ttname"><a href="group__LuaSrc.html#ga3f2cdf96bb04b9d2a9a318a126f99182">LUAI_DDEC</a></div><div class="ttdeci">#define LUAI_DDEC(dec)</div><div class="ttdef"><b>Definition</b> luaconf.h:323</div></div>
+<div class="ttc" id="agroup__LuaSrc_html_ga7132e9f6daf30b344b74f51d64eadf7d"><div class="ttname"><a href="group__LuaSrc.html#ga7132e9f6daf30b344b74f51d64eadf7d">lislalpha</a></div><div class="ttdeci">#define lislalpha(c)</div><div class="ttdef"><b>Definition</b> lctype.h:59</div></div>
+<div class="ttc" id="agroup__LuaSrc_html_gae1fe9ac10d9803bd1d7bdf30b18bad68"><div class="ttname"><a href="group__LuaSrc.html#gae1fe9ac10d9803bd1d7bdf30b18bad68">lu_byte</a></div><div class="ttdeci">unsigned char lu_byte</div><div class="ttdef"><b>Definition</b> llimits.h:38</div></div>
 <div class="ttc" id="allimits_8h_html"><div class="ttname"><a href="llimits_8h.html">llimits.h</a></div></div>
-<div class="ttc" id="allimits_8h_html_ae1fe9ac10d9803bd1d7bdf30b18bad68"><div class="ttname"><a href="llimits_8h.html#ae1fe9ac10d9803bd1d7bdf30b18bad68">lu_byte</a></div><div class="ttdeci">unsigned char lu_byte</div><div class="ttdef"><b>Definition</b> llimits.h:36</div></div>
 <div class="ttc" id="alua_8h_html"><div class="ttname"><a href="lua_8h.html">lua.h</a></div></div>
-<div class="ttc" id="aluaconf_8h_html_a3f2cdf96bb04b9d2a9a318a126f99182"><div class="ttname"><a href="luaconf_8h.html#a3f2cdf96bb04b9d2a9a318a126f99182">LUAI_DDEC</a></div><div class="ttdeci">#define LUAI_DDEC(dec)</div><div class="ttdef"><b>Definition</b> luaconf.h:321</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

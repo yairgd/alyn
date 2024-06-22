@@ -99,106 +99,16 @@ $(function(){ initResizable(false); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ab56f9945c6b805dfca5425577879a343" id="r_ab56f9945c6b805dfca5425577879a343"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab56f9945c6b805dfca5425577879a343">lua_realloc</a> (char *ptr, size_t n)</td></tr>
-<tr class="memdesc:ab56f9945c6b805dfca5425577879a343"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function serves as a wrapper for realloc within the Lua API. This replacement is essential to facilitate compatibility with the Zephyr HAL. see <a class="el" href="lauxlib_8c.html">lauxlib.c</a>:1027.  <br /></td></tr>
-<tr class="separator:ab56f9945c6b805dfca5425577879a343"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53b16b8aff7ac20aac640d89dfee9b98" id="r_a53b16b8aff7ac20aac640d89dfee9b98"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a53b16b8aff7ac20aac640d89dfee9b98">lua_free</a> (void *ptr)</td></tr>
-<tr class="memdesc:a53b16b8aff7ac20aac640d89dfee9b98"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function serves as a wrapper for free within the Lua API. This replacement is essential to facilitate compatibility with the Zephyr HAL. see <a class="el" href="lauxlib_8c.html">lauxlib.c</a>:1023.  <br /></td></tr>
-<tr class="separator:a53b16b8aff7ac20aac640d89dfee9b98"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a31f0c1f911692f1185feab9430c71116" id="r_a31f0c1f911692f1185feab9430c71116"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a31f0c1f911692f1185feab9430c71116">lua_malloc</a> (size_t n)</td></tr>
-<tr class="memdesc:a31f0c1f911692f1185feab9430c71116"><td class="mdescLeft">&#160;</td><td class="mdescRight">not used by LUA api, used by the application  <br /></td></tr>
-<tr class="separator:a31f0c1f911692f1185feab9430c71116"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab56f9945c6b805dfca5425577879a343" id="r_gab56f9945c6b805dfca5425577879a343"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gab56f9945c6b805dfca5425577879a343">lua_realloc</a> (char *ptr, size_t n)</td></tr>
+<tr class="memdesc:gab56f9945c6b805dfca5425577879a343"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function serves as a wrapper for realloc within the Lua API. This replacement is essential to facilitate compatibility with the Zephyr HAL. see <a class="el" href="lauxlib_8c.html">lauxlib.c</a>:1027.  <br /></td></tr>
+<tr class="separator:gab56f9945c6b805dfca5425577879a343"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga53b16b8aff7ac20aac640d89dfee9b98" id="r_ga53b16b8aff7ac20aac640d89dfee9b98"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga53b16b8aff7ac20aac640d89dfee9b98">lua_free</a> (void *ptr)</td></tr>
+<tr class="memdesc:ga53b16b8aff7ac20aac640d89dfee9b98"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function serves as a wrapper for free within the Lua API. This replacement is essential to facilitate compatibility with the Zephyr HAL. see <a class="el" href="lauxlib_8c.html">lauxlib.c</a>:1023.  <br /></td></tr>
+<tr class="separator:ga53b16b8aff7ac20aac640d89dfee9b98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga31f0c1f911692f1185feab9430c71116" id="r_ga31f0c1f911692f1185feab9430c71116"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga31f0c1f911692f1185feab9430c71116">lua_malloc</a> (size_t n)</td></tr>
+<tr class="memdesc:ga31f0c1f911692f1185feab9430c71116"><td class="mdescLeft">&#160;</td><td class="mdescRight">not used by LUA api, used by the application  <br /></td></tr>
+<tr class="separator:ga31f0c1f911692f1185feab9430c71116"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="a53b16b8aff7ac20aac640d89dfee9b98" name="a53b16b8aff7ac20aac640d89dfee9b98"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a53b16b8aff7ac20aac640d89dfee9b98">&#9670;&#160;</a></span>lua_free()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void lua_free </td>
-          <td>(</td>
-          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>ptr</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>This function serves as a wrapper for free within the Lua API. This replacement is essential to facilitate compatibility with the Zephyr HAL. see <a class="el" href="lauxlib_8c.html">lauxlib.c</a>:1023. </p>
-<p>Created 02/15/2024 </p><dl class="section note"><dt>Note</dt><dd><br  />
- </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">&lt;br&gt;</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><br  />
- </dd></dl>
-
-</div>
-</div>
-<a id="a31f0c1f911692f1185feab9430c71116" name="a31f0c1f911692f1185feab9430c71116"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a31f0c1f911692f1185feab9430c71116">&#9670;&#160;</a></span>lua_malloc()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void * lua_malloc </td>
-          <td>(</td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>n</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>not used by LUA api, used by the application </p>
-<p>Created 06/18/24 </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">&lt;br&gt;</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><br  />
- </dd></dl>
-
-</div>
-</div>
-<a id="ab56f9945c6b805dfca5425577879a343" name="ab56f9945c6b805dfca5425577879a343"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab56f9945c6b805dfca5425577879a343">&#9670;&#160;</a></span>lua_realloc()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">char * lua_realloc </td>
-          <td>(</td>
-          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>ptr</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>n</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>This function serves as a wrapper for realloc within the Lua API. This replacement is essential to facilitate compatibility with the Zephyr HAL. see <a class="el" href="lauxlib_8c.html">lauxlib.c</a>:1027. </p>
-<p>Created 02/15/2024 </p><dl class="section note"><dt>Note</dt><dd><br  />
- </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">&lt;br&gt;</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><br  />
- </dd></dl>
-
-</div>
-</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

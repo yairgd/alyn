@@ -12,7 +12,7 @@ var searchData=
   ['init_9',['init',['../structluaL__Buffer.html#a1a9a727c93d502d7f5bebd4343df9547',1,'luaL_Buffer::init'],['../structstr__Writer.html#a9b260bdd86544e4aff65d79ad49c6abd',1,'str_Writer::init'],['../structMatchState.html#a2b63cea9c88925a59ba9680d8c615dd7',1,'MatchState::init']]],
   ['insidetbc_10',['insidetbc',['../structBlockCnt.html#a33066e7c373e7732f5971d470f4580b7',1,'BlockCnt']]],
   ['instack_11',['instack',['../structUpvaldesc.html#a1e5182ac7b8b72848ed71b7b4844e3d1',1,'Upvaldesc']]],
-  ['iolib_12',['iolib',['../liolib_8c.html#a8fe96dd62a007daad3a18e43dd136a29',1,'liolib.c']]],
+  ['iolib_12',['iolib',['../group__LuaSrc.html#ga8fe96dd62a007daad3a18e43dd136a29',1,'liolib.c']]],
   ['is_5fvararg_13',['is_vararg',['../structProto.html#a82302f2e9040b681d5b34c1239dcd673',1,'Proto']]],
   ['islittle_14',['islittle',['../structHeader.html#abf580577b27ac36c8c26b86131a01b2b',1,'Header']]],
   ['isloop_15',['isloop',['../structBlockCnt.html#a6434a0c8f9724248c839b6e9e6d9ec00',1,'BlockCnt']]],

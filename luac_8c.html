@@ -112,489 +112,96 @@ $(function(){ initResizable(false); });
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:ac70e1c4c97135b89ba757fb14b14951b" id="r_ac70e1c4c97135b89ba757fb14b14951b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac70e1c4c97135b89ba757fb14b14951b">luac_c</a></td></tr>
-<tr class="separator:ac70e1c4c97135b89ba757fb14b14951b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf0b3947b59218777a8e928a10be205b" id="r_abf0b3947b59218777a8e928a10be205b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf0b3947b59218777a8e928a10be205b">LUA_CORE</a></td></tr>
-<tr class="separator:abf0b3947b59218777a8e928a10be205b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84271d27ce329c7c6ca946c1a776461b" id="r_a84271d27ce329c7c6ca946c1a776461b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a84271d27ce329c7c6ca946c1a776461b">luaU_print</a>&#160;&#160;&#160;<a class="el" href="#a5279aa63587ca225235e0a79b160c074">PrintFunction</a></td></tr>
-<tr class="separator:a84271d27ce329c7c6ca946c1a776461b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c9afb758de9a0355c93fc926b8ce6b1" id="r_a8c9afb758de9a0355c93fc926b8ce6b1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8c9afb758de9a0355c93fc926b8ce6b1">PROGNAME</a>&#160;&#160;&#160;&quot;luac&quot;		/* default program name */</td></tr>
-<tr class="separator:a8c9afb758de9a0355c93fc926b8ce6b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61a3c9a18380aafb6e430e79bf596557" id="r_a61a3c9a18380aafb6e430e79bf596557"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>&#160;&#160;&#160;<a class="el" href="#a8c9afb758de9a0355c93fc926b8ce6b1">PROGNAME</a> &quot;.out&quot;	/* default <a class="el" href="#a5a832fe6e2412dfabb93a2adae30e745">output</a> file */</td></tr>
-<tr class="separator:a61a3c9a18380aafb6e430e79bf596557"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa34c724b8aa48c2379fe48ecdb26927b" id="r_aa34c724b8aa48c2379fe48ecdb26927b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa34c724b8aa48c2379fe48ecdb26927b">IS</a>(s)&#160;&#160;&#160;(strcmp(argv[i],s)==0)</td></tr>
-<tr class="separator:aa34c724b8aa48c2379fe48ecdb26927b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee0cf83ee6d754df700e396da8987f1f" id="r_aee0cf83ee6d754df700e396da8987f1f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aee0cf83ee6d754df700e396da8987f1f">FUNCTION</a>&#160;&#160;&#160;&quot;(function()end)();\n&quot;</td></tr>
-<tr class="separator:aee0cf83ee6d754df700e396da8987f1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a395e76b71aa94b35fda84c1edaf01d06" id="r_a395e76b71aa94b35fda84c1edaf01d06"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a395e76b71aa94b35fda84c1edaf01d06">toproto</a>(<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>,  i)&#160;&#160;&#160;<a class="el" href="lobject_8h.html#a36095400a8ca3ad1e6120f507b421331">getproto</a>(<a class="el" href="lobject_8h.html#a8c21cbb67def90b23342840cd08a5cfd">s2v</a>(<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>-&gt;top.p+(i)))</td></tr>
-<tr class="separator:a395e76b71aa94b35fda84c1edaf01d06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16edb7a847ec8518180e4cf618832587" id="r_a16edb7a847ec8518180e4cf618832587"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a16edb7a847ec8518180e4cf618832587">UPVALNAME</a>(x)&#160;&#160;&#160;((f-&gt;upvalues[x].name) ? <a class="el" href="lobject_8h.html#acb05d3ab238923581a9c629b8e11a6ac">getstr</a>(f-&gt;upvalues[x].name) : &quot;-&quot;)</td></tr>
-<tr class="separator:a16edb7a847ec8518180e4cf618832587"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24af9b8ebca3f5db5c15aee49899691d" id="r_a24af9b8ebca3f5db5c15aee49899691d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a24af9b8ebca3f5db5c15aee49899691d">VOID</a>(p)&#160;&#160;&#160;((const void*)(p))</td></tr>
-<tr class="separator:a24af9b8ebca3f5db5c15aee49899691d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b8b155976e308f69b0252c947f570fa" id="r_a2b8b155976e308f69b0252c947f570fa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2b8b155976e308f69b0252c947f570fa">eventname</a>(i)&#160;&#160;&#160;(<a class="el" href="lobject_8h.html#acb05d3ab238923581a9c629b8e11a6ac">getstr</a>(<a class="el" href="#a225b2e27cb6929640b0159dce63b2591">tmname</a>[i]))</td></tr>
-<tr class="separator:a2b8b155976e308f69b0252c947f570fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a180f5b3835bdbfc11b353fd2af5c8659" id="r_a180f5b3835bdbfc11b353fd2af5c8659"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a180f5b3835bdbfc11b353fd2af5c8659">COMMENT</a>&#160;&#160;&#160;&quot;\t; &quot;</td></tr>
-<tr class="separator:a180f5b3835bdbfc11b353fd2af5c8659"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a328931eb747b663edea30597406578b6" id="r_a328931eb747b663edea30597406578b6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a328931eb747b663edea30597406578b6">EXTRAARG</a>&#160;&#160;&#160;<a class="el" href="lopcodes_8h.html#acfd578bba038b6682b924cf48012d80a">GETARG_Ax</a>(code[pc+1])</td></tr>
-<tr class="separator:a328931eb747b663edea30597406578b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b08231ae114cf55d2e313612fe93eb8" id="r_a1b08231ae114cf55d2e313612fe93eb8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1b08231ae114cf55d2e313612fe93eb8">EXTRAARGC</a>&#160;&#160;&#160;(<a class="el" href="#a328931eb747b663edea30597406578b6">EXTRAARG</a>*(<a class="el" href="lopcodes_8h.html#a15a7daf14e4640990519e4e7f627900f">MAXARG_C</a>+1))</td></tr>
-<tr class="separator:a1b08231ae114cf55d2e313612fe93eb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a790dc09cb0f496719f6791e449137a61" id="r_a790dc09cb0f496719f6791e449137a61"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a790dc09cb0f496719f6791e449137a61">ISK</a>&#160;&#160;&#160;(isk ? &quot;k&quot; : &quot;&quot;)</td></tr>
-<tr class="separator:a790dc09cb0f496719f6791e449137a61"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c01cbe06c1d312c5f95b3a9d3a23cef" id="r_a6c01cbe06c1d312c5f95b3a9d3a23cef"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6c01cbe06c1d312c5f95b3a9d3a23cef">SS</a>(x)&#160;&#160;&#160;((x==1)?&quot;&quot;:&quot;s&quot;)</td></tr>
-<tr class="separator:a6c01cbe06c1d312c5f95b3a9d3a23cef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4a3ed3432929804c708f7760fb79e28" id="r_ac4a3ed3432929804c708f7760fb79e28"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac4a3ed3432929804c708f7760fb79e28">S</a>(x)&#160;&#160;&#160;(int)(x),<a class="el" href="#a6c01cbe06c1d312c5f95b3a9d3a23cef">SS</a>(x)</td></tr>
-<tr class="separator:ac4a3ed3432929804c708f7760fb79e28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac70e1c4c97135b89ba757fb14b14951b" id="r_gac70e1c4c97135b89ba757fb14b14951b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gac70e1c4c97135b89ba757fb14b14951b">luac_c</a></td></tr>
+<tr class="separator:gac70e1c4c97135b89ba757fb14b14951b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabf0b3947b59218777a8e928a10be205b" id="r_gabf0b3947b59218777a8e928a10be205b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gabf0b3947b59218777a8e928a10be205b">LUA_CORE</a></td></tr>
+<tr class="separator:gabf0b3947b59218777a8e928a10be205b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga84271d27ce329c7c6ca946c1a776461b" id="r_ga84271d27ce329c7c6ca946c1a776461b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga84271d27ce329c7c6ca946c1a776461b">luaU_print</a>&#160;&#160;&#160;<a class="el" href="group__LuaSrc.html#ga5279aa63587ca225235e0a79b160c074">PrintFunction</a></td></tr>
+<tr class="separator:ga84271d27ce329c7c6ca946c1a776461b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8c9afb758de9a0355c93fc926b8ce6b1" id="r_ga8c9afb758de9a0355c93fc926b8ce6b1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga8c9afb758de9a0355c93fc926b8ce6b1">PROGNAME</a>&#160;&#160;&#160;&quot;luac&quot;		/* default program name */</td></tr>
+<tr class="separator:ga8c9afb758de9a0355c93fc926b8ce6b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga61a3c9a18380aafb6e430e79bf596557" id="r_ga61a3c9a18380aafb6e430e79bf596557"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>&#160;&#160;&#160;<a class="el" href="group__LuaSrc.html#ga8c9afb758de9a0355c93fc926b8ce6b1">PROGNAME</a> &quot;.out&quot;	/* default <a class="el" href="group__LuaSrc.html#ga5a832fe6e2412dfabb93a2adae30e745">output</a> file */</td></tr>
+<tr class="separator:ga61a3c9a18380aafb6e430e79bf596557"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa34c724b8aa48c2379fe48ecdb26927b" id="r_gaa34c724b8aa48c2379fe48ecdb26927b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gaa34c724b8aa48c2379fe48ecdb26927b">IS</a>(s)&#160;&#160;&#160;(strcmp(argv[i],s)==0)</td></tr>
+<tr class="separator:gaa34c724b8aa48c2379fe48ecdb26927b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaee0cf83ee6d754df700e396da8987f1f" id="r_gaee0cf83ee6d754df700e396da8987f1f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gaee0cf83ee6d754df700e396da8987f1f">FUNCTION</a>&#160;&#160;&#160;&quot;(function()end)();\n&quot;</td></tr>
+<tr class="separator:gaee0cf83ee6d754df700e396da8987f1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga395e76b71aa94b35fda84c1edaf01d06" id="r_ga395e76b71aa94b35fda84c1edaf01d06"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga395e76b71aa94b35fda84c1edaf01d06">toproto</a>(<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>,  i)&#160;&#160;&#160;<a class="el" href="group__LuaSrc.html#ga36095400a8ca3ad1e6120f507b421331">getproto</a>(<a class="el" href="group__LuaSrc.html#ga8c21cbb67def90b23342840cd08a5cfd">s2v</a>(<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>-&gt;top.p+(i)))</td></tr>
+<tr class="separator:ga395e76b71aa94b35fda84c1edaf01d06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga16edb7a847ec8518180e4cf618832587" id="r_ga16edb7a847ec8518180e4cf618832587"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga16edb7a847ec8518180e4cf618832587">UPVALNAME</a>(x)&#160;&#160;&#160;((f-&gt;upvalues[x].name) ? <a class="el" href="group__LuaSrc.html#gacb05d3ab238923581a9c629b8e11a6ac">getstr</a>(f-&gt;upvalues[x].name) : &quot;-&quot;)</td></tr>
+<tr class="separator:ga16edb7a847ec8518180e4cf618832587"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga24af9b8ebca3f5db5c15aee49899691d" id="r_ga24af9b8ebca3f5db5c15aee49899691d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga24af9b8ebca3f5db5c15aee49899691d">VOID</a>(p)&#160;&#160;&#160;((const void*)(p))</td></tr>
+<tr class="separator:ga24af9b8ebca3f5db5c15aee49899691d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2b8b155976e308f69b0252c947f570fa" id="r_ga2b8b155976e308f69b0252c947f570fa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga2b8b155976e308f69b0252c947f570fa">eventname</a>(i)&#160;&#160;&#160;(<a class="el" href="group__LuaSrc.html#gacb05d3ab238923581a9c629b8e11a6ac">getstr</a>(<a class="el" href="group__LuaSrc.html#ga225b2e27cb6929640b0159dce63b2591">tmname</a>[i]))</td></tr>
+<tr class="separator:ga2b8b155976e308f69b0252c947f570fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga180f5b3835bdbfc11b353fd2af5c8659" id="r_ga180f5b3835bdbfc11b353fd2af5c8659"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga180f5b3835bdbfc11b353fd2af5c8659">COMMENT</a>&#160;&#160;&#160;&quot;\t; &quot;</td></tr>
+<tr class="separator:ga180f5b3835bdbfc11b353fd2af5c8659"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga328931eb747b663edea30597406578b6" id="r_ga328931eb747b663edea30597406578b6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga328931eb747b663edea30597406578b6">EXTRAARG</a>&#160;&#160;&#160;<a class="el" href="group__LuaSrc.html#gacfd578bba038b6682b924cf48012d80a">GETARG_Ax</a>(code[pc+1])</td></tr>
+<tr class="separator:ga328931eb747b663edea30597406578b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1b08231ae114cf55d2e313612fe93eb8" id="r_ga1b08231ae114cf55d2e313612fe93eb8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga1b08231ae114cf55d2e313612fe93eb8">EXTRAARGC</a>&#160;&#160;&#160;(<a class="el" href="group__LuaSrc.html#ga328931eb747b663edea30597406578b6">EXTRAARG</a>*(<a class="el" href="group__LuaSrc.html#ga15a7daf14e4640990519e4e7f627900f">MAXARG_C</a>+1))</td></tr>
+<tr class="separator:ga1b08231ae114cf55d2e313612fe93eb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga790dc09cb0f496719f6791e449137a61" id="r_ga790dc09cb0f496719f6791e449137a61"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga790dc09cb0f496719f6791e449137a61">ISK</a>&#160;&#160;&#160;(isk ? &quot;k&quot; : &quot;&quot;)</td></tr>
+<tr class="separator:ga790dc09cb0f496719f6791e449137a61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6c01cbe06c1d312c5f95b3a9d3a23cef" id="r_ga6c01cbe06c1d312c5f95b3a9d3a23cef"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga6c01cbe06c1d312c5f95b3a9d3a23cef">SS</a>(x)&#160;&#160;&#160;((x==1)?&quot;&quot;:&quot;s&quot;)</td></tr>
+<tr class="separator:ga6c01cbe06c1d312c5f95b3a9d3a23cef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac4a3ed3432929804c708f7760fb79e28" id="r_gac4a3ed3432929804c708f7760fb79e28"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gac4a3ed3432929804c708f7760fb79e28">S</a>(x)&#160;&#160;&#160;(int)(x),<a class="el" href="group__LuaSrc.html#ga6c01cbe06c1d312c5f95b3a9d3a23cef">SS</a>(x)</td></tr>
+<tr class="separator:gac4a3ed3432929804c708f7760fb79e28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a5279aa63587ca225235e0a79b160c074" id="r_a5279aa63587ca225235e0a79b160c074"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5279aa63587ca225235e0a79b160c074">PrintFunction</a> (const <a class="el" href="structProto.html">Proto</a> *f, int full)</td></tr>
-<tr class="separator:a5279aa63587ca225235e0a79b160c074"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69302890c425d9c594142a85921d8940" id="r_a69302890c425d9c594142a85921d8940"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a69302890c425d9c594142a85921d8940">fatal</a> (const char *message)</td></tr>
-<tr class="separator:a69302890c425d9c594142a85921d8940"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac44bc787b819b46617c02a16a3ba9d4a" id="r_ac44bc787b819b46617c02a16a3ba9d4a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac44bc787b819b46617c02a16a3ba9d4a">cannot</a> (const char *what)</td></tr>
-<tr class="separator:ac44bc787b819b46617c02a16a3ba9d4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84bceac26a8794d42d22ce68a71d3163" id="r_a84bceac26a8794d42d22ce68a71d3163"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a84bceac26a8794d42d22ce68a71d3163">usage</a> (const char *message)</td></tr>
-<tr class="separator:a84bceac26a8794d42d22ce68a71d3163"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ebf2a3b04448d1d3561e178f4be9e82" id="r_a2ebf2a3b04448d1d3561e178f4be9e82"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2ebf2a3b04448d1d3561e178f4be9e82">doargs</a> (int argc, char *argv[])</td></tr>
-<tr class="separator:a2ebf2a3b04448d1d3561e178f4be9e82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a620f8f2d8ff048168797941c63f8bc53" id="r_a620f8f2d8ff048168797941c63f8bc53"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a620f8f2d8ff048168797941c63f8bc53">reader</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, void *ud, size_t *size)</td></tr>
-<tr class="separator:a620f8f2d8ff048168797941c63f8bc53"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5cce7bb7467b6b600a673aa8b50d99d3" id="r_a5cce7bb7467b6b600a673aa8b50d99d3"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="structProto.html">Proto</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5cce7bb7467b6b600a673aa8b50d99d3">combine</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, int n)</td></tr>
-<tr class="separator:a5cce7bb7467b6b600a673aa8b50d99d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85d6a36e2c08a094c859d9a0a2348f49" id="r_a85d6a36e2c08a094c859d9a0a2348f49"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a85d6a36e2c08a094c859d9a0a2348f49">writer</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, const void *p, size_t size, void *u)</td></tr>
-<tr class="separator:a85d6a36e2c08a094c859d9a0a2348f49"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0f8bc082ef913cb0a4df437bf5f5019" id="r_aa0f8bc082ef913cb0a4df437bf5f5019"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa0f8bc082ef913cb0a4df437bf5f5019">pmain</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
-<tr class="separator:aa0f8bc082ef913cb0a4df437bf5f5019"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97" id="r_a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
-<tr class="separator:a0ddf1224851353fc92bfbff6f499fa97"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a605f53a55a6eb7338c9be8f59077feb8" id="r_a605f53a55a6eb7338c9be8f59077feb8"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a605f53a55a6eb7338c9be8f59077feb8">PrintString</a> (const <a class="el" href="structTString.html">TString</a> *ts)</td></tr>
-<tr class="separator:a605f53a55a6eb7338c9be8f59077feb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad534be70a80daf5dffc8186b0c754544" id="r_ad534be70a80daf5dffc8186b0c754544"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad534be70a80daf5dffc8186b0c754544">PrintType</a> (const <a class="el" href="structProto.html">Proto</a> *f, int i)</td></tr>
-<tr class="separator:ad534be70a80daf5dffc8186b0c754544"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84a729ea5b10116d5a04339539b3ffb4" id="r_a84a729ea5b10116d5a04339539b3ffb4"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a84a729ea5b10116d5a04339539b3ffb4">PrintConstant</a> (const <a class="el" href="structProto.html">Proto</a> *f, int i)</td></tr>
-<tr class="separator:a84a729ea5b10116d5a04339539b3ffb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abec2b795430b26b9af580283892da894" id="r_abec2b795430b26b9af580283892da894"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abec2b795430b26b9af580283892da894">PrintCode</a> (const <a class="el" href="structProto.html">Proto</a> *f)</td></tr>
-<tr class="separator:abec2b795430b26b9af580283892da894"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa71b204e7556a8e903732f3d19630cd9" id="r_aa71b204e7556a8e903732f3d19630cd9"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa71b204e7556a8e903732f3d19630cd9">PrintHeader</a> (const <a class="el" href="structProto.html">Proto</a> *f)</td></tr>
-<tr class="separator:aa71b204e7556a8e903732f3d19630cd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2db31ce93f319bdd14dbde1fa72ea609" id="r_a2db31ce93f319bdd14dbde1fa72ea609"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2db31ce93f319bdd14dbde1fa72ea609">PrintDebug</a> (const <a class="el" href="structProto.html">Proto</a> *f)</td></tr>
-<tr class="separator:a2db31ce93f319bdd14dbde1fa72ea609"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5279aa63587ca225235e0a79b160c074" id="r_ga5279aa63587ca225235e0a79b160c074"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga5279aa63587ca225235e0a79b160c074">PrintFunction</a> (const <a class="el" href="structProto.html">Proto</a> *f, int full)</td></tr>
+<tr class="separator:ga5279aa63587ca225235e0a79b160c074"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga69302890c425d9c594142a85921d8940" id="r_ga69302890c425d9c594142a85921d8940"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga69302890c425d9c594142a85921d8940">fatal</a> (const char *message)</td></tr>
+<tr class="separator:ga69302890c425d9c594142a85921d8940"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac44bc787b819b46617c02a16a3ba9d4a" id="r_gac44bc787b819b46617c02a16a3ba9d4a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gac44bc787b819b46617c02a16a3ba9d4a">cannot</a> (const char *what)</td></tr>
+<tr class="separator:gac44bc787b819b46617c02a16a3ba9d4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga84bceac26a8794d42d22ce68a71d3163" id="r_ga84bceac26a8794d42d22ce68a71d3163"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga84bceac26a8794d42d22ce68a71d3163">usage</a> (const char *message)</td></tr>
+<tr class="separator:ga84bceac26a8794d42d22ce68a71d3163"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2ebf2a3b04448d1d3561e178f4be9e82" id="r_ga2ebf2a3b04448d1d3561e178f4be9e82"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga2ebf2a3b04448d1d3561e178f4be9e82">doargs</a> (int argc, char *argv[])</td></tr>
+<tr class="separator:ga2ebf2a3b04448d1d3561e178f4be9e82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga620f8f2d8ff048168797941c63f8bc53" id="r_ga620f8f2d8ff048168797941c63f8bc53"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga620f8f2d8ff048168797941c63f8bc53">reader</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, void *ud, size_t *size)</td></tr>
+<tr class="separator:ga620f8f2d8ff048168797941c63f8bc53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5cce7bb7467b6b600a673aa8b50d99d3" id="r_ga5cce7bb7467b6b600a673aa8b50d99d3"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="structProto.html">Proto</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga5cce7bb7467b6b600a673aa8b50d99d3">combine</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, int n)</td></tr>
+<tr class="separator:ga5cce7bb7467b6b600a673aa8b50d99d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1f7ab2869b4517a93412ce096243ead0" id="r_ga1f7ab2869b4517a93412ce096243ead0"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga1f7ab2869b4517a93412ce096243ead0">writer</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, const void *p, size_t size, void *u)</td></tr>
+<tr class="separator:ga1f7ab2869b4517a93412ce096243ead0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa0f8bc082ef913cb0a4df437bf5f5019" id="r_gaa0f8bc082ef913cb0a4df437bf5f5019"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaa0f8bc082ef913cb0a4df437bf5f5019">pmain</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
+<tr class="separator:gaa0f8bc082ef913cb0a4df437bf5f5019"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0ddf1224851353fc92bfbff6f499fa97" id="r_ga0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
+<tr class="separator:ga0ddf1224851353fc92bfbff6f499fa97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga605f53a55a6eb7338c9be8f59077feb8" id="r_ga605f53a55a6eb7338c9be8f59077feb8"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga605f53a55a6eb7338c9be8f59077feb8">PrintString</a> (const <a class="el" href="structTString.html">TString</a> *ts)</td></tr>
+<tr class="separator:ga605f53a55a6eb7338c9be8f59077feb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad534be70a80daf5dffc8186b0c754544" id="r_gad534be70a80daf5dffc8186b0c754544"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gad534be70a80daf5dffc8186b0c754544">PrintType</a> (const <a class="el" href="structProto.html">Proto</a> *f, int i)</td></tr>
+<tr class="separator:gad534be70a80daf5dffc8186b0c754544"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga84a729ea5b10116d5a04339539b3ffb4" id="r_ga84a729ea5b10116d5a04339539b3ffb4"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga84a729ea5b10116d5a04339539b3ffb4">PrintConstant</a> (const <a class="el" href="structProto.html">Proto</a> *f, int i)</td></tr>
+<tr class="separator:ga84a729ea5b10116d5a04339539b3ffb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabec2b795430b26b9af580283892da894" id="r_gabec2b795430b26b9af580283892da894"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gabec2b795430b26b9af580283892da894">PrintCode</a> (const <a class="el" href="structProto.html">Proto</a> *f)</td></tr>
+<tr class="separator:gabec2b795430b26b9af580283892da894"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa71b204e7556a8e903732f3d19630cd9" id="r_gaa71b204e7556a8e903732f3d19630cd9"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gaa71b204e7556a8e903732f3d19630cd9">PrintHeader</a> (const <a class="el" href="structProto.html">Proto</a> *f)</td></tr>
+<tr class="separator:gaa71b204e7556a8e903732f3d19630cd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2db31ce93f319bdd14dbde1fa72ea609" id="r_ga2db31ce93f319bdd14dbde1fa72ea609"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga2db31ce93f319bdd14dbde1fa72ea609">PrintDebug</a> (const <a class="el" href="structProto.html">Proto</a> *f)</td></tr>
+<tr class="separator:ga2db31ce93f319bdd14dbde1fa72ea609"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:afe985de9b8de27991fde6ff1a38df0d5" id="r_afe985de9b8de27991fde6ff1a38df0d5"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe985de9b8de27991fde6ff1a38df0d5">listing</a> =0</td></tr>
-<tr class="separator:afe985de9b8de27991fde6ff1a38df0d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58aee6c9626ed8d2bf3d5d4415195b3e" id="r_a58aee6c9626ed8d2bf3d5d4415195b3e"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a58aee6c9626ed8d2bf3d5d4415195b3e">dumping</a> =1</td></tr>
-<tr class="separator:a58aee6c9626ed8d2bf3d5d4415195b3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25df061e9704e4ffd10f50e5e8823773" id="r_a25df061e9704e4ffd10f50e5e8823773"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a25df061e9704e4ffd10f50e5e8823773">stripping</a> =0</td></tr>
-<tr class="separator:a25df061e9704e4ffd10f50e5e8823773"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa53971c93198f18e062267f4d976a5cf" id="r_aa53971c93198f18e062267f4d976a5cf"><td class="memItemLeft" align="right" valign="top">static char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa53971c93198f18e062267f4d976a5cf">Output</a> [] ={ <a class="el" href="#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a> }</td></tr>
-<tr class="separator:aa53971c93198f18e062267f4d976a5cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a832fe6e2412dfabb93a2adae30e745" id="r_a5a832fe6e2412dfabb93a2adae30e745"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5a832fe6e2412dfabb93a2adae30e745">output</a> =<a class="el" href="#aa53971c93198f18e062267f4d976a5cf">Output</a></td></tr>
-<tr class="separator:a5a832fe6e2412dfabb93a2adae30e745"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad785d8a8f8ff378aa21eb1fa7a6085df" id="r_ad785d8a8f8ff378aa21eb1fa7a6085df"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad785d8a8f8ff378aa21eb1fa7a6085df">progname</a> =<a class="el" href="#a8c9afb758de9a0355c93fc926b8ce6b1">PROGNAME</a></td></tr>
-<tr class="separator:ad785d8a8f8ff378aa21eb1fa7a6085df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a225b2e27cb6929640b0159dce63b2591" id="r_a225b2e27cb6929640b0159dce63b2591"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structTString.html">TString</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a225b2e27cb6929640b0159dce63b2591">tmname</a></td></tr>
-<tr class="separator:a225b2e27cb6929640b0159dce63b2591"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafe985de9b8de27991fde6ff1a38df0d5" id="r_gafe985de9b8de27991fde6ff1a38df0d5"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gafe985de9b8de27991fde6ff1a38df0d5">listing</a> =0</td></tr>
+<tr class="separator:gafe985de9b8de27991fde6ff1a38df0d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga58aee6c9626ed8d2bf3d5d4415195b3e" id="r_ga58aee6c9626ed8d2bf3d5d4415195b3e"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga58aee6c9626ed8d2bf3d5d4415195b3e">dumping</a> =1</td></tr>
+<tr class="separator:ga58aee6c9626ed8d2bf3d5d4415195b3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga25df061e9704e4ffd10f50e5e8823773" id="r_ga25df061e9704e4ffd10f50e5e8823773"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga25df061e9704e4ffd10f50e5e8823773">stripping</a> =0</td></tr>
+<tr class="separator:ga25df061e9704e4ffd10f50e5e8823773"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa53971c93198f18e062267f4d976a5cf" id="r_gaa53971c93198f18e062267f4d976a5cf"><td class="memItemLeft" align="right" valign="top">static char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gaa53971c93198f18e062267f4d976a5cf">Output</a> [] ={ <a class="el" href="group__LuaSrc.html#ga61a3c9a18380aafb6e430e79bf596557">OUTPUT</a> }</td></tr>
+<tr class="separator:gaa53971c93198f18e062267f4d976a5cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5a832fe6e2412dfabb93a2adae30e745" id="r_ga5a832fe6e2412dfabb93a2adae30e745"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga5a832fe6e2412dfabb93a2adae30e745">output</a> =<a class="el" href="group__LuaSrc.html#gaa53971c93198f18e062267f4d976a5cf">Output</a></td></tr>
+<tr class="separator:ga5a832fe6e2412dfabb93a2adae30e745"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad785d8a8f8ff378aa21eb1fa7a6085df" id="r_gad785d8a8f8ff378aa21eb1fa7a6085df"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gad785d8a8f8ff378aa21eb1fa7a6085df">progname</a> =<a class="el" href="group__LuaSrc.html#ga8c9afb758de9a0355c93fc926b8ce6b1">PROGNAME</a></td></tr>
+<tr class="separator:gad785d8a8f8ff378aa21eb1fa7a6085df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga225b2e27cb6929640b0159dce63b2591" id="r_ga225b2e27cb6929640b0159dce63b2591"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structTString.html">TString</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga225b2e27cb6929640b0159dce63b2591">tmname</a></td></tr>
+<tr class="separator:ga225b2e27cb6929640b0159dce63b2591"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a180f5b3835bdbfc11b353fd2af5c8659" name="a180f5b3835bdbfc11b353fd2af5c8659"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a180f5b3835bdbfc11b353fd2af5c8659">&#9670;&#160;</a></span>COMMENT</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define COMMENT&#160;&#160;&#160;&quot;\t; &quot;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a2b8b155976e308f69b0252c947f570fa" name="a2b8b155976e308f69b0252c947f570fa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2b8b155976e308f69b0252c947f570fa">&#9670;&#160;</a></span>eventname</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define eventname</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>i</em></span></td><td>)</td>
-          <td>&#160;&#160;&#160;(<a class="el" href="lobject_8h.html#acb05d3ab238923581a9c629b8e11a6ac">getstr</a>(<a class="el" href="#a225b2e27cb6929640b0159dce63b2591">tmname</a>[i]))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a328931eb747b663edea30597406578b6" name="a328931eb747b663edea30597406578b6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a328931eb747b663edea30597406578b6">&#9670;&#160;</a></span>EXTRAARG</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define EXTRAARG&#160;&#160;&#160;<a class="el" href="lopcodes_8h.html#acfd578bba038b6682b924cf48012d80a">GETARG_Ax</a>(code[pc+1])</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a1b08231ae114cf55d2e313612fe93eb8" name="a1b08231ae114cf55d2e313612fe93eb8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b08231ae114cf55d2e313612fe93eb8">&#9670;&#160;</a></span>EXTRAARGC</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define EXTRAARGC&#160;&#160;&#160;(<a class="el" href="#a328931eb747b663edea30597406578b6">EXTRAARG</a>*(<a class="el" href="lopcodes_8h.html#a15a7daf14e4640990519e4e7f627900f">MAXARG_C</a>+1))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aee0cf83ee6d754df700e396da8987f1f" name="aee0cf83ee6d754df700e396da8987f1f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aee0cf83ee6d754df700e396da8987f1f">&#9670;&#160;</a></span>FUNCTION</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define FUNCTION&#160;&#160;&#160;&quot;(function()end)();\n&quot;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa34c724b8aa48c2379fe48ecdb26927b" name="aa34c724b8aa48c2379fe48ecdb26927b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa34c724b8aa48c2379fe48ecdb26927b">&#9670;&#160;</a></span>IS</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define IS</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>s</em></span></td><td>)</td>
-          <td>&#160;&#160;&#160;(strcmp(argv[i],s)==0)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a790dc09cb0f496719f6791e449137a61" name="a790dc09cb0f496719f6791e449137a61"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a790dc09cb0f496719f6791e449137a61">&#9670;&#160;</a></span>ISK</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define ISK&#160;&#160;&#160;(isk ? &quot;k&quot; : &quot;&quot;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="abf0b3947b59218777a8e928a10be205b" name="abf0b3947b59218777a8e928a10be205b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf0b3947b59218777a8e928a10be205b">&#9670;&#160;</a></span>LUA_CORE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LUA_CORE</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac70e1c4c97135b89ba757fb14b14951b" name="ac70e1c4c97135b89ba757fb14b14951b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac70e1c4c97135b89ba757fb14b14951b">&#9670;&#160;</a></span>luac_c</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define luac_c</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a84271d27ce329c7c6ca946c1a776461b" name="a84271d27ce329c7c6ca946c1a776461b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a84271d27ce329c7c6ca946c1a776461b">&#9670;&#160;</a></span>luaU_print</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define luaU_print&#160;&#160;&#160;<a class="el" href="#a5279aa63587ca225235e0a79b160c074">PrintFunction</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a61a3c9a18380aafb6e430e79bf596557" name="a61a3c9a18380aafb6e430e79bf596557"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a61a3c9a18380aafb6e430e79bf596557">&#9670;&#160;</a></span>OUTPUT</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define OUTPUT&#160;&#160;&#160;<a class="el" href="#a8c9afb758de9a0355c93fc926b8ce6b1">PROGNAME</a> &quot;.out&quot;	/* default <a class="el" href="#a5a832fe6e2412dfabb93a2adae30e745">output</a> file */</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a8c9afb758de9a0355c93fc926b8ce6b1" name="a8c9afb758de9a0355c93fc926b8ce6b1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8c9afb758de9a0355c93fc926b8ce6b1">&#9670;&#160;</a></span>PROGNAME</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define PROGNAME&#160;&#160;&#160;&quot;luac&quot;		/* default program name */</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac4a3ed3432929804c708f7760fb79e28" name="ac4a3ed3432929804c708f7760fb79e28"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac4a3ed3432929804c708f7760fb79e28">&#9670;&#160;</a></span>S</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define S</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>x</em></span></td><td>)</td>
-          <td>&#160;&#160;&#160;(int)(x),<a class="el" href="#a6c01cbe06c1d312c5f95b3a9d3a23cef">SS</a>(x)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a6c01cbe06c1d312c5f95b3a9d3a23cef" name="a6c01cbe06c1d312c5f95b3a9d3a23cef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6c01cbe06c1d312c5f95b3a9d3a23cef">&#9670;&#160;</a></span>SS</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SS</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>x</em></span></td><td>)</td>
-          <td>&#160;&#160;&#160;((x==1)?&quot;&quot;:&quot;s&quot;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a395e76b71aa94b35fda84c1edaf01d06" name="a395e76b71aa94b35fda84c1edaf01d06"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a395e76b71aa94b35fda84c1edaf01d06">&#9670;&#160;</a></span>toproto</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define toproto</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a></em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>i</em></span>&#160;)&#160;&#160;&#160;<a class="el" href="lobject_8h.html#a36095400a8ca3ad1e6120f507b421331">getproto</a>(<a class="el" href="lobject_8h.html#a8c21cbb67def90b23342840cd08a5cfd">s2v</a>(<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>-&gt;top.p+(i)))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a16edb7a847ec8518180e4cf618832587" name="a16edb7a847ec8518180e4cf618832587"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a16edb7a847ec8518180e4cf618832587">&#9670;&#160;</a></span>UPVALNAME</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define UPVALNAME</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>x</em></span></td><td>)</td>
-          <td>&#160;&#160;&#160;((f-&gt;upvalues[x].name) ? <a class="el" href="lobject_8h.html#acb05d3ab238923581a9c629b8e11a6ac">getstr</a>(f-&gt;upvalues[x].name) : &quot;-&quot;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a24af9b8ebca3f5db5c15aee49899691d" name="a24af9b8ebca3f5db5c15aee49899691d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a24af9b8ebca3f5db5c15aee49899691d">&#9670;&#160;</a></span>VOID</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define VOID</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>p</em></span></td><td>)</td>
-          <td>&#160;&#160;&#160;((const void*)(p))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ac44bc787b819b46617c02a16a3ba9d4a" name="ac44bc787b819b46617c02a16a3ba9d4a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac44bc787b819b46617c02a16a3ba9d4a">&#9670;&#160;</a></span>cannot()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void cannot </td>
-          <td>(</td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>what</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a5cce7bb7467b6b600a673aa8b50d99d3" name="a5cce7bb7467b6b600a673aa8b50d99d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5cce7bb7467b6b600a673aa8b50d99d3">&#9670;&#160;</a></span>combine()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static const <a class="el" href="structProto.html">Proto</a> * combine </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structlua__State.html">lua_State</a> *</td>          <td class="paramname"><span class="paramname"><em>L</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>n</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a2ebf2a3b04448d1d3561e178f4be9e82" name="a2ebf2a3b04448d1d3561e178f4be9e82"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2ebf2a3b04448d1d3561e178f4be9e82">&#9670;&#160;</a></span>doargs()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static int doargs </td>
-          <td>(</td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>argc</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>argv</em></span>[]&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a69302890c425d9c594142a85921d8940" name="a69302890c425d9c594142a85921d8940"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a69302890c425d9c594142a85921d8940">&#9670;&#160;</a></span>fatal()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void fatal </td>
-          <td>(</td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>message</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a0ddf1224851353fc92bfbff6f499fa97" name="a0ddf1224851353fc92bfbff6f499fa97"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ddf1224851353fc92bfbff6f499fa97">&#9670;&#160;</a></span>main()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int main </td>
-          <td>(</td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>argc</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>argv</em></span>[]&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa0f8bc082ef913cb0a4df437bf5f5019" name="aa0f8bc082ef913cb0a4df437bf5f5019"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa0f8bc082ef913cb0a4df437bf5f5019">&#9670;&#160;</a></span>pmain()</h2>
+<a id="gaa0f8bc082ef913cb0a4df437bf5f5019" name="gaa0f8bc082ef913cb0a4df437bf5f5019"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa0f8bc082ef913cb0a4df437bf5f5019">&#9670;&#160;</a></span>pmain()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -618,254 +225,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="abec2b795430b26b9af580283892da894" name="abec2b795430b26b9af580283892da894"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abec2b795430b26b9af580283892da894">&#9670;&#160;</a></span>PrintCode()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void PrintCode </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="structProto.html">Proto</a> *</td>          <td class="paramname"><span class="paramname"><em>f</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a84a729ea5b10116d5a04339539b3ffb4" name="a84a729ea5b10116d5a04339539b3ffb4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a84a729ea5b10116d5a04339539b3ffb4">&#9670;&#160;</a></span>PrintConstant()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void PrintConstant </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="structProto.html">Proto</a> *</td>          <td class="paramname"><span class="paramname"><em>f</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>i</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a2db31ce93f319bdd14dbde1fa72ea609" name="a2db31ce93f319bdd14dbde1fa72ea609"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2db31ce93f319bdd14dbde1fa72ea609">&#9670;&#160;</a></span>PrintDebug()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void PrintDebug </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="structProto.html">Proto</a> *</td>          <td class="paramname"><span class="paramname"><em>f</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a5279aa63587ca225235e0a79b160c074" name="a5279aa63587ca225235e0a79b160c074"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5279aa63587ca225235e0a79b160c074">&#9670;&#160;</a></span>PrintFunction()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void PrintFunction </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="structProto.html">Proto</a> *</td>          <td class="paramname"><span class="paramname"><em>f</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>full</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa71b204e7556a8e903732f3d19630cd9" name="aa71b204e7556a8e903732f3d19630cd9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa71b204e7556a8e903732f3d19630cd9">&#9670;&#160;</a></span>PrintHeader()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void PrintHeader </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="structProto.html">Proto</a> *</td>          <td class="paramname"><span class="paramname"><em>f</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a605f53a55a6eb7338c9be8f59077feb8" name="a605f53a55a6eb7338c9be8f59077feb8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a605f53a55a6eb7338c9be8f59077feb8">&#9670;&#160;</a></span>PrintString()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void PrintString </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="structTString.html">TString</a> *</td>          <td class="paramname"><span class="paramname"><em>ts</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad534be70a80daf5dffc8186b0c754544" name="ad534be70a80daf5dffc8186b0c754544"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad534be70a80daf5dffc8186b0c754544">&#9670;&#160;</a></span>PrintType()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void PrintType </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="structProto.html">Proto</a> *</td>          <td class="paramname"><span class="paramname"><em>f</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>i</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a620f8f2d8ff048168797941c63f8bc53" name="a620f8f2d8ff048168797941c63f8bc53"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a620f8f2d8ff048168797941c63f8bc53">&#9670;&#160;</a></span>reader()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static const char * reader </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structlua__State.html">lua_State</a> *</td>          <td class="paramname"><span class="paramname"><em>L</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>ud</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t *</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a84bceac26a8794d42d22ce68a71d3163" name="a84bceac26a8794d42d22ce68a71d3163"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a84bceac26a8794d42d22ce68a71d3163">&#9670;&#160;</a></span>usage()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void usage </td>
-          <td>(</td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>message</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a85d6a36e2c08a094c859d9a0a2348f49" name="a85d6a36e2c08a094c859d9a0a2348f49"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a85d6a36e2c08a094c859d9a0a2348f49">&#9670;&#160;</a></span>writer()</h2>
+<a id="ga1f7ab2869b4517a93412ce096243ead0" name="ga1f7ab2869b4517a93412ce096243ead0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1f7ab2869b4517a93412ce096243ead0">&#9670;&#160;</a></span>writer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -892,161 +253,6 @@ Variables</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>u</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="a58aee6c9626ed8d2bf3d5d4415195b3e" name="a58aee6c9626ed8d2bf3d5d4415195b3e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58aee6c9626ed8d2bf3d5d4415195b3e">&#9670;&#160;</a></span>dumping</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int dumping =1</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="afe985de9b8de27991fde6ff1a38df0d5" name="afe985de9b8de27991fde6ff1a38df0d5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afe985de9b8de27991fde6ff1a38df0d5">&#9670;&#160;</a></span>listing</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int listing =0</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa53971c93198f18e062267f4d976a5cf" name="aa53971c93198f18e062267f4d976a5cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa53971c93198f18e062267f4d976a5cf">&#9670;&#160;</a></span>Output</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">char Output[] ={ <a class="el" href="#a61a3c9a18380aafb6e430e79bf596557">OUTPUT</a> }</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a5a832fe6e2412dfabb93a2adae30e745" name="a5a832fe6e2412dfabb93a2adae30e745"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5a832fe6e2412dfabb93a2adae30e745">&#9670;&#160;</a></span>output</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const char* output =<a class="el" href="#aa53971c93198f18e062267f4d976a5cf">Output</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad785d8a8f8ff378aa21eb1fa7a6085df" name="ad785d8a8f8ff378aa21eb1fa7a6085df"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad785d8a8f8ff378aa21eb1fa7a6085df">&#9670;&#160;</a></span>progname</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const char* progname =<a class="el" href="#a8c9afb758de9a0355c93fc926b8ce6b1">PROGNAME</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a25df061e9704e4ffd10f50e5e8823773" name="a25df061e9704e4ffd10f50e5e8823773"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25df061e9704e4ffd10f50e5e8823773">&#9670;&#160;</a></span>stripping</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int stripping =0</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a225b2e27cb6929640b0159dce63b2591" name="a225b2e27cb6929640b0159dce63b2591"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a225b2e27cb6929640b0159dce63b2591">&#9670;&#160;</a></span>tmname</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structTString.html">TString</a>** tmname</td>
         </tr>
       </table>
   </td>

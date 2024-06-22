@@ -8,5 +8,5 @@ var searchData=
   ['k_5ftimer_5fdefine_5',['K_TIMER_DEFINE',['../display_8c.html#aa1986156808f3236eabd748516caa133',1,'K_TIMER_DEFINE(display_timer, display_callback, NULL):&#160;display.c'],['../shell_8c.html#a36528f4d70def00a2465a1cbefd3ad41',1,'K_TIMER_DEFINE(log_timer, timer_expired_handler, NULL):&#160;shell.c']]],
   ['keypad_6',['Keypad',['../classKeypad.html#a330318482515dfcef14a895267bc3632',1,'Keypad']]],
   ['keypressevent_7',['keyPressEvent',['../classTerminalTextEdit.html#a3e12afff61c75ecbc8ad29b2f84d2d76',1,'TerminalTextEdit']]],
-  ['kname_8',['kname',['../ldebug_8c.html#aa605689053c7501d28fbd308b73f84ae',1,'ldebug.c']]]
+  ['kname_8',['kname',['../group__LuaSrc.html#gaa605689053c7501d28fbd308b73f84ae',1,'ldebug.c']]]
 ];

@@ -101,283 +101,37 @@ $(function(){ initResizable(false); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a7d15b705d59378d3c5ab7a722473bf8d" id="r_a7d15b705d59378d3c5ab7a722473bf8d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d15b705d59378d3c5ab7a722473bf8d">LUA_USE_CTYPE</a>&#160;&#160;&#160;0</td></tr>
-<tr class="separator:a7d15b705d59378d3c5ab7a722473bf8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a091fbd82b59441d4a091c0312c0a0e35" id="r_a091fbd82b59441d4a091c0312c0a0e35"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a091fbd82b59441d4a091c0312c0a0e35">ALPHABIT</a>&#160;&#160;&#160;0</td></tr>
-<tr class="separator:a091fbd82b59441d4a091c0312c0a0e35"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a089c6406273b00564db9bd9d43945a25" id="r_a089c6406273b00564db9bd9d43945a25"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a089c6406273b00564db9bd9d43945a25">DIGITBIT</a>&#160;&#160;&#160;1</td></tr>
-<tr class="separator:a089c6406273b00564db9bd9d43945a25"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a708b2cd4d3f7f7126e5f795097ab1592" id="r_a708b2cd4d3f7f7126e5f795097ab1592"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a708b2cd4d3f7f7126e5f795097ab1592">PRINTBIT</a>&#160;&#160;&#160;2</td></tr>
-<tr class="separator:a708b2cd4d3f7f7126e5f795097ab1592"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6fe589191c9eb50677a9dcdcbc47891e" id="r_a6fe589191c9eb50677a9dcdcbc47891e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6fe589191c9eb50677a9dcdcbc47891e">SPACEBIT</a>&#160;&#160;&#160;3</td></tr>
-<tr class="separator:a6fe589191c9eb50677a9dcdcbc47891e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a326c899e67809dd5626560011d3dd09c" id="r_a326c899e67809dd5626560011d3dd09c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a326c899e67809dd5626560011d3dd09c">XDIGITBIT</a>&#160;&#160;&#160;4</td></tr>
-<tr class="separator:a326c899e67809dd5626560011d3dd09c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d3df71e2854f50a0da793b08732e197" id="r_a7d3df71e2854f50a0da793b08732e197"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d3df71e2854f50a0da793b08732e197">MASK</a>(B)&#160;&#160;&#160;(1 &lt;&lt; (B))</td></tr>
-<tr class="separator:a7d3df71e2854f50a0da793b08732e197"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac933a1d6fac0b2e206836c4b8089482d" id="r_ac933a1d6fac0b2e206836c4b8089482d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac933a1d6fac0b2e206836c4b8089482d">testprop</a>(<a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>,  p)&#160;&#160;&#160;(<a class="el" href="lctype_8c.html#a0fb53cca0a77a27211713000fc8f66b2">luai_ctype_</a>[(<a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>)+1] &amp; (p))</td></tr>
-<tr class="separator:ac933a1d6fac0b2e206836c4b8089482d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7132e9f6daf30b344b74f51d64eadf7d" id="r_a7132e9f6daf30b344b74f51d64eadf7d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7132e9f6daf30b344b74f51d64eadf7d">lislalpha</a>(<a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>)&#160;&#160;&#160;<a class="el" href="#ac933a1d6fac0b2e206836c4b8089482d">testprop</a>(<a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>, <a class="el" href="#a7d3df71e2854f50a0da793b08732e197">MASK</a>(<a class="el" href="#a091fbd82b59441d4a091c0312c0a0e35">ALPHABIT</a>))</td></tr>
-<tr class="separator:a7132e9f6daf30b344b74f51d64eadf7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c0dc6a934853b8ab5e7d65a3ca8abcd" id="r_a9c0dc6a934853b8ab5e7d65a3ca8abcd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9c0dc6a934853b8ab5e7d65a3ca8abcd">lislalnum</a>(<a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>)&#160;&#160;&#160;<a class="el" href="#ac933a1d6fac0b2e206836c4b8089482d">testprop</a>(<a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>, (<a class="el" href="#a7d3df71e2854f50a0da793b08732e197">MASK</a>(<a class="el" href="#a091fbd82b59441d4a091c0312c0a0e35">ALPHABIT</a>) | <a class="el" href="#a7d3df71e2854f50a0da793b08732e197">MASK</a>(<a class="el" href="#a089c6406273b00564db9bd9d43945a25">DIGITBIT</a>)))</td></tr>
-<tr class="separator:a9c0dc6a934853b8ab5e7d65a3ca8abcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee1d27a5eac398ec2c9c8b80281041e6" id="r_aee1d27a5eac398ec2c9c8b80281041e6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aee1d27a5eac398ec2c9c8b80281041e6">lisdigit</a>(<a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>)&#160;&#160;&#160;<a class="el" href="#ac933a1d6fac0b2e206836c4b8089482d">testprop</a>(<a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>, <a class="el" href="#a7d3df71e2854f50a0da793b08732e197">MASK</a>(<a class="el" href="#a089c6406273b00564db9bd9d43945a25">DIGITBIT</a>))</td></tr>
-<tr class="separator:aee1d27a5eac398ec2c9c8b80281041e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a768801f115261ae5ad51fdf6e54904e2" id="r_a768801f115261ae5ad51fdf6e54904e2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a768801f115261ae5ad51fdf6e54904e2">lisspace</a>(<a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>)&#160;&#160;&#160;<a class="el" href="#ac933a1d6fac0b2e206836c4b8089482d">testprop</a>(<a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>, <a class="el" href="#a7d3df71e2854f50a0da793b08732e197">MASK</a>(<a class="el" href="#a6fe589191c9eb50677a9dcdcbc47891e">SPACEBIT</a>))</td></tr>
-<tr class="separator:a768801f115261ae5ad51fdf6e54904e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68562616d451f440d5c8e4e3d345c573" id="r_a68562616d451f440d5c8e4e3d345c573"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a68562616d451f440d5c8e4e3d345c573">lisprint</a>(<a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>)&#160;&#160;&#160;<a class="el" href="#ac933a1d6fac0b2e206836c4b8089482d">testprop</a>(<a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>, <a class="el" href="#a7d3df71e2854f50a0da793b08732e197">MASK</a>(<a class="el" href="#a708b2cd4d3f7f7126e5f795097ab1592">PRINTBIT</a>))</td></tr>
-<tr class="separator:a68562616d451f440d5c8e4e3d345c573"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a72e55b66d80325fb20cbc098d3448996" id="r_a72e55b66d80325fb20cbc098d3448996"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a72e55b66d80325fb20cbc098d3448996">lisxdigit</a>(<a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>)&#160;&#160;&#160;<a class="el" href="#ac933a1d6fac0b2e206836c4b8089482d">testprop</a>(<a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>, <a class="el" href="#a7d3df71e2854f50a0da793b08732e197">MASK</a>(<a class="el" href="#a326c899e67809dd5626560011d3dd09c">XDIGITBIT</a>))</td></tr>
-<tr class="separator:a72e55b66d80325fb20cbc098d3448996"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a951ea98d03894d36dd2efed11ec9d973" id="r_a951ea98d03894d36dd2efed11ec9d973"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a951ea98d03894d36dd2efed11ec9d973">ltolower</a>(<a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>)</td></tr>
-<tr class="separator:a951ea98d03894d36dd2efed11ec9d973"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7d15b705d59378d3c5ab7a722473bf8d" id="r_ga7d15b705d59378d3c5ab7a722473bf8d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga7d15b705d59378d3c5ab7a722473bf8d">LUA_USE_CTYPE</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:ga7d15b705d59378d3c5ab7a722473bf8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga091fbd82b59441d4a091c0312c0a0e35" id="r_ga091fbd82b59441d4a091c0312c0a0e35"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga091fbd82b59441d4a091c0312c0a0e35">ALPHABIT</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:ga091fbd82b59441d4a091c0312c0a0e35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga089c6406273b00564db9bd9d43945a25" id="r_ga089c6406273b00564db9bd9d43945a25"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga089c6406273b00564db9bd9d43945a25">DIGITBIT</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:ga089c6406273b00564db9bd9d43945a25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga708b2cd4d3f7f7126e5f795097ab1592" id="r_ga708b2cd4d3f7f7126e5f795097ab1592"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga708b2cd4d3f7f7126e5f795097ab1592">PRINTBIT</a>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:ga708b2cd4d3f7f7126e5f795097ab1592"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6fe589191c9eb50677a9dcdcbc47891e" id="r_ga6fe589191c9eb50677a9dcdcbc47891e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga6fe589191c9eb50677a9dcdcbc47891e">SPACEBIT</a>&#160;&#160;&#160;3</td></tr>
+<tr class="separator:ga6fe589191c9eb50677a9dcdcbc47891e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga326c899e67809dd5626560011d3dd09c" id="r_ga326c899e67809dd5626560011d3dd09c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga326c899e67809dd5626560011d3dd09c">XDIGITBIT</a>&#160;&#160;&#160;4</td></tr>
+<tr class="separator:ga326c899e67809dd5626560011d3dd09c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7d3df71e2854f50a0da793b08732e197" id="r_ga7d3df71e2854f50a0da793b08732e197"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga7d3df71e2854f50a0da793b08732e197">MASK</a>(B)&#160;&#160;&#160;(1 &lt;&lt; (B))</td></tr>
+<tr class="separator:ga7d3df71e2854f50a0da793b08732e197"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac933a1d6fac0b2e206836c4b8089482d" id="r_gac933a1d6fac0b2e206836c4b8089482d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gac933a1d6fac0b2e206836c4b8089482d">testprop</a>(<a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>,  p)&#160;&#160;&#160;(<a class="el" href="group__LuaSrc.html#ga0fb53cca0a77a27211713000fc8f66b2">luai_ctype_</a>[(<a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>)+1] &amp; (p))</td></tr>
+<tr class="separator:gac933a1d6fac0b2e206836c4b8089482d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7132e9f6daf30b344b74f51d64eadf7d" id="r_ga7132e9f6daf30b344b74f51d64eadf7d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga7132e9f6daf30b344b74f51d64eadf7d">lislalpha</a>(<a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>)&#160;&#160;&#160;<a class="el" href="group__LuaSrc.html#gac933a1d6fac0b2e206836c4b8089482d">testprop</a>(<a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>, <a class="el" href="group__LuaSrc.html#ga7d3df71e2854f50a0da793b08732e197">MASK</a>(<a class="el" href="group__LuaSrc.html#ga091fbd82b59441d4a091c0312c0a0e35">ALPHABIT</a>))</td></tr>
+<tr class="separator:ga7132e9f6daf30b344b74f51d64eadf7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9c0dc6a934853b8ab5e7d65a3ca8abcd" id="r_ga9c0dc6a934853b8ab5e7d65a3ca8abcd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga9c0dc6a934853b8ab5e7d65a3ca8abcd">lislalnum</a>(<a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>)&#160;&#160;&#160;<a class="el" href="group__LuaSrc.html#gac933a1d6fac0b2e206836c4b8089482d">testprop</a>(<a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>, (<a class="el" href="group__LuaSrc.html#ga7d3df71e2854f50a0da793b08732e197">MASK</a>(<a class="el" href="group__LuaSrc.html#ga091fbd82b59441d4a091c0312c0a0e35">ALPHABIT</a>) | <a class="el" href="group__LuaSrc.html#ga7d3df71e2854f50a0da793b08732e197">MASK</a>(<a class="el" href="group__LuaSrc.html#ga089c6406273b00564db9bd9d43945a25">DIGITBIT</a>)))</td></tr>
+<tr class="separator:ga9c0dc6a934853b8ab5e7d65a3ca8abcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaee1d27a5eac398ec2c9c8b80281041e6" id="r_gaee1d27a5eac398ec2c9c8b80281041e6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gaee1d27a5eac398ec2c9c8b80281041e6">lisdigit</a>(<a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>)&#160;&#160;&#160;<a class="el" href="group__LuaSrc.html#gac933a1d6fac0b2e206836c4b8089482d">testprop</a>(<a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>, <a class="el" href="group__LuaSrc.html#ga7d3df71e2854f50a0da793b08732e197">MASK</a>(<a class="el" href="group__LuaSrc.html#ga089c6406273b00564db9bd9d43945a25">DIGITBIT</a>))</td></tr>
+<tr class="separator:gaee1d27a5eac398ec2c9c8b80281041e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga768801f115261ae5ad51fdf6e54904e2" id="r_ga768801f115261ae5ad51fdf6e54904e2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga768801f115261ae5ad51fdf6e54904e2">lisspace</a>(<a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>)&#160;&#160;&#160;<a class="el" href="group__LuaSrc.html#gac933a1d6fac0b2e206836c4b8089482d">testprop</a>(<a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>, <a class="el" href="group__LuaSrc.html#ga7d3df71e2854f50a0da793b08732e197">MASK</a>(<a class="el" href="group__LuaSrc.html#ga6fe589191c9eb50677a9dcdcbc47891e">SPACEBIT</a>))</td></tr>
+<tr class="separator:ga768801f115261ae5ad51fdf6e54904e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga68562616d451f440d5c8e4e3d345c573" id="r_ga68562616d451f440d5c8e4e3d345c573"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga68562616d451f440d5c8e4e3d345c573">lisprint</a>(<a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>)&#160;&#160;&#160;<a class="el" href="group__LuaSrc.html#gac933a1d6fac0b2e206836c4b8089482d">testprop</a>(<a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>, <a class="el" href="group__LuaSrc.html#ga7d3df71e2854f50a0da793b08732e197">MASK</a>(<a class="el" href="group__LuaSrc.html#ga708b2cd4d3f7f7126e5f795097ab1592">PRINTBIT</a>))</td></tr>
+<tr class="separator:ga68562616d451f440d5c8e4e3d345c573"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga72e55b66d80325fb20cbc098d3448996" id="r_ga72e55b66d80325fb20cbc098d3448996"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga72e55b66d80325fb20cbc098d3448996">lisxdigit</a>(<a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>)&#160;&#160;&#160;<a class="el" href="group__LuaSrc.html#gac933a1d6fac0b2e206836c4b8089482d">testprop</a>(<a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>, <a class="el" href="group__LuaSrc.html#ga7d3df71e2854f50a0da793b08732e197">MASK</a>(<a class="el" href="group__LuaSrc.html#ga326c899e67809dd5626560011d3dd09c">XDIGITBIT</a>))</td></tr>
+<tr class="separator:ga72e55b66d80325fb20cbc098d3448996"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga951ea98d03894d36dd2efed11ec9d973" id="r_ga951ea98d03894d36dd2efed11ec9d973"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga951ea98d03894d36dd2efed11ec9d973">ltolower</a>(<a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>)</td></tr>
+<tr class="separator:ga951ea98d03894d36dd2efed11ec9d973"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a091fbd82b59441d4a091c0312c0a0e35" name="a091fbd82b59441d4a091c0312c0a0e35"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a091fbd82b59441d4a091c0312c0a0e35">&#9670;&#160;</a></span>ALPHABIT</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define ALPHABIT&#160;&#160;&#160;0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a089c6406273b00564db9bd9d43945a25" name="a089c6406273b00564db9bd9d43945a25"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a089c6406273b00564db9bd9d43945a25">&#9670;&#160;</a></span>DIGITBIT</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DIGITBIT&#160;&#160;&#160;1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aee1d27a5eac398ec2c9c8b80281041e6" name="aee1d27a5eac398ec2c9c8b80281041e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aee1d27a5eac398ec2c9c8b80281041e6">&#9670;&#160;</a></span>lisdigit</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define lisdigit</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a></em></span></td><td>)</td>
-          <td>&#160;&#160;&#160;<a class="el" href="#ac933a1d6fac0b2e206836c4b8089482d">testprop</a>(<a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>, <a class="el" href="#a7d3df71e2854f50a0da793b08732e197">MASK</a>(<a class="el" href="#a089c6406273b00564db9bd9d43945a25">DIGITBIT</a>))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a9c0dc6a934853b8ab5e7d65a3ca8abcd" name="a9c0dc6a934853b8ab5e7d65a3ca8abcd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9c0dc6a934853b8ab5e7d65a3ca8abcd">&#9670;&#160;</a></span>lislalnum</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define lislalnum</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a></em></span></td><td>)</td>
-          <td>&#160;&#160;&#160;<a class="el" href="#ac933a1d6fac0b2e206836c4b8089482d">testprop</a>(<a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>, (<a class="el" href="#a7d3df71e2854f50a0da793b08732e197">MASK</a>(<a class="el" href="#a091fbd82b59441d4a091c0312c0a0e35">ALPHABIT</a>) | <a class="el" href="#a7d3df71e2854f50a0da793b08732e197">MASK</a>(<a class="el" href="#a089c6406273b00564db9bd9d43945a25">DIGITBIT</a>)))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7132e9f6daf30b344b74f51d64eadf7d" name="a7132e9f6daf30b344b74f51d64eadf7d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7132e9f6daf30b344b74f51d64eadf7d">&#9670;&#160;</a></span>lislalpha</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define lislalpha</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a></em></span></td><td>)</td>
-          <td>&#160;&#160;&#160;<a class="el" href="#ac933a1d6fac0b2e206836c4b8089482d">testprop</a>(<a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>, <a class="el" href="#a7d3df71e2854f50a0da793b08732e197">MASK</a>(<a class="el" href="#a091fbd82b59441d4a091c0312c0a0e35">ALPHABIT</a>))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a68562616d451f440d5c8e4e3d345c573" name="a68562616d451f440d5c8e4e3d345c573"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a68562616d451f440d5c8e4e3d345c573">&#9670;&#160;</a></span>lisprint</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define lisprint</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a></em></span></td><td>)</td>
-          <td>&#160;&#160;&#160;<a class="el" href="#ac933a1d6fac0b2e206836c4b8089482d">testprop</a>(<a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>, <a class="el" href="#a7d3df71e2854f50a0da793b08732e197">MASK</a>(<a class="el" href="#a708b2cd4d3f7f7126e5f795097ab1592">PRINTBIT</a>))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a768801f115261ae5ad51fdf6e54904e2" name="a768801f115261ae5ad51fdf6e54904e2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a768801f115261ae5ad51fdf6e54904e2">&#9670;&#160;</a></span>lisspace</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define lisspace</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a></em></span></td><td>)</td>
-          <td>&#160;&#160;&#160;<a class="el" href="#ac933a1d6fac0b2e206836c4b8089482d">testprop</a>(<a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>, <a class="el" href="#a7d3df71e2854f50a0da793b08732e197">MASK</a>(<a class="el" href="#a6fe589191c9eb50677a9dcdcbc47891e">SPACEBIT</a>))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a72e55b66d80325fb20cbc098d3448996" name="a72e55b66d80325fb20cbc098d3448996"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a72e55b66d80325fb20cbc098d3448996">&#9670;&#160;</a></span>lisxdigit</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define lisxdigit</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a></em></span></td><td>)</td>
-          <td>&#160;&#160;&#160;<a class="el" href="#ac933a1d6fac0b2e206836c4b8089482d">testprop</a>(<a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>, <a class="el" href="#a7d3df71e2854f50a0da793b08732e197">MASK</a>(<a class="el" href="#a326c899e67809dd5626560011d3dd09c">XDIGITBIT</a>))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a951ea98d03894d36dd2efed11ec9d973" name="a951ea98d03894d36dd2efed11ec9d973"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a951ea98d03894d36dd2efed11ec9d973">&#9670;&#160;</a></span>ltolower</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define ltolower</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">  <a class="code hl_define" href="llimits_8h.html#afac1404af62451f8653440ecb6e773fc">check_exp</a>((<span class="charliteral">&#39;A&#39;</span> &lt;= (<a class="code hl_variable" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>) &amp;&amp; (<a class="code hl_variable" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>) &lt;= <span class="charliteral">&#39;Z&#39;</span>) || (<a class="code hl_variable" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>) == ((<a class="code hl_variable" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>) | (<span class="charliteral">&#39;A&#39;</span> ^ <span class="charliteral">&#39;a&#39;</span>)),  \</div>
-<div class="line">            (<a class="code hl_variable" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>) | (<span class="charliteral">&#39;A&#39;</span> ^ <span class="charliteral">&#39;a&#39;</span>))</div>
-<div class="ttc" id="acanvas_8c_html_a7c28d306c2fb202cb829051a2ba2c810"><div class="ttname"><a href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a></div><div class="ttdeci">static char c[20 *4]</div><div class="ttdef"><b>Definition</b> canvas.c:103</div></div>
-<div class="ttc" id="allimits_8h_html_afac1404af62451f8653440ecb6e773fc"><div class="ttname"><a href="llimits_8h.html#afac1404af62451f8653440ecb6e773fc">check_exp</a></div><div class="ttdeci">#define check_exp(c, e)</div><div class="ttdef"><b>Definition</b> llimits.h:115</div></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a7d15b705d59378d3c5ab7a722473bf8d" name="a7d15b705d59378d3c5ab7a722473bf8d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d15b705d59378d3c5ab7a722473bf8d">&#9670;&#160;</a></span>LUA_USE_CTYPE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LUA_USE_CTYPE&#160;&#160;&#160;0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7d3df71e2854f50a0da793b08732e197" name="a7d3df71e2854f50a0da793b08732e197"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d3df71e2854f50a0da793b08732e197">&#9670;&#160;</a></span>MASK</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MASK</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>B</em></span></td><td>)</td>
-          <td>&#160;&#160;&#160;(1 &lt;&lt; (B))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a708b2cd4d3f7f7126e5f795097ab1592" name="a708b2cd4d3f7f7126e5f795097ab1592"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a708b2cd4d3f7f7126e5f795097ab1592">&#9670;&#160;</a></span>PRINTBIT</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define PRINTBIT&#160;&#160;&#160;2</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a6fe589191c9eb50677a9dcdcbc47891e" name="a6fe589191c9eb50677a9dcdcbc47891e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6fe589191c9eb50677a9dcdcbc47891e">&#9670;&#160;</a></span>SPACEBIT</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SPACEBIT&#160;&#160;&#160;3</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac933a1d6fac0b2e206836c4b8089482d" name="ac933a1d6fac0b2e206836c4b8089482d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac933a1d6fac0b2e206836c4b8089482d">&#9670;&#160;</a></span>testprop</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define testprop</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a></em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>p</em></span>&#160;)&#160;&#160;&#160;(<a class="el" href="lctype_8c.html#a0fb53cca0a77a27211713000fc8f66b2">luai_ctype_</a>[(<a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>)+1] &amp; (p))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a326c899e67809dd5626560011d3dd09c" name="a326c899e67809dd5626560011d3dd09c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a326c899e67809dd5626560011d3dd09c">&#9670;&#160;</a></span>XDIGITBIT</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define XDIGITBIT&#160;&#160;&#160;4</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

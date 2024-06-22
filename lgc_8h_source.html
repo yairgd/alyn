@@ -91,244 +91,245 @@ $(function(){ initResizable(false); });
   <div class="headertitle"><div class="title">lgc.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="lgc_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">** $Id: lgc.h $</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">** Garbage Collector</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">** See Copyright Notice in lua.h</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">*/</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#ifndef lgc_h</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#define lgc_h</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="lobject_8h.html">lobject.h</a>&quot;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="lstate_8h.html">lstate.h</a>&quot;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">** Collectable objects may have one of three colors: white, which means</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">** the object is not marked; gray, which means the object is marked, but</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">** its references may be not marked; and black, which means that the</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">** object and all its references are marked.  The main invariant of the</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">** garbage collector, while marking objects, is that a black object can</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">** never point to a white one. Moreover, any gray object must be in a</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">** &quot;gray list&quot; (gray, grayagain, weak, allweak, ephemeron) so that it</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">** can be visited again before finishing the collection cycle. (Open</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">** upvalues are an exception to this rule.)  These lists have no meaning</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">** when the invariant is not being enforced (e.g., sweep phase).</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">*/</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">** Possible states of the Garbage Collector</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">*/</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="lgc_8h.html#a2ed301793747f3a2d0a7fc7d64d482fd">   31</a></span><span class="preprocessor">#define GCSpropagate    0</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="lgc_8h.html#a7d4a80ad5991cca9822822f63deef987">   32</a></span><span class="preprocessor">#define GCSenteratomic  1</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="lgc_8h.html#a7c7806ab609fa3c19ed9c2b688e10730">   33</a></span><span class="preprocessor">#define GCSatomic   2</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="lgc_8h.html#aac9b5b472434aa8d38a89b46b6b29196">   34</a></span><span class="preprocessor">#define GCSswpallgc 3</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="lgc_8h.html#a9d28766c63918e69c9ea3853a3e6c4c0">   35</a></span><span class="preprocessor">#define GCSswpfinobj    4</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="lgc_8h.html#a152f379e712cbc7f0bfa2c6a3e15166d">   36</a></span><span class="preprocessor">#define GCSswptobefnz   5</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="lgc_8h.html#a4e40597ebd731cafa743cd9a8e0db709">   37</a></span><span class="preprocessor">#define GCSswpend   6</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="lgc_8h.html#a84094ff0ba3d8c7d4f84984e74f7705a">   38</a></span><span class="preprocessor">#define GCScallfin  7</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="lgc_8h.html#ab546d91106ec5cfdba254de13e5b5c5f">   39</a></span><span class="preprocessor">#define GCSpause    8</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="foldopen" id="foldopen00042" data-start="" data-end="">
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="lgc_8h.html#a860db734bc919435aba75c30e4fe261b">   42</a></span><span class="preprocessor">#define issweepphase(g)  \</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">    (GCSswpallgc &lt;= (g)-&gt;gcstate &amp;&amp; (g)-&gt;gcstate &lt;= GCSswpend)</span></div>
+<a href="lgc_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">** $Id: lgc.h $</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">** Garbage Collector</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">** See Copyright Notice in lua.h</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">*/</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#ifndef lgc_h</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#define lgc_h</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="lobject_8h.html">lobject.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="lstate_8h.html">lstate.h</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">** Collectable objects may have one of three colors: white, which means</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">** the object is not marked; gray, which means the object is marked, but</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">** its references may be not marked; and black, which means that the</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">** object and all its references are marked.  The main invariant of the</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">** garbage collector, while marking objects, is that a black object can</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">** never point to a white one. Moreover, any gray object must be in a</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">** &quot;gray list&quot; (gray, grayagain, weak, allweak, ephemeron) so that it</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">** can be visited again before finishing the collection cycle. (Open</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">** upvalues are an exception to this rule.)  These lists have no meaning</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">** when the invariant is not being enforced (e.g., sweep phase).</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">*/</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">** Possible states of the Garbage Collector</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">*/</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga2ed301793747f3a2d0a7fc7d64d482fd">   33</a></span><span class="preprocessor">#define GCSpropagate    0</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga7d4a80ad5991cca9822822f63deef987">   34</a></span><span class="preprocessor">#define GCSenteratomic  1</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga7c7806ab609fa3c19ed9c2b688e10730">   35</a></span><span class="preprocessor">#define GCSatomic   2</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#gaac9b5b472434aa8d38a89b46b6b29196">   36</a></span><span class="preprocessor">#define GCSswpallgc 3</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga9d28766c63918e69c9ea3853a3e6c4c0">   37</a></span><span class="preprocessor">#define GCSswpfinobj    4</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga152f379e712cbc7f0bfa2c6a3e15166d">   38</a></span><span class="preprocessor">#define GCSswptobefnz   5</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga4e40597ebd731cafa743cd9a8e0db709">   39</a></span><span class="preprocessor">#define GCSswpend   6</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga84094ff0ba3d8c7d4f84984e74f7705a">   40</a></span><span class="preprocessor">#define GCScallfin  7</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#gab546d91106ec5cfdba254de13e5b5c5f">   41</a></span><span class="preprocessor">#define GCSpause    8</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="foldopen" id="foldopen00044" data-start="" data-end="">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga860db734bc919435aba75c30e4fe261b">   44</a></span><span class="preprocessor">#define issweepphase(g)  \</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">    (GCSswpallgc &lt;= (g)-&gt;gcstate &amp;&amp; (g)-&gt;gcstate &lt;= GCSswpend)</span></div>
 </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">** macro to tell when main invariant (white objects cannot point to black</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">** ones) must be kept. During a collection, the sweep</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">** phase may break the invariant, as objects turned white may point to</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">** still-black objects. The invariant is restored when sweep ends and</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">** all objects are white again.</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">*/</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="lgc_8h.html#a40b40242e96f45f8d04dcf4feb1475ae">   54</a></span><span class="preprocessor">#define keepinvariant(g)    ((g)-&gt;gcstate &lt;= GCSatomic)</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">** macro to tell when main invariant (white objects cannot point to black</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">** ones) must be kept. During a collection, the sweep</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">** phase may break the invariant, as objects turned white may point to</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">** still-black objects. The invariant is restored when sweep ends and</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">** all objects are white again.</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">*/</span></div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment">** some useful bit tricks</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment">*/</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="lgc_8h.html#a486033531260010debe876a076dd2a41">   60</a></span><span class="preprocessor">#define resetbits(x,m)      ((x) &amp;= cast_byte(~(m)))</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="lgc_8h.html#ada181faae5c9af4ed7392057c5dcbbae">   61</a></span><span class="preprocessor">#define setbits(x,m)        ((x) |= (m))</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="lgc_8h.html#a7612bc83b764b507e12e08417a053854">   62</a></span><span class="preprocessor">#define testbits(x,m)       ((x) &amp; (m))</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="lgc_8h.html#af25866c39979dd1f72110cbd3a1a427d">   63</a></span><span class="preprocessor">#define bitmask(b)      (1&lt;&lt;(b))</span></div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="lgc_8h.html#a39293d5e5fbd7bb9a24556b3e2f15d43">   64</a></span><span class="preprocessor">#define bit2mask(b1,b2)     (bitmask(b1) | bitmask(b2))</span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="lgc_8h.html#aad559b25ee580ea2894c540dc817e41f">   65</a></span><span class="preprocessor">#define l_setbit(x,b)       setbits(x, bitmask(b))</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="lgc_8h.html#aca0beb244185329a1b8f0e695ef47748">   66</a></span><span class="preprocessor">#define resetbit(x,b)       resetbits(x, bitmask(b))</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="lgc_8h.html#a25c19ff3161e2a2395ba69fdef49915f">   67</a></span><span class="preprocessor">#define testbit(x,b)        testbits(x, bitmask(b))</span></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment">** Layout for bit use in &#39;marked&#39; field. First three bits are</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment">** used for object &quot;age&quot; in generational mode. Last bit is used</span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment">** by tests.</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment">*/</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="lgc_8h.html#a4b3ebb4bccaf9a33e772a2f4515519e6">   75</a></span><span class="preprocessor">#define WHITE0BIT   3  </span><span class="comment">/* object is white (type 0) */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="lgc_8h.html#a7de7885f3d09155a2c530154ec045d72">   76</a></span><span class="preprocessor">#define WHITE1BIT   4  </span><span class="comment">/* object is white (type 1) */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="lgc_8h.html#acd17af3c46cb360dc67cad2b33b6a26f">   77</a></span><span class="preprocessor">#define BLACKBIT    5  </span><span class="comment">/* object is black */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="lgc_8h.html#a92211ad01420ac616819ba8f61ca7365">   78</a></span><span class="preprocessor">#define FINALIZEDBIT    6  </span><span class="comment">/* object has been marked for finalization */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="lgc_8h.html#ab85d4eae1efa2e1a40d2f41bdbbda226">   80</a></span><span class="preprocessor">#define TESTBIT     7</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga40b40242e96f45f8d04dcf4feb1475ae">   56</a></span><span class="preprocessor">#define keepinvariant(g)    ((g)-&gt;gcstate &lt;= GCSatomic)</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment">** some useful bit tricks</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">*/</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga486033531260010debe876a076dd2a41">   62</a></span><span class="preprocessor">#define resetbits(x,m)      ((x) &amp;= cast_byte(~(m)))</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#gada181faae5c9af4ed7392057c5dcbbae">   63</a></span><span class="preprocessor">#define setbits(x,m)        ((x) |= (m))</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga7612bc83b764b507e12e08417a053854">   64</a></span><span class="preprocessor">#define testbits(x,m)       ((x) &amp; (m))</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#gaf25866c39979dd1f72110cbd3a1a427d">   65</a></span><span class="preprocessor">#define bitmask(b)      (1&lt;&lt;(b))</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga39293d5e5fbd7bb9a24556b3e2f15d43">   66</a></span><span class="preprocessor">#define bit2mask(b1,b2)     (bitmask(b1) | bitmask(b2))</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#gaad559b25ee580ea2894c540dc817e41f">   67</a></span><span class="preprocessor">#define l_setbit(x,b)       setbits(x, bitmask(b))</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#gaca0beb244185329a1b8f0e695ef47748">   68</a></span><span class="preprocessor">#define resetbit(x,b)       resetbits(x, bitmask(b))</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga25c19ff3161e2a2395ba69fdef49915f">   69</a></span><span class="preprocessor">#define testbit(x,b)        testbits(x, bitmask(b))</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment">** Layout for bit use in &#39;marked&#39; field. First three bits are</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment">** used for object &quot;age&quot; in generational mode. Last bit is used</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment">** by tests.</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">*/</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga4b3ebb4bccaf9a33e772a2f4515519e6">   77</a></span><span class="preprocessor">#define WHITE0BIT   3  </span><span class="comment">/* object is white (type 0) */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga7de7885f3d09155a2c530154ec045d72">   78</a></span><span class="preprocessor">#define WHITE1BIT   4  </span><span class="comment">/* object is white (type 1) */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#gacd17af3c46cb360dc67cad2b33b6a26f">   79</a></span><span class="preprocessor">#define BLACKBIT    5  </span><span class="comment">/* object is black */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga92211ad01420ac616819ba8f61ca7365">   80</a></span><span class="preprocessor">#define FINALIZEDBIT    6  </span><span class="comment">/* object has been marked for finalization */</span><span class="preprocessor"></span></div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#gab85d4eae1efa2e1a40d2f41bdbbda226">   82</a></span><span class="preprocessor">#define TESTBIT     7</span></div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="lgc_8h.html#a0acb34c1b3d1234f11ee9fdc34df3f71">   84</a></span><span class="preprocessor">#define WHITEBITS   bit2mask(WHITE0BIT, WHITE1BIT)</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="lgc_8h.html#a4c0ce78d476460d2e54914301f4a4bf7">   87</a></span><span class="preprocessor">#define iswhite(x)      testbits((x)-&gt;marked, WHITEBITS)</span></div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="lgc_8h.html#ac1e4847ad9a91e4cea36520dc9078365">   88</a></span><span class="preprocessor">#define isblack(x)      testbit((x)-&gt;marked, BLACKBIT)</span></div>
-<div class="foldopen" id="foldopen00089" data-start="" data-end="">
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="lgc_8h.html#ad417e22072630b33cf74a3055b27d8d7">   89</a></span><span class="preprocessor">#define isgray(x)  </span><span class="comment">/* neither white nor black */</span><span class="preprocessor">  \</span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="preprocessor">    (!testbits((x)-&gt;marked, WHITEBITS | bitmask(BLACKBIT)))</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga0acb34c1b3d1234f11ee9fdc34df3f71">   86</a></span><span class="preprocessor">#define WHITEBITS   bit2mask(WHITE0BIT, WHITE1BIT)</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga4c0ce78d476460d2e54914301f4a4bf7">   89</a></span><span class="preprocessor">#define iswhite(x)      testbits((x)-&gt;marked, WHITEBITS)</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#gac1e4847ad9a91e4cea36520dc9078365">   90</a></span><span class="preprocessor">#define isblack(x)      testbit((x)-&gt;marked, BLACKBIT)</span></div>
+<div class="foldopen" id="foldopen00091" data-start="" data-end="">
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#gad417e22072630b33cf74a3055b27d8d7">   91</a></span><span class="preprocessor">#define isgray(x)  </span><span class="comment">/* neither white nor black */</span><span class="preprocessor">  \</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="preprocessor">    (!testbits((x)-&gt;marked, WHITEBITS | bitmask(BLACKBIT)))</span></div>
 </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="lgc_8h.html#a6d17f226d57a796f7741f457400cf8bd">   92</a></span><span class="preprocessor">#define tofinalize(x)   testbit((x)-&gt;marked, FINALIZEDBIT)</span></div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="lgc_8h.html#a486df16493498577d4081a8c231154f0">   94</a></span><span class="preprocessor">#define otherwhite(g)   ((g)-&gt;currentwhite ^ WHITEBITS)</span></div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="lgc_8h.html#a0540e865b6cd21e83104cf427c968c86">   95</a></span><span class="preprocessor">#define isdeadm(ow,m)   ((m) &amp; (ow))</span></div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="lgc_8h.html#acc409eb45f598d23d8388fc9e96189ea">   96</a></span><span class="preprocessor">#define isdead(g,v) isdeadm(otherwhite(g), (v)-&gt;marked)</span></div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="lgc_8h.html#a28e94f77147fd242f514b98a1b251486">   98</a></span><span class="preprocessor">#define changewhite(x)  ((x)-&gt;marked ^= WHITEBITS)</span></div>
-<div class="foldopen" id="foldopen00099" data-start="" data-end="">
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="lgc_8h.html#a990de0d171d8b5425a5515d0bff78789">   99</a></span><span class="preprocessor">#define nw2black(x)  \</span></div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="preprocessor">    check_exp(!iswhite(x), l_setbit((x)-&gt;marked, BLACKBIT))</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga6d17f226d57a796f7741f457400cf8bd">   94</a></span><span class="preprocessor">#define tofinalize(x)   testbit((x)-&gt;marked, FINALIZEDBIT)</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga486df16493498577d4081a8c231154f0">   96</a></span><span class="preprocessor">#define otherwhite(g)   ((g)-&gt;currentwhite ^ WHITEBITS)</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga0540e865b6cd21e83104cf427c968c86">   97</a></span><span class="preprocessor">#define isdeadm(ow,m)   ((m) &amp; (ow))</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#gacc409eb45f598d23d8388fc9e96189ea">   98</a></span><span class="preprocessor">#define isdead(g,v) isdeadm(otherwhite(g), (v)-&gt;marked)</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga28e94f77147fd242f514b98a1b251486">  100</a></span><span class="preprocessor">#define changewhite(x)  ((x)-&gt;marked ^= WHITEBITS)</span></div>
+<div class="foldopen" id="foldopen00101" data-start="" data-end="">
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga990de0d171d8b5425a5515d0bff78789">  101</a></span><span class="preprocessor">#define nw2black(x)  \</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="preprocessor">    check_exp(!iswhite(x), l_setbit((x)-&gt;marked, BLACKBIT))</span></div>
 </div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="lgc_8h.html#afaa8a52c4097cf3a5eacd88db94092da">  102</a></span><span class="preprocessor">#define luaC_white(g)   cast_byte((g)-&gt;currentwhite &amp; WHITEBITS)</span></div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment">/* object age in generational mode */</span></div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="lgc_8h.html#a611544eedb63012098eab46a011fe618">  106</a></span><span class="preprocessor">#define G_NEW       0   </span><span class="comment">/* created in current cycle */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="lgc_8h.html#aa8c9510ab591432a3b80e90519156116">  107</a></span><span class="preprocessor">#define G_SURVIVAL  1   </span><span class="comment">/* created in previous cycle */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="lgc_8h.html#a19ac124332eabcbdcb744e14923700b9">  108</a></span><span class="preprocessor">#define G_OLD0      2   </span><span class="comment">/* marked old by frw. barrier in this cycle */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="lgc_8h.html#a266a8ec4a8dbacf8d7b99dca3adcac90">  109</a></span><span class="preprocessor">#define G_OLD1      3   </span><span class="comment">/* first full cycle as old */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="lgc_8h.html#a96372e9b92aa939f300e0477ba112716">  110</a></span><span class="preprocessor">#define G_OLD       4   </span><span class="comment">/* really old object (not to be visited) */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="lgc_8h.html#ae2c1796f4fb3359730723ce0acd2d162">  111</a></span><span class="preprocessor">#define G_TOUCHED1  5   </span><span class="comment">/* old object touched this cycle */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="lgc_8h.html#ac2b8a2255c79c9f43f88d1625767e1bf">  112</a></span><span class="preprocessor">#define G_TOUCHED2  6   </span><span class="comment">/* old object touched in previous cycle */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="lgc_8h.html#a3b446e7d0b31628385b7a1f444192e9a">  114</a></span><span class="preprocessor">#define AGEBITS     7  </span><span class="comment">/* all age bits (111) */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#gafaa8a52c4097cf3a5eacd88db94092da">  104</a></span><span class="preprocessor">#define luaC_white(g)   cast_byte((g)-&gt;currentwhite &amp; WHITEBITS)</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment">/* object age in generational mode */</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga611544eedb63012098eab46a011fe618">  108</a></span><span class="preprocessor">#define G_NEW       0   </span><span class="comment">/* created in current cycle */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#gaa8c9510ab591432a3b80e90519156116">  109</a></span><span class="preprocessor">#define G_SURVIVAL  1   </span><span class="comment">/* created in previous cycle */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga19ac124332eabcbdcb744e14923700b9">  110</a></span><span class="preprocessor">#define G_OLD0      2   </span><span class="comment">/* marked old by frw. barrier in this cycle */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga266a8ec4a8dbacf8d7b99dca3adcac90">  111</a></span><span class="preprocessor">#define G_OLD1      3   </span><span class="comment">/* first full cycle as old */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga96372e9b92aa939f300e0477ba112716">  112</a></span><span class="preprocessor">#define G_OLD       4   </span><span class="comment">/* really old object (not to be visited) */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#gae2c1796f4fb3359730723ce0acd2d162">  113</a></span><span class="preprocessor">#define G_TOUCHED1  5   </span><span class="comment">/* old object touched this cycle */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#gac2b8a2255c79c9f43f88d1625767e1bf">  114</a></span><span class="preprocessor">#define G_TOUCHED2  6   </span><span class="comment">/* old object touched in previous cycle */</span><span class="preprocessor"></span></div>
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="lgc_8h.html#ae68465c1574c4b45a05a6548ad934235">  116</a></span><span class="preprocessor">#define getage(o)   ((o)-&gt;marked &amp; AGEBITS)</span></div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="lgc_8h.html#a42f07cc5f8f0a9d97989f7769f00c3f2">  117</a></span><span class="preprocessor">#define setage(o,a)  ((o)-&gt;marked = cast_byte(((o)-&gt;marked &amp; (~AGEBITS)) | a))</span></div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="lgc_8h.html#a24d47e523ecf2d6e475a34913ce06b05">  118</a></span><span class="preprocessor">#define isold(o)    (getage(o) &gt; G_SURVIVAL)</span></div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
-<div class="foldopen" id="foldopen00120" data-start="" data-end="">
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="lgc_8h.html#a61d44df5c26bb4efcf4e19b500933bbb">  120</a></span><span class="preprocessor">#define changeage(o,f,t)  \</span></div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="preprocessor">    check_exp(getage(o) == (f), (o)-&gt;marked ^= ((f)^(t)))</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga3b446e7d0b31628385b7a1f444192e9a">  116</a></span><span class="preprocessor">#define AGEBITS     7  </span><span class="comment">/* all age bits (111) */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#gae68465c1574c4b45a05a6548ad934235">  118</a></span><span class="preprocessor">#define getage(o)   ((o)-&gt;marked &amp; AGEBITS)</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga42f07cc5f8f0a9d97989f7769f00c3f2">  119</a></span><span class="preprocessor">#define setage(o,a)  ((o)-&gt;marked = cast_byte(((o)-&gt;marked &amp; (~AGEBITS)) | a))</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga24d47e523ecf2d6e475a34913ce06b05">  120</a></span><span class="preprocessor">#define isold(o)    (getage(o) &gt; G_SURVIVAL)</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="foldopen" id="foldopen00122" data-start="" data-end="">
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga61d44df5c26bb4efcf4e19b500933bbb">  122</a></span><span class="preprocessor">#define changeage(o,f,t)  \</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="preprocessor">    check_exp(getage(o) == (f), (o)-&gt;marked ^= ((f)^(t)))</span></div>
 </div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="comment">/* Default Values for GC parameters */</span></div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno"><a class="line" href="lgc_8h.html#a6adb6d8358e1ed9e94c88f810c8dd44e">  125</a></span><span class="preprocessor">#define LUAI_GENMAJORMUL         100</span></div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="lgc_8h.html#a1660119f32a7ea875ce967d1ef8deadc">  126</a></span><span class="preprocessor">#define LUAI_GENMINORMUL         20</span></div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="comment">/* wait memory to double before starting new cycle */</span></div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno"><a class="line" href="lgc_8h.html#a961a6871328af0c7bb50169633e15fd9">  129</a></span><span class="preprocessor">#define LUAI_GCPAUSE    200</span></div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="comment">** some gc parameters are stored divided by 4 to allow a maximum value</span></div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="comment">** up to 1023 in a &#39;lu_byte&#39;.</span></div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="comment">*/</span></div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="lgc_8h.html#a1991625e57703760cf5236bc02cd8858">  135</a></span><span class="preprocessor">#define getgcparam(p)   ((p) * 4)</span></div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno"><a class="line" href="lgc_8h.html#a757077227d006e517adfaa82c2d30e72">  136</a></span><span class="preprocessor">#define setgcparam(p,v) ((p) = (v) / 4)</span></div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno"><a class="line" href="lgc_8h.html#adccc1cf9bf213c770940796d73635444">  138</a></span><span class="preprocessor">#define LUAI_GCMUL      100</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="comment">/* Default Values for GC parameters */</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga6adb6d8358e1ed9e94c88f810c8dd44e">  127</a></span><span class="preprocessor">#define LUAI_GENMAJORMUL         100</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga1660119f32a7ea875ce967d1ef8deadc">  128</a></span><span class="preprocessor">#define LUAI_GENMINORMUL         20</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="comment">/* wait memory to double before starting new cycle */</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga961a6871328af0c7bb50169633e15fd9">  131</a></span><span class="preprocessor">#define LUAI_GCPAUSE    200</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="comment">** some gc parameters are stored divided by 4 to allow a maximum value</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="comment">** up to 1023 in a &#39;lu_byte&#39;.</span></div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="comment">*/</span></div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga1991625e57703760cf5236bc02cd8858">  137</a></span><span class="preprocessor">#define getgcparam(p)   ((p) * 4)</span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga757077227d006e517adfaa82c2d30e72">  138</a></span><span class="preprocessor">#define setgcparam(p,v) ((p) = (v) / 4)</span></div>
 <div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><span class="comment">/* how much to allocate before next GC step (log2) */</span></div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno"><a class="line" href="lgc_8h.html#a5289131664af0f4b111556cb5b4bfe9c">  141</a></span><span class="preprocessor">#define LUAI_GCSTEPSIZE 13      </span><span class="comment">/* 8 KB */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="comment">** Check whether the declared GC mode is generational. While in</span></div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="comment">** generational mode, the collector can go temporarily to incremental</span></div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="comment">** mode to improve performance. This is signaled by &#39;g-&gt;lastatomic != 0&#39;.</span></div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="comment">*/</span></div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno"><a class="line" href="lgc_8h.html#a634f3aa786242e81eb2d29da7cdacf4a">  149</a></span><span class="preprocessor">#define isdecGCmodegen(g)   (g-&gt;gckind == KGC_GEN || g-&gt;lastatomic != 0)</span></div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="comment">** Control when GC is running:</span></div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="comment">*/</span></div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno"><a class="line" href="lgc_8h.html#aa9890d156587456839976f603182f149">  155</a></span><span class="preprocessor">#define GCSTPUSR    1  </span><span class="comment">/* bit true when GC stopped by user */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno"><a class="line" href="lgc_8h.html#ab06b1865fce256860b3d3725ba8a5bac">  156</a></span><span class="preprocessor">#define GCSTPGC     2  </span><span class="comment">/* bit true when GC stopped by itself */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno"><a class="line" href="lgc_8h.html#a653c5ba27eb73b11e98b24be5ad6a482">  157</a></span><span class="preprocessor">#define GCSTPCLS    4  </span><span class="comment">/* bit true when closing Lua state */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno"><a class="line" href="lgc_8h.html#aacd605dd207b4569b464c38b2a5532d8">  158</a></span><span class="preprocessor">#define gcrunning(g)    ((g)-&gt;gcstp == 0)</span></div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="comment">** Does one step of collection when debt becomes positive. &#39;pre&#39;/&#39;pos&#39;</span></div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="comment">** allows some adjustments to be done only when needed. macro</span></div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span><span class="comment">** &#39;condchangemem&#39; is used only for heavy tests (forcing a full</span></div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span><span class="comment">** GC cycle on every opportunity)</span></div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="comment">*/</span></div>
-<div class="foldopen" id="foldopen00167" data-start="" data-end="">
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno"><a class="line" href="lgc_8h.html#a52f302b0dac5467152f322c8fe1c1a3e">  167</a></span><span class="preprocessor">#define luaC_condGC(L,pre,pos) \</span></div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="preprocessor">    { if (G(L)-&gt;GCdebt &gt; 0) { pre; luaC_step(L); pos;}; \</span></div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="preprocessor">      condchangemem(L,pre,pos); }</span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#gadccc1cf9bf213c770940796d73635444">  140</a></span><span class="preprocessor">#define LUAI_GCMUL      100</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="comment">/* how much to allocate before next GC step (log2) */</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga5289131664af0f4b111556cb5b4bfe9c">  143</a></span><span class="preprocessor">#define LUAI_GCSTEPSIZE 13      </span><span class="comment">/* 8 KB */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="comment">** Check whether the declared GC mode is generational. While in</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="comment">** generational mode, the collector can go temporarily to incremental</span></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="comment">** mode to improve performance. This is signaled by &#39;g-&gt;lastatomic != 0&#39;.</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="comment">*/</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga634f3aa786242e81eb2d29da7cdacf4a">  151</a></span><span class="preprocessor">#define isdecGCmodegen(g)   (g-&gt;gckind == KGC_GEN || g-&gt;lastatomic != 0)</span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="comment">** Control when GC is running:</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="comment">*/</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#gaa9890d156587456839976f603182f149">  157</a></span><span class="preprocessor">#define GCSTPUSR    1  </span><span class="comment">/* bit true when GC stopped by user */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#gab06b1865fce256860b3d3725ba8a5bac">  158</a></span><span class="preprocessor">#define GCSTPGC     2  </span><span class="comment">/* bit true when GC stopped by itself */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga653c5ba27eb73b11e98b24be5ad6a482">  159</a></span><span class="preprocessor">#define GCSTPCLS    4  </span><span class="comment">/* bit true when closing Lua state */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#gaacd605dd207b4569b464c38b2a5532d8">  160</a></span><span class="preprocessor">#define gcrunning(g)    ((g)-&gt;gcstp == 0)</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span><span class="comment">** Does one step of collection when debt becomes positive. &#39;pre&#39;/&#39;pos&#39;</span></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span><span class="comment">** allows some adjustments to be done only when needed. macro</span></div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="comment">** &#39;condchangemem&#39; is used only for heavy tests (forcing a full</span></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="comment">** GC cycle on every opportunity)</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="comment">*/</span></div>
+<div class="foldopen" id="foldopen00169" data-start="" data-end="">
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga52f302b0dac5467152f322c8fe1c1a3e">  169</a></span><span class="preprocessor">#define luaC_condGC(L,pre,pos) \</span></div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="preprocessor">    { if (G(L)-&gt;GCdebt &gt; 0) { pre; luaC_step(L); pos;}; \</span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="preprocessor">      condchangemem(L,pre,pos); }</span></div>
 </div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="comment">/* more often than not, &#39;pre&#39;/&#39;pos&#39; are empty */</span></div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno"><a class="line" href="lgc_8h.html#ad013db5004ccc5fbe8a6450caa1f1ad9">  172</a></span><span class="preprocessor">#define luaC_checkGC(L)     luaC_condGC(L,(void)0,(void)0)</span></div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
-<div class="foldopen" id="foldopen00175" data-start="" data-end="">
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno"><a class="line" href="lgc_8h.html#a90ac4f3c7085a418025edcc7215e8983">  175</a></span><span class="preprocessor">#define luaC_objbarrier(L,p,o) (  \</span></div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="preprocessor">    (isblack(p) &amp;&amp; iswhite(o)) ? \</span></div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span><span class="preprocessor">    luaC_barrier_(L,obj2gco(p),obj2gco(o)) : cast_void(0))</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="comment">/* more often than not, &#39;pre&#39;/&#39;pos&#39; are empty */</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#gad013db5004ccc5fbe8a6450caa1f1ad9">  174</a></span><span class="preprocessor">#define luaC_checkGC(L)     luaC_condGC(L,(void)0,(void)0)</span></div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="foldopen" id="foldopen00177" data-start="" data-end="">
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga90ac4f3c7085a418025edcc7215e8983">  177</a></span><span class="preprocessor">#define luaC_objbarrier(L,p,o) (  \</span></div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span><span class="preprocessor">    (isblack(p) &amp;&amp; iswhite(o)) ? \</span></div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="preprocessor">    luaC_barrier_(L,obj2gco(p),obj2gco(o)) : cast_void(0))</span></div>
 </div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
-<div class="foldopen" id="foldopen00179" data-start="" data-end="">
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno"><a class="line" href="lgc_8h.html#a21660a316c42bc1aad10f115e2261bca">  179</a></span><span class="preprocessor">#define luaC_barrier(L,p,v) (  \</span></div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="preprocessor">    iscollectable(v) ? luaC_objbarrier(L,p,gcvalue(v)) : cast_void(0))</span></div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
+<div class="foldopen" id="foldopen00181" data-start="" data-end="">
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga21660a316c42bc1aad10f115e2261bca">  181</a></span><span class="preprocessor">#define luaC_barrier(L,p,v) (  \</span></div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="preprocessor">    iscollectable(v) ? luaC_objbarrier(L,p,gcvalue(v)) : cast_void(0))</span></div>
 </div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
-<div class="foldopen" id="foldopen00182" data-start="" data-end="">
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno"><a class="line" href="lgc_8h.html#aabe37ed7d61a6f603f8a3b259c34c846">  182</a></span><span class="preprocessor">#define luaC_objbarrierback(L,p,o) (  \</span></div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="preprocessor">    (isblack(p) &amp;&amp; iswhite(o)) ? luaC_barrierback_(L,p) : cast_void(0))</span></div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
+<div class="foldopen" id="foldopen00184" data-start="" data-end="">
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#gaabe37ed7d61a6f603f8a3b259c34c846">  184</a></span><span class="preprocessor">#define luaC_objbarrierback(L,p,o) (  \</span></div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span><span class="preprocessor">    (isblack(p) &amp;&amp; iswhite(o)) ? luaC_barrierback_(L,p) : cast_void(0))</span></div>
 </div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
-<div class="foldopen" id="foldopen00185" data-start="" data-end="">
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno"><a class="line" href="lgc_8h.html#a60903f232a1c51d22de556ea4c144f3a">  185</a></span><span class="preprocessor">#define luaC_barrierback(L,p,v) (  \</span></div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span><span class="preprocessor">    iscollectable(v) ? luaC_objbarrierback(L, p, gcvalue(v)) : cast_void(0))</span></div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
+<div class="foldopen" id="foldopen00187" data-start="" data-end="">
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno"><a class="line" href="group__LuaSrc.html#ga60903f232a1c51d22de556ea4c144f3a">  187</a></span><span class="preprocessor">#define luaC_barrierback(L,p,v) (  \</span></div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span><span class="preprocessor">    iscollectable(v) ? luaC_objbarrierback(L, p, gcvalue(v)) : cast_void(0))</span></div>
 </div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span><a class="code hl_define" href="luaconf_8h.html#a3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> <span class="keywordtype">void</span> <a class="code hl_function" href="lgc_8h.html#a242d4a66c025c294ec2c1ec4fe75e804">luaC_fix</a> (<a class="code hl_struct" href="structlua__State.html">lua_State</a> *<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="code hl_struct" href="structGCObject.html">GCObject</a> *o);</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><a class="code hl_define" href="luaconf_8h.html#a3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> <span class="keywordtype">void</span> <a class="code hl_function" href="lgc_8h.html#a9aa52a500c9cc2076edb1707e6d8a045">luaC_freeallobjects</a> (<a class="code hl_struct" href="structlua__State.html">lua_State</a> *<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>);</div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><a class="code hl_define" href="luaconf_8h.html#a3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> <span class="keywordtype">void</span> <a class="code hl_function" href="lgc_8h.html#a6c71cc4b9e503c0e96c0c4ffcff93900">luaC_step</a> (<a class="code hl_struct" href="structlua__State.html">lua_State</a> *<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>);</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><a class="code hl_define" href="luaconf_8h.html#a3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> <span class="keywordtype">void</span> <a class="code hl_function" href="lgc_8h.html#a1da32357417ce5766ed5e3ada033c32f">luaC_runtilstate</a> (<a class="code hl_struct" href="structlua__State.html">lua_State</a> *<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <span class="keywordtype">int</span> statesmask);</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span><a class="code hl_define" href="luaconf_8h.html#a3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> <span class="keywordtype">void</span> <a class="code hl_function" href="lgc_8h.html#aa0b753c3ed80e1eed0379ec58592c404">luaC_fullgc</a> (<a class="code hl_struct" href="structlua__State.html">lua_State</a> *<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <span class="keywordtype">int</span> isemergency);</div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span><a class="code hl_define" href="luaconf_8h.html#a3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> <a class="code hl_struct" href="structGCObject.html">GCObject</a> *<a class="code hl_function" href="lgc_8h.html#a157cf1436d548d1a687796667939c95f">luaC_newobj</a> (<a class="code hl_struct" href="structlua__State.html">lua_State</a> *<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <span class="keywordtype">int</span> tt, <span class="keywordtype">size_t</span> sz);</div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span><a class="code hl_define" href="luaconf_8h.html#a3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> <a class="code hl_struct" href="structGCObject.html">GCObject</a> *<a class="code hl_function" href="lgc_8h.html#a3e49a2282d4017ab2223963383b0cb86">luaC_newobjdt</a> (<a class="code hl_struct" href="structlua__State.html">lua_State</a> *<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <span class="keywordtype">int</span> tt, <span class="keywordtype">size_t</span> sz,</div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>                                                 <span class="keywordtype">size_t</span> offset);</div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><a class="code hl_define" href="luaconf_8h.html#a3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> <span class="keywordtype">void</span> <a class="code hl_function" href="lgc_8h.html#ac5106ee2a18cde8bc3bd92e5891ad8e5">luaC_barrier_</a> (<a class="code hl_struct" href="structlua__State.html">lua_State</a> *<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="code hl_struct" href="structGCObject.html">GCObject</a> *o, <a class="code hl_struct" href="structGCObject.html">GCObject</a> *v);</div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span><a class="code hl_define" href="luaconf_8h.html#a3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> <span class="keywordtype">void</span> <a class="code hl_function" href="lgc_8h.html#a65d1fcc6e437592a5a893406cce7d8e3">luaC_barrierback_</a> (<a class="code hl_struct" href="structlua__State.html">lua_State</a> *<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="code hl_struct" href="structGCObject.html">GCObject</a> *o);</div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span><a class="code hl_define" href="luaconf_8h.html#a3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> <span class="keywordtype">void</span> <a class="code hl_function" href="lgc_8h.html#a15870c09448216ce5c4e1ff63d39e0a9">luaC_checkfinalizer</a> (<a class="code hl_struct" href="structlua__State.html">lua_State</a> *<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="code hl_struct" href="structGCObject.html">GCObject</a> *o, <a class="code hl_struct" href="structTable.html">Table</a> *mt);</div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span><a class="code hl_define" href="luaconf_8h.html#a3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> <span class="keywordtype">void</span> <a class="code hl_function" href="lgc_8h.html#a45671ff26d738167ce8e421cc233fc59">luaC_changemode</a> (<a class="code hl_struct" href="structlua__State.html">lua_State</a> *<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <span class="keywordtype">int</span> newmode);</div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><a class="code hl_define" href="group__LuaSrc.html#ga3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> <span class="keywordtype">void</span> <a class="code hl_function" href="group__LuaSrc.html#ga242d4a66c025c294ec2c1ec4fe75e804">luaC_fix</a> (<a class="code hl_struct" href="structlua__State.html">lua_State</a> *<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="code hl_struct" href="structGCObject.html">GCObject</a> *o);</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><a class="code hl_define" href="group__LuaSrc.html#ga3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> <span class="keywordtype">void</span> <a class="code hl_function" href="group__LuaSrc.html#ga9aa52a500c9cc2076edb1707e6d8a045">luaC_freeallobjects</a> (<a class="code hl_struct" href="structlua__State.html">lua_State</a> *<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>);</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span><a class="code hl_define" href="group__LuaSrc.html#ga3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> <span class="keywordtype">void</span> <a class="code hl_function" href="group__LuaSrc.html#ga6c71cc4b9e503c0e96c0c4ffcff93900">luaC_step</a> (<a class="code hl_struct" href="structlua__State.html">lua_State</a> *<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>);</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span><a class="code hl_define" href="group__LuaSrc.html#ga3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> <span class="keywordtype">void</span> <a class="code hl_function" href="group__LuaSrc.html#ga1da32357417ce5766ed5e3ada033c32f">luaC_runtilstate</a> (<a class="code hl_struct" href="structlua__State.html">lua_State</a> *<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <span class="keywordtype">int</span> statesmask);</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span><a class="code hl_define" href="group__LuaSrc.html#ga3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> <span class="keywordtype">void</span> <a class="code hl_function" href="group__LuaSrc.html#gaa0b753c3ed80e1eed0379ec58592c404">luaC_fullgc</a> (<a class="code hl_struct" href="structlua__State.html">lua_State</a> *<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <span class="keywordtype">int</span> isemergency);</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span><a class="code hl_define" href="group__LuaSrc.html#ga3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> <a class="code hl_struct" href="structGCObject.html">GCObject</a> *<a class="code hl_function" href="group__LuaSrc.html#ga157cf1436d548d1a687796667939c95f">luaC_newobj</a> (<a class="code hl_struct" href="structlua__State.html">lua_State</a> *<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <span class="keywordtype">int</span> tt, <span class="keywordtype">size_t</span> sz);</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><a class="code hl_define" href="group__LuaSrc.html#ga3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> <a class="code hl_struct" href="structGCObject.html">GCObject</a> *<a class="code hl_function" href="group__LuaSrc.html#ga3e49a2282d4017ab2223963383b0cb86">luaC_newobjdt</a> (<a class="code hl_struct" href="structlua__State.html">lua_State</a> *<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <span class="keywordtype">int</span> tt, <span class="keywordtype">size_t</span> sz,</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>                                                 <span class="keywordtype">size_t</span> offset);</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span><a class="code hl_define" href="group__LuaSrc.html#ga3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> <span class="keywordtype">void</span> <a class="code hl_function" href="group__LuaSrc.html#gac5106ee2a18cde8bc3bd92e5891ad8e5">luaC_barrier_</a> (<a class="code hl_struct" href="structlua__State.html">lua_State</a> *<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="code hl_struct" href="structGCObject.html">GCObject</a> *o, <a class="code hl_struct" href="structGCObject.html">GCObject</a> *v);</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span><a class="code hl_define" href="group__LuaSrc.html#ga3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> <span class="keywordtype">void</span> <a class="code hl_function" href="group__LuaSrc.html#ga65d1fcc6e437592a5a893406cce7d8e3">luaC_barrierback_</a> (<a class="code hl_struct" href="structlua__State.html">lua_State</a> *<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="code hl_struct" href="structGCObject.html">GCObject</a> *o);</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span><a class="code hl_define" href="group__LuaSrc.html#ga3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> <span class="keywordtype">void</span> <a class="code hl_function" href="group__LuaSrc.html#ga15870c09448216ce5c4e1ff63d39e0a9">luaC_checkfinalizer</a> (<a class="code hl_struct" href="structlua__State.html">lua_State</a> *<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="code hl_struct" href="structGCObject.html">GCObject</a> *o, <a class="code hl_struct" href="structTable.html">Table</a> *mt);</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span><a class="code hl_define" href="group__LuaSrc.html#ga3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> <span class="keywordtype">void</span> <a class="code hl_function" href="group__LuaSrc.html#ga45671ff26d738167ce8e421cc233fc59">luaC_changemode</a> (<a class="code hl_struct" href="structlua__State.html">lua_State</a> *<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <span class="keywordtype">int</span> newmode);</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span> </div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span> </div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="agame_8c_html_a62f94dfc0036bec0c14106c2f15caf3e"><div class="ttname"><a href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a></div><div class="ttdeci">static lua_State * L</div><div class="ttdef"><b>Definition</b> game.c:35</div></div>
-<div class="ttc" id="algc_8h_html_a157cf1436d548d1a687796667939c95f"><div class="ttname"><a href="lgc_8h.html#a157cf1436d548d1a687796667939c95f">luaC_newobj</a></div><div class="ttdeci">LUAI_FUNC GCObject * luaC_newobj(lua_State *L, int tt, size_t sz)</div><div class="ttdef"><b>Definition</b> lgc.c:270</div></div>
-<div class="ttc" id="algc_8h_html_a15870c09448216ce5c4e1ff63d39e0a9"><div class="ttname"><a href="lgc_8h.html#a15870c09448216ce5c4e1ff63d39e0a9">luaC_checkfinalizer</a></div><div class="ttdeci">LUAI_FUNC void luaC_checkfinalizer(lua_State *L, GCObject *o, Table *mt)</div><div class="ttdef"><b>Definition</b> lgc.c:1017</div></div>
-<div class="ttc" id="algc_8h_html_a1da32357417ce5766ed5e3ada033c32f"><div class="ttname"><a href="lgc_8h.html#a1da32357417ce5766ed5e3ada033c32f">luaC_runtilstate</a></div><div class="ttdeci">LUAI_FUNC void luaC_runtilstate(lua_State *L, int statesmask)</div><div class="ttdef"><b>Definition</b> lgc.c:1650</div></div>
-<div class="ttc" id="algc_8h_html_a242d4a66c025c294ec2c1ec4fe75e804"><div class="ttname"><a href="lgc_8h.html#a242d4a66c025c294ec2c1ec4fe75e804">luaC_fix</a></div><div class="ttdeci">LUAI_FUNC void luaC_fix(lua_State *L, GCObject *o)</div><div class="ttdef"><b>Definition</b> lgc.c:243</div></div>
-<div class="ttc" id="algc_8h_html_a3e49a2282d4017ab2223963383b0cb86"><div class="ttname"><a href="lgc_8h.html#a3e49a2282d4017ab2223963383b0cb86">luaC_newobjdt</a></div><div class="ttdeci">LUAI_FUNC GCObject * luaC_newobjdt(lua_State *L, int tt, size_t sz, size_t offset)</div><div class="ttdef"><b>Definition</b> lgc.c:258</div></div>
-<div class="ttc" id="algc_8h_html_a45671ff26d738167ce8e421cc233fc59"><div class="ttname"><a href="lgc_8h.html#a45671ff26d738167ce8e421cc233fc59">luaC_changemode</a></div><div class="ttdeci">LUAI_FUNC void luaC_changemode(lua_State *L, int newmode)</div><div class="ttdef"><b>Definition</b> lgc.c:1358</div></div>
-<div class="ttc" id="algc_8h_html_a65d1fcc6e437592a5a893406cce7d8e3"><div class="ttname"><a href="lgc_8h.html#a65d1fcc6e437592a5a893406cce7d8e3">luaC_barrierback_</a></div><div class="ttdeci">LUAI_FUNC void luaC_barrierback_(lua_State *L, GCObject *o)</div><div class="ttdef"><b>Definition</b> lgc.c:230</div></div>
-<div class="ttc" id="algc_8h_html_a6c71cc4b9e503c0e96c0c4ffcff93900"><div class="ttname"><a href="lgc_8h.html#a6c71cc4b9e503c0e96c0c4ffcff93900">luaC_step</a></div><div class="ttdeci">LUAI_FUNC void luaC_step(lua_State *L)</div><div class="ttdef"><b>Definition</b> lgc.c:1688</div></div>
-<div class="ttc" id="algc_8h_html_a9aa52a500c9cc2076edb1707e6d8a045"><div class="ttname"><a href="lgc_8h.html#a9aa52a500c9cc2076edb1707e6d8a045">luaC_freeallobjects</a></div><div class="ttdeci">LUAI_FUNC void luaC_freeallobjects(lua_State *L)</div><div class="ttdef"><b>Definition</b> lgc.c:1509</div></div>
-<div class="ttc" id="algc_8h_html_aa0b753c3ed80e1eed0379ec58592c404"><div class="ttname"><a href="lgc_8h.html#aa0b753c3ed80e1eed0379ec58592c404">luaC_fullgc</a></div><div class="ttdeci">LUAI_FUNC void luaC_fullgc(lua_State *L, int isemergency)</div><div class="ttdef"><b>Definition</b> lgc.c:1726</div></div>
-<div class="ttc" id="algc_8h_html_ac5106ee2a18cde8bc3bd92e5891ad8e5"><div class="ttname"><a href="lgc_8h.html#ac5106ee2a18cde8bc3bd92e5891ad8e5">luaC_barrier_</a></div><div class="ttdeci">LUAI_FUNC void luaC_barrier_(lua_State *L, GCObject *o, GCObject *v)</div><div class="ttdef"><b>Definition</b> lgc.c:208</div></div>
+<div class="ttc" id="agroup__LuaSrc_html_ga157cf1436d548d1a687796667939c95f"><div class="ttname"><a href="group__LuaSrc.html#ga157cf1436d548d1a687796667939c95f">luaC_newobj</a></div><div class="ttdeci">GCObject * luaC_newobj(lua_State *L, int tt, size_t sz)</div><div class="ttdef"><b>Definition</b> lgc.c:272</div></div>
+<div class="ttc" id="agroup__LuaSrc_html_ga15870c09448216ce5c4e1ff63d39e0a9"><div class="ttname"><a href="group__LuaSrc.html#ga15870c09448216ce5c4e1ff63d39e0a9">luaC_checkfinalizer</a></div><div class="ttdeci">void luaC_checkfinalizer(lua_State *L, GCObject *o, Table *mt)</div><div class="ttdef"><b>Definition</b> lgc.c:1019</div></div>
+<div class="ttc" id="agroup__LuaSrc_html_ga1da32357417ce5766ed5e3ada033c32f"><div class="ttname"><a href="group__LuaSrc.html#ga1da32357417ce5766ed5e3ada033c32f">luaC_runtilstate</a></div><div class="ttdeci">void luaC_runtilstate(lua_State *L, int statesmask)</div><div class="ttdef"><b>Definition</b> lgc.c:1652</div></div>
+<div class="ttc" id="agroup__LuaSrc_html_ga242d4a66c025c294ec2c1ec4fe75e804"><div class="ttname"><a href="group__LuaSrc.html#ga242d4a66c025c294ec2c1ec4fe75e804">luaC_fix</a></div><div class="ttdeci">void luaC_fix(lua_State *L, GCObject *o)</div><div class="ttdef"><b>Definition</b> lgc.c:245</div></div>
+<div class="ttc" id="agroup__LuaSrc_html_ga3e49a2282d4017ab2223963383b0cb86"><div class="ttname"><a href="group__LuaSrc.html#ga3e49a2282d4017ab2223963383b0cb86">luaC_newobjdt</a></div><div class="ttdeci">GCObject * luaC_newobjdt(lua_State *L, int tt, size_t sz, size_t offset)</div><div class="ttdef"><b>Definition</b> lgc.c:260</div></div>
+<div class="ttc" id="agroup__LuaSrc_html_ga3f43b35a70c93f2cfde1db42a5a24f1e"><div class="ttname"><a href="group__LuaSrc.html#ga3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a></div><div class="ttdeci">#define LUAI_FUNC</div><div class="ttdef"><b>Definition</b> luaconf.h:320</div></div>
+<div class="ttc" id="agroup__LuaSrc_html_ga45671ff26d738167ce8e421cc233fc59"><div class="ttname"><a href="group__LuaSrc.html#ga45671ff26d738167ce8e421cc233fc59">luaC_changemode</a></div><div class="ttdeci">void luaC_changemode(lua_State *L, int newmode)</div><div class="ttdef"><b>Definition</b> lgc.c:1360</div></div>
+<div class="ttc" id="agroup__LuaSrc_html_ga65d1fcc6e437592a5a893406cce7d8e3"><div class="ttname"><a href="group__LuaSrc.html#ga65d1fcc6e437592a5a893406cce7d8e3">luaC_barrierback_</a></div><div class="ttdeci">void luaC_barrierback_(lua_State *L, GCObject *o)</div><div class="ttdef"><b>Definition</b> lgc.c:232</div></div>
+<div class="ttc" id="agroup__LuaSrc_html_ga6c71cc4b9e503c0e96c0c4ffcff93900"><div class="ttname"><a href="group__LuaSrc.html#ga6c71cc4b9e503c0e96c0c4ffcff93900">luaC_step</a></div><div class="ttdeci">void luaC_step(lua_State *L)</div><div class="ttdef"><b>Definition</b> lgc.c:1690</div></div>
+<div class="ttc" id="agroup__LuaSrc_html_ga9aa52a500c9cc2076edb1707e6d8a045"><div class="ttname"><a href="group__LuaSrc.html#ga9aa52a500c9cc2076edb1707e6d8a045">luaC_freeallobjects</a></div><div class="ttdeci">void luaC_freeallobjects(lua_State *L)</div><div class="ttdef"><b>Definition</b> lgc.c:1511</div></div>
+<div class="ttc" id="agroup__LuaSrc_html_gaa0b753c3ed80e1eed0379ec58592c404"><div class="ttname"><a href="group__LuaSrc.html#gaa0b753c3ed80e1eed0379ec58592c404">luaC_fullgc</a></div><div class="ttdeci">void luaC_fullgc(lua_State *L, int isemergency)</div><div class="ttdef"><b>Definition</b> lgc.c:1728</div></div>
+<div class="ttc" id="agroup__LuaSrc_html_gac5106ee2a18cde8bc3bd92e5891ad8e5"><div class="ttname"><a href="group__LuaSrc.html#gac5106ee2a18cde8bc3bd92e5891ad8e5">luaC_barrier_</a></div><div class="ttdeci">void luaC_barrier_(lua_State *L, GCObject *o, GCObject *v)</div><div class="ttdef"><b>Definition</b> lgc.c:210</div></div>
 <div class="ttc" id="alobject_8h_html"><div class="ttname"><a href="lobject_8h.html">lobject.h</a></div></div>
 <div class="ttc" id="alstate_8h_html"><div class="ttname"><a href="lstate_8h.html">lstate.h</a></div></div>
-<div class="ttc" id="aluaconf_8h_html_a3f43b35a70c93f2cfde1db42a5a24f1e"><div class="ttname"><a href="luaconf_8h.html#a3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a></div><div class="ttdeci">#define LUAI_FUNC</div><div class="ttdef"><b>Definition</b> luaconf.h:318</div></div>
-<div class="ttc" id="astructGCObject_html"><div class="ttname"><a href="structGCObject.html">GCObject</a></div><div class="ttdef"><b>Definition</b> lobject.h:292</div></div>
-<div class="ttc" id="astructTable_html"><div class="ttname"><a href="structTable.html">Table</a></div><div class="ttdef"><b>Definition</b> lobject.h:739</div></div>
-<div class="ttc" id="astructlua__State_html"><div class="ttname"><a href="structlua__State.html">lua_State</a></div><div class="ttdef"><b>Definition</b> lstate.h:309</div></div>
+<div class="ttc" id="astructGCObject_html"><div class="ttname"><a href="structGCObject.html">GCObject</a></div><div class="ttdef"><b>Definition</b> lobject.h:294</div></div>
+<div class="ttc" id="astructTable_html"><div class="ttname"><a href="structTable.html">Table</a></div><div class="ttdef"><b>Definition</b> lobject.h:741</div></div>
+<div class="ttc" id="astructlua__State_html"><div class="ttname"><a href="structlua__State.html">lua_State</a></div><div class="ttdef"><b>Definition</b> lstate.h:311</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

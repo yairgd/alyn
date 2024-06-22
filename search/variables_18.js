@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['z_0',['Z',['../structLoadState.html#a53f2d5fa2c176bdf96701c983afb8182',1,'LoadState']]],
-  ['z_1',['z',['../structSParser.html#a15ddec33b9558bbcf1301fd9c0d392d1',1,'SParser::z'],['../structLexState.html#a591ffaffa1f3c21653904dccf81a4377',1,'LexState::z']]]
+  ['y_0',['y',['../structeffect__base.html#a161274a2f0e1a7a60343589610d6da2e',1,'effect_base::y'],['../structframe_1_1point.html#a7d0f93214eeceebbb76011fc49bbee41',1,'frame::point::y']]]
 ];

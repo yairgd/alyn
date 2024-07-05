@@ -664,6 +664,8 @@ static void PrintCode(const Proto* f)
 
 #define SS(x)	((x==1)?"":"s")
 #define S(x)	(int)(x),SS(x)
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 static void PrintHeader(const Proto* f)
 {
@@ -721,3 +723,4 @@ static void PrintFunction(const Proto* f, int full)
  if (full) PrintDebug(f);
  for (i=0; i<n; i++) PrintFunction(f->p[i],full);
 }
+/** @} */

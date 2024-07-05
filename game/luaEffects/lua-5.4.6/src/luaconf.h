@@ -771,6 +771,8 @@
 ** maximum alignment for the other items in that union.
 */
 #define LUAI_MAXALIGN  lua_Number n; double u; void *s; lua_Integer i; long l
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 /* }================================================================== */
 
@@ -791,3 +793,4 @@
 
 #endif
 
+/** @} */

@@ -32,6 +32,8 @@
 
 
 #define noLuaClosure(f)		((f) == NULL || (f)->c.tt == LUA_VCCL)
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 
 static const char *funcnamefromcall (lua_State *L, CallInfo *ci,
@@ -922,3 +924,4 @@ int luaG_traceexec (lua_State *L, const Instruction *pc) {
   return 1;  /* keep 'trap' on */
 }
 
+/** @} */

@@ -33,6 +33,8 @@
 */
 #if !defined(MAXIWTHABS)
 #define MAXIWTHABS	128
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 #endif
 
 
@@ -61,3 +63,4 @@ LUAI_FUNC int luaG_traceexec (lua_State *L, const Instruction *pc);
 
 
 #endif
+/** @} */

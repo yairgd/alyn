@@ -1251,6 +1251,8 @@ static const struct {
 };
 
 #define UNARY_PRIORITY	12  /* priority for unary operators */
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 
 /*
@@ -1965,3 +1967,4 @@ LClosure *luaY_parser (lua_State *L, ZIO *z, Mbuffer *buff,
   return cl;  /* closure is on the stack, too */
 }
 
+/** @} */

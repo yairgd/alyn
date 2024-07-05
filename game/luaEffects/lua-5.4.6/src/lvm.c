@@ -1151,6 +1151,8 @@ void luaV_execute (lua_State *L, CallInfo *ci) {
   int trap;
 #if LUA_USE_JUMPTABLE
 #include "ljumptab.h"
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 #endif
  startfunc:
   trap = L->hookmask;
@@ -1899,3 +1901,4 @@ void luaV_execute (lua_State *L, CallInfo *ci) {
 }
 
 /* }================================================================== */
+/** @} */

@@ -68,6 +68,8 @@ typedef enum {
 #define fasttm(l,et,e)	gfasttm(G(l), et, e)
 
 #define ttypename(x)	luaT_typenames_[(x) + 1]
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 LUAI_DDEC(const char *const luaT_typenames_[LUA_TOTALTYPES];)
 
@@ -102,3 +104,4 @@ LUAI_FUNC void luaT_getvarargs (lua_State *L, CallInfo *ci,
 
 
 #endif
+/** @} */

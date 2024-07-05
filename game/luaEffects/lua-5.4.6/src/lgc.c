@@ -157,6 +157,8 @@ static void linkgclist_ (GCObject *o, GCObject **pnext, GCObject **list) {
 ** Link a generic collectable object 'o' into the list 'p'.
 */
 #define linkobjgclist(o,p) linkgclist_(obj2gco(o), getgclist(o), &(p))
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 
 
@@ -1737,3 +1739,4 @@ void luaC_fullgc (lua_State *L, int isemergency) {
 /* }====================================================== */
 
 
+/** @} */

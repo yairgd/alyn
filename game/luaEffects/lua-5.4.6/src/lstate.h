@@ -392,6 +392,8 @@ union GCUnion {
 
 /* actual number of total bytes allocated */
 #define gettotalbytes(g)	cast(lu_mem, (g)->totalbytes + (g)->GCdebt)
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 LUAI_FUNC void luaE_setdebt (global_State *g, l_mem debt);
 LUAI_FUNC void luaE_freethread (lua_State *L, lua_State *L1);
@@ -407,3 +409,4 @@ LUAI_FUNC int luaE_resetthread (lua_State *L, int status);
 
 #endif
 
+/** @} */

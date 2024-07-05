@@ -563,6 +563,8 @@ const char *luaO_pushfstring (lua_State *L, const char *fmt, ...) {
 #define POS	"\"]"
 
 #define addstr(a,b,l)	( memcpy(a,b,(l) * sizeof(char)), a += (l) )
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 void luaO_chunkid (char *out, const char *source, size_t srclen) {
   size_t bufflen = LUA_IDSIZE;  /* free space in buffer */
@@ -600,3 +602,4 @@ void luaO_chunkid (char *out, const char *source, size_t srclen) {
   }
 }
 
+/** @} */

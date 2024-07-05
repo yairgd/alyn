@@ -45,6 +45,8 @@
 
 /* special status to close upvalues preserving the top of the stack */
 #define CLOSEKTOP	(-1)
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 
 LUAI_FUNC Proto *luaF_newproto (lua_State *L);
@@ -62,3 +64,4 @@ LUAI_FUNC const char *luaF_getlocalname (const Proto *func, int local_number,
 
 
 #endif
+/** @} */

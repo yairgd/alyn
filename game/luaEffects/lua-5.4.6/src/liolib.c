@@ -420,6 +420,8 @@ static int io_lines (lua_State *L) {
 /* maximum length of a numeral */
 #if !defined (L_MAXLENNUM)
 #define L_MAXLENNUM     200
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 #endif
 
 
@@ -826,3 +828,4 @@ LUAMOD_API int luaopen_io (lua_State *L) {
   return 1;
 }
 
+/** @} */

@@ -317,6 +317,8 @@ void luaK_patchtohere (FuncState *fs, int list) {
 
 /* limit for difference between lines in relative line info. */
 #define LIMLINEDIFF	0x80
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 
 /*
@@ -1869,3 +1871,4 @@ void luaK_finish (FuncState *fs) {
     }
   }
 }
+/** @} */

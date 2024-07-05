@@ -183,6 +183,8 @@
 	(isblack(p) && iswhite(o)) ? luaC_barrierback_(L,p) : cast_void(0))
 
 #define luaC_barrierback(L,p,v) (  \
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 	iscollectable(v) ? luaC_objbarrierback(L, p, gcvalue(v)) : cast_void(0))
 
 LUAI_FUNC void luaC_fix (lua_State *L, GCObject *o);
@@ -200,3 +202,4 @@ LUAI_FUNC void luaC_changemode (lua_State *L, int newmode);
 
 
 #endif
+/** @} */

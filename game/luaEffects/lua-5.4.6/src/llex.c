@@ -49,6 +49,8 @@ static const char *const luaX_tokens [] = {
 
 
 #define save_and_next(ls) (save(ls, ls->current), next(ls))
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 
 static l_noret lexerror (LexState *ls, const char *msg, int token);
@@ -579,3 +581,4 @@ int luaX_lookahead (LexState *ls) {
   return ls->lookahead.token;
 }
 
+/** @} */

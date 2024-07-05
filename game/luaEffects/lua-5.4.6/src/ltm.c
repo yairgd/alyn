@@ -23,6 +23,8 @@
 #include "ltable.h"
 #include "ltm.h"
 #include "lvm.h"
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 
 static const char udatatypename[] = "userdata";
@@ -269,3 +271,4 @@ void luaT_getvarargs (lua_State *L, CallInfo *ci, StkId where, int wanted) {
     setnilvalue(s2v(where + i));
 }
 
+/** @} */

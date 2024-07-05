@@ -14,6 +14,8 @@
 #define vmcase(l)     L_##l:
 
 #define vmbreak		vmfetch(); vmdispatch(GET_OPCODE(i));
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 
 static const void *const disptab[NUM_OPCODES] = {
@@ -110,3 +112,4 @@ static const void *const disptab[NUM_OPCODES] = {
 &&L_OP_EXTRAARG
 
 };
+/** @} */

@@ -159,6 +159,8 @@ static void prepcallclosemth (lua_State *L, StkId level, int status, int yy) {
 ** is used.)
 */
 #define MAXDELTA  \
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 	((256ul << ((sizeof(L->stack.p->tbclist.delta) - 1) * 8)) - 1)
 
 
@@ -292,3 +294,4 @@ const char *luaF_getlocalname (const Proto *f, int local_number, int pc) {
   return NULL;  /* not found */
 }
 
+/** @} */

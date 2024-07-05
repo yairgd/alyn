@@ -26,6 +26,8 @@
 ** Maximum size for string table.
 */
 #define MAXSTRTB	cast_int(luaM_limitN(MAX_INT, TString*))
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 
 /*
@@ -271,3 +273,4 @@ Udata *luaS_newudata (lua_State *L, size_t s, int nuvalue) {
   return u;
 }
 
+/** @} */

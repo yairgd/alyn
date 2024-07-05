@@ -260,6 +260,8 @@ static unsigned int l_randomizePivot (void) {
 
 /* arrays larger than 'RANLIMIT' may use randomized pivots */
 #define RANLIMIT	100u
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 
 static void set2 (lua_State *L, IdxT i, IdxT j) {
@@ -428,3 +430,4 @@ LUAMOD_API int luaopen_table (lua_State *L) {
   return 1;
 }
 
+/** @} */

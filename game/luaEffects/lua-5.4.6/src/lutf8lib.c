@@ -268,6 +268,8 @@ static int iter_codes (lua_State *L) {
 
 /* pattern to match a single UTF-8 character */
 #define UTF8PATT	"[\0-\x7F\xC2-\xFD][\x80-\xBF]*"
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 
 static const luaL_Reg funcs[] = {
@@ -289,3 +291,4 @@ LUAMOD_API int luaopen_utf8 (lua_State *L) {
   return 1;
 }
 
+/** @} */

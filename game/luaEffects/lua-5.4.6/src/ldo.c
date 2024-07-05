@@ -497,6 +497,8 @@ void luaD_poscall (lua_State *L, CallInfo *ci, int nres) {
 
 
 #define next_ci(L)  (L->ci->next ? L->ci->next : luaE_extendCI(L))
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 
 l_sinline CallInfo *prepCallInfo (lua_State *L, StkId func, int nret,
@@ -1022,3 +1024,4 @@ int luaD_protectedparser (lua_State *L, ZIO *z, const char *name,
 }
 
 
+/** @} */

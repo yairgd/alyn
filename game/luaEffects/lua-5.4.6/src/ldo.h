@@ -54,6 +54,8 @@
 
 /* macro to check stack size and GC */
 #define checkstackGC(L,fsize)  \
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 	luaD_checkstackaux(L, (fsize), luaC_checkGC(L), (void)0)
 
 
@@ -86,3 +88,4 @@ LUAI_FUNC int luaD_rawrunprotected (lua_State *L, Pfunc f, void *ud);
 
 #endif
 
+/** @} */

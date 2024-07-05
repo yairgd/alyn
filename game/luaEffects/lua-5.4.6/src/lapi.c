@@ -996,6 +996,8 @@ LUA_API int lua_setiuservalue (lua_State *L, int idx, int n) {
 
 
 #define checkresults(L,na,nr) \
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
      api_check(L, (nr) == LUA_MULTRET \
                || (L->ci->top.p - L->top.p >= (nr) - (na)), \
 	"results from function overflow current stack size")
@@ -1461,3 +1463,4 @@ LUA_API void lua_upvaluejoin (lua_State *L, int fidx1, int n1,
 }
 
 
+/** @} */

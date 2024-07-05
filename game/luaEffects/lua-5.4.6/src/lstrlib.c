@@ -1403,6 +1403,8 @@ static int str_format (lua_State *L) {
 
 /* size of a lua_Integer */
 #define SZINT	((int)sizeof(lua_Integer))
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
 
 
 /* dummy union to get native endianness */
@@ -1872,3 +1874,4 @@ LUAMOD_API int luaopen_string (lua_State *L) {
   return 1;
 }
 
+/** @} */

@@ -171,6 +171,7 @@ void banner_init_with_text(struct banner * banner, struct rect r, const struct f
 
 	vsnprintf(banner->text,sizeof(banner->text), fmt, args);
 	int len = u8_strlen(banner->text);
+	canvas_free(&banner->canvas);
 	canvas_init(&banner->canvas,len * font_width(font,0) , font_height(font) );
 	canvas_set_font(&banner->canvas, font);
 	canvas_print(&banner->canvas, 0,0, banner->text);
@@ -186,4 +187,8 @@ struct effect_base * banner_new() {
 
 	b->effect.ops = &banner_ops;
 	return &b->effect;
+}
+
+void banner_free(struct banner * banner) {
+	canvas_free(&banner->canvas);	
 }

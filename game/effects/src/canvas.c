@@ -1,4 +1,5 @@
 /*
+			return static_cast<uint8_t>(GetHalMgr().PerformMemoryBadBlocksTest());
  * =====================================================================================
  *
  *       Filename:  canvas.c
@@ -41,7 +42,7 @@ void canvas_init(struct canvas * canvas, int width, int height)
 	memset (canvas, 0, sizeof(*canvas));
 	canvas->font = 0;
 	canvas->font_color = RGB(255,255,255);
-	canvas->bg_color = RGB(0,0,8);
+	canvas->bg_color = RGB(0,0,0);
 
 
 	canvas->width = width;
@@ -58,7 +59,11 @@ void canvas_init(struct canvas * canvas, int width, int height)
 void canvas_free(struct canvas * canvas)
 {
 	if (canvas->buffer) {
+#ifdef ZEPHYR
+		k_free(canvas->buffer);
+#else
 		free(canvas->buffer);
+#endif
 		memset (canvas, 0, sizeof (*canvas));
 	}
 }

@@ -19,6 +19,7 @@
 
 #include "obj.h"
 #include "canvas.h"
+#include "lua_memory.h"
 
 
 
@@ -27,8 +28,12 @@
 static int lua_rect_gc(lua_State *L) {
 	struct lua_user_data * user_data = *(struct lua_user_data**)luaL_checkudata(L, 1, LUA_FRAME);
 
-	free(user_data->data);
-	free(user_data);
+	// use this code , if there is nome thing to free in rectnagle (it is an example, there is no what to free in rect)
+	//	struct rect * rect = (struct rect * )user_data->data;
+	//	rect_free(rect);
+
+	lua_free(user_data->data);
+	lua_free(user_data);
 	return 0;
 }
 

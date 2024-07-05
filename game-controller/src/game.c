@@ -114,12 +114,9 @@ static void game_default_c(void *data) {
 static void game_lua_generic(void *data) {
 	struct luasrc * game = data;
 
-	// Initialize heap management for the Lua API to allocate and free memory.
-	// This replaces the lua_close(L) command, which has been causing system crashes lately.
-	// The crashes occur specifically when using Lua C effects like banners and frames, which is unexplained.
-	// As a workaround, I clear/reset the entire memory before running the Lua API.
-	sys_heap_init (&heap, lua_heap_mem, sizeof(lua_heap_mem));
-
+	if (L)
+		lua_close(L);
+		
 	L = luaL_newstate();
 	luaL_openlibs(L);
 
@@ -164,6 +161,8 @@ static void game_thread_entry(void *g, void *a, void *b) {
 
 void game_init(void) {
 	struct game * g = games;
+
+	sys_heap_init (&heap, lua_heap_mem, sizeof(lua_heap_mem));
 
 	// Initialize the doubly linked list
 	sys_dlist_init(&head);

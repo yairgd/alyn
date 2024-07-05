@@ -61,6 +61,7 @@ extern "C" {
 
 	struct effect_base * frame_new();
 	void frame_init(struct frame  * f);
+	void frame_free(struct frame  * f);
 
 
 

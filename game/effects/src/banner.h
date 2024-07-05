@@ -83,6 +83,7 @@ extern "C" {
 	void banner_get_buffer(struct banner * banner, struct rect * r,  char *rect_buffer);
 	void banner_init_with_text(struct banner * banner, struct rect  r, const struct font * font,const char* fmt, ...);
 	struct effect_base * banner_new() ;
+	void banner_free();
 #ifdef __cplusplus
 }
 #endif

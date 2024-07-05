@@ -206,3 +206,8 @@ struct effect_base * frame_new() {
 	f->effect.ops = &frame_ops;
 	return &f->effect;
 }
+
+void frame_free(struct frame  * f) {
+
+}
+

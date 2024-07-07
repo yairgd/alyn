@@ -13,6 +13,5 @@ var searchData=
   ['hashstr_10',['hashstr',['../ltable_8c.html#a6dc1377ebc2524e79284729ad0e1b838',1,'ltable.c']]],
   ['hasjumps_11',['hasjumps',['../lcode_8c.html#a6e8fdabe5b5f88f7a3e018459b83d10e',1,'lcode.c']]],
   ['hasmultret_12',['hasmultret',['../lparser_8c.html#a38d6bad3bcde3d124ca880d6a9d82ba6',1,'lparser.c']]],
-  ['hastoclosecfunc_13',['hastocloseCfunc',['../lapi_8h.html#a5707387c1d9df9ae5bea729c1109ddf6',1,'lapi.h']]],
-  ['hvalue_14',['hvalue',['../lobject_8h.html#a336a6ce5e8340e6de133ec249cf47ebf',1,'lobject.h']]]
+  ['hastoclosecfunc_13',['hastocloseCfunc',['../lapi_8h.html#a5707387c1d9df9ae5bea729c1109ddf6',1,'lapi.h']]]
 ];

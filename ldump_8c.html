@@ -114,7 +114,7 @@ Macros</h2></td></tr>
 <tr class="separator:a305a0bdaea32b19e7f6d2cb6dce1cc81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf0b3947b59218777a8e928a10be205b" id="r_abf0b3947b59218777a8e928a10be205b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf0b3947b59218777a8e928a10be205b">LUA_CORE</a></td></tr>
 <tr class="separator:abf0b3947b59218777a8e928a10be205b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa57836f656453350c7d2b6b89df1b003" id="r_aa57836f656453350c7d2b6b89df1b003"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa57836f656453350c7d2b6b89df1b003">dumpVector</a>(D,  <a class="el" href="lmem_8h.html#ac4055e3a20b6b3af3d10590ea446ef6c">v</a>,  n)&#160;&#160;&#160;<a class="el" href="#adeca46278a770e7418d0eff725770e04">dumpBlock</a>(D,<a class="el" href="lmem_8h.html#ac4055e3a20b6b3af3d10590ea446ef6c">v</a>,(n)*sizeof((<a class="el" href="lmem_8h.html#ac4055e3a20b6b3af3d10590ea446ef6c">v</a>)[0]))</td></tr>
+<tr class="memitem:aa57836f656453350c7d2b6b89df1b003" id="r_aa57836f656453350c7d2b6b89df1b003"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa57836f656453350c7d2b6b89df1b003">dumpVector</a>(D,  v,  n)&#160;&#160;&#160;<a class="el" href="#adeca46278a770e7418d0eff725770e04">dumpBlock</a>(D,v,(n)*sizeof((v)[0]))</td></tr>
 <tr class="separator:aa57836f656453350c7d2b6b89df1b003"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05e931c17f007b1c9d54080d6243af18" id="r_a05e931c17f007b1c9d54080d6243af18"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a05e931c17f007b1c9d54080d6243af18">dumpLiteral</a>(D,  s)&#160;&#160;&#160;<a class="el" href="#adeca46278a770e7418d0eff725770e04">dumpBlock</a>(D,s,sizeof(s) - sizeof(char))</td></tr>
 <tr class="separator:a05e931c17f007b1c9d54080d6243af18"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -227,12 +227,12 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="lmem_8h.html#ac4055e3a20b6b3af3d10590ea446ef6c">v</a></em></span>, </td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>v</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>n</em></span>&#160;)&#160;&#160;&#160;<a class="el" href="#adeca46278a770e7418d0eff725770e04">dumpBlock</a>(D,<a class="el" href="lmem_8h.html#ac4055e3a20b6b3af3d10590ea446ef6c">v</a>,(n)*sizeof((<a class="el" href="lmem_8h.html#ac4055e3a20b6b3af3d10590ea446ef6c">v</a>)[0]))</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>n</em></span>&#160;)&#160;&#160;&#160;<a class="el" href="#adeca46278a770e7418d0eff725770e04">dumpBlock</a>(D,v,(n)*sizeof((v)[0]))</td>
         </tr>
       </table>
 </div><div class="memdoc">

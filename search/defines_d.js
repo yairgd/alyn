@@ -12,11 +12,8 @@ var searchData=
   ['noluaclosure_9',['noLuaClosure',['../ldebug_8c.html#a6fc57844a33412d711bca098b2135f41',1,'ldebug.c']]],
   ['nona_10',['NONA',['../lctype_8c.html#a707d5bdc6c7254edbe532bc3962ea5f2',1,'lctype.c']]],
   ['notm_11',['notm',['../ltm_8h.html#a219a766ba661fa51758627615c22e632',1,'ltm.h']]],
-  ['novariant_12',['novariant',['../lobject_8h.html#a40d12e88a0d8249d226109e0d6d70dd6',1,'lobject.h']]],
-  ['num_5fopcodes_13',['NUM_OPCODES',['../lopcodes_8h.html#a1fb469ba81540d3314cfbe37c675ba20',1,'lopcodes.h']]],
-  ['num_5freserved_14',['NUM_RESERVED',['../llex_8h.html#a24f40ac0891b0d584c0e432b2c6e1c71',1,'llex.h']]],
-  ['number_5fof_5frows_15',['NUMBER_OF_ROWS',['../display_8c.html#a00ad6a3a94ffdd1bc6b55e789f9dfda9',1,'display.c']]],
-  ['nvalue_16',['nvalue',['../lobject_8h.html#a690ab618235691bb5a82610f07dd8684',1,'lobject.h']]],
-  ['nw2black_17',['nw2black',['../lgc_8h.html#a990de0d171d8b5425a5515d0bff78789',1,'lgc.h']]],
-  ['nyci_18',['nyci',['../lstate_8h.html#ab3498e69c4fc9444e2cf6dd2bf7df228',1,'lstate.h']]]
+  ['num_5fopcodes_12',['NUM_OPCODES',['../lopcodes_8h.html#a1fb469ba81540d3314cfbe37c675ba20',1,'lopcodes.h']]],
+  ['num_5freserved_13',['NUM_RESERVED',['../llex_8h.html#a24f40ac0891b0d584c0e432b2c6e1c71',1,'llex.h']]],
+  ['number_5fof_5frows_14',['NUMBER_OF_ROWS',['../display_8c.html#a00ad6a3a94ffdd1bc6b55e789f9dfda9',1,'display.c']]],
+  ['nyci_15',['nyci',['../lstate_8h.html#ab3498e69c4fc9444e2cf6dd2bf7df228',1,'lstate.h']]]
 ];

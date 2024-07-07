@@ -89,7 +89,8 @@ $(function(){ initResizable(false); });
 <div id="doc-content">
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a>  </div>
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">lgc.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -100,1335 +101,162 @@ $(function(){ initResizable(false); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a2ed301793747f3a2d0a7fc7d64d482fd" id="r_a2ed301793747f3a2d0a7fc7d64d482fd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2ed301793747f3a2d0a7fc7d64d482fd">GCSpropagate</a>&#160;&#160;&#160;0</td></tr>
-<tr class="separator:a2ed301793747f3a2d0a7fc7d64d482fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d4a80ad5991cca9822822f63deef987" id="r_a7d4a80ad5991cca9822822f63deef987"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d4a80ad5991cca9822822f63deef987">GCSenteratomic</a>&#160;&#160;&#160;1</td></tr>
-<tr class="separator:a7d4a80ad5991cca9822822f63deef987"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c7806ab609fa3c19ed9c2b688e10730" id="r_a7c7806ab609fa3c19ed9c2b688e10730"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c7806ab609fa3c19ed9c2b688e10730">GCSatomic</a>&#160;&#160;&#160;2</td></tr>
-<tr class="separator:a7c7806ab609fa3c19ed9c2b688e10730"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac9b5b472434aa8d38a89b46b6b29196" id="r_aac9b5b472434aa8d38a89b46b6b29196"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac9b5b472434aa8d38a89b46b6b29196">GCSswpallgc</a>&#160;&#160;&#160;3</td></tr>
-<tr class="separator:aac9b5b472434aa8d38a89b46b6b29196"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d28766c63918e69c9ea3853a3e6c4c0" id="r_a9d28766c63918e69c9ea3853a3e6c4c0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9d28766c63918e69c9ea3853a3e6c4c0">GCSswpfinobj</a>&#160;&#160;&#160;4</td></tr>
-<tr class="separator:a9d28766c63918e69c9ea3853a3e6c4c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a152f379e712cbc7f0bfa2c6a3e15166d" id="r_a152f379e712cbc7f0bfa2c6a3e15166d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a152f379e712cbc7f0bfa2c6a3e15166d">GCSswptobefnz</a>&#160;&#160;&#160;5</td></tr>
-<tr class="separator:a152f379e712cbc7f0bfa2c6a3e15166d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e40597ebd731cafa743cd9a8e0db709" id="r_a4e40597ebd731cafa743cd9a8e0db709"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4e40597ebd731cafa743cd9a8e0db709">GCSswpend</a>&#160;&#160;&#160;6</td></tr>
-<tr class="separator:a4e40597ebd731cafa743cd9a8e0db709"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84094ff0ba3d8c7d4f84984e74f7705a" id="r_a84094ff0ba3d8c7d4f84984e74f7705a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a84094ff0ba3d8c7d4f84984e74f7705a">GCScallfin</a>&#160;&#160;&#160;7</td></tr>
-<tr class="separator:a84094ff0ba3d8c7d4f84984e74f7705a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab546d91106ec5cfdba254de13e5b5c5f" id="r_ab546d91106ec5cfdba254de13e5b5c5f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab546d91106ec5cfdba254de13e5b5c5f">GCSpause</a>&#160;&#160;&#160;8</td></tr>
-<tr class="separator:ab546d91106ec5cfdba254de13e5b5c5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a860db734bc919435aba75c30e4fe261b" id="r_a860db734bc919435aba75c30e4fe261b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a860db734bc919435aba75c30e4fe261b">issweepphase</a>(g)&#160;&#160;&#160;	(<a class="el" href="#aac9b5b472434aa8d38a89b46b6b29196">GCSswpallgc</a> &lt;= (g)-&gt;gcstate &amp;&amp; (g)-&gt;gcstate &lt;= <a class="el" href="#a4e40597ebd731cafa743cd9a8e0db709">GCSswpend</a>)</td></tr>
-<tr class="separator:a860db734bc919435aba75c30e4fe261b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40b40242e96f45f8d04dcf4feb1475ae" id="r_a40b40242e96f45f8d04dcf4feb1475ae"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a40b40242e96f45f8d04dcf4feb1475ae">keepinvariant</a>(g)&#160;&#160;&#160;((g)-&gt;gcstate &lt;= <a class="el" href="#a7c7806ab609fa3c19ed9c2b688e10730">GCSatomic</a>)</td></tr>
-<tr class="separator:a40b40242e96f45f8d04dcf4feb1475ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a486033531260010debe876a076dd2a41" id="r_a486033531260010debe876a076dd2a41"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a486033531260010debe876a076dd2a41">resetbits</a>(x,  m)&#160;&#160;&#160;((x) &amp;= <a class="el" href="llimits_8h.html#a596f5b6e992f53a5a4e5732083448dd4">cast_byte</a>(~(m)))</td></tr>
-<tr class="separator:a486033531260010debe876a076dd2a41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada181faae5c9af4ed7392057c5dcbbae" id="r_ada181faae5c9af4ed7392057c5dcbbae"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ada181faae5c9af4ed7392057c5dcbbae">setbits</a>(x,  m)&#160;&#160;&#160;((x) |= (m))</td></tr>
-<tr class="separator:ada181faae5c9af4ed7392057c5dcbbae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7612bc83b764b507e12e08417a053854" id="r_a7612bc83b764b507e12e08417a053854"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7612bc83b764b507e12e08417a053854">testbits</a>(x,  m)&#160;&#160;&#160;((x) &amp; (m))</td></tr>
-<tr class="separator:a7612bc83b764b507e12e08417a053854"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af25866c39979dd1f72110cbd3a1a427d" id="r_af25866c39979dd1f72110cbd3a1a427d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af25866c39979dd1f72110cbd3a1a427d">bitmask</a>(<a class="el" href="banner_8c.html#a59f91842bc238cf5dc3ec26d30fb950a">b</a>)&#160;&#160;&#160;(1&lt;&lt;(<a class="el" href="banner_8c.html#a59f91842bc238cf5dc3ec26d30fb950a">b</a>))</td></tr>
-<tr class="separator:af25866c39979dd1f72110cbd3a1a427d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39293d5e5fbd7bb9a24556b3e2f15d43" id="r_a39293d5e5fbd7bb9a24556b3e2f15d43"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a39293d5e5fbd7bb9a24556b3e2f15d43">bit2mask</a>(b1,  b2)&#160;&#160;&#160;(<a class="el" href="#af25866c39979dd1f72110cbd3a1a427d">bitmask</a>(b1) | <a class="el" href="#af25866c39979dd1f72110cbd3a1a427d">bitmask</a>(b2))</td></tr>
-<tr class="separator:a39293d5e5fbd7bb9a24556b3e2f15d43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad559b25ee580ea2894c540dc817e41f" id="r_aad559b25ee580ea2894c540dc817e41f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aad559b25ee580ea2894c540dc817e41f">l_setbit</a>(x,  <a class="el" href="banner_8c.html#a59f91842bc238cf5dc3ec26d30fb950a">b</a>)&#160;&#160;&#160;<a class="el" href="#ada181faae5c9af4ed7392057c5dcbbae">setbits</a>(x, <a class="el" href="#af25866c39979dd1f72110cbd3a1a427d">bitmask</a>(<a class="el" href="banner_8c.html#a59f91842bc238cf5dc3ec26d30fb950a">b</a>))</td></tr>
-<tr class="separator:aad559b25ee580ea2894c540dc817e41f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca0beb244185329a1b8f0e695ef47748" id="r_aca0beb244185329a1b8f0e695ef47748"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aca0beb244185329a1b8f0e695ef47748">resetbit</a>(x,  <a class="el" href="banner_8c.html#a59f91842bc238cf5dc3ec26d30fb950a">b</a>)&#160;&#160;&#160;<a class="el" href="#a486033531260010debe876a076dd2a41">resetbits</a>(x, <a class="el" href="#af25866c39979dd1f72110cbd3a1a427d">bitmask</a>(<a class="el" href="banner_8c.html#a59f91842bc238cf5dc3ec26d30fb950a">b</a>))</td></tr>
-<tr class="separator:aca0beb244185329a1b8f0e695ef47748"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25c19ff3161e2a2395ba69fdef49915f" id="r_a25c19ff3161e2a2395ba69fdef49915f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a25c19ff3161e2a2395ba69fdef49915f">testbit</a>(x,  <a class="el" href="banner_8c.html#a59f91842bc238cf5dc3ec26d30fb950a">b</a>)&#160;&#160;&#160;<a class="el" href="#a7612bc83b764b507e12e08417a053854">testbits</a>(x, <a class="el" href="#af25866c39979dd1f72110cbd3a1a427d">bitmask</a>(<a class="el" href="banner_8c.html#a59f91842bc238cf5dc3ec26d30fb950a">b</a>))</td></tr>
-<tr class="separator:a25c19ff3161e2a2395ba69fdef49915f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b3ebb4bccaf9a33e772a2f4515519e6" id="r_a4b3ebb4bccaf9a33e772a2f4515519e6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4b3ebb4bccaf9a33e772a2f4515519e6">WHITE0BIT</a>&#160;&#160;&#160;3  /* object is white (type 0) */</td></tr>
-<tr class="separator:a4b3ebb4bccaf9a33e772a2f4515519e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7de7885f3d09155a2c530154ec045d72" id="r_a7de7885f3d09155a2c530154ec045d72"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7de7885f3d09155a2c530154ec045d72">WHITE1BIT</a>&#160;&#160;&#160;4  /* object is white (type 1) */</td></tr>
-<tr class="separator:a7de7885f3d09155a2c530154ec045d72"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd17af3c46cb360dc67cad2b33b6a26f" id="r_acd17af3c46cb360dc67cad2b33b6a26f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acd17af3c46cb360dc67cad2b33b6a26f">BLACKBIT</a>&#160;&#160;&#160;5  /* object is black */</td></tr>
-<tr class="separator:acd17af3c46cb360dc67cad2b33b6a26f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a92211ad01420ac616819ba8f61ca7365" id="r_a92211ad01420ac616819ba8f61ca7365"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a92211ad01420ac616819ba8f61ca7365">FINALIZEDBIT</a>&#160;&#160;&#160;6  /* object has been marked for finalization */</td></tr>
-<tr class="separator:a92211ad01420ac616819ba8f61ca7365"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab85d4eae1efa2e1a40d2f41bdbbda226" id="r_ab85d4eae1efa2e1a40d2f41bdbbda226"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab85d4eae1efa2e1a40d2f41bdbbda226">TESTBIT</a>&#160;&#160;&#160;7</td></tr>
-<tr class="separator:ab85d4eae1efa2e1a40d2f41bdbbda226"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0acb34c1b3d1234f11ee9fdc34df3f71" id="r_a0acb34c1b3d1234f11ee9fdc34df3f71"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0acb34c1b3d1234f11ee9fdc34df3f71">WHITEBITS</a>&#160;&#160;&#160;<a class="el" href="#a39293d5e5fbd7bb9a24556b3e2f15d43">bit2mask</a>(<a class="el" href="#a4b3ebb4bccaf9a33e772a2f4515519e6">WHITE0BIT</a>, <a class="el" href="#a7de7885f3d09155a2c530154ec045d72">WHITE1BIT</a>)</td></tr>
-<tr class="separator:a0acb34c1b3d1234f11ee9fdc34df3f71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c0ce78d476460d2e54914301f4a4bf7" id="r_a4c0ce78d476460d2e54914301f4a4bf7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4c0ce78d476460d2e54914301f4a4bf7">iswhite</a>(x)&#160;&#160;&#160;<a class="el" href="#a7612bc83b764b507e12e08417a053854">testbits</a>((x)-&gt;marked, <a class="el" href="#a0acb34c1b3d1234f11ee9fdc34df3f71">WHITEBITS</a>)</td></tr>
-<tr class="separator:a4c0ce78d476460d2e54914301f4a4bf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1e4847ad9a91e4cea36520dc9078365" id="r_ac1e4847ad9a91e4cea36520dc9078365"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac1e4847ad9a91e4cea36520dc9078365">isblack</a>(x)&#160;&#160;&#160;<a class="el" href="#a25c19ff3161e2a2395ba69fdef49915f">testbit</a>((x)-&gt;marked, <a class="el" href="#acd17af3c46cb360dc67cad2b33b6a26f">BLACKBIT</a>)</td></tr>
-<tr class="separator:ac1e4847ad9a91e4cea36520dc9078365"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad417e22072630b33cf74a3055b27d8d7" id="r_ad417e22072630b33cf74a3055b27d8d7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad417e22072630b33cf74a3055b27d8d7">isgray</a>(x)</td></tr>
-<tr class="separator:ad417e22072630b33cf74a3055b27d8d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d17f226d57a796f7741f457400cf8bd" id="r_a6d17f226d57a796f7741f457400cf8bd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6d17f226d57a796f7741f457400cf8bd">tofinalize</a>(x)&#160;&#160;&#160;<a class="el" href="#a25c19ff3161e2a2395ba69fdef49915f">testbit</a>((x)-&gt;marked, <a class="el" href="#a92211ad01420ac616819ba8f61ca7365">FINALIZEDBIT</a>)</td></tr>
-<tr class="separator:a6d17f226d57a796f7741f457400cf8bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a486df16493498577d4081a8c231154f0" id="r_a486df16493498577d4081a8c231154f0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a486df16493498577d4081a8c231154f0">otherwhite</a>(g)&#160;&#160;&#160;((g)-&gt;currentwhite ^ <a class="el" href="#a0acb34c1b3d1234f11ee9fdc34df3f71">WHITEBITS</a>)</td></tr>
-<tr class="separator:a486df16493498577d4081a8c231154f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0540e865b6cd21e83104cf427c968c86" id="r_a0540e865b6cd21e83104cf427c968c86"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0540e865b6cd21e83104cf427c968c86">isdeadm</a>(ow,  m)&#160;&#160;&#160;((m) &amp; (ow))</td></tr>
-<tr class="separator:a0540e865b6cd21e83104cf427c968c86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc409eb45f598d23d8388fc9e96189ea" id="r_acc409eb45f598d23d8388fc9e96189ea"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acc409eb45f598d23d8388fc9e96189ea">isdead</a>(g,  <a class="el" href="lmem_8h.html#ac4055e3a20b6b3af3d10590ea446ef6c">v</a>)&#160;&#160;&#160;<a class="el" href="#a0540e865b6cd21e83104cf427c968c86">isdeadm</a>(<a class="el" href="#a486df16493498577d4081a8c231154f0">otherwhite</a>(g), (<a class="el" href="lmem_8h.html#ac4055e3a20b6b3af3d10590ea446ef6c">v</a>)-&gt;marked)</td></tr>
-<tr class="separator:acc409eb45f598d23d8388fc9e96189ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28e94f77147fd242f514b98a1b251486" id="r_a28e94f77147fd242f514b98a1b251486"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a28e94f77147fd242f514b98a1b251486">changewhite</a>(x)&#160;&#160;&#160;((x)-&gt;marked ^= <a class="el" href="#a0acb34c1b3d1234f11ee9fdc34df3f71">WHITEBITS</a>)</td></tr>
-<tr class="separator:a28e94f77147fd242f514b98a1b251486"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a990de0d171d8b5425a5515d0bff78789" id="r_a990de0d171d8b5425a5515d0bff78789"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a990de0d171d8b5425a5515d0bff78789">nw2black</a>(x)&#160;&#160;&#160;	<a class="el" href="llimits_8h.html#afac1404af62451f8653440ecb6e773fc">check_exp</a>(!<a class="el" href="#a4c0ce78d476460d2e54914301f4a4bf7">iswhite</a>(x), <a class="el" href="#aad559b25ee580ea2894c540dc817e41f">l_setbit</a>((x)-&gt;marked, <a class="el" href="#acd17af3c46cb360dc67cad2b33b6a26f">BLACKBIT</a>))</td></tr>
-<tr class="separator:a990de0d171d8b5425a5515d0bff78789"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afaa8a52c4097cf3a5eacd88db94092da" id="r_afaa8a52c4097cf3a5eacd88db94092da"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afaa8a52c4097cf3a5eacd88db94092da">luaC_white</a>(g)&#160;&#160;&#160;<a class="el" href="llimits_8h.html#a596f5b6e992f53a5a4e5732083448dd4">cast_byte</a>((g)-&gt;currentwhite &amp; <a class="el" href="#a0acb34c1b3d1234f11ee9fdc34df3f71">WHITEBITS</a>)</td></tr>
-<tr class="separator:afaa8a52c4097cf3a5eacd88db94092da"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a611544eedb63012098eab46a011fe618" id="r_a611544eedb63012098eab46a011fe618"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a611544eedb63012098eab46a011fe618">G_NEW</a>&#160;&#160;&#160;0	/* created in current cycle */</td></tr>
-<tr class="separator:a611544eedb63012098eab46a011fe618"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8c9510ab591432a3b80e90519156116" id="r_aa8c9510ab591432a3b80e90519156116"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa8c9510ab591432a3b80e90519156116">G_SURVIVAL</a>&#160;&#160;&#160;1	/* created in previous cycle */</td></tr>
-<tr class="separator:aa8c9510ab591432a3b80e90519156116"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19ac124332eabcbdcb744e14923700b9" id="r_a19ac124332eabcbdcb744e14923700b9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a19ac124332eabcbdcb744e14923700b9">G_OLD0</a>&#160;&#160;&#160;2	/* marked old by frw. barrier in this cycle */</td></tr>
-<tr class="separator:a19ac124332eabcbdcb744e14923700b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a266a8ec4a8dbacf8d7b99dca3adcac90" id="r_a266a8ec4a8dbacf8d7b99dca3adcac90"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a266a8ec4a8dbacf8d7b99dca3adcac90">G_OLD1</a>&#160;&#160;&#160;3	/* first full cycle as old */</td></tr>
-<tr class="separator:a266a8ec4a8dbacf8d7b99dca3adcac90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96372e9b92aa939f300e0477ba112716" id="r_a96372e9b92aa939f300e0477ba112716"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a96372e9b92aa939f300e0477ba112716">G_OLD</a>&#160;&#160;&#160;4	/* really old object (not to be visited) */</td></tr>
-<tr class="separator:a96372e9b92aa939f300e0477ba112716"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2c1796f4fb3359730723ce0acd2d162" id="r_ae2c1796f4fb3359730723ce0acd2d162"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae2c1796f4fb3359730723ce0acd2d162">G_TOUCHED1</a>&#160;&#160;&#160;5	/* old object touched this cycle */</td></tr>
-<tr class="separator:ae2c1796f4fb3359730723ce0acd2d162"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2b8a2255c79c9f43f88d1625767e1bf" id="r_ac2b8a2255c79c9f43f88d1625767e1bf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2b8a2255c79c9f43f88d1625767e1bf">G_TOUCHED2</a>&#160;&#160;&#160;6	/* old object touched in previous cycle */</td></tr>
-<tr class="separator:ac2b8a2255c79c9f43f88d1625767e1bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b446e7d0b31628385b7a1f444192e9a" id="r_a3b446e7d0b31628385b7a1f444192e9a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3b446e7d0b31628385b7a1f444192e9a">AGEBITS</a>&#160;&#160;&#160;7  /* all age bits (111) */</td></tr>
-<tr class="separator:a3b446e7d0b31628385b7a1f444192e9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae68465c1574c4b45a05a6548ad934235" id="r_ae68465c1574c4b45a05a6548ad934235"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae68465c1574c4b45a05a6548ad934235">getage</a>(o)&#160;&#160;&#160;((o)-&gt;marked &amp; <a class="el" href="#a3b446e7d0b31628385b7a1f444192e9a">AGEBITS</a>)</td></tr>
-<tr class="separator:ae68465c1574c4b45a05a6548ad934235"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a42f07cc5f8f0a9d97989f7769f00c3f2" id="r_a42f07cc5f8f0a9d97989f7769f00c3f2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a42f07cc5f8f0a9d97989f7769f00c3f2">setage</a>(o,  a)&#160;&#160;&#160;((o)-&gt;marked = <a class="el" href="llimits_8h.html#a596f5b6e992f53a5a4e5732083448dd4">cast_byte</a>(((o)-&gt;marked &amp; (~<a class="el" href="#a3b446e7d0b31628385b7a1f444192e9a">AGEBITS</a>)) | a))</td></tr>
-<tr class="separator:a42f07cc5f8f0a9d97989f7769f00c3f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24d47e523ecf2d6e475a34913ce06b05" id="r_a24d47e523ecf2d6e475a34913ce06b05"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a24d47e523ecf2d6e475a34913ce06b05">isold</a>(o)&#160;&#160;&#160;(<a class="el" href="#ae68465c1574c4b45a05a6548ad934235">getage</a>(o) &gt; <a class="el" href="#aa8c9510ab591432a3b80e90519156116">G_SURVIVAL</a>)</td></tr>
-<tr class="separator:a24d47e523ecf2d6e475a34913ce06b05"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61d44df5c26bb4efcf4e19b500933bbb" id="r_a61d44df5c26bb4efcf4e19b500933bbb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a61d44df5c26bb4efcf4e19b500933bbb">changeage</a>(o,  f,  t)&#160;&#160;&#160;	<a class="el" href="llimits_8h.html#afac1404af62451f8653440ecb6e773fc">check_exp</a>(<a class="el" href="#ae68465c1574c4b45a05a6548ad934235">getage</a>(o) == (f), (o)-&gt;marked ^= ((f)^(t)))</td></tr>
-<tr class="separator:a61d44df5c26bb4efcf4e19b500933bbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6adb6d8358e1ed9e94c88f810c8dd44e" id="r_a6adb6d8358e1ed9e94c88f810c8dd44e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6adb6d8358e1ed9e94c88f810c8dd44e">LUAI_GENMAJORMUL</a>&#160;&#160;&#160;100</td></tr>
-<tr class="separator:a6adb6d8358e1ed9e94c88f810c8dd44e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1660119f32a7ea875ce967d1ef8deadc" id="r_a1660119f32a7ea875ce967d1ef8deadc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1660119f32a7ea875ce967d1ef8deadc">LUAI_GENMINORMUL</a>&#160;&#160;&#160;20</td></tr>
-<tr class="separator:a1660119f32a7ea875ce967d1ef8deadc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a961a6871328af0c7bb50169633e15fd9" id="r_a961a6871328af0c7bb50169633e15fd9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a961a6871328af0c7bb50169633e15fd9">LUAI_GCPAUSE</a>&#160;&#160;&#160;200</td></tr>
-<tr class="separator:a961a6871328af0c7bb50169633e15fd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1991625e57703760cf5236bc02cd8858" id="r_a1991625e57703760cf5236bc02cd8858"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1991625e57703760cf5236bc02cd8858">getgcparam</a>(<a class="el" href="#ac483f6ce851c9ecd9fb835ff7551737c">p</a>)&#160;&#160;&#160;((<a class="el" href="#ac483f6ce851c9ecd9fb835ff7551737c">p</a>) * 4)</td></tr>
-<tr class="separator:a1991625e57703760cf5236bc02cd8858"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a757077227d006e517adfaa82c2d30e72" id="r_a757077227d006e517adfaa82c2d30e72"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a757077227d006e517adfaa82c2d30e72">setgcparam</a>(<a class="el" href="#ac483f6ce851c9ecd9fb835ff7551737c">p</a>,  <a class="el" href="lmem_8h.html#ac4055e3a20b6b3af3d10590ea446ef6c">v</a>)&#160;&#160;&#160;((<a class="el" href="#ac483f6ce851c9ecd9fb835ff7551737c">p</a>) = (<a class="el" href="lmem_8h.html#ac4055e3a20b6b3af3d10590ea446ef6c">v</a>) / 4)</td></tr>
-<tr class="separator:a757077227d006e517adfaa82c2d30e72"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adccc1cf9bf213c770940796d73635444" id="r_adccc1cf9bf213c770940796d73635444"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adccc1cf9bf213c770940796d73635444">LUAI_GCMUL</a>&#160;&#160;&#160;100</td></tr>
-<tr class="separator:adccc1cf9bf213c770940796d73635444"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5289131664af0f4b111556cb5b4bfe9c" id="r_a5289131664af0f4b111556cb5b4bfe9c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5289131664af0f4b111556cb5b4bfe9c">LUAI_GCSTEPSIZE</a>&#160;&#160;&#160;13      /* 8 <a class="el" href="lvm_8c.html#a11423b97da0e060b24d31d7e71534844">KB</a> */</td></tr>
-<tr class="separator:a5289131664af0f4b111556cb5b4bfe9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a634f3aa786242e81eb2d29da7cdacf4a" id="r_a634f3aa786242e81eb2d29da7cdacf4a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a634f3aa786242e81eb2d29da7cdacf4a">isdecGCmodegen</a>(g)&#160;&#160;&#160;(g-&gt;gckind == <a class="el" href="lstate_8h.html#aa2765fe939333ebc895ba9cedbaa30a0">KGC_GEN</a> || g-&gt;lastatomic != 0)</td></tr>
-<tr class="separator:a634f3aa786242e81eb2d29da7cdacf4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9890d156587456839976f603182f149" id="r_aa9890d156587456839976f603182f149"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa9890d156587456839976f603182f149">GCSTPUSR</a>&#160;&#160;&#160;1  /* <a class="el" href="canvas_8h.html#a469c4386615fecd686baf81fbe49ffd5">bit</a> true when GC stopped by user */</td></tr>
-<tr class="separator:aa9890d156587456839976f603182f149"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab06b1865fce256860b3d3725ba8a5bac" id="r_ab06b1865fce256860b3d3725ba8a5bac"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab06b1865fce256860b3d3725ba8a5bac">GCSTPGC</a>&#160;&#160;&#160;2  /* <a class="el" href="canvas_8h.html#a469c4386615fecd686baf81fbe49ffd5">bit</a> true when GC stopped by itself */</td></tr>
-<tr class="separator:ab06b1865fce256860b3d3725ba8a5bac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a653c5ba27eb73b11e98b24be5ad6a482" id="r_a653c5ba27eb73b11e98b24be5ad6a482"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a653c5ba27eb73b11e98b24be5ad6a482">GCSTPCLS</a>&#160;&#160;&#160;4  /* <a class="el" href="canvas_8h.html#a469c4386615fecd686baf81fbe49ffd5">bit</a> true when closing Lua state */</td></tr>
-<tr class="separator:a653c5ba27eb73b11e98b24be5ad6a482"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aacd605dd207b4569b464c38b2a5532d8" id="r_aacd605dd207b4569b464c38b2a5532d8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aacd605dd207b4569b464c38b2a5532d8">gcrunning</a>(g)&#160;&#160;&#160;((g)-&gt;gcstp == 0)</td></tr>
-<tr class="separator:aacd605dd207b4569b464c38b2a5532d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52f302b0dac5467152f322c8fe1c1a3e" id="r_a52f302b0dac5467152f322c8fe1c1a3e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a52f302b0dac5467152f322c8fe1c1a3e">luaC_condGC</a>(<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>,  pre,  pos)</td></tr>
-<tr class="separator:a52f302b0dac5467152f322c8fe1c1a3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad013db5004ccc5fbe8a6450caa1f1ad9" id="r_ad013db5004ccc5fbe8a6450caa1f1ad9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad013db5004ccc5fbe8a6450caa1f1ad9">luaC_checkGC</a>(<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)&#160;&#160;&#160;<a class="el" href="#a52f302b0dac5467152f322c8fe1c1a3e">luaC_condGC</a>(<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>,(void)0,(void)0)</td></tr>
-<tr class="separator:ad013db5004ccc5fbe8a6450caa1f1ad9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90ac4f3c7085a418025edcc7215e8983" id="r_a90ac4f3c7085a418025edcc7215e8983"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a90ac4f3c7085a418025edcc7215e8983">luaC_objbarrier</a>(<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>,  <a class="el" href="#ac483f6ce851c9ecd9fb835ff7551737c">p</a>,  o)</td></tr>
-<tr class="separator:a90ac4f3c7085a418025edcc7215e8983"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21660a316c42bc1aad10f115e2261bca" id="r_a21660a316c42bc1aad10f115e2261bca"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a21660a316c42bc1aad10f115e2261bca">luaC_barrier</a>(<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>,  <a class="el" href="#ac483f6ce851c9ecd9fb835ff7551737c">p</a>,  <a class="el" href="lmem_8h.html#ac4055e3a20b6b3af3d10590ea446ef6c">v</a>)</td></tr>
-<tr class="separator:a21660a316c42bc1aad10f115e2261bca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aabe37ed7d61a6f603f8a3b259c34c846" id="r_aabe37ed7d61a6f603f8a3b259c34c846"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aabe37ed7d61a6f603f8a3b259c34c846">luaC_objbarrierback</a>(<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>,  <a class="el" href="#ac483f6ce851c9ecd9fb835ff7551737c">p</a>,  o)</td></tr>
-<tr class="separator:aabe37ed7d61a6f603f8a3b259c34c846"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60903f232a1c51d22de556ea4c144f3a" id="r_a60903f232a1c51d22de556ea4c144f3a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a60903f232a1c51d22de556ea4c144f3a">luaC_barrierback</a>(<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>,  <a class="el" href="#ac483f6ce851c9ecd9fb835ff7551737c">p</a>,  <a class="el" href="lmem_8h.html#ac4055e3a20b6b3af3d10590ea446ef6c">v</a>)</td></tr>
-<tr class="separator:a60903f232a1c51d22de556ea4c144f3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac483f6ce851c9ecd9fb835ff7551737c" id="r_ac483f6ce851c9ecd9fb835ff7551737c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac483f6ce851c9ecd9fb835ff7551737c">p</a></td></tr>
-<tr class="separator:ac483f6ce851c9ecd9fb835ff7551737c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a170d1841c66e3138d885a0fc136cbb30" id="r_a170d1841c66e3138d885a0fc136cbb30"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a170d1841c66e3138d885a0fc136cbb30">iscollectable</a> (<a class="el" href="lmem_8h.html#ac4055e3a20b6b3af3d10590ea446ef6c">v</a>) ? <a class="el" href="#aabe37ed7d61a6f603f8a3b259c34c846">luaC_objbarrierback</a>(<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a></td></tr>
-<tr class="separator:a170d1841c66e3138d885a0fc136cbb30"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gabad938b33f011ec1088d1a79508c6ac9" id="r_gabad938b33f011ec1088d1a79508c6ac9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="lobject_8h.html#a05cdf6070135f10ad37e1048a730b634">gcvalue</a>(<a class="el" href="lmem_8h.html#ac4055e3a20b6b3af3d10590ea446ef6c">v</a>)) <a class="el" href="luaconf_8h.html#a3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gabad938b33f011ec1088d1a79508c6ac9">luaC_freeallobjects</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
-<tr class="separator:gabad938b33f011ec1088d1a79508c6ac9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab0133eb7bb37a0a690e0ef71fbc13414" id="r_gab0133eb7bb37a0a690e0ef71fbc13414"><td class="memItemLeft" align="right" valign="top"><a class="el" href="luaconf_8h.html#a3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gab0133eb7bb37a0a690e0ef71fbc13414">luaC_step</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
-<tr class="separator:gab0133eb7bb37a0a690e0ef71fbc13414"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga97086b84273579d4c9b42a782f30410d" id="r_ga97086b84273579d4c9b42a782f30410d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="luaconf_8h.html#a3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga97086b84273579d4c9b42a782f30410d">luaC_runtilstate</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, int statesmask)</td></tr>
-<tr class="separator:ga97086b84273579d4c9b42a782f30410d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac48130e5263ad8be09a9c51dae6125b9" id="r_gac48130e5263ad8be09a9c51dae6125b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="luaconf_8h.html#a3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gac48130e5263ad8be09a9c51dae6125b9">luaC_fullgc</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, int isemergency)</td></tr>
-<tr class="separator:gac48130e5263ad8be09a9c51dae6125b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gadd162bc704b7ea7de8f51eb99fd531aa" id="r_gadd162bc704b7ea7de8f51eb99fd531aa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="luaconf_8h.html#a3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> <a class="el" href="structGCObject.html">GCObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gadd162bc704b7ea7de8f51eb99fd531aa">luaC_newobj</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, int tt, size_t sz)</td></tr>
-<tr class="separator:gadd162bc704b7ea7de8f51eb99fd531aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2d118d8d8d0ffbab87d70d2b05c41fec" id="r_ga2d118d8d8d0ffbab87d70d2b05c41fec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="luaconf_8h.html#a3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> <a class="el" href="structGCObject.html">GCObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga2d118d8d8d0ffbab87d70d2b05c41fec">luaC_newobjdt</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, int tt, size_t sz, size_t offset)</td></tr>
-<tr class="separator:ga2d118d8d8d0ffbab87d70d2b05c41fec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga72c69b5d5554e0ea4b65e894f2a50793" id="r_ga72c69b5d5554e0ea4b65e894f2a50793"><td class="memItemLeft" align="right" valign="top"><a class="el" href="luaconf_8h.html#a3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga72c69b5d5554e0ea4b65e894f2a50793">luaC_barrier_</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="el" href="structGCObject.html">GCObject</a> *o, <a class="el" href="structGCObject.html">GCObject</a> *<a class="el" href="lmem_8h.html#ac4055e3a20b6b3af3d10590ea446ef6c">v</a>)</td></tr>
-<tr class="separator:ga72c69b5d5554e0ea4b65e894f2a50793"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga61ad59cdf3484ff64c0c3cb7a48388ad" id="r_ga61ad59cdf3484ff64c0c3cb7a48388ad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="luaconf_8h.html#a3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga61ad59cdf3484ff64c0c3cb7a48388ad">luaC_barrierback_</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="el" href="structGCObject.html">GCObject</a> *o)</td></tr>
-<tr class="separator:ga61ad59cdf3484ff64c0c3cb7a48388ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0d4f5fb6a8831817e117cfff473aeb0e" id="r_ga0d4f5fb6a8831817e117cfff473aeb0e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="luaconf_8h.html#a3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga0d4f5fb6a8831817e117cfff473aeb0e">luaC_checkfinalizer</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="el" href="structGCObject.html">GCObject</a> *o, <a class="el" href="structTable.html">Table</a> *mt)</td></tr>
-<tr class="separator:ga0d4f5fb6a8831817e117cfff473aeb0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac88d5c236307393937e02bc82c10f970" id="r_gac88d5c236307393937e02bc82c10f970"><td class="memItemLeft" align="right" valign="top"><a class="el" href="luaconf_8h.html#a3f43b35a70c93f2cfde1db42a5a24f1e">LUAI_FUNC</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gac88d5c236307393937e02bc82c10f970">luaC_changemode</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, int newmode)</td></tr>
-<tr class="separator:gac88d5c236307393937e02bc82c10f970"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2ed301793747f3a2d0a7fc7d64d482fd" id="r_ga2ed301793747f3a2d0a7fc7d64d482fd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga2ed301793747f3a2d0a7fc7d64d482fd">GCSpropagate</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:ga2ed301793747f3a2d0a7fc7d64d482fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7d4a80ad5991cca9822822f63deef987" id="r_ga7d4a80ad5991cca9822822f63deef987"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga7d4a80ad5991cca9822822f63deef987">GCSenteratomic</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:ga7d4a80ad5991cca9822822f63deef987"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7c7806ab609fa3c19ed9c2b688e10730" id="r_ga7c7806ab609fa3c19ed9c2b688e10730"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga7c7806ab609fa3c19ed9c2b688e10730">GCSatomic</a>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:ga7c7806ab609fa3c19ed9c2b688e10730"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaac9b5b472434aa8d38a89b46b6b29196" id="r_gaac9b5b472434aa8d38a89b46b6b29196"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gaac9b5b472434aa8d38a89b46b6b29196">GCSswpallgc</a>&#160;&#160;&#160;3</td></tr>
+<tr class="separator:gaac9b5b472434aa8d38a89b46b6b29196"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9d28766c63918e69c9ea3853a3e6c4c0" id="r_ga9d28766c63918e69c9ea3853a3e6c4c0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga9d28766c63918e69c9ea3853a3e6c4c0">GCSswpfinobj</a>&#160;&#160;&#160;4</td></tr>
+<tr class="separator:ga9d28766c63918e69c9ea3853a3e6c4c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga152f379e712cbc7f0bfa2c6a3e15166d" id="r_ga152f379e712cbc7f0bfa2c6a3e15166d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga152f379e712cbc7f0bfa2c6a3e15166d">GCSswptobefnz</a>&#160;&#160;&#160;5</td></tr>
+<tr class="separator:ga152f379e712cbc7f0bfa2c6a3e15166d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4e40597ebd731cafa743cd9a8e0db709" id="r_ga4e40597ebd731cafa743cd9a8e0db709"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga4e40597ebd731cafa743cd9a8e0db709">GCSswpend</a>&#160;&#160;&#160;6</td></tr>
+<tr class="separator:ga4e40597ebd731cafa743cd9a8e0db709"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga84094ff0ba3d8c7d4f84984e74f7705a" id="r_ga84094ff0ba3d8c7d4f84984e74f7705a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga84094ff0ba3d8c7d4f84984e74f7705a">GCScallfin</a>&#160;&#160;&#160;7</td></tr>
+<tr class="separator:ga84094ff0ba3d8c7d4f84984e74f7705a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab546d91106ec5cfdba254de13e5b5c5f" id="r_gab546d91106ec5cfdba254de13e5b5c5f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gab546d91106ec5cfdba254de13e5b5c5f">GCSpause</a>&#160;&#160;&#160;8</td></tr>
+<tr class="separator:gab546d91106ec5cfdba254de13e5b5c5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga860db734bc919435aba75c30e4fe261b" id="r_ga860db734bc919435aba75c30e4fe261b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga860db734bc919435aba75c30e4fe261b">issweepphase</a>(g)&#160;&#160;&#160;	(<a class="el" href="group__LuaSrc.html#gaac9b5b472434aa8d38a89b46b6b29196">GCSswpallgc</a> &lt;= (g)-&gt;gcstate &amp;&amp; (g)-&gt;gcstate &lt;= <a class="el" href="group__LuaSrc.html#ga4e40597ebd731cafa743cd9a8e0db709">GCSswpend</a>)</td></tr>
+<tr class="separator:ga860db734bc919435aba75c30e4fe261b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga40b40242e96f45f8d04dcf4feb1475ae" id="r_ga40b40242e96f45f8d04dcf4feb1475ae"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga40b40242e96f45f8d04dcf4feb1475ae">keepinvariant</a>(g)&#160;&#160;&#160;((g)-&gt;gcstate &lt;= <a class="el" href="group__LuaSrc.html#ga7c7806ab609fa3c19ed9c2b688e10730">GCSatomic</a>)</td></tr>
+<tr class="separator:ga40b40242e96f45f8d04dcf4feb1475ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga486033531260010debe876a076dd2a41" id="r_ga486033531260010debe876a076dd2a41"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga486033531260010debe876a076dd2a41">resetbits</a>(x,  m)&#160;&#160;&#160;((x) &amp;= <a class="el" href="llimits_8h.html#a596f5b6e992f53a5a4e5732083448dd4">cast_byte</a>(~(m)))</td></tr>
+<tr class="separator:ga486033531260010debe876a076dd2a41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gada181faae5c9af4ed7392057c5dcbbae" id="r_gada181faae5c9af4ed7392057c5dcbbae"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gada181faae5c9af4ed7392057c5dcbbae">setbits</a>(x,  m)&#160;&#160;&#160;((x) |= (m))</td></tr>
+<tr class="separator:gada181faae5c9af4ed7392057c5dcbbae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7612bc83b764b507e12e08417a053854" id="r_ga7612bc83b764b507e12e08417a053854"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga7612bc83b764b507e12e08417a053854">testbits</a>(x,  m)&#160;&#160;&#160;((x) &amp; (m))</td></tr>
+<tr class="separator:ga7612bc83b764b507e12e08417a053854"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf25866c39979dd1f72110cbd3a1a427d" id="r_gaf25866c39979dd1f72110cbd3a1a427d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gaf25866c39979dd1f72110cbd3a1a427d">bitmask</a>(<a class="el" href="banner_8c.html#a59f91842bc238cf5dc3ec26d30fb950a">b</a>)&#160;&#160;&#160;(1&lt;&lt;(<a class="el" href="banner_8c.html#a59f91842bc238cf5dc3ec26d30fb950a">b</a>))</td></tr>
+<tr class="separator:gaf25866c39979dd1f72110cbd3a1a427d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga39293d5e5fbd7bb9a24556b3e2f15d43" id="r_ga39293d5e5fbd7bb9a24556b3e2f15d43"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga39293d5e5fbd7bb9a24556b3e2f15d43">bit2mask</a>(b1,  b2)&#160;&#160;&#160;(<a class="el" href="group__LuaSrc.html#gaf25866c39979dd1f72110cbd3a1a427d">bitmask</a>(b1) | <a class="el" href="group__LuaSrc.html#gaf25866c39979dd1f72110cbd3a1a427d">bitmask</a>(b2))</td></tr>
+<tr class="separator:ga39293d5e5fbd7bb9a24556b3e2f15d43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaad559b25ee580ea2894c540dc817e41f" id="r_gaad559b25ee580ea2894c540dc817e41f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gaad559b25ee580ea2894c540dc817e41f">l_setbit</a>(x,  <a class="el" href="banner_8c.html#a59f91842bc238cf5dc3ec26d30fb950a">b</a>)&#160;&#160;&#160;<a class="el" href="group__LuaSrc.html#gada181faae5c9af4ed7392057c5dcbbae">setbits</a>(x, <a class="el" href="group__LuaSrc.html#gaf25866c39979dd1f72110cbd3a1a427d">bitmask</a>(<a class="el" href="banner_8c.html#a59f91842bc238cf5dc3ec26d30fb950a">b</a>))</td></tr>
+<tr class="separator:gaad559b25ee580ea2894c540dc817e41f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaca0beb244185329a1b8f0e695ef47748" id="r_gaca0beb244185329a1b8f0e695ef47748"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gaca0beb244185329a1b8f0e695ef47748">resetbit</a>(x,  <a class="el" href="banner_8c.html#a59f91842bc238cf5dc3ec26d30fb950a">b</a>)&#160;&#160;&#160;<a class="el" href="group__LuaSrc.html#ga486033531260010debe876a076dd2a41">resetbits</a>(x, <a class="el" href="group__LuaSrc.html#gaf25866c39979dd1f72110cbd3a1a427d">bitmask</a>(<a class="el" href="banner_8c.html#a59f91842bc238cf5dc3ec26d30fb950a">b</a>))</td></tr>
+<tr class="separator:gaca0beb244185329a1b8f0e695ef47748"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga25c19ff3161e2a2395ba69fdef49915f" id="r_ga25c19ff3161e2a2395ba69fdef49915f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga25c19ff3161e2a2395ba69fdef49915f">testbit</a>(x,  <a class="el" href="banner_8c.html#a59f91842bc238cf5dc3ec26d30fb950a">b</a>)&#160;&#160;&#160;<a class="el" href="group__LuaSrc.html#ga7612bc83b764b507e12e08417a053854">testbits</a>(x, <a class="el" href="group__LuaSrc.html#gaf25866c39979dd1f72110cbd3a1a427d">bitmask</a>(<a class="el" href="banner_8c.html#a59f91842bc238cf5dc3ec26d30fb950a">b</a>))</td></tr>
+<tr class="separator:ga25c19ff3161e2a2395ba69fdef49915f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4b3ebb4bccaf9a33e772a2f4515519e6" id="r_ga4b3ebb4bccaf9a33e772a2f4515519e6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga4b3ebb4bccaf9a33e772a2f4515519e6">WHITE0BIT</a>&#160;&#160;&#160;3  /* object is white (type 0) */</td></tr>
+<tr class="separator:ga4b3ebb4bccaf9a33e772a2f4515519e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7de7885f3d09155a2c530154ec045d72" id="r_ga7de7885f3d09155a2c530154ec045d72"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga7de7885f3d09155a2c530154ec045d72">WHITE1BIT</a>&#160;&#160;&#160;4  /* object is white (type 1) */</td></tr>
+<tr class="separator:ga7de7885f3d09155a2c530154ec045d72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacd17af3c46cb360dc67cad2b33b6a26f" id="r_gacd17af3c46cb360dc67cad2b33b6a26f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gacd17af3c46cb360dc67cad2b33b6a26f">BLACKBIT</a>&#160;&#160;&#160;5  /* object is black */</td></tr>
+<tr class="separator:gacd17af3c46cb360dc67cad2b33b6a26f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga92211ad01420ac616819ba8f61ca7365" id="r_ga92211ad01420ac616819ba8f61ca7365"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga92211ad01420ac616819ba8f61ca7365">FINALIZEDBIT</a>&#160;&#160;&#160;6  /* object has been marked for finalization */</td></tr>
+<tr class="separator:ga92211ad01420ac616819ba8f61ca7365"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab85d4eae1efa2e1a40d2f41bdbbda226" id="r_gab85d4eae1efa2e1a40d2f41bdbbda226"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gab85d4eae1efa2e1a40d2f41bdbbda226">TESTBIT</a>&#160;&#160;&#160;7</td></tr>
+<tr class="separator:gab85d4eae1efa2e1a40d2f41bdbbda226"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0acb34c1b3d1234f11ee9fdc34df3f71" id="r_ga0acb34c1b3d1234f11ee9fdc34df3f71"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga0acb34c1b3d1234f11ee9fdc34df3f71">WHITEBITS</a>&#160;&#160;&#160;<a class="el" href="group__LuaSrc.html#ga39293d5e5fbd7bb9a24556b3e2f15d43">bit2mask</a>(<a class="el" href="group__LuaSrc.html#ga4b3ebb4bccaf9a33e772a2f4515519e6">WHITE0BIT</a>, <a class="el" href="group__LuaSrc.html#ga7de7885f3d09155a2c530154ec045d72">WHITE1BIT</a>)</td></tr>
+<tr class="separator:ga0acb34c1b3d1234f11ee9fdc34df3f71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4c0ce78d476460d2e54914301f4a4bf7" id="r_ga4c0ce78d476460d2e54914301f4a4bf7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga4c0ce78d476460d2e54914301f4a4bf7">iswhite</a>(x)&#160;&#160;&#160;<a class="el" href="group__LuaSrc.html#ga7612bc83b764b507e12e08417a053854">testbits</a>((x)-&gt;marked, <a class="el" href="group__LuaSrc.html#ga0acb34c1b3d1234f11ee9fdc34df3f71">WHITEBITS</a>)</td></tr>
+<tr class="separator:ga4c0ce78d476460d2e54914301f4a4bf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac1e4847ad9a91e4cea36520dc9078365" id="r_gac1e4847ad9a91e4cea36520dc9078365"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gac1e4847ad9a91e4cea36520dc9078365">isblack</a>(x)&#160;&#160;&#160;<a class="el" href="group__LuaSrc.html#ga25c19ff3161e2a2395ba69fdef49915f">testbit</a>((x)-&gt;marked, <a class="el" href="group__LuaSrc.html#gacd17af3c46cb360dc67cad2b33b6a26f">BLACKBIT</a>)</td></tr>
+<tr class="separator:gac1e4847ad9a91e4cea36520dc9078365"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad417e22072630b33cf74a3055b27d8d7" id="r_gad417e22072630b33cf74a3055b27d8d7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gad417e22072630b33cf74a3055b27d8d7">isgray</a>(x)</td></tr>
+<tr class="separator:gad417e22072630b33cf74a3055b27d8d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6d17f226d57a796f7741f457400cf8bd" id="r_ga6d17f226d57a796f7741f457400cf8bd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga6d17f226d57a796f7741f457400cf8bd">tofinalize</a>(x)&#160;&#160;&#160;<a class="el" href="group__LuaSrc.html#ga25c19ff3161e2a2395ba69fdef49915f">testbit</a>((x)-&gt;marked, <a class="el" href="group__LuaSrc.html#ga92211ad01420ac616819ba8f61ca7365">FINALIZEDBIT</a>)</td></tr>
+<tr class="separator:ga6d17f226d57a796f7741f457400cf8bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga486df16493498577d4081a8c231154f0" id="r_ga486df16493498577d4081a8c231154f0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga486df16493498577d4081a8c231154f0">otherwhite</a>(g)&#160;&#160;&#160;((g)-&gt;currentwhite ^ <a class="el" href="group__LuaSrc.html#ga0acb34c1b3d1234f11ee9fdc34df3f71">WHITEBITS</a>)</td></tr>
+<tr class="separator:ga486df16493498577d4081a8c231154f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0540e865b6cd21e83104cf427c968c86" id="r_ga0540e865b6cd21e83104cf427c968c86"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga0540e865b6cd21e83104cf427c968c86">isdeadm</a>(ow,  m)&#160;&#160;&#160;((m) &amp; (ow))</td></tr>
+<tr class="separator:ga0540e865b6cd21e83104cf427c968c86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacc409eb45f598d23d8388fc9e96189ea" id="r_gacc409eb45f598d23d8388fc9e96189ea"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gacc409eb45f598d23d8388fc9e96189ea">isdead</a>(g,  v)&#160;&#160;&#160;<a class="el" href="group__LuaSrc.html#ga0540e865b6cd21e83104cf427c968c86">isdeadm</a>(<a class="el" href="group__LuaSrc.html#ga486df16493498577d4081a8c231154f0">otherwhite</a>(g), (v)-&gt;marked)</td></tr>
+<tr class="separator:gacc409eb45f598d23d8388fc9e96189ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga28e94f77147fd242f514b98a1b251486" id="r_ga28e94f77147fd242f514b98a1b251486"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga28e94f77147fd242f514b98a1b251486">changewhite</a>(x)&#160;&#160;&#160;((x)-&gt;marked ^= <a class="el" href="group__LuaSrc.html#ga0acb34c1b3d1234f11ee9fdc34df3f71">WHITEBITS</a>)</td></tr>
+<tr class="separator:ga28e94f77147fd242f514b98a1b251486"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga990de0d171d8b5425a5515d0bff78789" id="r_ga990de0d171d8b5425a5515d0bff78789"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga990de0d171d8b5425a5515d0bff78789">nw2black</a>(x)&#160;&#160;&#160;	<a class="el" href="llimits_8h.html#afac1404af62451f8653440ecb6e773fc">check_exp</a>(!<a class="el" href="group__LuaSrc.html#ga4c0ce78d476460d2e54914301f4a4bf7">iswhite</a>(x), <a class="el" href="group__LuaSrc.html#gaad559b25ee580ea2894c540dc817e41f">l_setbit</a>((x)-&gt;marked, <a class="el" href="group__LuaSrc.html#gacd17af3c46cb360dc67cad2b33b6a26f">BLACKBIT</a>))</td></tr>
+<tr class="separator:ga990de0d171d8b5425a5515d0bff78789"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafaa8a52c4097cf3a5eacd88db94092da" id="r_gafaa8a52c4097cf3a5eacd88db94092da"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gafaa8a52c4097cf3a5eacd88db94092da">luaC_white</a>(g)&#160;&#160;&#160;<a class="el" href="llimits_8h.html#a596f5b6e992f53a5a4e5732083448dd4">cast_byte</a>((g)-&gt;currentwhite &amp; <a class="el" href="group__LuaSrc.html#ga0acb34c1b3d1234f11ee9fdc34df3f71">WHITEBITS</a>)</td></tr>
+<tr class="separator:gafaa8a52c4097cf3a5eacd88db94092da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga611544eedb63012098eab46a011fe618" id="r_ga611544eedb63012098eab46a011fe618"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga611544eedb63012098eab46a011fe618">G_NEW</a>&#160;&#160;&#160;0	/* created in current cycle */</td></tr>
+<tr class="separator:ga611544eedb63012098eab46a011fe618"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa8c9510ab591432a3b80e90519156116" id="r_gaa8c9510ab591432a3b80e90519156116"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gaa8c9510ab591432a3b80e90519156116">G_SURVIVAL</a>&#160;&#160;&#160;1	/* created in previous cycle */</td></tr>
+<tr class="separator:gaa8c9510ab591432a3b80e90519156116"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga19ac124332eabcbdcb744e14923700b9" id="r_ga19ac124332eabcbdcb744e14923700b9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga19ac124332eabcbdcb744e14923700b9">G_OLD0</a>&#160;&#160;&#160;2	/* marked old by frw. barrier in this cycle */</td></tr>
+<tr class="separator:ga19ac124332eabcbdcb744e14923700b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga266a8ec4a8dbacf8d7b99dca3adcac90" id="r_ga266a8ec4a8dbacf8d7b99dca3adcac90"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga266a8ec4a8dbacf8d7b99dca3adcac90">G_OLD1</a>&#160;&#160;&#160;3	/* first full cycle as old */</td></tr>
+<tr class="separator:ga266a8ec4a8dbacf8d7b99dca3adcac90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga96372e9b92aa939f300e0477ba112716" id="r_ga96372e9b92aa939f300e0477ba112716"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga96372e9b92aa939f300e0477ba112716">G_OLD</a>&#160;&#160;&#160;4	/* really old object (not to be visited) */</td></tr>
+<tr class="separator:ga96372e9b92aa939f300e0477ba112716"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae2c1796f4fb3359730723ce0acd2d162" id="r_gae2c1796f4fb3359730723ce0acd2d162"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gae2c1796f4fb3359730723ce0acd2d162">G_TOUCHED1</a>&#160;&#160;&#160;5	/* old object touched this cycle */</td></tr>
+<tr class="separator:gae2c1796f4fb3359730723ce0acd2d162"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac2b8a2255c79c9f43f88d1625767e1bf" id="r_gac2b8a2255c79c9f43f88d1625767e1bf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gac2b8a2255c79c9f43f88d1625767e1bf">G_TOUCHED2</a>&#160;&#160;&#160;6	/* old object touched in previous cycle */</td></tr>
+<tr class="separator:gac2b8a2255c79c9f43f88d1625767e1bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3b446e7d0b31628385b7a1f444192e9a" id="r_ga3b446e7d0b31628385b7a1f444192e9a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga3b446e7d0b31628385b7a1f444192e9a">AGEBITS</a>&#160;&#160;&#160;7  /* all age bits (111) */</td></tr>
+<tr class="separator:ga3b446e7d0b31628385b7a1f444192e9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae68465c1574c4b45a05a6548ad934235" id="r_gae68465c1574c4b45a05a6548ad934235"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gae68465c1574c4b45a05a6548ad934235">getage</a>(o)&#160;&#160;&#160;((o)-&gt;marked &amp; <a class="el" href="group__LuaSrc.html#ga3b446e7d0b31628385b7a1f444192e9a">AGEBITS</a>)</td></tr>
+<tr class="separator:gae68465c1574c4b45a05a6548ad934235"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga42f07cc5f8f0a9d97989f7769f00c3f2" id="r_ga42f07cc5f8f0a9d97989f7769f00c3f2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga42f07cc5f8f0a9d97989f7769f00c3f2">setage</a>(o,  a)&#160;&#160;&#160;((o)-&gt;marked = <a class="el" href="llimits_8h.html#a596f5b6e992f53a5a4e5732083448dd4">cast_byte</a>(((o)-&gt;marked &amp; (~<a class="el" href="group__LuaSrc.html#ga3b446e7d0b31628385b7a1f444192e9a">AGEBITS</a>)) | a))</td></tr>
+<tr class="separator:ga42f07cc5f8f0a9d97989f7769f00c3f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga24d47e523ecf2d6e475a34913ce06b05" id="r_ga24d47e523ecf2d6e475a34913ce06b05"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga24d47e523ecf2d6e475a34913ce06b05">isold</a>(o)&#160;&#160;&#160;(<a class="el" href="group__LuaSrc.html#gae68465c1574c4b45a05a6548ad934235">getage</a>(o) &gt; <a class="el" href="group__LuaSrc.html#gaa8c9510ab591432a3b80e90519156116">G_SURVIVAL</a>)</td></tr>
+<tr class="separator:ga24d47e523ecf2d6e475a34913ce06b05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga61d44df5c26bb4efcf4e19b500933bbb" id="r_ga61d44df5c26bb4efcf4e19b500933bbb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga61d44df5c26bb4efcf4e19b500933bbb">changeage</a>(o,  f,  t)&#160;&#160;&#160;	<a class="el" href="llimits_8h.html#afac1404af62451f8653440ecb6e773fc">check_exp</a>(<a class="el" href="group__LuaSrc.html#gae68465c1574c4b45a05a6548ad934235">getage</a>(o) == (f), (o)-&gt;marked ^= ((f)^(t)))</td></tr>
+<tr class="separator:ga61d44df5c26bb4efcf4e19b500933bbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6adb6d8358e1ed9e94c88f810c8dd44e" id="r_ga6adb6d8358e1ed9e94c88f810c8dd44e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga6adb6d8358e1ed9e94c88f810c8dd44e">LUAI_GENMAJORMUL</a>&#160;&#160;&#160;100</td></tr>
+<tr class="separator:ga6adb6d8358e1ed9e94c88f810c8dd44e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1660119f32a7ea875ce967d1ef8deadc" id="r_ga1660119f32a7ea875ce967d1ef8deadc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga1660119f32a7ea875ce967d1ef8deadc">LUAI_GENMINORMUL</a>&#160;&#160;&#160;20</td></tr>
+<tr class="separator:ga1660119f32a7ea875ce967d1ef8deadc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga961a6871328af0c7bb50169633e15fd9" id="r_ga961a6871328af0c7bb50169633e15fd9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga961a6871328af0c7bb50169633e15fd9">LUAI_GCPAUSE</a>&#160;&#160;&#160;200</td></tr>
+<tr class="separator:ga961a6871328af0c7bb50169633e15fd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1991625e57703760cf5236bc02cd8858" id="r_ga1991625e57703760cf5236bc02cd8858"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga1991625e57703760cf5236bc02cd8858">getgcparam</a>(p)&#160;&#160;&#160;((p) * 4)</td></tr>
+<tr class="separator:ga1991625e57703760cf5236bc02cd8858"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga757077227d006e517adfaa82c2d30e72" id="r_ga757077227d006e517adfaa82c2d30e72"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga757077227d006e517adfaa82c2d30e72">setgcparam</a>(p,  v)&#160;&#160;&#160;((p) = (v) / 4)</td></tr>
+<tr class="separator:ga757077227d006e517adfaa82c2d30e72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadccc1cf9bf213c770940796d73635444" id="r_gadccc1cf9bf213c770940796d73635444"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gadccc1cf9bf213c770940796d73635444">LUAI_GCMUL</a>&#160;&#160;&#160;100</td></tr>
+<tr class="separator:gadccc1cf9bf213c770940796d73635444"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5289131664af0f4b111556cb5b4bfe9c" id="r_ga5289131664af0f4b111556cb5b4bfe9c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga5289131664af0f4b111556cb5b4bfe9c">LUAI_GCSTEPSIZE</a>&#160;&#160;&#160;13      /* 8 <a class="el" href="lvm_8c.html#a11423b97da0e060b24d31d7e71534844">KB</a> */</td></tr>
+<tr class="separator:ga5289131664af0f4b111556cb5b4bfe9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga634f3aa786242e81eb2d29da7cdacf4a" id="r_ga634f3aa786242e81eb2d29da7cdacf4a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga634f3aa786242e81eb2d29da7cdacf4a">isdecGCmodegen</a>(g)&#160;&#160;&#160;(g-&gt;gckind == <a class="el" href="lstate_8h.html#aa2765fe939333ebc895ba9cedbaa30a0">KGC_GEN</a> || g-&gt;lastatomic != 0)</td></tr>
+<tr class="separator:ga634f3aa786242e81eb2d29da7cdacf4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa9890d156587456839976f603182f149" id="r_gaa9890d156587456839976f603182f149"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gaa9890d156587456839976f603182f149">GCSTPUSR</a>&#160;&#160;&#160;1  /* <a class="el" href="canvas_8h.html#a469c4386615fecd686baf81fbe49ffd5">bit</a> true when GC stopped by user */</td></tr>
+<tr class="separator:gaa9890d156587456839976f603182f149"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab06b1865fce256860b3d3725ba8a5bac" id="r_gab06b1865fce256860b3d3725ba8a5bac"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gab06b1865fce256860b3d3725ba8a5bac">GCSTPGC</a>&#160;&#160;&#160;2  /* <a class="el" href="canvas_8h.html#a469c4386615fecd686baf81fbe49ffd5">bit</a> true when GC stopped by itself */</td></tr>
+<tr class="separator:gab06b1865fce256860b3d3725ba8a5bac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga653c5ba27eb73b11e98b24be5ad6a482" id="r_ga653c5ba27eb73b11e98b24be5ad6a482"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga653c5ba27eb73b11e98b24be5ad6a482">GCSTPCLS</a>&#160;&#160;&#160;4  /* <a class="el" href="canvas_8h.html#a469c4386615fecd686baf81fbe49ffd5">bit</a> true when closing Lua state */</td></tr>
+<tr class="separator:ga653c5ba27eb73b11e98b24be5ad6a482"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaacd605dd207b4569b464c38b2a5532d8" id="r_gaacd605dd207b4569b464c38b2a5532d8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gaacd605dd207b4569b464c38b2a5532d8">gcrunning</a>(g)&#160;&#160;&#160;((g)-&gt;gcstp == 0)</td></tr>
+<tr class="separator:gaacd605dd207b4569b464c38b2a5532d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga52f302b0dac5467152f322c8fe1c1a3e" id="r_ga52f302b0dac5467152f322c8fe1c1a3e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga52f302b0dac5467152f322c8fe1c1a3e">luaC_condGC</a>(<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>,  pre,  pos)</td></tr>
+<tr class="separator:ga52f302b0dac5467152f322c8fe1c1a3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad013db5004ccc5fbe8a6450caa1f1ad9" id="r_gad013db5004ccc5fbe8a6450caa1f1ad9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gad013db5004ccc5fbe8a6450caa1f1ad9">luaC_checkGC</a>(<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)&#160;&#160;&#160;<a class="el" href="group__LuaSrc.html#ga52f302b0dac5467152f322c8fe1c1a3e">luaC_condGC</a>(<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>,(void)0,(void)0)</td></tr>
+<tr class="separator:gad013db5004ccc5fbe8a6450caa1f1ad9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga90ac4f3c7085a418025edcc7215e8983" id="r_ga90ac4f3c7085a418025edcc7215e8983"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga90ac4f3c7085a418025edcc7215e8983">luaC_objbarrier</a>(<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>,  p,  o)</td></tr>
+<tr class="separator:ga90ac4f3c7085a418025edcc7215e8983"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga21660a316c42bc1aad10f115e2261bca" id="r_ga21660a316c42bc1aad10f115e2261bca"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga21660a316c42bc1aad10f115e2261bca">luaC_barrier</a>(<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>,  p,  v)</td></tr>
+<tr class="separator:ga21660a316c42bc1aad10f115e2261bca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaabe37ed7d61a6f603f8a3b259c34c846" id="r_gaabe37ed7d61a6f603f8a3b259c34c846"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gaabe37ed7d61a6f603f8a3b259c34c846">luaC_objbarrierback</a>(<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>,  p,  o)</td></tr>
+<tr class="separator:gaabe37ed7d61a6f603f8a3b259c34c846"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga60903f232a1c51d22de556ea4c144f3a" id="r_ga60903f232a1c51d22de556ea4c144f3a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga60903f232a1c51d22de556ea4c144f3a">luaC_barrierback</a>(<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>,  p,  v)</td></tr>
+<tr class="separator:ga60903f232a1c51d22de556ea4c144f3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga242d4a66c025c294ec2c1ec4fe75e804" id="r_ga242d4a66c025c294ec2c1ec4fe75e804"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga242d4a66c025c294ec2c1ec4fe75e804">luaC_fix</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="el" href="structGCObject.html">GCObject</a> *o)</td></tr>
+<tr class="separator:ga242d4a66c025c294ec2c1ec4fe75e804"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9aa52a500c9cc2076edb1707e6d8a045" id="r_ga9aa52a500c9cc2076edb1707e6d8a045"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga9aa52a500c9cc2076edb1707e6d8a045">luaC_freeallobjects</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
+<tr class="separator:ga9aa52a500c9cc2076edb1707e6d8a045"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6c71cc4b9e503c0e96c0c4ffcff93900" id="r_ga6c71cc4b9e503c0e96c0c4ffcff93900"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga6c71cc4b9e503c0e96c0c4ffcff93900">luaC_step</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
+<tr class="separator:ga6c71cc4b9e503c0e96c0c4ffcff93900"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1da32357417ce5766ed5e3ada033c32f" id="r_ga1da32357417ce5766ed5e3ada033c32f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga1da32357417ce5766ed5e3ada033c32f">luaC_runtilstate</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, int statesmask)</td></tr>
+<tr class="separator:ga1da32357417ce5766ed5e3ada033c32f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa0b753c3ed80e1eed0379ec58592c404" id="r_gaa0b753c3ed80e1eed0379ec58592c404"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gaa0b753c3ed80e1eed0379ec58592c404">luaC_fullgc</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, int isemergency)</td></tr>
+<tr class="separator:gaa0b753c3ed80e1eed0379ec58592c404"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga157cf1436d548d1a687796667939c95f" id="r_ga157cf1436d548d1a687796667939c95f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structGCObject.html">GCObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga157cf1436d548d1a687796667939c95f">luaC_newobj</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, int tt, size_t sz)</td></tr>
+<tr class="separator:ga157cf1436d548d1a687796667939c95f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3e49a2282d4017ab2223963383b0cb86" id="r_ga3e49a2282d4017ab2223963383b0cb86"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structGCObject.html">GCObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga3e49a2282d4017ab2223963383b0cb86">luaC_newobjdt</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, int tt, size_t sz, size_t offset)</td></tr>
+<tr class="separator:ga3e49a2282d4017ab2223963383b0cb86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac5106ee2a18cde8bc3bd92e5891ad8e5" id="r_gac5106ee2a18cde8bc3bd92e5891ad8e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gac5106ee2a18cde8bc3bd92e5891ad8e5">luaC_barrier_</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="el" href="structGCObject.html">GCObject</a> *o, <a class="el" href="structGCObject.html">GCObject</a> *v)</td></tr>
+<tr class="separator:gac5106ee2a18cde8bc3bd92e5891ad8e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga65d1fcc6e437592a5a893406cce7d8e3" id="r_ga65d1fcc6e437592a5a893406cce7d8e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga65d1fcc6e437592a5a893406cce7d8e3">luaC_barrierback_</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="el" href="structGCObject.html">GCObject</a> *o)</td></tr>
+<tr class="separator:ga65d1fcc6e437592a5a893406cce7d8e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga15870c09448216ce5c4e1ff63d39e0a9" id="r_ga15870c09448216ce5c4e1ff63d39e0a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga15870c09448216ce5c4e1ff63d39e0a9">luaC_checkfinalizer</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="el" href="structGCObject.html">GCObject</a> *o, <a class="el" href="structTable.html">Table</a> *mt)</td></tr>
+<tr class="separator:ga15870c09448216ce5c4e1ff63d39e0a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga45671ff26d738167ce8e421cc233fc59" id="r_ga45671ff26d738167ce8e421cc233fc59"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga45671ff26d738167ce8e421cc233fc59">luaC_changemode</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, int newmode)</td></tr>
+<tr class="separator:ga45671ff26d738167ce8e421cc233fc59"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a3b446e7d0b31628385b7a1f444192e9a" name="a3b446e7d0b31628385b7a1f444192e9a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3b446e7d0b31628385b7a1f444192e9a">&#9670;&#160;</a></span>AGEBITS</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define AGEBITS&#160;&#160;&#160;7  /* all age bits (111) */</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a39293d5e5fbd7bb9a24556b3e2f15d43" name="a39293d5e5fbd7bb9a24556b3e2f15d43"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a39293d5e5fbd7bb9a24556b3e2f15d43">&#9670;&#160;</a></span>bit2mask</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define bit2mask</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>b1</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>b2</em></span>&#160;)&#160;&#160;&#160;(<a class="el" href="#af25866c39979dd1f72110cbd3a1a427d">bitmask</a>(b1) | <a class="el" href="#af25866c39979dd1f72110cbd3a1a427d">bitmask</a>(b2))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="af25866c39979dd1f72110cbd3a1a427d" name="af25866c39979dd1f72110cbd3a1a427d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af25866c39979dd1f72110cbd3a1a427d">&#9670;&#160;</a></span>bitmask</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define bitmask</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="banner_8c.html#a59f91842bc238cf5dc3ec26d30fb950a">b</a></em></span></td><td>)</td>
-          <td>&#160;&#160;&#160;(1&lt;&lt;(<a class="el" href="banner_8c.html#a59f91842bc238cf5dc3ec26d30fb950a">b</a>))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="acd17af3c46cb360dc67cad2b33b6a26f" name="acd17af3c46cb360dc67cad2b33b6a26f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acd17af3c46cb360dc67cad2b33b6a26f">&#9670;&#160;</a></span>BLACKBIT</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define BLACKBIT&#160;&#160;&#160;5  /* object is black */</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a61d44df5c26bb4efcf4e19b500933bbb" name="a61d44df5c26bb4efcf4e19b500933bbb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a61d44df5c26bb4efcf4e19b500933bbb">&#9670;&#160;</a></span>changeage</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define changeage</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>o</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>f</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>t</em></span>&#160;)&#160;&#160;&#160;	<a class="el" href="llimits_8h.html#afac1404af62451f8653440ecb6e773fc">check_exp</a>(<a class="el" href="#ae68465c1574c4b45a05a6548ad934235">getage</a>(o) == (f), (o)-&gt;marked ^= ((f)^(t)))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a28e94f77147fd242f514b98a1b251486" name="a28e94f77147fd242f514b98a1b251486"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a28e94f77147fd242f514b98a1b251486">&#9670;&#160;</a></span>changewhite</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define changewhite</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>x</em></span></td><td>)</td>
-          <td>&#160;&#160;&#160;((x)-&gt;marked ^= <a class="el" href="#a0acb34c1b3d1234f11ee9fdc34df3f71">WHITEBITS</a>)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a92211ad01420ac616819ba8f61ca7365" name="a92211ad01420ac616819ba8f61ca7365"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a92211ad01420ac616819ba8f61ca7365">&#9670;&#160;</a></span>FINALIZEDBIT</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define FINALIZEDBIT&#160;&#160;&#160;6  /* object has been marked for finalization */</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a611544eedb63012098eab46a011fe618" name="a611544eedb63012098eab46a011fe618"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a611544eedb63012098eab46a011fe618">&#9670;&#160;</a></span>G_NEW</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define G_NEW&#160;&#160;&#160;0	/* created in current cycle */</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a96372e9b92aa939f300e0477ba112716" name="a96372e9b92aa939f300e0477ba112716"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a96372e9b92aa939f300e0477ba112716">&#9670;&#160;</a></span>G_OLD</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define G_OLD&#160;&#160;&#160;4	/* really old object (not to be visited) */</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a19ac124332eabcbdcb744e14923700b9" name="a19ac124332eabcbdcb744e14923700b9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a19ac124332eabcbdcb744e14923700b9">&#9670;&#160;</a></span>G_OLD0</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define G_OLD0&#160;&#160;&#160;2	/* marked old by frw. barrier in this cycle */</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a266a8ec4a8dbacf8d7b99dca3adcac90" name="a266a8ec4a8dbacf8d7b99dca3adcac90"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a266a8ec4a8dbacf8d7b99dca3adcac90">&#9670;&#160;</a></span>G_OLD1</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define G_OLD1&#160;&#160;&#160;3	/* first full cycle as old */</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa8c9510ab591432a3b80e90519156116" name="aa8c9510ab591432a3b80e90519156116"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa8c9510ab591432a3b80e90519156116">&#9670;&#160;</a></span>G_SURVIVAL</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define G_SURVIVAL&#160;&#160;&#160;1	/* created in previous cycle */</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae2c1796f4fb3359730723ce0acd2d162" name="ae2c1796f4fb3359730723ce0acd2d162"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae2c1796f4fb3359730723ce0acd2d162">&#9670;&#160;</a></span>G_TOUCHED1</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define G_TOUCHED1&#160;&#160;&#160;5	/* old object touched this cycle */</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac2b8a2255c79c9f43f88d1625767e1bf" name="ac2b8a2255c79c9f43f88d1625767e1bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac2b8a2255c79c9f43f88d1625767e1bf">&#9670;&#160;</a></span>G_TOUCHED2</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define G_TOUCHED2&#160;&#160;&#160;6	/* old object touched in previous cycle */</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aacd605dd207b4569b464c38b2a5532d8" name="aacd605dd207b4569b464c38b2a5532d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aacd605dd207b4569b464c38b2a5532d8">&#9670;&#160;</a></span>gcrunning</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define gcrunning</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>g</em></span></td><td>)</td>
-          <td>&#160;&#160;&#160;((g)-&gt;gcstp == 0)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7c7806ab609fa3c19ed9c2b688e10730" name="a7c7806ab609fa3c19ed9c2b688e10730"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7c7806ab609fa3c19ed9c2b688e10730">&#9670;&#160;</a></span>GCSatomic</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GCSatomic&#160;&#160;&#160;2</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a84094ff0ba3d8c7d4f84984e74f7705a" name="a84094ff0ba3d8c7d4f84984e74f7705a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a84094ff0ba3d8c7d4f84984e74f7705a">&#9670;&#160;</a></span>GCScallfin</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GCScallfin&#160;&#160;&#160;7</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7d4a80ad5991cca9822822f63deef987" name="a7d4a80ad5991cca9822822f63deef987"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d4a80ad5991cca9822822f63deef987">&#9670;&#160;</a></span>GCSenteratomic</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GCSenteratomic&#160;&#160;&#160;1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab546d91106ec5cfdba254de13e5b5c5f" name="ab546d91106ec5cfdba254de13e5b5c5f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab546d91106ec5cfdba254de13e5b5c5f">&#9670;&#160;</a></span>GCSpause</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GCSpause&#160;&#160;&#160;8</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a2ed301793747f3a2d0a7fc7d64d482fd" name="a2ed301793747f3a2d0a7fc7d64d482fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2ed301793747f3a2d0a7fc7d64d482fd">&#9670;&#160;</a></span>GCSpropagate</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GCSpropagate&#160;&#160;&#160;0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aac9b5b472434aa8d38a89b46b6b29196" name="aac9b5b472434aa8d38a89b46b6b29196"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aac9b5b472434aa8d38a89b46b6b29196">&#9670;&#160;</a></span>GCSswpallgc</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GCSswpallgc&#160;&#160;&#160;3</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a4e40597ebd731cafa743cd9a8e0db709" name="a4e40597ebd731cafa743cd9a8e0db709"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e40597ebd731cafa743cd9a8e0db709">&#9670;&#160;</a></span>GCSswpend</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GCSswpend&#160;&#160;&#160;6</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a9d28766c63918e69c9ea3853a3e6c4c0" name="a9d28766c63918e69c9ea3853a3e6c4c0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d28766c63918e69c9ea3853a3e6c4c0">&#9670;&#160;</a></span>GCSswpfinobj</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GCSswpfinobj&#160;&#160;&#160;4</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a152f379e712cbc7f0bfa2c6a3e15166d" name="a152f379e712cbc7f0bfa2c6a3e15166d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a152f379e712cbc7f0bfa2c6a3e15166d">&#9670;&#160;</a></span>GCSswptobefnz</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GCSswptobefnz&#160;&#160;&#160;5</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a653c5ba27eb73b11e98b24be5ad6a482" name="a653c5ba27eb73b11e98b24be5ad6a482"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a653c5ba27eb73b11e98b24be5ad6a482">&#9670;&#160;</a></span>GCSTPCLS</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GCSTPCLS&#160;&#160;&#160;4  /* <a class="el" href="canvas_8h.html#a469c4386615fecd686baf81fbe49ffd5">bit</a> true when closing Lua state */</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab06b1865fce256860b3d3725ba8a5bac" name="ab06b1865fce256860b3d3725ba8a5bac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab06b1865fce256860b3d3725ba8a5bac">&#9670;&#160;</a></span>GCSTPGC</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GCSTPGC&#160;&#160;&#160;2  /* <a class="el" href="canvas_8h.html#a469c4386615fecd686baf81fbe49ffd5">bit</a> true when GC stopped by itself */</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa9890d156587456839976f603182f149" name="aa9890d156587456839976f603182f149"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa9890d156587456839976f603182f149">&#9670;&#160;</a></span>GCSTPUSR</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GCSTPUSR&#160;&#160;&#160;1  /* <a class="el" href="canvas_8h.html#a469c4386615fecd686baf81fbe49ffd5">bit</a> true when GC stopped by user */</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae68465c1574c4b45a05a6548ad934235" name="ae68465c1574c4b45a05a6548ad934235"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae68465c1574c4b45a05a6548ad934235">&#9670;&#160;</a></span>getage</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define getage</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>o</em></span></td><td>)</td>
-          <td>&#160;&#160;&#160;((o)-&gt;marked &amp; <a class="el" href="#a3b446e7d0b31628385b7a1f444192e9a">AGEBITS</a>)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a1991625e57703760cf5236bc02cd8858" name="a1991625e57703760cf5236bc02cd8858"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1991625e57703760cf5236bc02cd8858">&#9670;&#160;</a></span>getgcparam</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define getgcparam</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="#ac483f6ce851c9ecd9fb835ff7551737c">p</a></em></span></td><td>)</td>
-          <td>&#160;&#160;&#160;((<a class="el" href="#ac483f6ce851c9ecd9fb835ff7551737c">p</a>) * 4)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac1e4847ad9a91e4cea36520dc9078365" name="ac1e4847ad9a91e4cea36520dc9078365"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac1e4847ad9a91e4cea36520dc9078365">&#9670;&#160;</a></span>isblack</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define isblack</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>x</em></span></td><td>)</td>
-          <td>&#160;&#160;&#160;<a class="el" href="#a25c19ff3161e2a2395ba69fdef49915f">testbit</a>((x)-&gt;marked, <a class="el" href="#acd17af3c46cb360dc67cad2b33b6a26f">BLACKBIT</a>)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="acc409eb45f598d23d8388fc9e96189ea" name="acc409eb45f598d23d8388fc9e96189ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc409eb45f598d23d8388fc9e96189ea">&#9670;&#160;</a></span>isdead</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define isdead</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>g</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="lmem_8h.html#ac4055e3a20b6b3af3d10590ea446ef6c">v</a></em></span>&#160;)&#160;&#160;&#160;<a class="el" href="#a0540e865b6cd21e83104cf427c968c86">isdeadm</a>(<a class="el" href="#a486df16493498577d4081a8c231154f0">otherwhite</a>(g), (<a class="el" href="lmem_8h.html#ac4055e3a20b6b3af3d10590ea446ef6c">v</a>)-&gt;marked)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a0540e865b6cd21e83104cf427c968c86" name="a0540e865b6cd21e83104cf427c968c86"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0540e865b6cd21e83104cf427c968c86">&#9670;&#160;</a></span>isdeadm</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define isdeadm</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>ow</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>m</em></span>&#160;)&#160;&#160;&#160;((m) &amp; (ow))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a634f3aa786242e81eb2d29da7cdacf4a" name="a634f3aa786242e81eb2d29da7cdacf4a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a634f3aa786242e81eb2d29da7cdacf4a">&#9670;&#160;</a></span>isdecGCmodegen</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define isdecGCmodegen</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>g</em></span></td><td>)</td>
-          <td>&#160;&#160;&#160;(g-&gt;gckind == <a class="el" href="lstate_8h.html#aa2765fe939333ebc895ba9cedbaa30a0">KGC_GEN</a> || g-&gt;lastatomic != 0)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad417e22072630b33cf74a3055b27d8d7" name="ad417e22072630b33cf74a3055b27d8d7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad417e22072630b33cf74a3055b27d8d7">&#9670;&#160;</a></span>isgray</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define isgray</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>x</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    <span class="comment">/* neither white nor black */</span>  \</div>
-<div class="line">    (!<a class="code hl_define" href="#a7612bc83b764b507e12e08417a053854">testbits</a>((x)-&gt;marked, <a class="code hl_define" href="#a0acb34c1b3d1234f11ee9fdc34df3f71">WHITEBITS</a> | <a class="code hl_define" href="#af25866c39979dd1f72110cbd3a1a427d">bitmask</a>(<a class="code hl_define" href="#acd17af3c46cb360dc67cad2b33b6a26f">BLACKBIT</a>)))</div>
-<div class="ttc" id="algc_8h_html_a0acb34c1b3d1234f11ee9fdc34df3f71"><div class="ttname"><a href="#a0acb34c1b3d1234f11ee9fdc34df3f71">WHITEBITS</a></div><div class="ttdeci">#define WHITEBITS</div><div class="ttdef"><b>Definition</b> lgc.h:84</div></div>
-<div class="ttc" id="algc_8h_html_a7612bc83b764b507e12e08417a053854"><div class="ttname"><a href="#a7612bc83b764b507e12e08417a053854">testbits</a></div><div class="ttdeci">#define testbits(x, m)</div><div class="ttdef"><b>Definition</b> lgc.h:62</div></div>
-<div class="ttc" id="algc_8h_html_acd17af3c46cb360dc67cad2b33b6a26f"><div class="ttname"><a href="#acd17af3c46cb360dc67cad2b33b6a26f">BLACKBIT</a></div><div class="ttdeci">#define BLACKBIT</div><div class="ttdef"><b>Definition</b> lgc.h:77</div></div>
-<div class="ttc" id="algc_8h_html_af25866c39979dd1f72110cbd3a1a427d"><div class="ttname"><a href="#af25866c39979dd1f72110cbd3a1a427d">bitmask</a></div><div class="ttdeci">#define bitmask(b)</div><div class="ttdef"><b>Definition</b> lgc.h:63</div></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a24d47e523ecf2d6e475a34913ce06b05" name="a24d47e523ecf2d6e475a34913ce06b05"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a24d47e523ecf2d6e475a34913ce06b05">&#9670;&#160;</a></span>isold</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define isold</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>o</em></span></td><td>)</td>
-          <td>&#160;&#160;&#160;(<a class="el" href="#ae68465c1574c4b45a05a6548ad934235">getage</a>(o) &gt; <a class="el" href="#aa8c9510ab591432a3b80e90519156116">G_SURVIVAL</a>)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a860db734bc919435aba75c30e4fe261b" name="a860db734bc919435aba75c30e4fe261b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a860db734bc919435aba75c30e4fe261b">&#9670;&#160;</a></span>issweepphase</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define issweepphase</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>g</em></span></td><td>)</td>
-          <td>&#160;&#160;&#160;	(<a class="el" href="#aac9b5b472434aa8d38a89b46b6b29196">GCSswpallgc</a> &lt;= (g)-&gt;gcstate &amp;&amp; (g)-&gt;gcstate &lt;= <a class="el" href="#a4e40597ebd731cafa743cd9a8e0db709">GCSswpend</a>)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a4c0ce78d476460d2e54914301f4a4bf7" name="a4c0ce78d476460d2e54914301f4a4bf7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c0ce78d476460d2e54914301f4a4bf7">&#9670;&#160;</a></span>iswhite</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define iswhite</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>x</em></span></td><td>)</td>
-          <td>&#160;&#160;&#160;<a class="el" href="#a7612bc83b764b507e12e08417a053854">testbits</a>((x)-&gt;marked, <a class="el" href="#a0acb34c1b3d1234f11ee9fdc34df3f71">WHITEBITS</a>)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a40b40242e96f45f8d04dcf4feb1475ae" name="a40b40242e96f45f8d04dcf4feb1475ae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a40b40242e96f45f8d04dcf4feb1475ae">&#9670;&#160;</a></span>keepinvariant</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define keepinvariant</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>g</em></span></td><td>)</td>
-          <td>&#160;&#160;&#160;((g)-&gt;gcstate &lt;= <a class="el" href="#a7c7806ab609fa3c19ed9c2b688e10730">GCSatomic</a>)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aad559b25ee580ea2894c540dc817e41f" name="aad559b25ee580ea2894c540dc817e41f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aad559b25ee580ea2894c540dc817e41f">&#9670;&#160;</a></span>l_setbit</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define l_setbit</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="banner_8c.html#a59f91842bc238cf5dc3ec26d30fb950a">b</a></em></span>&#160;)&#160;&#160;&#160;<a class="el" href="#ada181faae5c9af4ed7392057c5dcbbae">setbits</a>(x, <a class="el" href="#af25866c39979dd1f72110cbd3a1a427d">bitmask</a>(<a class="el" href="banner_8c.html#a59f91842bc238cf5dc3ec26d30fb950a">b</a>))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a21660a316c42bc1aad10f115e2261bca" name="a21660a316c42bc1aad10f115e2261bca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a21660a316c42bc1aad10f115e2261bca">&#9670;&#160;</a></span>luaC_barrier</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define luaC_barrier</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a></em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="#ac483f6ce851c9ecd9fb835ff7551737c">p</a></em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="lmem_8h.html#ac4055e3a20b6b3af3d10590ea446ef6c">v</a></em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    (  \</div>
-<div class="line">    iscollectable(<a class="code hl_variable" href="lmem_8h.html#ac4055e3a20b6b3af3d10590ea446ef6c">v</a>) ? <a class="code hl_define" href="#a90ac4f3c7085a418025edcc7215e8983">luaC_objbarrier</a>(<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>,<a class="code hl_variable" href="#ac483f6ce851c9ecd9fb835ff7551737c">p</a>,<a class="code hl_define" href="lobject_8h.html#a05cdf6070135f10ad37e1048a730b634">gcvalue</a>(<a class="code hl_variable" href="lmem_8h.html#ac4055e3a20b6b3af3d10590ea446ef6c">v</a>)) : <a class="code hl_define" href="llimits_8h.html#a52a5166d7dc0590b63a9331cfc0f4564">cast_void</a>(0))</div>
-<div class="ttc" id="agame_8c_html_a62f94dfc0036bec0c14106c2f15caf3e"><div class="ttname"><a href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a></div><div class="ttdeci">static lua_State * L</div><div class="ttdef"><b>Definition</b> game.c:35</div></div>
-<div class="ttc" id="algc_8h_html_a90ac4f3c7085a418025edcc7215e8983"><div class="ttname"><a href="#a90ac4f3c7085a418025edcc7215e8983">luaC_objbarrier</a></div><div class="ttdeci">#define luaC_objbarrier(L, p, o)</div><div class="ttdef"><b>Definition</b> lgc.h:175</div></div>
-<div class="ttc" id="algc_8h_html_ac483f6ce851c9ecd9fb835ff7551737c"><div class="ttname"><a href="#ac483f6ce851c9ecd9fb835ff7551737c">p</a></div><div class="ttdeci">p</div><div class="ttdef"><b>Definition</b> lgc.h:188</div></div>
-<div class="ttc" id="allimits_8h_html_a52a5166d7dc0590b63a9331cfc0f4564"><div class="ttname"><a href="llimits_8h.html#a52a5166d7dc0590b63a9331cfc0f4564">cast_void</a></div><div class="ttdeci">#define cast_void(i)</div><div class="ttdef"><b>Definition</b> llimits.h:138</div></div>
-<div class="ttc" id="almem_8h_html_ac4055e3a20b6b3af3d10590ea446ef6c"><div class="ttname"><a href="lmem_8h.html#ac4055e3a20b6b3af3d10590ea446ef6c">v</a></div><div class="ttdeci">v</div><div class="ttdef"><b>Definition</b> lmem.h:77</div></div>
-<div class="ttc" id="alobject_8h_html_a05cdf6070135f10ad37e1048a730b634"><div class="ttname"><a href="lobject_8h.html#a05cdf6070135f10ad37e1048a730b634">gcvalue</a></div><div class="ttdeci">#define gcvalue(o)</div><div class="ttdef"><b>Definition</b> lobject.h:305</div></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a60903f232a1c51d22de556ea4c144f3a" name="a60903f232a1c51d22de556ea4c144f3a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a60903f232a1c51d22de556ea4c144f3a">&#9670;&#160;</a></span>luaC_barrierback</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define luaC_barrierback</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a></em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="#ac483f6ce851c9ecd9fb835ff7551737c">p</a></em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="lmem_8h.html#ac4055e3a20b6b3af3d10590ea446ef6c">v</a></em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">(  \</div>
-<div class="line"> </div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="ad013db5004ccc5fbe8a6450caa1f1ad9" name="ad013db5004ccc5fbe8a6450caa1f1ad9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad013db5004ccc5fbe8a6450caa1f1ad9">&#9670;&#160;</a></span>luaC_checkGC</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define luaC_checkGC</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a></em></span></td><td>)</td>
-          <td>&#160;&#160;&#160;<a class="el" href="#a52f302b0dac5467152f322c8fe1c1a3e">luaC_condGC</a>(<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>,(void)0,(void)0)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a52f302b0dac5467152f322c8fe1c1a3e" name="a52f302b0dac5467152f322c8fe1c1a3e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52f302b0dac5467152f322c8fe1c1a3e">&#9670;&#160;</a></span>luaC_condGC</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define luaC_condGC</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a></em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>pre</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>pos</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    { <span class="keywordflow">if</span> (<a class="code hl_define" href="lstate_8h.html#a103db2de6edf3420c6c6c9a282562406">G</a>(<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)-&gt;GCdebt &gt; 0) { pre; <a class="code hl_function" href="group__LuaSrc.html#gab0133eb7bb37a0a690e0ef71fbc13414">luaC_step</a>(<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>); pos;}; \</div>
-<div class="line">      condchangemem(<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>,pre,pos); }</div>
-<div class="ttc" id="agroup__LuaSrc_html_gab0133eb7bb37a0a690e0ef71fbc13414"><div class="ttname"><a href="group__LuaSrc.html#gab0133eb7bb37a0a690e0ef71fbc13414">luaC_step</a></div><div class="ttdeci">LUAI_FUNC void luaC_step(lua_State *L)</div><div class="ttdef"><b>Definition</b> lgc.c:1690</div></div>
-<div class="ttc" id="alstate_8h_html_a103db2de6edf3420c6c6c9a282562406"><div class="ttname"><a href="lstate_8h.html#a103db2de6edf3420c6c6c9a282562406">G</a></div><div class="ttdeci">#define G(L)</div><div class="ttdef"><b>Definition</b> lstate.h:335</div></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a90ac4f3c7085a418025edcc7215e8983" name="a90ac4f3c7085a418025edcc7215e8983"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a90ac4f3c7085a418025edcc7215e8983">&#9670;&#160;</a></span>luaC_objbarrier</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define luaC_objbarrier</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a></em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="#ac483f6ce851c9ecd9fb835ff7551737c">p</a></em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>o</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    (  \</div>
-<div class="line">    (<a class="code hl_define" href="#ac1e4847ad9a91e4cea36520dc9078365">isblack</a>(<a class="code hl_variable" href="#ac483f6ce851c9ecd9fb835ff7551737c">p</a>) &amp;&amp; <a class="code hl_define" href="#a4c0ce78d476460d2e54914301f4a4bf7">iswhite</a>(o)) ? \</div>
-<div class="line">    <a class="code hl_function" href="group__LuaSrc.html#ga72c69b5d5554e0ea4b65e894f2a50793">luaC_barrier_</a>(<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>,<a class="code hl_define" href="lstate_8h.html#a254ca29aba03e47440082d4591a9734e">obj2gco</a>(<a class="code hl_variable" href="#ac483f6ce851c9ecd9fb835ff7551737c">p</a>),<a class="code hl_define" href="lstate_8h.html#a254ca29aba03e47440082d4591a9734e">obj2gco</a>(o)) : <a class="code hl_define" href="llimits_8h.html#a52a5166d7dc0590b63a9331cfc0f4564">cast_void</a>(0))</div>
-<div class="ttc" id="agroup__LuaSrc_html_ga72c69b5d5554e0ea4b65e894f2a50793"><div class="ttname"><a href="group__LuaSrc.html#ga72c69b5d5554e0ea4b65e894f2a50793">luaC_barrier_</a></div><div class="ttdeci">LUAI_FUNC void luaC_barrier_(lua_State *L, GCObject *o, GCObject *v)</div><div class="ttdef"><b>Definition</b> lgc.c:210</div></div>
-<div class="ttc" id="algc_8h_html_a4c0ce78d476460d2e54914301f4a4bf7"><div class="ttname"><a href="#a4c0ce78d476460d2e54914301f4a4bf7">iswhite</a></div><div class="ttdeci">#define iswhite(x)</div><div class="ttdef"><b>Definition</b> lgc.h:87</div></div>
-<div class="ttc" id="algc_8h_html_ac1e4847ad9a91e4cea36520dc9078365"><div class="ttname"><a href="#ac1e4847ad9a91e4cea36520dc9078365">isblack</a></div><div class="ttdeci">#define isblack(x)</div><div class="ttdef"><b>Definition</b> lgc.h:88</div></div>
-<div class="ttc" id="alstate_8h_html_a254ca29aba03e47440082d4591a9734e"><div class="ttname"><a href="lstate_8h.html#a254ca29aba03e47440082d4591a9734e">obj2gco</a></div><div class="ttdeci">#define obj2gco(v)</div><div class="ttdef"><b>Definition</b> lstate.h:390</div></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="aabe37ed7d61a6f603f8a3b259c34c846" name="aabe37ed7d61a6f603f8a3b259c34c846"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aabe37ed7d61a6f603f8a3b259c34c846">&#9670;&#160;</a></span>luaC_objbarrierback</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define luaC_objbarrierback</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a></em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="#ac483f6ce851c9ecd9fb835ff7551737c">p</a></em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>o</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    (  \</div>
-<div class="line">    (<a class="code hl_define" href="#ac1e4847ad9a91e4cea36520dc9078365">isblack</a>(<a class="code hl_variable" href="#ac483f6ce851c9ecd9fb835ff7551737c">p</a>) &amp;&amp; <a class="code hl_define" href="#a4c0ce78d476460d2e54914301f4a4bf7">iswhite</a>(o)) ? <a class="code hl_function" href="group__LuaSrc.html#ga61ad59cdf3484ff64c0c3cb7a48388ad">luaC_barrierback_</a>(<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>,<a class="code hl_variable" href="#ac483f6ce851c9ecd9fb835ff7551737c">p</a>) : <a class="code hl_define" href="llimits_8h.html#a52a5166d7dc0590b63a9331cfc0f4564">cast_void</a>(0))</div>
-<div class="ttc" id="agroup__LuaSrc_html_ga61ad59cdf3484ff64c0c3cb7a48388ad"><div class="ttname"><a href="group__LuaSrc.html#ga61ad59cdf3484ff64c0c3cb7a48388ad">luaC_barrierback_</a></div><div class="ttdeci">LUAI_FUNC void luaC_barrierback_(lua_State *L, GCObject *o)</div><div class="ttdef"><b>Definition</b> lgc.c:232</div></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="afaa8a52c4097cf3a5eacd88db94092da" name="afaa8a52c4097cf3a5eacd88db94092da"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afaa8a52c4097cf3a5eacd88db94092da">&#9670;&#160;</a></span>luaC_white</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define luaC_white</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>g</em></span></td><td>)</td>
-          <td>&#160;&#160;&#160;<a class="el" href="llimits_8h.html#a596f5b6e992f53a5a4e5732083448dd4">cast_byte</a>((g)-&gt;currentwhite &amp; <a class="el" href="#a0acb34c1b3d1234f11ee9fdc34df3f71">WHITEBITS</a>)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="adccc1cf9bf213c770940796d73635444" name="adccc1cf9bf213c770940796d73635444"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adccc1cf9bf213c770940796d73635444">&#9670;&#160;</a></span>LUAI_GCMUL</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LUAI_GCMUL&#160;&#160;&#160;100</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a961a6871328af0c7bb50169633e15fd9" name="a961a6871328af0c7bb50169633e15fd9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a961a6871328af0c7bb50169633e15fd9">&#9670;&#160;</a></span>LUAI_GCPAUSE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LUAI_GCPAUSE&#160;&#160;&#160;200</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a5289131664af0f4b111556cb5b4bfe9c" name="a5289131664af0f4b111556cb5b4bfe9c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5289131664af0f4b111556cb5b4bfe9c">&#9670;&#160;</a></span>LUAI_GCSTEPSIZE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LUAI_GCSTEPSIZE&#160;&#160;&#160;13      /* 8 <a class="el" href="lvm_8c.html#a11423b97da0e060b24d31d7e71534844">KB</a> */</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a6adb6d8358e1ed9e94c88f810c8dd44e" name="a6adb6d8358e1ed9e94c88f810c8dd44e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6adb6d8358e1ed9e94c88f810c8dd44e">&#9670;&#160;</a></span>LUAI_GENMAJORMUL</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LUAI_GENMAJORMUL&#160;&#160;&#160;100</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a1660119f32a7ea875ce967d1ef8deadc" name="a1660119f32a7ea875ce967d1ef8deadc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1660119f32a7ea875ce967d1ef8deadc">&#9670;&#160;</a></span>LUAI_GENMINORMUL</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LUAI_GENMINORMUL&#160;&#160;&#160;20</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a990de0d171d8b5425a5515d0bff78789" name="a990de0d171d8b5425a5515d0bff78789"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a990de0d171d8b5425a5515d0bff78789">&#9670;&#160;</a></span>nw2black</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define nw2black</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>x</em></span></td><td>)</td>
-          <td>&#160;&#160;&#160;	<a class="el" href="llimits_8h.html#afac1404af62451f8653440ecb6e773fc">check_exp</a>(!<a class="el" href="#a4c0ce78d476460d2e54914301f4a4bf7">iswhite</a>(x), <a class="el" href="#aad559b25ee580ea2894c540dc817e41f">l_setbit</a>((x)-&gt;marked, <a class="el" href="#acd17af3c46cb360dc67cad2b33b6a26f">BLACKBIT</a>))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a486df16493498577d4081a8c231154f0" name="a486df16493498577d4081a8c231154f0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a486df16493498577d4081a8c231154f0">&#9670;&#160;</a></span>otherwhite</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define otherwhite</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>g</em></span></td><td>)</td>
-          <td>&#160;&#160;&#160;((g)-&gt;currentwhite ^ <a class="el" href="#a0acb34c1b3d1234f11ee9fdc34df3f71">WHITEBITS</a>)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aca0beb244185329a1b8f0e695ef47748" name="aca0beb244185329a1b8f0e695ef47748"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aca0beb244185329a1b8f0e695ef47748">&#9670;&#160;</a></span>resetbit</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define resetbit</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="banner_8c.html#a59f91842bc238cf5dc3ec26d30fb950a">b</a></em></span>&#160;)&#160;&#160;&#160;<a class="el" href="#a486033531260010debe876a076dd2a41">resetbits</a>(x, <a class="el" href="#af25866c39979dd1f72110cbd3a1a427d">bitmask</a>(<a class="el" href="banner_8c.html#a59f91842bc238cf5dc3ec26d30fb950a">b</a>))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a486033531260010debe876a076dd2a41" name="a486033531260010debe876a076dd2a41"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a486033531260010debe876a076dd2a41">&#9670;&#160;</a></span>resetbits</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define resetbits</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>m</em></span>&#160;)&#160;&#160;&#160;((x) &amp;= <a class="el" href="llimits_8h.html#a596f5b6e992f53a5a4e5732083448dd4">cast_byte</a>(~(m)))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a42f07cc5f8f0a9d97989f7769f00c3f2" name="a42f07cc5f8f0a9d97989f7769f00c3f2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a42f07cc5f8f0a9d97989f7769f00c3f2">&#9670;&#160;</a></span>setage</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define setage</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>o</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>a</em></span>&#160;)&#160;&#160;&#160;((o)-&gt;marked = <a class="el" href="llimits_8h.html#a596f5b6e992f53a5a4e5732083448dd4">cast_byte</a>(((o)-&gt;marked &amp; (~<a class="el" href="#a3b446e7d0b31628385b7a1f444192e9a">AGEBITS</a>)) | a))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ada181faae5c9af4ed7392057c5dcbbae" name="ada181faae5c9af4ed7392057c5dcbbae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada181faae5c9af4ed7392057c5dcbbae">&#9670;&#160;</a></span>setbits</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define setbits</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>m</em></span>&#160;)&#160;&#160;&#160;((x) |= (m))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a757077227d006e517adfaa82c2d30e72" name="a757077227d006e517adfaa82c2d30e72"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a757077227d006e517adfaa82c2d30e72">&#9670;&#160;</a></span>setgcparam</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define setgcparam</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="#ac483f6ce851c9ecd9fb835ff7551737c">p</a></em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="lmem_8h.html#ac4055e3a20b6b3af3d10590ea446ef6c">v</a></em></span>&#160;)&#160;&#160;&#160;((<a class="el" href="#ac483f6ce851c9ecd9fb835ff7551737c">p</a>) = (<a class="el" href="lmem_8h.html#ac4055e3a20b6b3af3d10590ea446ef6c">v</a>) / 4)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab85d4eae1efa2e1a40d2f41bdbbda226" name="ab85d4eae1efa2e1a40d2f41bdbbda226"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab85d4eae1efa2e1a40d2f41bdbbda226">&#9670;&#160;</a></span>TESTBIT</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define TESTBIT&#160;&#160;&#160;7</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a25c19ff3161e2a2395ba69fdef49915f" name="a25c19ff3161e2a2395ba69fdef49915f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25c19ff3161e2a2395ba69fdef49915f">&#9670;&#160;</a></span>testbit</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define testbit</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="banner_8c.html#a59f91842bc238cf5dc3ec26d30fb950a">b</a></em></span>&#160;)&#160;&#160;&#160;<a class="el" href="#a7612bc83b764b507e12e08417a053854">testbits</a>(x, <a class="el" href="#af25866c39979dd1f72110cbd3a1a427d">bitmask</a>(<a class="el" href="banner_8c.html#a59f91842bc238cf5dc3ec26d30fb950a">b</a>))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7612bc83b764b507e12e08417a053854" name="a7612bc83b764b507e12e08417a053854"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7612bc83b764b507e12e08417a053854">&#9670;&#160;</a></span>testbits</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define testbits</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>m</em></span>&#160;)&#160;&#160;&#160;((x) &amp; (m))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a6d17f226d57a796f7741f457400cf8bd" name="a6d17f226d57a796f7741f457400cf8bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6d17f226d57a796f7741f457400cf8bd">&#9670;&#160;</a></span>tofinalize</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define tofinalize</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>x</em></span></td><td>)</td>
-          <td>&#160;&#160;&#160;<a class="el" href="#a25c19ff3161e2a2395ba69fdef49915f">testbit</a>((x)-&gt;marked, <a class="el" href="#a92211ad01420ac616819ba8f61ca7365">FINALIZEDBIT</a>)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a4b3ebb4bccaf9a33e772a2f4515519e6" name="a4b3ebb4bccaf9a33e772a2f4515519e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4b3ebb4bccaf9a33e772a2f4515519e6">&#9670;&#160;</a></span>WHITE0BIT</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define WHITE0BIT&#160;&#160;&#160;3  /* object is white (type 0) */</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7de7885f3d09155a2c530154ec045d72" name="a7de7885f3d09155a2c530154ec045d72"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7de7885f3d09155a2c530154ec045d72">&#9670;&#160;</a></span>WHITE1BIT</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define WHITE1BIT&#160;&#160;&#160;4  /* object is white (type 1) */</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a0acb34c1b3d1234f11ee9fdc34df3f71" name="a0acb34c1b3d1234f11ee9fdc34df3f71"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0acb34c1b3d1234f11ee9fdc34df3f71">&#9670;&#160;</a></span>WHITEBITS</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define WHITEBITS&#160;&#160;&#160;<a class="el" href="#a39293d5e5fbd7bb9a24556b3e2f15d43">bit2mask</a>(<a class="el" href="#a4b3ebb4bccaf9a33e772a2f4515519e6">WHITE0BIT</a>, <a class="el" href="#a7de7885f3d09155a2c530154ec045d72">WHITE1BIT</a>)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="a170d1841c66e3138d885a0fc136cbb30" name="a170d1841c66e3138d885a0fc136cbb30"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a170d1841c66e3138d885a0fc136cbb30">&#9670;&#160;</a></span>iscollectable()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">iscollectable </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="lmem_8h.html#ac4055e3a20b6b3af3d10590ea446ef6c">v</a></td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="ac483f6ce851c9ecd9fb835ff7551737c" name="ac483f6ce851c9ecd9fb835ff7551737c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac483f6ce851c9ecd9fb835ff7551737c">&#9670;&#160;</a></span>p</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">p</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

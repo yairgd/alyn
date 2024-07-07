@@ -112,7 +112,7 @@ Classes</h2></td></tr>
 Macros</h2></td></tr>
 <tr class="memitem:a8341bdc72db5a2f045e18440f9523008" id="r_a8341bdc72db5a2f045e18440f9523008"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8341bdc72db5a2f045e18440f9523008">EOZ</a>&#160;&#160;&#160;(-1)			/* end of stream */</td></tr>
 <tr class="separator:a8341bdc72db5a2f045e18440f9523008"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aecca8ea1e6dc0c97b458f77c0e3491de" id="r_aecca8ea1e6dc0c97b458f77c0e3491de"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aecca8ea1e6dc0c97b458f77c0e3491de">zgetc</a>(z)&#160;&#160;&#160;(((z)-&gt;n--)&gt;0 ?  <a class="el" href="llimits_8h.html#aa0c49a2b32329cc39df5ccafd1f720e0">cast_uchar</a>(*(z)-&gt;<a class="el" href="lgc_8h.html#ac483f6ce851c9ecd9fb835ff7551737c">p</a>++) : <a class="el" href="group__LuaSrc.html#ga407faec289b7559f210ac784e11a59bb">luaZ_fill</a>(z))</td></tr>
+<tr class="memitem:aecca8ea1e6dc0c97b458f77c0e3491de" id="r_aecca8ea1e6dc0c97b458f77c0e3491de"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aecca8ea1e6dc0c97b458f77c0e3491de">zgetc</a>(z)&#160;&#160;&#160;(((z)-&gt;n--)&gt;0 ?  <a class="el" href="llimits_8h.html#aa0c49a2b32329cc39df5ccafd1f720e0">cast_uchar</a>(*(z)-&gt;p++) : <a class="el" href="group__LuaSrc.html#ga407faec289b7559f210ac784e11a59bb">luaZ_fill</a>(z))</td></tr>
 <tr class="separator:aecca8ea1e6dc0c97b458f77c0e3491de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22367cbe48563efa737ffee3f2774ae2" id="r_a22367cbe48563efa737ffee3f2774ae2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a22367cbe48563efa737ffee3f2774ae2">luaZ_initbuffer</a>(<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>,  buff)&#160;&#160;&#160;((buff)-&gt;buffer = NULL, (buff)-&gt;buffsize = 0)</td></tr>
 <tr class="separator:a22367cbe48563efa737ffee3f2774ae2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -299,11 +299,11 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    ((buff)-&gt;buffer = <a class="code hl_define" href="lmem_8h.html#a5904278d180acc29faf199e1d76f3e85">luaM_reallocvchar</a>(<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, (buff)-&gt;buffer, \</div>
+<b>Value:</b><div class="fragment"><div class="line">    ((buff)-&gt;buffer = <a class="code hl_define" href="group__LuaSrc.html#ga5904278d180acc29faf199e1d76f3e85">luaM_reallocvchar</a>(<a class="code hl_variable" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, (buff)-&gt;buffer, \</div>
 <div class="line">                (buff)-&gt;buffsize, size), \</div>
 <div class="line">    (buff)-&gt;buffsize = size)</div>
 <div class="ttc" id="agame_8c_html_a62f94dfc0036bec0c14106c2f15caf3e"><div class="ttname"><a href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a></div><div class="ttdeci">static lua_State * L</div><div class="ttdef"><b>Definition</b> game.c:35</div></div>
-<div class="ttc" id="almem_8h_html_a5904278d180acc29faf199e1d76f3e85"><div class="ttname"><a href="lmem_8h.html#a5904278d180acc29faf199e1d76f3e85">luaM_reallocvchar</a></div><div class="ttdeci">#define luaM_reallocvchar(L, b, on, n)</div><div class="ttdef"><b>Definition</b> lmem.h:52</div></div>
+<div class="ttc" id="agroup__LuaSrc_html_ga5904278d180acc29faf199e1d76f3e85"><div class="ttname"><a href="group__LuaSrc.html#ga5904278d180acc29faf199e1d76f3e85">luaM_reallocvchar</a></div><div class="ttdeci">#define luaM_reallocvchar(L, b, on, n)</div><div class="ttdef"><b>Definition</b> lmem.h:55</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -334,7 +334,7 @@ Functions</h2></td></tr>
           <td class="memname">#define zgetc</td>
           <td>(</td>
           <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>z</em></span></td><td>)</td>
-          <td>&#160;&#160;&#160;(((z)-&gt;n--)&gt;0 ?  <a class="el" href="llimits_8h.html#aa0c49a2b32329cc39df5ccafd1f720e0">cast_uchar</a>(*(z)-&gt;<a class="el" href="lgc_8h.html#ac483f6ce851c9ecd9fb835ff7551737c">p</a>++) : <a class="el" href="group__LuaSrc.html#ga407faec289b7559f210ac784e11a59bb">luaZ_fill</a>(z))</td>
+          <td>&#160;&#160;&#160;(((z)-&gt;n--)&gt;0 ?  <a class="el" href="llimits_8h.html#aa0c49a2b32329cc39df5ccafd1f720e0">cast_uchar</a>(*(z)-&gt;p++) : <a class="el" href="group__LuaSrc.html#ga407faec289b7559f210ac784e11a59bb">luaZ_fill</a>(z))</td>
         </tr>
       </table>
 </div><div class="memdoc">

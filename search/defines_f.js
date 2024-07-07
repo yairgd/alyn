@@ -19,7 +19,5 @@ var searchData=
   ['priority_16',['PRIORITY',['../buttons_8c.html#a25e7852941475e51c875632ac1985d8a',1,'PRIORITY:&#160;buttons.c'],['../display_8c.html#a25e7852941475e51c875632ac1985d8a',1,'PRIORITY:&#160;display.c'],['../hwctl_8c.html#a25e7852941475e51c875632ac1985d8a',1,'PRIORITY:&#160;hwctl.c']]],
   ['progname_17',['PROGNAME',['../luac_8c.html#a8c9afb758de9a0355c93fc926b8ce6b1',1,'luac.c']]],
   ['protect_18',['Protect',['../lvm_8c.html#ae20e156330a1cdfb3738f042f7eae35a',1,'lvm.c']]],
-  ['protectnt_19',['ProtectNT',['../lvm_8c.html#a240b167bd7f3ed903cd1518960b1489c',1,'lvm.c']]],
-  ['pvalue_20',['pvalue',['../lobject_8h.html#a16c0267c035b3e4edda082e25069e8cf',1,'lobject.h']]],
-  ['pvalueraw_21',['pvalueraw',['../lobject_8h.html#ac63f7b6c7f725eaece22d3e7ea198001',1,'lobject.h']]]
+  ['protectnt_19',['ProtectNT',['../lvm_8c.html#a240b167bd7f3ed903cd1518960b1489c',1,'lvm.c']]]
 ];

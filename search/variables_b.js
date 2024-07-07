@@ -53,7 +53,7 @@ var searchData=
   ['ls_50',['ls',['../structFuncState.html#af0b246751acfbdec5bebc850e9e3217a',1,'FuncState']]],
   ['lsizenode_51',['lsizenode',['../structTable.html#aed057d880ebe0f38f65e626f646adf6a',1,'Table']]],
   ['lua_5fheap_5fmem_52',['lua_heap_mem',['../game_8c.html#aa448adfe96f890fdd2b338fbb7171503',1,'game.c']]],
-  ['lua_5fident_53',['lua_ident',['../lapi_8c.html#acbf4dc2e5f80547c7f54f41a179258b2',1,'lua_ident:&#160;lapi.c'],['../lua_8h.html#acbf4dc2e5f80547c7f54f41a179258b2',1,'lua_ident:&#160;lapi.c']]],
+  ['lua_5fident_53',['lua_ident',['../group__LuaSrc.html#gacbf4dc2e5f80547c7f54f41a179258b2',1,'lua_ident:&#160;lapi.c'],['../group__LuaSrc.html#gacbf4dc2e5f80547c7f54f41a179258b2',1,'lua_ident:&#160;lapi.c']]],
   ['lua_5fmemory_5fgame_54',['lua_memory_game',['../game_8c.html#a753def0af5c3312f889e590ea3718b48',1,'game.c']]],
   ['lua_5fthread_55',['lua_thread',['../classTerminalTextEdit.html#aede11230532404e503a75128555bc7d0',1,'TerminalTextEdit']]],
   ['luai_5fctype_5f_56',['luai_ctype_',['../group__LuaSrc.html#ga0fb53cca0a77a27211713000fc8f66b2',1,'lctype.c']]],

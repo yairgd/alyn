@@ -107,12 +107,12 @@ $(function(){ initResizable(false); });
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a8ee1ddf17394c8befb4092208004036c" id="r_a8ee1ddf17394c8befb4092208004036c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ee1ddf17394c8befb4092208004036c">lfunc_c</a></td></tr>
-<tr class="separator:a8ee1ddf17394c8befb4092208004036c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf0b3947b59218777a8e928a10be205b" id="r_abf0b3947b59218777a8e928a10be205b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf0b3947b59218777a8e928a10be205b">LUA_CORE</a></td></tr>
-<tr class="separator:abf0b3947b59218777a8e928a10be205b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5cbe1f7d4536ef1fe57e651bc838711a" id="r_a5cbe1f7d4536ef1fe57e651bc838711a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5cbe1f7d4536ef1fe57e651bc838711a">MAXDELTA</a>&#160;&#160;&#160;/** @defgroup LuaSrc Lua 5.4.6 Sources */</td></tr>
-<tr class="separator:a5cbe1f7d4536ef1fe57e651bc838711a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8ee1ddf17394c8befb4092208004036c" id="r_ga8ee1ddf17394c8befb4092208004036c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga8ee1ddf17394c8befb4092208004036c">lfunc_c</a></td></tr>
+<tr class="separator:ga8ee1ddf17394c8befb4092208004036c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabf0b3947b59218777a8e928a10be205b" id="r_gabf0b3947b59218777a8e928a10be205b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gabf0b3947b59218777a8e928a10be205b">LUA_CORE</a></td></tr>
+<tr class="separator:gabf0b3947b59218777a8e928a10be205b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5cbe1f7d4536ef1fe57e651bc838711a" id="r_ga5cbe1f7d4536ef1fe57e651bc838711a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga5cbe1f7d4536ef1fe57e651bc838711a">MAXDELTA</a>&#160;&#160;&#160;	((256ul &lt;&lt; ((sizeof(<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>-&gt;stack.p-&gt;tbclist.delta) - 1) * 8)) - 1)</td></tr>
+<tr class="separator:ga5cbe1f7d4536ef1fe57e651bc838711a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -122,219 +122,33 @@ Functions</h2></td></tr>
 <tr class="separator:ga827e3da2754fd3b4bc256d0651232c6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7f4b654cb9bf35af338f3ae1b287bc39" id="r_ga7f4b654cb9bf35af338f3ae1b287bc39"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga7f4b654cb9bf35af338f3ae1b287bc39">luaF_initupvals</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="el" href="structLClosure.html">LClosure</a> *cl)</td></tr>
 <tr class="separator:ga7f4b654cb9bf35af338f3ae1b287bc39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0cb955015b98d9cf450d1917581e0311" id="r_a0cb955015b98d9cf450d1917581e0311"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structUpVal.html">UpVal</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0cb955015b98d9cf450d1917581e0311">newupval</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="el" href="lobject_8h.html#a75170ac0f54a6beb06b8a7f9db47d073">StkId</a> level, <a class="el" href="structUpVal.html">UpVal</a> **prev)</td></tr>
-<tr class="separator:a0cb955015b98d9cf450d1917581e0311"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7b5586d4c78d253a5c57ab884faf6ebd" id="r_ga7b5586d4c78d253a5c57ab884faf6ebd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structUpVal.html">UpVal</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga7b5586d4c78d253a5c57ab884faf6ebd">luaF_findupval</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="el" href="lobject_8h.html#a75170ac0f54a6beb06b8a7f9db47d073">StkId</a> level)</td></tr>
+<tr class="memitem:ga0cb955015b98d9cf450d1917581e0311" id="r_ga0cb955015b98d9cf450d1917581e0311"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structUpVal.html">UpVal</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga0cb955015b98d9cf450d1917581e0311">newupval</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="el" href="group__LuaSrc.html#ga75170ac0f54a6beb06b8a7f9db47d073">StkId</a> level, <a class="el" href="structUpVal.html">UpVal</a> **prev)</td></tr>
+<tr class="separator:ga0cb955015b98d9cf450d1917581e0311"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7b5586d4c78d253a5c57ab884faf6ebd" id="r_ga7b5586d4c78d253a5c57ab884faf6ebd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structUpVal.html">UpVal</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga7b5586d4c78d253a5c57ab884faf6ebd">luaF_findupval</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="el" href="group__LuaSrc.html#ga75170ac0f54a6beb06b8a7f9db47d073">StkId</a> level)</td></tr>
 <tr class="separator:ga7b5586d4c78d253a5c57ab884faf6ebd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8c5ec2f48d61c0b1cc202d599a758e3" id="r_ac8c5ec2f48d61c0b1cc202d599a758e3"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac8c5ec2f48d61c0b1cc202d599a758e3">callclosemethod</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="el" href="structTValue.html">TValue</a> *obj, <a class="el" href="structTValue.html">TValue</a> *err, int yy)</td></tr>
-<tr class="separator:ac8c5ec2f48d61c0b1cc202d599a758e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace373acdb7f115f3b6d5cc155dd5d240" id="r_ace373acdb7f115f3b6d5cc155dd5d240"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ace373acdb7f115f3b6d5cc155dd5d240">checkclosemth</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="el" href="lobject_8h.html#a75170ac0f54a6beb06b8a7f9db47d073">StkId</a> level)</td></tr>
-<tr class="separator:ace373acdb7f115f3b6d5cc155dd5d240"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3441ab653f9f3df6a2512eb83d9dce09" id="r_a3441ab653f9f3df6a2512eb83d9dce09"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3441ab653f9f3df6a2512eb83d9dce09">prepcallclosemth</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="el" href="lobject_8h.html#a75170ac0f54a6beb06b8a7f9db47d073">StkId</a> level, int status, int yy)</td></tr>
-<tr class="separator:a3441ab653f9f3df6a2512eb83d9dce09"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
-<tr class="memitem:ga17478c6ccda97c8d77b4be5488c78c08" id="r_ga17478c6ccda97c8d77b4be5488c78c08"><td class="memItemLeft" align="right" valign="top">&lt;&lt;((sizeof(<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>-&gt; stack <a class="el" href="lgc_8h.html#ac483f6ce851c9ecd9fb835ff7551737c">p</a> tbclist delta *void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga17478c6ccda97c8d77b4be5488c78c08">luaF_newtbcupval</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="el" href="lobject_8h.html#a75170ac0f54a6beb06b8a7f9db47d073">StkId</a> level)</td></tr>
+<tr class="memitem:gac8c5ec2f48d61c0b1cc202d599a758e3" id="r_gac8c5ec2f48d61c0b1cc202d599a758e3"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gac8c5ec2f48d61c0b1cc202d599a758e3">callclosemethod</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="el" href="structTValue.html">TValue</a> *obj, <a class="el" href="structTValue.html">TValue</a> *err, int yy)</td></tr>
+<tr class="separator:gac8c5ec2f48d61c0b1cc202d599a758e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gace373acdb7f115f3b6d5cc155dd5d240" id="r_gace373acdb7f115f3b6d5cc155dd5d240"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gace373acdb7f115f3b6d5cc155dd5d240">checkclosemth</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="el" href="group__LuaSrc.html#ga75170ac0f54a6beb06b8a7f9db47d073">StkId</a> level)</td></tr>
+<tr class="separator:gace373acdb7f115f3b6d5cc155dd5d240"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3441ab653f9f3df6a2512eb83d9dce09" id="r_ga3441ab653f9f3df6a2512eb83d9dce09"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga3441ab653f9f3df6a2512eb83d9dce09">prepcallclosemth</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="el" href="group__LuaSrc.html#ga75170ac0f54a6beb06b8a7f9db47d073">StkId</a> level, int status, int yy)</td></tr>
+<tr class="separator:ga3441ab653f9f3df6a2512eb83d9dce09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga17478c6ccda97c8d77b4be5488c78c08" id="r_ga17478c6ccda97c8d77b4be5488c78c08"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga17478c6ccda97c8d77b4be5488c78c08">luaF_newtbcupval</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="el" href="group__LuaSrc.html#ga75170ac0f54a6beb06b8a7f9db47d073">StkId</a> level)</td></tr>
 <tr class="separator:ga17478c6ccda97c8d77b4be5488c78c08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga560691ba7dbb73952d36e6e4a87cb224" id="r_ga560691ba7dbb73952d36e6e4a87cb224"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga560691ba7dbb73952d36e6e4a87cb224">luaF_unlinkupval</a> (<a class="el" href="structUpVal.html">UpVal</a> *uv)</td></tr>
 <tr class="separator:ga560691ba7dbb73952d36e6e4a87cb224"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa58cb032e4a4e265b9b55b1bd1f181bb" id="r_gaa58cb032e4a4e265b9b55b1bd1f181bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gaa58cb032e4a4e265b9b55b1bd1f181bb">luaF_closeupval</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="el" href="lobject_8h.html#a75170ac0f54a6beb06b8a7f9db47d073">StkId</a> level)</td></tr>
+<tr class="memitem:gaa58cb032e4a4e265b9b55b1bd1f181bb" id="r_gaa58cb032e4a4e265b9b55b1bd1f181bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gaa58cb032e4a4e265b9b55b1bd1f181bb">luaF_closeupval</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="el" href="group__LuaSrc.html#ga75170ac0f54a6beb06b8a7f9db47d073">StkId</a> level)</td></tr>
 <tr class="separator:gaa58cb032e4a4e265b9b55b1bd1f181bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga00f1a5cf092c193710614c1d1639f6ec" id="r_ga00f1a5cf092c193710614c1d1639f6ec"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga00f1a5cf092c193710614c1d1639f6ec">poptbclist</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
 <tr class="separator:ga00f1a5cf092c193710614c1d1639f6ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7458a20364476ab7ddbec353f50a3297" id="r_ga7458a20364476ab7ddbec353f50a3297"><td class="memItemLeft" align="right" valign="top"><a class="el" href="lobject_8h.html#a75170ac0f54a6beb06b8a7f9db47d073">StkId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga7458a20364476ab7ddbec353f50a3297">luaF_close</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="el" href="lobject_8h.html#a75170ac0f54a6beb06b8a7f9db47d073">StkId</a> level, int status, int yy)</td></tr>
+<tr class="memitem:ga7458a20364476ab7ddbec353f50a3297" id="r_ga7458a20364476ab7ddbec353f50a3297"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__LuaSrc.html#ga75170ac0f54a6beb06b8a7f9db47d073">StkId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga7458a20364476ab7ddbec353f50a3297">luaF_close</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="el" href="group__LuaSrc.html#ga75170ac0f54a6beb06b8a7f9db47d073">StkId</a> level, int status, int yy)</td></tr>
 <tr class="separator:ga7458a20364476ab7ddbec353f50a3297"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa121489107d36567d5470634a9d82b7d" id="r_gaa121489107d36567d5470634a9d82b7d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structProto.html">Proto</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gaa121489107d36567d5470634a9d82b7d">luaF_newproto</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>)</td></tr>
 <tr class="separator:gaa121489107d36567d5470634a9d82b7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga0cc4051310ee836ef266607da3a58499" id="r_ga0cc4051310ee836ef266607da3a58499"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga0cc4051310ee836ef266607da3a58499">luaF_freeproto</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="el" href="structProto.html">Proto</a> *f)</td></tr>
 <tr class="separator:ga0cc4051310ee836ef266607da3a58499"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae510827b619c7231d65f8c6a3080e981" id="r_gae510827b619c7231d65f8c6a3080e981"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gae510827b619c7231d65f8c6a3080e981">luaF_getlocalname</a> (const <a class="el" href="structProto.html">Proto</a> *f, int local_number, int pc)</td></tr>
-<tr class="separator:gae510827b619c7231d65f8c6a3080e981"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab00d35056f9c802f0068f5586231ab99" id="r_gab00d35056f9c802f0068f5586231ab99"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gab00d35056f9c802f0068f5586231ab99">luaF_getlocalname</a> (const <a class="el" href="structProto.html">Proto</a> *f, int local_number, int pc)</td></tr>
+<tr class="separator:gab00d35056f9c802f0068f5586231ab99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a8ee1ddf17394c8befb4092208004036c" name="a8ee1ddf17394c8befb4092208004036c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8ee1ddf17394c8befb4092208004036c">&#9670;&#160;</a></span>lfunc_c</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define lfunc_c</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="abf0b3947b59218777a8e928a10be205b" name="abf0b3947b59218777a8e928a10be205b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf0b3947b59218777a8e928a10be205b">&#9670;&#160;</a></span>LUA_CORE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LUA_CORE</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a5cbe1f7d4536ef1fe57e651bc838711a" name="a5cbe1f7d4536ef1fe57e651bc838711a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5cbe1f7d4536ef1fe57e651bc838711a">&#9670;&#160;</a></span>MAXDELTA</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MAXDELTA&#160;&#160;&#160;/** @defgroup LuaSrc Lua 5.4.6 Sources */</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="ac8c5ec2f48d61c0b1cc202d599a758e3" name="ac8c5ec2f48d61c0b1cc202d599a758e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac8c5ec2f48d61c0b1cc202d599a758e3">&#9670;&#160;</a></span>callclosemethod()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void callclosemethod </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structlua__State.html">lua_State</a> *</td>          <td class="paramname"><span class="paramname"><em>L</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structTValue.html">TValue</a> *</td>          <td class="paramname"><span class="paramname"><em>obj</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structTValue.html">TValue</a> *</td>          <td class="paramname"><span class="paramname"><em>err</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>yy</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ace373acdb7f115f3b6d5cc155dd5d240" name="ace373acdb7f115f3b6d5cc155dd5d240"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ace373acdb7f115f3b6d5cc155dd5d240">&#9670;&#160;</a></span>checkclosemth()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void checkclosemth </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structlua__State.html">lua_State</a> *</td>          <td class="paramname"><span class="paramname"><em>L</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="lobject_8h.html#a75170ac0f54a6beb06b8a7f9db47d073">StkId</a></td>          <td class="paramname"><span class="paramname"><em>level</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a0cb955015b98d9cf450d1917581e0311" name="a0cb955015b98d9cf450d1917581e0311"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0cb955015b98d9cf450d1917581e0311">&#9670;&#160;</a></span>newupval()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static <a class="el" href="structUpVal.html">UpVal</a> * newupval </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structlua__State.html">lua_State</a> *</td>          <td class="paramname"><span class="paramname"><em>L</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="lobject_8h.html#a75170ac0f54a6beb06b8a7f9db47d073">StkId</a></td>          <td class="paramname"><span class="paramname"><em>level</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structUpVal.html">UpVal</a> **</td>          <td class="paramname"><span class="paramname"><em>prev</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a3441ab653f9f3df6a2512eb83d9dce09" name="a3441ab653f9f3df6a2512eb83d9dce09"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3441ab653f9f3df6a2512eb83d9dce09">&#9670;&#160;</a></span>prepcallclosemth()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void prepcallclosemth </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structlua__State.html">lua_State</a> *</td>          <td class="paramname"><span class="paramname"><em>L</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="lobject_8h.html#a75170ac0f54a6beb06b8a7f9db47d073">StkId</a></td>          <td class="paramname"><span class="paramname"><em>level</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>status</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>yy</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

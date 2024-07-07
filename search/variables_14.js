@@ -6,7 +6,7 @@ var searchData=
   ['uart_5fdata_3',['uart_data',['../uart_8c.html#a804d131f412779ddf0f8aebbc221c6e3',1,'uart.c']]],
   ['uart_5fdev_4',['uart_dev',['../uart_8c.html#a8faa353851f6853b949218c6fbf4ddf1',1,'uart.c']]],
   ['ub_5',['ub',['../unionValue.html#aa6fc4345b43257a82c278a07adcf59dc',1,'Value']]],
-  ['ud_6',['ud',['../structglobal__State.html#af12419c778ac134ece8e269bfcaf06ad',1,'global_State::ud'],['../ldo_8h.html#a6c4e6337ac6cb9aab6e53aa909764129',1,'ud:&#160;ldo.h']]],
+  ['ud_6',['ud',['../structglobal__State.html#af12419c778ac134ece8e269bfcaf06ad',1,'global_State']]],
   ['ud_5fwarn_7',['ud_warn',['../structglobal__State.html#a650d67aa8435f102fe0345f6c357db6f',1,'global_State']]],
   ['udatatypename_8',['udatatypename',['../group__LuaSrc.html#gae2358d68d4806fe5f2e404428c1779e5',1,'ltm.c']]],
   ['ui_9',['ui',['../classMainWindow.html#a35466a70ed47252a0191168126a352a5',1,'MainWindow']]],

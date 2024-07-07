@@ -16,6 +16,5 @@ var searchData=
   ['op_5forder_13',['op_order',['../lvm_8c.html#a427d042b492c9feb6beaeea80f6bd594',1,'lvm.c']]],
   ['op_5forderi_14',['op_orderI',['../lvm_8c.html#ac2b4fecc5abdaf3ec282df9a7b728e13',1,'lvm.c']]],
   ['opmode_15',['opmode',['../lopcodes_8h.html#a55f7a6110b36e7c0958f22fa82cd3c45',1,'lopcodes.h']]],
-  ['otherwhite_16',['otherwhite',['../lgc_8h.html#a486df16493498577d4081a8c231154f0',1,'lgc.h']]],
-  ['output_17',['OUTPUT',['../luac_8c.html#a61a3c9a18380aafb6e430e79bf596557',1,'luac.c']]]
+  ['output_16',['OUTPUT',['../luac_8c.html#a61a3c9a18380aafb6e430e79bf596557',1,'luac.c']]]
 ];

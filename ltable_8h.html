@@ -110,9 +110,9 @@ Macros</h2></td></tr>
 <tr class="separator:a69534d37fbaf464430636bf437108530"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97b22167368e065caf9d8d11ae7ca1de" id="r_a97b22167368e065caf9d8d11ae7ca1de"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a97b22167368e065caf9d8d11ae7ca1de">isdummy</a>(t)&#160;&#160;&#160;((t)-&gt;lastfree == NULL)</td></tr>
 <tr class="separator:a97b22167368e065caf9d8d11ae7ca1de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3ab680af234ee7ea0f7e6078b4b73bf" id="r_af3ab680af234ee7ea0f7e6078b4b73bf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af3ab680af234ee7ea0f7e6078b4b73bf">allocsizenode</a>(t)&#160;&#160;&#160;(<a class="el" href="#a97b22167368e065caf9d8d11ae7ca1de">isdummy</a>(t) ? 0 : <a class="el" href="lobject_8h.html#a2fbf715e78eaa889ed0fb9d4514e736a">sizenode</a>(t))</td></tr>
+<tr class="memitem:af3ab680af234ee7ea0f7e6078b4b73bf" id="r_af3ab680af234ee7ea0f7e6078b4b73bf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af3ab680af234ee7ea0f7e6078b4b73bf">allocsizenode</a>(t)&#160;&#160;&#160;(<a class="el" href="#a97b22167368e065caf9d8d11ae7ca1de">isdummy</a>(t) ? 0 : <a class="el" href="group__LuaSrc.html#ga2fbf715e78eaa889ed0fb9d4514e736a">sizenode</a>(t))</td></tr>
 <tr class="separator:af3ab680af234ee7ea0f7e6078b4b73bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa318820e0b85f1a9b1c34821e3d37a10" id="r_aa318820e0b85f1a9b1c34821e3d37a10"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa318820e0b85f1a9b1c34821e3d37a10">nodefromval</a>(<a class="el" href="lmem_8h.html#ac4055e3a20b6b3af3d10590ea446ef6c">v</a>)&#160;&#160;&#160;<a class="el" href="llimits_8h.html#af17d62ec9e237a7644de6b9b34a48a34">cast</a>(<a class="el" href="unionNode.html">Node</a> *, (<a class="el" href="lmem_8h.html#ac4055e3a20b6b3af3d10590ea446ef6c">v</a>))</td></tr>
+<tr class="memitem:aa318820e0b85f1a9b1c34821e3d37a10" id="r_aa318820e0b85f1a9b1c34821e3d37a10"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa318820e0b85f1a9b1c34821e3d37a10">nodefromval</a>(v)&#160;&#160;&#160;<a class="el" href="llimits_8h.html#af17d62ec9e237a7644de6b9b34a48a34">cast</a>(<a class="el" href="unionNode.html">Node</a> *, (v))</td></tr>
 <tr class="separator:aa318820e0b85f1a9b1c34821e3d37a10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
@@ -141,7 +141,7 @@ Functions</h2></td></tr>
 <tr class="separator:ga5a11320761545d5a718dd0dd57ae1d7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa2e2ed92ac2178bb87aa3a178c0a83bb" id="r_gaa2e2ed92ac2178bb87aa3a178c0a83bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gaa2e2ed92ac2178bb87aa3a178c0a83bb">luaH_free</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="el" href="structTable.html">Table</a> *t)</td></tr>
 <tr class="separator:gaa2e2ed92ac2178bb87aa3a178c0a83bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga55be2c48e6e2c113dabda3819f5301e7" id="r_ga55be2c48e6e2c113dabda3819f5301e7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga55be2c48e6e2c113dabda3819f5301e7">luaH_next</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="el" href="structTable.html">Table</a> *t, <a class="el" href="lobject_8h.html#a75170ac0f54a6beb06b8a7f9db47d073">StkId</a> key)</td></tr>
+<tr class="memitem:ga55be2c48e6e2c113dabda3819f5301e7" id="r_ga55be2c48e6e2c113dabda3819f5301e7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga55be2c48e6e2c113dabda3819f5301e7">luaH_next</a> (<a class="el" href="structlua__State.html">lua_State</a> *<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="el" href="structTable.html">Table</a> *t, <a class="el" href="group__LuaSrc.html#ga75170ac0f54a6beb06b8a7f9db47d073">StkId</a> key)</td></tr>
 <tr class="separator:ga55be2c48e6e2c113dabda3819f5301e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4d485656e3b0f1bead63b2f27904c1eb" id="r_ga4d485656e3b0f1bead63b2f27904c1eb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="lua_8h.html#a2357bdcd9af1aaef0a6895a9c3b7eccf">lua_Unsigned</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga4d485656e3b0f1bead63b2f27904c1eb">luaH_getn</a> (<a class="el" href="structTable.html">Table</a> *t)</td></tr>
 <tr class="separator:ga4d485656e3b0f1bead63b2f27904c1eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -159,7 +159,7 @@ Functions</h2></td></tr>
           <td class="memname">#define allocsizenode</td>
           <td>(</td>
           <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>t</em></span></td><td>)</td>
-          <td>&#160;&#160;&#160;(<a class="el" href="#a97b22167368e065caf9d8d11ae7ca1de">isdummy</a>(t) ? 0 : <a class="el" href="lobject_8h.html#a2fbf715e78eaa889ed0fb9d4514e736a">sizenode</a>(t))</td>
+          <td>&#160;&#160;&#160;(<a class="el" href="#a97b22167368e065caf9d8d11ae7ca1de">isdummy</a>(t) ? 0 : <a class="el" href="group__LuaSrc.html#ga2fbf715e78eaa889ed0fb9d4514e736a">sizenode</a>(t))</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -264,8 +264,8 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">#define nodefromval</td>
           <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="lmem_8h.html#ac4055e3a20b6b3af3d10590ea446ef6c">v</a></em></span></td><td>)</td>
-          <td>&#160;&#160;&#160;<a class="el" href="llimits_8h.html#af17d62ec9e237a7644de6b9b34a48a34">cast</a>(<a class="el" href="unionNode.html">Node</a> *, (<a class="el" href="lmem_8h.html#ac4055e3a20b6b3af3d10590ea446ef6c">v</a>))</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>v</em></span></td><td>)</td>
+          <td>&#160;&#160;&#160;<a class="el" href="llimits_8h.html#af17d62ec9e237a7644de6b9b34a48a34">cast</a>(<a class="el" href="unionNode.html">Node</a> *, (v))</td>
         </tr>
       </table>
 </div><div class="memdoc">

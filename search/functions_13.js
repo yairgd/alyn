@@ -63,7 +63,7 @@ var searchData=
   ['sort_60',['sort',['../group__LuaSrc.html#gae7d3f892e2605bf102dce63de388e626',1,'ltablib.c']]],
   ['sort_5fcomp_61',['sort_comp',['../group__LuaSrc.html#gae92f4625e74d1876b2ca2a4ced74c807',1,'ltablib.c']]],
   ['spi_5fdma_5fcallback_62',['spi_dma_callback',['../main_8c.html#a7c4d385b65ae675fd06acb32f2157019',1,'main.c']]],
-  ['stack_5finit_63',['stack_init',['../lstate_8c.html#a55b60427432d47460c6e1eaa9a31953f',1,'lstate.c']]],
+  ['stack_5finit_63',['stack_init',['../group__LuaSrc.html#ga55b60427432d47460c6e1eaa9a31953f',1,'lstate.c']]],
   ['stackinuse_64',['stackinuse',['../ldo_8c.html#ac2956ef8f7aba184c6591001f2017a54',1,'ldo.c']]],
   ['start_5fblink_65',['start_blink',['../system__model_8c.html#a30876d8d9dfc59f9940eb5acdf57245a',1,'start_blink(int id, int freq, double blink_time):&#160;system_model.c'],['../system__model_8h.html#a30876d8d9dfc59f9940eb5acdf57245a',1,'start_blink(int id, int freq, double blink_time):&#160;system_model.c']]],
   ['start_5fcapture_66',['start_capture',['../lstrlib_8c.html#afe42e5d441f313d0a768057947797480',1,'lstrlib.c']]],

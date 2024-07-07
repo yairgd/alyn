@@ -46,7 +46,7 @@ var searchData=
   ['resume_5ferror_43',['resume_error',['../group__LuaSrc.html#ga8a351e424df030a908f2db9eec0b4f30',1,'ldo.c']]],
   ['rethook_44',['rethook',['../ldo_8c.html#ab40893dc0d5d6359016848df77b5bfa6',1,'ldo.c']]],
   ['retstat_45',['retstat',['../group__LuaSrc.html#ga7998fc603fbe151c85cf0ff9b5517ad6',1,'lparser.c']]],
-  ['reverse_46',['reverse',['../lapi_8c.html#af628ea556fe99e3ced3fad099e117844',1,'lapi.c']]],
+  ['reverse_46',['reverse',['../group__LuaSrc.html#gaf628ea556fe99e3ced3fad099e117844',1,'lapi.c']]],
   ['rkname_47',['rkname',['../group__LuaSrc.html#ga2513b0afdf7a69ca65cb59eea7551131',1,'ldebug.c']]],
   ['rname_48',['rname',['../group__LuaSrc.html#ga3b1ec666c4618a5100fc5a6ef21ca3f6',1,'ldebug.c']]],
   ['rotl_49',['rotl',['../lmathlib_8c.html#af6d2c0cbed4c44224dc80230279c1b5d',1,'lmathlib.c']]],

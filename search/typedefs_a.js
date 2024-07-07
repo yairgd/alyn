@@ -6,12 +6,12 @@ var searchData=
   ['l_5fuint32_3',['l_uint32',['../llimits_8h.html#abeb00a444eb1dc99a4a2baee15bd898a',1,'llimits.h']]],
   ['labeldesc_4',['Labeldesc',['../group__LuaSrc.html#gab135786bb87517f9f774754b91b72374',1,'lparser.h']]],
   ['labellist_5',['Labellist',['../group__LuaSrc.html#gad15a88bb9fe7b666c688c37ce5a9a07a',1,'lparser.h']]],
-  ['lclosure_6',['LClosure',['../lobject_8h.html#a17bc5d9d02f31c043f5d144531c58531',1,'lobject.h']]],
+  ['lclosure_6',['LClosure',['../group__LuaSrc.html#ga17bc5d9d02f31c043f5d144531c58531',1,'lobject.h']]],
   ['lexstate_7',['LexState',['../group__LuaSrc.html#ga9f82fde07775e272863638db15ba8401',1,'llex.h']]],
-  ['lg_8',['LG',['../lstate_8c.html#ae603421ab67430c2479b21cf5b46ea83',1,'lstate.c']]],
+  ['lg_8',['LG',['../group__LuaSrc.html#gae603421ab67430c2479b21cf5b46ea83',1,'lstate.c']]],
   ['loadf_9',['LoadF',['../group__LuaSrc.html#ga482c2598b668c96a68dabb9fb5a6886d',1,'lauxlib.c']]],
   ['loads_10',['LoadS',['../group__LuaSrc.html#ga717dbcc7ef165c8a810dff0bfb556ebd',1,'lauxlib.c']]],
-  ['locvar_11',['LocVar',['../lobject_8h.html#abfe5d6df698ce5c78a1e911fe5860466',1,'lobject.h']]],
+  ['locvar_11',['LocVar',['../group__LuaSrc.html#gabfe5d6df698ce5c78a1e911fe5860466',1,'lobject.h']]],
   ['ls_5fbyte_12',['ls_byte',['../llimits_8h.html#aab58a246c9e0a85c4c2ed0fd8d6724bb',1,'llimits.h']]],
   ['lstream_13',['LStream',['../liolib_8c.html#afdee2306a2ebaf7fd48d13fa65714054',1,'liolib.c']]],
   ['lu_5fbyte_14',['lu_byte',['../llimits_8h.html#ae1fe9ac10d9803bd1d7bdf30b18bad68',1,'llimits.h']]],
@@ -33,5 +33,5 @@ var searchData=
   ['lual_5fbuffer_30',['luaL_Buffer',['../lauxlib_8h.html#aaed907641807460fcee0e1cb9a9e9ed6',1,'lauxlib.h']]],
   ['lual_5freg_31',['luaL_Reg',['../lauxlib_8h.html#ab5ca0c51890e3970d0db1df2a1922b34',1,'lauxlib.h']]],
   ['lual_5fstream_32',['luaL_Stream',['../lauxlib_8h.html#a21bf593878812ad2cc1b962ae5efc064',1,'lauxlib.h']]],
-  ['lx_33',['LX',['../lstate_8c.html#ac58513cb1c781750265c8643a2e037b0',1,'lstate.c']]]
+  ['lx_33',['LX',['../group__LuaSrc.html#gac58513cb1c781750265c8643a2e037b0',1,'lstate.c']]]
 ];

@@ -10,7 +10,7 @@ var searchData=
   ['newgotoentry_7',['newgotoentry',['../lparser_8c.html#afa4884f1fcf6756c7c9ebadef88a629f',1,'lparser.c']]],
   ['newlabelentry_8',['newlabelentry',['../lparser_8c.html#ac8408d50bc1af7533968d363841bcf27',1,'lparser.c']]],
   ['newprefile_9',['newprefile',['../liolib_8c.html#ad47605bf8a2f41215928452d8b4fe599',1,'liolib.c']]],
-  ['newupval_10',['newupval',['../lfunc_8c.html#a0cb955015b98d9cf450d1917581e0311',1,'lfunc.c']]],
+  ['newupval_10',['newupval',['../group__LuaSrc.html#ga0cb955015b98d9cf450d1917581e0311',1,'lfunc.c']]],
   ['newupvalue_11',['newupvalue',['../lparser_8c.html#a840fa0de24ef09efda91ce6ebae3876d',1,'lparser.c']]],
   ['nextc_12',['nextc',['../group__LuaSrc.html#gab75f5f85c38ee22fc9884f0bd7ef836d',1,'liolib.c']]],
   ['nextline_13',['nextline',['../group__LuaSrc.html#ga34dcc3fce752d518b34773a35b3763ad',1,'ldebug.c']]],

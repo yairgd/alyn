@@ -162,7 +162,7 @@ Macros</h2></td></tr>
 <tr class="separator:a89e74d547b8879cf8d10c3e956c283b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2981eb06b0460773fb1c1a21c93c8d8d" id="r_a2981eb06b0460773fb1c1a21c93c8d8d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2981eb06b0460773fb1c1a21c93c8d8d">lua_number2str</a>(s,  sz,  n)&#160;&#160;&#160;	<a class="el" href="#a66e2cc299fcf55c169a67b5b3781a955">l_sprintf</a>((s), sz, <a class="el" href="#a8d91a1bf1619825be5a0275c36f20216">LUA_NUMBER_FMT</a>, (<a class="el" href="#ae3594e990592ab0bf7243dad64c76d2a">LUAI_UACNUMBER</a>)(n))</td></tr>
 <tr class="separator:a2981eb06b0460773fb1c1a21c93c8d8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b0d24a7a90003778668e2d01831bb88" id="r_a4b0d24a7a90003778668e2d01831bb88"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4b0d24a7a90003778668e2d01831bb88">lua_numbertointeger</a>(n,  <a class="el" href="lgc_8h.html#ac483f6ce851c9ecd9fb835ff7551737c">p</a>)</td></tr>
+<tr class="memitem:a4b0d24a7a90003778668e2d01831bb88" id="r_a4b0d24a7a90003778668e2d01831bb88"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4b0d24a7a90003778668e2d01831bb88">lua_numbertointeger</a>(n,  p)</td></tr>
 <tr class="separator:a4b0d24a7a90003778668e2d01831bb88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a459532244178d9e61e65aaf40fb42de1" id="r_a459532244178d9e61e65aaf40fb42de1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a459532244178d9e61e65aaf40fb42de1">LUA_NUMBER</a>&#160;&#160;&#160;double</td></tr>
 <tr class="separator:a459532244178d9e61e65aaf40fb42de1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -176,7 +176,7 @@ Macros</h2></td></tr>
 <tr class="separator:a8d91a1bf1619825be5a0275c36f20216"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a919f548d82dc9a0681dd0ba8996d986d" id="r_a919f548d82dc9a0681dd0ba8996d986d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a919f548d82dc9a0681dd0ba8996d986d">l_mathop</a>(op)&#160;&#160;&#160;op</td></tr>
 <tr class="separator:a919f548d82dc9a0681dd0ba8996d986d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b751913c0b1598d6de4acb99ae48f5a" id="r_a4b751913c0b1598d6de4acb99ae48f5a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4b751913c0b1598d6de4acb99ae48f5a">lua_str2number</a>(s,  <a class="el" href="lgc_8h.html#ac483f6ce851c9ecd9fb835ff7551737c">p</a>)&#160;&#160;&#160;strtod((s), (<a class="el" href="lgc_8h.html#ac483f6ce851c9ecd9fb835ff7551737c">p</a>))</td></tr>
+<tr class="memitem:a4b751913c0b1598d6de4acb99ae48f5a" id="r_a4b751913c0b1598d6de4acb99ae48f5a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4b751913c0b1598d6de4acb99ae48f5a">lua_str2number</a>(s,  p)&#160;&#160;&#160;strtod((s), (p))</td></tr>
 <tr class="separator:a4b751913c0b1598d6de4acb99ae48f5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0147f0a7d04c83b70f691a7549c1e3ed" id="r_a0147f0a7d04c83b70f691a7549c1e3ed"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0147f0a7d04c83b70f691a7549c1e3ed">LUA_INTEGER_FMT</a>&#160;&#160;&#160;&quot;%&quot; LUA_INTEGER_FRMLEN &quot;d&quot;</td></tr>
 <tr class="separator:a0147f0a7d04c83b70f691a7549c1e3ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -188,9 +188,9 @@ Macros</h2></td></tr>
 <tr class="separator:aebcf6bf84bcfb38b3004d9ff0b937c35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66e2cc299fcf55c169a67b5b3781a955" id="r_a66e2cc299fcf55c169a67b5b3781a955"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a66e2cc299fcf55c169a67b5b3781a955">l_sprintf</a>(s,  sz,  f,  i)&#160;&#160;&#160;snprintf(s,sz,f,i)</td></tr>
 <tr class="separator:a66e2cc299fcf55c169a67b5b3781a955"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b53a01f7ac167204d227cb6e8d8c1e2" id="r_a4b53a01f7ac167204d227cb6e8d8c1e2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4b53a01f7ac167204d227cb6e8d8c1e2">lua_strx2number</a>(s,  <a class="el" href="lgc_8h.html#ac483f6ce851c9ecd9fb835ff7551737c">p</a>)&#160;&#160;&#160;<a class="el" href="#a4b751913c0b1598d6de4acb99ae48f5a">lua_str2number</a>(s,<a class="el" href="lgc_8h.html#ac483f6ce851c9ecd9fb835ff7551737c">p</a>)</td></tr>
+<tr class="memitem:a4b53a01f7ac167204d227cb6e8d8c1e2" id="r_a4b53a01f7ac167204d227cb6e8d8c1e2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4b53a01f7ac167204d227cb6e8d8c1e2">lua_strx2number</a>(s,  p)&#160;&#160;&#160;<a class="el" href="#a4b751913c0b1598d6de4acb99ae48f5a">lua_str2number</a>(s,p)</td></tr>
 <tr class="separator:a4b53a01f7ac167204d227cb6e8d8c1e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a927f26920bfa5ced499783fca8cf1e2f" id="r_a927f26920bfa5ced499783fca8cf1e2f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a927f26920bfa5ced499783fca8cf1e2f">lua_pointer2str</a>(buff,  sz,  <a class="el" href="lgc_8h.html#ac483f6ce851c9ecd9fb835ff7551737c">p</a>)&#160;&#160;&#160;<a class="el" href="#a66e2cc299fcf55c169a67b5b3781a955">l_sprintf</a>(buff,sz,&quot;%p&quot;,<a class="el" href="lgc_8h.html#ac483f6ce851c9ecd9fb835ff7551737c">p</a>)</td></tr>
+<tr class="memitem:a927f26920bfa5ced499783fca8cf1e2f" id="r_a927f26920bfa5ced499783fca8cf1e2f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a927f26920bfa5ced499783fca8cf1e2f">lua_pointer2str</a>(buff,  sz,  p)&#160;&#160;&#160;<a class="el" href="#a66e2cc299fcf55c169a67b5b3781a955">l_sprintf</a>(buff,sz,&quot;%p&quot;,p)</td></tr>
 <tr class="separator:a927f26920bfa5ced499783fca8cf1e2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac67fd4fc4890ea6ee5a623abfae127a" id="r_aac67fd4fc4890ea6ee5a623abfae127a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac67fd4fc4890ea6ee5a623abfae127a">lua_number2strx</a>(<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>,  <a class="el" href="banner_8c.html#a59f91842bc238cf5dc3ec26d30fb950a">b</a>,  sz,  f,  n)&#160;&#160;&#160;	((void)<a class="el" href="game_8c.html#a62f94dfc0036bec0c14106c2f15caf3e">L</a>, <a class="el" href="#a66e2cc299fcf55c169a67b5b3781a955">l_sprintf</a>(<a class="el" href="banner_8c.html#a59f91842bc238cf5dc3ec26d30fb950a">b</a>,sz,f,(<a class="el" href="#ae3594e990592ab0bf7243dad64c76d2a">LUAI_UACNUMBER</a>)(n)))</td></tr>
 <tr class="separator:aac67fd4fc4890ea6ee5a623abfae127a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -765,14 +765,13 @@ Macros</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="lgc_8h.html#ac483f6ce851c9ecd9fb835ff7551737c">p</a></em></span>&#160;)</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>p</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">  ((n) &gt;= (<a class="code hl_define" href="#a459532244178d9e61e65aaf40fb42de1">LUA_NUMBER</a>)(LUA_MININTEGER) &amp;&amp; \</div>
 <div class="line">   (n) &lt; -(<a class="code hl_define" href="#a459532244178d9e61e65aaf40fb42de1">LUA_NUMBER</a>)(LUA_MININTEGER) &amp;&amp; \</div>
-<div class="line">      (*(<a class="code hl_variable" href="lgc_8h.html#ac483f6ce851c9ecd9fb835ff7551737c">p</a>) = (LUA_INTEGER)(n), 1))</div>
-<div class="ttc" id="algc_8h_html_ac483f6ce851c9ecd9fb835ff7551737c"><div class="ttname"><a href="lgc_8h.html#ac483f6ce851c9ecd9fb835ff7551737c">p</a></div><div class="ttdeci">p</div><div class="ttdef"><b>Definition</b> lgc.h:188</div></div>
+<div class="line">      (*(p) = (LUA_INTEGER)(n), 1))</div>
 <div class="ttc" id="aluaconf_8h_html_a459532244178d9e61e65aaf40fb42de1"><div class="ttname"><a href="#a459532244178d9e61e65aaf40fb42de1">LUA_NUMBER</a></div><div class="ttdeci">#define LUA_NUMBER</div><div class="ttdef"><b>Definition</b> luaconf.h:464</div></div>
 </div><!-- fragment -->
 </div>
@@ -843,7 +842,7 @@ Macros</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="lgc_8h.html#ac483f6ce851c9ecd9fb835ff7551737c">p</a></em></span>&#160;)&#160;&#160;&#160;<a class="el" href="#a66e2cc299fcf55c169a67b5b3781a955">l_sprintf</a>(buff,sz,&quot;%p&quot;,<a class="el" href="lgc_8h.html#ac483f6ce851c9ecd9fb835ff7551737c">p</a>)</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>p</em></span>&#160;)&#160;&#160;&#160;<a class="el" href="#a66e2cc299fcf55c169a67b5b3781a955">l_sprintf</a>(buff,sz,&quot;%p&quot;,p)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -878,7 +877,7 @@ Macros</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="lgc_8h.html#ac483f6ce851c9ecd9fb835ff7551737c">p</a></em></span>&#160;)&#160;&#160;&#160;strtod((s), (<a class="el" href="lgc_8h.html#ac483f6ce851c9ecd9fb835ff7551737c">p</a>))</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>p</em></span>&#160;)&#160;&#160;&#160;strtod((s), (p))</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -899,7 +898,7 @@ Macros</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="lgc_8h.html#ac483f6ce851c9ecd9fb835ff7551737c">p</a></em></span>&#160;)&#160;&#160;&#160;<a class="el" href="#a4b751913c0b1598d6de4acb99ae48f5a">lua_str2number</a>(s,<a class="el" href="lgc_8h.html#ac483f6ce851c9ecd9fb835ff7551737c">p</a>)</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>p</em></span>&#160;)&#160;&#160;&#160;<a class="el" href="#a4b751913c0b1598d6de4acb99ae48f5a">lua_str2number</a>(s,p)</td>
         </tr>
       </table>
 </div><div class="memdoc">

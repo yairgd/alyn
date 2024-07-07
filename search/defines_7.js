@@ -39,8 +39,8 @@ var searchData=
   ['gcvaluen_36',['gcvalueN',['../lgc_8c.html#a7c7f051ea3f0945577e90c480ebeee88',1,'lgc.c']]],
   ['gcvalueraw_37',['gcvalueraw',['../lobject_8h.html#a719248356281fe83215c94961ad9226f',1,'lobject.h']]],
   ['get_5fblue_38',['GET_BLUE',['../canvas_8h.html#af073e8a6d0cb1e7045445cd2b1864031',1,'canvas.h']]],
-  ['get_5fgpio_5fflags_39',['GET_GPIO_FLAGS',['../gpio_8c.html#a48af568aeba0909f229d0ecec4bcdc2a',1,'gpio.c']]],
-  ['get_5fgpio_5fpin_40',['GET_GPIO_PIN',['../gpio_8c.html#a386a9197344f8e6abf5c5c845d9db5fc',1,'gpio.c']]],
+  ['get_5fgpio_5fflags_39',['GET_GPIO_FLAGS',['../buttons_8c.html#a48af568aeba0909f229d0ecec4bcdc2a',1,'buttons.c']]],
+  ['get_5fgpio_5fpin_40',['GET_GPIO_PIN',['../buttons_8c.html#a386a9197344f8e6abf5c5c845d9db5fc',1,'buttons.c']]],
   ['get_5fgreen_41',['GET_GREEN',['../canvas_8h.html#a57999dd8e1af37afa3ee1325c2087a09',1,'canvas.h']]],
   ['get_5fopcode_42',['GET_OPCODE',['../lopcodes_8h.html#aaa146179c3677b790c5681dcd82f0acc',1,'lopcodes.h']]],
   ['get_5fred_43',['GET_RED',['../canvas_8h.html#a0087f874391519e8b558b5ee7c417b41',1,'canvas.h']]],
@@ -72,6 +72,6 @@ var searchData=
   ['gnext_69',['gnext',['../ltable_8h.html#aac0e00b2296e00cfc818b74f1aff4f8b',1,'ltable.h']]],
   ['gnode_70',['gnode',['../ltable_8h.html#a644cfa3b6d4be1782e818a8340b5f78b',1,'ltable.h']]],
   ['gnodelast_71',['gnodelast',['../lgc_8c.html#a43ef7b8388b613e737dd3ec7eb493f47',1,'lgc.c']]],
-  ['gpio_5fnode_72',['GPIO_NODE',['../gpio_8c.html#a922509143a9dac83d22bc42b4cfdfc28',1,'gpio.c']]],
+  ['gpio_5fnode_72',['GPIO_NODE',['../buttons_8c.html#a922509143a9dac83d22bc42b4cfdfc28',1,'buttons.c']]],
   ['gval_73',['gval',['../ltable_8h.html#acbbecd9bd8fbb72a17f6e2f5acf7113d',1,'ltable.h']]]
 ];

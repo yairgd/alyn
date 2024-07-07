@@ -77,7 +77,7 @@ var searchData=
   ['gmatch_74',['gmatch',['../lstrlib_8c.html#ab55a72bb412d6186c82fd75de44cd031',1,'lstrlib.c']]],
   ['gmatch_5faux_75',['gmatch_aux',['../lstrlib_8c.html#ab7cb0ba6191e1aa9455f6522d3483a02',1,'lstrlib.c']]],
   ['gotostat_76',['gotostat',['../group__LuaSrc.html#ga55bae7d03576b713ff5460644f102dfd',1,'lparser.c']]],
-  ['gpio_5finit_77',['gpio_init',['../gpio_8c.html#afdbe206b3c49f019757ab09b3cf52b9c',1,'gpio_init(void):&#160;gpio.c'],['../gpio_8h.html#afdbe206b3c49f019757ab09b3cf52b9c',1,'gpio_init(void):&#160;gpio.c']]],
+  ['gpio_5finit_77',['gpio_init',['../buttons_8c.html#afdbe206b3c49f019757ab09b3cf52b9c',1,'gpio_init(void):&#160;buttons.c'],['../buttons_8h.html#afdbe206b3c49f019757ab09b3cf52b9c',1,'gpio_init(void):&#160;buttons.c']]],
   ['growstrtab_78',['growstrtab',['../group__LuaSrc.html#gaf8b89b01dc2db9f0d3024067ffdb931a',1,'lstring.c']]],
   ['gxf_79',['gxf',['../group__LuaSrc.html#gacd6b6a45ab5759bf6760aed8bee9b09c',1,'ldebug.c']]]
 ];

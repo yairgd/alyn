@@ -72,7 +72,7 @@ var searchData=
   ['printheader_69',['PrintHeader',['../group__LuaSrc.html#gaa71b204e7556a8e903732f3d19630cd9',1,'luac.c']]],
   ['printstring_70',['PrintString',['../luac_8c.html#a605f53a55a6eb7338c9be8f59077feb8',1,'luac.c']]],
   ['printtype_71',['PrintType',['../luac_8c.html#ad534be70a80daf5dffc8186b0c754544',1,'luac.c']]],
-  ['priority_72',['PRIORITY',['../display_8c.html#a25e7852941475e51c875632ac1985d8a',1,'PRIORITY:&#160;display.c'],['../hwctl_8c.html#a25e7852941475e51c875632ac1985d8a',1,'PRIORITY:&#160;hwctl.c']]],
+  ['priority_72',['PRIORITY',['../buttons_8c.html#a25e7852941475e51c875632ac1985d8a',1,'PRIORITY:&#160;buttons.c'],['../display_8c.html#a25e7852941475e51c875632ac1985d8a',1,'PRIORITY:&#160;display.c'],['../hwctl_8c.html#a25e7852941475e51c875632ac1985d8a',1,'PRIORITY:&#160;hwctl.c']]],
   ['priority_73',['priority',['../lparser_8c.html#a247e89ddc880ff1f728dd744c9ed9197',1,'lparser.c']]],
   ['prioritynames_74',['prioritynames',['../logger_8c.html#ae50cc67fec897f9186f2f754cd049f05',1,'logger.c']]],
   ['proccess_5fchar_75',['proccess_char',['../parser__task_8cpp.html#a457a158cddae24fa5ab8148323e15527',1,'proccess_char(const struct shell *sh, uint8_t *data, size_t len):&#160;parser_task.cpp'],['../parser__task_8h.html#a457a158cddae24fa5ab8148323e15527',1,'proccess_char(const struct shell *sh, uint8_t *data, size_t len):&#160;parser_task.cpp']]],

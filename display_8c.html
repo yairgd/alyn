@@ -158,7 +158,7 @@ Functions</h2></td></tr>
 <tr class="separator:a031feb8ba578150a96e1e5151d4440e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2cc75467ee2a2e90590409ee8d30d6c" id="r_ac2cc75467ee2a2e90590409ee8d30d6c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2cc75467ee2a2e90590409ee8d30d6c">display_thread</a> (void *p1, void *p2, void *p3)</td></tr>
 <tr class="separator:ac2cc75467ee2a2e90590409ee8d30d6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97175147ae49478d47467ea3484cb6d9" id="r_a97175147ae49478d47467ea3484cb6d9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a97175147ae49478d47467ea3484cb6d9">K_THREAD_DEFINE</a> (display_thread_id, <a class="el" href="#a21d9543c516fffee84a7963224271f95">STACKSIZE</a>, <a class="el" href="#ac2cc75467ee2a2e90590409ee8d30d6c">display_thread</a>, NULL, NULL, NULL, <a class="el" href="#a25e7852941475e51c875632ac1985d8a">PRIORITY</a>, 0, 0)</td></tr>
+<tr class="memitem:a97175147ae49478d47467ea3484cb6d9" id="r_a97175147ae49478d47467ea3484cb6d9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a97175147ae49478d47467ea3484cb6d9">K_THREAD_DEFINE</a> (display_thread_id, <a class="el" href="buttons_8c.html#a21d9543c516fffee84a7963224271f95">STACKSIZE</a>, <a class="el" href="#ac2cc75467ee2a2e90590409ee8d30d6c">display_thread</a>, NULL, NULL, NULL, <a class="el" href="buttons_8c.html#a25e7852941475e51c875632ac1985d8a">PRIORITY</a>, 0, 0)</td></tr>
 <tr class="separator:a97175147ae49478d47467ea3484cb6d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae11a2fb39b5ee671b1d431aa513b09b3" id="r_ae11a2fb39b5ee671b1d431aa513b09b3"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae11a2fb39b5ee671b1d431aa513b09b3">dma_callback</a> (const struct device *dev, void *user_data, uint32_t id, int <a class="el" href="lundump_8c.html#a4359a67dfcb96fbedf2becab47365599">error</a>)</td></tr>
 <tr class="separator:ae11a2fb39b5ee671b1d431aa513b09b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -634,7 +634,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="#a21d9543c516fffee84a7963224271f95">STACKSIZE</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+          <td class="paramtype"><a class="el" href="buttons_8c.html#a21d9543c516fffee84a7963224271f95">STACKSIZE</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -659,7 +659,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="#a25e7852941475e51c875632ac1985d8a">PRIORITY</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+          <td class="paramtype"><a class="el" href="buttons_8c.html#a25e7852941475e51c875632ac1985d8a">PRIORITY</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1042,7 +1042,7 @@ Variables</h2></td></tr>
 <div class="line">    .buf = <a class="code hl_variable" href="#a1e26691f41d37429033a1416dcc408ee">pixel_buffer</a>,</div>
 <div class="line">    .len = <span class="keyword">sizeof</span>(<a class="code hl_variable" href="#a1e26691f41d37429033a1416dcc408ee">pixel_buffer</a>)</div>
 <div class="line">}</div>
-<div class="ttc" id="adisplay_8c_html_a1e26691f41d37429033a1416dcc408ee"><div class="ttname"><a href="#a1e26691f41d37429033a1416dcc408ee">pixel_buffer</a></div><div class="ttdeci">static char pixel_buffer[PIXELS_PER_ROW *2 *3/8]</div><div class="ttdef"><b>Definition</b> display.c:81</div></div>
+<div class="ttc" id="adisplay_8c_html_a1e26691f41d37429033a1416dcc408ee"><div class="ttname"><a href="#a1e26691f41d37429033a1416dcc408ee">pixel_buffer</a></div><div class="ttdeci">static char pixel_buffer[PIXELS_PER_ROW *2 *3/8]</div><div class="ttdef"><b>Definition</b> display.c:82</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1091,7 +1091,7 @@ Variables</h2></td></tr>
 <div class="line">    .buffers = &amp;<a class="code hl_variable" href="#a758ea3352abad79a4879e6ac3d955f27">tx_buf</a>,</div>
 <div class="line">    .count = 1</div>
 <div class="line">}</div>
-<div class="ttc" id="adisplay_8c_html_a758ea3352abad79a4879e6ac3d955f27"><div class="ttname"><a href="#a758ea3352abad79a4879e6ac3d955f27">tx_buf</a></div><div class="ttdeci">static struct spi_buf tx_buf</div><div class="ttdef"><b>Definition</b> display.c:83</div></div>
+<div class="ttc" id="adisplay_8c_html_a758ea3352abad79a4879e6ac3d955f27"><div class="ttname"><a href="#a758ea3352abad79a4879e6ac3d955f27">tx_buf</a></div><div class="ttdeci">static struct spi_buf tx_buf</div><div class="ttdef"><b>Definition</b> display.c:84</div></div>
 </div><!-- fragment -->
 </div>
 </div>

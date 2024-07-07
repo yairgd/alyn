@@ -42,7 +42,7 @@ set (cpu_compile_flags -mcpu=cortex-m4 -mthumb)
 
 add_subdirectory(${PROJ_TOP}/common/luaEffects  ${PROJECT_BINARY_DIR}/luaEffects/)
 add_subdirectory(${PROJ_TOP}/common/effects  ${PROJECT_BINARY_DIR}/effects)
-add_subdirectory(${PROJ_TOP}/common/common  ${PROJECT_BINARY_DIR}/common)
+add_subdirectory(${PROJ_TOP}/common/utils  ${PROJECT_BINARY_DIR}/utils)
 
 
 #https://jonathanhamberg.com/post/cmake-file-embedding/

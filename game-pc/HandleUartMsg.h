@@ -30,7 +30,7 @@
 #include "protocol-v1/ProtoclDataStructures.h"
 #include "protocol-v1/messages.h"
 #include "protocol-v1/IHandleUartMsg.h"
-#include "common/logger.h"
+#include "utils/logger.h"
 
 #include "game_api.h"
 

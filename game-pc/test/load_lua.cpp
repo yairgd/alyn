@@ -26,10 +26,11 @@
 #include <fstream>
 
 #include "protocol-v1/ProtocolStateMachine.h"
-#include "common/HandleUartMsg.h"
-#include "common/ThreadPool.h"
-#include "common/logger.h"
-#include "common/game_api.h"
+#include "utils/ThreadPool.h"
+#include "utils/logger.h"
+#include "game_api.h"
+#include "HandleUartMsg.h"
+
 
 #include "IUart.h"
 //#include "git.h"

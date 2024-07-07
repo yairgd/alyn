@@ -57,6 +57,7 @@ add_executable(led-screen-sim
 	main.cpp
 	terminaltextedit.cpp
 	resources.qrc
+	../timing.c	
 )
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" )
@@ -90,6 +91,7 @@ target_link_libraries(led-screen-sim
 )
 
 target_include_directories(led-screen-sim  PRIVATE
+	..
 	${CMAKE_SOURCE_DIR}/game/lua-5.4.6/src/
 	${VCPKG_DIR}/include/Qt5/
 	${VCPKG_DIR}/include/Qt5/QtWidgets

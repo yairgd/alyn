@@ -29,7 +29,7 @@
 #include "IUart.h"
 #include <memory>
 #include "protocol-v1/messages.h"
-#include "common/logger.h"
+#include "utils/logger.h"
 
 #ifdef MSVC
 #elif __GNUC__

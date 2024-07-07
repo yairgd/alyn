@@ -82,6 +82,7 @@ elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
 	#set (Python3_EXECUTABLE "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\Python39_64\\python.exe")
 endif()
 
+set (ZEPHYR FALSE)
 
 add_subdirectory(common)
 add_subdirectory(game-pc)

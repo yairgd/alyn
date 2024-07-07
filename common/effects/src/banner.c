@@ -28,8 +28,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "common/timing.h"
-#include "common/lua_memory.h"
+#include "utils/timing.h"
+#include "utils/lua_memory.h"
 
 void banner_set_text(struct banner * banner,const char* fmt, ...){ 
 	va_list args;

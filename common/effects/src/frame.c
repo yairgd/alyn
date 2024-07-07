@@ -21,7 +21,7 @@
 
 #include "frame.h"
 #include "effect.h"
-#include "common/lua_memory.h"
+#include "utils/lua_memory.h"
 
 static inline int _color_switch(int c1,int c2, int rate) {
 	static int cnt = 0;

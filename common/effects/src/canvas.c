@@ -60,6 +60,7 @@ void canvas_free(struct canvas * canvas)
 {
 	if (canvas->buffer) {
 #ifdef ZEPHYR
+		extern void k_free (void *);
 		k_free(canvas->buffer);
 #else
 		free(canvas->buffer);

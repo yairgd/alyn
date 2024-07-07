@@ -20,7 +20,7 @@ include(ExternalProject)
 
 # Define the external project
 ExternalProject_Add(luac
-    SOURCE_DIR ${PROJ_TOP}/game/luaEffects/luac
+    SOURCE_DIR ${PROJ_TOP}/common/luaEffects/luac
     #  CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=<INSTALL_DIR>
     BUILD_ALWAYS 1
     INSTALL_COMMAND "" 
@@ -40,9 +40,9 @@ set (ZEPHYR  TRUE)
 set (cpu_compile_flags -mcpu=cortex-m4 -mthumb)
 
 
-add_subdirectory(${PROJ_TOP}/game/luaEffects  ${PROJECT_BINARY_DIR}/luaEffects/)
-add_subdirectory(${PROJ_TOP}/game/effects  ${PROJECT_BINARY_DIR}/effects)
-add_subdirectory(${PROJ_TOP}/game/common  ${PROJECT_BINARY_DIR}/common)
+add_subdirectory(${PROJ_TOP}/common/luaEffects  ${PROJECT_BINARY_DIR}/luaEffects/)
+add_subdirectory(${PROJ_TOP}/common/effects  ${PROJECT_BINARY_DIR}/effects)
+add_subdirectory(${PROJ_TOP}/common/common  ${PROJECT_BINARY_DIR}/common)
 
 
 #https://jonathanhamberg.com/post/cmake-file-embedding/
@@ -69,13 +69,15 @@ target_sources(app PRIVATE
 
   	src/parser_task.cpp
 
+	src/HandleUartMsg.cpp
+
 	#	common/system_model.c
 	#common/logger.c
 
 
-	${PROJ_TOP}/game/comm_protocol/protocol-v1/ProtocolStateMachine.cpp
-	${PROJ_TOP}/game-controller/src/HandleUartMsg.cpp
-	${PROJ_TOP}/game/hal/zephyr/uart_shell.cpp
+	${PROJ_TOP}/common/comm_protocol/protocol-v1/ProtocolStateMachine.cpp
+	#${PROJ_TOP}/common/src/HandleUartMsg.cpp
+	${PROJ_TOP}/common/hal/zephyr/uart_shell.cpp
 
 	#	src/getopt/getopt.c
 )
@@ -83,9 +85,9 @@ target_sources(app PRIVATE
 get_target_property(TARGET_COMPILE_OPTIONS app COMPILE_OPTIONS)
 message("Compile options for my_target: ${TARGET_COMPILE_OPTIONS}")
 target_include_directories(app PRIVATE
-	${PROJ_TOP}/game/comm_protocol/
-	${PROJ_TOP}/game/
-	${PROJ_TOP}/game/hal
+	${PROJ_TOP}/common/comm_protocol/
+	${PROJ_TOP}/common/
+	${PROJ_TOP}/common/hal
 	${PROJ_TOP}/
 	${PROJECT_BINARY_DIR}
 	src/getopt

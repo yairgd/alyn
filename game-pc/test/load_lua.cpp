@@ -18,37 +18,59 @@
 
 #include <memory>
 #include <chrono>
+#include <ostream>
 #include <vector>
 #include <thread>
 #include <memory>
 #include <iostream>
-#include<fstream>
+#include <fstream>
 
 #include "protocol-v1/ProtocolStateMachine.h"
-#include "game/src//HandleUartMsg.h"
-
+#include "common/HandleUartMsg.h"
 #include "common/ThreadPool.h"
 #include "common/logger.h"
+#include "common/game_api.h"
 
 #include "IUart.h"
-#include "src/game_api.h"
-///#include "git.h"
+//#include "git.h"
 
 #ifdef _MSC_VER
 #include <windows.h>
-#define usleep(x) Sleep(x/1000)
+static inline void  usleep(unsigned int x) {
+	Sleep(x / 1000);
+}
 #elif __GNUC__
 #include <unistd.h>
  //#include "signals.h"
 #endif
 
-
-#define UART_DEVICE "/dev/pts/12"
+#define UART_DEVICE "/dev/ttyACM0"
 #define BYPASS "bypass\n\r"
+static const uint8_t  QUIT_BYPASS [2]= {0x18 , 0x11};
 int gg=0;
-void run_the_application() {
+
+char * read_file(char *filename, size_t & size)
+{
+  char * buffer;
+  std::ifstream file (filename, std::ios::in|std::ios::binary|std::ios::ate);
+  if (!file.is_open()) {
+	  std::cout<<"bad file name"<<std::endl;
+	  exit(1);
+  }
+  size = file.tellg();
+  file.seekg (0, std::ios::beg);
+  buffer = new char [size];
+  file.read (buffer, size);
+  file.close();
+  return buffer;
+}
+
+void run_the_application(int argc, char *argv[]) {
 	auto threadPool= ThreadPool::Instance();
 	auto uart = Hal::GetUart(UART_DEVICE);
+	
+	auto gameApi = std::make_shared<::GameApi>(uart);		
+	
 	uart->Open();
 	if (uart->IsOpen() == false) {
 		logger_print(LOG_INFO,"cannot open uart %s",UART_DEVICE );				
@@ -56,9 +78,11 @@ void run_the_application() {
 	}
 
 	char m_exit = false;
+	size_t size;
+	char * b = read_file(argv[1], size);
 
-	threadPool->beginTask([uart,&m_exit]()->void{
-		auto p  =  std::make_shared<Simple::HandleUartMsg>(uart);
+	threadPool->beginTask([uart,&m_exit,gameApi]()->void{
+		auto p  =  std::make_shared<Simple::HandleUartMsg>(uart, gameApi);
 		std::shared_ptr<IProtocolParser> parser = std::make_shared<Simple::ProtocolStateMachine> (uart, p);
 		std::mutex m;
 
@@ -74,19 +98,19 @@ void run_the_application() {
 		}
 	});
 
-	threadPool->beginTask([uart, &m_exit]()->void{
-		auto robot = std::make_shared<::GameApi>(uart);		
+	threadPool->beginTask([uart, &m_exit, b,size,gameApi]()->void{
+		// bypass the shell and move to direct uart comnication
 		uart->Send(( char *)BYPASS, sizeof (BYPASS) );
 		usleep(100000);
-		for (int i=0;i<100;i++) {
-			gg=1;
-			robot->getDeviceInfo(); // works
-			while (gg);
 
-		}
-
+		// load and run the game
+		gameApi->loadBuffer(b, size);
+		gameApi->luaStartGame(0);
 		
+		// exit from bypass mode
+		uart->Send( (char*)QUIT_BYPASS, sizeof (QUIT_BYPASS) );
 		usleep(100000);
+
 		m_exit = true;		
 		return;
 
@@ -104,7 +128,9 @@ void run_the_application() {
 }
 
 
+
 int main(int argc, char *argv[]) {
+
 
 #ifdef __GNUC__
 	logger_init(0, LOG_LOCAL0);
@@ -127,7 +153,7 @@ int main(int argc, char *argv[]) {
 	}
 #endif
 
-	run_the_application();
+	run_the_application(argc, argv);
 
 
 #if CONFIG_SINGLE_INSTANCE

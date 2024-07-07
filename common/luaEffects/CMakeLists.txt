@@ -1,5 +1,5 @@
 
-set (this_file_location ${PROJ_TOP}/game/luaEffects)
+set (this_file_location ${PROJ_TOP}/common/luaEffects)
 #find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
 
 set (Python3_EXECUTABLE python)

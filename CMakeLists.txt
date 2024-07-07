@@ -83,8 +83,8 @@ elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
 endif()
 
 
-
-add_subdirectory(game)
+add_subdirectory(common)
+add_subdirectory(game-pc)
 
 
 

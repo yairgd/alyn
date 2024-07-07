@@ -25,6 +25,5 @@ target_link_libraries(protocol_static PUBLIC
 
 )
 
-add_subdirectory(test)
 
 

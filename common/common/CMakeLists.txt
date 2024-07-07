@@ -3,8 +3,9 @@ set(commnon_SRC
 	./system_model.c	
 )
 
-if (NOT EXISTS ZEPHYR)
+if (NOT EXISTS ZEPHYR AND NOT ${ZEPHYR})
 	list(APPEND commnon_SRC "./timing.c")
+	list(APPEND commnon_SRC "./ThreadPool.cpp")
 endif()
 
 add_library(common_static STATIC

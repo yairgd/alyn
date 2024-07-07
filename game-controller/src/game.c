@@ -28,6 +28,7 @@
 #include "lualib.h"
 #include "luasrc.h"
 #include "system_model.h"
+#include "utils/lua_memory.h"
 
 #define MY_STACK_SIZE 32768
 #define MY_PRIORITY 5
@@ -41,26 +42,6 @@ k_tid_t game_thread_tid = 0;
 
 
 
-/* 
- * Implemented a custom heap for Lua's source code, 
- * enabling the utilization of malloc and free for its API 
- **/
-char lua_heap_mem[32768];
-struct  sys_heap heap;
-char * lua_realloc(char *ptr, size_t n ) {
-	  return sys_heap_realloc(&heap,ptr,n);
-
-}
-void lua_free(void *ptr) {
-	sys_heap_free(&heap,ptr);
-
-}
-
-
-char * lua_malloc(size_t n ) {
-	return sys_heap_alloc(&heap,  n);
-
-}
 
 
 /** 
@@ -162,7 +143,8 @@ static void game_thread_entry(void *g, void *a, void *b) {
 void game_init(void) {
 	struct game * g = games;
 
-	sys_heap_init (&heap, lua_heap_mem, sizeof(lua_heap_mem));
+	// init memory
+	lua_mem_init();
 
 	// Initialize the doubly linked list
 	sys_dlist_init(&head);

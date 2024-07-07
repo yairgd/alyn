@@ -23,4 +23,5 @@
 char * lua_realloc(char *ptr, size_t n );
 void lua_free(void *ptr);
 void * lua_malloc(size_t n );
+void lua_mem_init();
 #endif

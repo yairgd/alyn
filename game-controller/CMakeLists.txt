@@ -57,6 +57,7 @@ set (CMAKE_CXX_STANDARD 17)
 #	/home/yair/alyn/project/game-controller/build/common/libcommon_static.a)
 
 target_sources(app PRIVATE 
+	# c
 	src/shell.c
 	src/main.c	
 	src/hwctl.c	
@@ -64,22 +65,15 @@ target_sources(app PRIVATE
   	src/uart.c
 	src/display.c
 	src/buttons.c
-
 	src/timing.c
+  	src/lua_memory.c
 
+	# cpp	
   	src/parser_task.cpp
-
 	src/HandleUartMsg.cpp
-
-	#	common/system_model.c
-	#common/logger.c
-
-
 	${PROJ_TOP}/common/comm_protocol/protocol-v1/ProtocolStateMachine.cpp
-	#${PROJ_TOP}/common/src/HandleUartMsg.cpp
 	${PROJ_TOP}/common/hal/zephyr/uart_shell.cpp
 
-	#	src/getopt/getopt.c
 )
 
 get_target_property(TARGET_COMPILE_OPTIONS app COMPILE_OPTIONS)

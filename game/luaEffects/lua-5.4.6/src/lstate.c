@@ -1,3 +1,6 @@
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
+
 /*
 ** $Id: lstate.c $
 ** Global State
@@ -65,8 +68,6 @@ typedef struct LG {
 ** current time.
 */
 #define addbuff(b,p,e) \
-/** @defgroup LuaSrc Lua 5.4.6 Sources */
-/** @{ */
   { size_t t = cast_sizet(e); \
     memcpy(b + p, &t, sizeof(t)); p += sizeof(t); }
 

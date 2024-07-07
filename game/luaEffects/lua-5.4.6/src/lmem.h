@@ -1,3 +1,6 @@
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
+
 /*
 ** $Id: lmem.h $
 ** Interface to Memory Manager
@@ -72,9 +75,7 @@
                                   cast_sizet(n) * sizeof(t))))
 
 #define luaM_shrinkvector(L,v,size,fs,t) \
-/** @defgroup LuaSrc Lua 5.4.6 Sources */
-/** @{ */
-   ((v)=cast(t *, luaM_shrinkvector_(L, v, &(size), fs, sizeof(t))))
+	((v)=cast(t *, luaM_shrinkvector_(L, v, &(size), fs, sizeof(t))))
 
 LUAI_FUNC l_noret luaM_toobig (lua_State *L);
 

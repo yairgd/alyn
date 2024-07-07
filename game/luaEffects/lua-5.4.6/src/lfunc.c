@@ -1,3 +1,6 @@
+/** @defgroup LuaSrc Lua 5.4.6 Sources */
+/** @{ */
+
 /*
 ** $Id: lfunc.c $
 ** Auxiliary functions to manipulate prototypes and closures
@@ -159,8 +162,6 @@ static void prepcallclosemth (lua_State *L, StkId level, int status, int yy) {
 ** is used.)
 */
 #define MAXDELTA  \
-/** @defgroup LuaSrc Lua 5.4.6 Sources */
-/** @{ */
 	((256ul << ((sizeof(L->stack.p->tbclist.delta) - 1) * 8)) - 1)
 
 

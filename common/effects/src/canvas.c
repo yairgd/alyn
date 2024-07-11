@@ -25,8 +25,8 @@
 
 #include "canvas.h"
 #include "u8.h"
-extern void *k_malloc(size_t size);
 
+static struct rect g_rect; 
 
 int rect_width(struct rect * r) {
 	return r->width;
@@ -37,7 +37,7 @@ int rect_height(struct rect * r){
 }
 
 
-void canvas_init(struct canvas * canvas, int width, int height)
+void canvas_init(struct canvas * canvas, int width, int height, struct pixel * pixel)
 {
 	memset (canvas, 0, sizeof(*canvas));
 	canvas->font = 0;
@@ -47,37 +47,36 @@ void canvas_init(struct canvas * canvas, int width, int height)
 
 	canvas->width = width;
 	canvas->height = height;
-#ifdef ZEPHYR
-	canvas->buffer = k_malloc(4 * width * height);
-#else
-	canvas->buffer = malloc(4 * width * height);
-#endif
+	canvas->buffer = pixel;
 
-	memset (canvas->buffer,0,4 * width * height); 
+
+	memset (canvas->buffer,0, PIXEL_SIZE * width * height); 
+
+	g_rect.top_left_x = 0;
+	g_rect.top_left_y = 0;
+	g_rect.height = canvas->height;
+	g_rect.width = canvas->width;
+	canvas_set_global_rect(canvas);	
 }
+
+
+
 
 void canvas_free(struct canvas * canvas)
 {
-	if (canvas->buffer) {
-#ifdef ZEPHYR
-		extern void k_free (void *);
-		k_free(canvas->buffer);
-#else
-		free(canvas->buffer);
-#endif
-		memset (canvas, 0, sizeof (*canvas));
-	}
+	memset (canvas, 0, sizeof (*canvas));	
 }
+
 void canvas_write_font(struct canvas * canvas, int char_id, int x,int y) {
 	const char * buf = font_get_map(canvas->font, char_id);
 
-	for (int h = 0; h < canvas->font->Height && y + h < canvas->height; h++) {
-		for (int w = 0; w < canvas->font->Width && x + w < canvas->width; w++) {
+	for (int h = 0; h < canvas->font->Height /* && y + h < canvas->height*/; h++) {
+		for (int w = 0; w < canvas->font->Width /* && x + w < canvas->width*/; w++) {
 			if (bit(buf, w)) {
-				SET_BIT_COLOR(canvas,x+w,y+h,canvas->font_color);
+				canvas_plot(canvas, x+w,y+h,canvas->font_color) ;
 				//	printf("x");				
 			} else {
-				SET_BIT_COLOR(canvas,x+w,y+h,canvas->bg_color);
+				canvas_plot(canvas, x+w,y+h,canvas->bg_color); 				
 				//printf("_");				
 			}
 
@@ -91,7 +90,7 @@ void canvas_write_font(struct canvas * canvas, int char_id, int x,int y) {
 void canvas_dump(struct canvas * canvas) {
 	for (int h = 0; h < canvas->height; h++) {
 		for (int w = 0; w < canvas->width; w++) {
-			if (GET_BIT_COLOR(canvas,w,h)) {
+			if (*(uint32_t*)GET_POINTER_TO_PIXEL(canvas,w,h)) {
 				printf("x");
 			} else {
 				printf("_");
@@ -101,30 +100,30 @@ void canvas_dump(struct canvas * canvas) {
 	}
 }
 
-const char * canvas_buffer(struct canvas * canvas) {
+const struct pixel * canvas_buffer(struct canvas * canvas) {
 	return canvas->buffer;
 }
-
 
 static char c[20*4]; 
 void canvas_rotate_right(struct canvas * canvas, int n) {
 	if (n > 20)
 		n = 19;
 	for (int h = 0; h < canvas->height; h++) {
-		memcpy (c, &canvas->buffer[(canvas->width * 4 * h)],4*n);
-		for (int i = 0; i < (canvas->width - n)*4; i++)
-			canvas->buffer[(canvas->width * h * 4 + i )] = canvas->buffer[canvas->width * 4 * h + 4 * n + i];
-		memcpy (&canvas->buffer[(canvas->width * h * 4 + canvas->width * 4 -  4 * n)] , c,4*n);
+		memcpy (c, &canvas->buffer[(canvas->width  * h)],n * PIXEL_SIZE);
+		for (int i = 0; i < (canvas->width - n); i++)
+			canvas->buffer[(canvas->width * h  + i )] = canvas->buffer[canvas->width *  h +   n + i];
+		memcpy (&canvas->buffer[(canvas->width * h  + canvas->width  -    n)] , c,n * PIXEL_SIZE);
 	}
 }
+
 void canvas_rotate_left(struct canvas * canvas, int n) {
 	if (n > 20)
 		n = 19;
 	for (int h = 0; h < canvas->height; h++) {
-		memcpy (c, &canvas->buffer[(canvas->width * 4 * h + 4 * (canvas->width - 2*n*4))],4*n);
-		for (int i = (canvas->width )*4; i > 4 * n ; i--)
-			canvas->buffer[canvas->width * 4 * h+i-4*n ] =canvas->buffer[canvas->width * 4 * h+i-2*n*4 ];
-		memcpy (&canvas->buffer[(canvas->width * 4 * h )] , c,4*n);
+		memcpy (c, &canvas->buffer[(canvas->width  * h +   (canvas->width - 2*n))],n * PIXEL_SIZE);
+		for (int i = (canvas->width ); i >   n ; i--)
+			canvas->buffer[canvas->width  * h+i-n ] =canvas->buffer[canvas->width  * h+i-2*n ];
+		memcpy (&canvas->buffer[(canvas->width  * h )] , c,n * PIXEL_SIZE);
 	}
 }
 
@@ -155,7 +154,7 @@ void canvas_fill_rect( struct canvas * canvas, struct rect * r,int color) {
 
 	for (int x = r->top_left_x; x < buttom_right_x && x < canvas->width; x++) {
 		for (int y = r->top_left_y; y < buttom_right_y && y < canvas->height; y++) {
-			SET_BIT_COLOR(canvas,x,y,color);	
+			canvas_plot(canvas, x, y,color);			
 		}
 	}
 }
@@ -180,36 +179,50 @@ void canvas_get_rect(struct canvas * canvas, struct rect * r, char *rect_buffer)
 
 	for (int y = r->top_left_y; y < buttom_right_y && y < canvas->height; y ++) {
 		for (int x = r->top_left_x; x < buttom_right_x && x < canvas->width; x++) {
-			int pixel = *(int*)&canvas->buffer[4 * (x) + 4 * (y) * canvas->width];
-			*(int*)&rect_buffer[4 * (x - r->top_left_x) + 4 * (y - r->top_left_y) *  r->width] = pixel;
+			int pixel = *(int*)&canvas->buffer[ (x) +   (y) * canvas->width];
+			*(int*)&rect_buffer[ (x - r->top_left_x) +   (y - r->top_left_y) *  r->width] = pixel;
 		}
 	}
 }
 
-
 /**
  * Created  09/26/2023
- * @brief   place data in tectange
+ * @brief   place data in rectange area (for example, to copy pre made icons) 
  * @note  
  * @param   
  * @return  
  */
-void canvas_set_rect(struct canvas * canvas, struct rect * r, char *rect_buffer) {
+void canvas_copy_rect(struct canvas * canvas, struct rect * r, char *rect_buffer) {
 	int buttom_right_x = r->top_left_x + r->width - 0;
 	int buttom_right_y = r->top_left_y + r->height - 0;
 
 	for (int y = r->top_left_y; y < buttom_right_y && y < canvas->height; y ++) {
 		for (int x = r->top_left_x; x < buttom_right_x && x < canvas->width; x++) {
-			int pixel = *(int*)&rect_buffer[4 * (x - r->top_left_x) + 4 * (y - r->top_left_y) *  r->width] ;
-			*(int*)&canvas->buffer[4 * (x) + 4 * (y) * canvas->width] = pixel;
+			int pixel = *(int*)&rect_buffer[(x - r->top_left_x) +  (y - r->top_left_y) *  r->width] ;
+			*(int*)&canvas->buffer[ (x) +  (y) * canvas->width] = pixel;
 		}
 	}
 }
 
-
 void canvas_plot( struct canvas * canvas, int x,int y,int c) {
-	if (x < canvas->width && y < canvas->height && x >=0 & y>=0)
-		SET_BIT_COLOR(canvas,x,y,c);
+
+	if (canvas->out_rect) {
+		if (x < canvas->out_rect->top_left_x) {
+			x= (x % canvas->out_rect->width) + canvas->out_rect->width;
+		}
+		if (x > canvas->out_rect->top_left_x + canvas->out_rect->width) {
+			x= x % canvas->out_rect->width;
+		}
+
+	}
+
+
+	int new_x = x + (g_rect.top_left_x + canvas->r->top_left_x);
+	int new_y = y + (g_rect.top_left_y + canvas->r->top_left_y);
+
+
+	if (new_x < canvas->width && new_y < canvas->height && new_x >=0 && new_y>=0 && x<canvas->r->width &&  x<canvas->r->width )
+		SET_BIT_COLOR(canvas,new_x,new_y,(struct pixel *) &c);
 }
 
 
@@ -323,7 +336,7 @@ void canvas_clean_rect( struct canvas * canvas, struct rect *r) {
 
 	for (int x = r->top_left_x; x < r->top_left_x + r->width  && x < canvas->width;x++) {
 		for (int y = r->top_left_y; y < r->top_left_y + r->width  && y < canvas->height;y++) {
-			SET_BIT_COLOR(canvas,x,y,0);			
+			canvas_plot(canvas, x, y,0);						
 		}
 	}
 }
@@ -332,9 +345,22 @@ void canvas_clean_rect( struct canvas * canvas, struct rect *r) {
 void canvas_clean( struct canvas * canvas) {
 	for (int x = 0; x < canvas->width;x++) {
 		for (int y = 0; y < canvas->height;y++) {
-			SET_BIT_COLOR(canvas,x,y,0);			
+			canvas_plot(canvas, x, y,0);						
 		}
 	}
 
+}
+
+
+void canvas_set_rect( struct canvas * canvas, struct rect *r, struct rect * out_rect)
+{
+	canvas->r = r;
+	canvas->out_rect = out_rect;
+}
+
+void canvas_set_global_rect( struct canvas * canvas)
+{
+	canvas->r = &g_rect;
+	canvas->out_rect = 0;
 }
 

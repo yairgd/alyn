@@ -49,8 +49,9 @@ extern "C" {
 	 */
 	struct banner {
 		struct effect_base  effect;
-		struct canvas canvas;
-		char text[256];
+		const struct font * font;
+		//struct canvas canvas;
+		char text[2][256];
 		//int tick;
 		//int effect_id;  // 0, none , 1 blink, 2
 		union banner_config {
@@ -59,6 +60,7 @@ extern "C" {
 		} config;
 		int on;
 		uint32_t /*struct timespec */start_time;
+		int x,y;
 
 
 	};
@@ -80,7 +82,6 @@ extern "C" {
 	void banner_init_by_canvas(struct banner * banner, void (*do_effect)(struct canvas *));
 	struct canvas * banner_get_canvas(struct banner * banner);
 	void banner_set_text(struct banner * banner,const char* fmt, ...);
-	void banner_get_buffer(struct banner * banner, struct rect * r,  char *rect_buffer);
 	void banner_init_with_text(struct banner * banner, struct rect  r, const struct font * font,const char* fmt, ...);
 	struct effect_base * banner_new() ;
 	void banner_free();

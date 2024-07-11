@@ -41,6 +41,7 @@ extern "C" {
 	struct effect_base {
 		int x,y; 		 // top left to take from  recnagle data
 		struct rect r;		 // the x,y and width, height of the object when it placed in its parent
+		struct rect out_rect;	 // to do ...
 		struct canvas * canvas;  // pointer to canvas - it passes fom the parent of the object
 		struct effect_ops * ops; 
 		int config_id;

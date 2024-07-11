@@ -25,11 +25,7 @@
 #define GET_GREEN(x) ((x) & 0x00ff00)>> 8)
 #define GET_BLUE(x)  ((x) & 0x0000ff)>> 0)
 #define RGB(r,g,b)  ((r) << 16 | (g) << 8 | (b) << 0)
-//#define SET_BIT_COLOR(canvas,w,h,c)(*((int*)&canvas->buffer[ + 4 * (w) + 4 * (h) * canvas->width]) = (c))
-//#define GET_BIT_COLOR(canvas,w,h) (*((int*)&canvas->buffer[4 * (w) + 4 * (h) * canvas->width]))
 #define bit(x,n)(x[(n)/8] & (1 << (7-(n)%8)) ? 1 : 0)
-//#define SET_PIXEL_BIT1(buffer,n,v)(buffer[(n)/8] |= (v << (7-(n)%8)))
-//#define SET_PIXEL_BIT1(buffer,n,v)(buffer[(n)/8] |= (v << ((n)%8)))
 
 
 struct rect {
@@ -47,49 +43,53 @@ int rect_height(struct rect * rect);
 
 struct canvas {
 	const struct font * font;
-	char *buffer;
+	 struct pixel *  buffer;
 	int font_color;
 	int bg_color;
-
+	struct rect * r;
+	struct rect * out_rect;
 
 	int width;
 	int height;
 };
 
+#ifdef ZEPHYR
+struct pixel {
+	uint8_t r:2;
+	uint8_t g:2;
+	uint8_t b:2;
+	uint8_t o:2;
+};
+#else
 struct pixel {
 	uint8_t r;
 	uint8_t g;
 	uint8_t b;
 	uint8_t o;
 };
-static inline uint32_t  GET_BIT_COLOR(struct canvas * c,int w,int h) {
-	return (*((int*)&c->buffer[4 * (w) + 4 * (h) * c->width]));
-}
+#endif
+#define PIXEL_SIZE sizeof(struct pixel)
 
 static inline struct pixel * GET_POINTER_TO_PIXEL(struct canvas * c,int w,int h) {
-	return (( struct pixel *)&c->buffer[4 * (w) + 4 * (h) * c->width]);
+	return  &c->buffer[ (w) +  (h) * c->width];
+}
+static inline void  SET_BIT_COLOR(struct canvas * canvas,int w,int h, struct pixel * c) {
+	canvas->buffer[ +   (w) +   (h) * canvas->width] = *c;	
 }
 
-#if 1
-static inline void  SET_BIT_COLOR(struct canvas * canvas,int w,int h, int c) {
-	*((int*)&canvas->buffer[ + 4 * (w) + 4 * (h) * canvas->width]) = c;	
-}
-#else
-#define SET_BIT_COLOR(canvas,w,h,  c) \
-	*((int*)&(canvas)->buffer[ + 4 * (w) + 4 * (h) * (canvas)->width]) = (c);	
 
-#endif
-void canvas_init(struct canvas * canvs, int width, int height);
+
+void canvas_init(struct canvas * canvas, int width, int height, struct pixel * pixel);
 void canvas_write_font(struct canvas * canvas, int char_id, int x,int y);
 void canvas_dump(struct canvas * canvas);
-const char * canvas_buffer(struct canvas * canvas);
+const struct pixel * canvas_buffer(struct canvas * canvas);
 void canvas_rotate_right(struct canvas * canvas, int n);
 void canvas_rotate_left(struct canvas * canvas, int n);
 void canvas_free(struct canvas * canvas);
 void canvas_print(struct canvas * canvas, int x, int y,const char* txt);
 void canvas_set_font(struct canvas * canvs, const struct font * f);
 void canvas_get_rect(struct canvas * canvas, struct rect * r, char *rect_buffer);
-void canvas_set_rect(struct canvas * canvas, struct rect * r, char *rect_buffer) ;
+void canvas_copy_rect(struct canvas * canvas, struct rect * r, char *rect_buffer) ;
 void canvas_fill_rect( struct canvas * canvas, struct rect * rect,int color);
 void canvas_plot( struct canvas * canvas, int x,int y,int color);
 void canvas_line( struct canvas * canvas, int x1,int y1,int x2, int y2,int c);
@@ -97,4 +97,7 @@ void canvas_circle( struct canvas * canvas, int x,int y,int r,int c);
 void canvas_fill_circle( struct canvas * canvas, int x0,int y0,int radius,int c) ;
 void canvas_clean( struct canvas * canvas) ;
 void canvas_clean_rect( struct canvas * canvas, struct rect *r);
+void canvas_set_rect( struct canvas * canvas, struct rect *r, struct rect * out_rect);
+void canvas_set_global_rect( struct canvas * canvas);
+
 #endif

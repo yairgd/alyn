@@ -25,6 +25,7 @@
 #include <stdlib.h>
 
 static struct led_matrix led_matrix = {0};
+static struct pixel  canvas_buffers[4][32*64] = {0};
 
 void led_matrix_init(struct led_matrix * led_matrix, int width, int height) {
 
@@ -32,9 +33,7 @@ void led_matrix_init(struct led_matrix * led_matrix, int width, int height) {
 	led_matrix->height = height;
 
 	for (int i = 0; i < sizeof (led_matrix->channels) / sizeof(struct channel) ; i++) {
-		canvas_init(&led_matrix->channels[i].canvas, width, height);
-	//	led_matrix->channels[i].buffer = k_malloc (width * height * 4);
-	//	led_matrix->channels[i].opacity = 0.5;
+		canvas_init(&led_matrix->channels[i].canvas, width, height, canvas_buffers[i] );
 	}
 }
 
@@ -42,7 +41,6 @@ void led_matrix_init(struct led_matrix * led_matrix, int width, int height) {
 void  led_matrix_free(struct led_matrix * led_matrix) {
 	for (int i = 0; i < sizeof (led_matrix->channels) / sizeof(struct channel)  ; i++) {
 		canvas_free(&led_matrix->channels[i].canvas);
-		//free(led_matrix->channels[i].buffer);
 	}
 }
 
@@ -120,9 +118,10 @@ void led_matrix_merge(struct led_matrix * matrix) {
 			g1 =  (g2 * matrix->channels[2].opacity + g1 * matrix->channels[1].opacity)/o;
 			b1 =  (b2 * matrix->channels[2].opacity + b1 * matrix->channels[1].opacity)/o;
 
-			uint32_t c = r1 << 16 | g1 <<8 | b1 << 0;
+//			uint32_t cc = r1 << 16 | g1 <<8 | b1 << 0;
 
-			SET_BIT_COLOR(&(matrix->channels[3].canvas), col, row,  *(uint32_t*)c0  ? *(uint32_t*)c0 : c) ;
+			struct pixel c = {r1,g1,b1,0};
+			SET_BIT_COLOR(&(matrix->channels[3].canvas), col, row,  c0->r && c0->g && c0->b  ? c0 : &c) ;
 		}
 	}	
 }

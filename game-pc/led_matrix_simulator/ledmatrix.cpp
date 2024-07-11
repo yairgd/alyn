@@ -34,17 +34,10 @@
 
 #include <chrono>
 #include <iostream>
+#include <cstdint>
 
 using namespace std::chrono_literals;
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-	int lua_main (int argc, char **argv);
-
-#ifdef __cplusplus
-}
-#endif
 
 
 LedMatrixWidget::LedMatrixWidget(QWidget *parent, std::array<LedCircle *, 8>  arr)
@@ -120,9 +113,9 @@ void LedMatrixWidget::updateLedMatrix()
 #endif
 
 
-static inline pixel * GET_POINTER_TO_PIXEL1(struct canvas * c,int w,int h) {
-	return ((struct pixel*)&c->buffer[4 * (w) + 4 * (h) * c->width]);
-}
+//static inline pixel * GET_POINTER_TO_PIXEL1(struct canvas * c,int w,int h) {
+//	return ((struct pixel*)&c->buffer[sizeof (struct pixel) * (w) + sizeof (struct pixel) * (h) * c->width]);
+//}
 void LedMatrixWidget::paintEvent(QPaintEvent *event)
 {
 	Q_UNUSED(event);
@@ -151,13 +144,12 @@ void LedMatrixWidget::paintEvent(QPaintEvent *event)
 	{
 		for (int col = 0; col < 64; ++col)
 		{	
-		//	struct pixel * pix0 = GET_POINTER_TO_PIXEL1(&(channel->canvas),col,row  );
+			struct pixel * pix0 = GET_POINTER_TO_PIXEL(&(channel->canvas),col,row  );
 			
-			painter.fillRect(col * squareSize+2, row * squareSize+2, squareSize-2, squareSize-2, QColor(GET_BIT_COLOR(&(channel->canvas),col,row)));
-		//	painter.fillRect(col * squareSize+2, row * squareSize+2, squareSize-2, squareSize-2, QColor( *((uint32_t*)pix0)));
+		//	painter.fillRect(col * squareSize+2, row * squareSize+2, squareSize-2, squareSize-2, QColor(GET_BIT_COLOR(&(channel->canvas),col,row)));
+			painter.fillRect(col * squareSize+2, row * squareSize+2, squareSize-2, squareSize-2, QColor( *((std::uint32_t*)pix0)));
 
 		}
 	}
 }
-
 

@@ -28,15 +28,6 @@
 
 static struct rect g_rect; 
 
-int rect_width(struct rect * r) {
-	return r->width;
-
-}
-int rect_height(struct rect * r){
-	return r->height;
-}
-
-
 void canvas_init(struct canvas * canvas, int width, int height, struct pixel * pixel)
 {
 	memset (canvas, 0, sizeof(*canvas));

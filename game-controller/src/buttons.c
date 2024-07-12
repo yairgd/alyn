@@ -72,7 +72,7 @@ static struct button buttons[] = {
 };
 
 
-void gpio_init(void)
+void buttons_init(void)
 {
 	int ret;
 

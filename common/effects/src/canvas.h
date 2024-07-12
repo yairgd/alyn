@@ -19,6 +19,8 @@
 #ifndef CANVAS_H
 #define CANVAS_H 
 #include "font.h"
+#include "rect.h"
+
 #include <stdint.h>
 
 #define GET_RED(x)   ((x) & 0xff0000)>>16)
@@ -26,27 +28,14 @@
 #define GET_BLUE(x)  ((x) & 0x0000ff)>> 0)
 #define RGB(r,g,b) \
 	(struct pixel) {r,g,b}
-#define PIXEL(c) \
-	(struct pixel)  { ((c)&0xff0000) >> 16 , ((c)&0x00ff00)>>8, ((c)&0x0000ff)>>0 /* r,b,g*/}
-
 
 #define bit(x,n)(x[(n)/8] & (1 << (7-(n)%8)) ? 1 : 0)
 
 
-struct rect {
-	int top_left_x;
-	int top_left_y;
-	int width;
-	int height;
-} ;
-
-int rect_width(struct rect * rect);
-int rect_height(struct rect * rect);
-
-#define RECT(x,y,w,h) \
-	(struct rect){(x),(y),(w),(h)}
-
 #ifdef ZEPHYR
+#define PIXEL(c) \
+	(struct pixel)  { ((c)&0x30) >> 4 , ((c)&0x0c)>>2, ((c)&0x03)>>0 /* r,b,g*/}
+
 struct pixel {
 	uint8_t r:2;
 	uint8_t g:2;
@@ -60,6 +49,9 @@ struct pixel {
 	uint8_t b;
 	uint8_t o;
 };
+#define PIXEL(c) \
+	(struct pixel)  { ((c)&0xff0000) >> 16 , ((c)&0x00ff00)>>8, ((c)&0x0000ff)>>0 /* r,b,g*/}
+
 #endif
 
 struct canvas {

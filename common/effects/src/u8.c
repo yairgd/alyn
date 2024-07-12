@@ -17,6 +17,7 @@
  */
 
 #include "u8.h"
+#include "string.h"
 
 /**
  * Created  09/23/2023
@@ -30,12 +31,12 @@
  */
 int u8_strlen(const char *s)
 {
-  int len=0;
-  while (*s) {
-    if ((*s & 0xC0) != 0x80) len++ ;
-    s++;
-  }
-  return len;
+	int len=0;
+	while (*s) {
+		if ((*s & 0xC0) != 0x80) len++ ;
+		s++;
+	}
+	return len;
 }
 
 /**
@@ -50,7 +51,7 @@ int u8_to_unicode(const char *s,int * unicode)
 {
 	int len = -1; // bad charcater
 	*unicode = 0;
-	
+
 	if (0 < *(unsigned char*)s && *(unsigned char *)s < 0x7f) {
 		// first and only byte of a sequence.
 		*unicode = 0x7f & *s;
@@ -69,5 +70,70 @@ int u8_to_unicode(const char *s,int * unicode)
 		len = 4;
 	}
 	return len;
+}
+
+
+// Helper function to convert a Unicode code point to a UTF-8 string
+int unicode_to_utf8(int unicode, char *output) {
+    if (unicode <= 0x7F) {
+        output[0] = unicode;
+        return 1;
+    } else if (unicode <= 0x7FF) {
+        output[0] = 0xC0 | (unicode >> 6);
+        output[1] = 0x80 | (unicode & 0x3F);
+        return 2;
+    } else if (unicode <= 0xFFFF) {
+        output[0] = 0xE0 | (unicode >> 12);
+        output[1] = 0x80 | ((unicode >> 6) & 0x3F);
+        output[2] = 0x80 | (unicode & 0x3F);
+        return 3;
+    } else if (unicode <= 0x10FFFF) {
+        output[0] = 0xF0 | (unicode >> 18);
+        output[1] = 0x80 | ((unicode >> 12) & 0x3F);
+        output[2] = 0x80 | ((unicode >> 6) & 0x3F);
+        output[3] = 0x80 | (unicode & 0x3F);
+        return 4;
+    }
+    return -1; // Invalid Unicode code point
+}
+
+// Function to replace a character at a specific index in a UTF-8 string
+void u8_replace(char *s, int idx, int unicode) {
+    int char_idx = 0;
+    int byte_idx = 0;
+    int len = strlen(s);
+
+    // Iterate through the string to find the character at the given index
+    while (byte_idx < len) {
+        int unicode_char;
+        int char_len = u8_to_unicode(s + byte_idx, &unicode_char);
+
+        if (char_len == -1) {
+           // printf("Invalid UTF-8 encoding\n");
+            return;
+        }
+
+        if (char_idx == idx) {
+            char new_char[4];
+            int new_char_len = unicode_to_utf8(unicode, new_char);
+
+            if (new_char_len == -1) {
+            //    printf("Invalid Unicode code point\n");
+                return;
+            }
+
+            // Replace the character in the string
+            int remaining_len = len - (byte_idx + char_len);
+            memmove(s + byte_idx + new_char_len, s + byte_idx + char_len, remaining_len + 1);
+            memcpy(s + byte_idx, new_char, new_char_len);
+
+            return;
+        }
+
+        byte_idx += char_len;
+        char_idx++;
+    }
+
+//    printf("Index out of range\n");
 }
 

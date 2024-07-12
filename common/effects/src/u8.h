@@ -44,4 +44,5 @@
 int u8_to_unicode(const char *s,int * unicode);
 int u8_strlen(const char *s);
 int u8_convert_to_iso(int unicode) ;	
+void u8_replace(char *s,int idx, int  new_char);
 #endif

@@ -1,12 +1,12 @@
 /*
  * =====================================================================================
  *
- *       Filename:  gpio.h
+ *       Filename:  rect.c
  *
  *    Description:  
  *
  *        Version:  1.0
- *        Created:  06/19/2024 08:57:56 PM
+ *        Created:  07/12/2024 02:57:26 PM
  *       Revision:  none
  *       Compiler:  gcc
  *
@@ -16,7 +16,15 @@
  * =====================================================================================
  */
 
-#ifndef GPIO_H
-#define GPIO_H 
-void buttons_init(void);
-#endif
+#include "rect.h"
+
+int rect_width(struct rect * r) {
+	return r->width;
+
+}
+int rect_height(struct rect * r){
+	return r->height;
+}
+
+
+

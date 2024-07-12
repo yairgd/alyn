@@ -66,7 +66,10 @@ static void bannner_manage_blink(struct effect_base * e, struct canvas * canvas)
 	struct rect out_rect = {0,0,len,font_height(banner->font)};
 	canvas_set_font(canvas, banner->font);
 	canvas_set_rect(canvas, &e->r, &out_rect);
-	char text[256];
+
+	memcpy (banner->text[1], banner->text[0], sizeof (banner->text[0]));
+	
+	
 
 	if ( banner->config.blink.time_off ==0) {
 		// always on
@@ -77,13 +80,15 @@ static void bannner_manage_blink(struct effect_base * e, struct canvas * canvas)
 			banner->start_time = timing_begin_to_measure_time();
 			if (banner->config.blink.end_idx !=0 && banner->config.blink.start_idx <= banner->config.blink.end_idx) {
 				// blink range of letters
-				int w = banner->config.blink.end_idx  - banner->config.blink.start_idx  + 1;				
-				canvas_fill_rect(canvas, &(struct rect  ){banner->config.blink.start_idx * font_width(banner->font,0) ,0,w * font_width(banner->font,0) , font_height(banner->font)},0);
+				for (int i = banner->config.blink.start_idx; i < banner->config.blink.end_idx;i++) {
+					u8_replace(banner->text[1],i, ' ');
+				}
+
 			}
 			else   { // blink all text
-				int len = u8_strlen(banner->text[0]);				
-				canvas_fill_rect(canvas, &(struct rect  ){0,0,len * font_width(banner->font,0) , font_height(banner->font)},0);
+				 memset (banner->text[1],0,sizeof (banner->text[1]));
 			}
+			canvas_print(canvas, 0,0, banner->text[1]);			
 		}
 		else if (banner->on == 0 && timing_elapse(banner->start_time, banner->config.blink.time_off) ) {
 			banner->on = 1;
@@ -101,7 +106,6 @@ static void bannner_manage_rotate(struct effect_base * e, struct canvas * canvas
 	int  len = u8_strlen(banner->text[0]) * font_width(banner->font,0);
 	struct rect out_rect = {0,0,len,font_height(banner->font)};
 	canvas_set_font(canvas, banner->font);
-	canvas_clean(canvas);
 	canvas_set_rect(canvas, &e->r, &out_rect);
 	
 	if (banner->config.rotate.direction == 1) {	

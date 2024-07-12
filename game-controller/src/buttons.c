@@ -97,7 +97,7 @@ void buttons_thread (void *p1,void *p2, void *p3)
 {
 	int val;
 	int64_t duration;
-	gpio_init();	
+	buttons_init();	
 	int64_t now = 0;
 	while (1) {
 		//int64_t now = k_uptime_get();				 		

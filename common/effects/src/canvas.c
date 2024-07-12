@@ -154,7 +154,7 @@ void canvas_fill_rect( struct canvas * canvas, struct rect * r,int color) {
 
 	for (int x = r->top_left_x; x < buttom_right_x && x < canvas->width; x++) {
 		for (int y = r->top_left_y; y < buttom_right_y && y < canvas->height; y++) {
-			canvas_plot(canvas, x, y,color);			
+			canvas_plot(canvas, x, y,PIXEL(color));			
 		}
 	}
 }
@@ -204,7 +204,7 @@ void canvas_copy_rect(struct canvas * canvas, struct rect * r, char *rect_buffer
 	}
 }
 
-void canvas_plot( struct canvas * canvas, int x,int y,int c) {
+void canvas_plot( struct canvas * canvas, int x,int y,struct pixel c) {
 
 	if (canvas->out_rect) {
 		if (x < canvas->out_rect->top_left_x) {
@@ -222,7 +222,7 @@ void canvas_plot( struct canvas * canvas, int x,int y,int c) {
 
 
 	if (new_x < canvas->width && new_y < canvas->height && new_x >=0 && new_y>=0 && x<canvas->r->width &&  x<canvas->r->width )
-		SET_BIT_COLOR(canvas,new_x,new_y,(struct pixel *) &c);
+		SET_BIT_COLOR(canvas,new_x,new_y,&c);
 }
 
 
@@ -244,7 +244,7 @@ void canvas_line( struct canvas * canvas, int x1,int y1,int x2, int y2,int c) {
 	float angle = atan2(dy,dx);
 
 	for (int i = 0; i < length; i++) {
-		canvas_plot(canvas, ceil(x1+cos(angle) * i),ceil(y1+sin(angle) * i),c);
+		canvas_plot(canvas, ceil(x1+cos(angle) * i),ceil(y1+sin(angle) * i),PIXEL(c));
 	}
 
 }
@@ -273,15 +273,15 @@ void canvas_circle( struct canvas * canvas, int x0,int y0,int radius,int c) {
 		for (int i = x0 - x; i <= x0 + x; i++)
 		{
 			if (i== x0 - x || i==x0 + x) {
-				canvas_plot(canvas,i, y0 + y,c);
-				canvas_plot(canvas,i, y0 - y,c);
+				canvas_plot(canvas,i, y0 + y,PIXEL(c));
+				canvas_plot(canvas,i, y0 - y,PIXEL(c));
 			}
 		}
 		for (int i = x0 - y; i <= x0 + y; i++)
 		{
 			if (i==x0 - y || i==x0 + y) {
-				canvas_plot(canvas,i, y0 + x,c);
-				canvas_plot(canvas,i, y0 - x,c);
+				canvas_plot(canvas,i, y0 + x,PIXEL(c));
+				canvas_plot(canvas,i, y0 - x,PIXEL(c));
 			}
 		}
 
@@ -308,14 +308,14 @@ void canvas_fill_circle( struct canvas * canvas, int x0,int y0,int radius,int c)
 	{
 		for (int i = x0 - x; i <= x0 + x; i++)
 		{
-			canvas_plot(canvas,i, y0 + y,c);
-			canvas_plot(canvas,i, y0 - y,c);
+			canvas_plot(canvas,i, y0 + y,PIXEL(c));
+			canvas_plot(canvas,i, y0 - y,PIXEL(c));
 
 		}
 		for (int i = x0 - y; i <= x0 + y; i++)
 		{
-			canvas_plot(canvas,i, y0 + x,c);
-			canvas_plot(canvas,i, y0 - x,c);
+			canvas_plot(canvas,i, y0 + x,PIXEL(c));
+			canvas_plot(canvas,i, y0 - x,PIXEL(c));
 		}
 
 		y++;
@@ -336,7 +336,7 @@ void canvas_clean_rect( struct canvas * canvas, struct rect *r) {
 
 	for (int x = r->top_left_x; x < r->top_left_x + r->width  && x < canvas->width;x++) {
 		for (int y = r->top_left_y; y < r->top_left_y + r->width  && y < canvas->height;y++) {
-			canvas_plot(canvas, x, y,0);						
+			canvas_plot(canvas, x, y,PIXEL(0));						
 		}
 	}
 }
@@ -345,7 +345,7 @@ void canvas_clean_rect( struct canvas * canvas, struct rect *r) {
 void canvas_clean( struct canvas * canvas) {
 	for (int x = 0; x < canvas->width;x++) {
 		for (int y = 0; y < canvas->height;y++) {
-			canvas_plot(canvas, x, y,0);						
+			canvas_plot(canvas, x, y,PIXEL(0));						
 		}
 	}
 

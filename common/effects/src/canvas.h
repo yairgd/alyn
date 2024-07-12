@@ -24,7 +24,12 @@
 #define GET_RED(x)   ((x) & 0xff0000)>>16)
 #define GET_GREEN(x) ((x) & 0x00ff00)>> 8)
 #define GET_BLUE(x)  ((x) & 0x0000ff)>> 0)
-#define RGB(r,g,b)  ((r) << 16 | (g) << 8 | (b) << 0)
+#define RGB(r,g,b) \
+	(struct pixel) {r,g,b}
+#define PIXEL(c) \
+	(struct pixel)  { ((c)&0xff0000) >> 16 , ((c)&0x00ff00)>>8, ((c)&0x0000ff)>>0 /* r,b,g*/}
+
+
 #define bit(x,n)(x[(n)/8] & (1 << (7-(n)%8)) ? 1 : 0)
 
 
@@ -41,18 +46,6 @@ int rect_height(struct rect * rect);
 #define RECT(x,y,w,h) \
 	(struct rect){(x),(y),(w),(h)}
 
-struct canvas {
-	const struct font * font;
-	 struct pixel *  buffer;
-	int font_color;
-	int bg_color;
-	struct rect * r;
-	struct rect * out_rect;
-
-	int width;
-	int height;
-};
-
 #ifdef ZEPHYR
 struct pixel {
 	uint8_t r:2;
@@ -68,6 +61,20 @@ struct pixel {
 	uint8_t o;
 };
 #endif
+
+struct canvas {
+	const struct font * font;
+	struct pixel *  buffer;
+	struct pixel font_color;
+	struct pixel bg_color;
+	struct rect * r;
+	struct rect * out_rect;
+
+	int width;
+	int height;
+};
+
+
 #define PIXEL_SIZE sizeof(struct pixel)
 
 static inline struct pixel * GET_POINTER_TO_PIXEL(struct canvas * c,int w,int h) {
@@ -91,7 +98,7 @@ void canvas_set_font(struct canvas * canvs, const struct font * f);
 void canvas_get_rect(struct canvas * canvas, struct rect * r, char *rect_buffer);
 void canvas_copy_rect(struct canvas * canvas, struct rect * r, char *rect_buffer) ;
 void canvas_fill_rect( struct canvas * canvas, struct rect * rect,int color);
-void canvas_plot( struct canvas * canvas, int x,int y,int color);
+void canvas_plot( struct canvas * canvas, int x,int y,struct pixel color);
 void canvas_line( struct canvas * canvas, int x1,int y1,int x2, int y2,int c);
 void canvas_circle( struct canvas * canvas, int x,int y,int r,int c);
 void canvas_fill_circle( struct canvas * canvas, int x0,int y0,int radius,int c) ;

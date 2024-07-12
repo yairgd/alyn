@@ -108,7 +108,7 @@ static int luaB_plot(lua_State *L) {
 
 	lua_pop (L, 3);
 	struct channel * channel = led_matrix_get_channel(led_matrix_get(),  led_matrix_channel_id);    	
-	canvas_plot(&channel->canvas,x,y,c);
+	canvas_plot(&channel->canvas,x,y,PIXEL(c));
 	return 0;
 }
 

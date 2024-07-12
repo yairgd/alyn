@@ -23,14 +23,14 @@
 #include "effect.h"
 #include "utils/lua_memory.h"
 
-static inline int _color_switch(int c1,int c2, int rate) {
+static inline struct pixel _color_switch(int c1,int c2, int rate) {
 	static int cnt = 0;
 	static int s =0;
 
 	cnt++;
 	if (cnt%rate == 0)
 		s=(s==0) ? 1 : 0;
-	return (s) ? c1 : c2;
+	return (s) ? PIXEL(c1) : PIXEL(c2);
 }
 
 
@@ -40,14 +40,14 @@ static inline void _color_shift_inside_group (struct frame * f, int dir, int pix
 			// volor shift inside group
 			if (dir) {
 				// color shift left				
-				int c = f->points[f->group[g].start_idx].c;
+				struct pixel c = f->points[f->group[g].start_idx].c;
 				for (int i = f->group[g].start_idx + 1; i <=  f->group[g].end_idx;i++) {
 					f->points[i-1].c = f->points[i].c;
 				}
 				f->points[f->group[g].end_idx].c = c;
 			} else {
 				// color shift right
-				int c = f->points[f->group[g].end_idx].c;
+				struct pixel  c = f->points[f->group[g].end_idx].c;
 				for (int i = f->group[g].end_idx; i >  f->group[g].start_idx;i--) {
 					f->points[i].c = f->points[i-1].c;					
 				}			

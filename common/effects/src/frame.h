@@ -42,7 +42,7 @@ extern "C" {
 		struct point {
 			unsigned int x : 16;
 			unsigned int y : 16;
-			unsigned int c ;
+			struct pixel c ;
 		} points[MAX_POINTS_PER_FRAME];
 		int num_of_points;
 

@@ -6,7 +6,14 @@
 #include "keypad.h"
 
 #include <QtWidgets>
+#include <QComboBox>
+#include <thread>
 #include "terminaltextedit.h"
+
+#include "luasrc.h"
+#include "utils/ThreadPool.h"
+#include <pthread.h>
+
 MainWindow::MainWindow(QWidget *parent)
 	: QMainWindow(parent)
 	  , ui(new Ui::MainWindow)
@@ -36,6 +43,14 @@ MainWindow::MainWindow(QWidget *parent)
 	QObject::connect(ui->P8, &QPushButton::clicked, ui->P8, []() {set_button_state(8,1);});
 
 
+	/* this add compiled lua src's to linked list */
+	for (int i = 0; i < luasrc_size() && i < 16; i++) {	
+		struct luasrc * src = luasrc_by_idx(i);
+		ui->gameList->addItem(src->name);
+	}
+	connect(ui->startStop, &QPushButton::clicked, this, &MainWindow::onStartStopClicked);
+
+
 
 
 	// Create and set LedMatrixWidget as the central widget
@@ -45,15 +60,15 @@ MainWindow::MainWindow(QWidget *parent)
 
 	//ui->keypad->addWidget(new QPushButton("test"));
 	ui->keypad->addWidget(keypad);
-	
+
 
 	new Keypad(keypad);
 #else
 	//ui->keypad->addWidget(keypad)
 
 	//auto k = new Keypad( );
-//	ui->keypad->addWidget(k);
-//	k->setParent(ui->keypad);
+	//	ui->keypad->addWidget(k);
+	//	k->setParent(ui->keypad);
 
 	ui->keypad->addWidget(new Keypad( ));
 
@@ -61,21 +76,59 @@ MainWindow::MainWindow(QWidget *parent)
 	//new Keypad(ui->keypad->parentWidget());
 #endif
 
-	 new TerminalTextEdit(ui->tab);
+	new TerminalTextEdit(ui->tab);
 	/*
 
-	auto * l1 = new ArrawKey(ui->k1, 0);
-	ui->k1->setGeometry(200,50,ui->k1->parentWidget()->width()/3, ui->k1->parentWidget()->height()/3);
-	auto * l2 = new ArrawKey(ui->k2, 1);
-	ui->k2->setGeometry(150,50,ui->keypad->width()/3, ui->keypad->height()/3);
-*/
+	   auto * l1 = new ArrawKey(ui->k1, 0);
+	   ui->k1->setGeometry(200,50,ui->k1->parentWidget()->width()/3, ui->k1->parentWidget()->height()/3);
+	   auto * l2 = new ArrawKey(ui->k2, 1);
+	   ui->k2->setGeometry(150,50,ui->keypad->width()/3, ui->keypad->height()/3);
+	   */
 }
 
+void MainWindow::onStartStopClicked()
+{
+	if (not isGameRun) {
+		lua_thread = std::thread([this]()->void{
+			int index = ui->gameList->currentIndex();
+			struct luasrc * game =  luasrc_by_idx(index);;
+			if (L)
+				lua_close(L);
+			L = luaL_newstate();
+			luaL_openlibs(L);
+			int error =
+				luaL_loadbuffer( L, game->code, game->size, "main" )
+				|| lua_pcall( L, 0, 0, 0 );
+
+			if (error) {
+				fprintf(stderr, "%s\n", lua_tostring(L,1));
+
+			}
+		});
+		isGameRun = true;
+		ui->startStop->setText("Stop");
+		ui->gameList->setEnabled(false);		
+	} else {
+		isGameRun = false;
+		ui->startStop->setText("start");
+		ui->gameList->setEnabled(true);
+#ifdef MSVC
+#include <windows.h>
+		HANDLE hThread = worker.native_handle();
+		TerminateThread(hThread, 0);
+#else
+		pthread_cancel(lua_thread.native_handle());
+		lua_thread.detach();
+#endif
+	}
+
+}
 
 MainWindow::~MainWindow()
 {
 	delete ui;
 }
+
 
 
 

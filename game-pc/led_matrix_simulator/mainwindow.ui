@@ -45,6 +45,29 @@
               <property name="title">
                <string>GroupBox</string>
               </property>
+              <widget class="QPushButton" name="startStop">
+               <property name="geometry">
+                <rect>
+                 <x>50</x>
+                 <y>60</y>
+                 <width>80</width>
+                 <height>20</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string>Start</string>
+               </property>
+              </widget>
+              <widget class="QComboBox" name="gameList">
+               <property name="geometry">
+                <rect>
+                 <x>170</x>
+                 <y>60</y>
+                 <width>131</width>
+                 <height>22</height>
+                </rect>
+               </property>
+              </widget>
              </widget>
             </item>
            </layout>

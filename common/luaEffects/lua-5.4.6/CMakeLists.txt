@@ -51,6 +51,13 @@ add_library(lua_module
 	${mem}
 )
 
+#	target_compile_definitions(lua_module PRIVATE
+#		-D CONFIG_LUA_GAME_LIB
+#		-D LUA_USE_READLINE
+#	)
+
+
+
 # Include directories for your subdirectory
 target_include_directories(lua_module PUBLIC 
 	${CMAKE_CURRENT_SOURCE_DIR}

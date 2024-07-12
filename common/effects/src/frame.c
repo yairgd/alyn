@@ -37,7 +37,7 @@ static inline struct pixel _color_switch(int c1,int c2, int rate) {
 static inline void _color_shift_inside_group (struct frame * f, int dir, int pixel_change) {
 	for (int i = 0; i < pixel_change; i++) {
 		for (int g = 0; g < f->num_of_groups; g++) {	
-			// volor shift inside group
+			// color shift inside group
 			if (dir) {
 				// color shift left				
 				struct pixel c = f->points[f->group[g].start_idx].c;

@@ -121,7 +121,7 @@ void led_matrix_merge(struct led_matrix * matrix) {
 //			uint32_t cc = r1 << 16 | g1 <<8 | b1 << 0;
 
 			struct pixel c = {r1,g1,b1,0};
-			SET_BIT_COLOR(&(matrix->channels[3].canvas), col, row,  c0->r && c0->g && c0->b  ? c0 : &c) ;
+			SET_BIT_COLOR(&(matrix->channels[3].canvas), col, row,  c0->r || c0->g || c0->b  ? c0 : &c) ;
 		}
 	}	
 }

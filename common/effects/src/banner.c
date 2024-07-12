@@ -80,7 +80,7 @@ static void bannner_manage_blink(struct effect_base * e, struct canvas * canvas)
 			banner->start_time = timing_begin_to_measure_time();
 			if (banner->config.blink.end_idx !=0 && banner->config.blink.start_idx <= banner->config.blink.end_idx) {
 				// blink range of letters
-				for (int i = banner->config.blink.start_idx; i < banner->config.blink.end_idx;i++) {
+				for (int i = banner->config.blink.start_idx; i <= banner->config.blink.end_idx;i++) {
 					u8_replace(banner->text[1],i, ' ');
 				}
 

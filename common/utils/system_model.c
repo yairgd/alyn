@@ -201,7 +201,7 @@ int get_free_run_delay() {
  */
 void manage_blink(int id) {
 	double blink_timeout = 1.0 / model.stations[CHECK_ID(id)].blink.freq;
-	if ( is_blink(id) &&timing_elapse(model.stations[CHECK_ID(id)].blink.ts, blink_timeout) ) {
+	if ( is_blink(id) &&timing_elapse(model.stations[CHECK_ID(id)].blink.ts, blink_timeout * 1000) ) {
 		toggle_led(id);			
 	}
 }

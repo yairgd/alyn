@@ -14,6 +14,11 @@
 #include "utils/ThreadPool.h"
 #include <pthread.h>
 
+
+#ifdef MSVC
+#include <windows.h>
+#endif
+
 MainWindow::MainWindow(QWidget *parent)
 	: QMainWindow(parent)
 	  , ui(new Ui::MainWindow)
@@ -113,13 +118,13 @@ void MainWindow::onStartStopClicked()
 		ui->startStop->setText("start");
 		ui->gameList->setEnabled(true);
 #ifdef MSVC
-#include <windows.h>
 		HANDLE hThread = worker.native_handle();
 		TerminateThread(hThread, 0);
 #else
 		pthread_cancel(lua_thread.native_handle());
-		lua_thread.detach();
 #endif
+		lua_thread.detach();
+		
 	}
 
 }

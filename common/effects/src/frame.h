@@ -40,19 +40,12 @@ extern "C" {
 	struct frame {
 		struct effect_base  effect;
 		struct point {
-			unsigned int x : 16;
-			unsigned int y : 16;
 			struct pixel c ;
 		} points[MAX_POINTS_PER_FRAME];
-		int num_of_points;
 
-		struct points_group {
-			unsigned short start_idx : 16;
-			unsigned short end_idx : 16;
-			unsigned short current_idx : 16;
-		} group[10];
-		int num_of_groups;
 
+		int cnt;	
+		int speed;
 		union  {
 			//  two colors rotate frame 
 			struct animate_frame animate_frame;

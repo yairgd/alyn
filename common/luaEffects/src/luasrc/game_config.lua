@@ -1,7 +1,8 @@
 ﻿--require("t3")
 function config()
 	a1=frame.new(rect.new(0,0,64,32),0xff00ff,0x00ff00, 5,1 ,1);
-	a2=frame.new(rect.new(1,1,62,30),0xff0000,0x0000ff, 10,1 ,1);
+	a2=frame.new(rect.new(1,1,62,30),0xff0000,0x0000ff, 10,1 ,-5);
+	a3=frame.new(rect.new(2,2,60,28),0x00ff00,0xff00ff, 20,1 , 0);
 
 	game.clean()
 	p1=1
@@ -151,6 +152,8 @@ function config()
 
 		a1:render(0)
 		a2:render(0)
+		a3:render(0)
+
 		game.delay(100000/4);	
 
 	end

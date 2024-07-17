@@ -23,116 +23,64 @@
 #include "effect.h"
 #include "utils/lua_memory.h"
 
-static inline struct pixel _color_switch(int c1,int c2, int rate) {
-	static int cnt = 0;
-	static int s =0;
-
-	cnt++;
-	if (cnt%rate == 0)
-		s=(s==0) ? 1 : 0;
-	return (s) ? PIXEL(c1) : PIXEL(c2);
-}
-
-
-static inline void _color_shift_inside_group (struct frame * f, int dir, int pixel_change) {
-	for (int i = 0; i < pixel_change; i++) {
-		for (int g = 0; g < f->num_of_groups; g++) {	
-			// color shift inside group
-			if (dir) {
-				// color shift left				
-				struct pixel c = f->points[f->group[g].start_idx].c;
-				for (int i = f->group[g].start_idx + 1; i <=  f->group[g].end_idx;i++) {
-					f->points[i-1].c = f->points[i].c;
-				}
-				f->points[f->group[g].end_idx].c = c;
-			} else {
-				// color shift right
-				struct pixel  c = f->points[f->group[g].end_idx].c;
-				for (int i = f->group[g].end_idx; i >  f->group[g].start_idx;i--) {
-					f->points[i].c = f->points[i-1].c;					
-				}			
-				f->points[f->group[g].start_idx].c = c;
-			}
-		}
-	}
-}
-
-
-/**
- * Created  10/01/2023
- * @brief   plots the pixels of the fram
- * @note  
- * @param   type the plotting type:0 - each call, plot sub group of pixels from one of the  pixel groups, 1 plot all pixels
- * @return  
- */
-static void _plot_pixels(struct frame * f, int type) {
-	for (int g = 0; g < f->num_of_groups; g++) {
-		if (type) {
-			// plot one point from ecah group
-			if (f->group[0].end_idx == f->group[g].current_idx) {
-				f->group[g].current_idx = f->group[g].start_idx;
-			}
-			canvas_plot(f->effect.canvas, f->points[f->group[g].current_idx].x, f->points[f->group[g].current_idx].y, f->points[f->group[g].current_idx].c);
-			f->group[g].current_idx++;
-		} else {
-
-			// plot all points
-			for (int i = f->group[g].start_idx ; i <=  f->group[g].end_idx;i++) {
-				canvas_plot(f->effect.canvas, f->points[i].x, f->points[i].y, f->points[i].c);					
-			}
-		}	
-	}
-}
+#define R(x, m) ({ \
+    int _idx = (x) % (m); \
+    _idx += (_idx < 0) ? (m) : 0; \
+    _idx; \
+})
 
 
 
 /**
- * Created  10/01/2023
- * @brief   collects points of rectangle frame
- * @note  
+ * Created  07/17/24
+ * @brief   draw frame around rectngle
  * @param   
  * @return  
  */
-static void _collects_points_of_rectangle_frame(struct frame * f) {
-	int idx = 0;
+static void _draw_points_of_rectangle_frame(struct canvas * canvas, struct frame * f) {
 	int c1 = f->config.animate_frame.c1;
 	int c2 = f->config.animate_frame.c2;
 	int rate = f->config.animate_frame.color_change_rate;
 	struct rect * r = &f->config.animate_frame.r;
+	int dir = f->config.animate_frame.dir;
+	int idx = 0;
+	int size = r->height * 2 + r->width*2 - 4;
 
-	// take all point from upper line -->
 	for (int x = r->top_left_x; x < r->top_left_x + r->width ;x++) {
-		f->points[idx].c = _color_switch(c1, c2,rate);
-		f->points[idx].x = x;
-		f->points[idx++].y = r->top_left_y;
-
+		canvas_plot(canvas, x,  r->top_left_y, f->points[R(idx + f->cnt ,size)].c);
+		idx++;
 	}
 
-	for (int y = r->top_left_y; y < r->top_left_y + r->height;y++) {
-		f->points[idx].c = _color_switch(c1, c2,rate) ;
-		f->points[idx].x = r->top_left_x + r->width - 1 ;
-		f->points[idx++].y = y;
-
+	for (int y = r->top_left_y+1; y < r->top_left_y + r->height-1;y++) {
+		canvas_plot(canvas,  r->top_left_x + r->width - 1, y, f->points[ R(idx + f->cnt , size)].c);
+		idx++;
 	}
 
-	for (int x = r->top_left_x + r->width - 1; x >= r->top_left_x; x--) {
-		f->points[idx].c = _color_switch(c1, c2,rate) ;	
-		f->points[idx].x = x;
-		f->points[idx++].y = r->top_left_y + r->height - 1;
-
+	for (int x = r->top_left_x + r->width-1 ; x >= r->top_left_x; x--) {
+		canvas_plot(canvas, x, r->top_left_y + r->height - 1, f->points[R(idx + f->cnt , size)].c);
+		idx++;
 	}
 
-	for (int y = r->top_left_y + r->height - 1; y > r->top_left_y; y--) {
-		f->points[idx].c = _color_switch(c1, c2,rate) ;	
-		f->points[idx].x = r->top_left_x;
-		f->points[idx++].y = y;
+	for (int y = r->top_left_y + r->height - 2  ; y  > r->top_left_y; y--) {
+		canvas_plot(canvas, r->top_left_x, y,  f->points[R(idx + f->cnt ,size)].c);		
+		idx++;
 	}
 
-	f->num_of_points = idx;
+		
+	if (f->speed) 
+		 f->speed--;
+	 else {
+		 f->speed = dir > 0 ? dir : -dir;
+		 if (dir < 0)
+			 f->cnt++;
+		 else if (dir > 0) {
+			 f->cnt--;
+			 if (f->cnt<0) 
+				 f->cnt =  r->height * 2 + r->width*2 - 4 - 1;
+		 }
+	 }
 
 }
-
-
 
 /**
  * Created  09/30/2023
@@ -143,18 +91,24 @@ static void _collects_points_of_rectangle_frame(struct frame * f) {
  */
 static void type_1_animate_frame_init(struct frame * f ) 
 {
-	_collects_points_of_rectangle_frame(f);
+	int c1 = f->config.animate_frame.c1;
+	int c2 = f->config.animate_frame.c2;
+	int rate = f->config.animate_frame.color_change_rate;
+	struct rect * r = &f->config.animate_frame.r;
 
-	f->num_of_groups = 1;
-	f->group[0].start_idx = 0;
-	f->group[0].end_idx = f->num_of_points - 1;
-	f->group[0].current_idx = 0;
+	int s = 0;
+	for (int i = 0; i < r->height * 2 + r->width*2 - 4;i++) {
+		if (i % rate == 0)
+			s=(s==0) ? 1 : 0;
+		f->points[i].c = (s) ? PIXEL(c1) : PIXEL(c2);
+	}
+
+	f->cnt = 0;
 }
 
-static void _render_animate_frame(struct frame * f) {
-	_plot_pixels(f,0);
-	_color_shift_inside_group(f, f->config.animate_frame.dir,f->config.animate_frame.pixel_change);
-
+static void _render_animate_frame(struct frame * f, struct canvas * canvas) {
+	_draw_points_of_rectangle_frame(canvas , f);		 
+	 	
 }
 
 static void frame_render(struct effect_base * e ,  struct canvas * canvas, struct  rect * r) {
@@ -164,7 +118,7 @@ static void frame_render(struct effect_base * e ,  struct canvas * canvas, struc
 	f->effect.canvas = canvas;
 	switch (e->config_id) {
 		case 1:
-			_render_animate_frame(f);
+			_render_animate_frame(f, canvas);
 			break;
 		default:
 			break;

@@ -248,6 +248,22 @@ static int luaB_longkeystatus(lua_State *L) {
 
 }
 
+static int luaB_set_local_rect(lua_State *L) {
+	struct lua_user_data * rect = *(struct lua_user_data**)luaL_checkudata(L, 1, "rect");
+	struct lua_user_data * out_rect = *(struct lua_user_data**)luaL_checkudata(L, 2, "rect");
+	struct channel * channel = led_matrix_get_channel(led_matrix_get(),  led_matrix_channel_id);    	
+	
+ 	canvas_set_rect(&channel->canvas, rect->data ,out_rect->data);
+	return 1;
+}
+
+
+
+static int luaB_set_global_rect(lua_State *L) {
+	struct channel * channel = led_matrix_get_channel(led_matrix_get(),  led_matrix_channel_id);    		
+ 	canvas_set_global_rect(&channel->canvas);
+	return 1;
+}
 
 
 
@@ -274,6 +290,8 @@ static const luaL_Reg game_funcs[] = {
 	{"long_keys", luaB_longkeystatus},
 	{"set_long_key", luaB_setlongkey},
 	{"rotate", luaB_rotate},
+	{"set_local_rect", luaB_set_local_rect},
+	{"set_global_rect", luaB_set_global_rect},
 
 
 

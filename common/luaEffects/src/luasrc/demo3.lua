@@ -84,6 +84,7 @@ end
 function render(channel_id)
 
 	game.select_channel(channel_id)
+	game.set_local_rect(rect.new(5,10,25,50),rect.new(5,10,25,50)) 
 	-- loop over pixelstep
 	for ps=1,pixelstep,1
 	do
@@ -135,6 +136,7 @@ function render(channel_id)
 		end	
 
 	end	
+	game.set_global_rect()
 end
 
 

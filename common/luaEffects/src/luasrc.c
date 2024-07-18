@@ -26,7 +26,7 @@
  * @param   
  * @return  
  */
-struct luasrc * luasrc_by_name(const char * name) 
+const struct luasrc * luasrc_by_name(const char * name) 
 {
 	struct luasrc ** l = luasrc_get();
 	while (*l) {
@@ -46,7 +46,7 @@ struct luasrc * luasrc_by_name(const char * name)
  * @param   
  * @return  
  */
-struct luasrc * luasrc_by_idx(int idx)
+const struct luasrc * luasrc_by_idx(int idx)
 {
 	struct luasrc * src = 0;
 	if (idx <  luasrc_size())

@@ -29,8 +29,8 @@ if len(sys.argv) == 3 and sys.argv[1] == "script_fie":
     with open(filename + '', 'w') as header_file:
         header_file.write(f"#ifndef " +  base_name + "_H\n#define " + base_name + "_H\n\n")
         header_file.write(f"#include \"luasrc.h\"\n\n")    
-        header_file.write(f"static unsigned char binary_data[] = {{{c_array}}};\n\n")
-        header_file.write(f"struct luasrc {f} = {{ .code = binary_data, .size = sizeof (binary_data), .name = \"{code_name}\" }};\n\n")
+        header_file.write(f"static unsigned char binary_data[] __attribute__((section(\".rodata\"))) = {{{c_array}}};\n\n")
+        header_file.write(f"const struct luasrc {f} = {{ .code = binary_data, .size = sizeof (binary_data), .name = \"{code_name}\" }};\n\n")
         header_file.write(f"#endif")
 
 
@@ -48,14 +48,14 @@ elif sys.argv[1] == "joint_file":
             base_name = sys.argv[i].replace('.c','').replace('.','_').replace('/','_').replace('-','_').replace(':','_')           
             header_file.write(f"extern struct luasrc  {base_name}; \n")
 
-        header_file.write(f"struct luasrc *luasrc [] = {{\n")
+        header_file.write(f"const struct luasrc *luasrc []  __attribute__((section(\".rodata\"))) = {{\n")
         for  i in range(2,len(sys.argv),1):
             base_name = sys.argv[i].replace('.c','').replace('.','_').replace('/','_').replace('-','_').replace(':','_')
             header_file.write(f"&{base_name},\n")
         header_file.write(f"{0},")
  
         header_file.write(f"}};\n")
-        header_file.write(f"struct luasrc ** luasrc_get() {{return luasrc;}}\n ")
+        header_file.write(f"const struct luasrc ** luasrc_get() {{return luasrc;}}\n ")
         l = len(sys.argv) - 2;
         header_file.write(f"size_t luasrc_size() {{return {l};}} \n")
         

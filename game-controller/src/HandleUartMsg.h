@@ -25,18 +25,19 @@
 #include <type_traits>
 #include <utility>
 
-#include "IProtocolParser.h"
 
 #include "protocol-v1/ProtoclDataStructures.h"
 #include "protocol-v1/messages.h"
-#include "protocol-v1/IHandleUartMsg.h"
+#include "protocol-v1/IHandleMsg.h"
 #include "utils/logger.h"
 #include "game.h"
+#include "hal/IUart.h"
 
 extern int gg;
-namespace Simple {
+using namespace Simple;
+//namespace Simple {
 
-	class HandleUartMsg: public IHandleUartMsg {
+	class HandleUartMsg: public IHandleMsg {
 		public:
 			HandleUartMsg() = default;
 			HandleUartMsg(std::shared_ptr<Hal::IUart> uart) : m_uart(uart)  {};
@@ -99,7 +100,7 @@ namespace Simple {
 
 
 
-}
+//}
 
 
 

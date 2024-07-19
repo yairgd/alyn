@@ -25,8 +25,11 @@
 #include<fstream>
 
 #include "protocol-v1/ProtocolStateMachine.h"
+#include "protocol-v1/UartProtocolParser.h"
+
 #include "HandleUartMsg.h"
 #include "game_api.h"
+#include "SignalManager.h"
 
 #include "utils/ThreadPool.h"
 #include "utils/logger.h"
@@ -49,6 +52,8 @@ int gg=0;
 void run_the_application() {
 	auto threadPool= ThreadPool::Instance();
 	auto uart = Hal::GetUart(UART_DEVICE);
+	auto gameApi = std::make_shared<GameApi>(uart, std::make_shared<SignalManager>());				
+	
 	uart->Open();
 	if (uart->IsOpen() == false) {
 		logger_print(LOG_INFO,"cannot open uart %s",UART_DEVICE );				
@@ -57,30 +62,31 @@ void run_the_application() {
 
 	char m_exit = false;
 
-	threadPool->beginTask([uart,&m_exit]()->void{
-		auto p  =  std::make_shared<Simple::HandleUartMsg>(uart);
-		std::shared_ptr<IProtocolParser> parser = std::make_shared<Simple::ProtocolStateMachine> (uart, p);
+	threadPool->beginTask([uart,gameApi, &m_exit]()->void{
+		auto handleUartMsg  =  std::make_shared<Simple::HandleUartMsg>(gameApi);		
+		auto protocolStateMachine = std::make_shared<Simple::ProtocolStateMachine> (handleUartMsg);		
+		auto uartProtocolParser = std::make_shared<Simple::UartProtocolParser> (uart, protocolStateMachine);
+
+
 		std::mutex m;
 
 		while (true) {
-
 			m.lock();
 			if (m_exit) {
 				m.unlock();						
 				return;
 			}
 			m.unlock();
-			parser->Parse();
+			uartProtocolParser->Parse();
 		}
 	});
 
-	threadPool->beginTask([uart, &m_exit]()->void{
-		auto robot = std::make_shared<::GameApi>(uart);		
+	threadPool->beginTask([uart, gameApi, &m_exit]()->void{
 		uart->Send(( char *)BYPASS, sizeof (BYPASS) );
 		usleep(100000);
 		for (int i=0;i<100;i++) {
 			gg=1;
-			robot->getDeviceInfo(); // works
+			gameApi->getDeviceInfo(); // works
 			while (gg);
 
 		}

@@ -1,7 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  IHandleUartMsg.h
+ *       Filename:  IHandleMsg.h
  *
  *    Description:  
  *
@@ -16,8 +16,8 @@
  * =====================================================================================
  */
 
-#ifndef IHANDLE_UART_MSG_h
-#define IHANDLE_UART_MSG_h 
+#ifndef IHANDLE_MSG_h
+#define IHANDLE_MSG_h 
 
 #include "protocol-v1/messages.h"
 
@@ -25,7 +25,7 @@ namespace Simple {
 	using ParsingData = Payload::GenericParsingData<1024>;
 	using MsgToParse = Msg<ParsingData> ;
 
-	class IHandleUartMsg  {
+	class IHandleMsg  {
 		public:
 
 			virtual void NewData(const MsgToParse &msg) = 0;

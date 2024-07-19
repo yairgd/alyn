@@ -26,6 +26,8 @@
 #include <fstream>
 
 #include "protocol-v1/ProtocolStateMachine.h"
+#include "protocol-v1/UartProtocolParser.h"
+
 #include "utils/ThreadPool.h"
 #include "utils/logger.h"
 #include "game_api.h"
@@ -69,8 +71,8 @@ char * read_file(char *filename, size_t & size)
 void run_the_application(int argc, char *argv[]) {
 	auto threadPool= ThreadPool::Instance();
 	auto uart = Hal::GetUart(UART_DEVICE);
+	auto gameApi = std::make_shared<GameApi>(uart, std::make_shared<SignalManager>());				
 	
-	auto gameApi = std::make_shared<::GameApi>(uart);		
 	
 	uart->Open();
 	if (uart->IsOpen() == false) {
@@ -82,9 +84,11 @@ void run_the_application(int argc, char *argv[]) {
 	size_t size;
 	char * b = read_file(argv[1], size);
 
-	threadPool->beginTask([uart,&m_exit,gameApi]()->void{
-		auto p  =  std::make_shared<Simple::HandleUartMsg>(uart, gameApi);
-		std::shared_ptr<IProtocolParser> parser = std::make_shared<Simple::ProtocolStateMachine> (uart, p);
+	threadPool->beginTask([uart,gameApi, &m_exit]()->void{
+		auto handleUartMsg  =  std::make_shared<Simple::HandleUartMsg>(gameApi);		
+		auto protocolStateMachine = std::make_shared<Simple::ProtocolStateMachine> (handleUartMsg);		
+		auto uartProtocolParser = std::make_shared<Simple::UartProtocolParser> (uart, protocolStateMachine);
+
 		std::mutex m;
 
 		while (true) {
@@ -95,7 +99,7 @@ void run_the_application(int argc, char *argv[]) {
 				return;
 			}
 			m.unlock();
-			parser->Parse();
+			uartProtocolParser->Parse();
 		}
 	});
 

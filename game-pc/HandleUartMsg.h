@@ -25,21 +25,18 @@
 #include <type_traits>
 #include <utility>
 
-#include "IProtocolParser.h"
-
 #include "protocol-v1/ProtoclDataStructures.h"
 #include "protocol-v1/messages.h"
-#include "protocol-v1/IHandleUartMsg.h"
+#include "protocol-v1/IHandleMsg.h"
 #include "utils/logger.h"
 
 #include "game_api.h"
 
 extern int gg;
 namespace Simple {
-	class HandleUartMsg: public IHandleUartMsg {
+	class HandleUartMsg: public IHandleMsg {
 		public:
-			HandleUartMsg(std::shared_ptr<Hal::IUart> uart, const std::shared_ptr<GameApi> gameApi = nullptr) : 
-				m_uart(uart) ,
+			HandleUartMsg(const std::shared_ptr<GameApi>  & gameApi = nullptr) : 
 				m_gameApi(gameApi)
 		{};
 			void NewData(const MsgToParse &msg) override {
@@ -76,7 +73,6 @@ namespace Simple {
 
 
 		private:
-			std::shared_ptr<Hal::IUart> m_uart;
 			std::shared_ptr<GameApi> m_gameApi;
 
 

@@ -26,23 +26,20 @@
 #include <utility>
 
 
-#include "IProtocolParser.h"
-//#include "protocol-v1/HandleUartMsg.h"
 #include "protocol-v1/ProtoclDataStructures.h"
 #include "protocol-v1/messages.h"
-#include "protocol-v1/IHandleUartMsg.h"
+#include "protocol-v1/IHandleMsg.h"
 
 #include "hal/IUart.h"
 namespace Simple {
 
-	class ProtocolStateMachine: public IProtocolParser {
+	class ProtocolStateMachine {
 
 		public:
-			ProtocolStateMachine() : IProtocolParser(std::shared_ptr<Hal::IUart> (nullptr)) {}
-			ProtocolStateMachine(std::shared_ptr<Hal::IUart> uart, std::shared_ptr<Simple::IHandleUartMsg>  handleUartMsg):IProtocolParser(uart), 
-			m_handleMsg(std::move(handleUartMsg)) {}
-		private:
-			void StateTrack(unsigned char c) override {
+			ProtocolStateMachine(std::shared_ptr<Simple::IHandleMsg>  handleUartMsg):
+				m_handleMsg(std::move(handleUartMsg)) {}
+			ProtocolStateMachine() = default;
+			void StateTrack(unsigned char c)  {
 				switch (state) {
 					case ReceiveState::Preamble:
 						if (c == 0xaa) {
@@ -108,7 +105,7 @@ namespace Simple {
 			unsigned char length;
 			int idx;
 			MsgToParse msg;
-			std::shared_ptr<Simple::IHandleUartMsg>  m_handleMsg ;
+			std::shared_ptr<Simple::IHandleMsg>  m_handleMsg ;
 
 	};
 

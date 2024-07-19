@@ -46,9 +46,9 @@
 #endif
 
 
-#define UART_DEVICE "/dev/pts/12"
+#define UART_DEVICE "/dev/ttyACM0"
 #define BYPASS "bypass\n\r"
-int gg=0;
+
 void run_the_application() {
 	auto threadPool= ThreadPool::Instance();
 	auto uart = Hal::GetUart(UART_DEVICE);
@@ -82,17 +82,18 @@ void run_the_application() {
 	});
 
 	threadPool->beginTask([uart, gameApi, &m_exit]()->void{
+		// bypass the shell and move to direct uart comnication		
 		uart->Send(( char *)BYPASS, sizeof (BYPASS) );
 		usleep(100000);
-		for (int i=0;i<100;i++) {
-			gg=1;
-			gameApi->getDeviceInfo(); // works
-			while (gg);
 
+		for (int i=0;i<100;i++) {
+			gameApi->getDeviceInfo(); // works
 		}
 
-		
+		// exit from bypass mode		
+		uart->Send(( char *)BYPASS, sizeof (BYPASS) );
 		usleep(100000);
+
 		m_exit = true;		
 		return;
 

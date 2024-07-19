@@ -78,6 +78,7 @@ using namespace Simple;
 							Payload::Command *di = (Payload::Command*)(msg.data.buffer);	
 							struct game * g = game_get_by_index(di->params[0]);
 							game_start(g);
+							break;
 						}
 					default:
 						{

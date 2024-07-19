@@ -32,7 +32,6 @@
 
 #include "game_api.h"
 
-extern int gg;
 namespace Simple {
 	class HandleUartMsg: public IHandleMsg {
 		public:
@@ -51,7 +50,7 @@ namespace Simple {
 								     di->hw_version[1],
 								     di->hw_version[0]
 								    );
-							gg=0;
+							m_gameApi->signal();
 							cnt++;
 							break;
 						}

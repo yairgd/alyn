@@ -40,7 +40,7 @@
 using namespace Simple;
 
 extern "C" {
- int set_bypass(const struct shell *sh, shell_bypass_cb_t bypass);
+	int set_bypass(const struct shell *sh, shell_bypass_cb_t bypass);
 }
 
 class HandleUartMsg: public IHandleMsg {
@@ -117,13 +117,6 @@ class HandleUartMsg: public IHandleMsg {
 
 
 };
-
-
-
-
-
-//}
-
 
 
 #endif

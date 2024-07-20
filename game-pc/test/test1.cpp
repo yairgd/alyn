@@ -35,14 +35,12 @@
 #include "utils/logger.h"
 
 #include "IUart.h"
-///#include "git.h"
 
 #ifdef _MSC_VER
 #include <windows.h>
 #define usleep(x) Sleep(x/1000)
 #elif __GNUC__
 #include <unistd.h>
- //#include "signals.h"
 #endif
 
 

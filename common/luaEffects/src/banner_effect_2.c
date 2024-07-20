@@ -51,10 +51,8 @@ static void config(lua_State *L, struct banner * banner,struct rect * rect  ) {
 static int lua_banner_gc(lua_State *L) {
 	struct lua_user_data * user_data = *(struct lua_user_data**)luaL_checkudata(L, 1, LUA_BANNER);
 
-	struct banner * banner = (struct banner * )user_data->data;
-	banner_free(banner);
+	banner_free(user_data->data);
 
-	lua_free(user_data->data);
 	lua_free(user_data);
 	return 0;
 }

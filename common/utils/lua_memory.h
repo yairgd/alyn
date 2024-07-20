@@ -24,4 +24,14 @@ char * lua_realloc(char *ptr, size_t n );
 void lua_free(void *ptr);
 void * lua_malloc(size_t n );
 void lua_mem_init();
+
+
+struct frame * lua_mem_frame_malloc();
+void lua_mem_frame_free(struct frame * block_ptr);
+
+
+struct banner * lua_mem_banner_malloc();
+void lua_mem_banner_free(struct banner * block_ptr);
+
+
 #endif

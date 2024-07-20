@@ -30,7 +30,7 @@
 #include "system_model.h"
 #include "utils/lua_memory.h"
 
-#define MY_STACK_SIZE 32768
+#define MY_STACK_SIZE 16384
 #define MY_PRIORITY 5
 static sys_dnode_t head;
 static lua_State *L = 0;
@@ -97,7 +97,9 @@ static void game_lua_generic(void *data) {
 
 	if (L)
 		lua_close(L);
-		
+	
+	lua_mem_init();
+
 	L = luaL_newstate();
 	luaL_openlibs(L);
 
@@ -144,7 +146,7 @@ void game_init(void) {
 	struct game * g = games;
 
 	// init memory
-	lua_mem_init();
+	//lua_mem_init();
 
 	// Initialize the doubly linked list
 	sys_dlist_init(&head);

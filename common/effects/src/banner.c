@@ -187,6 +187,9 @@ void banner_init_with_text(struct banner * banner, struct rect r, const struct f
 
 struct effect_base * banner_new() {
 	struct banner * b = lua_malloc(sizeof(struct banner));
+//	struct banner * b = lua_mem_banner_malloc();
+
+	
 	if (b)
 		memset (b,0,sizeof(struct banner));
 
@@ -195,4 +198,6 @@ struct effect_base * banner_new() {
 }
 
 void banner_free(struct banner * banner) {
+	lua_free(banner);
+//	lua_mem_banner_free(banner);
 }

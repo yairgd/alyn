@@ -50,7 +50,6 @@ static inline void  usleep(unsigned int x) {
 #define UART_DEVICE "/dev/ttyACM0"
 #define BYPASS "bypass\n\r"
 static const uint8_t  QUIT_BYPASS [2]= {0x18 , 0x11};
-int gg=0;
 
 char * read_file(char *filename, size_t & size)
 {

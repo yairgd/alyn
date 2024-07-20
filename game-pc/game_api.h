@@ -35,6 +35,7 @@ public:
         auto msg = getDeviceInfoMsg();
         int n = m_uart->Send(msg->buffer, msg->size());
         (void)n;
+        m_signalManager->wait(); // Use SignalManager to wait	
     }
 
     void luaStartGame(int id) {
@@ -42,6 +43,8 @@ public:
         auto msg = cmd(id);
         int n = m_uart->Send(msg->buffer, msg->size());
         (void)n;
+        m_signalManager->wait(); // Use SignalManager to wait
+
     }
 
     void loadBuffer(char* buffer, size_t size) {

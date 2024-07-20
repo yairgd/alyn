@@ -89,10 +89,11 @@ void run_the_application() {
 		for (int i=0;i<100;i++) {
 			gameApi->getDeviceInfo(); // works
 		}
+		gameApi->exitBypassMode();
 
 		// exit from bypass mode		
-		uart->Send(( char *)BYPASS, sizeof (BYPASS) );
-		usleep(100000);
+	//	uart->Send(( char *)BYPASS, sizeof (BYPASS) );
+	//	usleep(100000);
 
 		m_exit = true;		
 		return;

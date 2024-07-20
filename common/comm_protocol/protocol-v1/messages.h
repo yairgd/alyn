@@ -202,6 +202,21 @@ namespace Simple {
 	};
 
 
+	/**
+	 * @class LuaStartCommand
+	 * @brief message to start game
+	 */
+	struct ExitBypassModeCommand:public IMessageCreator<Payload::Command, CmdId::ExitBypassModeCommand> {
+		public:
+			std::shared_ptr<Msg<Payload::Command>> operator() () {
+				Payload::Command data;
+				data.id = Payload::Command::Id::ExitBypassMode;		
+				return IMessageCreator::Create(data); 	
+			}
+	};
+
+
+
 }
 
 #endif

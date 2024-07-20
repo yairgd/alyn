@@ -32,7 +32,7 @@
 #include "utils/logger.h"
 #include "game_api.h"
 #include "HandleUartMsg.h"
-
+#include "comm_protocol/protocol-v1/messages.h"
 
 #include "IUart.h"
 //#include "git.h"
@@ -109,11 +109,12 @@ void run_the_application(int argc, char *argv[]) {
 
 		// load and run the game
 		gameApi->loadBuffer(b, size);
-		gameApi->luaStartGame(0);
-		
+		gameApi->luaStartGame(0);	
+		gameApi->exitBypassMode();
+
 		// exit from bypass mode
-		uart->Send( (char*)QUIT_BYPASS, sizeof (QUIT_BYPASS) );
-		usleep(100000);
+	//	uart->Send( (char*)QUIT_BYPASS, sizeof (QUIT_BYPASS) );
+	//	usleep(100000);
 
 		m_exit = true;		
 		return;

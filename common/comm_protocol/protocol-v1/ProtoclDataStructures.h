@@ -32,7 +32,7 @@ namespace Simple {
 		DataChunk,
 		GameStartCommand,
 		GameStopCommand,
-
+		ExitBypassModeCommand,
 
 	};
 
@@ -54,6 +54,7 @@ namespace Simple {
 			enum struct  Id:unsigned char {
 				GameStart,
 				GameStop,
+				ExitBypassMode,
 			} id;
 			int params[10];
 		};		

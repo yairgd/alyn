@@ -86,17 +86,16 @@ static int luaB_led_rgb (lua_State *L) {
 
 
 static int luaB_banner_print(lua_State *L) {
-	char * str = (char*) luaL_checkstring (L, -1);
-	int len, unicode;
+	char * str = (char*) luaL_checkstring (L, -4);
+	int x = (int) luaL_checknumber (L, -3);
+	int y = (int) luaL_checknumber (L, -2);
+	int c = (int) luaL_checknumber (L, -1);
+	lua_pop (L, 4);
 
-	lua_pop (L, 1);
+	struct channel * channel = led_matrix_get_channel(led_matrix_get(),  led_matrix_channel_id);    		
+	canvas_print(&channel->canvas, x, y, str);
 
-	while (*str) {
-		len = u8_to_unicode(str, &unicode );
-		printf("%x\n", unicode);
-		str += len;
 
-	}
 	return 0;
 }
 
@@ -159,7 +158,6 @@ static int luaB_clean_rect(lua_State *L) {
 	lua_pop (L, 4);
 	struct channel * channel = led_matrix_get_channel(led_matrix_get(),  led_matrix_channel_id);    	
 	canvas_clean_rect(&channel->canvas, &RECT(x,y,w,h)) ;
-
 	return 0;
 }
 static int luaB_clean(lua_State *L) {
@@ -275,7 +273,7 @@ static const luaL_Reg game_funcs[] = {
 	{"delay", luaB_delay},
 	{"blink", luaB_blink},
 	{"led_rgb", luaB_led_rgb},
-	{"banner_print", luaB_banner_print},
+	{"print", luaB_banner_print},
 	{"plot", luaB_plot},
 	{"line", luaB_line},
 	{"circle", luaB_circle},

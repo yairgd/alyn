@@ -23,10 +23,20 @@
 
 
 
-#define LUA_FRAME "rect"
+#define LUA_RECT "rect"
+
+static int lua_rect_config(lua_State* L) {
+	struct lua_user_data * user_data = *(struct lua_user_data**)luaL_checkudata(L, 1, LUA_RECT);
+
+	int x  = (int) luaL_checknumber (L, -4);
+	int y = (int) luaL_checknumber (L, -3);
+  	int w  = (int) luaL_checknumber (L, -2);
+  	int h  = (int) luaL_checknumber (L, -1);
+	*((struct rect *)user_data->data) = (struct rect) {x,y,w,h};
+}
 
 static int lua_rect_gc(lua_State *L) {
-	struct lua_user_data * user_data = *(struct lua_user_data**)luaL_checkudata(L, 1, LUA_FRAME);
+	struct lua_user_data * user_data = *(struct lua_user_data**)luaL_checkudata(L, 1, LUA_RECT);
 
 	// use this code , if there is nome thing to free in rectnagle (it is an example, there is no what to free in rect)
 	//	struct rect * rect = (struct rect * )user_data->data;
@@ -49,7 +59,7 @@ static int lua_rect_new(lua_State* L) {
 	//int i = 1 + lua_istable(L, 1);
 	//foo->x = !lua_isnoneornil(L, i) ? luaL_checkinteger(L, i) : 0;
 	*(struct lua_user_data**)lua_newuserdata(L, sizeof(struct lua_user_data*)) = user_data;
-	luaL_setmetatable(L, LUA_FRAME);
+	luaL_setmetatable(L, LUA_RECT);
 	return 1;
 }
 
@@ -68,10 +78,11 @@ int register_rect_effect_class(lua_State *L) {
 	static const luaL_Reg meta[] =
 	{   { "__gc"        ,lua_rect_gc          },
 		{ NULL          ,NULL            }  };
-	static const luaL_Reg meth[] =
-	{ /*  { "render" ,lua_rect_render },*/
+	static const luaL_Reg meth[] = {
+		 { "config" ,lua_rect_config },		
+	 /*  { "render" ,lua_rect_render },*/
 		{ NULL          ,NULL            }  };
-	luaL_newmetatable(L, LUA_FRAME);
+	luaL_newmetatable(L, LUA_RECT);
 	luaL_setfuncs    (L, meta, 0);
 	luaL_newlib      (L, meth);
 	lua_setfield     (L, -2, "__index");
@@ -87,7 +98,7 @@ int register_rect_effect_class(lua_State *L) {
 	luaL_newlib      (L, static_meth);
 	luaL_newlib      (L, static_meta);
 	lua_setmetatable (L, -2);
-	lua_setglobal(L, LUA_FRAME);
+	lua_setglobal(L, LUA_RECT);
 
 	return 1;
 }

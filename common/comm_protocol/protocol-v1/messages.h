@@ -173,6 +173,19 @@ namespace Simple {
 	};
 
 
+	/**
+	 * @class LuaStopCommand
+	 * @brief message to start game
+	 */
+	struct GameStopCommand:public IMessageCreator<Payload::Command, CmdId::GameStopCommand> {
+		public:
+			std::shared_ptr<Msg<Payload::Command>> operator() () {
+				Payload::Command data;
+				data.id = Payload::Command::Id::GameStop;
+				
+				return IMessageCreator::Create(data); 	
+			}
+	};
 
 	/**
 	 * @class creates Ack message

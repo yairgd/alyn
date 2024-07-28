@@ -1,5 +1,4 @@
 /*
-			return static_cast<uint8_t>(GetHalMgr().PerformMemoryBadBlocksTest());
  * =====================================================================================
  *
  *       Filename:  canvas.c

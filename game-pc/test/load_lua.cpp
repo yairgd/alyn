@@ -108,13 +108,11 @@ void run_the_application(int argc, char *argv[]) {
 		usleep(100000);
 
 		// load and run the game
+		gameApi->luaStopGame();
 		gameApi->loadBuffer(b, size);
 		gameApi->luaStartGame(0);	
 		gameApi->exitBypassMode();
 
-		// exit from bypass mode
-	//	uart->Send( (char*)QUIT_BYPASS, sizeof (QUIT_BYPASS) );
-	//	usleep(100000);
 
 		m_exit = true;		
 		return;

@@ -84,6 +84,21 @@ class HandleUartMsg: public IHandleMsg {
 						Payload::Command *di = (Payload::Command*)(msg.data.buffer);	
 						struct game * g = game_get_by_index(di->params[0]);
 						game_start(g);
+						// send ok message
+						Ack ack;
+						auto res_msg = ack();
+						int n = m_uart->Send(res_msg->buffer,res_msg->size()); 
+						(void)n;
+						break;
+					}
+				case CmdId::GameStopCommand:
+					{
+						game_stop();
+						// send ok message
+						Ack ack;
+						auto res_msg = ack();
+						int n = m_uart->Send(res_msg->buffer,res_msg->size()); 
+						(void)n;
 						break;
 					}
 				case CmdId::ExitBypassModeCommand:

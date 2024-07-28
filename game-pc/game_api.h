@@ -44,7 +44,13 @@ namespace Simple {
 			int n = m_uart->Send(msg->buffer, msg->size());
 			(void)n;
 			m_signalManager->wait(); // Use SignalManager to wait
-
+		}
+		void luaStopGame() {
+			GameStopCommand cmd;
+			auto msg = cmd();
+			int n = m_uart->Send(msg->buffer, msg->size());
+			(void)n;
+			m_signalManager->wait(); // Use SignalManager to wait
 		}
 
 		void loadBuffer(char* buffer, size_t size) {

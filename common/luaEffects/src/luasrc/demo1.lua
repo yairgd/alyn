@@ -157,6 +157,9 @@ function random_color(n)
 	end
 end
 
+
+game.set_global_rect()
+
 -- require("t2")
 a1=frame.new(rect.new(0,0,64,32),0xff00ff,0xfff00, 5,1 ,1);
 a2=frame.new(rect.new(1,1,62,30),0x000fff,0x0ffff, 10,1 ,1);

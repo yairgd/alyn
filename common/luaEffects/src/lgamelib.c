@@ -99,6 +99,16 @@ static int luaB_banner_print(lua_State *L) {
 	return 0;
 }
 
+static int luaB_strlen(lua_State *L) {
+	char * str = (char*) luaL_checkstring (L, -1);
+	lua_pop (L, 1);
+	lua_pushinteger(L,  u8_strlen(str));
+	return 1;
+
+}
+
+
+
 
 static int luaB_plot(lua_State *L) {
 	int x = (int) luaL_checknumber (L, -3);
@@ -263,6 +273,45 @@ static int luaB_set_global_rect(lua_State *L) {
 	return 1;
 }
 
+static int luaB_is_station_connected(lua_State *L) {
+	int id  = (int) luaL_checknumber (L, -1);
+
+	lua_pop (L, 1);
+	lua_pushinteger(L,  is_connected(id));
+
+	return 1;
+}
+
+
+static int luaB_is_station_blink(lua_State *L) {
+	int id  = (int) luaL_checknumber (L, -1);
+
+	lua_pop (L, 1);
+	lua_pushinteger(L,  is_blink(id));
+
+	return 1;
+}
+
+
+static int luaB_is_station_blink_on(lua_State *L) {
+	int id  = (int) luaL_checknumber (L, -1);
+
+	lua_pop (L, 1);
+	lua_pushinteger(L,  is_blink_on(id));
+
+	return 1;
+}
+
+static int luaB_station_get_rgb(lua_State *L) {
+	int id  = (int) luaL_checknumber (L, -1);
+
+	lua_pop (L, 1);
+	lua_pushinteger(L,  get_rgb(id));
+
+	return 1;
+}
+
+
 
 
 
@@ -290,6 +339,12 @@ static const luaL_Reg game_funcs[] = {
 	{"rotate", luaB_rotate},
 	{"set_local_rect", luaB_set_local_rect},
 	{"set_global_rect", luaB_set_global_rect},
+	{"is_station_connected", luaB_is_station_connected},
+	{"is_station_blink", luaB_is_station_blink},
+	{"is_station_blink_on", luaB_is_station_blink_on},
+	{"station_get_rgb", luaB_station_get_rgb},
+
+	{"strlen", luaB_strlen},
 
 
 

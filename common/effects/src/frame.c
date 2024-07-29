@@ -154,8 +154,6 @@ void frame_init(struct frame  * f) {
 
 struct effect_base * frame_new() {
 	struct frame * f = (void*)lua_malloc( sizeof(struct frame));
-//	struct frame * f = lua_mem_frame_malloc();
-
 	if (f)
 		memset (f,0,sizeof(struct frame));
 
@@ -165,6 +163,5 @@ struct effect_base * frame_new() {
 
 void frame_free(struct frame  * f) {
 	lua_free(f);
-//	lua_mem_frame_free(f);
 }
 

@@ -27,9 +27,9 @@ extern "C" {
 
 	struct system_model {
 		struct timer {
-			uint32_t dir : 1 ; 	    // 1 up , 0 down
-			uint32_t seconds : 31 ; // sconds
-			uint32_t ms_counter;
+			uint16_t dir : 1 ; 	   // 1 up , 0 down
+			uint16_t seconds : 15 ;   // sconds
+			uint32_t ms_counter ; // the latest mili second referce time
 
 		} timer;
 		struct  {

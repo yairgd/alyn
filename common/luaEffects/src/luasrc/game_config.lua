@@ -218,21 +218,21 @@ end
 
 
 function plot_leds()
-	local rect_color_out = 0xff00ff 
-	
+	local rect_color_out = 0xffffff 
+  	local x = 3	
 	for i=0,7,1 do
 		if (game.is_station_connected(i+1)==1) then 
 			if (game.is_station_blink(i+1)==1) then 
 				if (game.is_station_blink_on(i+1)==1) then 			
-					plot_led(4+i*7,5,6,6,rect_color_out , game.station_get_rgb(i+1) )
+					plot_led(4+i*7,x,6,6,rect_color_out , game.station_get_rgb(i+1) )
 				else
-					plot_led(4+i*7,5,6,6,rect_color_out , 0 )
+					plot_led(4+i*7,x,6,6,rect_color_out , 0 )
 				end
 			else
-				plot_led(4+i*7,5,6,6,rect_color_out , game.station_get_rgb(i+1) )
+				plot_led(4+i*7,x,6,6,rect_color_out , game.station_get_rgb(i+1) )
 			end
 		else 
-			plot_non_active_led(4+i*7,5,6,6,0xffffff  )
+			plot_non_active_led(4+i*7,x,6,6,0xffffff  )
 		end
 	end
 end
@@ -258,38 +258,75 @@ function game1()
 
 end
 
+
+
+
+
+
+function game1(tries)
+	local blink_id = 1
+	local dir=1
+	local score = 0
+
+	game.clean()	
+	game.set_timer(1,0)
+	
+	game.blink(blink_id,5,60000)
+	while (tries > 0) 
+	do
+
+		if (game.is_station_blink(blink_id) == 0) then
+			if (game.stop_reason( blink_id) == 1) then
+				score = score + 1
+			end
+			
+			if (dir==1) then
+				blink_id = blink_id + 1
+				if (blink_id == 9) then
+					dir = 0;
+					blink_id = 7
+				end
+			elseif (dir == 0) then
+				blink_id = blink_id  - 1
+				if (blink_id == 0) then
+					dir = 1;
+					blink_id = 1
+				end
+			end
+			tries = tries - 1			
+			if (tries>0) then
+				game.blink(blink_id,5,60000)
+			end
+		end	
+
+		plot_leds()
+		a1:render(0)
+		a2:render(0)
+
+		print_game_name(1)
+		game.print (calc_time(game.get_timer()), 3,9,0)
+		game.print (score, 47,9,0)
+
+	
+		game.delay(100000/4);
+		
+	end
+	game.print (calc_time(p2), 3,9,0)
+	game.print (score, 47,9,0)
+end
+
+
+game.led_rgb(1,255,255,255)
+game.led_rgb(2,0  ,255,255)
+game.led_rgb(3,255,0,255)
+game.led_rgb(4,0  ,0,255)
+game.led_rgb(5,255,255,0)
+game.led_rgb(6,0  ,255,0)
+game.led_rgb(7,255,0,0)
+game.led_rgb(8,255  ,0,255)
+
+
 game.clean()
 game.opacity(0.7,0.3,0.3)
 p1,p2,p3 = config()
-game.set_timer(1,0)
-
-game.clean()
-
-
-
-
-game.led_rgb(5,255,0,0)
-game.blink(5,4,60000)
-
-game.led_rgb(2,0,240,0)
-game.blink(2,2,60000)
-
-game.led_rgb(4,0,0,250)
-game.blink(4,5,60000)
-
-while (p2 > 0) 
-do
-	print_game_name(p1)
-	game.print (calc_time(game.get_timer()), 3,9,0)
-	plot_leds()
-	a1:render(0)
-	a2:render(0)
-
-	game.delay(100000/4);
-	
-
-end
-game.print (calc_time(p2), 3,9,0)
-
-
---play(1,2,3)
+game1(p3)

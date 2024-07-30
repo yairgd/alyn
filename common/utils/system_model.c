@@ -290,7 +290,9 @@ uint32_t timer_get() {
 
 static void timer_update() {
 	if (model.timer.dir == 1){
-		model.timer.seconds++;
+		if (model.timer.seconds < (99 * 60) +59) {
+			model.timer.seconds++;
+		}
 	} else {
 		if (model.timer.seconds > 0) {
 			model.timer.seconds--;	

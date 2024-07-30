@@ -313,6 +313,24 @@ static int luaB_station_get_rgb(lua_State *L) {
 
 
 
+static int luaB_set_timer(lua_State *L) {
+	struct timer t;
+
+	t.dir  = (int) luaL_checknumber (L, -2);
+	t.seconds = (int) luaL_checknumber (L, -1);
+
+	lua_pop (L, 2);
+	timer_set(&t);
+	return 0;
+}
+
+static int luaB_get_timer(lua_State *L) {
+
+	lua_pushinteger(L,  timer_get());
+	
+	return 1;
+}
+
 
 
 static const luaL_Reg game_funcs[] = {
@@ -343,6 +361,9 @@ static const luaL_Reg game_funcs[] = {
 	{"is_station_blink", luaB_is_station_blink},
 	{"is_station_blink_on", luaB_is_station_blink_on},
 	{"station_get_rgb", luaB_station_get_rgb},
+	{"set_timer", luaB_set_timer},
+	{"get_timer", luaB_get_timer},
+
 
 	{"strlen", luaB_strlen},
 

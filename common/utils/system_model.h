@@ -26,6 +26,12 @@ extern "C" {
 #endif
 
 	struct system_model {
+		struct timer {
+			uint32_t dir : 1 ; 	    // 1 up , 0 down
+			uint32_t seconds : 31 ; // sconds
+			uint32_t ms_counter;
+
+		} timer;
 		struct  {
 			unsigned char r 		;	
 			unsigned char g 		;		
@@ -93,7 +99,12 @@ extern "C" {
 	int get_long_keys();
 	
 
+
+	void timer_set(struct timer  * t);
+	uint32_t timer_get();
+	void timer_manage();	
 #ifdef __cplusplus
+
 }
 #endif
 

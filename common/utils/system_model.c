@@ -279,4 +279,30 @@ int get_long_keys() {
 }
 
 
+void timer_set(struct timer * t) {
+	model.timer.ms_counter = timing_begin_to_measure_time();	
+	model.timer = *t;
+}
 
+uint32_t timer_get() {
+	return model.timer.seconds;
+}
+
+static void timer_update() {
+	if (model.timer.dir == 1){
+		model.timer.seconds++;
+	} else {
+		if (model.timer.seconds > 0) {
+			model.timer.seconds--;	
+		}
+	}
+	model.timer.ms_counter = timing_begin_to_measure_time();	
+}
+
+
+void timer_manage() {	
+	if ( timing_elapse(model.timer.ms_counter, 1000))  {
+		timer_update();
+	}
+
+}

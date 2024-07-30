@@ -244,10 +244,27 @@ function play(p1,p2,p3)
 end
 
 
+
+function calc_time(t)
+	 local min = math.floor(t/60);
+	 local sec = t - math.floor( (t/60))*60
+
+	local minString =min  < 10 and "0" .. min or tostring(min)
+	local secString = sec < 10 and "0" .. sec or tostring(sec)
+	return minString .. ":" ..  secString
+end
+
+function game1()
+
+end
+
 game.clean()
 game.opacity(0.7,0.3,0.3)
 p1,p2,p3 = config()
+game.set_timer(1,0)
+
 game.clean()
+
 
 
 
@@ -260,15 +277,19 @@ game.blink(2,2,60000)
 game.led_rgb(4,0,0,250)
 game.blink(4,5,60000)
 
-while (1) 
+while (p2 > 0) 
 do
-	print_game_name(p1)	
+	print_game_name(p1)
+	game.print (calc_time(game.get_timer()), 3,9,0)
 	plot_leds()
 	a1:render(0)
 	a2:render(0)
-	game.delay(100000/4);	
+
+	game.delay(100000/4);
+	
 
 end
+game.print (calc_time(p2), 3,9,0)
 
 
-play(1,2,3)
+--play(1,2,3)

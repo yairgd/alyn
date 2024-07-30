@@ -265,8 +265,10 @@ void hwctl_thread (void *p1,void *p2, void *p3)
 	//	set_rgb(7,0,0,127);
 
 	int n = 0;
+
 	while (1) {
 		k_sem_take(&my_signal, K_FOREVER);
+		timer_manage();
 		while (get_free_run()) {
 			k_sleep(K_USEC(get_free_run_delay()));		
 			hwctl_enable_node(n++);

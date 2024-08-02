@@ -220,7 +220,7 @@ void test_dma();
 // Callback function for the timer
 void display_callback(struct k_timer *dummy) {
 	//	led_matrix_merge(led_matrix_get());		
-	struct channel * channel = led_matrix_get_channel(led_matrix_get(),  0 );   
+	struct channel * channel = led_matrix_get_channel(led_matrix_get(),  3 );   
 	static int line = 0;
 //	test_dma();
 //	return;

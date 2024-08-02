@@ -40,6 +40,7 @@
 
 
 LOG_MODULE_REGISTER(app);
+static uint8_t tail;
 
 
 void timer_expired_handler(struct k_timer *timer)
@@ -58,9 +59,10 @@ K_TIMER_DEFINE(log_timer, timer_expired_handler, NULL);
 #define CHAR_2 0x11
 
 
-static int set_bypass(const struct shell *sh, shell_bypass_cb_t bypass)
+ int set_bypass(const struct shell *sh, shell_bypass_cb_t bypass)
 {
 	static bool in_use;
+	tail = 0;
 
 	if (bypass && in_use) {
 		shell_error(sh, "Sample supports setting bypass on single instance.");
@@ -81,7 +83,6 @@ static int set_bypass(const struct shell *sh, shell_bypass_cb_t bypass)
 
 static void bypass_cb(const struct shell *sh, uint8_t *data, size_t len)
 {
-	static uint8_t tail;
 	bool escape = false;
 
 	/* Check if escape criteria is met. */
@@ -100,7 +101,6 @@ static void bypass_cb(const struct shell *sh, uint8_t *data, size_t len)
 	if (escape) {
 		shell_print(sh, "Exit bypass");
 		set_bypass(sh, NULL);
-		tail = 0;
 		return;
 	}
 	proccess_char(sh, data, len);

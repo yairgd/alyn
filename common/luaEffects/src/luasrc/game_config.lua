@@ -1,5 +1,8 @@
 ﻿--require("t3")
 --
+a1=frame.new(rect.new(0,0,64,32),0xff00ff,0x00ff00, 5,1 ,1);
+a2=frame.new(rect.new(1,1,62,30),0xff0000,0x0000ff, 10,1 ,-5);
+
 function print_game_name(i)
 	local game_name = { "ףיצר", "יארקא" , "תווצק" ,  "סיסבל הרזח" , "ןועש","                          "}	
 	game.print ("          ",3  , 17,0)
@@ -12,8 +15,6 @@ function print_string(str)
 end
 
 function config()
-	a1=frame.new(rect.new(0,0,64,32),0xff00ff,0x00ff00, 5,1 ,1);
-	a2=frame.new(rect.new(1,1,62,30),0xff0000,0x0000ff, 10,1 ,-5);
 --	a3=frame.new(rect.new(2,2,60,28),0x00ff00,0xff00ff, 20,1 , 0);
 
 	p1=1
@@ -188,6 +189,10 @@ function plot_led (x,y,w,h,c_out,c_in)
 		game.line (x,y,x,y+h-1,c)
 		game.line (x+w-1,y,x+w-1,y+h-1,c)	
 	end
+	-- clean previos rect state
+	plot_rect(x,y,w,h,0)	
+
+	-- plot next rect state
 	plot_fill_rect(x,y,w,h,c_in)
 	plot_rect(x,y,w,h,c_out)
 end
@@ -252,14 +257,15 @@ plot_leds()
 game.led_rgb(2,0,240,0)
 game.blink(2,2,60000)
 
-p1=1
 
 while (1) 
 do
-	game.clean()	
 	print_game_name(p1)	
-	plot_leds()	
+	plot_leds()
+	a1:render(0)
+	a2:render(0)
 	game.delay(100000/4);	
+
 end
 
 

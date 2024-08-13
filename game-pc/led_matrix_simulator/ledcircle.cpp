@@ -89,12 +89,20 @@ void LedCircle::paintEvent(QPaintEvent *event)
 		// plot led color	
 		if (is_blink(id) ) {
 			if (is_blink_on(id)) {
-				painter.setBrush(QColor(get_rgb(id)));				
+				// swap between R and B				
+				auto v = get_rgb(id);
+				v = (v & 0x000000ff) << 16 | (v & 0x0000ff00)    | ((v & 0x00ff0000)>>16);
+
+				painter.setBrush(QColor(v));				
 			} else {
 				painter.setBrush(QColor());				
 			}
 		} else {
-			painter.setBrush(QColor(get_rgb(id)));
+			// swap between R and B
+			auto v = get_rgb(id);
+			v = (v & 0x000000ff) << 16 | (v & 0x0000ff00)    | ((v & 0x00ff0000)>>16);
+
+			painter.setBrush(QColor(v));
 		}
 		painter.drawEllipse(QPointF((w)/2,(h)/2), r1*0.95,r2*0.95);				
 	}

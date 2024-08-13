@@ -177,13 +177,13 @@ game.opacity(0.7,0.3,3)
 game.clean()
 
 game.led_rgb(5,255,0,0)
-game.blink(5,4,20000)
+game.blink(5,4,60000)
 
 game.led_rgb(2,0,240,0)
-game.blink(2,2,20000)
+game.blink(2,2,60000)
 
 game.led_rgb(4,0,0,250)
-game.blink(4,5,20000)
+game.blink(4,5,60000)
 
 
 while (true) 

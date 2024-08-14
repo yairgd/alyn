@@ -311,7 +311,7 @@ function game1(tries)
 		game.delay(100000/4);
 		
 	end
-	game.print (calc_time(p2), 3,9,0)
+	game.print (calc_time(game.get_timer()), 3,9,0)
 	game.print (score, 47,9,0)
 end
 

@@ -263,7 +263,7 @@ end
 
 
 
-function game1(tries)
+function game1(tries, led_duration)
 	local blink_id = 1
 	local dir=1
 	local score = 0
@@ -271,7 +271,7 @@ function game1(tries)
 	game.clean()	
 	game.set_timer(1,0)
 	
-	game.blink(blink_id,5,60000)
+	game.blink(blink_id,5,led_duration)
 	while (tries > 0) 
 	do
 
@@ -295,7 +295,7 @@ function game1(tries)
 			end
 			tries = tries - 1			
 			if (tries>0) then
-				game.blink(blink_id,5,60000)
+				game.blink(blink_id,5,led_duration)
 			end
 		end	
 
@@ -328,5 +328,5 @@ game.led_rgb(8,255  ,0,255)
 
 game.clean()
 game.opacity(0.7,0.3,0.3)
-p1,p2,p3 = config()
-game1(p3)
+game_id,led_on_duration,tries = config()
+game1(tries,led_on_duration*1000)

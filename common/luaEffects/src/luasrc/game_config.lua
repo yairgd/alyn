@@ -290,7 +290,7 @@ function game1(tries)
 				blink_id = blink_id  - 1
 				if (blink_id == 0) then
 					dir = 1;
-					blink_id = 1
+					blink_id = 2
 				end
 			end
 			tries = tries - 1			
@@ -300,14 +300,14 @@ function game1(tries)
 		end	
 
 		plot_leds()
-		a1:render(0)
-		a2:render(0)
+
 
 		print_game_name(1)
 		game.print (calc_time(game.get_timer()), 3,9,0)
 		game.print (score, 47,9,0)
 
-	
+		a1:render(0)
+		a2:render(0)	
 		game.delay(100000/4);
 		
 	end

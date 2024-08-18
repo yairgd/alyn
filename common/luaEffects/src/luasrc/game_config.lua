@@ -365,7 +365,7 @@ end
 
 
 
-function calc_time(t)
+function calc_time(t)game.get_timer()
 	 local min = math.floor(t/60);
 	 local sec = t - math.floor( (t/60))*60
 
@@ -514,23 +514,40 @@ function play_all(tries, led_duration, game_id)
 	game4_data['active_leds'] =leds		
 	game4_data['state'] = 1  -- 1 in base , 2 in some led
 	
+	-- set game 5 cong data
+	local game5_data = {}	
+	game5_data['blink_id'] = 1
+	game5_data['select'] = game2_led_select
+	game5_data['active_leds'] =leds	
+	game5_data:select(game5_data)
+	
+
 	-- select the config data acoring to game_id
 	local game_data = {}
 	game_data[1] = game1_data
 	game_data[2] = game2_data
 	game_data[3] = game3_data
 	game_data[4] = game4_data
+	game_data[5] = game5_data
 
 	local data =  game_data[game_id]
 
 
 	local score = 0
-	local num_of_tries = 	tries
 
-	game.clean()	
-	game.set_timer(1,0)
+	if (game_id == 5)
+	then
+		-- timer down from tries to 0
+		game.set_timer(0,tries * 60)
+		num_of_tries = 0
+	else
+		-- timer up from 0 to inf
+		game.set_timer(1,0)
+		num_of_tries = 	tries
+
+	end
 	game.blink(leds[data['blink_id']],5,led_duration)
-	while (tries > 0) 
+	while ((game_id <5 and tries > 0) or (game_id == 5 and game.get_timer()>0) ) 
 	do
 
 		if (game.is_station_blink(leds[data['blink_id']]) == 0) then
@@ -539,10 +556,16 @@ function play_all(tries, led_duration, game_id)
 			end
 			-- call led selction function
 			data:select (data)
-
-			tries = tries - 1			
-			if (tries>0) then
+			
+			if (game_id < 5)
+			then
+				tries = tries - 1			
+				if (tries>0) then
+					game.blink(leds[data['blink_id']],5,led_duration)
+				end
+			else
 				game.blink(leds[data['blink_id']],5,led_duration)
+				num_of_tries = num_of_tries + 1
 			end
 		end	
 
@@ -559,12 +582,13 @@ function play_all(tries, led_duration, game_id)
 		
 	end
 	init()
+	local finale_time = game.get_timer()
 	while (game.keys() == 0) 
 	do	
 		game.clean()
 		plot_leds()
 		print_game_name(1)
-		game.print (calc_time(game.get_timer()), 1,9,0)
+		game.print (calc_time(finale_time), 1,9,0)
 		game.print (string.format("%d/%d",score,num_of_tries), 34,9,0)
 		a1:render(0)
 		render(0) -- render the fireworks
@@ -573,6 +597,7 @@ function play_all(tries, led_duration, game_id)
 	end
 
 end
+
 
 
 
@@ -586,11 +611,20 @@ game.led_rgb(7,255,0,0)
 game.led_rgb(8,255  ,0,255)
 
 
+
 while (true)
 do
+	for i= 1,8,1
+	do	
+		local r = math.random(0, 1) == 0 and 255 or 0
+		local g = math.random(0, 1) == 0 and 255 or 0
+		local b = math.random(0, 1) == 0 and 255 or 0
+		game.led_rgb(i,r,g,b)		
+	end
 	game.clean()
 	game.opacity(0.7,0.3,0.3)
 	game_id,led_on_duration,tries = config()
+	game.clean()	
 	play_all(tries,led_on_duration*1000,game_id )
 	print("game over")
 end

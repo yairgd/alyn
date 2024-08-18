@@ -260,61 +260,91 @@ end
 
 
 
-function game1_led_select(data) 
-	local blink_id = data['blink_id']
-	dir = data['dir']
-	if (dir==1) then
-		repeat
-			blink_id = blink_id + 1
-			if (blink_id == 9) then
-				dir = 0;
-				blink_id = 7
-			end
-		until game.is_station_connected(blink_id) == 1
-	elseif (dir == 0) then
-		repeat
-			blink_id = blink_id  - 1
-			if (blink_id == 0) then
-				dir = 1;
-				blink_id = 2
-			end
-		until game.is_station_connected(blink_id) == 1
+function game1_led_select(data)
+	
+	local leds = data['active_leds']
+	-- Print the values in the `leds` table
+--for i, v in ipairs(leds) do
+--    print("LED " .. i .. ": " .. v)
+--end
+	if #leds > 1
+	then
+		local blink_id = data['blink_id']
+		local dir = data['dir']
+		if (dir==1) then
+			repeat
+				blink_id = blink_id + 1
+				if (blink_id == #leds + 1) then
+					dir = 0;
+					blink_id = blink_id - 2
+				end
+			until game.is_station_connected(leds[blink_id]) == 1 
+		elseif (dir == 0) then
+			repeat
+				blink_id = blink_id  - 1
+				if (blink_id == 0) then
+					dir = 1;
+					blink_id = 2
+				end
+			until game.is_station_connected(leds[blink_id]) == 1 
 
+		end
+		data['blink_id'] = blink_id
+		data['dir'] = dir
 	end
-	data['blink_id'] = blink_id
-	data['dir'] = dir
 
 end
 
 
 function game2_led_select(data) 
 	math.randomseed(os.time())  -- Initialize the random seed
-	local randomInteger = math.random(1, 8)  -- Generates a random integer between 1 and 8
-	local leds = {1,2,3,4,5,6,7,8}
-		
-	blink_id = data['blink_id']
-	while blink_id == leds[randomInteger]
-	do
-		randomInteger = math.random(1, 8) 
+	local leds = data['active_leds']
+
+	if #leds > 1
+	then
+		local randomInteger = math.random(1, #leds)  -- Generates a random integer between 1 and 8			
+		local blink_id = data['blink_id']
+		while blink_id == randomInteger
+		do
+			randomInteger = math.random(1, #leds) 
+		end
+		data['blink_id'] = randomInteger
 	end
-	data['blink_id'] = leds[randomInteger]
+end
 
-
+local function active_leds_list()
+	local leds = {}
+	local i
+	local blink_id = 1
+	for  i = 1,8,1
+	do
+		if game.is_station_connected(i) == 1 
+		then
+			leds[blink_id] = i
+			blink_id = blink_id + 1								
+		end
+		
+	end
+	return leds
 end
 
 
 function play_all(tries, led_duration, game_id)
 
+	local leds = active_leds_list()
+
 	-- set game 1 cong data
 	local game1_data = {}
 	game1_data['dir'] = 1
 	game1_data['blink_id'] = 1
+	game1_data['active_leds'] =leds
 	game1_data['select'] = game1_led_select
 
 	-- set game 2 cong data
 	local game2_data = {}	
 	game2_data['blink_id'] = 1
 	game2_data['select'] = game2_led_select
+	game2_data['active_leds'] =leds	
 	game2_data:select(game2_data)
 
 	-- select the config data acoring to game_id
@@ -329,12 +359,12 @@ function play_all(tries, led_duration, game_id)
 
 	game.clean()	
 	game.set_timer(1,0)
-	game.blink(data['blink_id'],5,led_duration)
+	game.blink(leds[data['blink_id']],5,led_duration)
 	while (tries > 0) 
 	do
 
-		if (game.is_station_blink(data['blink_id']) == 0) then
-			if (game.stop_reason( data['blink_id']) == 1) then
+		if (game.is_station_blink(leds[data['blink_id']]) == 0) then
+			if (game.stop_reason( leds[data['blink_id']]) == 1) then
 				score = score + 1
 			end
 			-- call led selction function
@@ -342,7 +372,7 @@ function play_all(tries, led_duration, game_id)
 
 			tries = tries - 1			
 			if (tries>0) then
-				game.blink(data['blink_id'],5,led_duration)
+				game.blink(leds[data['blink_id']],5,led_duration)
 			end
 		end	
 

@@ -1,4 +1,124 @@
-﻿--require("t3")
+﻿
+--------------------------------------------begin  simple_firewors.lua -------------------------------------------------
+
+--gravity for particles 9.8 would be the real world gravity ;)
+gravity=9.8
+	
+--number of particles of the firework
+particles=30
+
+--length of particle
+particle_length=7
+	
+--particle fragment distance
+particle_step=15
+
+-- particle start speed
+particle_start_speed=10
+
+-- only use primary colors for random color ?
+primary_color=0
+
+matrix_x = 64
+matrix_y = 32
+
+--init global variables 
+particle_speed={}
+particle_angle={}
+restart=1
+
+
+-- subroutine to create a new explosion
+function new_explosion()
+
+	--position of the new explosion
+	pos_x=math.random(matrix_x/2)-matrix_x/4
+	pos_y=math.random(matrix_y/2)-matrix_y/4
+
+	--create particles
+	for n=0 , particles-1 do
+		
+		--set a random speed for particle movement
+		particle_speed[n]=math.random(20)-10+particle_start_speed
+		
+		--set a random angle for particle movement
+		--take a value inside pi as angle and start one out of 5 in the upper direction
+		if math.random(4) == 2 then
+			particle_angle[n]=math.random(314)*0.01*(-1)
+		else
+			particle_angle[n]=math.random(314)*0.01
+		end
+	end	
+	--start explosion
+	lifetime=particle_length*(-1)
+	color_step=0;
+
+	--get new random color
+	if primary_color > 0 then
+		red=0;
+		green=0;
+		blue=0;
+		while (red+green+blue == 0 or red+green+blue == 255*3) do
+			red=math.random(1)*255
+			green=math.random(1)*255
+			blue=math.random(1)*255
+		end
+	else
+		red=math.random(255)
+		green=math.random(255)
+		blue=math.random(255)
+	end
+end
+
+-- routine for initializing
+function init()
+	-- flag for creating a new explosion on start
+	restart=1
+	
+end
+
+
+-- main routine for frame generation
+function render(channel_id)
+	-- create a new explosion
+	if restart==1 then
+		new_explosion()
+		restart=0
+	end
+
+	
+	-- step over particle length
+	for n=0, particle_length*10-1 ,  particle_step do
+
+		--pre calculate time
+		time=(lifetime+n*0.1)*0.1
+		if (time<0) then
+			time=0
+		end
+			
+		--calculate and draw the particle
+		for i=0, particles-1 , 1 do
+			x=particle_speed[i]*math.cos(particle_angle[i])*time+matrix_x/2+pos_x
+			y=matrix_y-(-0.5*gravity*time*time+particle_speed[i]*math.sin(particle_angle[i])*time+matrix_y/2)+pos_y
+			game.plot ( x, y, (red-color_step)*256*256 +  (green-color_step) *256+ blue-color_step)
+		end
+	end
+	-- rise the age of the particle
+	lifetime=lifetime+1
+	color_step=color_step+5
+
+	-- reached lifetime of explosion ?
+	if lifetime>=20 then
+		-- set flag to start next explosion
+		restart=1
+	end
+end
+
+
+
+--------------------------------------------end  simple_firewors.lua -------------------------------------------------
+
+--require("t3")
 --
 a1=frame.new(rect.new(0,0,64,32),0xff00ff,0x00ff00, 5,1 ,1);
 --a2=frame.new(rect.new(1,1,62,30),0xff0000,0x0000ff, 10,1 ,-5);
@@ -263,10 +383,6 @@ end
 function game1_led_select(data)
 	
 	local leds = data['active_leds']
-	-- Print the values in the `leds` table
---for i, v in ipairs(leds) do
---    print("LED " .. i .. ": " .. v)
---end
 	if #leds > 1
 	then
 		local blink_id = data['blink_id']
@@ -312,6 +428,44 @@ function game2_led_select(data)
 	end
 end
 
+
+function game3_led_select(data)
+	
+	local leds = data['active_leds']
+	if #leds > 1
+	then
+		local blink_id = data['blink_id']
+		repeat
+			blink_id = blink_id + 1
+			if (blink_id == #leds + 1) then
+				blink_id = 1
+			end
+		until game.is_station_connected(leds[blink_id]) == 1 
+		data['blink_id'] = blink_id
+	end
+
+end
+
+
+function game4_led_select(data) 
+	local leds = data['active_leds']
+	if #leds > 1
+	then
+		local blink_id 
+		if data['state'] == 1
+		then
+			blink_id =1
+			data['state'] = 2
+		else
+			blink_id = math.random(2, #leds) 
+			data['state'] = 1
+		end
+		data['blink_id'] = blink_id
+	end
+
+
+end
+
 local function active_leds_list()
 	local leds = {}
 	local i
@@ -327,7 +481,6 @@ local function active_leds_list()
 	end
 	return leds
 end
-
 
 function play_all(tries, led_duration, game_id)
 
@@ -347,10 +500,27 @@ function play_all(tries, led_duration, game_id)
 	game2_data['active_leds'] =leds	
 	game2_data:select(game2_data)
 
+	-- set game 1 cong data
+	local game3_data = {}
+	game3_data['blink_id'] = 1
+	game3_data['active_leds'] =leds
+	game3_data['select'] = game3_led_select
+
+
+	-- set game 4 cong data
+	local game4_data = {}	
+	game4_data['blink_id'] = 1
+	game4_data['select'] = game4_led_select
+	game4_data['active_leds'] =leds		
+	game4_data['state'] = 1  -- 1 in base , 2 in some led
+	
 	-- select the config data acoring to game_id
 	local game_data = {}
 	game_data[1] = game1_data
 	game_data[2] = game2_data
+	game_data[3] = game3_data
+	game_data[4] = game4_data
+
 	local data =  game_data[game_id]
 
 
@@ -379,7 +549,7 @@ function play_all(tries, led_duration, game_id)
 		plot_leds()
 
 
-		print_game_name(1)
+		print_game_name(game_id)
 		game.print (calc_time(game.get_timer()), 1,9,0)
 		game.print (string.format("%d/%d",score,num_of_tries), 34,9,0)
 
@@ -388,68 +558,22 @@ function play_all(tries, led_duration, game_id)
 		game.delay(100000/4);
 		
 	end
-	game.print (calc_time(game.get_timer()), 1,9,0)
-	game.print (string.format("%d/%d",score,num_of_tries), 34,9,0)
-	a1:render(0)
-
-end
-
-
-function game1(tries, led_duration)
-	local game1_data = {}
-
-	local blink_id = 1
-	local dir=1
-	local score = 0
-
-	game.clean()	
-	game.set_timer(1,0)
-	local num_of_tries = 	tries
-	game.blink(blink_id,5,led_duration)
-	while (tries > 0) 
-	do
-
-		if (game.is_station_blink(blink_id) == 0) then
-			if (game.stop_reason( blink_id) == 1) then
-				score = score + 1
-			end
-			
-			if (dir==1) then
-				blink_id = blink_id + 1
-				if (blink_id == 9) then
-					dir = 0;
-					blink_id = 7
-				end
-			elseif (dir == 0) then
-				blink_id = blink_id  - 1
-				if (blink_id == 0) then
-					dir = 1;
-					blink_id = 2
-				end
-			end
-			tries = tries - 1			
-			if (tries>0) then
-				game.blink(blink_id,5,led_duration)
-			end
-		end	
-
+	init()
+	while (game.keys() == 0) 
+	do	
+		game.clean()
 		plot_leds()
-
-
 		print_game_name(1)
 		game.print (calc_time(game.get_timer()), 1,9,0)
 		game.print (string.format("%d/%d",score,num_of_tries), 34,9,0)
-
 		a1:render(0)
-		--a2:render(0)	
+		render(0) -- render the fireworks
 		game.delay(100000/4);
-		
+
 	end
-	game.print (calc_time(game.get_timer()), 1,9,0)
-	game.print (string.format("%d/%d",score,num_of_tries), 34,9,0)
-	a1:render(0)
 
 end
+
 
 
 game.led_rgb(1,255,255,255)
@@ -462,11 +586,11 @@ game.led_rgb(7,255,0,0)
 game.led_rgb(8,255  ,0,255)
 
 
-game.clean()
-game.opacity(0.7,0.3,0.3)
-game_id,led_on_duration,tries = config()
---game1(tries,led_on_duration*1000)
-
-play_all(tries,led_on_duration*1000,game_id )
-print("game over")
-
+while (true)
+do
+	game.clean()
+	game.opacity(0.7,0.3,0.3)
+	game_id,led_on_duration,tries = config()
+	play_all(tries,led_on_duration*1000,game_id )
+	print("game over")
+end

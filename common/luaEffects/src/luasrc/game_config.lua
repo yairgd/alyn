@@ -1,7 +1,7 @@
 ﻿--require("t3")
 --
 a1=frame.new(rect.new(0,0,64,32),0xff00ff,0x00ff00, 5,1 ,1);
-a2=frame.new(rect.new(1,1,62,30),0xff0000,0x0000ff, 10,1 ,-5);
+--a2=frame.new(rect.new(1,1,62,30),0xff0000,0x0000ff, 10,1 ,-5);
 
 function print_game_name(i)
 	local game_name = { "ףיצר", "יארקא" , "תווצק" ,  "סיסבל הרזח" , "ןועש","                          "}	
@@ -167,7 +167,7 @@ function config()
 		b:render(0)	
 
 		a1:render(0)
-		a2:render(0)
+		--a2:render(0)
 		--a3:render(0)
 		game.delay(100000/4);	
 		
@@ -260,17 +260,121 @@ end
 
 
 
+function game1_led_select(data) 
+	local blink_id = data['blink_id']
+	dir = data['dir']
+	if (dir==1) then
+		repeat
+			blink_id = blink_id + 1
+			if (blink_id == 9) then
+				dir = 0;
+				blink_id = 7
+			end
+		until game.is_station_connected(blink_id) == 1
+	elseif (dir == 0) then
+		repeat
+			blink_id = blink_id  - 1
+			if (blink_id == 0) then
+				dir = 1;
+				blink_id = 2
+			end
+		until game.is_station_connected(blink_id) == 1
 
+	end
+	data['blink_id'] = blink_id
+	data['dir'] = dir
+
+end
+
+
+function game2_led_select(data) 
+	math.randomseed(os.time())  -- Initialize the random seed
+	local randomInteger = math.random(1, 8)  -- Generates a random integer between 1 and 8
+	local leds = {1,2,3,4,5,6,7,8}
+		
+	blink_id = data['blink_id']
+	while blink_id == leds[randomInteger]
+	do
+		randomInteger = math.random(1, 8) 
+	end
+	data['blink_id'] = leds[randomInteger]
+
+
+end
+
+
+function play_all(tries, led_duration, game_id)
+
+	-- set game 1 cong data
+	local game1_data = {}
+	game1_data['dir'] = 1
+	game1_data['blink_id'] = 1
+	game1_data['select'] = game1_led_select
+
+	-- set game 2 cong data
+	local game2_data = {}	
+	game2_data['blink_id'] = 1
+	game2_data['select'] = game2_led_select
+	game2_data:select(game2_data)
+
+	-- select the config data acoring to game_id
+	local game_data = {}
+	game_data[1] = game1_data
+	game_data[2] = game2_data
+	local data =  game_data[game_id]
+
+
+	local score = 0
+	local num_of_tries = 	tries
+
+	game.clean()	
+	game.set_timer(1,0)
+	game.blink(data['blink_id'],5,led_duration)
+	while (tries > 0) 
+	do
+
+		if (game.is_station_blink(data['blink_id']) == 0) then
+			if (game.stop_reason( data['blink_id']) == 1) then
+				score = score + 1
+			end
+			-- call led selction function
+			data:select (data)
+
+			tries = tries - 1			
+			if (tries>0) then
+				game.blink(data['blink_id'],5,led_duration)
+			end
+		end	
+
+		plot_leds()
+
+
+		print_game_name(1)
+		game.print (calc_time(game.get_timer()), 1,9,0)
+		game.print (string.format("%d/%d",score,num_of_tries), 34,9,0)
+
+		a1:render(0)
+		--a2:render(0)	
+		game.delay(100000/4);
+		
+	end
+	game.print (calc_time(game.get_timer()), 1,9,0)
+	game.print (string.format("%d/%d",score,num_of_tries), 34,9,0)
+	a1:render(0)
+
+end
 
 
 function game1(tries, led_duration)
+	local game1_data = {}
+
 	local blink_id = 1
 	local dir=1
 	local score = 0
 
 	game.clean()	
 	game.set_timer(1,0)
-	
+	local num_of_tries = 	tries
 	game.blink(blink_id,5,led_duration)
 	while (tries > 0) 
 	do
@@ -303,16 +407,18 @@ function game1(tries, led_duration)
 
 
 		print_game_name(1)
-		game.print (calc_time(game.get_timer()), 3,9,0)
-		game.print (score, 47,9,0)
+		game.print (calc_time(game.get_timer()), 1,9,0)
+		game.print (string.format("%d/%d",score,num_of_tries), 34,9,0)
 
 		a1:render(0)
-		a2:render(0)	
+		--a2:render(0)	
 		game.delay(100000/4);
 		
 	end
-	game.print (calc_time(game.get_timer()), 3,9,0)
-	game.print (score, 47,9,0)
+	game.print (calc_time(game.get_timer()), 1,9,0)
+	game.print (string.format("%d/%d",score,num_of_tries), 34,9,0)
+	a1:render(0)
+
 end
 
 
@@ -329,4 +435,8 @@ game.led_rgb(8,255  ,0,255)
 game.clean()
 game.opacity(0.7,0.3,0.3)
 game_id,led_on_duration,tries = config()
-game1(tries,led_on_duration*1000)
+--game1(tries,led_on_duration*1000)
+
+play_all(tries,led_on_duration*1000,game_id )
+print("game over")
+

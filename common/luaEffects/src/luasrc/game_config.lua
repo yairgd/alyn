@@ -547,7 +547,7 @@ function play_all(tries, led_duration, game_id)
 
 	end
 	game.blink(leds[data['blink_id']],5,led_duration)
-	while ((game_id <5 and tries > 0) or (game_id == 5 and game.get_timer()>0) ) 
+	while (((game_id <5 and tries > 0) or (game_id == 5 and game.get_timer()>0))  and (game.keys()&(1<<2))==0 ) 
 	do
 
 		if (game.is_station_blink(leds[data['blink_id']]) == 0) then
@@ -615,10 +615,16 @@ game.led_rgb(8,255  ,0,255)
 while (true)
 do
 	for i= 1,8,1
-	do	
-		local r = math.random(0, 1) == 0 and 255 or 0
-		local g = math.random(0, 1) == 0 and 255 or 0
-		local b = math.random(0, 1) == 0 and 255 or 0
+	do
+		local r = 0
+		local g = 0 
+		local b = 0
+		while (r == 0 and b == 0 and g == 0)
+		do
+			r = math.random(0, 1) == 0 and 255 or 0
+			g = math.random(0, 1) == 0 and 255 or 0
+			b = math.random(0, 1) == 0 and 255 or 0
+		end 
 		game.led_rgb(i,r,g,b)		
 	end
 	game.clean()

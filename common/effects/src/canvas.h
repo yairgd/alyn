@@ -35,8 +35,10 @@
 	(struct pixel)  { ((c)&0xff0000) >> 16 , ((c)&0x00ff00)>>8, ((c)&0x0000ff)>>0 /* r,b,g*/}
 
 #ifdef ZEPHYR
-//#define PIXEL(c) \
-//	(struct pixel)  { ((c)&0x30) >> 4 , ((c)&0x0c)>>2, ((c)&0x03)>>0 /* r,b,g*/}
+#if 0
+#define PIXEL(c) \
+	(struct pixel)  { ((c)&0x30) >> 4 , ((c)&0x0c)>>2, ((c)&0x03)>>0 /* r,b,g*/}
+#endif
 
 struct pixel {
 	uint8_t r:2;

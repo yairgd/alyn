@@ -14,15 +14,15 @@
 	leds {
 		compatible = "gpio-leds";
 		station_led_r: red {
-			gpios = <&gpioh 2 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)>;
+			gpios = <&gpiob 0 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)>;
 			label = "Red";
 		};
 		station_led_g: green {
-			gpios = <&gpioh 3 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)>;
+			gpios = <&gpioe 10 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)>;
 			label = "Green";
 		};
 		station_led_b: blue {
-			gpios = <&gpioh 5 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)>;
+			gpios = <&gpioe 0 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)>;
 			label = "Blue";
 		};
 	};
@@ -84,8 +84,14 @@
 		};
 
 		station_button: stb {
-			label = "station_button";
-			gpios = <&gpiog 0 (GPIO_ACTIVE_LOW | GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+			label = "stb";
+			gpios = <&gpiod 1 ( GPIO_ACTIVE_LOW | GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+			zephyr,code = <INPUT_KEY_M>;
+		};
+
+		stop_blink_button_dt: stop_blink {
+			label = "stop_blink_button";
+			gpios = <&gpioe 15 (GPIO_ACTIVE_LOW | GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 			zephyr,code = <INPUT_KEY_S>;
 		};
 	
@@ -110,14 +116,14 @@
 				   <&arduino_header 4 GPIO_ACTIVE_LOW>,
 				    <&arduino_header 5 GPIO_ACTIVE_LOW>;
 		*/
-                     gpios = <&gpioi 9 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)>,
-		    	 <&gpioi 11 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)> ,
-		    	 <&gpiof 10 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)> ,
-		    	 <&gpiof 13 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)> ,
-		    	 <&gpiof 14 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)> ,
-		    	 <&gpiof 16 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)> ,
-		    	 <&gpiof 8 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)> ,
-		    	 <&gpioc 12 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)> ;
+                     gpios = <&gpioe 7 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)>,
+		    	 <&gpiod 12 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)> ,
+		    	 <&gpiod 11 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)> ,
+		    	 <&gpioe 10 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)> ,
+		    	 <&gpioe 2 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)> ,
+		    	 <&gpioe 12 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)> ,
+		    	 <&gpioe 14 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)> ,
+		    	 <&gpioa 0 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)> ;
 			 
               };
      	};

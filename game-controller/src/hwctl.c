@@ -46,7 +46,25 @@
 #define PRIORITY 7
 
 
+
+
 K_SEM_DEFINE(my_signal, 0, 1); // Define and initialize a semaphore
+
+
+#define STATION_BUTTON_NODE DT_NODELABEL(station_button)
+
+struct station_button {
+	struct gpio_callback button_cb_data;
+	const char *label;
+	const struct gpio_dt_spec spec;
+	int64_t press_time;
+	int id;
+	int state;
+};
+
+
+
+
 
 #ifdef CONFIG_UART_NATIVE_POSIX
 #else
@@ -55,14 +73,27 @@ static struct gpio_dt_spec en_station[] = {
 	DT_FOREACH_PROP_ELEM_SEP(DT_NODELABEL(enables), gpios,
 			GPIO_DT_SPEC_GET_BY_IDX, (,))
 };
-#endif
 
-#ifdef CONFIG_UART_NATIVE_POSIX
-#else
 /* the gpios of node enable */
 static struct gpio_dt_spec led_red = GPIO_DT_SPEC_GET(DT_NODELABEL(station_led_r), gpios);
 static struct gpio_dt_spec led_green = GPIO_DT_SPEC_GET(DT_NODELABEL(station_led_g), gpios);
 static struct gpio_dt_spec led_blue = GPIO_DT_SPEC_GET(DT_NODELABEL(station_led_b), gpios);
+
+
+static const struct gpio_dt_spec stop_blink_button = GPIO_DT_SPEC_GET_OR(DT_NODELABEL(stop_blink_button_dt), gpios,{0});
+
+
+#define check_port(port) { \ 
+	if (!device_is_ready(port)) { \
+		printk("Error: GPIO device %s is not ready\n", port->name); \
+			return;\
+	} \
+	if (!device_is_ready(port)) { \
+		printk("Error: GPIO device %s is not ready\n", port->name); \
+			return; \
+	} \
+}
+
 #endif
 
 #if 0
@@ -249,34 +280,51 @@ void hwctl_thread (void *p1,void *p2, void *p3)
 
 #ifdef CONFIG_UART_NATIVE_POSIX
 #else
-	for (int i =0;i<8;i++)
+
+
+	int i = 0;
+	const struct device *button_dev;
+
+	for (i = 0;i<8;i++)
+	{
 		gpio_pin_configure_dt(&en_station[i], GPIO_OUTPUT);
-	gpio_pin_configure_dt(&led_red, GPIO_OUTPUT);
-	gpio_pin_configure_dt(&led_green, GPIO_OUTPUT);
-	gpio_pin_configure_dt(&led_blue, GPIO_OUTPUT);
+	}
+
+	// configure rgb output (common to all 8 stations)
+	gpio_pin_configure_dt(&led_red, GPIO_OUTPUT); check_port (led_red.port); 
+	gpio_pin_configure_dt(&led_green, GPIO_OUTPUT); check_port (led_green.port); 
+	gpio_pin_configure_dt(&led_blue, GPIO_OUTPUT); check_port (led_blue.port); 
+
+	// configure the station input (one button,  common to all 8 station)
+	gpio_pin_configure_dt(&stop_blink_button, GPIO_INPUT); check_port (stop_blink_button.port); 
+
+
+
 #endif
-	set_rgb(0,127,127,127);
-	//	set_rgb(1,0,127,0);
-	//	set_rgb(2,0,0,127);
-	//	set_rgb(3,127,0,127);
-	//	set_rgb(4,0,127,127);
-	//	set_rgb(5,127,0,127);
-	//	set_rgb(6,127,127,127);
-	//	set_rgb(7,0,0,127);
 
-	int n = 0;
-
+	i = 0;
 	while (1) {
 		k_sem_take(&my_signal, K_FOREVER);
 		timer_manage();
 		while (get_free_run()) {
 			k_sleep(K_USEC(get_free_run_delay()));		
-			hwctl_enable_node(n++);
-			n %= 8;
+			manage_blink(i);			
+			hwctl_enable_node(i);
+			int value = gpio_pin_get_dt(&stop_blink_button);
+			if (value < 0) {
+				printk("Error %d: failed to read pin %d on %s\n", value, stop_blink_button.pin, stop_blink_button.port->name);
+			} else if (value == 1) {
+				set_button_state(i, value);				
+				printk("station %d Pin state: %d\n", i,value);	
+			}
+			i++;
+			i %= 8;
 		}
 	}
 
 }
 
 K_THREAD_DEFINE(message_in_listenr_id, STACKSIZE, hwctl_thread, NULL , NULL, NULL, PRIORITY, 0, 0);
+
+
 

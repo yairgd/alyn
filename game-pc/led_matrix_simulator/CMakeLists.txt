@@ -19,7 +19,7 @@ endif()
 # https://stackoverflow.com/questions/61048049/using-qt5-installed-via-vcpkg-in-visual-studio-for-c
 # https://github.com/microsoft/vcpkg/discussions/26846
 
-#set (CMAKE_PREFIX_PATH "C:\\Users\\gadely2\\vcpkg\\installed\\x64-windows\\ib")
+set (CMAKE_PREFIX_PATH "C:\\Users\\yairg\\vcpkg\\installed\\x64-windows\\ib")
 
 
 
@@ -29,19 +29,19 @@ endif()
 
 #find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
-find_package(Qt5 COMPONENTS Widgets Concurrent CONFIG REQUIRED)
-find_package(Qt5 COMPONENTS Gui Concurrent CONFIG REQUIRED)
-find_package(Qt5 COMPONENTS Core Concurrent CONFIG REQUIRED)
+#find_package(Qt5 COMPONENTS Widgets Concurrent CONFIG REQUIRED)
+#find_package(Qt5 COMPONENTS Gui Concurrent CONFIG REQUIRED)
+#find_package(Qt5 COMPONENTS Core Concurrent CONFIG REQUIRED)
 
 #find_package(Qt5 COMPONENTS Core Widgets CONFIG REQUIRED)
-if (${Qt5Core_FOUND})
-	message("Found Qt " ${Qt5_VERSION})
-else()
-	message("Couldn't find Qt")
-endif()
+#if (${Qt5Core_FOUND})
+	#message("Found Qt " ${Qt5_VERSION})
+#else()
+#	message("Couldn't find Qt")
+#endif()
 
 
-
+find_package(Qt5 COMPONENTS Widgets)
 #find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
 
@@ -57,7 +57,6 @@ add_executable(led-screen-sim
 	main.cpp
 	terminaltextedit.cpp
 	resources.qrc
-	../timing.c	
 )
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" )
@@ -73,6 +72,15 @@ else()
 		Qt5Guid.lib
 		Qt5Cored.lib
 		Qt5Widgetsd.lib
+	)
+	
+	target_include_directories(led-screen-sim  PRIVATE
+		..
+		#${CMAKE_SOURCE_DIR}/game/lua-5.4.6/src/
+		${VCPKG_DIR}/include/Qt5/
+		${VCPKG_DIR}/include/Qt5/QtWidgets
+		${VCPKG_DIR}/include/Qt5/QtCore
+		${VCPKG_DIR}/include/Qt5/QtGui
 	)
 endif()
 
@@ -90,14 +98,6 @@ target_link_libraries(led-screen-sim
 	-Wl,--end-group
 )
 
-target_include_directories(led-screen-sim  PRIVATE
-	..
-	${CMAKE_SOURCE_DIR}/game/lua-5.4.6/src/
-	${VCPKG_DIR}/include/Qt5/
-	${VCPKG_DIR}/include/Qt5/QtWidgets
-	${VCPKG_DIR}/include/Qt5/QtCore
-	${VCPKG_DIR}/include/Qt5/QtGui
-)
 
 
 

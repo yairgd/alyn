@@ -2,7 +2,6 @@
 
 add_executable(test1 
 	${CMAKE_CURRENT_SOURCE_DIR}/test1.cpp
-	../timing.c
 )
 
 target_include_directories(test1 PRIVATE 
@@ -15,16 +14,15 @@ target_include_directories(test1 PRIVATE
 target_link_libraries(test1 PRIVATE
 	Hal
 	protocol_static
-	pthread
+	$<$<CXX_COMPILER_ID:MSVC>:>$<$<NOT:$<CXX_COMPILER_ID:MSVC>>:pthread>
 	common_static
-	#"$<LINK_GROUP:RESCAN, streaming, gui, curl, jsoncpp>"
 )
 
 
 
 add_executable(load-lua 
 	${CMAKE_CURRENT_SOURCE_DIR}/load_lua.cpp
-	../timing.c
+
 	
 )
 
@@ -38,8 +36,6 @@ target_include_directories(load-lua PRIVATE
 target_link_libraries(load-lua PRIVATE
 	Hal
 	protocol_static
-	pthread
+	$<$<CXX_COMPILER_ID:MSVC>:>$<$<NOT:$<CXX_COMPILER_ID:MSVC>>:pthread>
 	common_static
-	#pthread only linux
-	#"$<LINK_GROUP:RESCAN, streaming, gui, curl, jsoncpp>"
 )

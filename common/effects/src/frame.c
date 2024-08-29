@@ -23,13 +23,13 @@
 #include "effect.h"
 #include "utils/lua_memory.h"
 
-#define R(x, m) ({ \
-    int _idx = (x) % (m); \
-    _idx += (_idx < 0) ? (m) : 0; \
-    _idx; \
-})
 
 
+static inline int R(int x, int m) {
+	int _idx = x % m;
+	_idx += (_idx < 0) ? m : 0;
+	return _idx;
+}
 
 /**
  * Created  07/17/24

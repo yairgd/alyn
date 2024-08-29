@@ -70,9 +70,9 @@ class SignalManager {
 
 		void logTime(const std::string& message) {
 			auto now = std::chrono::system_clock::now();
-			auto in_time_t = std::chrono::system_clock::to_time_t(now);
+		//	auto in_time_t = std::chrono::system_clock::to_time_t(now);
 			std::tm buf;
-			localtime_r(&in_time_t, &buf);
+	//		localtime_r(&in_time_t, &buf);
 			std::ostringstream oss;
 			oss << std::put_time(&buf, "%Y-%m-%d %X");
 			std::cout << "[" << oss.str() << "] " << message << std::endl;

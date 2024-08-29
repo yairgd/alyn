@@ -22,7 +22,6 @@ target_include_directories(protocol_static PUBLIC
 
 target_link_libraries(protocol_static PUBLIC
 	Hal
-
 )
 
 

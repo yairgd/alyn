@@ -59,10 +59,10 @@ add_executable(luac
 
 
 target_link_libraries(luac
-	m
-	${linux_lib}
-	
+	$<$<CXX_COMPILER_ID:MSVC>:>$<$<NOT:$<CXX_COMPILER_ID:MSVC>>:m>
+	#${linux_lib}	
 )
+
 target_include_directories (luac PRIVATE
 	.
 	)

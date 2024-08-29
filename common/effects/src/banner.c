@@ -28,7 +28,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "utils/timing.h"
+#include "hal/timing.h"
 #include "utils/lua_memory.h"
 
 void banner_set_text(struct banner * banner,const char* fmt, ...){ 

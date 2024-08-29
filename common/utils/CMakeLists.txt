@@ -20,6 +20,7 @@ target_compile_options(common_static PRIVATE ${cpu_compile_flags})
 
 
 
+
 # Get properties of target1
 #get_target_properties(target1_properties app
 #    PROPERTIES

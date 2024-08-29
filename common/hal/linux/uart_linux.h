@@ -17,7 +17,7 @@
 #ifndef UART_P_H
 #define UART_P_H 
 #include <string>
-#include "IUart.h"
+#include "hal/IUart.h"
 
 #include <errno.h>
 #include <fcntl.h> 

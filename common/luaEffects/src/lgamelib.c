@@ -30,7 +30,7 @@
 #include "lauxlib.h"
 #include "lualib.h"
 #include "led_matrix.h"
-#include "timing.h"
+#include "hal/timing.h"
 #include "system_model.h"
 
 static int led_matrix_channel_id = 0;

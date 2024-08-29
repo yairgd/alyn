@@ -17,7 +17,7 @@
  */
 #ifndef SYSTEM_MODEL
 #define SYSTEM_MODEL 
-#include "timing.h"
+#include "hal/timing.h"
 #include <stdint.h>
 
 

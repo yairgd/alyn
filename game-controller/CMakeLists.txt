@@ -14,6 +14,7 @@ add_compile_definitions(
 )
 
 
+set(TARGET  ZEPHYR)
 
 
 include(ExternalProject)
@@ -43,6 +44,8 @@ set (cpu_compile_flags -mcpu=cortex-m4 -mthumb)
 add_subdirectory(${PROJ_TOP}/common/luaEffects  ${PROJECT_BINARY_DIR}/luaEffects/)
 add_subdirectory(${PROJ_TOP}/common/effects  ${PROJECT_BINARY_DIR}/effects)
 add_subdirectory(${PROJ_TOP}/common/utils  ${PROJECT_BINARY_DIR}/utils)
+#add_subdirectory(${PROJ_TOP}/common/comm_protocol  ${PROJECT_BINARY_DIR}/comm_protocol)
+#add_subdirectory(${PROJ_TOP}/common/hal  ${PROJECT_BINARY_DIR}/hal)
 
 
 #https://jonathanhamberg.com/post/cmake-file-embedding/
@@ -96,6 +99,8 @@ target_link_libraries(app PRIVATE
 	luaEffects_static
 	lua_binaries
 	lua_module
+	#	comm_protocol
+	#	Hal
 	-Wl,--end-group
 
 )
@@ -111,8 +116,4 @@ target_compile_definitions(app PRIVATE
 	NO_SYSLOG)
 
 
-#ua_generate_inc_file_for_target(
-#	app
-#	${CMAKE_CURRENT_SOURCE_DIR}/lua/game1.lua
-#)
 

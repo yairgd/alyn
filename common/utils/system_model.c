@@ -17,7 +17,7 @@
  */
 
 #include "system_model.h"
-#include "timing.h"
+#include "hal/timing.h"
 #define CHECK_ID(id) ((1<= (id) && (id)<=8)  ? (id) - 1 : 0 )
 
 static struct system_model model;

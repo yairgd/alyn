@@ -24,7 +24,7 @@ extern "C" {
 #endif
 	struct luasrc  {
 		char * name ;
-		unsigned char * code;
+		const char * code;
 		size_t size;
 	};
 

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.20.0)
+cmake_minimum_required(VERSION 3.10.0)
 
 project(luac)
 
@@ -60,10 +60,13 @@ add_executable(luac
 
 target_link_libraries(luac
 	$<$<CXX_COMPILER_ID:MSVC>:>$<$<NOT:$<CXX_COMPILER_ID:MSVC>>:m>
+
 	#${linux_lib}	
 )
 
 target_include_directories (luac PRIVATE
+			C:/Users/gadely2/vcpkg/installed/x64-windows/include/
+
 	.
 	)
 	

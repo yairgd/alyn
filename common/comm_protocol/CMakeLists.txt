@@ -1,7 +1,5 @@
 set ( protocol_SRC 
 	${CMAKE_CURRENT_SOURCE_DIR}/protocol-v1/ProtocolStateMachine.cpp
-	#	${CMAKE_CURRENT_SOURCE_DIR}/protocol-v1/HandleUartMsg.cpp
-
 	)
 
 

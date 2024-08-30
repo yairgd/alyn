@@ -12,11 +12,12 @@
 
 #include "luasrc.h"
 #include "utils/ThreadPool.h"
-#include <pthread.h>
 
 
-#ifdef MSVC
-#include <windows.h>
+#ifdef _MSC_VER
+#  include <windows.h>
+#else
+#  include <pthread.h>
 #endif
 
 MainWindow::MainWindow(QWidget *parent)
@@ -50,7 +51,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 	/* this add compiled lua src's to linked list */
 	for (int i = 0; i < luasrc_size() && i < 16; i++) {	
-		struct luasrc * src = luasrc_by_idx(i);
+		const struct luasrc * src = luasrc_by_idx(i);
 		ui->gameList->addItem(src->name);
 	}
 	connect(ui->startStop, &QPushButton::clicked, this, &MainWindow::onStartStopClicked);
@@ -93,10 +94,10 @@ MainWindow::MainWindow(QWidget *parent)
 
 void MainWindow::onStartStopClicked()
 {
-	if (not isGameRun) {
+	if (! isGameRun) {
 		lua_thread = std::thread([this]()->void{
 			int index = ui->gameList->currentIndex();
-			struct luasrc * game =  luasrc_by_idx(index);;
+			const struct luasrc * game =  luasrc_by_idx(index);;
 			if (L)
 				lua_close(L);
 			L = luaL_newstate();
@@ -117,14 +118,14 @@ void MainWindow::onStartStopClicked()
 		isGameRun = false;
 		ui->startStop->setText("start");
 		ui->gameList->setEnabled(true);
-#ifdef MSVC
-		HANDLE hThread = worker.native_handle();
+#ifdef _MSC_VER
+		HANDLE hThread = lua_thread.native_handle();
 		TerminateThread(hThread, 0);
 #else
 		pthread_cancel(lua_thread.native_handle());
 #endif
 		lua_thread.detach();
-		
+
 	}
 
 }

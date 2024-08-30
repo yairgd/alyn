@@ -1,8 +1,9 @@
 
 set (this_file_location ${PROJ_TOP}/common/luaEffects)
-#find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
 
+# replace the python path if needed
 set (Python3_EXECUTABLE python)
+
 # Check if Python3_EXECUTABLE is found
 #if (NOT Python3_EXECUTABLE)
 #    message(FATAL_ERROR "Python3 executable not found. Please install Python 3.")
@@ -66,7 +67,8 @@ macro( lua_generate_c_files_for_lua_binary_target  ${lua_source_files} )
 	#list(TRANSFORM generated_c_files PREPEND "${CMAKE_CURRENT_BINARY_DIR}/")
 	add_custom_command(
 		OUTPUT   ${CMAKE_CURRENT_BINARY_DIR}/joint_file.c
-		COMMAND touch ${CMAKE_CURRENT_BINARY_DIR}/joint_file.c
+		#COMMAND touch ${CMAKE_CURRENT_BINARY_DIR}/joint_file.c
+		COMMAND ${CMAKE_COMMAND} -E touch ${CMAKE_CURRENT_BINARY_DIR}/joint_file.c
 		COMMAND  ${Python3_EXECUTABLE} ${this_file_location}/lua_fw_to_c.py joint_file ${generated_c_files}
 	)
 endmacro()

@@ -71,6 +71,10 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" )
 		pthread
 		readline
 	)
+	find_package(Qt5 COMPONENTS Widgets Concurrent CONFIG REQUIRED)
+	find_package(Qt5 COMPONENTS Gui Concurrent CONFIG REQUIRED)
+	find_package(Qt5 COMPONENTS Core Concurrent CONFIG REQUIRED)
+
 elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC" )
 	set (Qt5_DIR "C:/Users/gadely2/vcpkg/installed/x64-windows//share/cmake/Qt5/")
 	find_package(Qt5 COMPONENTS Widgets)

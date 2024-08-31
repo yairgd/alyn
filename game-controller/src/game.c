@@ -153,10 +153,10 @@ void game_init(void) {
 
 	/* this add compiled lua src's to linked list */
 	for (int i = 0; i < luasrc_size() && i < 16; i++) {
-		struct luasrc * src = luasrc_by_idx(i);
+		const struct luasrc * src = luasrc_by_idx(i);
 		strncpy (games[i+2].name , src->name, 32);
 		games[i+2].func = game_lua_generic;
-		games[i+2].data = src;
+		games[i+2].data = (void *)src;
 	}
 
 	// Populate the data in games	

@@ -166,7 +166,7 @@ void display_spi_dma_callback(const struct device *dev, void *user_data, uint32_
 #include <stdlib.h>
 void display__init() 
 {
-	char * sss = malloc(1000);
+	//char * sss = malloc(1000);
 	gpio_pin_configure_dt(&line_a, GPIO_OUTPUT);
 	gpio_pin_configure_dt(&line_b, GPIO_OUTPUT);
 	gpio_pin_configure_dt(&line_c, GPIO_OUTPUT);

@@ -283,7 +283,6 @@ void hwctl_thread (void *p1,void *p2, void *p3)
 
 
 	int i = 0;
-	const struct device *button_dev;
 
 	for (i = 0;i<8;i++)
 	{

@@ -28,7 +28,7 @@
  */
 const struct luasrc * luasrc_by_name(const char * name) 
 {
-	struct luasrc ** l = luasrc_get();
+	const struct luasrc ** l = luasrc_get();
 	while (*l) {
 		if (strncmp ( (*l)->name , name,32) == 0)
 			return *l;
@@ -48,7 +48,7 @@ const struct luasrc * luasrc_by_name(const char * name)
  */
 const struct luasrc * luasrc_by_idx(int idx)
 {
-	struct luasrc * src = 0;
+	const struct luasrc * src = 0;
 	if (idx <  luasrc_size())
 		src =  luasrc_get()[idx];
 	return src;

@@ -28,7 +28,7 @@ extern "C" {
 
 struct game {
 	void (*func)(void *data);
-	 void *data;
+	void *data;
 	char name[32];
 	sys_dnode_t node; // Doubly linked list node structure
 };

@@ -484,7 +484,7 @@ int main_org(void)
 	//https://chat.openai.com/c/540b150d-0eea-49ae-8f3d-a4fed08e1012
     while (1) {
         // Get the current uptime in milliseconds
-        uint32_t current_time = k_uptime_get();
+//        uint32_t current_time = k_uptime_get();
         
         // Print the current time (optional)
       //  printk("Current Time: %u ms\n", current_time);
@@ -521,8 +521,8 @@ int main_org(void)
 /* Buffer size */
 #define BUFFER_SIZE 256
 
-static uint8_t tx_buffer[BUFFER_SIZE]={1,2,3,4,5,6,7,8,9};
-static uint8_t rx_buffer[BUFFER_SIZE];
+//static uint8_t tx_buffer[BUFFER_SIZE]={1,2,3,4,5,6,7,8,9};
+//static uint8_t rx_buffer[BUFFER_SIZE];
 
 static struct k_sem spi_sem;
 

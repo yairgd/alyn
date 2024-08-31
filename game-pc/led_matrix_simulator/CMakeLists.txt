@@ -10,46 +10,6 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-#if(CMAKE_VERSION VERSION_LESS "3.7.0")
-#	set(CMAKE_INCLUDE_CURRENT_DIR ON)
-#endif()
-
-
-# https://stackoverflow.com/questions/61048049/using-qt5-installed-via-vcpkg-in-visual-studio-for-c
-# https://github.com/microsoft/vcpkg/discussions/26846
-
-#set (CMAKE_PREFIX_PATH "C:\\Users\\yairg\\vcpkg\\installed\\x64-windows\\ib")
-
-#	set (Qt5_DIR "${VCPKG_DIR}/share/cmake/Qt5/")
-
-	#message(VCPKG_DIR )
-#set (Qt5Widgets_DIR "C:/Users/gadely2/vcpkg/installed/x64-windows//share/cmake/Qt5Widgets/")
-
-#find_package(Qt5Core  REQUIRED COMPONENTS system filesystem date_time  PATHS="C:/Users/gadely2/vcpkg/installed/x64-windows/lib" NO_DEFAULT_PATH)
-#find_package(Qt5Gui  REQUIRED COMPONENTS system filesystem date_time  PATHS="C:/Users/gadely2/vcpkg/installed/x64-windows/lib")
-#find_package(Qt5Widgets  REQUIRED COMPONENTS system filesystem date_time  PATHS="C:/Users/gadely2/vcpkg/installed/x64-windows/lib")
-
-#find_package(Qt5 COMPONENTS Widgets REQUIRED)
-
-#find_package(Qt5 COMPONENTS Widgets Concurrent CONFIG REQUIRED)
-#find_package(Qt5 COMPONENTS Gui Concurrent CONFIG REQUIRED)
-#find_package(Qt5 COMPONENTS Core Concurrent CONFIG REQUIRED)
-
-#ind_package(Qt5 COMPONENTS Core Widgets CONFIG REQUIRED)
-#if (${Qt5Core_FOUND})
-	#message("Found Qt " ${Qt5_VERSION})
-#else()
-#	message("Couldn't find Qt")
-#endif()
-
-
-
-
-
-#find_package(Qt5 COMPONENTS Widgets REQUIRED)
-
-
-
 add_executable(led-screen-sim
 	mainwindow.ui
 	mainwindow.cpp

@@ -118,11 +118,11 @@ void MainWindow::onStartStopClicked()
 		isGameRun = false;
 		ui->startStop->setText("start");
 		ui->gameList->setEnabled(true);
+		auto handle = lua_thread.native_handle();
 #ifdef _MSC_VER
-		HANDLE hThread = lua_thread.native_handle();
-		TerminateThread(hThread, 0);
+		TerminateThread(handle, 0);
 #else
-		pthread_cancel(lua_thread.native_handle());
+		pthread_cancel(handle);
 #endif
 		lua_thread.detach();
 

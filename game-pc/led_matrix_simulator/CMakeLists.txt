@@ -77,9 +77,9 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" )
 
 elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC" )
 	set (Qt5_DIR "C:/Users/gadely2/vcpkg/installed/x64-windows//share/cmake/Qt5/")
-	find_package(Qt5 COMPONENTS Widgets)
-	find_package(Qt5 COMPONENTS Gui)
-	find_package(Qt5 COMPONENTS Core)
+	find_package(Qt5 COMPONENTS Widgets Concurrent CONFIG REQUIRED)
+	find_package(Qt5 COMPONENTS Gui Concurrent CONFIG REQUIRED)
+	find_package(Qt5 COMPONENTS Core Concurrent CONFIG REQUIRED)
 
 	if (Qt5Widgets_FOUND)
 		message(STATUS "Qt5Widgets found: ${Qt5Widgets_INCLUDE_DIRS}")
@@ -100,30 +100,11 @@ elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC" )
 	target_include_directories(led-screen-sim  PRIVATE
 		..
 		${Qt5Widgets_INCLUDE_DIRS}
-
-		#C:/Users/gadely2/vcpkg/installed/x64-windows/include/
-
-
-	#	${VCPKG_DIR}/include/Qt5/
-		#${VCPKG_DIR}/include/Qt5/QtWidgets
-		#${VCPKG_DIR}/include/Qt5/QtCore
-	#	${VCPKG_DIR}/include/Qt5/QtGui
-		#C:/Users/gadely2/vcpkg/installed/x64-windows/include/Qt5/QtWidgets
-		#C:/Users/gadely2/vcpkg/installed/x64-windows/include/Qt5/QtCore
-	#	C:/Users/gadely2/vcpkg/installed/x64-windows/include/Qt5/QtGui
-	#	C:/Users/gadely2/vcpkg/installed/x64-windows/include/Qt5/
-	#	C:/Users/gadely2/vcpkg/installed/x64-windows/include/
-		#${Qt5Core_INCLUDE_DIRS}
-
-
-
 	)
 endif()
 
-target_link_libraries(led-screen-sim 
-	  
-		$<$<CXX_COMPILER_ID:MSVC>:>$<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-Wl,--start-group>
-
+target_link_libraries(led-screen-sim   
+	$<$<CXX_COMPILER_ID:MSVC>:>$<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-Wl,--start-group>
 	lua
 	lua_module
 	lua_binaries
@@ -133,13 +114,7 @@ target_link_libraries(led-screen-sim
 	Hal
 	${qt_libs}
 	$<$<CXX_COMPILER_ID:MSVC>:>$<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-Wl,--end-group>
-
-	
 )
-
-
-
-
 
 
 if (${USE_GUI_CONSOLE})
@@ -149,5 +124,24 @@ if (${USE_GUI_CONSOLE})
 endif()
 
 
+if(TARGET led-screen-sim AND MSVC)
+    set(QT_DLL_DIR "${Qt5_DIR}/../../../bin") # Path to the Qt DLLs within the vcpkg installation
+	set(DLL_DEST_DIR $<TARGET_FILE_DIR:led-screen-sim>)
 
+    add_custom_command(TARGET led-screen-sim POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+            "${QT_DLL_DIR}/Qt5Core.dll"
+            "${QT_DLL_DIR}/Qt5Gui.dll"
+            "${QT_DLL_DIR}/Qt5Widgets.dll"
+            ${DLL_DEST_DIR}
+    )
+
+	file(GLOB DLL_FILES "C:/Users/gadely2/vcpkg/installed/x64-windows/bin/*.dll")
+
+	# Copy all DLLs to the target directory after build
+	add_custom_command(TARGET led-screen-sim POST_BUILD
+		COMMAND ${CMAKE_COMMAND} -E copy_if_different
+			${DLL_FILES} ${DLL_DEST_DIR}
+	)
+endif()
 

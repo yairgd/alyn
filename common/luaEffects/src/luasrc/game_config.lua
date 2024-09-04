@@ -3,13 +3,13 @@
 
 --gravity for particles 9.8 would be the real world gravity ;)
 gravity=9.8
-	
+
 --number of particles of the firework
 particles=30
 
 --length of particle
 particle_length=7
-	
+
 --particle fragment distance
 particle_step=15
 
@@ -37,10 +37,10 @@ function new_explosion()
 
 	--create particles
 	for n=0 , particles-1 do
-		
+
 		--set a random speed for particle movement
 		particle_speed[n]=math.random(20)-10+particle_start_speed
-		
+
 		--set a random angle for particle movement
 		--take a value inside pi as angle and start one out of 5 in the upper direction
 		if math.random(4) == 2 then
@@ -74,7 +74,6 @@ end
 function init()
 	-- flag for creating a new explosion on start
 	restart=1
-	
 end
 
 
@@ -86,7 +85,6 @@ function render(channel_id)
 		restart=0
 	end
 
-	
 	-- step over particle length
 	for n=0, particle_length*10-1 ,  particle_step do
 
@@ -95,7 +93,6 @@ function render(channel_id)
 		if (time<0) then
 			time=0
 		end
-			
 		--calculate and draw the particle
 		for i=0, particles-1 , 1 do
 			x=particle_speed[i]*math.cos(particle_angle[i])*time+matrix_x/2+pos_x
@@ -135,7 +132,7 @@ function print_string(str)
 end
 
 function config()
---	a3=frame.new(rect.new(2,2,60,28),0x00ff00,0xff00ff, 20,1 , 0);
+	--	a3=frame.new(rect.new(2,2,60,28),0x00ff00,0xff00ff, 20,1 , 0);
 
 	p1=1
 	p2=2;
@@ -161,7 +158,7 @@ function config()
 	s = string.format("%2d:%2d:%2d",p1,p2,p3)
 	state=0; -- no blink
 	b=banner2.new(rect.new(8,4,62,15), s,0,1,250,0,0)
---	mb=banner2.new(r2, "       ",1,0,250,0,0)
+	--	mb=banner2.new(r2, "       ",1,0,250,0,0)
 
 	-- state: 0 - no blink, 1 (fro mleft)  blink, 2 2 blink 3 blinks 
 
@@ -169,7 +166,7 @@ function config()
 	do
 		k = game.keys()
 		lk = game.long_keys()
-					
+
 		for i=0,4,1
 		do
 			ck = k&(1<<i);
@@ -183,19 +180,19 @@ function config()
 				if (ck == 4 and state ==0) then
 					return p1,p2,p3
 				end
-			
+
 				if (lck == 1 and state==0) then
-						-- begin to blink
-						print_game_name(p1)
-						state=1
-						b:config(r, s,0,1,250,250,0)				
+					-- begin to blink
+					print_game_name(p1)
+					state=1
+					b:config(r, s,0,1,250,250,0)				
 				elseif (ck==1 and state >0 ) then
-						-- no blink
-						state=0;
-						game.print ("          ",3  , 17,0)
+					-- no blink
+					state=0;
+					game.print ("          ",3  , 17,0)
 
 
-						b:config(r, s,0,1,250,0,0)
+					b:config(r, s,0,1,250,0,0)
 				end
 
 				if (ck == 8) then
@@ -290,8 +287,6 @@ function config()
 		--a2:render(0)
 		--a3:render(0)
 		game.delay(100000/4);	
-		
-
 	end
 end
 
@@ -331,7 +326,7 @@ function plot_non_active_led (x,y,w,h,c_out)
 		game.plot (x+i,y+h-1-i,c_out)
 
 	end
---	game.line (x,y,x+w-1,y+h-2,c_out)
+	--	game.line (x,y,x+w-1,y+h-2,c_out)
 	--game.line (x,y+h-1,x+w,y,c_out)
 end
 
@@ -339,7 +334,7 @@ end
 
 function plot_leds()
 	local rect_color_out = 0xffffff 
-  	local x = 3	
+	local x = 3	
 	for i=0,7,1 do
 		if (game.is_station_connected(i+1)==1) then 
 			if (game.is_station_blink(i+1)==1) then 
@@ -358,7 +353,7 @@ function plot_leds()
 end
 
 function play(p1,p2,p3)
-		game.plot (x+i,y+i,c_out)
+	game.plot (x+i,y+i,c_out)
 	print (p1,p2,p3)
 	plot_fill_rect(10,3,6,6,0xff00ff)	
 end
@@ -366,8 +361,8 @@ end
 
 
 function calc_time(t)game.get_timer()
-	 local min = math.floor(t/60);
-	 local sec = t - math.floor( (t/60))*60
+	local min = math.floor(t/60);
+	local sec = t - math.floor( (t/60))*60
 
 	local minString =min  < 10 and "0" .. min or tostring(min)
 	local secString = sec < 10 and "0" .. sec or tostring(sec)
@@ -381,7 +376,6 @@ end
 
 
 function game1_led_select(data)
-	
 	local leds = data['active_leds']
 	if #leds > 1
 	then
@@ -430,7 +424,6 @@ end
 
 
 function game3_led_select(data)
-	
 	local leds = data['active_leds']
 	if #leds > 1
 	then
@@ -442,6 +435,40 @@ function game3_led_select(data)
 			end
 		until game.is_station_connected(leds[blink_id]) == 1 
 		data['blink_id'] = blink_id
+	end
+	while (((game_id <5 and tries > 0) or (game_id == 5 and game.get_timer()>0))  and (game.keys()&(1<<2))==0 ) 
+	do
+
+		if (game.is_station_blink(leds[data['blink_id']]) == 0) then
+			if (game.stop_reason( leds[data['blink_id']]) == 1) then
+				score = score + 1
+			end
+			-- call led selction function
+			data:select (data)
+			
+			if (game_id < 5)
+			then
+				tries = tries - 1			
+				if (tries>0) then
+					game.blink(leds[data['blink_id']],5,led_duration)
+				end
+			else
+				game.blink(leds[data['blink_id']],5,led_duration)
+				num_of_tries = num_of_tries + 1
+			end
+		end	
+
+		plot_leds()
+
+
+		print_game_name(game_id)
+		game.print (calc_time(game.get_timer()), 1,9,0)
+		game.print (string.format("%d/%d",score,num_of_tries), 34,9,0)
+
+		a1:render(0)
+		--a2:render(0)	
+		game.delay(100000/4);
+		
 	end
 
 end
@@ -477,7 +504,6 @@ local function active_leds_list()
 			leds[blink_id] = i
 			blink_id = blink_id + 1								
 		end
-		
 	end
 	return leds
 end
@@ -513,14 +539,14 @@ function play_all(tries, led_duration, game_id)
 	game4_data['select'] = game4_led_select
 	game4_data['active_leds'] =leds		
 	game4_data['state'] = 1  -- 1 in base , 2 in some led
-	
+
 	-- set game 5 cong data
 	local game5_data = {}	
 	game5_data['blink_id'] = 1
 	game5_data['select'] = game2_led_select
 	game5_data['active_leds'] =leds	
 	game5_data:select(game5_data)
-	
+
 
 	-- select the config data acoring to game_id
 	local game_data = {}
@@ -546,40 +572,44 @@ function play_all(tries, led_duration, game_id)
 		num_of_tries = 	tries
 
 	end
-	game.blink(leds[data['blink_id']],5,led_duration)
-	while (((game_id <5 and tries > 0) or (game_id == 5 and game.get_timer()>0))  and (game.keys()&(1<<2))==0 ) 
-	do
+	local led = leds[data['blink_id']]
+	if led ~= nil
+	then
+		game.blink(led,5,led_duration)
+		while (((game_id <5 and tries > 0) or (game_id == 5 and game.get_timer()>0))  and (game.keys()&(1<<2))==0 ) 
+		do
 
-		if (game.is_station_blink(leds[data['blink_id']]) == 0) then
-			if (game.stop_reason( leds[data['blink_id']]) == 1) then
-				score = score + 1
-			end
-			-- call led selction function
-			data:select (data)
-			
-			if (game_id < 5)
-			then
-				tries = tries - 1			
-				if (tries>0) then
-					game.blink(leds[data['blink_id']],5,led_duration)
+			if (game.is_station_blink(leds[data['blink_id']]) == 0) then
+				if (game.stop_reason( leds[data['blink_id']]) == 1) then
+					score = score + 1
 				end
-			else
-				game.blink(leds[data['blink_id']],5,led_duration)
-				num_of_tries = num_of_tries + 1
-			end
-		end	
+				-- call led selction function
+				data:select (data)
 
-		plot_leds()
+				if (game_id < 5)
+				then
+					tries = tries - 1			
+					if (tries>0) then
+						game.blink(leds[data['blink_id']],5,led_duration)
+					end
+				else
+					game.blink(leds[data['blink_id']],5,led_duration)
+					num_of_tries = num_of_tries + 1
+				end
+			end	
+
+			plot_leds()
 
 
-		print_game_name(game_id)
-		game.print (calc_time(game.get_timer()), 1,9,0)
-		game.print (string.format("%d/%d",score,num_of_tries), 34,9,0)
+			print_game_name(game_id)
+			game.print (calc_time(game.get_timer()), 1,9,0)
+			game.print (string.format("%d/%d",score,num_of_tries), 34,9,0)
 
-		a1:render(0)
-		--a2:render(0)	
-		game.delay(100000/4);
-		
+			a1:render(0)
+			--a2:render(0)	
+			game.delay(100000/4);
+
+		end
 	end
 	init()
 	local finale_time = game.get_timer()

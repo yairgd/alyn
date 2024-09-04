@@ -275,6 +275,11 @@ void hwctl_stop_free_run() {
 }
 
 
+void hwctl_set_connected_stations() {
+	for (int i= 0; i <8;i++) {
+		set_connected(i,1);
+	}
+}
 void hwctl_thread (void *p1,void *p2, void *p3)
 {
 
@@ -297,7 +302,8 @@ void hwctl_thread (void *p1,void *p2, void *p3)
 	// configure the station input (one button,  common to all 8 station)
 	gpio_pin_configure_dt(&stop_blink_button, GPIO_INPUT); check_port (stop_blink_button.port); 
 
-
+	// seeclt all connected stations
+	hwctl_set_connected_stations();
 
 #endif
 

@@ -309,10 +309,11 @@ void hwctl_thread (void *p1,void *p2, void *p3)
 
 	i = 0;
 	while (1) {
-		k_sem_take(&my_signal, K_FOREVER);
-		timer_manage();
-		while (get_free_run()) {
-			k_sleep(K_USEC(get_free_run_delay()));		
+	//	k_sem_take(&my_signal, K_FOREVER);
+		while (1) { //get_free_run()) {
+			//k_sleep(K_USEC(get_free_run_delay()));		
+			k_sleep(K_USEC(1000));	
+			timer_manage();			
 			manage_blink(i);			
 			hwctl_enable_node(i);
 			int value = gpio_pin_get_dt(&stop_blink_button);

@@ -165,6 +165,9 @@ void game_init(void) {
 		g++;
 	}
 
+	// start default game
+	game_start(&games[8]);
+
 
 }
 

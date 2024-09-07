@@ -152,12 +152,13 @@ function config()
 	game.set_long_key(2,0)
 	game.set_long_key(3,0)
 	game.set_long_key(4,0)
-	r = rect.new(8,5,62,15)
-	r2 = rect.new(18,17,62,15);
+	local r = rect.new(8,5,62,15)
+	local r2 = rect.new(18,17,62,15);
 
 	s = string.format("%2d:%2d:%2d",p1,p2,p3)
 	state=0; -- no blink
-	b=banner2.new(rect.new(8,4,62,15), s,0,1,250,0,0)
+	local r3 = rect.new(8,4,62,15)
+	local b=banner2.new(r3, s,0,1,250,0,0)
 	--	mb=banner2.new(r2, "       ",1,0,250,0,0)
 
 	-- state: 0 - no blink, 1 (fro mleft)  blink, 2 2 blink 3 blinks 
@@ -177,7 +178,7 @@ function config()
 
 			if (ck>0 or lck>0) then
 				--print (ck,state,i)
-				if (ck == 4 and state ==0) then
+				if (ck == 8 and state ==0) then
 					return p1,p2,p3
 				end
 
@@ -336,15 +337,15 @@ function plot_leds()
 	local rect_color_out = 0xffffff 
 	local x = 3	
 	for i=0,7,1 do
-		if (game.is_station_connected(i+1)==1) then 
-			if (game.is_station_blink(i+1)==1) then 
-				if (game.is_station_blink_on(i+1)==1) then 			
-					plot_led(4+i*7,x,6,6,rect_color_out , game.station_get_rgb(i+1) )
+		if (game.is_station_connected(i)==1) then 
+			if (game.is_station_blink(i)==1) then 
+				if (game.is_station_blink_on(i)==1) then 			
+					plot_led(4+i*7,x,6,6,rect_color_out , game.station_get_rgb(i) )
 				else
 					plot_led(4+i*7,x,6,6,rect_color_out , 0 )
 				end
 			else
-				plot_led(4+i*7,x,6,6,rect_color_out , game.station_get_rgb(i+1) )
+				plot_led(4+i*7,x,6,6,rect_color_out , game.station_get_rgb(i) )
 			end
 		else 
 			plot_non_active_led(4+i*7,x,6,6,0xffffff  )
@@ -497,7 +498,7 @@ local function active_leds_list()
 	local leds = {}
 	local i
 	local blink_id = 1
-	for  i = 1,8,1
+	for  i = 0,7,1
 	do
 		if game.is_station_connected(i) == 1 
 		then
@@ -615,7 +616,7 @@ function play_all(tries, led_duration, game_id)
 	local finale_time = game.get_timer()
 	while (game.keys() == 0) 
 	do	
-		game.clean()
+		--game.clean()
 		plot_leds()
 		print_game_name(1)
 		game.print (calc_time(finale_time), 1,9,0)
@@ -644,7 +645,7 @@ game.led_rgb(8,255  ,0,255)
 
 while (true)
 do
-	for i= 1,8,1
+	for i= 0,7,1
 	do
 		local r = 0
 		local g = 0 

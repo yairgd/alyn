@@ -37,7 +37,7 @@
 #define BUTTON_LEFT_NODE DT_NODELABEL(user_button_left)
 #define BUTTON_RIGHT_NODE DT_NODELABEL(user_button_right)
 #define BUTTON_MIDDLE_NODE DT_NODELABEL(user_button_middle)
-#define BUTTON_STB_NODE DT_NODELABEL(station_button)
+//#define BUTTON_STB_NODE DT_NODELABEL(station_button)
 
 #define GET_GPIO_PIN(node) DT_GPIO_PIN(node, gpios)
 #define GET_GPIO_FLAGS(node) (GPIO_INPUT | DT_GPIO_FLAGS(node, gpios)  | GPIO_INT_EDGE_BOTH)
@@ -68,7 +68,7 @@ static struct button buttons[] = {
 	BUTTON_SPEC(BUTTON_LEFT_NODE,  2),
 	BUTTON_SPEC(BUTTON_RIGHT_NODE, 3),	
 	BUTTON_SPEC(BUTTON_DOWN_NODE,  4),
-	BUTTON_SPEC(BUTTON_STB_NODE,   5),
+//	BUTTON_SPEC(BUTTON_STB_NODE,   5),
 };
 
 

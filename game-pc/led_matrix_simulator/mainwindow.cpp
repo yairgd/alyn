@@ -28,25 +28,25 @@ MainWindow::MainWindow(QWidget *parent)
 
 
 
-	led1 = new LedCircle(ui->led1, 1);
-	led2 = new LedCircle(ui->led2, 2);
-	led3 = new LedCircle(ui->led3, 3);
-	led4 = new LedCircle(ui->led4, 4);
-	led5 = new LedCircle(ui->led5, 5);
-	led6 = new LedCircle(ui->led6, 6);
-	led7 = new LedCircle(ui->led7, 7);
-	led8 = new LedCircle(ui->led8, 8);
+	led1 = new LedCircle(ui->led1, 0);
+	led2 = new LedCircle(ui->led2, 1);
+	led3 = new LedCircle(ui->led3, 2);
+	led4 = new LedCircle(ui->led4, 3);
+	led5 = new LedCircle(ui->led5, 4);
+	led6 = new LedCircle(ui->led6, 5);
+	led7 = new LedCircle(ui->led7, 6);
+	led8 = new LedCircle(ui->led8, 7);
 
 
 
-	QObject::connect(ui->P1, &QPushButton::clicked, ui->P1, []() {set_button_state(1,1);});
-	QObject::connect(ui->P2, &QPushButton::clicked, ui->P2, []() {set_button_state(2,1);});
-	QObject::connect(ui->P3, &QPushButton::clicked, ui->P3, []() {set_button_state(3,1);});
-	QObject::connect(ui->P4, &QPushButton::clicked, ui->P4, []() {set_button_state(4,1);});
-	QObject::connect(ui->P5, &QPushButton::clicked, ui->P5, []() {set_button_state(5,1);});
-	QObject::connect(ui->P6, &QPushButton::clicked, ui->P6, []() {set_button_state(6,1);});
-	QObject::connect(ui->P7, &QPushButton::clicked, ui->P7, []() {set_button_state(7,1);});
-	QObject::connect(ui->P8, &QPushButton::clicked, ui->P8, []() {set_button_state(8,1);});
+	QObject::connect(ui->P1, &QPushButton::clicked, ui->P1, []() {set_button_state(0,1);});
+	QObject::connect(ui->P2, &QPushButton::clicked, ui->P2, []() {set_button_state(1,1);});
+	QObject::connect(ui->P3, &QPushButton::clicked, ui->P3, []() {set_button_state(2,1);});
+	QObject::connect(ui->P4, &QPushButton::clicked, ui->P4, []() {set_button_state(3,1);});
+	QObject::connect(ui->P5, &QPushButton::clicked, ui->P5, []() {set_button_state(4,1);});
+	QObject::connect(ui->P6, &QPushButton::clicked, ui->P6, []() {set_button_state(5,1);});
+	QObject::connect(ui->P7, &QPushButton::clicked, ui->P7, []() {set_button_state(6,1);});
+	QObject::connect(ui->P8, &QPushButton::clicked, ui->P8, []() {set_button_state(7,1);});
 
 
 	/* this add compiled lua src's to linked list */

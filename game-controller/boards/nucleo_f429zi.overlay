@@ -91,7 +91,7 @@
 */
 		stop_blink_button_dt: stop_blink {
 			label = "stop_blink_button";
-			gpios = <&gpioe 15 (GPIO_ACTIVE_LOW | GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+			gpios = <&gpioe 15 (GPIO_ACTIVE_LOW | GPIO_PULL_DOWN )>;
 			zephyr,code = <INPUT_KEY_S>;
 		};
 	

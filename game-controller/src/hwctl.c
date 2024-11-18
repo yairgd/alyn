@@ -291,7 +291,7 @@ void hwctl_manage_blink() {
 	int value = gpio_pin_get_dt(&stop_blink_button);
 	if (value < 0) {
 		printk("Error %d: failed to read pin %d on %s\n", value, stop_blink_button.pin, stop_blink_button.port->name);
-	} else if (value == 1) {
+	} else if (value == 0) {
 		set_button_state(i, value);				
 		printk("station %d Pin state: %d\n", i,value);	
 	}

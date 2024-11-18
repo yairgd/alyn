@@ -31,28 +31,16 @@
 #include "zephyr/uart_shell.h"
 #include <zephyr/shell/shell.h>
 
-
+#include "protocol-v1/UartProtocolParser.h"
 #include "protocol-v1/ProtocolStateMachine.h"
 #include "protocol-v1/ProtoclDataStructures.h"
 #include "HandleUartMsg.h"
 #include "IUart.h"
 
-//const struct device *const sl_uart1 ;//= DEVICE_DT_GET(UART_NODE2);
-//#define UART_NODE2 DT_CHOSEN(zephyr_console)
-//const struct device *const sl_uart2 = DEVICE_DT_GET(UART_NODE2);
 
-/* size of stack area used by each thread */
-//#define STACKSIZE  2048 
+using namespace Simple;
 
-/* scheduling priority used by each thread */
-//#define PRIORITY 7
-
-
-static std::shared_ptr<IProtocolParser> parser = nullptr;
-
-static  Simple::HandleUartMsg g_handleUartMsg;
-static  Simple::ProtocolStateMachine g_protocolStateMachine;
-
+static std::shared_ptr<Simple::UartProtocolParser> parser = nullptr;
 #define USING_UART_SHELL
 #ifdef USING_UART_SHELL
 /**
@@ -64,16 +52,10 @@ static  Simple::ProtocolStateMachine g_protocolStateMachine;
  */
 void proccess_char(const  struct shell * sh, uint8_t *data, size_t len) {
 	if (parser == nullptr) {
-		std::shared_ptr<Hal::IUart> uart = Hal::GetUartShell(sh);
-	//	auto p  =  std::shared_ptr<Simple::HandleUartMsg>(new Simple::HandleUartMsg(uart) );
-	//	parser = std::shared_ptr<Simple::ProtocolStateMachine> ( new Simple::ProtocolStateMachine  (nullptr, p));
-	
-		g_handleUartMsg = Simple::HandleUartMsg(uart);
-	//	auto p =  std::shared_ptr<Simple::HandleUartMsg>(g_handleUartMsg);
-		g_protocolStateMachine = Simple::ProtocolStateMachine(nullptr,std::shared_ptr<Simple::HandleUartMsg>(&g_handleUartMsg));
-
-		parser =  std::shared_ptr<Simple::ProtocolStateMachine> ( &g_protocolStateMachine);
-
+		auto uart = Hal::GetUartShell(sh);
+		auto handleUartMsg = std::make_shared<HandleUartMsg>(uart);
+		auto g_protocolStateMachine = std::make_shared<Simple::ProtocolStateMachine> (handleUartMsg);		
+		parser = std::make_shared<Simple::UartProtocolParser> (uart, g_protocolStateMachine);
 
 	} else {
 		parser->Pushdata(data, len);

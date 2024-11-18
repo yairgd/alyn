@@ -28,8 +28,9 @@
 #include "lualib.h"
 #include "luasrc.h"
 #include "system_model.h"
+#include "utils/lua_memory.h"
 
-#define MY_STACK_SIZE 32768
+#define MY_STACK_SIZE 16384
 #define MY_PRIORITY 5
 static sys_dnode_t head;
 static lua_State *L = 0;
@@ -41,26 +42,6 @@ k_tid_t game_thread_tid = 0;
 
 
 
-/* 
- * Implemented a custom heap for Lua's source code, 
- * enabling the utilization of malloc and free for its API 
- **/
-char lua_heap_mem[32768];
-struct  sys_heap heap;
-char * lua_realloc(char *ptr, size_t n ) {
-	  return sys_heap_realloc(&heap,ptr,n);
-
-}
-void lua_free(void *ptr) {
-	sys_heap_free(&heap,ptr);
-
-}
-
-
-char * lua_malloc(size_t n ) {
-	return sys_heap_alloc(&heap,  n);
-
-}
 
 
 /** 
@@ -116,7 +97,9 @@ static void game_lua_generic(void *data) {
 
 	if (L)
 		lua_close(L);
-		
+	
+	lua_mem_init();
+
 	L = luaL_newstate();
 	luaL_openlibs(L);
 
@@ -162,17 +145,18 @@ static void game_thread_entry(void *g, void *a, void *b) {
 void game_init(void) {
 	struct game * g = games;
 
-	sys_heap_init (&heap, lua_heap_mem, sizeof(lua_heap_mem));
+	// init memory
+	//lua_mem_init();
 
 	// Initialize the doubly linked list
 	sys_dlist_init(&head);
 
 	/* this add compiled lua src's to linked list */
 	for (int i = 0; i < luasrc_size() && i < 16; i++) {
-		struct luasrc * src = luasrc_by_idx(i);
+		const struct luasrc * src = luasrc_by_idx(i);
 		strncpy (games[i+2].name , src->name, 32);
 		games[i+2].func = game_lua_generic;
-		games[i+2].data = src;
+		games[i+2].data = (void *)src;
 	}
 
 	// Populate the data in games	
@@ -180,6 +164,9 @@ void game_init(void) {
 		sys_dlist_append(&head, &g->node);
 		g++;
 	}
+
+	// start default game
+	game_start(&games[8]);
 
 
 }

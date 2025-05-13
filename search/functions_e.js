@@ -5,7 +5,7 @@ var searchData=
   ['new_5flocalvar_2',['new_localvar',['../lparser_8c.html#a89f5732cbee45d78cfec9dbd1a207bb7',1,'lparser.c']]],
   ['newbox_3',['newbox',['../lauxlib_8c.html#a22714b3538a1ad6943014db449d4ed19',1,'lauxlib.c']]],
   ['newbuffsize_4',['newbuffsize',['../lauxlib_8c.html#a5a09a1507f8338fd07d77992e200c5d2',1,'lauxlib.c']]],
-  ['newdata_5',['NewData',['../classSimple_1_1HandleUartMsg.html#adcd5a08a9a256844703c41daa99d956d',1,'Simple::HandleUartMsg::NewData(const MsgToParse &amp;msg) override'],['../classSimple_1_1HandleUartMsg.html#adcd5a08a9a256844703c41daa99d956d',1,'Simple::HandleUartMsg::NewData(const MsgToParse &amp;msg) override'],['../classSimple_1_1IHandleUartMsg.html#a0deb1bb9be3eaf26497c0cb737d6b258',1,'Simple::IHandleUartMsg::NewData()'],['../classSimple_1_1HandleUartMsg.html#adcd5a08a9a256844703c41daa99d956d',1,'Simple::HandleUartMsg::NewData()']]],
+  ['newdata_5',['NewData',['../classSimple_1_1IHandleMsg.html#a67ccc01a6006ffd3a0ae602922bba2a9',1,'Simple::IHandleMsg::NewData()'],['../classHandleUartMsg.html#af37d45aafb77706e36b2c04a3af82718',1,'HandleUartMsg::NewData()'],['../classSimple_1_1HandleUartMsg.html#adcd5a08a9a256844703c41daa99d956d',1,'Simple::HandleUartMsg::NewData()']]],
   ['newfile_6',['newfile',['../liolib_8c.html#ab876ac8a07024ee4d85f8671d05ce80f',1,'liolib.c']]],
   ['newgotoentry_7',['newgotoentry',['../lparser_8c.html#afa4884f1fcf6756c7c9ebadef88a629f',1,'lparser.c']]],
   ['newlabelentry_8',['newlabelentry',['../lparser_8c.html#ac8408d50bc1af7533968d363841bcf27',1,'lparser.c']]],

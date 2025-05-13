@@ -13,5 +13,6 @@ var searchData=
   ['uart_5fwin_2ecpp_10',['uart_win.cpp',['../uart__win_8cpp.html',1,'']]],
   ['uart_5fwin_2eh_11',['uart_win.h',['../uart__win_8h.html',1,'']]],
   ['uart_5fzephyr_2ecpp_12',['uart_zephyr.cpp',['../uart__zephyr_8cpp.html',1,'']]],
-  ['uart_5fzephyr_2eh_13',['uart_zephyr.h',['../uart__zephyr_8h.html',1,'']]]
+  ['uart_5fzephyr_2eh_13',['uart_zephyr.h',['../uart__zephyr_8h.html',1,'']]],
+  ['uartprotocolparser_2eh_14',['UartProtocolParser.h',['../UartProtocolParser_8h.html',1,'']]]
 ];

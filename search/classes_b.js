@@ -23,5 +23,6 @@ var searchData=
   ['lual_5fstream_20',['luaL_Stream',['../structluaL__Stream.html',1,'']]],
   ['luasrc_21',['luasrc',['../structluasrc.html',1,'']]],
   ['luastartcommand_22',['LuaStartCommand',['../classLuaStartCommand.html',1,'']]],
-  ['lx_23',['LX',['../structLX.html',1,'']]]
+  ['luastopcommand_23',['LuaStopCommand',['../classLuaStopCommand.html',1,'']]],
+  ['lx_24',['LX',['../structLX.html',1,'']]]
 ];

@@ -1,7 +1,7 @@
 var searchData=
 [
   ['k_0',['k',['../structProto.html#ae292fb0c0558679704933824ce96eac2',1,'Proto::k'],['../structexpdesc.html#ae74b3577aad7833518986edca3db242c',1,'expdesc::k'],['../unionVardesc.html#a80d37db0e7356a3f6e0fd623f41275b0',1,'Vardesc::k'],['../structCallInfo.html#a861d3b2fbd9d287c22b0d9324f578e7b',1,'CallInfo::k']]],
-  ['k_5fmalloc_1',['k_malloc',['../canvas_8c.html#aa8edf1e63e5d5dd78d7adcfd787394ee',1,'canvas.c']]],
+  ['k_5fmem_5fslab_5fdefine_1',['K_MEM_SLAB_DEFINE',['../lua__memory_8c.html#ab6488220c16c33bca5c17875afb6e53b',1,'K_MEM_SLAB_DEFINE(frame_slab_mem, sizeof(struct frame), MAX_FRAMES, 4):&#160;lua_memory.c'],['../lua__memory_8c.html#a38ab8767266fefadca10944795283feb',1,'K_MEM_SLAB_DEFINE(banner_slab_mem, sizeof(struct banner), MAX_BANNERS, 4):&#160;lua_memory.c']]],
   ['k_5fmsgq_5fdefine_2',['K_MSGQ_DEFINE',['../uart_8c.html#a1343fe281f5ca061924fc63d6c6deda6',1,'uart.c']]],
   ['k_5fsem_5fdefine_3',['K_SEM_DEFINE',['../hwctl_8c.html#adbc6566a8e7b3fb75149d5d6640c8e1e',1,'hwctl.c']]],
   ['k_5fthread_5fdefine_4',['K_THREAD_DEFINE',['../buttons_8c.html#aa9e8ea986b695319b759952a405ac6f0',1,'K_THREAD_DEFINE(buttons_thread_id, STACKSIZE, buttons_thread, NULL, NULL, NULL, PRIORITY, 0, 0):&#160;buttons.c'],['../display_8c.html#a97175147ae49478d47467ea3484cb6d9',1,'K_THREAD_DEFINE(display_thread_id, STACKSIZE, display_thread, NULL, NULL, NULL, PRIORITY, 0, 0):&#160;display.c'],['../hwctl_8c.html#ada4b3405f47c66849dc4312ae1efd04a',1,'K_THREAD_DEFINE(message_in_listenr_id, STACKSIZE, hwctl_thread, NULL, NULL, NULL, PRIORITY, 0, 0):&#160;hwctl.c']]],

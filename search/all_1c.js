@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['x_0',['x',['../structeffect__base.html#ac0acb1a8005e0952335c3d9c7a41b7e5',1,'effect_base::x'],['../structframe_1_1point.html#a790b288eab889b9923c8a24b89e66dd5',1,'frame::point::x']]],
+  ['x_0',['x',['../structbanner.html#ab578c5cbcfd09949320032528c02db3c',1,'banner::x'],['../structeffect__base.html#ac0acb1a8005e0952335c3d9c7a41b7e5',1,'effect_base::x']]],
   ['x_5f_5f_5f_5f_5f_5f_5f_1',['X_______',['../font__base_8h.html#aa4dc46e7bfa9c3d1ff1dfc6a209b51c4',1,'font_base.h']]],
   ['x_5f_5f_5f_5f_5f_5fx_2',['X______X',['../font__base_8h.html#a74710f123f4e14f5112c4eae15ac1316',1,'font_base.h']]],
   ['x_5f_5f_5f_5f_5fx_5f_3',['X_____X_',['../font__base_8h.html#a7fffe6017519f02fa413c9642605c390',1,'font_base.h']]],

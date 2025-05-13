@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['v_0',['v',['../structUpVal.html#a59bedb91ac8fe2e70b0872b7a63c6b32',1,'UpVal::v'],['../structConsControl.html#a870b3f1c8296439dc09993d20d9f6caa',1,'ConsControl::v'],['../structLHS__assign.html#a7754c9ff563c4159cabc2488e05cfecc',1,'LHS_assign::v']]],
+  ['v_0',['v',['../structUpVal.html#aa59acf619ee3036793fb4f9d8f87979e',1,'UpVal::v'],['../structConsControl.html#a870b3f1c8296439dc09993d20d9f6caa',1,'ConsControl::v'],['../structLHS__assign.html#a7754c9ff563c4159cabc2488e05cfecc',1,'LHS_assign::v']]],
   ['val_1',['val',['../unionStackValue.html#a8427f32076f2a9ad8db716da1deeb468',1,'StackValue']]],
   ['val_5f_2',['val_',['../group__LuaSrc.html#gaa57d3f96227213dee2530ccf9c0bd055',1,'lobject.h']]],
   ['valdue_3',['valdue',['../unioneffect__parameters_1_1valdue.html',1,'effect_parameters']]],
@@ -9,13 +9,13 @@ var searchData=
   ['valraw_6',['valraw',['../group__LuaSrc.html#ga8a47bf030949aef5df2fd844415e2501',1,'lobject.h']]],
   ['value_7',['Value',['../unionValue.html',1,'Value'],['../group__LuaSrc.html#ga33d0ee7f37b6b7cf753e159ea8ae8a52',1,'Value:&#160;lobject.h']]],
   ['value_8',['value',['../structeffect__parameters.html#aac44c34c0ab54fa9ab69f829ab356d51',1,'effect_parameters::value'],['../structUpVal.html#abc22d06bbcaf3f197af9c6069c562505',1,'UpVal::value']]],
-  ['var_9',['var',['../structexpdesc.html#a46cf3fb29327e57edcdbe67d1d81ca99',1,'expdesc']]],
+  ['var_9',['var',['../structexpdesc.html#aa3852cf1d5178686d41363686ffff22e',1,'expdesc']]],
   ['vardesc_10',['Vardesc',['../unionVardesc.html',1,'Vardesc'],['../group__LuaSrc.html#ga213230d7919520e54d776ec5a50903dc',1,'Vardesc:&#160;lparser.h']]],
   ['varinfo_11',['varinfo',['../group__LuaSrc.html#ga9f3ea8a105d809299840e53bb90f71e1',1,'ldebug.c']]],
   ['varname_12',['varname',['../structeffect__parameters.html#a21b5bc4bbbaeece61f478c0d5ddb13bf',1,'effect_parameters::varname'],['../structLocVar.html#acf62684d78349320b90b4acfa3b6d22a',1,'LocVar::varname']]],
   ['vcall_13',['VCALL',['../lparser_8h.html#aecced501a9387ab3e6e50a9834615d4eae61a8c04cfeabd756694cd13774e47b7',1,'lparser.h']]],
   ['vconst_14',['VCONST',['../lparser_8h.html#aecced501a9387ab3e6e50a9834615d4ea45b9027634b5e43ca50f4d6efbbe4220',1,'lparser.h']]],
-  ['vd_15',['vd',['../unionVardesc.html#a3f75d40dedba835534f37bf0f893b689',1,'Vardesc']]],
+  ['vd_15',['vd',['../unionVardesc.html#a2262e1c4f8a52bf30975d79d26b83285',1,'Vardesc']]],
   ['vdkreg_16',['VDKREG',['../lparser_8h.html#a5def61221e8337c622aaede33e79e7ea',1,'lparser.h']]],
   ['vfalse_17',['VFALSE',['../lparser_8h.html#aecced501a9387ab3e6e50a9834615d4ea21820bf1e2c58882ffeb34849972ecaa',1,'lparser.h']]],
   ['vidx_18',['vidx',['../structexpdesc.html#ac8c69adf7bc2d0259b5e86c5e1d48f6c',1,'expdesc']]],

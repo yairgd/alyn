@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['wait_0',['wait',['../classSimple_1_1GameApi.html#accdb827652baf6cbdd7b5aa6c50faff2',1,'Simple::GameApi']]],
+  ['wait_0',['wait',['../classSignalManager.html#a751cfd46c2b81ddc9eb961b007237f52',1,'SignalManager']]],
   ['warnf_1',['warnf',['../structglobal__State.html#a31ea16cf1c2d0244112365de89e84b5d',1,'global_State']]],
   ['warnfcont_2',['warnfcont',['../group__LuaSrc.html#gad1aefe736600eec70417cbad247abb28',1,'lauxlib.c']]],
   ['warnfoff_3',['warnfoff',['../group__LuaSrc.html#ga5f33ecbe92de777050827fe763a7fa59',1,'lauxlib.c']]],
@@ -14,7 +14,7 @@ var searchData=
   ['whitebits_11',['WHITEBITS',['../group__LuaSrc.html#ga0acb34c1b3d1234f11ee9fdc34df3f71',1,'lgc.h']]],
   ['whitelist_12',['whitelist',['../group__LuaSrc.html#ga7bb7ff4928b82e65d5844fcaca7d59d8',1,'lgc.c']]],
   ['width_13',['Width',['../structfont.html#ae7624da907f61d1f939ee16bf319b260',1,'font']]],
-  ['width_14',['width',['../structrect.html#a417b0df4ebc0d7a3ed122cdd5c973bfe',1,'rect::width'],['../structcanvas.html#aaf006736896eff33a0e8f8254e9d1710',1,'canvas::width'],['../structled__matrix.html#a3634411b45e3d0fb435ba994ae27af4c',1,'led_matrix::width']]],
+  ['width_14',['width',['../structcanvas.html#aaf006736896eff33a0e8f8254e9d1710',1,'canvas::width'],['../structled__matrix.html#a3634411b45e3d0fb435ba994ae27af4c',1,'led_matrix::width'],['../structrect.html#a417b0df4ebc0d7a3ed122cdd5c973bfe',1,'rect::width']]],
   ['widths_15',['Widths',['../structfont.html#ae986fb5eb3e5b662c8743f19b5ea0781',1,'font']]],
   ['with_20lua_20engine_16',['Scripting Capabilities with Lua Engine',['../md_README.html#autotoc_md4',1,'']]],
   ['with_20stm32_20mcu_17',['Hardware Integration with STM32 MCU',['../md_README.html#autotoc_md2',1,'']]],
@@ -28,5 +28,5 @@ var searchData=
   ['write_5fline_25',['write_line',['../lauxlib_8h.html#a24b0db1443f84548ce2fe4229316bc7c',1,'lauxlib.h']]],
   ['writer_26',['writer',['../structDumpState.html#ac92b1985689ee766e53540b21702e7dc',1,'DumpState::writer'],['../lstrlib_8c.html#a1f7ab2869b4517a93412ce096243ead0',1,'writer(lua_State *L, const void *b, size_t size, void *ud):&#160;lstrlib.c'],['../luac_8c.html#a85d6a36e2c08a094c859d9a0a2348f49',1,'writer(lua_State *L, const void *p, size_t size, void *u):&#160;luac.c']]],
   ['writetotransmitfifo_27',['WriteToTransmitFifo',['../classHal_1_1UartEmulator.html#a9095e8ee830be8ddfd6d02c8c5aff56d',1,'Hal::UartEmulator']]],
-  ['wrongdata_28',['Wrongdata',['../classSimple_1_1HandleUartMsg.html#ab938b4a7a9422b2042b1a52a79a187dc',1,'Simple::HandleUartMsg::Wrongdata() override'],['../classSimple_1_1HandleUartMsg.html#ab938b4a7a9422b2042b1a52a79a187dc',1,'Simple::HandleUartMsg::Wrongdata() override'],['../classSimple_1_1IHandleUartMsg.html#a96eccbbd52e5beddf1b35182d7bb240d',1,'Simple::IHandleUartMsg::Wrongdata()'],['../classSimple_1_1HandleUartMsg.html#ab938b4a7a9422b2042b1a52a79a187dc',1,'Simple::HandleUartMsg::Wrongdata()']]]
+  ['wrongdata_28',['Wrongdata',['../classSimple_1_1IHandleMsg.html#af6807504c5243ccb176c79fea5bfed52',1,'Simple::IHandleMsg::Wrongdata()'],['../classHandleUartMsg.html#a67955cdbede8af69c613bfce2deb84b7',1,'HandleUartMsg::Wrongdata()'],['../classSimple_1_1HandleUartMsg.html#ab938b4a7a9422b2042b1a52a79a187dc',1,'Simple::HandleUartMsg::Wrongdata()']]]
 ];

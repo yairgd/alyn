@@ -13,7 +13,7 @@ var searchData=
   ['upisopen_10',['upisopen',['../lfunc_8h.html#a26a8ecd7d58d326f7f6f20bc8bc8bb55',1,'lfunc.h']]],
   ['uplevel_11',['uplevel',['../lfunc_8h.html#a9c84a07f72721f9536fc43e26ae84c8b',1,'lfunc.h']]],
   ['upvalname_12',['UPVALNAME',['../luac_8c.html#a16edb7a847ec8518180e4cf618832587',1,'luac.c']]],
-  ['usec_5fper_5fsec_13',['USEC_PER_SEC',['../game_2common_2timing_8c.html#a6a69d6cbdab5f24c2e66959293f210c1',1,'timing.c']]],
+  ['usec_5fper_5fsec_13',['USEC_PER_SEC',['../common_2hal_2linux_2timing_8c.html#a6a69d6cbdab5f24c2e66959293f210c1',1,'USEC_PER_SEC:&#160;timing.c'],['../common_2hal_2windows_2timing_8c.html#a6a69d6cbdab5f24c2e66959293f210c1',1,'USEC_PER_SEC:&#160;timing.c']]],
   ['using_5fuart_5fshell_14',['USING_UART_SHELL',['../parser__task_8cpp.html#aec6195a039b8961224289c6772e2ce61',1,'parser_task.cpp']]],
   ['utf8patt_15',['UTF8PATT',['../lutf8lib_8c.html#a2cf7ee81d838fa055a20870d91f8ab81',1,'lutf8lib.c']]]
 ];

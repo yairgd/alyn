@@ -15,7 +15,7 @@ jobs:
           submodules: true
 
       # Debug step to verify html_header.html is present
-      - name: Debug: List workspace files
+      - name: List workspace files
         run: |
           echo "Current dir: $(pwd)"
           ls -l docs/doxygen-dark-theme

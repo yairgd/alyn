@@ -12,7 +12,6 @@ var searchData=
   ['button_5fmiddle_5fnode_9',['BUTTON_MIDDLE_NODE',['../buttons_8c.html#a0659971b8e894d3ccfaade9433571950',1,'buttons.c']]],
   ['button_5fright_5fnode_10',['BUTTON_RIGHT_NODE',['../buttons_8c.html#ae03ae7bf2526183ebfb5946c8634bd53',1,'buttons.c']]],
   ['button_5fspec_11',['BUTTON_SPEC',['../buttons_8c.html#a252e510414eb5decb11c1285473f4513',1,'buttons.c']]],
-  ['button_5fstb_5fnode_12',['BUTTON_STB_NODE',['../buttons_8c.html#a2b049f70a27715ea3522e8c485ef4754',1,'buttons.c']]],
-  ['button_5fup_5fnode_13',['BUTTON_UP_NODE',['../buttons_8c.html#af3abe8c6f4bd3937f94d5810b17a7d17',1,'buttons.c']]],
-  ['bypass_14',['BYPASS',['../load__lua_8cpp.html#ac2e389417b21a770511b0c3ab16c6ebf',1,'BYPASS:&#160;load_lua.cpp'],['../test1_8cpp.html#ac2e389417b21a770511b0c3ab16c6ebf',1,'BYPASS:&#160;test1.cpp']]]
+  ['button_5fup_5fnode_12',['BUTTON_UP_NODE',['../buttons_8c.html#af3abe8c6f4bd3937f94d5810b17a7d17',1,'buttons.c']]],
+  ['bypass_13',['BYPASS',['../load__lua_8cpp.html#ac2e389417b21a770511b0c3ab16c6ebf',1,'BYPASS:&#160;load_lua.cpp'],['../test1_8cpp.html#ac2e389417b21a770511b0c3ab16c6ebf',1,'BYPASS:&#160;test1.cpp']]]
 ];

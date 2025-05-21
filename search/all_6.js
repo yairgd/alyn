@@ -80,14 +80,13 @@ var searchData=
   ['button_5fright_5fnode_77',['BUTTON_RIGHT_NODE',['../buttons_8c.html#ae03ae7bf2526183ebfb5946c8634bd53',1,'buttons.c']]],
   ['button_5fspec_78',['BUTTON_SPEC',['../buttons_8c.html#a252e510414eb5decb11c1285473f4513',1,'buttons.c']]],
   ['button_5fstate_79',['button_state',['../structsystem__model.html#a6128e0107eacb6e5f894280bc326478e',1,'system_model']]],
-  ['button_5fstb_5fnode_80',['BUTTON_STB_NODE',['../buttons_8c.html#a2b049f70a27715ea3522e8c485ef4754',1,'buttons.c']]],
-  ['button_5fup_5fnode_81',['BUTTON_UP_NODE',['../buttons_8c.html#af3abe8c6f4bd3937f94d5810b17a7d17',1,'buttons.c']]],
-  ['buttons_82',['buttons',['../buttons_8c.html#a928e3ed462602105c648d9a9dc99ae76',1,'buttons.c']]],
-  ['buttons_2ec_83',['buttons.c',['../buttons_8c.html',1,'']]],
-  ['buttons_2eh_84',['buttons.h',['../buttons_8h.html',1,'']]],
-  ['buttons_5finit_85',['buttons_init',['../buttons_8c.html#acef6dd444cb6560da652897ee43ab306',1,'buttons_init(void):&#160;buttons.c'],['../buttons_8h.html#acef6dd444cb6560da652897ee43ab306',1,'buttons_init(void):&#160;buttons.c']]],
-  ['buttons_5fthread_86',['buttons_thread',['../buttons_8c.html#a545864bf6f8fb483f698b9dcabeee94c',1,'buttons.c']]],
-  ['bypass_87',['BYPASS',['../load__lua_8cpp.html#ac2e389417b21a770511b0c3ab16c6ebf',1,'BYPASS:&#160;load_lua.cpp'],['../test1_8cpp.html#ac2e389417b21a770511b0c3ab16c6ebf',1,'BYPASS:&#160;test1.cpp']]],
-  ['bypass_5fcb_88',['bypass_cb',['../shell_8c.html#afde2f4a25338f491967a9e3b57720556',1,'shell.c']]],
-  ['byteoffset_89',['byteoffset',['../lutf8lib_8c.html#a805a182cc5dde6d73e07922e8454eaf7',1,'lutf8lib.c']]]
+  ['button_5fup_5fnode_80',['BUTTON_UP_NODE',['../buttons_8c.html#af3abe8c6f4bd3937f94d5810b17a7d17',1,'buttons.c']]],
+  ['buttons_81',['buttons',['../buttons_8c.html#a928e3ed462602105c648d9a9dc99ae76',1,'buttons.c']]],
+  ['buttons_2ec_82',['buttons.c',['../buttons_8c.html',1,'']]],
+  ['buttons_2eh_83',['buttons.h',['../buttons_8h.html',1,'']]],
+  ['buttons_5finit_84',['buttons_init',['../buttons_8c.html#acef6dd444cb6560da652897ee43ab306',1,'buttons_init(void):&#160;buttons.c'],['../buttons_8h.html#acef6dd444cb6560da652897ee43ab306',1,'buttons_init(void):&#160;buttons.c']]],
+  ['buttons_5fthread_85',['buttons_thread',['../buttons_8c.html#a545864bf6f8fb483f698b9dcabeee94c',1,'buttons.c']]],
+  ['bypass_86',['BYPASS',['../load__lua_8cpp.html#ac2e389417b21a770511b0c3ab16c6ebf',1,'BYPASS:&#160;load_lua.cpp'],['../test1_8cpp.html#ac2e389417b21a770511b0c3ab16c6ebf',1,'BYPASS:&#160;test1.cpp']]],
+  ['bypass_5fcb_87',['bypass_cb',['../shell_8c.html#afde2f4a25338f491967a9e3b57720556',1,'shell.c']]],
+  ['byteoffset_88',['byteoffset',['../lutf8lib_8c.html#a805a182cc5dde6d73e07922e8454eaf7',1,'lutf8lib.c']]]
 ];

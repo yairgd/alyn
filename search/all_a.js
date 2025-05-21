@@ -76,7 +76,7 @@ var searchData=
   ['font_5fget_5fmap_73',['font_get_map',['../font_8c.html#aaa5a58dd4373ca4b70b83e27d91e07ba',1,'font_get_map(const struct font *font, int font_id):&#160;font.c'],['../font_8h.html#ab1259f64846e08f48832c8be917121ed',1,'font_get_map(const struct font *, int idx):&#160;font.c']]],
   ['font_5fheight_74',['font_height',['../font_8c.html#a2402f4d60b84303f1158dbb6e34416a6',1,'font_height(const struct font *font):&#160;font.c'],['../font_8h.html#a2402f4d60b84303f1158dbb6e34416a6',1,'font_height(const struct font *font):&#160;font.c']]],
   ['font_5fwidth_75',['font_width',['../font_8c.html#ae3d15e6eed98039ee7349095d0c1228d',1,'font_width(const struct font *font, int unicode):&#160;font.c'],['../font_8h.html#ae3d15e6eed98039ee7349095d0c1228d',1,'font_width(const struct font *font, int unicode):&#160;font.c']]],
-  ['for_20qt5_76',['Vim and YouCompleteMe setup for Qt5',['../md_README.html#autotoc_md6',1,'']]],
+  ['for_20qt5_76',['Vim and YouCompleteMe setup for Qt5',['../md_README.html#autotoc_md10',1,'']]],
   ['forbody_77',['forbody',['../group__LuaSrc.html#ga253feeb1a37a9ffb5814070a44893b7f',1,'lparser.c']]],
   ['forlimit_78',['forlimit',['../lvm_8c.html#a74de39e56f455130121e51b2cae6685a',1,'lvm.c']]],
   ['forlist_79',['forlist',['../group__LuaSrc.html#ga5f15a71e248c4e1e9c867ccac8a450c2',1,'lparser.c']]],

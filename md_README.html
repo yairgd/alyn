@@ -103,7 +103,7 @@ Scripting Capabilities with Lua Engine</h1>
 Install the SW development ennviroment</h1>
 <ul>
 <li>setup zephyr local path <div class="fragment"><div class="line">export PROJECT=/home/yair/alyn/zephyr-3.4.99/</div>
-<div class="line">export PROJECT=//mnt/sdb1/yair/stm32/zephyrproject/</div>
+<div class="line">-----export PROJECT=//mnt/sdb1/yair/stm32/zephyrproject/</div>
 </div><!-- fragment --></li>
 <li>install west tool <div class="fragment"><div class="line">python3 -m venv $PROJECT/.venv</div>
 <div class="line">source $PROJECT/.venv/bin/activate</div>
@@ -128,11 +128,26 @@ Install the SW development ennviroment</h1>
 </div><!-- fragment --><p> or, to build for linux execution </p><div class="fragment"><div class="line">mkdir native_posix_64</div>
 <div class="line">cd native_posix_64</div>
 <div class="line">cmake -DBOARD=native_posix_64 -DOVERLAY_CONFIG=prj.conf -DDTC_OVERLAY_FILE=./boards/native_posix_64.overlay ..</div>
-</div><!-- fragment --> <h1><a class="anchor" id="autotoc_md6"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md6"></a>
+Using openocd</h1>
+<h2><a class="anchor" id="autotoc_md7"></a>
+start openiocd</h2>
+<p>sudo /home/yair/alyn/zephyr-sdk-0.16.1/sysroots/x86_64-pokysdk-linux/usr/bin/openocd -s /home/yair/alyn/zephyr-3.4.99/zephyr/boards/arm/nucleo_f429zi/support -s /home/yair/alyn/zephyr-sdk-0.16.1/sysroots/x86_64-pokysdk-linux/usr/share/openocd/scripts -f /home/yair/alyn/zephyr-3.4.99/zephyr/boards/arm/nucleo_f429zi/support/openocd.cfg '-c init' '-c targets' -c 'reset init'</p>
+<h1><a class="anchor" id="autotoc_md8"></a>
+start gdb</h1>
+<div class="fragment"><div class="line">cd ~/alyn/project/game-controller/nucleo_f429zi</div>
+<div class="line">cgdb -d /home/yair/alyn/./zephyr-sdk-0.16.1/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb zephyr/zephyr.elf</div>
+</div><!-- fragment --> <h1><a class="anchor" id="autotoc_md9"></a>
+inside gdb</h1>
+<div class="fragment"><div class="line">target remote 127.0.0.1:3333</div>
+<div class="line">load</div>
+<div class="line">rr</div>
+</div><!-- fragment --><p> to set break point: </p><div class="fragment"><div class="line">b game.c:169</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md10"></a>
 Vim and YouCompleteMe setup for Qt5</h1>
 <p>To allow YouCompleteMe (YCM) to work fine with qt5 project we an use the plugin <a href="https://github.com/rdnetto/YCM-Generator">YCM-Generator</a> to create the file <em>.ycm_extra_conf.py</em> and place it under the main directory of the project. </p><div class="fragment"><div class="line">cd  ~/.vim/bundle/YCM-Generator</div>
 <div class="line">./config_gen.py ~/the/project/main/directory/</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md7"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md11"></a>
 Optinal boards</h1>
 <p><a href="https://www.digikey.co.il/he/products/detail/stmicroelectronics/NUCLEO-L4R5ZI/7807685">NUCLEO-L4R5ZI</a> <a href="https://www.digikey.co.il/he/products/detail/stmicroelectronics/NUCLEO-H745ZI-Q/10498890?s=N4IgTCBcDaIHIFUDCAZAogeQLQAkDsALAKwBaAklgIogC6AvkA">NUCLEO-H745ZI-Q</a></p>
 <p><a href="https://www.digikey.co.il/he/products/detail/stmicroelectronics/NUCLEO-F429ZI/5806777?s=N4IgTCBcDaIHIFUDCAZAogeQLQDEAsYAnAFoCSIAugL5A">NUCLEO-F429ZI</a></p>

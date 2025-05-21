@@ -37,7 +37,7 @@
 #define BUTTON_LEFT_NODE DT_NODELABEL(user_button_left)
 #define BUTTON_RIGHT_NODE DT_NODELABEL(user_button_right)
 #define BUTTON_MIDDLE_NODE DT_NODELABEL(user_button_middle)
-#define BUTTON_STB_NODE DT_NODELABEL(station_button)
+//#define BUTTON_STB_NODE DT_NODELABEL(station_button)
 
 #define GET_GPIO_PIN(node) DT_GPIO_PIN(node, gpios)
 #define GET_GPIO_FLAGS(node) (GPIO_INPUT | DT_GPIO_FLAGS(node, gpios)  | GPIO_INT_EDGE_BOTH)
@@ -68,7 +68,7 @@ static struct button buttons[] = {
 	BUTTON_SPEC(BUTTON_LEFT_NODE,  2),
 	BUTTON_SPEC(BUTTON_RIGHT_NODE, 3),	
 	BUTTON_SPEC(BUTTON_DOWN_NODE,  4),
-	BUTTON_SPEC(BUTTON_STB_NODE,   5),
+//	BUTTON_SPEC(BUTTON_STB_NODE,   5),
 };
 
 
@@ -117,9 +117,9 @@ void buttons_thread (void *p1,void *p2, void *p3)
 				}
 			} else if (val==0 && buttons[i].state) {
 				if (buttons[i].state == 3) {
-			//		printf("Button %s (GPIO %d) long press (%lld ms)\n", buttons[i].label, buttons[i].spec.pin, duration);
+					printf("Button %s (GPIO %d) long press (%lld ms)\n", buttons[i].label, buttons[i].spec.pin, duration);
 				} else if  (buttons[i].state == 2) {
-			//		printf("Button %s (GPIO %d) short press (%lld ms)\n", buttons[i].label, buttons[i].spec.pin, duration);	
+					printf("Button %s (GPIO %d) short press (%lld ms)\n", buttons[i].label, buttons[i].spec.pin, duration);	
 									
 				}
 				buttons[i].state = 0;

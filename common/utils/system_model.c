@@ -18,7 +18,8 @@
 
 #include "system_model.h"
 #include "hal/timing.h"
-#define CHECK_ID(id) ((1<= (id) && (id)<=8)  ? (id) - 1 : 0 )
+//#define CHECK_ID(id) ((1<= (id) && (id)<=8)  ? (id) - 1 : 0 )
+#define CHECK_ID(id) (id)
 
 static struct system_model model;
 
@@ -280,8 +281,8 @@ int get_long_keys() {
 
 
 void timer_set(struct timer * t) {
-	model.timer.ms_counter = timing_begin_to_measure_time();	
 	model.timer = *t;
+	model.timer.ms_counter = timing_begin_to_measure_time();		
 }
 
 uint32_t timer_get() {

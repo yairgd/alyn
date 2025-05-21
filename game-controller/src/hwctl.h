@@ -22,5 +22,7 @@ void hwctl_enable_node(int id);
 void hwctl_start_free_run();
 void hwctl_stop_free_run();
 void hwctl_disable_all_nodes();
+void hwctl_manage_blink();
+void hwctl_init ();
 #endif
 

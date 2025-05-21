@@ -280,7 +280,27 @@ void hwctl_set_connected_stations() {
 		set_connected(i,1);
 	}
 }
-void hwctl_thread (void *p1,void *p2, void *p3)
+
+
+void hwctl_manage_blink() {
+	static int i = 0;
+
+	timer_manage();			
+	manage_blink(i);			
+	hwctl_enable_node(i);
+	int value = gpio_pin_get_dt(&stop_blink_button);
+	if (value < 0) {
+		printk("Error %d: failed to read pin %d on %s\n", value, stop_blink_button.pin, stop_blink_button.port->name);
+	} else if (value == 0) {
+		set_button_state(i, value);				
+		printk("station %d Pin state: %d\n", i,value);	
+	}
+	i++;
+	i %= 8;
+
+}
+
+void hwctl_init ()
 {
 
 #ifdef CONFIG_UART_NATIVE_POSIX
@@ -304,32 +324,7 @@ void hwctl_thread (void *p1,void *p2, void *p3)
 
 	// seeclt all connected stations
 	hwctl_set_connected_stations();
-
 #endif
-
-	i = 0;
-	while (1) {
-		k_sem_take(&my_signal, K_FOREVER);
-		timer_manage();
-		while (get_free_run()) {
-			k_sleep(K_USEC(get_free_run_delay()));		
-			manage_blink(i);			
-			hwctl_enable_node(i);
-			int value = gpio_pin_get_dt(&stop_blink_button);
-			if (value < 0) {
-				printk("Error %d: failed to read pin %d on %s\n", value, stop_blink_button.pin, stop_blink_button.port->name);
-			} else if (value == 1) {
-				set_button_state(i, value);				
-				printk("station %d Pin state: %d\n", i,value);	
-			}
-			i++;
-			i %= 8;
-		}
-	}
-
 }
-
-K_THREAD_DEFINE(message_in_listenr_id, STACKSIZE, hwctl_thread, NULL , NULL, NULL, PRIORITY, 0, 0);
-
 
 

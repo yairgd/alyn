@@ -255,6 +255,8 @@ void display_callback(struct k_timer *dummy) {
 
 	line++;
 	line %= NUMBER_OF_ROWS;
+
+	hwctl_manage_blink();
 	k_timer_start(&display_timer, K_MSEC(1), K_NO_WAIT);  // Start after 1 second, then every 1 second
 
 }
@@ -268,6 +270,7 @@ void display_timer_callback(struct k_timer *dummy) {
 void display_thread (void *p1,void *p2, void *p3)
 {
 	led_matrix_init(led_matrix_get(), 64,32);
+	hwctl_init ();	
 	game_init();
 	display__init();
 

@@ -21,7 +21,7 @@ Furthermore, Lua's simplicity and ease of use make it accessible to developers o
 * setup zephyr local path
 ```bash
 export PROJECT=/home/yair/alyn/zephyr-3.4.99/
-export PROJECT=//mnt/sdb1/yair/stm32/zephyrproject/
+-----export PROJECT=//mnt/sdb1/yair/stm32/zephyrproject/
 ```
 
 * install west tool
@@ -69,6 +69,27 @@ mkdir native_posix_64
 cd native_posix_64
 cmake -DBOARD=native_posix_64 -DOVERLAY_CONFIG=prj.conf -DDTC_OVERLAY_FILE=./boards/native_posix_64.overlay ..
 ```
+
+## Using openocd
+### start openiocd
+sudo /home/yair/alyn/zephyr-sdk-0.16.1/sysroots/x86_64-pokysdk-linux/usr/bin/openocd -s /home/yair/alyn/zephyr-3.4.99/zephyr/boards/arm/nucleo_f429zi/support -s /home/yair/alyn/zephyr-sdk-0.16.1/sysroots/x86_64-pokysdk-linux/usr/share/openocd/scripts -f /home/yair/alyn/zephyr-3.4.99/zephyr/boards/arm/nucleo_f429zi/support/openocd.cfg '-c init' '-c targets' -c 'reset init' 
+
+## start gdb
+```bash
+cd ~/alyn/project/game-controller/nucleo_f429zi
+cgdb -d /home/yair/alyn/./zephyr-sdk-0.16.1/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb zephyr/zephyr.elf
+```
+## inside gdb
+```bash
+target remote 127.0.0.1:3333
+load
+rr
+```
+to set break point:
+```bash
+b game.c:169
+```
+
 ## Vim and YouCompleteMe setup for Qt5 
 
 To allow YouCompleteMe (YCM) to work fine with qt5 project we an use the plugin [YCM-Generator](https://github.com/rdnetto/YCM-Generator) to create the file *.ycm_extra_conf.py* and place it under the main directory of the project. 

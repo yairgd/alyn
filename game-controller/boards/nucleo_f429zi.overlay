@@ -237,6 +237,7 @@
 		zephyr,resolution = <12>;
 	};
 
+	/*  this is an example how to set more channels */
 	channel@1 {
 		reg = <1>;
 		zephyr,gain = "ADC_GAIN_1";

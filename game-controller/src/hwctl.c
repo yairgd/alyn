@@ -19,6 +19,10 @@
 #include "hwctl.h"
 #include "system_model.h"
 
+#include <inttypes.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <stdio.h>
 
 
 #include <zephyr/kernel.h>
@@ -26,11 +30,6 @@
 #include <zephyr/drivers/gpio.h>
 #include <zephyr/sys/util.h>
 #include <zephyr/sys/printk.h>
-#include <inttypes.h>
-#include <inttypes.h>
-#include <stddef.h>
-#include <stdint.h>
-
 #include <zephyr/device.h>
 #include <zephyr/devicetree.h>
 #include <zephyr/drivers/adc.h>
@@ -83,7 +82,7 @@ static struct gpio_dt_spec led_blue = GPIO_DT_SPEC_GET(DT_NODELABEL(station_led_
 static const struct gpio_dt_spec stop_blink_button = GPIO_DT_SPEC_GET_OR(DT_NODELABEL(stop_blink_button_dt), gpios,{0});
 
 
-#define check_port(port) { \ 
+#define check_port(port) {\
 	if (!device_is_ready(port)) { \
 		printk("Error: GPIO device %s is not ready\n", port->name); \
 			return;\
@@ -193,10 +192,9 @@ static const struct adc_dt_spec adc_channels[] = {
 			DT_SPEC_AND_COMMA)
 };
 
-int hwctl_adc(void)
+int hwctl_locate_stations(void)
 {
 	int err;
-	uint32_t count = 0;
 	uint16_t buf;
 	struct adc_sequence sequence = {
 		.buffer = &buf,
@@ -218,46 +216,22 @@ int hwctl_adc(void)
 		}
 	}
 
-	while (1) {
-		printk("ADC reading[%u]:\n", count++);
-		for (size_t i = 0U; i < ARRAY_SIZE(adc_channels); i++) {
-			int32_t val_mv;
-
-			printk("- %s, channel %d: ",
-					adc_channels[i].dev->name,
-					adc_channels[i].channel_id);
-
-			(void)adc_sequence_init_dt(&adc_channels[i], &sequence);
-
-			err = adc_read(adc_channels[i].dev, &sequence);
-			if (err < 0) {
-				printk("Could not read (%d)\n", err);
-				continue;
-			}
-
-			/*
-			 * If using differential mode, the 16 bit value
-			 * in the ADC sample buffer should be a signed 2's
-			 * complement value.
-			 */
-			if (adc_channels[i].channel_cfg.differential) {
-				val_mv = (int32_t)((int16_t)buf);
-			} else {
-				val_mv = (int32_t)buf;
-			}
-			printk("%"PRId32, val_mv);
-			err = adc_raw_to_millivolts_dt(&adc_channels[i],
-					&val_mv);
-			/* conversion to mV may not be supported, skip if not */
-			if (err < 0) {
-				printk(" (value in mV not available)\n");
-			} else {
-				printk(" = %"PRId32" mV\n", val_mv);
-			}
+	for (size_t i = 0; i < 8; i++) {
+		hwctl_enable_node(i);
+		err = adc_read(adc_channels[0].dev, &sequence);
+		if (err < 0) {
+			printf("Could not read from station %d, (%d)\n", i, err);
+			continue;
 		}
-
-		k_sleep(K_MSEC(1000));
+		int32_t val_mv = (int32_t)buf;
+		set_connected(i,0);
+		if (val_mv > 1600) {
+			set_connected(i,1);
+		}
+		k_sleep(K_MSEC(100));
 	}
+
+
 	return 0;
 }
 
@@ -285,7 +259,6 @@ void hwctl_set_connected_stations() {
 void hwctl_manage_blink() {
 	static int i = 0;
 	
-	// hwctl_adc(); TODO Shahar
 	timer_manage();			
 	manage_blink(i);			
 	hwctl_enable_node(i);
@@ -309,6 +282,11 @@ void hwctl_init ()
 
 
 	int i = 0;
+
+
+	// locate stations before before stating any game
+	hwctl_locate_stations();
+
 
 	for (i = 0;i<8;i++)
 	{

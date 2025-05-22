@@ -28,7 +28,7 @@
 
 
 #include "system_model.h"
-
+#include <stdio.h>
 
 #define GPIO_NODE DT_NODELABEL(gpioa)
 

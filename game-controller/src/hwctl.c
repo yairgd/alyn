@@ -284,7 +284,8 @@ void hwctl_set_connected_stations() {
 
 void hwctl_manage_blink() {
 	static int i = 0;
-
+	
+	// hwctl_adc(); TODO Shahar
 	timer_manage();			
 	manage_blink(i);			
 	hwctl_enable_node(i);

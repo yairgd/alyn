@@ -284,9 +284,7 @@ void hwctl_init ()
 	int i = 0;
 
 
-	// locate stations before before stating any game
-	hwctl_locate_stations();
-
+	
 
 	for (i = 0;i<8;i++)
 	{
@@ -301,8 +299,8 @@ void hwctl_init ()
 	// configure the station input (one button,  common to all 8 station)
 	gpio_pin_configure_dt(&stop_blink_button, GPIO_INPUT); check_port (stop_blink_button.port); 
 
-	// seeclt all connected stations
-	hwctl_set_connected_stations();
+	// locate stations before before stating any game
+	hwctl_locate_stations();
 #endif
 }
 

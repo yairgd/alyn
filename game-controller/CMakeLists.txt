@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 3.20.0)
 find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
 project(hello_world)
 
-set (PROJ_TOP "/home/yair/alyn/project/")
+set (PROJ_TOP "/home/yair/alyn/alyn/")
 
 add_compile_definitions( 
 	ZEPHYR 

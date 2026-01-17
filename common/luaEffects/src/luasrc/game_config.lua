@@ -27,6 +27,7 @@ particle_speed={}
 particle_angle={}
 restart=1
 
+led_color_array = {0, 0, 0, 0, 0, 0, 0, 0} 
 
 -- subroutine to create a new explosion
 function new_explosion()
@@ -136,7 +137,7 @@ function config()
 
 	p1=1
 	p2=2;
-	p3=3;
+	p3=30;
 	--m1="העדוה"
 	m2="תוריהמ/ןמז"
 	m3="תוציחל"
@@ -291,8 +292,10 @@ function config()
 	end
 end
 
-
-function plot_led (x,y,w,h,c_out,c_in)
+--- Draws a rectangle with specified colors.
+-- @param c_fill The inner color of the rectangle
+-- @param c_border The outer frame color
+function plot_led (x,y,w,h,c_border,c_fill)
 	local function plot_fill_rect(x,y,w,h,c)
 		for i = 0,w-1,1 do
 			game.line (x+i,y,x+i,y+h,c)
@@ -309,11 +312,11 @@ function plot_led (x,y,w,h,c_out,c_in)
 	plot_rect(x,y,w,h,0)	
 
 	-- plot next rect state
-	plot_fill_rect(x,y,w,h,c_in)
-	plot_rect(x,y,w,h,c_out)
+	plot_fill_rect(x,y,w,h,c_fill)
+	plot_rect(x,y,w,h,c_border)
 end
 
-function plot_non_active_led (x,y,w,h,c_out)
+function plot_non_active_led (x,y,w,h,c_border)
 
 	local function plot_rect(x,y,w,h,c)
 		game.line(x,y,x+w,y,c)
@@ -321,35 +324,72 @@ function plot_non_active_led (x,y,w,h,c_out)
 		game.line (x,y,x,y+h-1,c)
 		game.line (x+w-1,y,x+w-1,y+h-1,c)	
 	end
-	plot_rect(x,y,w,h,c_out)
+	plot_rect(x,y,w,h,c_border)
 	for i = 0,w-1,1 do
-		game.plot (x+i,y+i,c_out)
-		game.plot (x+i,y+h-1-i,c_out)
+		game.plot (x+i,y+i,c_border)
+		game.plot (x+i,y+h-1-i,c_border)
 
 	end
-	--	game.line (x,y,x+w-1,y+h-2,c_out)
-	--game.line (x,y+h-1,x+w,y,c_out)
+	--	game.line (x,y,x+w-1,y+h-2,c_border)
+	--game.line (x,y+h-1,x+w,y,c_border)
+end
+
+local function active_leds_list()
+	local leds = {}
+	local i
+	local blink_id = 1
+	for  i = 0,7,1
+	do
+		if game.is_station_connected(i) == 1 
+		then
+			leds[blink_id] = i
+			blink_id = blink_id + 1								
+		end
+	end
+	return leds
 end
 
 
+function light_real_led(i, rect_color_out)
+
+		if (rect_color_out == 0 ) then 
+			game.led_rgb(i, 0,0,0);
+		else
+			--ligh rel lied
+			local r = math.floor(rect_color_out / 65536) % 256
+			local g = math.floor(rect_color_out / 256) % 256
+			local b = rect_color_out % 256
+
+			game.led_rgb(i, r, g, b)
+		end
+end
 
 function plot_leds()
+	local x = 3
+	local leds = active_leds_list()
 	local rect_color_out = 0xffffff 
-	local x = 3	
+	
 	for i=0,7,1 do
+		
+	--	local i = leds
 		if (game.is_station_connected(i)==1) then 
 			if (game.is_station_blink(i)==1) then 
 				if (game.is_station_blink_on(i)==1) then 			
-					plot_led(4+i*7,x,6,6,rect_color_out , game.station_get_rgb(i) )
+					light_real_led(i,led_color_array[i] )					
+					plot_led(4+i*7,x,6,6,rect_color_out , led_color_array[i])
 				else
+					light_real_led(i,0);					
 					plot_led(4+i*7,x,6,6,rect_color_out , 0 )
 				end
 			else
-				plot_led(4+i*7,x,6,6,rect_color_out , game.station_get_rgb(i) )
+				light_real_led(i,0);				
+				plot_led(4+i*7,x,6,6,rect_color_out ,  0) --game.station_get_rgb(i) )
 			end
 		else 
 			plot_non_active_led(4+i*7,x,6,6,0xffffff  )
 		end
+	
+	
 	end
 end
 
@@ -494,21 +534,6 @@ function game4_led_select(data)
 
 end
 
-local function active_leds_list()
-	local leds = {}
-	local i
-	local blink_id = 1
-	for  i = 0,7,1
-	do
-		if game.is_station_connected(i) == 1 
-		then
-			leds[blink_id] = i
-			blink_id = blink_id + 1								
-		end
-	end
-	return leds
-end
-
 function play_all(tries, led_duration, game_id)
 
 	local leds = active_leds_list()
@@ -632,20 +657,21 @@ end
 
 
 
-game.led_rgb(1,255,255,255)
-game.led_rgb(2,0  ,255,255)
-game.led_rgb(3,255,0,255)
-game.led_rgb(4,0  ,0,255)
-game.led_rgb(5,255,255,0)
-game.led_rgb(6,0  ,255,0)
-game.led_rgb(7,255,0,0)
-game.led_rgb(8,255  ,0,255)
+--game.led_rgb(1,255,255,255)
+--game.led_rgb(2,0  ,255,255)
+--game.led_rgb(3,255,0,255)
+--game.led_rgb(4,0  ,0,255)
+--game.led_rgb(5,255,255,0)
+--game.led_rgb(6,0  ,255,0)
+--game.led_rgb(7,255,0,0)
+--game.led_rgb(8,255  ,0,255)
 
 
+leds_list = active_leds_list();
 
 while (true)
 do
-	for i= 0,7,1
+	for i= 0,8 - 1,1
 	do
 		local r = 0
 		local g = 0 
@@ -656,6 +682,10 @@ do
 			g = math.random(0, 1) == 0 and 255 or 0
 			b = math.random(0, 1) == 0 and 255 or 0
 		end 
+		local packed_color = (r * 65536) + (g * 256) + b
+    
+    		led_color_array[i] = packed_color
+
 		game.led_rgb(i,r,g,b)		
 	end
 	game.clean()

@@ -153,9 +153,9 @@ void hwctl_enable_node(int id) {
 		gpio_pin_set_dt (&led_blue, get_b(id) );
 	}
 
-	gpio_pin_set_dt (&led_red, get_r(id) ? 1 : 0);
-	gpio_pin_set_dt (&led_green, get_g(id) ? 1 : 0);
-	gpio_pin_set_dt (&led_blue, get_b(id) ? 1 : 0);
+//	gpio_pin_set_dt (&led_red, get_r(id) ? 1 : 0);
+//	gpio_pin_set_dt (&led_green, get_g(id) ? 1 : 0);
+//	gpio_pin_set_dt (&led_blue, get_b(id) ? 1 : 0);
 
 #endif
 }
@@ -218,7 +218,16 @@ int hwctl_adc(void)
 		}
 	}
 
-	while (1) {
+	for (int id = 0; id<8;id++) {
+	// disable previous node
+	gpio_pin_set_dt (&en_station[get_active_node()], 0);
+
+	// enable the current node
+	gpio_pin_set_dt (&en_station[id], 1);
+
+
+		
+//	while (1) {
 		printk("ADC reading[%u]:\n", count++);
 		for (size_t i = 0U; i < ARRAY_SIZE(adc_channels); i++) {
 			int32_t val_mv;
@@ -256,7 +265,7 @@ int hwctl_adc(void)
 			}
 		}
 
-		k_sleep(K_MSEC(1000));
+		k_sleep(K_MSEC(50));
 	}
 	return 0;
 }
@@ -277,25 +286,29 @@ void hwctl_stop_free_run() {
 
 void hwctl_set_connected_stations() {
 	for (int i= 0; i <8;i++) {
+		if (i==0 || i == 1 || i==2 || i==4)
 		set_connected(i,1);
 	}
 }
 
 
+
 void hwctl_manage_blink() {
 	static int i = 0;
+	static int cnt=0;
 	
 	// hwctl_adc(); TODO Shahar
 	timer_manage();			
 	manage_blink(i);			
-	hwctl_enable_node(i);
 	int value = gpio_pin_get_dt(&stop_blink_button);
 	if (value < 0) {
 		printk("Error %d: failed to read pin %d on %s\n", value, stop_blink_button.pin, stop_blink_button.port->name);
 	} else if (value == 0) {
-		set_button_state(i, value);				
+		set_button_state(i, 1);				
 		printk("station %d Pin state: %d\n", i,value);	
 	}
+	hwctl_enable_node(i);
+	
 	i++;
 	i %= 8;
 
@@ -323,6 +336,7 @@ void hwctl_init ()
 	// configure the station input (one button,  common to all 8 station)
 	gpio_pin_configure_dt(&stop_blink_button, GPIO_INPUT); check_port (stop_blink_button.port); 
 
+	//hwctl_adc();
 	// seeclt all connected stations
 	hwctl_set_connected_stations();
 #endif

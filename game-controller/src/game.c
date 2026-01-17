@@ -165,6 +165,9 @@ void game_init(void) {
 		g++;
 	}
 
+	// init adc and select active leds
+	hwctl_adc();
+
 	// start default game
 	game_start(&games[8]);
 

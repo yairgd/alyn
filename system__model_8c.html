@@ -126,8 +126,13 @@ Functions</h2></td></tr>
 <tr class="separator:a30876d8d9dfc59f9940eb5acdf57245a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f3c926dcaa1cb28aabdeba0c5540362" id="r_a4f3c926dcaa1cb28aabdeba0c5540362"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4f3c926dcaa1cb28aabdeba0c5540362">stop_blink</a> (int id)</td></tr>
 <tr class="separator:a4f3c926dcaa1cb28aabdeba0c5540362"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0bc01ceec0500fc043c3ee441b7d7a3" id="r_ae0bc01ceec0500fc043c3ee441b7d7a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae0bc01ceec0500fc043c3ee441b7d7a3">clear_stop_reason</a> (int id)</td></tr>
+<tr class="separator:ae0bc01ceec0500fc043c3ee441b7d7a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8d45aaf8ad4c3c0c1bb8f2a950937c4" id="r_ac8d45aaf8ad4c3c0c1bb8f2a950937c4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac8d45aaf8ad4c3c0c1bb8f2a950937c4">is_blink</a> (int id)</td></tr>
 <tr class="separator:ac8d45aaf8ad4c3c0c1bb8f2a950937c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59e548454d98f6d4b82013eeb75799c7" id="r_a59e548454d98f6d4b82013eeb75799c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a59e548454d98f6d4b82013eeb75799c7">manage_stop_blink</a> (int id)</td></tr>
+<tr class="memdesc:a59e548454d98f6d4b82013eeb75799c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks when ever the button is clied and manage the blick states  <br /></td></tr>
+<tr class="separator:a59e548454d98f6d4b82013eeb75799c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adca63ad83f3ab1776d16238e7690bbc7" id="r_adca63ad83f3ab1776d16238e7690bbc7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adca63ad83f3ab1776d16238e7690bbc7">set_timeout_reson</a> (int id, int v)</td></tr>
 <tr class="separator:adca63ad83f3ab1776d16238e7690bbc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9648753cad0999e9f1a448d347884f59" id="r_a9648753cad0999e9f1a448d347884f59"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9648753cad0999e9f1a448d347884f59">toggle_led</a> (int id)</td></tr>
@@ -159,9 +164,14 @@ Functions</h2></td></tr>
 <tr class="separator:aa84eac1f1b8b1e4b72e78b3c7b8e9869"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46a771b046fc9a2ff431b3044b99fa47" id="r_a46a771b046fc9a2ff431b3044b99fa47"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a46a771b046fc9a2ff431b3044b99fa47">is_connected</a> (int id)</td></tr>
 <tr class="separator:a46a771b046fc9a2ff431b3044b99fa47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb17c22b545c0b4d066d769dff36e1f4" id="r_aeb17c22b545c0b4d066d769dff36e1f4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeb17c22b545c0b4d066d769dff36e1f4">get_blink_active</a> (int id)</td></tr>
+<tr class="separator:aeb17c22b545c0b4d066d769dff36e1f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af94464746f5cf8152122f8b35143fe2a" id="r_af94464746f5cf8152122f8b35143fe2a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af94464746f5cf8152122f8b35143fe2a">set_button_state</a> (int id, int b)</td></tr>
 <tr class="memdesc:af94464746f5cf8152122f8b35143fe2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets station button state: 0, not press, 1- &gt; button pressed  <br /></td></tr>
 <tr class="separator:af94464746f5cf8152122f8b35143fe2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab59378074697cddbf88e13af44386b02" id="r_ab59378074697cddbf88e13af44386b02"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab59378074697cddbf88e13af44386b02">get_change_to_unpress</a> (int id)</td></tr>
+<tr class="memdesc:ab59378074697cddbf88e13af44386b02"><td class="mdescLeft">&#160;</td><td class="mdescRight">state varibale to handle race condtion in the station button press  <br /></td></tr>
+<tr class="separator:ab59378074697cddbf88e13af44386b02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4cf4407545d67ded54629fd661f9f7d" id="r_af4cf4407545d67ded54629fd661f9f7d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af4cf4407545d67ded54629fd661f9f7d">get_button_state</a> (int id)</td></tr>
 <tr class="separator:af4cf4407545d67ded54629fd661f9f7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a609be9a0e7b6d82b1d88527d3beb3c" id="r_a7a609be9a0e7b6d82b1d88527d3beb3c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7a609be9a0e7b6d82b1d88527d3beb3c">get_stop_reason</a> (int id)</td></tr>
@@ -209,6 +219,23 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="ae0bc01ceec0500fc043c3ee441b7d7a3" name="ae0bc01ceec0500fc043c3ee441b7d7a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0bc01ceec0500fc043c3ee441b7d7a3">&#9670;&#160;</a></span>clear_stop_reason()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void clear_stop_reason </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>id</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a5f35933266e93bf6628c40d817f141ce" name="a5f35933266e93bf6628c40d817f141ce"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5f35933266e93bf6628c40d817f141ce">&#9670;&#160;</a></span>get_active_game()</h2>
 
@@ -260,6 +287,32 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="aeb17c22b545c0b4d066d769dff36e1f4" name="aeb17c22b545c0b4d066d769dff36e1f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb17c22b545c0b4d066d769dff36e1f4">&#9670;&#160;</a></span>get_blink_active()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int get_blink_active </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>id</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Created 01/23/26 </p><dl class="section note"><dt>Note</dt><dd><br  />
+ </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;br&gt;</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
 <a id="af4cf4407545d67ded54629fd661f9f7d" name="af4cf4407545d67ded54629fd661f9f7d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af4cf4407545d67ded54629fd661f9f7d">&#9670;&#160;</a></span>get_button_state()</h2>
 
@@ -274,6 +327,34 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab59378074697cddbf88e13af44386b02" name="ab59378074697cddbf88e13af44386b02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab59378074697cddbf88e13af44386b02">&#9670;&#160;</a></span>get_change_to_unpress()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int get_change_to_unpress </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>id</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>state varibale to handle race condtion in the station button press </p>
+<p>Created 01/23/26 </p><dl class="section note"><dt>Note</dt><dd><br  />
+ </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;br&gt;</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 </div>
 </div>
@@ -531,6 +612,34 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a59e548454d98f6d4b82013eeb75799c7" name="a59e548454d98f6d4b82013eeb75799c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59e548454d98f6d4b82013eeb75799c7">&#9670;&#160;</a></span>manage_stop_blink()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void manage_stop_blink </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>id</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>checks when ever the button is clied and manage the blick states </p>
+<p>Created 01/23/26 </p><dl class="section note"><dt>Note</dt><dd><br  />
+ </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;br&gt;</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
 <a id="ac74a152de9a944bba3b9f115d54dcac1" name="ac74a152de9a944bba3b9f115d54dcac1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac74a152de9a944bba3b9f115d54dcac1">&#9670;&#160;</a></span>set_active_game()</h2>
 
@@ -602,8 +711,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>sets station button state: 0, not press, 1- &gt; button pressed </p>
-<p>Created 10/21/2023 </p><dl class="section note"><dt>Note</dt><dd><br  />
- </dd></dl>
+<p>Created 10/21/2023 </p><dl class="section note"><dt>Note</dt><dd>it uses state varible change_to_unpress to prevent a second press event while key is down </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">&lt;br&gt;</td><td></td></tr>

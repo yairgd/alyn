@@ -69,6 +69,23 @@ static int luaB_blink (lua_State *L) {
 	return 0;
 }
 
+
+/**
+ * Created  01/18/26
+ * @brief   
+ * @note  
+ * @param   
+ * @return  
+ */
+static int luaB_stop_blink (lua_State *L) {
+	int id = (int) luaL_checknumber (L, -1);
+	lua_pop (L, 1);
+
+	stop_blink( id);
+	return 0;
+}
+
+
 static int luaB_led_rgb (lua_State *L) {
 	int id = (int) luaL_checknumber (L, -4);
 	int r = (int) luaL_checknumber (L, -3);
@@ -339,6 +356,7 @@ static const luaL_Reg game_funcs[] = {
 	{"enable", luaB_enable},
 	{"delay", luaB_delay},
 	{"blink", luaB_blink},
+	{"stop_blink", luaB_stop_blink},
 	{"led_rgb", luaB_led_rgb},
 	{"print", luaB_banner_print},
 	{"plot", luaB_plot},

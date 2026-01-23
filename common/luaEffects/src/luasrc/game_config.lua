@@ -136,7 +136,7 @@ function config()
 	--	a3=frame.new(rect.new(2,2,60,28),0x00ff00,0xff00ff, 20,1 , 0);
 
 	p1=1
-	p2=2;
+	p2=20;
 	p3=30;
 	--m1="העדוה"
 	m2="תוריהמ/ןמז"
@@ -477,40 +477,6 @@ function game3_led_select(data)
 		until game.is_station_connected(leds[blink_id]) == 1 
 		data['blink_id'] = blink_id
 	end
-	while (((game_id <5 and tries > 0) or (game_id == 5 and game.get_timer()>0))  and (game.keys()&(1<<2))==0 ) 
-	do
-
-		if (game.is_station_blink(leds[data['blink_id']]) == 0) then
-			if (game.stop_reason( leds[data['blink_id']]) == 1) then
-				score = score + 1
-			end
-			-- call led selction function
-			data:select (data)
-			
-			if (game_id < 5)
-			then
-				tries = tries - 1			
-				if (tries>0) then
-					game.blink(leds[data['blink_id']],5,led_duration)
-				end
-			else
-				game.blink(leds[data['blink_id']],5,led_duration)
-				num_of_tries = num_of_tries + 1
-			end
-		end	
-
-		plot_leds()
-
-
-		print_game_name(game_id)
-		game.print (calc_time(game.get_timer()), 1,9,0)
-		game.print (string.format("%d/%d",score,num_of_tries), 34,9,0)
-
-		a1:render(0)
-		--a2:render(0)	
-		game.delay(100000/4);
-		
-	end
 
 end
 
@@ -602,26 +568,47 @@ function play_all(tries, led_duration, game_id)
 	if led ~= nil
 	then
 		game.blink(led,5,led_duration)
+		local current_blink = data['blink_id']
 		while (((game_id <5 and tries > 0) or (game_id == 5 and game.get_timer()>0))  and (game.keys()&(1<<2))==0 ) 
 		do
 
 			if (game.is_station_blink(leds[data['blink_id']]) == 0) then
-				if (game.stop_reason( leds[data['blink_id']]) == 1) then
-					score = score + 1
+				-- current led stoped blinking (or not stateed to blick)
+				-- check the reaons why, 
+
+				-- stop_reason : 1 , the user pressed on led on time, update score
+				-- 2: user not pressed on time
+
+				-- the call game.stop_reason, resets the stop reson varible , therefore we have to store it in the lua script 
+				local sr = game.stop_reason( leds[data['blink_id']])
+				if (sr>0 ) then  -- leds[data['blink_id']] == 1) then
+					if (sr == 1) then
+						score = score + 1
+					end
+					tries = tries - 1									
+					sr = 0
 				end
+				
+
 				-- call led selction function
 				data:select (data)
 
+				-- trigger new blinkg led
 				if (game_id < 5)
 				then
-					tries = tries - 1			
+					-- click based game
 					if (tries>0) then
 						game.blink(leds[data['blink_id']],5,led_duration)
 					end
 				else
+					-- time based game
 					game.blink(leds[data['blink_id']],5,led_duration)
 					num_of_tries = num_of_tries + 1
 				end
+		 		current_blink = data['blink_id'];
+
+
+				
 			end	
 
 			plot_leds()
@@ -679,14 +666,15 @@ do
 		while (r == 0 and b == 0 and g == 0)
 		do
 			r = math.random(0, 1) == 0 and 255 or 0
-			g = math.random(0, 1) == 0 and 255 or 0
+			g = math.random(0, 1) == 0 and 0 or 0
 			b = math.random(0, 1) == 0 and 255 or 0
 		end 
 		local packed_color = (r * 65536) + (g * 256) + b
     
     		led_color_array[i] = packed_color
 
-		game.led_rgb(i,r,g,b)		
+		game.led_rgb(i,r,g,b)
+		game.stop_blink(i)
 	end
 	game.clean()
 	game.opacity(0.7,0.3,0.3)

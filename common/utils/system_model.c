@@ -75,18 +75,38 @@ void start_blink(int id, int freq, double blink_time) {
 	model.stations[id].blink.max_blink_time = blink_time;
 	model.stations[id].blink.stop_reson = 0;
 	model.stations[id].blink.start_blink_ts = timing_begin_to_measure_time();
+	model.stations[id].change_to_unpress = 0;
+	
 } 
+
 
 void stop_blink(int id) {
 	model.stations[id].blink.active = 0; 	
 
 }
 
+void clear_stop_reason (int id) {
+	model.stations[id].blink.stop_reson = 0;
+
+}
 
 
 
 
 int is_blink(int id) {
+	
+	return model.stations[CHECK_ID(id)].blink.active;
+}
+
+
+/**
+ * Created  01/23/26
+ * @brief   checks when ever the button is clied and manage the blick states
+ * @note  
+ * @param   
+ * @return  
+ */
+void manage_stop_blink(int id) {
 	if (model.stations[CHECK_ID(id)].blink.active && timing_elapse(model.stations[CHECK_ID(id)].blink.start_blink_ts, model.stations[CHECK_ID(id)].blink.max_blink_time)) { 
 		// blinking timeout
 		model.stations[CHECK_ID(id)].blink.active = 0;
@@ -103,7 +123,6 @@ int is_blink(int id) {
 	}
 
 	
-	return model.stations[CHECK_ID(id)].blink.active;
 }
 
 
@@ -202,6 +221,7 @@ int get_free_run_delay() {
  */
 void manage_blink(int id) {
 	double blink_timeout = 1.0 / model.stations[CHECK_ID(id)].blink.freq;
+	manage_stop_blink(id);
 	if ( is_blink(id) &&timing_elapse(model.stations[CHECK_ID(id)].blink.ts, blink_timeout * 1000) ) {
 		toggle_led(id);			
 	}
@@ -228,20 +248,45 @@ void set_connected(int id, int c) {
 int is_connected(int id) {
 	id = CHECK_ID(id);
 	return 	model.stations[id].connected ;
+
 }
 
+/**
+ * Created  01/23/26
+ * @brief   
+ * @note  
+ * @param   
+ * @return  
+ */
+int get_blink_active(int id) {
+	return 	model.stations[id].blink.active ;
+
+}
 
 /**
  * Created  10/21/2023
  * @brief   sets station button state: 0, not press, 1- > button pressed
- * @note  
+ * @note    it uses state varible  change_to_unpress to prevent a second press event while key is down 
  * @param   
  * @return  
  */
 void set_button_state(int id, int b) {
 	model.stations[CHECK_ID(id)].button_state = b;
+	if (b==0) model.stations[CHECK_ID(id)].change_to_unpress = 1;
+
 }
 
+
+/**
+ * Created  01/23/26
+ * @brief  state varibale to handle race condtion in the station button press 
+ * @note  
+ * @param   
+ * @return  
+ */
+int get_change_to_unpress(int id) {
+	return  model.stations[CHECK_ID(id)].change_to_unpress;
+}
 int get_button_state(int id) {
 	id = CHECK_ID(id);
 	return model.stations[id].button_state;
@@ -250,7 +295,10 @@ int get_button_state(int id) {
 
 int get_stop_reason(int id) {
 	id = CHECK_ID(id);
-	return model.stations[id].blink.stop_reson;
+	int sr = model.stations[id].blink.stop_reson;
+	model.stations[id].blink.stop_reson = 0;
+	return sr;
+
 }
 
 

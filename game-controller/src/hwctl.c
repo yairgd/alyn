@@ -134,28 +134,33 @@ void hwctl_enable_node(int id) {
 	// disable previous node
 	gpio_pin_set_dt (&en_station[get_active_node()], 0);
 
-	// enable the current node
-	gpio_pin_set_dt (&en_station[id], 1);
-
-	// save rhe new node
-	set_active_node(id);	
 
 
-	if (is_blink(id) ) {
-		// turn on/off led according to blink state
-		gpio_pin_set_dt (&led_red, get_r(id) & is_blink_on(id) ? 1 : 0);
-		gpio_pin_set_dt (&led_green, get_g(id) & is_blink_on(id) ? 1 : 0);
-		gpio_pin_set_dt (&led_blue, get_b(id) & is_blink_on(id)? 1 : 0);
-	} else {
+
+//	if (is_blink(id) ) {
+//		// turn on/off led according to blink state
+//		gpio_pin_set_dt (&led_red, get_r(id) & is_blink_on(id) ? 1 : 0);
+//		gpio_pin_set_dt (&led_green, get_g(id) & is_blink_on(id) ? 1 : 0);
+//		gpio_pin_set_dt (&led_blue, get_b(id) & is_blink_on(id)? 1 : 0);
+//	} else {
 		// turn on led accorinding to its current color
 		gpio_pin_set_dt (&led_red, get_r(id) );
 		gpio_pin_set_dt (&led_green, get_g(id) );
 		gpio_pin_set_dt (&led_blue, get_b(id) );
-	}
+//	}
+
+
+	set_active_node(id);	
+	
+	// enable the current node
+//	gpio_pin_set_dt (&en_station[get_active_node()], 1);
+	
+	gpio_pin_set_dt (&en_station[id], 1);
 
 //	gpio_pin_set_dt (&led_red, get_r(id) ? 1 : 0);
 //	gpio_pin_set_dt (&led_green, get_g(id) ? 1 : 0);
 //	gpio_pin_set_dt (&led_blue, get_b(id) ? 1 : 0);
+	// save rhe new node
 
 #endif
 }
@@ -219,15 +224,14 @@ int hwctl_adc(void)
 	}
 
 	for (int id = 0; id<8;id++) {
-	// disable previous node
-	gpio_pin_set_dt (&en_station[get_active_node()], 0);
+		// disable previous node
+		gpio_pin_set_dt (&en_station[get_active_node()], 0);
 
-	// enable the current node
-	gpio_pin_set_dt (&en_station[id], 1);
-
+		// enable the current node
+		gpio_pin_set_dt (&en_station[id], 1);
 
 		
-//	while (1) {
+		// read active station ADC value, to test eigther it is connected or not
 		printk("ADC reading[%u]:\n", count++);
 		for (size_t i = 0U; i < ARRAY_SIZE(adc_channels); i++) {
 			int32_t val_mv;
@@ -288,6 +292,9 @@ void hwctl_set_connected_stations() {
 	for (int i= 0; i <8;i++) {
 		if (i==0 || i == 1 || i==2 || i==4)
 		set_connected(i,1);
+		else
+		set_connected(i,0);
+
 	}
 }
 
@@ -297,20 +304,32 @@ void hwctl_manage_blink() {
 	static int i = 0;
 	static int cnt=0;
 	
+	if (!get_free_run()) return;
+
 	// hwctl_adc(); TODO Shahar
-	timer_manage();			
-	manage_blink(i);			
+
+
+
+	timer_manage();	
+
 	int value = gpio_pin_get_dt(&stop_blink_button);
 	if (value < 0) {
 		printk("Error %d: failed to read pin %d on %s\n", value, stop_blink_button.pin, stop_blink_button.port->name);
-	} else if (value == 0) {
+	} else if (value == 0 &&  get_change_to_unpress(i) == 0 ) { //&& get_button_state(i) == 0) {
 		set_button_state(i, 1);				
 		printk("station %d Pin state: %d\n", i,value);	
 	}
+	manage_blink(i);				
+
+
+	do {
+		i++;
+		i %= 8;		
+	}while (!is_connected(i));
+
 	hwctl_enable_node(i);
+
 	
-	i++;
-	i %= 8;
 
 }
 
@@ -336,9 +355,14 @@ void hwctl_init ()
 	// configure the station input (one button,  common to all 8 station)
 	gpio_pin_configure_dt(&stop_blink_button, GPIO_INPUT); check_port (stop_blink_button.port); 
 
-	//hwctl_adc();
+	// init adc and select active leds
+	hwctl_adc();
+
 	// seeclt all connected stations
 	hwctl_set_connected_stations();
+	
+
+	set_free_run(1);
 #endif
 }
 

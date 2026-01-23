@@ -38,6 +38,7 @@ extern "C" {
 			unsigned char b 		;
 			unsigned int connected 			: 1;  // 0 - station not connected, 1 station is conncted
 			unsigned int button_state 		: 1;  //0 press 
+			unsigned int change_to_unpress 		: 1;  //0 press 								      
 			struct blink_info {
 				size_t ts;			      // time sice change of blick state
 				size_t start_blink_ts;		      // time sice start blink		
@@ -103,6 +104,11 @@ extern "C" {
 	void timer_set(struct timer  * t);
 	uint32_t timer_get();
 	void timer_manage();	
+	void manage_stop_blink(int id) ;	
+	void clear_stop_reason (int id) ;	
+	int get_blink_active(int id) ;	
+	int get_change_to_unpress(int id) ;
+
 #ifdef __cplusplus
 
 }

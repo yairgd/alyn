@@ -29,6 +29,7 @@ restart=1
 
 led_color_array = {0, 0, 0, 0, 0, 0, 0, 0} 
 
+
 -- subroutine to create a new explosion
 function new_explosion()
 
@@ -132,12 +133,14 @@ function print_string(str)
 	game.print (str,3 + (60 - (6*game.strlen(str)))/2 , 17,0)	
 end
 
+
 function config()
 	--	a3=frame.new(rect.new(2,2,60,28),0x00ff00,0xff00ff, 20,1 , 0);
 
-	p1=1
-	p2=20;
-	p3=30;
+	p1 = p1_0 or 1
+	p2 = p2_0 or 20
+	p3 = p3_0 or 30
+
 	--m1="העדוה"
 	m2="תוריהמ/ןמז"
 	m3="תוציחל"
@@ -676,9 +679,19 @@ do
 		game.led_rgb(i,r,g,b)
 		game.stop_blink(i)
 	end
+	-- prepare the screen
 	game.clean()
 	game.opacity(0.7,0.3,0.3)
+
+	-- go to game config scree
 	game_id,led_on_duration,tries = config()
+
+	-- remeber last selected value fro the next time
+	p1_0 = game_id
+	p2_0 = led_on_duration
+	p3_0 = tries
+
+	-- start to play
 	game.clean()	
 	play_all(tries,led_on_duration*1000,game_id )
 	print("game over")

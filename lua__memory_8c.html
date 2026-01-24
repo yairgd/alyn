@@ -114,17 +114,19 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a581abd3b39450f3a2401c21515a4a841" id="r_a581abd3b39450f3a2401c21515a4a841"><td class="memItemLeft" align="right" valign="top">static uint8_t lua_heap_mem[64536]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a581abd3b39450f3a2401c21515a4a841">__aligned</a> (sizeof(void *))</td></tr>
+<tr class="separator:a581abd3b39450f3a2401c21515a4a841"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13746c00551bf997d4acb15b91b36a20" id="r_a13746c00551bf997d4acb15b91b36a20"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a13746c00551bf997d4acb15b91b36a20">lua_mem_init</a> (void)</td></tr>
+<tr class="separator:a13746c00551bf997d4acb15b91b36a20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga31f0c1f911692f1185feab9430c71116" id="r_ga31f0c1f911692f1185feab9430c71116"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga31f0c1f911692f1185feab9430c71116">lua_malloc</a> (size_t n)</td></tr>
+<tr class="memdesc:ga31f0c1f911692f1185feab9430c71116"><td class="mdescLeft">&#160;</td><td class="mdescRight">not used by LUA api, used by the application  <br /></td></tr>
+<tr class="separator:ga31f0c1f911692f1185feab9430c71116"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab56f9945c6b805dfca5425577879a343" id="r_gab56f9945c6b805dfca5425577879a343"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#gab56f9945c6b805dfca5425577879a343">lua_realloc</a> (char *ptr, size_t n)</td></tr>
 <tr class="memdesc:gab56f9945c6b805dfca5425577879a343"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function serves as a wrapper for realloc within the Lua API. This replacement is essential to facilitate compatibility with the Zephyr HAL. see <a class="el" href="lauxlib_8c.html">lauxlib.c</a>:1027.  <br /></td></tr>
 <tr class="separator:gab56f9945c6b805dfca5425577879a343"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga53b16b8aff7ac20aac640d89dfee9b98" id="r_ga53b16b8aff7ac20aac640d89dfee9b98"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga53b16b8aff7ac20aac640d89dfee9b98">lua_free</a> (void *ptr)</td></tr>
 <tr class="memdesc:ga53b16b8aff7ac20aac640d89dfee9b98"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function serves as a wrapper for free within the Lua API. This replacement is essential to facilitate compatibility with the Zephyr HAL. see <a class="el" href="lauxlib_8c.html">lauxlib.c</a>:1023.  <br /></td></tr>
 <tr class="separator:ga53b16b8aff7ac20aac640d89dfee9b98"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga31f0c1f911692f1185feab9430c71116" id="r_ga31f0c1f911692f1185feab9430c71116"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__LuaSrc.html#ga31f0c1f911692f1185feab9430c71116">lua_malloc</a> (size_t n)</td></tr>
-<tr class="memdesc:ga31f0c1f911692f1185feab9430c71116"><td class="mdescLeft">&#160;</td><td class="mdescRight">not used by LUA api, used by the application  <br /></td></tr>
-<tr class="separator:ga31f0c1f911692f1185feab9430c71116"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51d820205aba5c29cc852b0d3b62ee54" id="r_a51d820205aba5c29cc852b0d3b62ee54"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a51d820205aba5c29cc852b0d3b62ee54">lua_mem_init</a> ()</td></tr>
-<tr class="separator:a51d820205aba5c29cc852b0d3b62ee54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6488220c16c33bca5c17875afb6e53b" id="r_ab6488220c16c33bca5c17875afb6e53b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab6488220c16c33bca5c17875afb6e53b">K_MEM_SLAB_DEFINE</a> (frame_slab_mem, sizeof(struct <a class="el" href="structframe.html">frame</a>), <a class="el" href="#a5b4055201d2d8170e179b1ceaa438b9c">MAX_FRAMES</a>, 4)</td></tr>
 <tr class="separator:ab6488220c16c33bca5c17875afb6e53b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a723b807f007f018c5849e7e89435da4c" id="r_a723b807f007f018c5849e7e89435da4c"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structframe.html">frame</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a723b807f007f018c5849e7e89435da4c">lua_mem_frame_malloc</a> ()</td></tr>
@@ -140,8 +142,6 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a268d563f91f7f718bbcd32dc5b57774b" id="r_a268d563f91f7f718bbcd32dc5b57774b"><td class="memItemLeft" align="right" valign="top">static char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a268d563f91f7f718bbcd32dc5b57774b">lua_heap_mem</a> [64536]</td></tr>
-<tr class="separator:a268d563f91f7f718bbcd32dc5b57774b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a430385b117d58a56ddecc8206a7d2b48" id="r_a430385b117d58a56ddecc8206a7d2b48"><td class="memItemLeft" align="right" valign="top">static struct sys_heap&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a430385b117d58a56ddecc8206a7d2b48">heap</a></td></tr>
 <tr class="separator:a430385b117d58a56ddecc8206a7d2b48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -175,6 +175,31 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a581abd3b39450f3a2401c21515a4a841" name="a581abd3b39450f3a2401c21515a4a841"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a581abd3b39450f3a2401c21515a4a841">&#9670;&#160;</a></span>__aligned()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static uint8_t lua_heap_mem[64536] __aligned </td>
+          <td>(</td>
+          <td class="paramtype">sizeof(void *)</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a38ab8767266fefadca10944795283feb" name="a38ab8767266fefadca10944795283feb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a38ab8767266fefadca10944795283feb">&#9670;&#160;</a></span>K_MEM_SLAB_DEFINE() <span class="overload">[1/2]</span></h2>
 
@@ -305,8 +330,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a51d820205aba5c29cc852b0d3b62ee54" name="a51d820205aba5c29cc852b0d3b62ee54"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a51d820205aba5c29cc852b0d3b62ee54">&#9670;&#160;</a></span>lua_mem_init()</h2>
+<a id="a13746c00551bf997d4acb15b91b36a20" name="a13746c00551bf997d4acb15b91b36a20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13746c00551bf997d4acb15b91b36a20">&#9670;&#160;</a></span>lua_mem_init()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -314,7 +339,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void lua_mem_init </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -334,28 +359,6 @@ Variables</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">struct sys_heap heap</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a268d563f91f7f718bbcd32dc5b57774b" name="a268d563f91f7f718bbcd32dc5b57774b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a268d563f91f7f718bbcd32dc5b57774b">&#9670;&#160;</a></span>lua_heap_mem</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">char lua_heap_mem[64536]</td>
         </tr>
       </table>
   </td>

@@ -231,6 +231,8 @@ int hwctl_adc(void)
 		gpio_pin_set_dt (&en_station[id], 1);
 
 		
+		k_sleep(K_MSEC(50));
+		
 		// read active station ADC value, to test eigther it is connected or not
 		printk("ADC reading[%u]:\n", count++);
 		for (size_t i = 0U; i < ARRAY_SIZE(adc_channels); i++) {

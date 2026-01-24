@@ -152,7 +152,7 @@ void game_init(void) {
 	sys_dlist_init(&head);
 
 	/* this add compiled lua src's to linked list */
-	for (int i = 0; i < luasrc_size() && i < 16; i++) {
+	for (int i = 0; i < luasrc_size() && i < sizeof(games) / sizeof(struct game)  ; i++) {
 		const struct luasrc * src = luasrc_by_idx(i);
 		strncpy (games[i+2].name , src->name, 32);
 		games[i+2].func = game_lua_generic;
@@ -160,7 +160,7 @@ void game_init(void) {
 	}
 
 	// Populate the data in games	
-	while (g->func)  {
+	while (g && g->func)  {
 		sys_dlist_append(&head, &g->node);
 		g++;
 	}
@@ -212,7 +212,18 @@ void game_start(struct game *g) {
 	}
 
 }
+
 void game_stop() {
+    if (game_thread_tid) {
+        k_thread_abort(game_thread_tid);
+        // CRITICAL: Wait for the kernel to finish cleaning up the thread
+        k_thread_join(game_thread_tid, K_FOREVER); 
+        game_thread_tid = NULL;
+        set_active_game(255);
+    }   
+}
+
+void game_stop1() {
 	if (game_thread_tid) {
 		k_thread_abort(game_thread_tid);	
 		game_thread_tid = NULL;

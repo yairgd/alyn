@@ -44,7 +44,8 @@ static void config(lua_State *L, struct banner * banner,struct rect * rect  ) {
 	if (fnt == 0)
 		 luaL_error(L, "no valid font type");    		
 	banner_init_with_text(banner, *rect, fnt,txt);
-	effect_set_config (&banner->effect, BANNER_CONFIG_BLINK(start_idx,end_idx,on_time,off_time) );
+	if (banner)
+		effect_set_config (&banner->effect, BANNER_CONFIG_BLINK(start_idx,end_idx,on_time,off_time) );
 	
 
 }

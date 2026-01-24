@@ -29,28 +29,55 @@
  * enabling the utilization of malloc and free for its API 
  **/
 //K_HEAP_DEFINE(heap, 64536);
-static char lua_heap_mem[64536];
-static struct  sys_heap heap;
 
-char * lua_realloc(char *ptr, size_t n ) {
-	return sys_heap_realloc(&heap,ptr,n);
+static uint8_t lua_heap_mem[64536] __aligned(sizeof(void *));
+static struct sys_heap heap;
 
-}
-void lua_free(void *ptr) {
-	sys_heap_free(&heap,ptr);
-
+/* MUST be called once before Lua starts */
+void lua_mem_init(void)
+{
+    sys_heap_init(&heap, lua_heap_mem, sizeof(lua_heap_mem));
 }
 
+void *lua_malloc(size_t n)
+{
+    if (n == 0) {
+        return NULL;
+    }
 
-void * lua_malloc(size_t n ) {
-	return sys_heap_alloc(&heap,  n);
-
+    void *ptr = sys_heap_alloc(&heap, n);
+    if (!ptr) {
+        printk("LUA OOM: alloc %zu failed\n", n);
+    }
+    return ptr;
 }
 
-void lua_mem_init() {
-	sys_heap_init (&heap, lua_heap_mem, sizeof(lua_heap_mem));
+char *lua_realloc(char *ptr, size_t n)
+{
+    /* realloc(NULL, n) == malloc(n) */
+    if (ptr == NULL) {
+        return lua_malloc(n);
+    }
+
+    /* realloc(ptr, 0) == free(ptr) */
+    if (n == 0) {
+        sys_heap_free(&heap, ptr);
+        return NULL;
+    }
+
+    char *new_ptr = sys_heap_realloc(&heap, ptr, n);
+    if (!new_ptr) {
+        printk("LUA OOM: realloc %zu failed\n", n);
+    }
+    return new_ptr;
 }
 
+void lua_free(void *ptr)
+{
+    if (ptr) {
+        sys_heap_free(&heap, ptr);
+    }
+}
 
 
 /* this section is not usesfull, I lived it here as an example to memory slab */

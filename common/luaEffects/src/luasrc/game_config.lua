@@ -118,8 +118,21 @@ end
 --------------------------------------------end  simple_firewors.lua -------------------------------------------------
 
 --require("t3")
---
+-- These objects are implemented as C userdata and allocate heap memory on creation.
+-- Because the Lua script never terminates and the C runtime cannot safely reset
+-- the heap while Lua is running, all such allocations must be performed once
+-- during initialization and reused for the entire lifetime of the Lua VM.
 a1=frame.new(rect.new(0,0,64,32),0xff00ff,0x00ff00, 5,1 ,1);
+r = rect.new(8,5,62,15)
+r2 = rect.new(18,17,62,15);
+r3 = rect.new(8,4,62,15)
+p1_0=1;
+p2_0=20
+p3_0=30
+s = string.format("%2d:%2d:%2d",p1_0,p2_0,p3_0)
+b=banner2.new(r3,  s,0,1,250,0,0)
+
+
 --a2=frame.new(rect.new(1,1,62,30),0xff0000,0x0000ff, 10,1 ,-5);
 
 function print_game_name(i)
@@ -134,12 +147,13 @@ function print_string(str)
 end
 
 
+
 function config()
 	--	a3=frame.new(rect.new(2,2,60,28),0x00ff00,0xff00ff, 20,1 , 0);
 
-	p1 = p1_0 or 1
-	p2 = p2_0 or 20
-	p3 = p3_0 or 30
+	p1 = p1_0 
+	p2 = p2_0 
+	p3 = p3_0 
 
 	--m1="העדוה"
 	m2="תוריהמ/ןמז"
@@ -156,13 +170,13 @@ function config()
 	game.set_long_key(2,0)
 	game.set_long_key(3,0)
 	game.set_long_key(4,0)
-	local r = rect.new(8,5,62,15)
-	local r2 = rect.new(18,17,62,15);
+--	local r = rect.new(8,5,62,15)
+--	local r2 = rect.new(18,17,62,15);
 
-	s = string.format("%2d:%2d:%2d",p1,p2,p3)
+	--s = string.format("%2d:%2d:%2d",p1,p2,p3)
 	state=0; -- no blink
-	local r3 = rect.new(8,4,62,15)
-	local b=banner2.new(r3, s,0,1,250,0,0)
+--	local r3 = rect.new(8,4,62,15)
+--	local b=banner2.new(r3, s,0,1,250,0,0)
 	--	mb=banner2.new(r2, "       ",1,0,250,0,0)
 
 	-- state: 0 - no blink, 1 (fro mleft)  blink, 2 2 blink 3 blinks 

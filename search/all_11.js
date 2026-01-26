@@ -34,7 +34,7 @@ var searchData=
   ['makevariant_31',['makevariant',['../group__LuaSrc.html#ga6f70bdfe97f0e09461cfd2aadd6c0602',1,'lobject.h']]],
   ['makewhite_32',['makewhite',['../lgc_8c.html#ada061b1d508c516b2e53f546521b3eeb',1,'lgc.c']]],
   ['manage_5fblink_33',['manage_blink',['../system__model_8c.html#a58a570d72f4dee63578eeded9ed2c567',1,'manage_blink(int id):&#160;system_model.c'],['../system__model_8h.html#a58a570d72f4dee63578eeded9ed2c567',1,'manage_blink(int id):&#160;system_model.c']]],
-  ['manage_5fstop_5fblink_34',['manage_stop_blink',['../system__model_8c.html#a59e548454d98f6d4b82013eeb75799c7',1,'manage_stop_blink(int id):&#160;system_model.c'],['../system__model_8h.html#a59e548454d98f6d4b82013eeb75799c7',1,'manage_stop_blink(int id):&#160;system_model.c']]],
+  ['manage_5fstop_5fblink_34',['manage_stop_blink',['../system__model_8h.html#a59e548454d98f6d4b82013eeb75799c7',1,'system_model.h']]],
   ['markbeingfnz_35',['markbeingfnz',['../group__LuaSrc.html#gafdc11f26c812a8356585e0e6a67b9982',1,'lgc.c']]],
   ['markkey_36',['markkey',['../lgc_8c.html#a177a5a645b1409b4f1c20e3c84018d40',1,'lgc.c']]],
   ['marklen_37',['marklen',['../lua_8c.html#af4095ba5ce624b3061385b49e5863c90',1,'lua.c']]],

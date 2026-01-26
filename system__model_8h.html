@@ -157,7 +157,7 @@ Functions</h2></td></tr>
 <tr class="memitem:adca63ad83f3ab1776d16238e7690bbc7" id="r_adca63ad83f3ab1776d16238e7690bbc7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adca63ad83f3ab1776d16238e7690bbc7">set_timeout_reson</a> (int id, int v)</td></tr>
 <tr class="separator:adca63ad83f3ab1776d16238e7690bbc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a58a570d72f4dee63578eeded9ed2c567" id="r_a58a570d72f4dee63578eeded9ed2c567"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a58a570d72f4dee63578eeded9ed2c567">manage_blink</a> (int id)</td></tr>
-<tr class="memdesc:a58a570d72f4dee63578eeded9ed2c567"><td class="mdescLeft">&#160;</td><td class="mdescRight">turn on/off led in blink state  <br /></td></tr>
+<tr class="memdesc:a58a570d72f4dee63578eeded9ed2c567"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks when ever the button is clied and manage the blick states  <br /></td></tr>
 <tr class="separator:a58a570d72f4dee63578eeded9ed2c567"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa84eac1f1b8b1e4b72e78b3c7b8e9869" id="r_aa84eac1f1b8b1e4b72e78b3c7b8e9869"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa84eac1f1b8b1e4b72e78b3c7b8e9869">set_connected</a> (int id, int <a class="el" href="canvas_8c.html#a7c28d306c2fb202cb829051a2ba2c810">c</a>)</td></tr>
 <tr class="memdesc:aa84eac1f1b8b1e4b72e78b3c7b8e9869"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets the station connection: 0 connected ,1 not connected  <br /></td></tr>
@@ -187,7 +187,6 @@ Functions</h2></td></tr>
 <tr class="memitem:ae3e0c051b0ba275d9beb8641b5fe712a" id="r_ae3e0c051b0ba275d9beb8641b5fe712a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae3e0c051b0ba275d9beb8641b5fe712a">timer_manage</a> ()</td></tr>
 <tr class="separator:ae3e0c051b0ba275d9beb8641b5fe712a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59e548454d98f6d4b82013eeb75799c7" id="r_a59e548454d98f6d4b82013eeb75799c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a59e548454d98f6d4b82013eeb75799c7">manage_stop_blink</a> (int id)</td></tr>
-<tr class="memdesc:a59e548454d98f6d4b82013eeb75799c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks when ever the button is clied and manage the blick states  <br /></td></tr>
 <tr class="separator:a59e548454d98f6d4b82013eeb75799c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0bc01ceec0500fc043c3ee441b7d7a3" id="r_ae0bc01ceec0500fc043c3ee441b7d7a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae0bc01ceec0500fc043c3ee441b7d7a3">clear_stop_reason</a> (int id)</td></tr>
 <tr class="separator:ae0bc01ceec0500fc043c3ee441b7d7a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -196,6 +195,8 @@ Functions</h2></td></tr>
 <tr class="memitem:ab59378074697cddbf88e13af44386b02" id="r_ab59378074697cddbf88e13af44386b02"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab59378074697cddbf88e13af44386b02">get_change_to_unpress</a> (int id)</td></tr>
 <tr class="memdesc:ab59378074697cddbf88e13af44386b02"><td class="mdescLeft">&#160;</td><td class="mdescRight">state varibale to handle race condtion in the station button press  <br /></td></tr>
 <tr class="separator:ab59378074697cddbf88e13af44386b02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b77af98a5b2aa5bc74f8991e5aa352d" id="r_a7b77af98a5b2aa5bc74f8991e5aa352d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b77af98a5b2aa5bc74f8991e5aa352d">is_station_active</a> (int)</td></tr>
+<tr class="separator:a7b77af98a5b2aa5bc74f8991e5aa352d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="ae0bc01ceec0500fc043c3ee441b7d7a3" name="ae0bc01ceec0500fc043c3ee441b7d7a3"></a>
@@ -563,6 +564,23 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a7b77af98a5b2aa5bc74f8991e5aa352d" name="a7b77af98a5b2aa5bc74f8991e5aa352d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b77af98a5b2aa5bc74f8991e5aa352d">&#9670;&#160;</a></span>is_station_active()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int is_station_active </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>id</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a58a570d72f4dee63578eeded9ed2c567" name="a58a570d72f4dee63578eeded9ed2c567"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a58a570d72f4dee63578eeded9ed2c567">&#9670;&#160;</a></span>manage_blink()</h2>
 
@@ -578,8 +596,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>turn on/off led in blink state </p>
-<p>Created 10/21/2023 </p><dl class="section note"><dt>Note</dt><dd><br  />
+<p>checks when ever the button is clied and manage the blick states </p>
+<p>Created 01/23/26 </p><dl class="section note"><dt>Note</dt><dd><br  />
  </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -605,17 +623,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>checks when ever the button is clied and manage the blick states </p>
-<p>Created 01/23/26 </p><dl class="section note"><dt>Note</dt><dd><br  />
- </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">&lt;br&gt;</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 </div>
 </div>

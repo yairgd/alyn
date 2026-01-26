@@ -76,12 +76,14 @@ void start_blink(int id, int freq, double blink_time) {
 	model.stations[id].blink.stop_reson = 0;
 	model.stations[id].blink.start_blink_ts = timing_begin_to_measure_time();
 	model.stations[id].change_to_unpress = 0;
+	model.stations[id].station_active = 1; 	
+	
 	
 } 
 
 
 void stop_blink(int id) {
-	model.stations[id].blink.active = 0; 	
+	model.stations[id].station_active = 0; 	
 
 }
 
@@ -98,6 +100,13 @@ int is_blink(int id) {
 	return model.stations[CHECK_ID(id)].blink.active;
 }
 
+int is_station_active(int id) {
+	
+	return model.stations[CHECK_ID(id)].station_active;
+}
+
+
+
 
 /**
  * Created  01/23/26
@@ -106,22 +115,32 @@ int is_blink(int id) {
  * @param   
  * @return  
  */
-void manage_stop_blink(int id) {
-	if (model.stations[CHECK_ID(id)].blink.active && timing_elapse(model.stations[CHECK_ID(id)].blink.start_blink_ts, model.stations[CHECK_ID(id)].blink.max_blink_time)) { 
-		// blinking timeout
+void manage_blink(int id) {
+	double blink_timeout = 1.0 / model.stations[CHECK_ID(id)].blink.freq;
+
+	if (! model.stations[CHECK_ID(id)].station_active) return ;
+
+	if ( timing_elapse(model.stations[CHECK_ID(id)].blink.start_blink_ts, model.stations[CHECK_ID(id)].blink.max_blink_time)) { 
+		// blinking timeout - the led shoud b be on till it is clicked
 		model.stations[CHECK_ID(id)].blink.active = 0;
-		model.stations[CHECK_ID(id)].blink.stop_reson = 2; // time out
+		model.stations[id].blink.state =1; 
+	} else {
+		// blink time, toogle the led 
+		if (is_blink(id) && timing_elapse(model.stations[CHECK_ID(id)].blink.ts,blink_timeout*1000 ))   {
+			toggle_led(id);					
+		}
 	}
 
-	if (model.stations[CHECK_ID(id)].blink.active && get_button_state(id)   ) { 
-		if (is_connected(id)) {
-			// stop blinking becuse button is pressed
-			model.stations[CHECK_ID(id)].blink.active = 0;
+	if (get_button_state(id)   ) { 
+		// stop blinking becuse button is pressed
+		model.stations[CHECK_ID(id)].station_active = 0;
+		if ( timing_elapse(model.stations[CHECK_ID(id)].blink.start_blink_ts, model.stations[CHECK_ID(id)].blink.max_blink_time)) {
+			model.stations[CHECK_ID(id)].blink.stop_reson = 2; // time out
+		} else {
 			model.stations[CHECK_ID(id)].blink.stop_reson = 1; // button press
 		}
 		set_button_state(id,0);
 	}
-
 	
 }
 
@@ -212,6 +231,7 @@ int get_free_run_delay() {
 
 
 
+#if 0
 /**
  * Created  10/21/2023
  * @brief   turn on/off led in blink state
@@ -220,13 +240,20 @@ int get_free_run_delay() {
  * @return  
  */
 void manage_blink(int id) {
-	double blink_timeout = 1.0 / model.stations[CHECK_ID(id)].blink.freq;
+//	double blink_timeout = 1.0 / model.stations[CHECK_ID(id)].blink.freq;
 	manage_stop_blink(id);
-	if ( is_blink(id) &&timing_elapse(model.stations[CHECK_ID(id)].blink.ts, blink_timeout * 1000) ) {
-		toggle_led(id);			
-	}
-}
 
+#if 0
+	if (is_station_active(id)) {
+		if ( ! timing_elapse(model.stations[CHECK_ID(id)].blink.ts, blink_timeout * 1000) ) {
+			if (is_blink(id)) toggle_led(id);			
+		} else {
+			 model.stations[id].blink.active =0;
+		}
+	}
+#endif
+}
+#endif
 
 
 

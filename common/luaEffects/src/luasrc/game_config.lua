@@ -126,7 +126,7 @@ a1=frame.new(rect.new(0,0,64,32),0xff00ff,0x00ff00, 5,1 ,1);
 r = rect.new(8,5,62,15)
 r2 = rect.new(18,17,62,15);
 r3 = rect.new(8,4,62,15)
-p1_0=1;
+p1_0=1
 p2_0=20
 p3_0=30
 s = string.format("%2d:%2d:%2d",p1_0,p2_0,p3_0)
@@ -647,7 +647,7 @@ function play_all(tries, led_duration, game_id)
 	do	
 		--game.clean()
 		plot_leds()
-		print_game_name(1)
+		print_game_name(game_id)
 		game.print (calc_time(finale_time), 1,9,0)
 		game.print (string.format("%d/%d",score,num_of_tries), 34,9,0)
 		a1:render(0)
@@ -686,6 +686,13 @@ do
 			g = math.random(0, 1) == 0 and 0 or 0
 			b = math.random(0, 1) == 0 and 255 or 0
 		end 
+
+		--  only red led works ini station 5
+		if (i==4) then
+			r=255
+			b=0
+			g=0
+		end
 		local packed_color = (r * 65536) + (g * 256) + b
     
     		led_color_array[i] = packed_color

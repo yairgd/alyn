@@ -304,7 +304,7 @@ static int luaB_is_station_blink(lua_State *L) {
 	int id  = (int) luaL_checknumber (L, -1);
 
 	lua_pop (L, 1);
-	lua_pushinteger(L,  is_blink(id));
+	lua_pushinteger(L,  is_station_active(id));
 
 	return 1;
 }

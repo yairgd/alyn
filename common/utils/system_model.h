@@ -48,6 +48,8 @@ extern "C" {
 				unsigned short stop_reson	: 2;  // 0 - not deined , 1 time out , 2 button press
 				double max_blink_time;  		// the system counteer at the press tim
 			} blink;
+			unsigned short station_active	: 1;  // 1 - station is active and wait for press 	
+			
 		} stations[8];
 		unsigned short active_node 			: 3;
 		unsigned short active_game 			: 8;
@@ -108,6 +110,7 @@ extern "C" {
 	void clear_stop_reason (int id) ;	
 	int get_blink_active(int id) ;	
 	int get_change_to_unpress(int id) ;
+	int is_station_active(int);
 
 #ifdef __cplusplus
 

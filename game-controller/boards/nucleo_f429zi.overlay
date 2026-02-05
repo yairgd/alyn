@@ -14,15 +14,15 @@
 	leds {
 		compatible = "gpio-leds";
 		station_led_r: red {
-			gpios = <&gpiob 0 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)>;
+			gpios = <&gpiob 0 (GPIO_ACTIVE_HIGH)>;
 			label = "Red";
 		};
 		station_led_g: green {
-			gpios = <&gpiob 10 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)>;
+			gpios = <&gpiof 13 (GPIO_ACTIVE_HIGH)>;
 			label = "Green";
 		};
 		station_led_b: blue {
-			gpios = <&gpioe 0 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)>;
+			gpios = <&gpioe 0 (GPIO_ACTIVE_HIGH)>;
 			label = "Blue";
 		};
 	};

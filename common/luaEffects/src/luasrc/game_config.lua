@@ -158,6 +158,7 @@ function config()
 	--m1="העדוה"
 	m2="תוריהמ/ןמז"
 	m3="תוציחל"
+	m3_5="תוקד"
 
 
 	game.set_key(0,0)
@@ -222,11 +223,15 @@ function config()
 						state=2;
 					elseif (state==2) then
 						b:config(r, s,6,7,250,250,0)
-						print_string(m3)
+						if (p1==5) then
+							print_string(m3_5)
+						else
+							print_string(m3)		
+						end
 						state=3;
 					elseif (state==3) then
 						b:config(r, s,0,1,250,250,0)
-						print_game_name(p1)
+  						print_game_name(p1)
 						state=1;
 					end
 				end
@@ -242,7 +247,12 @@ function config()
 						state=1;
 					elseif (state==1) then
 						b:config(r, s,6,7,250,250,0)
-						print_string(m3)
+						if (p1==5) then
+							print_string(m3_5)
+						else
+							print_string(m3)	
+						end
+
 						state=3;
 					end
 				end
@@ -633,7 +643,11 @@ function play_all(tries, led_duration, game_id)
 
 			print_game_name(game_id)
 			game.print (calc_time(game.get_timer()), 1,9,0)
-			game.print (string.format("%d/%d",score,num_of_tries), 34,9,0)
+			if (game_id==5) then
+				game.print (string.format(" %d",score), 34,9,0)
+			else
+				game.print (string.format("%d/%d",score,num_of_tries), 34,9,0)
+			end
 
 			a1:render(0)
 			--a2:render(0)	
@@ -649,7 +663,11 @@ function play_all(tries, led_duration, game_id)
 		plot_leds()
 		print_game_name(game_id)
 		game.print (calc_time(finale_time), 1,9,0)
-		game.print (string.format("%d/%d",score,num_of_tries), 34,9,0)
+		if (game_id==5) then
+			game.print (string.format(" %d",score), 34,9,0)
+		else
+			game.print (string.format("%d/%d",score,num_of_tries), 34,9,0)
+		end
 		a1:render(0)
 		render(0) -- render the fireworks
 		game.delay(100000/4);
@@ -683,7 +701,7 @@ do
 		while (r == 0 and b == 0 and g == 0)
 		do
 			r = math.random(0, 1) == 0 and 255 or 0
-			g = math.random(0, 1) == 0 and 0 or 0
+			g = math.random(0, 1) == 0 and 255 or 0
 			b = math.random(0, 1) == 0 and 255 or 0
 		end 
 

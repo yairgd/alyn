@@ -1,0 +1,16 @@
+name: Simple Self-Hosted Run
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Run simple command
+        run: echo "Hello from self-hosted runner"

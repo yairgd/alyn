@@ -1,15 +1,52 @@
 # Alyn
 
-Developing an immersive game for children with special needs set in a pool environment is a multifaceted endeavor that requires a comprehensive approach encompassing hardware integration, software development, and a keen understanding of the unique requirements of the target audience. This project aims to leverage cutting-edge technology, including the STM32 microcontroller unit (MCU), ZephyrOS, and Lua scripting, to create a captivating and accessible gaming experience.
+The Alyn project is an embedded system designed to create an immersive, interactive game for children with special needs in a pool environment.
+
+The system combines hardware and software to deliver a safe and engaging experience, where participants interact with illuminated LEDs placed underwater. The game encourages movement, coordination, and sensory engagement by requiring the player to swim between LEDs and deactivate them.
+
+From a technical perspective, the project integrates multiple layers:
+- **Embedded hardware** based on an STM32 MCU (Nucleo platform)
+- **Real-time software** running on Zephyr RTOS
+- **Flexible game logic** powered by Lua scripting for easy customization
+
+This combination enables a configurable and adaptable system, allowing different game modes, timing configurations, and interaction patterns to be tailored to both therapeutic and gameplay requirements
+
+---
+
+## 🎬 Demo Video
+
+This video demonstrates how the Alyn system operates in practice, including the user interface and gameplay flow.
+
+The demo shows the different game screens, starting with the **configuration screen**, where key parameters can be defined:
+- **Game type**
+- **Game duration** (or alternatively, the number of LED blinks before shutdown)
+- **Number of required LED presses**
+
+The gameplay is designed for an **underwater environment**, specifically for children with special needs. During the game, the participant swims between illuminated LEDs, pressing each one to turn it off. This encourages movement, coordination, and engagement in a fun and interactive way.
+
+The system runs on an **STM32 Nucleo platform**, powered by **Zephyr RTOS**, and supports flexible configuration of game behavior.
+
+Watch the full demonstration here:
+
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=bGSW_Ph50ew">
+    <img src="https://img.youtube.com/vi/bGSW_Ph50ew/0.jpg" alt="Demo Video" width="600"/>
+  </a>
+</p>
+
+---
 
 ## Hardware Integration with STM32 MCU
 The STM32 MCU serves as the central nervous system of the gaming system, providing the necessary processing power and connectivity to interact with various peripherals. Through its versatile GPIO pins, UART, SPI, and I2C interfaces, the STM32 MCU seamlessly interfaces with components such as a screen display, keyboard, and LED integration.
 The choice of STM32 MCU is strategic due to its reliability, efficiency, and widespread adoption in embedded systems development. Its low-power consumption and robust performance make it ideal for powering portable gaming devices tailored for children with special needs. By harnessing the capabilities of the STM32 MCU, developers can ensure optimal performance and responsiveness, crucial for delivering an engaging gaming experience.
 
+---
 ## Operating System Support with ZephyrOS
 ZephyrOS, an open-source real-time operating system, serves as the software foundation for the gaming platform. With its modular architecture and extensive device support, ZephyrOS provides a conducive environment for developing embedded applications with stringent performance requirements.
 One of the key advantages of ZephyrOS is its scalability, allowing developers to tailor the operating system to suit the specific needs of the gaming platform. By leveraging ZephyrOS's rich set of features, including preemptive multitasking, device drivers, and networking protocols, developers can focus on implementing game logic and user interactions without being encumbered by low-level system concerns.
 Additionally, ZephyrOS offers robust support for debugging and testing, essential for ensuring the reliability and stability of the gaming platform. Through its integrated development environment (IDE) and comprehensive documentation, developers can streamline the development process and expedite time-to-market for the immersive game.
+
+---
 
 ## Scripting Capabilities with Lua Engine
 To empower users with greater control over the gaming experience, the project incorporates a Lua engine for scripting game logic and interactions. Lua's lightweight and flexible nature make it an ideal choice for embedding scripting capabilities into the gaming platform, enabling users to customize gameplay elements to suit their preferences and abilities.

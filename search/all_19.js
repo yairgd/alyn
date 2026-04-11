@@ -75,7 +75,7 @@ var searchData=
   ['upvalues_72',['upvalues',['../structProto.html#a028070514796b4accbd99c59e6b83930',1,'Proto']]],
   ['usage_73',['usage',['../luac_8c.html#a84bceac26a8794d42d22ce68a71d3163',1,'luac.c']]],
   ['usec_5fper_5fsec_74',['USEC_PER_SEC',['../common_2hal_2linux_2timing_8c.html#a6a69d6cbdab5f24c2e66959293f210c1',1,'USEC_PER_SEC:&#160;timing.c'],['../common_2hal_2windows_2timing_8c.html#a6a69d6cbdab5f24c2e66959293f210c1',1,'USEC_PER_SEC:&#160;timing.c']]],
-  ['using_20openocd_75',['Using openocd',['../md_README.html#autotoc_md6',1,'']]],
+  ['using_20openocd_75',['Using openocd',['../md_README.html#autotoc_md11',1,'']]],
   ['using_5fuart_5fshell_76',['USING_UART_SHELL',['../parser__task_8cpp.html#aec6195a039b8961224289c6772e2ce61',1,'parser_task.cpp']]],
   ['utf8_5fdecode_77',['utf8_decode',['../lutf8lib_8c.html#ab61851ae0ef670bab6ec457d100ff4f6',1,'lutf8lib.c']]],
   ['utf8buffsz_78',['UTF8BUFFSZ',['../group__LuaSrc.html#gae0741e99030a23e3c24b0eb828fbbe4b',1,'lobject.h']]],

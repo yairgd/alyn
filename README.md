@@ -28,11 +28,10 @@ The system runs on an **STM32 Nucleo platform**, powered by **Zephyr RTOS**, and
 
 Watch the full demonstration here:
 
-<p align="center">
-  <a href="https://www.youtube.com/watch?v=bGSW_Ph50ew">
-    <img src="https://img.youtube.com/vi/bGSW_Ph50ew/0.jpg" alt="Demo Video" width="600"/>
-  </a>
-</p>
+<video src="https://github.com/user-attachments/assets/7393b858-e661-44b1-af7e-dbc5d4beef3b" autoplay loop muted playsinline width="100%"></video>
+
+<video src="https://github.com/user-attachments/assets/8c19e718-b8e6-4aec-9531-b5ccfbf1cde7" autoplay loop muted playsinline width="100%"></video>
+
 
 ---
 

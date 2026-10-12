@@ -38,11 +38,14 @@ func (m *MatrixWidget) Draw(c termforge.Canvas) {
 	if c.W() >= 2*sim.MatrixW {
 		dx = 2 // square-ish pixels when there is room
 	}
+	// centre the canvas in the pane
+	ox := max(0, (c.W()-sim.MatrixW*dx)/2)
+	oy := max(0, (c.H()-sim.MatrixH/2)/2)
 	for cy := 0; cy < sim.MatrixH/2; cy++ {
 		for x := 0; x < sim.MatrixW; x++ {
 			st := tcell.StyleDefault.Foreground(m.pixel(x, 2*cy)).Background(m.pixel(x, 2*cy+1))
 			for k := 0; k < dx; k++ {
-				c.SetContent(x*dx+k, cy, '▀', st)
+				c.SetContent(ox+x*dx+k, oy+cy, '▀', st)
 			}
 		}
 	}

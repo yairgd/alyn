@@ -26,15 +26,17 @@ git -C /home/yair/tui/termforge add label.go label_test.go
 git -C /home/yair/tui/termforge commit -m "feat(label): add clickable Label"
 - 2026-10-12: help window (`:help`, `?`, F1) + About text. Verified in tmux: opens, PgDn reaches About, q closes, quit clean.
 
+- 2026-10-12: moved into the alyn repo; `ALYN_ROOT` defaults to the repo root (uses `common/` + its lua-5.4.6 in place). README section added.
+- 2026-10-12: matrix centred in its pane; stations pane got a clickable MCU key pad and a `[P]` button per LED
+  (Qt semantics: act on release, hold >= 500 ms = long; letters = their arrow); 1-8 share `PressStation`; app starts in normal mode.
+  Verified: `task check`, tmux render, pty clicks. Found: only `game_config.lua` reads keys; `set_long_key` bug in common (not fixed).
+
 ## Open issues / decisions
 - (superseded) first design was a separate alyn-mcu process + PTY. Now in-process via cgo, USE_GUI_CONSOLE ON.
 - Real RGB (no Qt R/B swap).
 
 ## Suggested commits
-cd /home/yair/tui/alyn-go && git init   # not a repo yet
-git add .gitignore Taskfile.yml go.mod go.sum cmd internal native/CMakeLists.txt native/src
-git commit -m "feat: alyn-go TUI with native alyn-mcu"
-(CLAUDE.md and claude-docs/ stay local if this becomes a public repo; ask which.)
+alyn-go now lives in the alyn repo (`git add README.md alyn-go` from the repo root; bin/, lib/, native/build/ are ignored).
 
 ## Next
 All phases done. Ideas: README/docs, Go test for app wiring, drive the real board over serial.

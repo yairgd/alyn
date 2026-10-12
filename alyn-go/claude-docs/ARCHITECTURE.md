@@ -37,11 +37,37 @@ bin/alyn  (Go, termforge)
   copy of gdbforge's Lua console pattern with a dynamic prompt so `>>` continuation lines work).
 - The `WidgetTree` must be wrapped in a `TabWidget` before `AddWidget`, else nothing is drawn.
 
+## Lua integration (how Go reaches Lua)
+- Lua 5.4.6 is the patched copy in `common/luaEffects/lua-5.4.6`, built as `liblua.a`. `linit.c` opens the extra `game`
+  library (`common/luaEffects/src/lgamelib.c`: `game.plot/blink/keys/...`). `CONFIG_LUA_GAME_LIB` renames `main` to `lua_main`.
+- Output: `lauxlib.h` maps `lua_writestring/lua_writestringerror` to `write_line/write_format_line`, defined in
+  `native/src/console.c` (not in Lua). They write `kind u8 | len u32 LE | bytes` chunks to a pipe; `sim.console()` reads it
+  and posts `sim.Output` / `sim.Prompt` to the UI thread (`App.PostInterrupt` -> `HandleInterrupt`).
+- Input: `lua.c` `lua_readline` -> `readline(prompt)` (console.c) writes the prompt chunk and blocks on a condition;
+  `ConsoleWidget.submit` -> `sim.SendLine` -> `console_send_line` wakes it. `sim.ConsoleEOF` ends `lua_main`.
+- Games: `.lua` files are embedded by `luac` + `lua_fw_to_c.py` (`luasrc.h`). `sim_game_start(idx)` / `sim_game_start_source`
+  (`:load`) run them on a pthread with their own `lua_State` (`game_main`); the REPL is a second state on a locked OS thread.
+- Frames: a Go ticker (25 ms) calls `C.sim_frame`; keys/buttons/connect call `sim_key/sim_button/sim_connect`.
+- cgo: each `C.f()` becomes a generated `_Cfunc_f` wrapper + C stub (`_cgo_runtime_cgocall`); no C -> Go callbacks.
+- The console widget is termforge `CompositeTerminal` -> `TerminalController` -> `xterm-go` (`gitpod-io/xterm-go`,
+  indirect dependency): output via `WriteRaw`, local echo via `SetInputHandler`, the typed line is read back from the screen buffer.
+
+## Stations pane (`internal/ui/stations.go`)
+```
+ 1 ● [P]        K        row: " n ●" toggles connected (press), [P] presses the station button
+ 2 ● [P]        ↑        pad: K/↑ up, H/← left, [O] ok, →/L right, ↓/J down
+ 3 ● [P]  H  ← [O] →  L  each key is a termforge.Label; click = press, hold >= 500 ms = long press
+```
+`NewStationsWidget(onToggle, onKey, onPress)`. `Click(x,y)` (press) records the pad key / `[P]` under the pointer and the time;
+`Release(x,y)` fires (`onKey(id, held>=500ms)`, `PressStation(i)` if released on the same `[P]`). `[P]` shows
+white-on-black for 200 ms after firing. The matrix is centred in its pane (`MatrixWidget.Draw`).
+
 ## Input
 The app starts in normal mode. The console takes keys only in insert mode (`i`) (Lua uses `:`); `Esc` -> normal. Normal mode: arrows/Enter =
 MCU keys 1,4,2,3,0 (up, down, left, right, ok); `K J H L O` = long presses; `1`-`8` = station buttons;
-`C-w j/k` focus. Mouse: click focuses a pane or toggles a station; drag a separator to resize (matrix rescales);
-wheel and drag-select work in the console. `App.HandleMouse` tracks `mouseDown` so a drag is not a new press.
+`C-w j/k` focus. Mouse: click focuses a pane, starts a game, toggles a station, presses a pad key / `[P]`; drag a separator to
+resize (matrix rescales); wheel and drag-select work in the console. `App.HandleMouse` tracks `mouseDown` so a drag is not a new
+press and sends `stations.Release` on button-up.
 Help: `:help`, `?` (normal mode) or F1 opens a floating window (`ui.HelpOverlay`, copy of the termforge demo's, which is internal) with keys, mouse, commands and a short About at the end; it owns keyboard and pointer while open. Text is `helpLines` in `internal/app/help.go`.
 Commands: `:games` (list, running one marked `*`), `:start <game|n>`, `:stop`, `:load <file.lua>`, `:connect <1-8> [on|off]`,
 `:restart` (stop game, new Lua state), `:quit`.

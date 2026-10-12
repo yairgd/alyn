@@ -1,0 +1,63 @@
+# go-task runner: https://taskfile.dev
+version: '3'
+
+vars:
+  BIN_DIR: bin
+  NATIVE_DIR: native
+  BUILD_TYPE: '{{.BUILD_TYPE | default "Debug"}}'
+  NATIVE_BUILD: 'native/build/{{.BUILD_TYPE}}'
+
+tasks:
+  default:
+    desc: Build the MCU C libs (CMake) and the alyn TUI (cgo) into bin/
+    cmds:
+      - task: build
+
+  build:
+    desc: Build the C libs into lib/ and the Go TUI into bin/
+    deps: [native:build]
+    cmds:
+      - go build ./...
+      - mkdir -p {{.BIN_DIR}}
+      - go build -o {{.BIN_DIR}}/alyn ./cmd/alyn
+
+  native:configure:
+    desc: Configure the MCU C libraries CMake build (common/ is used in place from ALYN_ROOT)
+    status:
+      - test -f '{{.NATIVE_BUILD}}/Makefile'
+    cmds:
+      - >-
+        cmake -S {{.NATIVE_DIR}} -B {{.NATIVE_BUILD}}
+        -DCMAKE_BUILD_TYPE={{.BUILD_TYPE}}
+        -DCMAKE_INSTALL_PREFIX={{.ROOT_DIR}}
+
+  native:build:
+    desc: Build the static libs cgo links (alyn_sim + alyn common/) and install them into lib/
+    deps: [native:configure]
+    cmds:
+      - cmake --build {{.NATIVE_BUILD}} --parallel
+      - cmake --install {{.NATIVE_BUILD}}
+
+  run:
+    desc: Run the TUI
+    deps: [build]
+    cmds:
+      - '{{.BIN_DIR}}/alyn'
+
+  test:
+    desc: Go tests
+    cmds:
+      - go test ./cmd/... ./internal/...
+
+  check:
+    desc: build + vet + test + gofmt
+    cmds:
+      - task: build
+      - go vet ./...
+      - task: test
+      - test -z "$(gofmt -l cmd internal)"
+
+  clean:
+    desc: Remove build output
+    cmds:
+      - rm -rf {{.BIN_DIR}} lib {{.NATIVE_BUILD}}

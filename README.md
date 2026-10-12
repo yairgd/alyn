@@ -54,6 +54,25 @@ By exposing a rich set of Lua APIs for interacting with the game world, develope
 Furthermore, Lua's simplicity and ease of use make it accessible to developers of all skill levels, facilitating rapid prototyping and iteration. Whether implementing complex game mechanics or fine-tuning visual effects, Lua provides a versatile and expressive scripting language that empowers developers to bring their creative vision to life.
 
 
+## alyn-go: terminal LED simulator
+
+`alyn-go/` is a terminal (TUI) replacement for the Qt LED matrix simulator in `game-pc/led_matrix_simulator`.
+It is a single Go process (built on [termforge](https://github.com/yairgd/termforge)) that links the same MCU C code
+from `common/` (effects, HAL, Lua 5.4.6 engine) through cgo, so games behave as on the device. It shows the LED matrix
+and the 8 station LEDs, a game list, and the Lua console (REPL). Click a game to start it, click a station LED to press
+its button, or use `:load file.lua` / `:restart`; press `?` for help and `Ctrl-D` to quit.
+
+Requirements: Go, CMake, a C/C++ compiler, Python 3, and [go-task](https://taskfile.dev).
+
+```bash
+cd alyn-go
+task build     # CMake builds the C libs from ../common into lib/, then Go builds bin/alyn
+task run       # build + start the TUI (or run ./bin/alyn directly)
+task check     # build + vet + tests + gofmt
+```
+
+---
+
 ## Install the SW development ennviroment
 * setup zephyr local path
 ```bash

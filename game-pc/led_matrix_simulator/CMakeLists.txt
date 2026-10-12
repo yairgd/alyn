@@ -25,41 +25,41 @@ add_executable(led-screen-sim
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" )
 	set(qt_libs 
-		Qt5::Widgets
-		Qt5::Core
-		Qt5::Gui
+		Qt6::Widgets
+		Qt6::Core
+		Qt6::Gui
 		pthread
 		readline
 	)
-	find_package(Qt5 COMPONENTS Widgets Concurrent CONFIG REQUIRED)
-	find_package(Qt5 COMPONENTS Gui Concurrent CONFIG REQUIRED)
-	find_package(Qt5 COMPONENTS Core Concurrent CONFIG REQUIRED)
+	find_package(Qt6 COMPONENTS Widgets Concurrent CONFIG REQUIRED)
+	find_package(Qt6 COMPONENTS Gui Concurrent CONFIG REQUIRED)
+	find_package(Qt6 COMPONENTS Core Concurrent CONFIG REQUIRED)
 
 elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC" )
-	set (Qt5_DIR "C:/Users/gadely2/vcpkg/installed/x64-windows//share/cmake/Qt5/")
-	find_package(Qt5 COMPONENTS Widgets Concurrent CONFIG REQUIRED)
-	find_package(Qt5 COMPONENTS Gui Concurrent CONFIG REQUIRED)
-	find_package(Qt5 COMPONENTS Core Concurrent CONFIG REQUIRED)
+	set (Qt6_DIR "C:/Users/gadely2/vcpkg/installed/x64-windows//share/cmake/Qt6/")
+	find_package(Qt6 COMPONENTS Widgets Concurrent CONFIG REQUIRED)
+	find_package(Qt6 COMPONENTS Gui Concurrent CONFIG REQUIRED)
+	find_package(Qt6 COMPONENTS Core Concurrent CONFIG REQUIRED)
 
-	if (Qt5Widgets_FOUND)
-		message(STATUS "Qt5Widgets found: ${Qt5Widgets_INCLUDE_DIRS}")
+	if (Qt6Widgets_FOUND)
+		message(STATUS "Qt6Widgets found: ${Qt6Widgets_INCLUDE_DIRS}")
 	else()
-		message(WARNING "Qt5Widgets not found")
+		message(WARNING "Qt6Widgets not found")
 	endif()
 
 	message(!!!!!!!!!!!!!!!!!! ${VCPKG_DIR} Info)
 
-	# this file list shoud ebded wih d - like Qt5Guid.lib for debug, the path to debug libraries shoud be added
+	# this file list shoud ebded wih d - like Qt6Guid.lib for debug, the path to debug libraries shoud be added
 	set (qt_libs
-		Qt5Gui.lib
-		Qt5Core.lib
-		Qt5Widgets.lib
+		Qt6Gui.lib
+		Qt6Core.lib
+		Qt6Widgets.lib
 		readline
 	)
 	
 	target_include_directories(led-screen-sim  PRIVATE
 		..
-		${Qt5Widgets_INCLUDE_DIRS}
+		${Qt6Widgets_INCLUDE_DIRS}
 	)
 endif()
 
@@ -85,14 +85,14 @@ endif()
 
 
 if(TARGET led-screen-sim AND MSVC)
-    set(QT_DLL_DIR "${Qt5_DIR}/../../../bin") # Path to the Qt DLLs within the vcpkg installation
+    set(QT_DLL_DIR "${Qt6_DIR}/../../../bin") # Path to the Qt DLLs within the vcpkg installation
 	set(DLL_DEST_DIR $<TARGET_FILE_DIR:led-screen-sim>)
 
     add_custom_command(TARGET led-screen-sim POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
-            "${QT_DLL_DIR}/Qt5Core.dll"
-            "${QT_DLL_DIR}/Qt5Gui.dll"
-            "${QT_DLL_DIR}/Qt5Widgets.dll"
+            "${QT_DLL_DIR}/Qt6Core.dll"
+            "${QT_DLL_DIR}/Qt6Gui.dll"
+            "${QT_DLL_DIR}/Qt6Widgets.dll"
             ${DLL_DEST_DIR}
     )
 

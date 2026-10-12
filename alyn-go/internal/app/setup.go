@@ -24,7 +24,7 @@ func (a *App) Init() error {
 
 	a.stations = ui.NewStationsWidget(func(i int, on bool) {
 		sim.Connect(i, on)
-	})
+	}, a.key, sim.Button)
 
 	a.gameList = ui.NewGamesWidget()
 	a.games = sim.Games()
@@ -74,8 +74,6 @@ func (a *App) Init() error {
 
 	sim.Init(a.PostInterrupt)
 	a.startConsole()
-	// the console is the only pane: type into it right away
-	a.tree.SetInsertActive(true)
-	a.SetMode(platform.ModeInsert)
+	// normal mode: the MCU keys and 1-8 work at once; 'i' types into the Lua console
 	return nil
 }

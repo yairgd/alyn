@@ -35,7 +35,7 @@ func (a *App) InitKeyBindings() {
 	for i := 0; i < 8; i++ {
 		i := i
 		a.keyBindings.Bind(commands.NewCommand("button", func(args ...any) {
-			sim.Button(i)
+			a.stations.PressStation(i)
 		}), string(rune('1'+i)))
 	}
 	a.keyBindings.Bind(commands.NewCommand("help", a.OnHelp), "?", "<F1>")

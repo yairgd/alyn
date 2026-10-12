@@ -32,13 +32,13 @@ bin/alyn  (Go, termforge)
   The test (`go test ./internal/sim`) drives REPL, keys, `Load`, `Stop`, `Connect` end to end.
 - `internal/app`: tradedeck-style app. `console.go` starts/restarts the REPL goroutine; `HandleInterrupt` routes
   the messages to the widgets (UI thread only).
-- `internal/ui`: `MatrixWidget` (`▀` half blocks, real RGB), `StationsWidget` (8 LEDs; the app routes
+- `internal/ui`: `MatrixWidget` (`▀` half blocks, real RGB), `StationsWidget` (8 LEDs + a clickable MCU key pad of `termforge.Label`s; the app routes
   the click because `WidgetTree` consumes presses), `GamesWidget` (one `termforge.Label` per game, painted at full size into a canvas with `WithOrigin(view.Origin)` and a `RectViewport`; wheel pans, click on a label starts the game, the app routes the press like stations), `ConsoleWidget` (xterm view, local echo, no PTY;
   copy of gdbforge's Lua console pattern with a dynamic prompt so `>>` continuation lines work).
 - The `WidgetTree` must be wrapped in a `TabWidget` before `AddWidget`, else nothing is drawn.
 
 ## Input
-Console takes keys only in insert mode (Lua uses `:`); `Esc` -> normal. Normal mode: arrows/Enter =
+The app starts in normal mode. The console takes keys only in insert mode (`i`) (Lua uses `:`); `Esc` -> normal. Normal mode: arrows/Enter =
 MCU keys 1,4,2,3,0 (up, down, left, right, ok); `K J H L O` = long presses; `1`-`8` = station buttons;
 `C-w j/k` focus. Mouse: click focuses a pane or toggles a station; drag a separator to resize (matrix rescales);
 wheel and drag-select work in the console. `App.HandleMouse` tracks `mouseDown` so a drag is not a new press.

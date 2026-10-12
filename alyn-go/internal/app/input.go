@@ -15,6 +15,9 @@ func (a *App) HandleMouse(ev *tcell.EventMouse) {
 	primary := ev.Buttons()&tcell.ButtonPrimary != 0
 	// A held button is a drag (separator resize, text selection), not a new press.
 	press := primary && !a.mouseDown
+	if !primary && a.mouseDown {
+		a.stations.Release(x, y)
+	}
 	a.mouseDown = primary
 	if a.helpMouse(ev, press) {
 		return

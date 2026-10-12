@@ -12,7 +12,7 @@ const (
 )
 
 var helpLines = []string{
-	"Keys (normal mode; Esc leaves insert mode)",
+	"Keys (normal mode, the default; Esc leaves insert mode)",
 	"  i              type into the Lua console (insert mode)",
 	"  :              command line",
 	"  Arrows, Enter  MCU keys: up, down, left, right, ok",
@@ -24,7 +24,8 @@ var helpLines = []string{
 	"",
 	"Mouse",
 	"  click a game name     start that game",
-	"  click a station LED   toggle connected",
+	"  click a station LED   toggle connected; [P] = its button",
+	"  click a pad key       MCU key; hold 0.5 s = long press",
 	"  drag a separator      resize the panes",
 	"  wheel                 scroll the games list or the console",
 	"",

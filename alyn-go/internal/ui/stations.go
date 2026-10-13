@@ -31,7 +31,12 @@ type StationsWidget struct {
 	downAt              time.Time // when the press began
 	now                 func() time.Time
 	flashUntil          [sim.Stations]time.Time // [P] shown pressed until then
+	pan                 termforge.Point         // content cell shown at the pane's top-left
+	pane                termforge.Rect          // screen rect of the pane at the last Draw
 }
+
+// contentH is the full height of the stations content (LED rows, pad and hint lines).
+const contentH = sim.Stations + 2
 
 // longPress is the Qt ArrawKey threshold: a key held this long (press to release) is a long
 // press, shorter is a normal press.
@@ -94,13 +99,34 @@ func NewStationsWidget(onToggle func(station int, on bool), onKey func(id int, l
 // SetFrame runs on the UI thread.
 func (s *StationsWidget) SetFrame(f sim.Frame) { s.st = f.Stations }
 
-func (s *StationsWidget) HandleEvent(tcell.Event) {}
+// ScrollBy moves the content up (negative) or down by n rows, clamped to the pane.
+func (s *StationsWidget) ScrollBy(n int) {
+	s.pan.Y = max(0, min(s.pan.Y+n, contentH-s.pane.H()))
+}
+
+// The wheel scrolls the content; every hit rect (LED rows, [P], pad) is taken from the scrolled
+// Draw, so clicks follow it.
+func (s *StationsWidget) HandleEvent(ev tcell.Event) {
+	m, ok := ev.(*tcell.EventMouse)
+	if !ok {
+		return
+	}
+	switch b := m.Buttons(); {
+	case b&tcell.WheelUp != 0:
+		s.ScrollBy(-1)
+	case b&tcell.WheelDown != 0:
+		s.ScrollBy(1)
+	}
+}
 
 // Click handles a primary press at screen point (x, y); the app calls it (the tree consumes
 // presses for focus, so the widget never sees them). A LED toggles connected at once, as in Qt;
 // the pad keys and [P] buttons only note the press, Release acts.
 func (s *StationsWidget) Click(x, y int) {
 	s.downKey, s.downStation = -1, -1
+	if !s.pane.Contains(x, y) {
+		return // a row scrolled out of the pane can still hold its old rect
+	}
 	for _, l := range s.press {
 		if l.Click(x, y) {
 			return
@@ -123,7 +149,7 @@ func (s *StationsWidget) Release(x, y int) {
 	if s.downKey >= 0 {
 		s.onKey(s.downKey, s.now().Sub(s.downAt) >= longPress)
 	}
-	if i := s.downStation; i >= 0 && s.press[i].Rect().Contains(x, y) {
+	if i := s.downStation; i >= 0 && s.pane.Contains(x, y) && s.press[i].Rect().Contains(x, y) {
 		s.PressStation(i)
 	}
 	s.downKey, s.downStation = -1, -1
@@ -137,6 +163,9 @@ func (s *StationsWidget) PressStation(i int) {
 }
 
 func (s *StationsWidget) Draw(c termforge.Canvas) {
+	s.pane = c.Rect()
+	s.ScrollBy(0)                              // re-clamp after a resize
+	c = c.WithRect(c.Rect()).WithOrigin(s.pan) // pane is the clip before the origin moves
 	s.originX, s.originY, s.w = c.ScreenX(0), c.ScreenY(0), c.W()
 	for i, st := range s.st {
 		color := tcell.NewRGBColor(int32(st.R), int32(st.G), int32(st.B))

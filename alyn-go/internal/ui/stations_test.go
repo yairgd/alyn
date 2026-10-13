@@ -4,6 +4,8 @@ import (
 	"testing"
 	"time"
 
+	tcell "github.com/gdamore/tcell/v2"
+
 	"github.com/yairgd/termforge"
 )
 
@@ -21,7 +23,7 @@ func TestPadPressRelease(t *testing.T) {
 		func(i int) { pressed = append(pressed, i) })
 	clock := time.Unix(0, 0)
 	s.now = func() time.Time { return clock }
-	s.Draw(*termforge.NewCanvas(termforge.NewGrid(60, 12)))
+	s.Draw(termforge.NewCanvas(termforge.NewGrid(60, 12)).WithRect(termforge.NewRect(0, 0, 60, 12)))
 	px := ledCols + 4 // pad origin; each key is 3 cells wide, +1 is its centre
 
 	click := func(x, y int, hold time.Duration) {
@@ -62,12 +64,12 @@ func TestPadPressRelease(t *testing.T) {
 	s.Release(0, 0)
 	s.Click(1, 5)     // LED part of station 6 toggles connected on press
 	s.PressStation(7) // keyboard 8: same as a click on [P]
-	s.Draw(*termforge.NewCanvas(termforge.NewGrid(60, 12)))
+	s.Draw(termforge.NewCanvas(termforge.NewGrid(60, 12)).WithRect(termforge.NewRect(0, 0, 60, 12)))
 	if !s.press[7].Selected {
 		t.Fatal("[P] not shown pressed")
 	}
 	clock = clock.Add(flashFor)
-	s.Draw(*termforge.NewCanvas(termforge.NewGrid(60, 12)))
+	s.Draw(termforge.NewCanvas(termforge.NewGrid(60, 12)).WithRect(termforge.NewRect(0, 0, 60, 12)))
 	if s.press[7].Selected {
 		t.Fatal("[P] flash did not end")
 	}
@@ -77,5 +79,19 @@ func TestPadPressRelease(t *testing.T) {
 	pressed = pressed[:1]
 	if len(pressed) != 1 || pressed[0] != 2 || len(toggled) != 1 || toggled[0] != 5 {
 		t.Fatalf("pressed %v toggled %v", pressed, toggled)
+	}
+}
+
+func TestStationsWheelScroll(t *testing.T) {
+	var toggled []int
+	s := NewStationsWidget(func(i int, _ bool) { toggled = append(toggled, i) }, nil, nil)
+	c := termforge.NewCanvas(termforge.NewGrid(60, 5)).WithRect(termforge.NewRect(0, 0, 60, 5))
+	s.Draw(c)
+	s.HandleEvent(tcell.NewEventMouse(2, 2, tcell.WheelDown, 0))
+	s.HandleEvent(tcell.NewEventMouse(2, 2, tcell.WheelDown, 0))
+	s.Draw(c)
+	s.Click(1, 0) // row 2 (station 3) is now at the top
+	if len(toggled) != 1 || toggled[0] != 2 {
+		t.Fatalf("toggled %v, want [2]", toggled)
 	}
 }

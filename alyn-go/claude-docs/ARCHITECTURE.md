@@ -1,5 +1,9 @@
 # alyn-go architecture
 
+Summary: a terminal LED simulator, equivalent to the Qt one in `game-pc/led_matrix_simulator`. One Go process links the
+repo's MCU C code and Lua 5.4.6 (cgo), shows the 64x32 matrix, 8 station LEDs with `[P]` buttons, a clickable MCU key pad,
+a game list and the Lua REPL. Sections: Native, Go, Lua integration, Stations pane, Input, Limits.
+
 One Go process. The alyn MCU C code (`common/`) is linked in as static libraries through cgo,
 the way the Qt simulator linked it into its own process:
 
@@ -9,6 +13,8 @@ bin/alyn  (Go, termforge)
                           luaEffects_static, effects_static, Hal   (lib/, built from alyn common/)
      C threads: tick (25 ms), game (Lua), REPL (lua_main on a locked OS thread)
 ```
+
+Location: `alyn/alyn-go/` inside the alyn repo; it uses the repo's `common/` (and `common/luaEffects/lua-5.4.6`) in place.
 
 ## Native (`native/`)
 - `CMakeLists.txt` sets what alyn's top-level CMake provides (`TARGET=LINUX_PC`, `LUAC_PATH`, ...), then
@@ -32,7 +38,7 @@ bin/alyn  (Go, termforge)
   The test (`go test ./internal/sim`) drives REPL, keys, `Load`, `Stop`, `Connect` end to end.
 - `internal/app`: tradedeck-style app. `console.go` starts/restarts the REPL goroutine; `HandleInterrupt` routes
   the messages to the widgets (UI thread only).
-- `internal/ui`: `MatrixWidget` (`▀` half blocks, real RGB), `StationsWidget` (8 LEDs + a clickable MCU key pad of `termforge.Label`s; the app routes
+- `internal/ui`: `MatrixWidget` (`▀` half blocks, real RGB), `StationsWidget` (8 LEDs, wheel-scrolled via a pan origin like tradedeck's TableWindow, + a clickable MCU key pad of `termforge.Label`s; the app routes
   the click because `WidgetTree` consumes presses), `GamesWidget` (one `termforge.Label` per game, painted at full size into a canvas with `WithOrigin(view.Origin)` and a `RectViewport`; wheel pans, click on a label starts the game, the app routes the press like stations), `ConsoleWidget` (xterm view, local echo, no PTY;
   copy of gdbforge's Lua console pattern with a dynamic prompt so `>>` continuation lines work).
 - The `WidgetTree` must be wrapped in a `TabWidget` before `AddWidget`, else nothing is drawn.

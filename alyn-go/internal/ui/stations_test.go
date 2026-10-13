@@ -95,3 +95,19 @@ func TestStationsWheelScroll(t *testing.T) {
 		t.Fatalf("toggled %v, want [2]", toggled)
 	}
 }
+
+func TestMatrixWheelPan(t *testing.T) {
+	m := NewMatrixWidget()
+	m.Draw(termforge.NewCanvas(termforge.NewGrid(30, 6)).WithRect(termforge.NewRect(0, 0, 30, 6)))
+	m.HandleEvent(tcell.NewEventMouse(2, 2, tcell.WheelDown, 0))
+	m.HandleEvent(tcell.NewEventMouse(2, 2, tcell.WheelRight, 0))
+	if m.pan.Y != 1 || m.pan.X != 2 {
+		t.Fatalf("pan %v", m.pan)
+	}
+	for i := 0; i < 50; i++ {
+		m.HandleEvent(tcell.NewEventMouse(2, 2, tcell.WheelDown, 0))
+	}
+	if m.pan.Y != 16-6 {
+		t.Fatalf("pan not clamped: %v", m.pan)
+	}
+}

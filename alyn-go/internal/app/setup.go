@@ -46,9 +46,9 @@ func (a *App) Init() error {
 	a.tree.Split(termforge.Horizontal, a.gameList)
 	a.tree.SetEqualAlways(false)
 	if root := a.tree.Root(); root != nil && root.Type == termforge.NodeSplit {
-		root.Ratio = 0.5
+		root.Ratio = 2.0 / 3 // matrix row over console
 		if top := root.First; top != nil && top.Type == termforge.NodeSplit {
-			top.Ratio = 0.6
+			top.Ratio = 2.0 / 3 // matrix beside stations/games
 			if col := top.Second; col != nil && col.Type == termforge.NodeSplit {
 				col.Ratio = 0.62 // stations over games
 			}

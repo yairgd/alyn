@@ -12,6 +12,9 @@ set(lua_source_files
 	${CMAKE_CURRENT_SOURCE_DIR}/luasrc/game_config.lua
 	${CMAKE_CURRENT_SOURCE_DIR}/luasrc/demo3.lua
 	${CMAKE_CURRENT_SOURCE_DIR}/luasrc/moving_text.lua
+	${CMAKE_CURRENT_SOURCE_DIR}/luasrc/plasma.lua
+	${CMAKE_CURRENT_SOURCE_DIR}/luasrc/fire.lua
+	${CMAKE_CURRENT_SOURCE_DIR}/luasrc/starfield.lua
 
 )
 

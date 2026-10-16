@@ -20,6 +20,16 @@ Colours are `0xRRGGBB` ints; pixel (0,0) is top-left; matrix is 64 wide x 32 hig
 - Floats are fine as coordinates (truncated to int). Lua 5.4: integer ops `<<`, `//` and `math.sin/sqrt/random` work.
 - Out-of-range plots appear to be clipped, but bounds-check anyway when cheap.
 
+## Input and text (learned writing snake/tetris)
+- Pad keys are latched bits in `game.keys()`: bit0 ok, bit1 up, bit2 left, bit3 right, bit4 down (Go ids 0-4).
+  They fire on release and stay set until the script clears them with `game.set_key(i, 0)` (and
+  `game.set_long_key(i, 0)`); poll once per frame and clear what you read.
+- `game.line` is unreliable at the ends (a 2-pixel horizontal line drew 1 pixel, edges came up short by one):
+  draw small cells with `game.plot`, and frames with plot loops.
+- `game.print(str, x, y, c)` ignores the colour (white), uses ~6 px per char and ~8 px tall, and draws about 2 px
+  below `y`. Clear with `game.clean()` rather than `clean_rect` to avoid leaving fragments.
+- Headless check for layouts: dump `Frame.RGB` as `#`/`.` ASCII, inject keys with `sim.Key(id, false)`.
+
 ## Patterns that worked
 - Full-screen effects (plasma, fire) overwrite every pixel each frame: no `game.clean()` in the loop, no flicker.
   Build a 256-entry palette table once and index it per pixel (`pal[...]`).
@@ -37,5 +47,5 @@ Colours are `0xRRGGBB` ints; pixel (0,0) is top-left; matrix is 64 wide x 32 hig
 - Lua errors print to the console widget (and into `Output` messages in a test).
 
 ## Ideas not done yet
-Matrix rain, game of life, kaleidoscope, spinning radar sweep, bouncing DVD logo, lava lamp (metaballs),
-sine-wave scroller with `game.print`.
+Kaleidoscope, spinning radar sweep, bouncing DVD logo, sine-wave scroller with `game.print`, pong, breakout.
+Done: plasma, fire, starfield, matrix_rain, life, lava, snake, tetris.

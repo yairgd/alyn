@@ -18,6 +18,8 @@ set(lua_source_files
 	${CMAKE_CURRENT_SOURCE_DIR}/luasrc/matrix_rain.lua
 	${CMAKE_CURRENT_SOURCE_DIR}/luasrc/life.lua
 	${CMAKE_CURRENT_SOURCE_DIR}/luasrc/lava.lua
+	${CMAKE_CURRENT_SOURCE_DIR}/luasrc/snake.lua
+	${CMAKE_CURRENT_SOURCE_DIR}/luasrc/tetris.lua
 
 )
 

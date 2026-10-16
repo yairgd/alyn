@@ -16,6 +16,10 @@ Done:
 - Matrix shown as `▀` half blocks, real RGB (no Qt R/B swap), centred in its pane.
 - Stations pane: clickable MCU key pad and a `[P]` button per LED (Qt semantics: act on release, hold >= 500 ms = long).
 - Games pane: one `termforge.Label` per game, wheel pans, click starts it.
+- Layout: matrix pane starts at 2/3 of width and 2/3 of height (split ratios in `internal/app/setup.go`).
+- Eight new Lua effects/games in `common/luaEffects/src/luasrc/` (registered in that dir's `CMakeLists.txt`, an
+  agreed exception to "don't edit common"): plasma, fire, starfield, matrix_rain, life, lava, snake, tetris.
+  How to write more (API, key bits, quirks, headless testing): **`LUA_EFFECTS.md`** - read it first.
 - `task check` (build + vet + test + gofmt) passes.
 
 ## History
@@ -25,8 +29,11 @@ Done:
 - 2026-10-12: moved into the alyn repo; README section added.
 - 2026-10-12: `ALYN_ROOT` default fixed to the enclosing repo (`../..` from `native/`); docs use repo-relative paths; termforge
   v0.6.0 fetched into the module cache (go.sum was missing it). Clean rebuild and `task check` pass.
+- 2026-10-16: matrix pane 2/3 x 2/3; added the 8 Lua effects/games above; wrote `LUA_EFFECTS.md`.
 
 ## Gotchas
+- Edited `.lua` files are not rebuilt reliably by `task build`, and Go ignores a changed `.a`: use
+  `go build -a -o bin/alyn ./cmd/alyn` and `go test -a`.
 - `native:configure` needs `-DCMAKE_INSTALL_PREFIX` (the Taskfile sets it); `go build` needs `lib/` from `task native:build`.
 - The `WidgetTree` must be wrapped in a `TabWidget` before `AddWidget`, else a blank screen.
 - `WidgetTree.HandleEvent` consumes mouse presses, so the app routes clicks to stations/games itself.
@@ -45,4 +52,4 @@ Done:
 From the repo root: `git add README.md alyn-go` (bin/, lib/, native/build/ are ignored).
 
 ## Next ideas
-Go test for app wiring; drive the real board over serial; optional top-level CMake target.
+More Lua games (pong, breakout, kaleidoscope); Go test for app wiring; drive the real board over serial; optional top-level CMake target.

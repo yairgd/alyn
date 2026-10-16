@@ -15,6 +15,9 @@ set(lua_source_files
 	${CMAKE_CURRENT_SOURCE_DIR}/luasrc/plasma.lua
 	${CMAKE_CURRENT_SOURCE_DIR}/luasrc/fire.lua
 	${CMAKE_CURRENT_SOURCE_DIR}/luasrc/starfield.lua
+	${CMAKE_CURRENT_SOURCE_DIR}/luasrc/matrix_rain.lua
+	${CMAKE_CURRENT_SOURCE_DIR}/luasrc/life.lua
+	${CMAKE_CURRENT_SOURCE_DIR}/luasrc/lava.lua
 
 )
 

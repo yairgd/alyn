@@ -6,7 +6,7 @@ is built in place from `../common` (incl. its `luaEffects/lua-5.4.6`; `ALYN_ROOT
 defaults to the repo root). Never copy it here or edit it from alyn-go. It is linked into the Go binary
 through cgo (`internal/sim`); Lua's console hooks (`USE_GUI_CONSOLE ON`) feed the termforge console widget.
 The repo README has a short "alyn-go" section (what it is, build/run).
-Architecture: **`claude-docs/ARCHITECTURE.md`**. Build/progress log: `claude-docs/PROGRESS.md`.
+Architecture: **`claude-docs/ARCHITECTURE.md`**. Build/progress log: `claude-docs/PROGRESS.md`. Writing new Lua effects: `claude-docs/LUA_EFFECTS.md`.
 
 ## Commands
 

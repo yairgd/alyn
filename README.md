@@ -28,8 +28,11 @@ The system runs on an **STM32 Nucleo platform**, powered by **Zephyr RTOS**, and
 
 Watch the full demonstration here:
 
-
+https://github.com/user-attachments/assets/8c19e718-b8e6-4aec-9531-b5ccfbf1cde7
 <video src="https://github.com/user-attachments/assets/8c19e718-b8e6-4aec-9531-b5ccfbf1cde7" autoplay loop muted playsinline width="100%"></video>
+
+<video src="[https://github.com/user-attachments/assets/8c19e718-b8e6-4aec-9531-b5ccfbf1cde7](https://github-production-user-asset-6210df.s3.amazonaws.com/1618682/630283215-8c19e718-b8e6-4aec-9531-b5ccfbf1cde7.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20261116%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261116T065606Z&X-Amz-Expires=300&X-Amz-Signature=0bbb32ee0132cef3e9efa9365e3bf9f46ccb4a487c8a6621fca1589010e677fe&X-Amz-SignedHeaders=host&response-content-type=video%2Fmp4)" autoplay loop muted playsinline width="100%"></video>
+
 
 
 ---

@@ -31,3 +31,10 @@ game/effects/lua.junk/
 game/lua-5.2.4/
 game/lua-5.4.6/src/lua
 game/lua-5.4.6/src/luac
+
+# local tooling / generated
+cscope.*
+convert*.info
+actions-runner/
+game-controller/nucleo_f429zi*/
+.vscode/

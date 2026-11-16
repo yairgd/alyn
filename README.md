@@ -1,64 +1,51 @@
 # Alyn
 
-The Alyn project is an embedded system designed to create an immersive, interactive game for children with special needs in a pool environment.
+Alyn is an embedded system for an interactive game that children with special needs play in a pool.
 
-The system combines hardware and software to deliver a safe and engaging experience, where participants interact with illuminated LEDs placed underwater. The game encourages movement, coordination, and sensory engagement by requiring the player to swim between LEDs and deactivate them.
+Illuminated LEDs are placed underwater. The player swims between them and presses each lit LED to turn it off. The game encourages movement, coordination and sensory engagement.
 
-From a technical perspective, the project integrates multiple layers:
-- **Embedded hardware** based on an STM32 MCU (Nucleo platform)
-- **Real-time software** running on Zephyr RTOS
-- **Flexible game logic** powered by Lua scripting for easy customization
-
-This combination enables a configurable and adaptable system, allowing different game modes, timing configurations, and interaction patterns to be tailored to both therapeutic and gameplay requirements
+Technically, the project combines:
+- **Embedded hardware**: an STM32 MCU (Nucleo platform) driving a display, keypad and LEDs
+- **Real-time software**: Zephyr RTOS
+- **Scriptable game logic**: Lua, so game modes, timing and interaction patterns can be changed without touching the firmware
 
 ---
 
-## 🎬 Demo Video
+## Demo Video
 
-This video demonstrates how the Alyn system operates in practice, including the user interface and gameplay flow.
-
-The demo shows the different game screens, starting with the **configuration screen**, where key parameters can be defined:
+The demo shows the user interface and the gameplay flow. It starts with the **configuration screen**, where you set:
 - **Game type**
-- **Game duration** (or alternatively, the number of LED blinks before shutdown)
+- **Game duration** (or the number of LED blinks before shutdown)
 - **Number of required LED presses**
-
-The gameplay is designed for an **underwater environment**, specifically for children with special needs. During the game, the participant swims between illuminated LEDs, pressing each one to turn it off. This encourages movement, coordination, and engagement in a fun and interactive way.
-
-The system runs on an **STM32 Nucleo platform**, powered by **Zephyr RTOS**, and supports flexible configuration of game behavior.
-
-Watch the full demonstration here:
-
 
 <video src="https://github.com/user-attachments/assets/8c19e718-b8e6-4aec-9531-b5ccfbf1cde7" autoplay loop muted playsinline width="100%"></video>
 
-
 ---
 
-## Hardware Integration with STM32 MCU
-The STM32 MCU serves as the central nervous system of the gaming system, providing the necessary processing power and connectivity to interact with various peripherals. Through its versatile GPIO pins, UART, SPI, and I2C interfaces, the STM32 MCU seamlessly interfaces with components such as a screen display, keyboard, and LED integration.
-The choice of STM32 MCU is strategic due to its reliability, efficiency, and widespread adoption in embedded systems development. Its low-power consumption and robust performance make it ideal for powering portable gaming devices tailored for children with special needs. By harnessing the capabilities of the STM32 MCU, developers can ensure optimal performance and responsiveness, crucial for delivering an engaging gaming experience.
+## Repository layout
+
+| Directory | Contents |
+|-----------|----------|
+| `game-controller/` | Zephyr firmware for the STM32 (game state, buttons, display, UART protocol, shell) |
+| `common/` | Code shared by firmware and simulators: LED effects, hardware abstraction layer (`hal/`: Zephyr, Linux, Windows, emulator), Lua engine and effects, UART protocol |
+| `game-pc/` | PC side: UART message handling and the Qt LED matrix simulator |
+| `alyn-go/` | Terminal (TUI) LED simulator written in Go |
+| `docs/` | Doxygen configuration and generated documentation |
+
+### How it fits together
+- **STM32 + Zephyr** run the game controller. Peripherals (display, keypad, LEDs) are reached through GPIO, UART, SPI and I2C.
+- **Lua 5.4** is embedded in the firmware. Games and effects are Lua scripts that call a small C API for the LED matrix, timers and station LEDs.
+- **A hardware abstraction layer** in `common/hal/` lets the same effects, Lua engine and game code run on the device, on Linux and on Windows. The simulators use this to run games without hardware.
 
 ---
-## Operating System Support with ZephyrOS
-ZephyrOS, an open-source real-time operating system, serves as the software foundation for the gaming platform. With its modular architecture and extensive device support, ZephyrOS provides a conducive environment for developing embedded applications with stringent performance requirements.
-One of the key advantages of ZephyrOS is its scalability, allowing developers to tailor the operating system to suit the specific needs of the gaming platform. By leveraging ZephyrOS's rich set of features, including preemptive multitasking, device drivers, and networking protocols, developers can focus on implementing game logic and user interactions without being encumbered by low-level system concerns.
-Additionally, ZephyrOS offers robust support for debugging and testing, essential for ensuring the reliability and stability of the gaming platform. Through its integrated development environment (IDE) and comprehensive documentation, developers can streamline the development process and expedite time-to-market for the immersive game.
-
----
-
-## Scripting Capabilities with Lua Engine
-To empower users with greater control over the gaming experience, the project incorporates a Lua engine for scripting game logic and interactions. Lua's lightweight and flexible nature make it an ideal choice for embedding scripting capabilities into the gaming platform, enabling users to customize gameplay elements to suit their preferences and abilities.
-By exposing a rich set of Lua APIs for interacting with the game world, developers can empower users to create custom levels, modify game mechanics, and implement accessibility features tailored to the needs of children with special needs. This extensibility not only enhances the replay value of the game but also fosters a sense of ownership and agency among players, promoting engagement and immersion.
-Furthermore, Lua's simplicity and ease of use make it accessible to developers of all skill levels, facilitating rapid prototyping and iteration. Whether implementing complex game mechanics or fine-tuning visual effects, Lua provides a versatile and expressive scripting language that empowers developers to bring their creative vision to life.
-
 
 ## alyn-go: terminal LED simulator
 
 `alyn-go/` is a terminal (TUI) replacement for the Qt LED matrix simulator in `game-pc/led_matrix_simulator`.
 It is a single Go process (built on [termforge](https://github.com/yairgd/termforge)) that links the same MCU C code
 from `common/` (effects, HAL, Lua 5.4.6 engine) through cgo, so games behave as on the device. It shows the LED matrix
-and the 8 station LEDs, a game list, and the Lua console (REPL). Click a game to start it, click a station LED to press
-its button, or use `:load file.lua` / `:restart`; press `?` for help and `Ctrl-D` to quit.
+and the 8 station LEDs, a game list and the Lua console (REPL). Click a game to start it, click a station LED to press
+its button, or use `:load file.lua` / `:restart`. Press `?` for help, `Ctrl-C` to interrupt a running Lua chunk and `Ctrl-D` to quit.
 
 Requirements: Go, CMake, a C/C++ compiler, Python 3, and [go-task](https://taskfile.dev).
 
@@ -71,94 +58,86 @@ task check     # build + vet + tests + gofmt
 
 ---
 
-## Install the SW development ennviroment
-* setup zephyr local path
-```bash
-export PROJECT=/home/yair/alyn/zephyr-3.4.99/
------export PROJECT=//mnt/sdb1/yair/stm32/zephyrproject/
-```
+## Building the firmware
 
-* install west tool
+### 1. Set up Zephyr
 ```bash
+export PROJECT=$HOME/zephyrproject          # any directory you like
+
 python3 -m venv $PROJECT/.venv
 source $PROJECT/.venv/bin/activate
-pip install pyelftools
-pip install west
-```
+pip install pyelftools west
 
-* Install zephyr 3.4.0
-```bash
 cd $PROJECT
 west init -m https://github.com/zephyrproject-rtos/zephyr --mr v3.4.0
 west update
 ```
 
-* Download the projct
+### 2. Get the project
 ```bash
-git clone github.com:yairgd/alyn.git
+git clone git@github.com:yairgd/alyn.git
+cd alyn
 ```
 
-* Build & Compile
-Set Zephyr environment variables
+### 3. Build
 ```bash
 export ZEPHYR_BASE=${PROJECT}/zephyr
 export ZEPHYR_TOOLCHAIN_VARIANT=zephyr
 ```
 
-Create projects using west
+With west:
 ```bash
-west build -b nucleo_f429zi -d  nucleo_f429zi . -- -G"Unix Makefiles"  # For CMake project
-west build -b nucleo_f429zi -d  nucleo_f429zi                          # For Ninja project
+west build -b nucleo_f429zi -d nucleo_f429zi . -- -G"Unix Makefiles"   # Makefile generator
+west build -b nucleo_f429zi -d nucleo_f429zi                           # Ninja (default)
 ```
 
-Alternatively, create projects directly with CMake
+Or directly with CMake:
 ```bash
-mkdir nucleo_f429zi
-cd nucleo_f429zi
-cmake -DBOARD=nucleo_f429zi -DOVERLAY_CONFIG=prj.conf -DDTC_OVERLAY_FILE=./boards/nucleo_f429zi.overlay .. # Add '-GNinja' to the CMake command to force Ninja build
-```
-or, to build for linux execution
-```bash
-mkdir native_posix_64
-cd native_posix_64
-cmake -DBOARD=native_posix_64 -DOVERLAY_CONFIG=prj.conf -DDTC_OVERLAY_FILE=./boards/native_posix_64.overlay ..
+mkdir nucleo_f429zi && cd nucleo_f429zi
+cmake -DBOARD=nucleo_f429zi -DOVERLAY_CONFIG=prj.conf \
+      -DDTC_OVERLAY_FILE=./boards/nucleo_f429zi.overlay ..   # add -GNinja for Ninja
 ```
 
-## Using openocd
-### start openiocd
-sudo /home/yair/alyn/zephyr-sdk-0.16.1/sysroots/x86_64-pokysdk-linux/usr/bin/openocd -s /home/yair/alyn/zephyr-3.4.99/zephyr/boards/arm/nucleo_f429zi/support -s /home/yair/alyn/zephyr-sdk-0.16.1/sysroots/x86_64-pokysdk-linux/usr/share/openocd/scripts -f /home/yair/alyn/zephyr-3.4.99/zephyr/boards/arm/nucleo_f429zi/support/openocd.cfg '-c init' '-c targets' -c 'reset init' 
-
-## start gdb
+To build for native Linux execution:
 ```bash
-cd ~/alyn/project/game-controller/nucleo_f429zi
-cgdb -d /home/yair/alyn/./zephyr-sdk-0.16.1/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb zephyr/zephyr.elf
+mkdir native_posix_64 && cd native_posix_64
+cmake -DBOARD=native_posix_64 -DOVERLAY_CONFIG=prj.conf \
+      -DDTC_OVERLAY_FILE=./boards/native_posix_64.overlay ..
 ```
-## inside gdb
+
+---
+
+## Flashing and debugging
+
+Start OpenOCD (adjust `ZEPHYR_SDK` to your SDK install, e.g. `zephyr-sdk-0.16.1`):
 ```bash
+export ZEPHYR_SDK=$HOME/zephyr-sdk-0.16.1
+BOARD_DIR=$ZEPHYR_BASE/boards/arm/nucleo_f429zi/support
+
+sudo $ZEPHYR_SDK/sysroots/x86_64-pokysdk-linux/usr/bin/openocd \
+  -s $BOARD_DIR \
+  -s $ZEPHYR_SDK/sysroots/x86_64-pokysdk-linux/usr/share/openocd/scripts \
+  -f $BOARD_DIR/openocd.cfg -c init -c targets -c 'reset init'
+```
+`sudo` is only needed without a udev rule for the ST-Link.
+
+Start GDB:
+```bash
+cd game-controller/nucleo_f429zi
+$ZEPHYR_SDK/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb zephyr/zephyr.elf
+```
+
+Inside GDB:
+```
 target remote 127.0.0.1:3333
 load
-rr
-```
-to set break point:
-```bash
 b game.c:169
 ```
 
-## Vim and YouCompleteMe setup for Qt5 
+---
 
-To allow YouCompleteMe (YCM) to work fine with qt5 project we an use the plugin [YCM-Generator](https://github.com/rdnetto/YCM-Generator) to create the file *.ycm_extra_conf.py* and place it under the main directory of the project. 
-```bash
-cd  ~/.vim/bundle/YCM-Generator
-./config_gen.py ~/the/project/main/directory/
-```
+## Supported boards
 
-## Optinal boards
-[NUCLEO-L4R5ZI](https://www.digikey.co.il/he/products/detail/stmicroelectronics/NUCLEO-L4R5ZI/7807685)
-[NUCLEO-H745ZI-Q](https://www.digikey.co.il/he/products/detail/stmicroelectronics/NUCLEO-H745ZI-Q/10498890?s=N4IgTCBcDaIHIFUDCAZAogeQLQAkDsALAKwBaAklgIogC6AvkA)
-
-[NUCLEO-F429ZI](https://www.digikey.co.il/he/products/detail/stmicroelectronics/NUCLEO-F429ZI/5806777?s=N4IgTCBcDaIHIFUDCAZAogeQLQDEAsYAnAFoCSIAugL5A)
-
-[NUCLEO-F439ZI](https://www.digikey.co.il/he/products/detail/stmicroelectronics/NUCLEO-F439ZI/9520178?s=N4IgTCBcDaIHIFUDCAZAogeQLQDEAsAzAJwBaAkiALoC%2BQA)
-[Zephyr Supported boards](https://docs.zephyrproject.org/latest/boards/arm/nucleo_f429zi/doc/index.html)
-
-[NUCLEO-F767ZI](https://www.digikey.co.il/he/products/detail/stmicroelectronics/NUCLEO-F767ZI/6004740?s=N4IgTCBcDaIHIFUDCAZAogeQLQDEDsAbHgFoCSIAugL5A)
+Developed on the NUCLEO-F429ZI. Other Nucleo boards supported by Zephyr should work with a matching overlay:
+NUCLEO-F429ZI, NUCLEO-F439ZI, NUCLEO-F767ZI, NUCLEO-L4R5ZI, NUCLEO-H745ZI-Q.
+See the [Zephyr board documentation](https://docs.zephyrproject.org/latest/boards/arm/nucleo_f429zi/doc/index.html).

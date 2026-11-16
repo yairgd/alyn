@@ -18,7 +18,7 @@ The demo shows the user interface and the gameplay flow. It starts with the **co
 - **Game duration** (or the number of LED blinks before shutdown)
 - **Number of required LED presses**
 
-<video src="https://github.com/user-attachments/assets/8c19e718-b8e6-4aec-9531-b5ccfbf1cde7" autoplay loop muted playsinline width="100%"></video>
+<video src="https://github.com/user-attachments/assets/8c19e718-b8e6-4aec-9531-b5ccfbf1cde7" controls autoplay loop muted playsinline width="100%"></video>
 
 ---
 

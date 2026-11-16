@@ -21,7 +21,6 @@ The demo shows the user interface and the gameplay flow. It starts with the **co
 
 https://github.com/user-attachments/assets/8c19e718-b8e6-4aec-9531-b5ccfbf1cde7
 
-<video src="https://github.com/user-attachments/assets/8c19e718-b8e6-4aec-9531-b5ccfbf1cde7" controls autoplay loop muted playsinline width="100%"></video>
 
 ---
 

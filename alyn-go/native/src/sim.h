@@ -39,6 +39,7 @@ int  console_out_fd(void);
 int  console_run(void);
 void console_send_line(const char *line);
 void console_eof(void);       /* makes readline return NULL, ending console_run */
+void console_interrupt(void); /* stops the running REPL chunk; no-op at the prompt */
 void console_write(const char *s, int len);
 
 #endif

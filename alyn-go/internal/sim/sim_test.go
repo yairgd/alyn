@@ -66,6 +66,19 @@ func TestSim(t *testing.T) {
 	Connect(2, false)
 	wait("disconnect", func() bool { return !frame.Stations[2].Connected })
 
+	// Ctrl-C: a console loop with no delay is stopped, the prompt comes back, and an
+	// interrupt at the idle prompt does nothing.
+	mu.Lock()
+	n := prompts
+	mu.Unlock()
+	SendLine("while true do game.line(10,10,32,32,255) end")
+	time.Sleep(100 * time.Millisecond)
+	ConsoleInterrupt()
+	wait("interrupted", func() bool { return strings.Contains(out.String(), "interrupted!") && prompts > n })
+	ConsoleInterrupt()
+	SendLine("print(7*6)")
+	wait("alive after interrupt", func() bool { return strings.Contains(out.String(), "42\n") })
+
 	SendLine("x = ") // incomplete: continuation prompt
 	wait("continuation prompt", func() bool { return prompts > 4 })
 	ConsoleEOF()

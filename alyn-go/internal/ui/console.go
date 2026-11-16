@@ -37,9 +37,10 @@ type ConsoleWidget struct {
 	onEOF  func()
 }
 
-func NewConsoleWidget(onLine func(string), onEOF func()) *ConsoleWidget {
+func NewConsoleWidget(onLine func(string), onEOF, onInterrupt func()) *ConsoleWidget {
 	t := termforge.NewCompositeTerminalWithPrefix(80, 24, consoleScrollback, "")
 	t.SetPromptPrefixes(luaPrompts)
+	t.SetInterruptHandler(onInterrupt) // Ctrl-C: the REPL has no tty to signal
 	w := &ConsoleWidget{
 		BaseWidget: termforge.BaseWidget{PaneName: "Lua"},
 		term:       t,

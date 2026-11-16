@@ -27,6 +27,9 @@ Location: `alyn/alyn-go/` inside the alyn repo; it uses the repo's `common/` (an
     cancellation disabled (the game thread prints too and is `pthread_cancel`ed);
   - `readline` writes the prompt chunk then blocks on a condition until Go calls `console_send_line`;
     `console_eof` makes it return NULL, ending `lua_main`.
+  - Ctrl-C: termforge `SetInterruptHandler` -> `sim.ConsoleInterrupt` -> `console_interrupt` calls lua.c's
+    `laction` (the SIGINT handler it installs only while a chunk runs) directly, giving `interrupted!`;
+    a no-op at the prompt, so no signal is ever raised.
   No Go callbacks are made from C threads.
 - `src/sim.c`: tick thread (`timer_manage`, `manage_blink(0..7)`), game thread (`luaL_newstate`..`lua_pcall`,
   stopped by `pthread_cancel`; game errors go to the console), `sim_frame` (merged channel 3 + station LEDs),

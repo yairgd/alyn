@@ -17,7 +17,7 @@ func (a *App) Init() error {
 	a.cmdWidget.SetClipboard(a.ClipboardIO())
 	a.SetCmdline(a.cmdWidget)
 
-	a.console = ui.NewConsoleWidget(sim.SendLine, sim.ConsoleEOF)
+	a.console = ui.NewConsoleWidget(sim.SendLine, sim.ConsoleEOF, sim.ConsoleInterrupt)
 	a.console.SetClipboard(a.ClipboardIO())
 
 	a.matrix = ui.NewMatrixWidget()

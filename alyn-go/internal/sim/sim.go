@@ -105,6 +105,9 @@ func SendLine(line string) {
 // ConsoleEOF ends the REPL (Ctrl-D).
 func ConsoleEOF() { C.console_eof() }
 
+// ConsoleInterrupt stops the chunk the REPL is running (Ctrl-C); no-op at the prompt.
+func ConsoleInterrupt() { C.console_interrupt() }
+
 func Games() []string {
 	n := int(C.sim_game_count())
 	out := make([]string, n)

@@ -4,7 +4,7 @@ go 1.25.5
 
 require (
 	github.com/gdamore/tcell/v2 v2.13.8
-	github.com/yairgd/termforge v0.6.0
+	github.com/yairgd/termforge v0.12.0
 )
 
 require (
@@ -24,4 +24,4 @@ require (
 	golang.org/x/text v0.31.0 // indirect
 )
 
-//replace github.com/yairgd/termforge => ../termforge
+//replace github.com/yairgd/termforge => /home/yair/tui/termforge

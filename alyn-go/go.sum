@@ -14,8 +14,8 @@ github.com/lucasb-eyer/go-colorful v1.3.0 h1:2/yBRLdWBZKrf7gB40FoiKfAWYQ0lqNcbuQ
 github.com/lucasb-eyer/go-colorful v1.3.0/go.mod h1:R4dSotOR9KMtayYi1e77YzuveK+i7ruzyGqttikkLy0=
 github.com/rivo/uniseg v0.4.7 h1:WUdvkW8uEhrYfLC4ZzdpI2ztxP1I582+49Oc5Mq64VQ=
 github.com/rivo/uniseg v0.4.7/go.mod h1:FN3SvrM+Zdj16jyLfmOkMNblXMcoc8DfTHruCPUcx88=
-github.com/yairgd/termforge v0.6.0 h1:7pU0bknzCyaxTY6E2ERMDzMaMfv9/mD4gpp0mh9BHDs=
-github.com/yairgd/termforge v0.6.0/go.mod h1:Fbx6hbyyJU9xwYqtUWdlxME59sX9ZBxg7BaevTjdFts=
+github.com/yairgd/termforge v0.12.0 h1:LMPG+I87LaZGHP1OwoMP0tN2ym//NgQbeFHt1mCa9HI=
+github.com/yairgd/termforge v0.12.0/go.mod h1:8QgViBxkd9Ztf2C4uUKerMhMdYXILIm2ZgbAJcFxS/c=
 github.com/yuin/goldmark v1.4.13/go.mod h1:6yULJ656Px+3vBD8DxQVa3kxgyrAnzto9xy5taEt/CY=
 golang.design/x/clipboard v0.9.0 h1:DIN7Fur+vO3WM22WlSx7aXmYmqdvjE2OAkoPuMZ9OTA=
 golang.design/x/clipboard v0.9.0/go.mod h1:s0pwrtA3Q9fgnVtGDmP5ZK/pp55cQKB23esKsjwWhWM=

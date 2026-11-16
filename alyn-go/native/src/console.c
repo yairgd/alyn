@@ -4,6 +4,7 @@
  *   prompt          -> readline(prompt)               -> pipe, then blocks for a line
  * No Go callbacks: the game thread also prints, and it can be pthread_cancel'ed. */
 #include <pthread.h>
+#include <signal.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -108,6 +109,19 @@ void console_eof(void)
 	at_eof = 1;
 	pthread_cond_broadcast(&in_cv);
 	pthread_mutex_unlock(&in_mu);
+}
+
+/* Ctrl-C: stop the chunk the REPL is running ("interrupted!"). lua.c (lua.c:158) installs
+ * laction as the SIGINT handler only while a chunk runs; call it directly instead of raising
+ * the signal, so an idle REPL (SIG_DFL, or Go's handler) is never hit and the process never
+ * dies. */
+void console_interrupt(void)
+{
+	struct sigaction sa;
+
+	if (sigaction(SIGINT, NULL, &sa) == 0 && !(sa.sa_flags & SA_SIGINFO) &&
+	    sa.sa_handler != SIG_DFL && sa.sa_handler != SIG_IGN)
+		sa.sa_handler(SIGINT);
 }
 
 int console_run(void)
